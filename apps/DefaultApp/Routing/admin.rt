@@ -1,0 +1,13 @@
+routingRegister : Default
+
+name : default2_hello
+path : /hello4
+method : Default%index4
+
+name : defaut_hello_test2
+path : /hello/test4
+method : Default%test5
+
+name : defaut_hello_test2345
+path : /hello/test234
+method : Default%testAer5
