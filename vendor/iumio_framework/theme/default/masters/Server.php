@@ -1,5 +1,8 @@
 <?php
 
+namespace IumioFramework\Theme\Server;
+use ArrayObject;
+
 /**
  * Class Server
  */

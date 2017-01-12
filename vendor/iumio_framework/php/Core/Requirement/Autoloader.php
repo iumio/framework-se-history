@@ -12,7 +12,7 @@ class Autoloader {
      */
     static public function register(String $class)
     {
-        $path = realpath($_SERVER['DOCUMENT_ROOT']);
+        $path = realpath(strstr($_SERVER['DOCUMENT_ROOT'], 'web', true));
         $array2 = explode(chr(92), $class);
         $count2 = count($array2) - 1;
         $class = $array2[$count2].".php";

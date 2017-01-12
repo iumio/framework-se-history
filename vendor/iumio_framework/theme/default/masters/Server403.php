@@ -1,17 +1,25 @@
 <?php
 
-include_once __DIR__."/Server.php";
+namespace IumioFramework\Theme\Server;
+use ArrayObject;
 
-
-class Server404 implements Server
+/**
+ * Class Server403
+ * @package IumioFramework\Theme\Server
+ */
+class Server403 implements Server
 {
-    private $code = '404';
-    private $codeTitle = 'NOT FOUND';
-    private $explain =  'The ressource you try to access is not found.';
+    private $code = '403';
+    private $codeTitle = 'FORBIDEEN';
+    private $explain =  'You are not allowed to access this file.';
     private $solution = NULL;
     private $env = NULL;
 
 
+    /**
+     * Server403 constructor.
+     * @param ArrayObject $component
+     */
     public function __construct(ArrayObject $component)
     {
         $this->env = ENVIRONMENT;
@@ -27,9 +35,14 @@ class Server404 implements Server
         }
     }
 
+    /**
+     *
+     */
     public function display()
     {
-        include_once 'layout.iumio.php';
+        header('HTTP/1.0 403 Forbideen');
+
+        include_once  THEME.'default/views/layout.iumio.php';
         die();
     }
 }

@@ -14,13 +14,13 @@ interface DebugInterface
      * @param string $interface Manner to output log
      * @return bool
      */
-    static public function output($message, $interface = 'file'):bool;
+    static public function output(string $message, string $interface = 'file'):bool;
 
     /**
-     * @param $message Message for log
+     * @param string $message Message for log
      * @return bool
      */
-    static public function input($message):bool;
+    static public function input(string $message):bool;
 
     /** Enable log feature
      * @return bool

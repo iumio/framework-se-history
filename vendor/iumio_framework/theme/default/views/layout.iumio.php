@@ -9,10 +9,10 @@
     <title>IUMIO <?= $this->env.' '.$this->code ?></title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <!--[if lte IE 8]><script src="//<?= HOST ?>/vendor/iumio_framework/theme/default/assets/js/ie/html5shiv.js"></script><![endif]-->
-    <link rel="stylesheet" href="//<?= HOST ?>/vendor/iumio_framework/theme/default/assets/css/main.css" />
-    <!--[if lte IE 9]><link rel="stylesheet" href="//<?= HOST ?>/vendor/iumio_framework/theme/default/assets/css/ie9.css" /><![endif]-->
-    <!--[if lte IE 8]><link rel="stylesheet" href="//<?= HOST ?>/vendor/iumio_framework/theme/default/assets/css/ie8.css" /><![endif]-->
+    <!--[if lte IE 8]><script src="//<?= HOST_CURRENT ?>components/theme/default/assets/js/ie/html5shiv.js"></script><![endif]-->
+    <link rel="stylesheet" href="//<?= HOST_CURRENT ?>components/theme/default/assets/css/main.css" />
+    <!--[if lte IE 9]><link rel="stylesheet" href="//<?= HOST_CURRENT ?>components/theme/default/assets/css/ie9.css" /><![endif]-->
+    <!--[if lte IE 8]><link rel="stylesheet" href="//<?= HOST_CURRENT ?>components/theme/default/assets/css/ie8.css" /><![endif]-->
 </head>
 <body>
 
@@ -30,9 +30,9 @@
     <!-- Menu -->
     <nav id="menu">
         <ul class="links">
-            <li><a href="dev.php">DEV MODE</a></li>
-            <li><a href="preprod.php">PREPROD MODE</a></li>
-            <li><a href="prod.php">PROD MODE</a></li>
+            <li><a href="iumio_dev.php">DEV MODE</a></li>
+            <li><a href="iumio_preprod.php">PREPROD MODE</a></li>
+            <li><a href="iumio_prod.php">PROD MODE</a></li>
             <li><a href="landing.html">CONFIG</a></li>
             <li><a href="generic.html">PROFILER</a></li>
 
@@ -64,7 +64,7 @@
         <section id="one" class="tiles">
             <article>
 									<span class="image">
-										<img src="/vendor/iumio_framework/themes/default/images/pic01.jpg" alt="" />
+										<img src="components/theme/default/assets/images/pic01.jpg" alt="" />
 									</span>
                 <header class="major">
                     <h3><a href="landing.html" class="link">Aliquam</a></h3>
@@ -73,7 +73,7 @@
             </article>
             <article>
 									<span class="image">
-										<img src="/vendor/iumio_framework/themes/default/images/pic02.jpg" alt="" />
+										<img src="components/theme/default/assets/images/pic02.jpg" alt="" />
 									</span>
                 <header class="major">
                     <h3><a href="landing.html" class="link">Tempus</a></h3>
@@ -82,7 +82,7 @@
             </article>
             <article>
 									<span class="image">
-										<img src="/vendor/iumio_framework/themes/default/images/pic03.jpg" alt="" />
+										<img src="components/theme/default/assets/images/pic03.jpg" alt="" />
 									</span>
                 <header class="major">
                     <h3><a href="landing.html" class="link">Magna</a></h3>
@@ -91,7 +91,7 @@
             </article>
             <article>
 									<span class="image">
-										<img src="/vendor/iumio_framework/themes/default/images/pic04.jpg" alt="" />
+										<img src="components/theme/default/assets/images/pic04.jpg" alt="" />
 									</span>
                 <header class="major">
                     <h3><a href="landing.html" class="link">Ipsum</a></h3>
@@ -100,7 +100,7 @@
             </article>
             <article>
 									<span class="image">
-										<img src="/vendor/iumio_framework/themes/default/images/pic05.jpg" alt="" />
+										<img src="components/theme/default/assets/images/pic05.jpg" alt="" />
 									</span>
                 <header class="major">
                     <h3><a href="landing.html" class="link">Consequat</a></h3>
@@ -109,7 +109,7 @@
             </article>
             <article>
 									<span class="image">
-										<img src="/vendor/iumio_framework/themes/default/images/pic06.jpg" alt="" />
+										<img src="components/theme/default/assets/images/pic06.jpg" alt="" />
 									</span>
                 <header class="major">
                     <h3><a href="landing.html" class="link">Etiam</a></h3>
@@ -183,13 +183,13 @@
 </div>
 
 <!-- Scripts -->
-<script src="//<?= HOST ?>/vendor/iumio_framework/theme/default/assets/js/jquery.min.js"></script>
-<script src="//<?= HOST ?>/vendor/iumio_framework/theme/default/assets/js/jquery.scrolly.min.js"></script>
-<script src="//<?= HOST ?>/vendor/iumio_framework/theme/default/assets/js/jquery.scrollex.min.js"></script>
-<script src="//<?= HOST ?>/vendor/iumio_framework/theme/default/assets/js/skel.min.js"></script>
-<script src="//<?= HOST ?>/vendor/iumio_framework/theme/default/assets/js/util.js"></script>
-<!--[if lte IE 8]><script src="//<?= HOST ?>/vendor/iumio_framework/theme/default/assets/js/ie/respond.min.js"></script><![endif]-->
-<script src="//<?= HOST ?>/vendor/iumio_framework/theme/default/assets/js/main.js"></script>
+<script src="//<?= HOST_CURRENT ?>components/theme/default/assets/js/jquery.min.js"></script>
+<script src="//<?= HOST_CURRENT ?>components/theme/default/assets/js/jquery.scrolly.min.js"></script>
+<script src="//<?= HOST_CURRENT ?>components/theme/default/assets/js/jquery.scrollex.min.js"></script>
+<script src="//<?= HOST_CURRENT ?>components/theme/default/assets/js/skel.min.js"></script>
+<script src="//<?= HOST_CURRENT ?>components/theme/default/assets/js/util.js"></script>
+<!--[if lte IE 8]><script src="//<?= HOST_CURRENT ?>components/theme/default/assets/js/ie/respond.min.js"></script><![endif]-->
+<script src="//<?= HOST_CURRENT ?>components/theme/default/assets/js/main.js"></script>
 
 </body>
 </html>

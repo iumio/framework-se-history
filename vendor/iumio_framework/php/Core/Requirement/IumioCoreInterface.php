@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace IumioFramework\Core\Base;
+namespace IumioFramework\Core\Requirement;
 
 use Iumio\Component\DependencyInjection\ContainerInterface;
 use Iumio\Component\HttpKernel\Bundle\BundleInterface;
@@ -17,7 +17,7 @@ use Iumio\Component\Config\Loader\LoaderInterface;
 
 /**
  * Interface IumCoreInterface
- * @package IumioFramework\Core\Base
+ * @package IumioFramework\Core\Requirement
  */
 
 interface IumioCoreInterface

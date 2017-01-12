@@ -11,5 +11,11 @@ namespace IumioFramework\Core\Requirement;
 
 class IumioAppModel
 {
+    private $app;
+
+    public function routingGet()
+    {
+        return ;
+    }
 
 }

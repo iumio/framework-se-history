@@ -12,8 +12,12 @@ namespace IumioFramework\Masters;
 class IumioMaster
 {
 
-    final protected function mastering()
+    /**
+     * @return int
+     */
+    final protected function mastering():int
     {
         /**  */
+        return (1);
     }
 }

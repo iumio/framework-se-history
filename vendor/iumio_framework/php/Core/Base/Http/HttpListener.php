@@ -263,9 +263,9 @@ class HttpListener
     /**
      * Creates a new request with values from PHP's super globals.
      *
-     * @return Request A new request
+     * @return HttpListener A new request
      */
-    public static function createFromGlobals()
+    public static function createFromGlobals():HttpListener
     {
 
         // With the php's bug #66606, the php's built-in web server
@@ -290,7 +290,7 @@ class HttpListener
             $request->request = new ParameterBag($data);
         }
 
-        print_r($request);
+       // print_r($request);
 
         return $request;
     }
@@ -309,9 +309,9 @@ class HttpListener
      * @param array  $server     The server parameters ($_SERVER)
      * @param string $content    The raw body data
      *
-     * @return Request A Request instance
+     * @return HttpListener A Request instance
      */
-    public static function create($uri, $method = 'GET', $parameters = array(), $cookies = array(), $files = array(), $server = array(), $content = null)
+    public static function create(string $uri, string $method = 'GET', array $parameters = array(), array $cookies = array(), array $files = array(), array $server = array(), string $content = null):HttpListener
     {
         $server = array_replace(array(
             'SERVER_NAME' => 'localhost',

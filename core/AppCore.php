@@ -1,12 +1,13 @@
 <?php
 
-use IumioFramework\Core\Requirement\IumAppCore;
+namespace IumioFramework\Apps;
+use IumioFramework\Core\Requirement\IumioUltimaCore;
 
 /**
  * Class AppCore
  */
 
-class AppCore implements IumioAppCore
+class AppCore extends IumioUltimaCore
 {
     /**
      * AppCore constructor.

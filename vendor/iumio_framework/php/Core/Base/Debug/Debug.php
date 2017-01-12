@@ -17,7 +17,12 @@ class Debug implements DebugInterface
     static private $logformat;
     static private $logstatus;
 
-    static public function output($message, $interface = 'file'):bool
+    /**
+     * @param string $message
+     * @param string $interface
+     * @return bool
+     */
+    static public function output(string $message, string $interface = 'file'):bool
     {
         if (self::$logstatus == true) {
             self::input($message);
@@ -31,7 +36,11 @@ class Debug implements DebugInterface
         return true;
     }
 
-    static public function input($message):bool
+    /**
+     * @param string $message
+     * @return bool
+     */
+    static public function input(string $message):bool
     {
         $now = new DateTime();
         $now = $now->format('Y-m-d H:m:s');

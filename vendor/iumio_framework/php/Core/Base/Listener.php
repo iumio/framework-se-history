@@ -16,25 +16,24 @@ interface Listener
 {
 
     /**
-     * @param $listener
-     * @return mixed
+     * @return int
      */
-    public function registerListener($listener):void;
+    public function open():int;
 
     /**
-     *
+     * @return array
      */
-    public function open():void;
+    public function render():array;
 
     /**
-     *
+     * @param Resource $oneRouter
+     * @return int
      */
-    public function render():void;
+    public function close(Resource $oneRouter):int;
 
     /**
-     *
+     * @return int
      */
-    public function close():void;
-
+    public function listingRouters():int;
 
 }

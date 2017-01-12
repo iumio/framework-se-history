@@ -30,9 +30,9 @@
     <!-- Menu -->
     <nav id="menu">
         <ul class="links">
-            <li><a href="dev.php">DEV MODE</a></li>
-            <li><a href="preprod.php">PREPROD MODE</a></li>
-            <li><a href="prod.php">PROD MODE</a></li>
+            <li><a href="iumio_dev.php">DEV MODE</a></li>
+            <li><a href="iumio_preprod.php">PREPROD MODE</a></li>
+            <li><a href="iumio_prod.php">PROD MODE</a></li>
             <li><a href="landing.html">CONFIG</a></li>
             <li><a href="generic.html">PROFILER</a></li>
 

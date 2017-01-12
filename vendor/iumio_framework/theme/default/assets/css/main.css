@@ -3407,7 +3407,7 @@
 		-webkit-align-items: center;
 		-ms-align-items: center;
 		align-items: center;
-		background-image: url("/vendor/iumio_framework/iumio_assets/images/banner.jpg");
+		background-image: url("components/themes/default/assets/images/banner.jpg");
 		display: -moz-flex;
 		display: -webkit-flex;
 		display: -ms-flex;
@@ -3514,6 +3514,7 @@
 			height: 75vh;
 			min-height: 30em;
 			max-height: 50em;
+			background-image: url("components/themes/default/assets/images/iumio_theme_img1.jpg");
 		}
 
 			#banner.major.alt {

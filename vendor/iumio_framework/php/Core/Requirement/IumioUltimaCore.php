@@ -1,11 +1,12 @@
 <?php
 
-
-namespace IumioFramework\Core\Base;
+namespace IumioFramework\Core\Requirement;
+use IumioFramework\Core\Base\Http\HttpListener;
+use IumioFramework\Masters\Routing;
 
 /**
- * Class IumioCore
- * @package IumioFramework\Core\Base
+ * Class IumioUltimaCore
+ * @package IumioFramework\Core\Requirement;
  *
  * The Core is the heart of the Ium system.
  *
@@ -14,9 +15,7 @@ namespace IumioFramework\Core\Base;
  * @author Dany Rafina <danyrafina@gmail.com>
  */
 
-
-
-abstract class IumioCore
+abstract class IumioUltimaCore
 {
 
     protected $apps = array();
@@ -59,14 +58,76 @@ abstract class IumioCore
             $this->startTime = microtime(true);
         }
 
-        $defClass = new \ReflectionMethod($this, 'init');
+        $defClass = new \ReflectionMethod($this, '__construct');
         $defClass = $defClass->getDeclaringClass()->name;
-
-        if (__CLASS__ !== $defClass) {
-            @trigger_error(sprintf('Calling the %s::init() method is deprecated since version 2.3 and will be removed in 3.0. Move your logic to the constructor method instead.', $defClass), E_USER_DEPRECATED);
-            $this->init();
-        }
     }
+
+    /**
+     * {@inheritdoc}
+     *
+     **/
+
+    public function isDebug()
+    {
+        return $this->debug;
+    }
+
+    /**
+     * {@inheritdoc}
+     *
+     **/
+    public function getRootDir()
+    {
+    if (null === $this->rootDir) {
+    $r = new \ReflectionObject($this);
+    $this->rootDir = dirname($r->getFileName());
+    }
+
+    return $this->rootDir;
+    }
+
+    /**
+     * {@inheritdoc}
+     **/
+
+    public function getContainer()
+    {
+    return $this->container;
+    }
+
+     /**
+      * {@inheritdoc}
+      **/
+     public function getName()
+     {
+     if (null === $this->name) {
+     $this->name = preg_replace('/[^a-zA-Z0-9_]+/', '', basename($this->rootDir));
+     }
+
+     return $this->name;
+     }
+
+     /**
+      * {@inheritdoc}
+      **/
+     public function getEnvironment()
+     {
+     return $this->environment;
+     }
+
+
+    /**
+     * @param HttpListener $request
+     * @return int
+     */
+     public function dispatch(HttpListener $request):int
+     {
+         print_r($request);
+         (new Routing())->routingRegister();
+         return (1);
+     }
+
+
 
 }
 
