@@ -1,7 +1,7 @@
 <?php
 
 namespace IumioFramework\Core\Additionnal\Template;
-use IumioFramework\Core\Additionnal\Server\IumioServer;
+use IumioFramework\Core\Additionnal\Server\IumioServerManager;
 
 try
 {
@@ -39,8 +39,8 @@ final class IumioMustache
             else if (ENVIRONMENT == "PREPROD")
                 $envcache = CACHE_PREPROD;
 
-            IumioServer::create(ROOT_APPS.self::$appCall.'/Front/views', "directory");
-            IumioServer::create(ROOT_APPS.self::$appCall.'/Front/views/partials', "directory");
+            IumioServerManager::create(ROOT_APPS.self::$appCall.'/Front/views', "directory");
+            IumioServerManager::create(ROOT_APPS.self::$appCall.'/Front/views/partials', "directory");
 
             $options =  array('extension' => self::$viewExtention);
             self::$instance = new \Mustache_Engine(array(

@@ -6,7 +6,7 @@ namespace IumioFramework\Core\Additionnal\Server;
  * Class IumioServer
  * @package IumioFramework\Core\Additionnal\Server
  */
-class IumioServer
+class IumioServerManager
 {
     /** Create an element on the server
      * @param string $path Element Path
