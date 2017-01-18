@@ -22,7 +22,7 @@ final class IumioMustache
 {
     private static $instance = NULL;
     private static $appCall = NULL;
-    public static $viewExtention = ".mustache";
+    public static $viewExtention = ".html.iumio";
 
     /**
      * IumioMustache constructor.

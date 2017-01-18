@@ -3,7 +3,6 @@
 namespace DefaultApp\Master;
 
 use IumioFramework\Masters\IumioUltimaMaster;
-use IumioFramework\Core\Base\Http\Response\Response;
 
 /**
  * Class DefaultMaster
