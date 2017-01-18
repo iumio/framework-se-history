@@ -1,12 +1,12 @@
-routingRegister : Default
+routingRegister : DefaultApp
 
 name : default_hello
 path : /
 method : Default%index
 
 name : defaut_hello_test
-path : /hello/test
-method : Default%test
+path : /hello/rendered
+method : Default%render
 
 name : defaut_hello_test234
 path : /hello/test234

@@ -2,7 +2,7 @@
 
 
 namespace IumioFramework\Core\Base;
-
+use Resource;
 /**
  * Class RtListener
  * @package IumioFramework\Core\Base
@@ -12,7 +12,7 @@ class RtListener implements Listener
 {
     protected $routers;
     protected $appName;
-    private $router = array();
+    protected $router = array();
     protected $partNameApp;
 
     /**
@@ -50,7 +50,7 @@ class RtListener implements Listener
         {
             if ($this->appName == $routingArray[0][1])
             {
-                //Debug::output("APP", 'display');
+                // Debug::output("APP", 'display');
                 $routename = NULL;
                 $path = NULL;
                 $method = NULL;
@@ -58,7 +58,6 @@ class RtListener implements Listener
                 for($i = 2; $i < count($routingArray); $i++)
                 {
                     if (isset($routingArray[$i][1]) && $routingArray[$i][1] != NULL) {
-                        //echo $i.'<br>';
                         if (isset($routingArray[$i][0]) && $routingArray[$i][0] == "name")
                             $routename = $routingArray[$i][1];
                         else if (isset($routingArray[$i][0]) && $routingArray[$i][0] == "method")
@@ -73,7 +72,7 @@ class RtListener implements Listener
                             if (count($method) == 2) {
                                 $controller = $method[0];
                                 $function = $method[1];
-                                array_push($this->router, array("routename" => $routename, "path" => $path, "controller" => $controller, "function" => $function . "Go"));
+                                array_push($this->router, array("routename" => $routename, "path" => $path, "controller" => $controller, "method" => $function . "Go"));
                             }
                         }
                         $routename = NULL;
@@ -85,7 +84,7 @@ class RtListener implements Listener
                         if (count($method) == 2) {
                             $controller = $method[0];
                             $function = $method[1];
-                            array_push($this->router, array("routename" => $routename, "path" => $path, "controller" => $controller, "function" => $function . "Go"));
+                            array_push($this->router, array("routename" => $routename, "path" => $path, "controller" => $controller, "method" => $function . "Go"));
                             $routename = NULL;
                             $method = NULL;
                         }
@@ -136,7 +135,7 @@ class RtListener implements Listener
      * @param Resource $oneRouter
      * @return int
      */
-    public function close(\Resource $oneRouter):int
+    public function close($oneRouter):int
     {
         fclose($oneRouter);
         return (1);

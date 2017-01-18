@@ -2,22 +2,28 @@
 
 namespace DefaultApp\Master;
 
-use IumioFramework\Masters\IumioMaster;
+use IumioFramework\Masters\IumioUltimaMaster;
+use IumioFramework\Core\Base\Http\Response\Response;
 
 /**
  * Class DefaultMaster
  * @package DefaultApp\Master
  */
 
-class DefaultMaster extends IumioMaster
+class DefaultMaster extends IumioUltimaMaster
 {
+
+    public function __construct()
+    {
+        $this->mastering($this);
+    }
 
     /**
      * Going to index page
      */
     public function indexGo()
     {
-        echo "TEST";
+        return ((new Response())->JSON_RENDER(array("hello" => "indexGO")));
     }
 
     /**
@@ -25,6 +31,7 @@ class DefaultMaster extends IumioMaster
      */
     public function renderGo()
     {
-
+        echo "render";
+        // return ;
     }
 }

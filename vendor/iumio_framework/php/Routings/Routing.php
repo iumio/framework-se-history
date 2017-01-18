@@ -36,14 +36,15 @@ class Routing extends RtListener
      */
     public function routingRegister():bool
     {
+       return ((parent::open() == 1)? true : false);
+    }
 
-       if (parent::open() == 1);
-        {
-            // TODO
-            
-            return (true);
-        }
-        return (false);
+    /**
+     *
+     */
+    public function routes()
+    {
+        return ($this->router);
     }
 
 

@@ -11,9 +11,6 @@
 
 namespace IumioFramework\Core\Requirement;
 
-use Iumio\Component\DependencyInjection\ContainerInterface;
-use Iumio\Component\HttpKernel\Bundle\BundleInterface;
-use Iumio\Component\Config\Loader\LoaderInterface;
 
 /**
  * Interface IumCoreInterface

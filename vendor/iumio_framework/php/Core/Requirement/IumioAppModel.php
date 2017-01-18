@@ -18,4 +18,9 @@ class IumioAppModel
         return ;
     }
 
+    protected function getController()
+    {
+
+    }
+
 }

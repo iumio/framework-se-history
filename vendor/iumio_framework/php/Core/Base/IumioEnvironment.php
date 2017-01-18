@@ -34,7 +34,6 @@ class IumioEnvironment
      */
     public static function displayError(array $options):int
     {
-
         $server = new Server403(new ArrayObject($options));
         $server->display();
 

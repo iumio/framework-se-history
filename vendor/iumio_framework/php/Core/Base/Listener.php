@@ -26,10 +26,10 @@ interface Listener
     public function render():array;
 
     /**
-     * @param Resource $oneRouter
+     * @param $oneRouter
      * @return int
      */
-    public function close(Resource $oneRouter):int;
+    public function close($oneRouter):int;
 
     /**
      * @return int
