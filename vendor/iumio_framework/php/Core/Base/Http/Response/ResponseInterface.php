@@ -21,7 +21,7 @@ interface ResponseInterface
      * @param string $name XML name
      * @return int
      */
-    public function XML_RENDER(array $response, string $firstelem, string $name):int;
+    public function XML_RENDER(array $response, string $firstelem, string $name = NULL):int;
 
     /** Render to XML format
      * @param array $response Response array

@@ -74,7 +74,7 @@ class AppCore extends IumioUltimaCore
             {
                 throw new \Exception("Iumio Core Error : Class $master or method $master::$method doesn't exist");
             }
-
+            define("APP_CALL", $def['name']);
             $invoke->invoke(new $master());
         }
         else

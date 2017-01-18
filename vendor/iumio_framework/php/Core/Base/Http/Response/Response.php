@@ -27,9 +27,8 @@ final class Response implements ResponseInterface
      * @return int
      * @throws \Exception
      */
-    public function XML_RENDER(array $response, string $firstelem, string $name):int
+    public function XML_RENDER(array $response, string $firstelem, string $name = NULL):int
     {
-        // ERROR NOT FINISHED
         if (!$this->IS_VALID_FORMAT($response, "array"))
             throw new \Exception('Response Error: Your response base is not an array');
 
@@ -37,11 +36,16 @@ final class Response implements ResponseInterface
 
         $this->XML_RENDER_EXTEND($response, $xmlElem);
 
-        $xml_file = $xmlElem->asXML('users.xml');
+        if ($name == NULL)
+            $xml_file = $xmlElem->asXML();
+        else
+            $xml_file = $xmlElem->asXML("$name.xml");
 
         if($xml_file)
         {
             header('Content-type: text/xml');
+            if ($name != NULL)
+                header('Content-Disposition: attachment; filename="'.$name.'.xml"');
             echo ($xml_file);
         }
         else
@@ -69,7 +73,6 @@ final class Response implements ResponseInterface
      * @return mixed
      */
     private function XML_RENDER_EXTEND(array $array, \SimpleXMLElement &$xmlElem) {
-
         foreach($array as $key => $value) {
             if(is_array($value)) {
                 if(!is_numeric($key)){

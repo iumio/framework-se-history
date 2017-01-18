@@ -3,7 +3,7 @@
 
 namespace IumioFramework\Masters;
 use IumioFramework\Core\Base\ParameterBag;
-use MongoDB\BSON\ObjectID;
+use IumioFramework\Core\Additionnal\Template\IumioMustache;
 
 /**
  * Class IumioUltimaMaster
@@ -14,6 +14,7 @@ use MongoDB\BSON\ObjectID;
 class IumioUltimaMaster
 {
     protected $masterFirst = NULL;
+    protected $appMastering = NULL;
 
     /**
      * @param mixed $himself
@@ -21,6 +22,7 @@ class IumioUltimaMaster
      */
     final protected function mastering($himself):int
     {
+        $this->appMastering = APP_CALL;
         $this->masterFirst = $himself;
         return (1);
     }
@@ -42,9 +44,36 @@ class IumioUltimaMaster
         }
     }
 
-    public function render()
+    /**
+     * @param string $view
+     * @param array $options
+     * @throws \Exception
+     */
+    final protected function render(string $view, array $options)
     {
-        
+        $this->appMastering = APP_CALL;
+        $m = IumioMustache::getMustacheInstance($this->appMastering);
+        try
+        {
+            $tpl = $m->loadTemplate($view.IumioMustache::$viewExtention);
+            echo $tpl->render($options);
+            exit();
+        }
+        catch (\Exception $exception)
+        {
+            throw new \Exception("IumioUltimaMaster Error : Cannot load ".$view." view file => ".$view.IumioMustache::$viewExtention." <br>".$exception);
+        }
+
+    }
+
+    /** Change views Render extension
+     * @param string $ext new extention
+     * @return bool
+     */
+    final protected function changeRenderExtention(string $ext):bool
+    {
+        IumioMustache::$viewExtention = $ext;
+        return (true);
     }
 
 }

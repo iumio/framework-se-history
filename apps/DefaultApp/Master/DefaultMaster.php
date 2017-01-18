@@ -23,7 +23,9 @@ class DefaultMaster extends IumioUltimaMaster
      */
     public function indexGo()
     {
-        return ((new Response())->JSON_RENDER(array("hello" => "indexGO")));
+        //return ($this->render("index", array("hello" => "Hello World")));
+        $this->changeRenderExtention(".ium");
+        return ($this->render("index", array("hello" => "IUM VIEW")));
     }
 
     /**
@@ -31,7 +33,6 @@ class DefaultMaster extends IumioUltimaMaster
      */
     public function renderGo()
     {
-        echo "render";
-        // return ;
+        return ($this->render("index", array("hello" => "HTML IUM")));
     }
 }

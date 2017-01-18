@@ -15,5 +15,6 @@ Actual version : 0.0.1 ALPHA
 * ORM : Omium
 * ORM Compatibility : MySQL
 * Available Environments : DEV, PREPROD, PROD
+* Engine Template : Mustache
 
 
