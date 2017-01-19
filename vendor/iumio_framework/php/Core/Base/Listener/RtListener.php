@@ -2,6 +2,7 @@
 
 
 namespace IumioFramework\Core\Base;
+use IumioFramework\Core\Base\Debug\Debug;
 use Resource;
 /**
  * Class RtListener
@@ -50,7 +51,6 @@ class RtListener implements Listener
         {
             if ($this->appName == $routingArray[0][1])
             {
-                // Debug::output("APP", 'display');
                 $routename = NULL;
                 $path = NULL;
                 $method = NULL;
@@ -72,7 +72,11 @@ class RtListener implements Listener
                             if (count($method) == 2) {
                                 $controller = $method[0];
                                 $function = $method[1];
-                                array_push($this->router, array("routename" => $routename, "path" => $path, "controller" => $controller, "method" => $function . "Go"));
+                                $params = $this->detectParameters($path);
+                                if (!empty($params))
+                                    array_push($this->router, array("routename" => $routename, "path" => $path, "controller" => $controller, "method" => $function . "Go", "params" => $params));
+                                else
+                                    array_push($this->router, array("routename" => $routename, "path" => $path, "controller" => $controller, "method" => $function . "Go"));
                             }
                         }
                         $routename = NULL;
@@ -84,7 +88,11 @@ class RtListener implements Listener
                         if (count($method) == 2) {
                             $controller = $method[0];
                             $function = $method[1];
-                            array_push($this->router, array("routename" => $routename, "path" => $path, "controller" => $controller, "method" => $function . "Go"));
+                            $params = $this->detectParameters($path);
+                            if (!empty($params))
+                                array_push($this->router, array("routename" => $routename, "path" => $path, "controller" => $controller, "method" => $function . "Go", "params" => $params));
+                            else
+                                array_push($this->router, array("routename" => $routename, "path" => $path, "controller" => $controller, "method" => $function . "Go"));
                             $routename = NULL;
                             $method = NULL;
                         }
@@ -141,5 +149,31 @@ class RtListener implements Listener
         return (1);
     }
 
+    /** Detect any parameters in path
+     * @param string $path URI path
+     * @return array All parameters
+     */
+    private function detectParameters(string $path):array
+    {
+        $params = array();
+
+        for ($i = 0; $i < strlen($path); $i++)
+        {
+            if ($path[$i] == "{")
+            {
+                $param = "";
+                for(($p = $i + 1); $p < strlen($path); $p++)
+                {
+                    if ($path[$p] == "}") {
+                        $p = strlen($path);
+                        array_push($params, $param);
+                    }
+                    else
+                        $param = $param.$path[$p];
+                }
+            }
+        }
+        return ($params);
+    }
 
 }

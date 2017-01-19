@@ -15,3 +15,7 @@ method : Default%test5
 name : defaut_hello_test2345
 path : /hello/test234
 method : Default%testAer5
+
+ame : single_example_test
+path : /test/example1/{firstname}/{lastname}
+method : Single%name

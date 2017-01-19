@@ -5,9 +5,20 @@ path : /
 method : Default%index
 
 name : defaut_hello_test
-path : /hello/rendered
+path : /hello/rendered/{name}/{first}
 method : Default%render
+
+
+name : defaut_hello_test2
+path : /hello/rendered/YO/YA
+method : Default%rende
+
+name : defaut_hello_test2
+path : /hello/rendered/YO/YU
+method : Default%render
+
 
 name : defaut_hello_test234
 path : /hello/test234
 method : Default%testAer
+

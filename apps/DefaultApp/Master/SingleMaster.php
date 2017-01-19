@@ -13,11 +13,12 @@ class SingleMaster extends IumioUltimaMaster
 {
 
     /**
-     * Going to index page
+     * @param string $firstname
+     * @param string $lastname
      */
-    public function helloGo()
+    public function nameGo(string $firstname, string $lastname)
     {
-        echo "helloGo";
+        return ($this->render("index", array("fn" => $firstname, 'ln' => $lastname)));
     }
 
 }

@@ -18,20 +18,21 @@ class DefaultMaster extends IumioUltimaMaster
     }
 
     /**
-     * Going to index page
+     *
      */
     public function indexGo()
     {
         //return ($this->render("index", array("hello" => "Hello World")));
         $this->changeRenderExtention(".ium");
-        return ($this->render("index", array("hello" => "IUM VIEW")));
+        return ($this->render("index", array("hello" => "INDEX")));
     }
 
     /**
-     * Going to render page
+     * @param string $param
      */
-    public function renderGo()
+    public function renderGo(string $param)
     {
-        return ($this->render("index", array("hello" => "HTML IUM")));
+        $this->changeRenderExtention(".ium");
+        return ($this->render("index", array("hello" => $param)));
     }
 }
