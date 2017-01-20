@@ -7,9 +7,9 @@ use ArrayObject;
  * Class Server403
  * @package IumioFramework\Theme\Server
  */
-class Server403 implements Server
+class Server403 extends \Exception implements Server
 {
-    private $code = '403';
+    protected $code = '403';
     private $codeTitle = 'FORBIDEEN';
     private $explain =  'You are not allowed to access this file.';
     private $solution = NULL;

@@ -20,6 +20,6 @@ class IumioArgs
     public function getArgs(int $argc, array $argv)
     {
         if ($argc == 1)
-            Output::display("Hello World");
+            Output::display("Welcome to Iumio Console Manager \n I noticed that you didn't enter any parameters. \n For more information, you can use the --help command to get a command list.", "red", "black");
     }
 }

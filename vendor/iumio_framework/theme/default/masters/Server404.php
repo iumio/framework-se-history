@@ -3,9 +3,9 @@
 namespace IumioFramework\Theme\Server;
 use ArrayObject;
 
-class Server404 implements Server
+class Server404 extends \Exception implements Server
 {
-    private $code = '404';
+    protected $code = '404';
     private $codeTitle = 'NOT FOUND';
     private $explain =  'The ressource you try to access is not found.';
     private $solution = NULL;
@@ -38,7 +38,7 @@ class Server404 implements Server
     {
         header('HTTP/1.0 404 Not Found');
 
-        include_once '../views/layout.iumio.php';
+        include_once THEME.'/default/views/layout.iumio.php';
         die();
     }
 }

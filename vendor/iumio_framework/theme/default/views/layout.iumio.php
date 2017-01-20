@@ -9,10 +9,10 @@
     <title>IUMIO <?= $this->env.' '.$this->code ?></title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <!--[if lte IE 8]><script src="//<?= HOST_CURRENT ?>components/theme/default/assets/js/ie/html5shiv.js"></script><![endif]-->
-    <link rel="stylesheet" href="//<?= HOST_CURRENT ?>components/theme/default/assets/css/main.css" />
-    <!--[if lte IE 9]><link rel="stylesheet" href="//<?= HOST_CURRENT ?>components/theme/default/assets/css/ie9.css" /><![endif]-->
-    <!--[if lte IE 8]><link rel="stylesheet" href="//<?= HOST_CURRENT ?>components/theme/default/assets/css/ie8.css" /><![endif]-->
+    <!--[if lte IE 8]><script src="//<?= HOST ?>/components/theme/default/assets/js/ie/html5shiv.js"></script><![endif]-->
+    <link rel="stylesheet" href="//<?= HOST ?>/components/theme/default/assets/css/main.css" />
+    <!--[if lte IE 9]><link rel="stylesheet" href="//<?= HOST ?>/components/theme/default/assets/css/ie9.css" /><![endif]-->
+    <!--[if lte IE 8]><link rel="stylesheet" href="//<?= HOST ?>/components/theme/default/assets/css/ie8.css" /><![endif]-->
 </head>
 <body>
 
@@ -145,13 +145,13 @@
 </div>
 
 <!-- Scripts -->
-<script src="//<?= HOST_CURRENT ?>components/theme/default/assets/js/jquery.min.js"></script>
-<script src="//<?= HOST_CURRENT ?>components/theme/default/assets/js/jquery.scrolly.min.js"></script>
-<script src="//<?= HOST_CURRENT ?>components/theme/default/assets/js/jquery.scrollex.min.js"></script>
-<script src="//<?= HOST_CURRENT ?>components/theme/default/assets/js/skel.min.js"></script>
-<script src="//<?= HOST_CURRENT ?>components/theme/default/assets/js/util.js"></script>
-<!--[if lte IE 8]><script src="//<?= HOST_CURRENT ?>components/theme/default/assets/js/ie/respond.min.js"></script><![endif]-->
-<script src="//<?= HOST_CURRENT ?>components/theme/default/assets/js/main.js"></script>
+<script src="//<?= HOST ?>/components/theme/default/assets/js/jquery.min.js"></script>
+<script src="//<?= HOST ?>/components/theme/default/assets/js/jquery.scrolly.min.js"></script>
+<script src="//<?= HOST ?>/components/theme/default/assets/js/jquery.scrollex.min.js"></script>
+<script src="//<?= HOST ?>/components/theme/default/assets/js/skel.min.js"></script>
+<script src="//<?= HOST ?>/components/theme/default/assets/js/util.js"></script>
+<!--[if lte IE 8]><script src="//<?= HOST ?>/components/theme/default/assets/js/ie/respond.min.js"></script><![endif]-->
+<script src="//<?= HOST ?>/components/theme/default/assets/js/main.js"></script>
 
 </body>
 </html>

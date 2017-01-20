@@ -4,6 +4,7 @@ namespace IumioFramework\Core\Requirement;
 use IumioFramework\Core\Base\Http\HttpListener;
 use IumioFramework\Masters\Routing;
 use IumioFramework\Core\Requirement\Relexion\IumioReflexion;
+use IumioFramework\Theme\Server\Server404;
 
 /**
  * Class IumioUltimaCore
@@ -31,8 +32,8 @@ abstract class IumioUltimaCore
     protected $startTime;
     protected $loadClassCache;
 
-    const VERSION = '0.0.5';
-    const VERSION_ID = 20815;
+    const VERSION = '0.0.6';
+    const VERSION_ID = 20816;
     const MAJOR_VERSION = 1;
     const MINOR_VERSION = 0;
     const RELEASE_VERSION = 1;
@@ -202,7 +203,7 @@ abstract class IumioUltimaCore
 
             if ($callback == NULL)
                 // REPLACE WITH THE FUTURE 404 EXCEPTION
-                throw new \Exception("404 NOT FOUND");
+                throw (new Server404(new \ArrayObject(array("solution" => "Please check your URI"))))->display();
 
             $method = $callback['method'];
             $controller = $callback['controller'];
