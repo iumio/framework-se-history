@@ -30,16 +30,16 @@
     <!-- Menu -->
     <nav id="menu">
         <ul class="links">
-            <li><a href="iumio_dev.php">DEV MODE</a></li>
-            <li><a href="iumio_preprod.php">PREPROD MODE</a></li>
-            <li><a href="iumio_prod.php">PROD MODE</a></li>
-            <li><a href="landing.html">CONFIG</a></li>
-            <li><a href="generic.html">PROFILER</a></li>
+            <li><a href="/iumio_dev.php">DEV MODE</a></li>
+            <li><a href="/iumio_preprod.php">PREPROD MODE</a></li>
+            <li><a href="/iumio_prod.php">PROD MODE</a></li>
+            <li><a href="#">CONFIG</a></li>
+            <li><a href="#">PROFILER</a></li>
 
         </ul>
         <ul class="actions vertical">
             <li><a href="#" class="button special fit">CONTACT IUMIO SUPPORT</a></li>
-            <li><a href="#" class="button fit">IUMIO WEBSITE</a></li>
+            <li><a href="https://iumio.com" class="button fit">IUMIO WEBSITE</a></li>
         </ul>
     </nav>
 
@@ -68,7 +68,7 @@
 									</span>
                 <header class="major">
                     <h3><a href="landing.html" class="link">Aliquam</a></h3>
-                    <p>Ipsum dolor sit amet</p>
+                    <p>PHP7 Language</p>
                 </header>
             </article>
             <article>
@@ -77,7 +77,7 @@
 									</span>
                 <header class="major">
                     <h3><a href="landing.html" class="link">Tempus</a></h3>
-                    <p>feugiat amet tempus</p>
+                    <p>Mustache engine template</p>
                 </header>
             </article>
             <article>
@@ -86,7 +86,7 @@
 									</span>
                 <header class="major">
                     <h3><a href="landing.html" class="link">Magna</a></h3>
-                    <p>Lorem etiam nullam</p>
+                    <p>New Routing File (RT)</p>
                 </header>
             </article>
             <article>
@@ -95,25 +95,7 @@
 									</span>
                 <header class="major">
                     <h3><a href="landing.html" class="link">Ipsum</a></h3>
-                    <p>Nisl sed aliquam</p>
-                </header>
-            </article>
-            <article>
-									<span class="image">
-										<img src="components/theme/default/assets/images/pic05.jpg" alt="" />
-									</span>
-                <header class="major">
-                    <h3><a href="landing.html" class="link">Consequat</a></h3>
-                    <p>Ipsum dolor sit amet</p>
-                </header>
-            </article>
-            <article>
-									<span class="image">
-										<img src="components/theme/default/assets/images/pic06.jpg" alt="" />
-									</span>
-                <header class="major">
-                    <h3><a href="landing.html" class="link">Etiam</a></h3>
-                    <p>Feugiat amet tempus</p>
+                    <p>3 Environments (DEV, PREPROD, PROD)</p>
                 </header>
             </article>
         </section>
@@ -122,12 +104,9 @@
         <section id="two">
             <div class="inner">
                 <header class="major">
-                    <h2>Massa libero</h2>
+                    <h2>Iumio, The new PHP7 Framework</h2>
                 </header>
-                <p>Nullam et orci eu lorem consequat tincidunt vivamus et sagittis libero. Mauris aliquet magna magna sed nunc rhoncus pharetra. Pellentesque condimentum sem. In efficitur ligula tate urna. Maecenas laoreet massa vel lacinia pellentesque lorem ipsum dolor. Nullam et orci eu lorem consequat tincidunt. Vivamus et sagittis libero. Mauris aliquet magna magna sed nunc rhoncus amet pharetra et feugiat tempus.</p>
-                <ul class="actions">
-                    <li><a href="landing.html" class="button next">Get Started</a></li>
-                </ul>
+                <p>Iumio is easier to use. You can manipulate this framework as you want. You are the only one to make a decision. @ Developers are the best @</p>
             </div>
         </section>
 
@@ -141,23 +120,7 @@
                     <div class="contact-method">
                         <span class="icon alt fa-envelope"></span>
                         <h3>Email</h3>
-                        <a href="#">information@untitled.tld</a>
-                    </div>
-                </section>
-                <section>
-                    <div class="contact-method">
-                        <span class="icon alt fa-phone"></span>
-                        <h3>Phone</h3>
-                        <span>(000) 000-0000 x12387</span>
-                    </div>
-                </section>
-                <section>
-                    <div class="contact-method">
-                        <span class="icon alt fa-home"></span>
-                        <h3>Address</h3>
-                        <span>1234 Somewhere Road #5432<br />
-										Nashville, TN 00000<br />
-										United States of America</span>
+                        <a href="#">danyrafina@gmail.com</a>
                     </div>
                 </section>
             </section>
@@ -170,12 +133,12 @@
             <ul class="icons">
                 <li><a href="#" class="icon alt fa-twitter"><span class="label">Twitter</span></a></li>
                 <li><a href="#" class="icon alt fa-facebook"><span class="label">Facebook</span></a></li>
-                <li><a href="#" class="icon alt fa-instagram"><span class="label">Instagram</span></a></li>
+                <!--<li><a href="#" class="icon alt fa-instagram"><span class="label">Instagram</span></a></li>-->
                 <li><a href="#" class="icon alt fa-github"><span class="label">GitHub</span></a></li>
-                <li><a href="#" class="icon alt fa-linkedin"><span class="label">LinkedIn</span></a></li>
+                <!--<li><a href="#" class="icon alt fa-linkedin"><span class="label">LinkedIn</span></a></li>-->
             </ul>
             <ul class="copyright">
-                <li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+                <li>&copy; 2017 Iumio Framework</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
             </ul>
         </div>
     </footer>
