@@ -1,0 +1,37 @@
+<?php
+
+namespace IumioFramework\Core\Additionnal\Console\Manager;
+
+try
+{
+    $loader = require __DIR__.'/../vendor/iumio_framework/php/Core/Requirement/Autoloader.php';
+}
+catch (\Exception $e)
+{
+    throw new \Exception("Iumio Manager error : cannot get autoloader => ".$e->getMessage());
+}
+
+use IumioFramework\Core\Base\Debug\Debug;
+use IumioFramework\Core\Additionnal\Console\Manager\IumioManager as CoreManager;
+
+/**
+ * Class manager
+ * @package IumioFramework\Core\Additionnal\Console\Manager
+ */
+
+class manager
+{
+    /** Manager main function
+     * @param int $argc
+     * @param array $argv
+     */
+    public function main(int $argc, array $argv)
+    {
+        Debug::enabled();
+        $man = new CoreManager();
+        $man->run($argc, $argv);
+
+    }
+}
+
+(new manager())->main($argc, $argv);

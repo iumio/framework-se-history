@@ -66,17 +66,15 @@
 									<span class="image">
 										<img src="components/theme/default/assets/images/pic01.jpg" alt="" />
 									</span>
-                <header class="major">
-                    <h3><a href="landing.html" class="link">Aliquam</a></h3>
-                    <p>PHP7 Language</p>
-                </header>
+                <h3><a href="landing.html" class="link">PHP</a></h3>
+                <p>Developed full PHP7</p>
             </article>
             <article>
 									<span class="image">
 										<img src="components/theme/default/assets/images/pic02.jpg" alt="" />
 									</span>
                 <header class="major">
-                    <h3><a href="landing.html" class="link">Tempus</a></h3>
+                    <h3><a href="landing.html" class="link">Views</a></h3>
                     <p>Mustache engine template</p>
                 </header>
             </article>
@@ -85,7 +83,7 @@
 										<img src="components/theme/default/assets/images/pic03.jpg" alt="" />
 									</span>
                 <header class="major">
-                    <h3><a href="landing.html" class="link">Magna</a></h3>
+                    <h3><a href="landing.html" class="link">Navigation</a></h3>
                     <p>New Routing File (RT)</p>
                 </header>
             </article>
@@ -94,7 +92,7 @@
 										<img src="components/theme/default/assets/images/pic04.jpg" alt="" />
 									</span>
                 <header class="major">
-                    <h3><a href="landing.html" class="link">Ipsum</a></h3>
+                    <h3><a href="landing.html" class="link">Environment</a></h3>
                     <p>3 Environments (DEV, PREPROD, PROD)</p>
                 </header>
             </article>
@@ -104,9 +102,10 @@
         <section id="two">
             <div class="inner">
                 <header class="major">
-                    <h2>Iumio, The new PHP7 Framework</h2>
+                    <h2>Iumio</h2>
                 </header>
-                <p>Iumio is easier to use. You can manipulate this framework as you want. You are the only one to make a decision. @ Developers are the best @</p>
+                <p style="font-size: 16px;font-weight: 600">Developed in PHP7</p>
+                <p>Iumio is easier to use. You can manipulate this framework as you want. You are the only one to make a decision : choose Iumio. @ Developers are the best @</p>
             </div>
         </section>
 
