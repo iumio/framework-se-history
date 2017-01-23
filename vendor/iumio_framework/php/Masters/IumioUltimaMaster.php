@@ -2,13 +2,15 @@
 
 
 namespace IumioFramework\Masters;
-use IumioFramework\Core\Base\ParameterBag;
+use IumioFramework\Core\Http\ParameterRequest;
 use IumioFramework\Core\Additionnal\Template\IumioMustache;
+
 
 /**
  * Class IumioUltimaMaster
  * This is the parent master for all subclass
  * @package iumioFramework\Masters
+ * @author RAFINA Dany <danyrafina@gmail.com>
  */
 
 class IumioUltimaMaster
@@ -16,7 +18,7 @@ class IumioUltimaMaster
     protected $masterFirst = NULL;
     protected $appMastering = NULL;
 
-    /**
+    /** Set a file to master
      * @param mixed $himself
      * @return int
      */
@@ -27,7 +29,7 @@ class IumioUltimaMaster
         return (1);
     }
 
-    /**
+    /** Get a service
      * @param string $service
      * @return mixed
      */
@@ -36,18 +38,18 @@ class IumioUltimaMaster
         switch ($service)
         {
             case 'request':
-                return (new ParameterBag())->get('request');
+                return (new ParameterRequest())->get('request');
                 break;
             case 'query':
-                return (new ParameterBag())->get('query');
+                return (new ParameterRequest())->get('query');
                 break;
         }
     }
 
-    /**
-     * @param string $view
-     * @param array $options
-     * @throws \Exception
+    /** Show a view
+     * @param string $view View name
+     * @param array $options options to view
+     * @throws \Exception Generate Exception
      */
     final protected function render(string $view, array $options)
     {

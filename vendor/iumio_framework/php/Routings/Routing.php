@@ -8,6 +8,7 @@ use IumioFramework\Core\Base\RtListener;
 /**
  * Class Routing
  * @package IumioFramework\Masters
+ * @author RAFINA Dany <danyrafina@gmail.com>
  */
 
 class Routing extends RtListener
@@ -21,8 +22,8 @@ class Routing extends RtListener
 
     /**
      * Routing constructor.
-     * @param string $app
-     * @param string $framework
+     * @param string $app App name
+     * @param string $framework framework name
      */
     public function __construct(string $app, string $framework)
     {
@@ -31,16 +32,16 @@ class Routing extends RtListener
         parent::__construct($app);
     }
 
-    /**
-     * @return bool
+    /** Register a router
+     * @return bool Is callable
      */
     public function routingRegister():bool
     {
         return ((parent::open() == 1)? true : false);
     }
 
-    /**
-     *
+    /** Get all route
+     * @return array Route result
      */
     public function routes()
     {

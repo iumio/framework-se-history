@@ -8,18 +8,30 @@ use IumioFramework\Core\Additionnal\Console\Manager\Display\IumioManagerOutput a
 /**
  * Class IumioArgs
  * @package IumioFramework\Core\Additionnal\Console\Manager
+ * @author RAFINA Dany <danyrafina@gmail.com>
  */
 
 class IumioArgs
 {
 
-    /**
-     * @param int $argc
-     * @param array $argv
+   static public $option = array();
+
+    /** Get prompt arguments
+     * @param int $argc Argument number
+     * @param array $argv Arguments
      */
     public function getArgs(int $argc, array $argv)
     {
         if ($argc == 1)
-            Output::display("Welcome to Iumio Console Manager \n I noticed that you didn't enter any parameters. \n For more information, you can use the --help command to get a command list.", "red", "black");
+            Output::displayAsNotice("Welcome to Iumio Console Manager \n I noticed that you didn't enter any parameters. \n For more information, you can use the --help command to get a command list.", "red", "black");
+    }
+
+    /** Get matches arguments
+     * @param int $argc Argument number
+     * @param array $argv Arguments
+     */
+    protected function matches(int $argc, array $argv)
+    {
+        // TO DO
     }
 }

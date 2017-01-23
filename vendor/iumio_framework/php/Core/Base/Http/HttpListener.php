@@ -1,18 +1,7 @@
 <?php
 
 namespace IumioFramework\Core\Base\Http;
-use IumioFramework\Core\Base\{ParameterBag, ServerBag, HeaderBag};
-
-/*
- * This file is part of the Symfony package.
- *
- * (c) Fabien Potencier <fabien@symfony.com>
- *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
- */
-
-
+use IumioFramework\Core\Http\{ParameterRequest, Server, Headers};
 
 /**
  * Request represents an HTTP request.
@@ -25,7 +14,7 @@ use IumioFramework\Core\Base\{ParameterBag, ServerBag, HeaderBag};
  *   * getUri
  *   * getUriForPath
  *
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author RAFINA Dany <danyrafina@gmail.com>
  */
 class HttpListener
 {
@@ -83,28 +72,28 @@ class HttpListener
     /**
      * Custom parameters.
      *
-     * @var \Symfony\Component\HttpFoundation\ParameterBag
+     * @var ParameterRequest
      */
     public $attributes;
 
     /**
      * Request body parameters ($_POST).
      *
-     * @var \Symfony\Component\HttpFoundation\ParameterBag
+     * @var ParameterRequest
      */
     public $request;
 
     /**
      * Query string parameters ($_GET).
      *
-     * @var \Symfony\Component\HttpFoundation\ParameterBag
+     * @var ParameterRequest
      */
     public $query;
 
     /**
      * Server and execution environment parameters ($_SERVER).
      *
-     * @var \Symfony\Component\HttpFoundation\ServerBag
+     * @var ParameterRequest
      */
     public $server;
 
@@ -113,14 +102,14 @@ class HttpListener
     /**
      * Cookies ($_COOKIE).
      *
-     * @var \Symfony\Component\HttpFoundation\ParameterBag
+     * @var ParameterRequest
      */
     public $cookies;
 
     /**
      * Headers (taken from the $_SERVER).
      *
-     * @var \Symfony\Component\HttpFoundation\HeaderBag
+     * @var Headers
      */
     public $headers;
 
@@ -240,12 +229,12 @@ class HttpListener
      */
     public function initialize(array $query = array(), array $request = array(), array $attributes = array(), array $cookies = array(), array $files = array(), array $server = array(), $content = null)
     {
-        $this->request = new ParameterBag($request);
-        $this->query = new ParameterBag($query);
-        $this->attributes = new ParameterBag($attributes);
-        $this->cookies = new ParameterBag($cookies);
-        $this->server = new ServerBag($server);
-        $this->headers = new HeaderBag($this->server->getHeaders());
+        $this->request = new ParameterRequest($request);
+        $this->query = new ParameterRequest($query);
+        $this->attributes = new ParameterRequest($attributes);
+        $this->cookies = new ParameterRequest($cookies);
+        $this->server = new ServerRequest($server);
+        $this->headers = new Headers($this->server->getHeaders());
 
         $this->content = $content;
         $this->languages = null;
@@ -287,7 +276,7 @@ class HttpListener
             && in_array(strtoupper($request->server->get('REQUEST_METHOD', 'GET')), array('PUT', 'DELETE', 'PATCH'))
         ) {
             parse_str($request->getContent(), $data);
-            $request->request = new ParameterBag($data);
+            $request->request = new ParameterRequest($data);
         }
 
        // print_r($request);
@@ -433,23 +422,23 @@ class HttpListener
     {
         $dup = clone $this;
         if ($query !== null) {
-            $dup->query = new ParameterBag($query);
+            $dup->query = new ParameterRequest($query);
         }
         if ($request !== null) {
-            $dup->request = new ParameterBag($request);
+            $dup->request = new ParameterRequest($request);
         }
         if ($attributes !== null) {
-            $dup->attributes = new ParameterBag($attributes);
+            $dup->attributes = new ParameterRequest($attributes);
         }
         if ($cookies !== null) {
-            $dup->cookies = new ParameterBag($cookies);
+            $dup->cookies = new ParameterRequest($cookies);
         }
         if ($files !== null) {
             $dup->files = new FileBag($files);
         }
         if ($server !== null) {
-            $dup->server = new ServerBag($server);
-            $dup->headers = new HeaderBag($dup->server->getHeaders());
+            $dup->server = new ServerRequest($server);
+            $dup->headers = new Headers($dup->server->getHeaders());
         }
         $dup->languages = null;
         $dup->charsets = null;

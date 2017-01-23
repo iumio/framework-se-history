@@ -5,6 +5,7 @@ namespace IumioFramework\Core\Base\Http\Response;
 /**
  * Interface ResponseInterface
  * @package IumioFramework\Core\Base\Http\Response
+ * @author RAFINA Dany <danyrafina@gmail.com>
  */
 
 interface ResponseInterface

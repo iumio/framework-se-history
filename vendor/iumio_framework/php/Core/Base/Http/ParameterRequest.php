@@ -1,14 +1,14 @@
 <?php
 
-namespace IumioFramework\Core\Base;
+namespace IumioFramework\Core\Http;
 
 
 /**
- * ParameterBag is a container for key/value pairs.
+ * ParameterRequest is a container for key/value pairs.
  *
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author RAFINA Dany <danyrafina@gmail.com>
  */
-class ParameterBag implements \IteratorAggregate, \Countable
+class ParameterRequest implements \IteratorAggregate, \Countable
 {
     /**
      * Parameter storage.

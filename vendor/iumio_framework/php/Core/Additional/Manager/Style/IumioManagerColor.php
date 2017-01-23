@@ -5,6 +5,7 @@ namespace IumioFramework\Core\Additionnal\Console\Manager\Display\Style;
 /**
  * Class IumioManagerColor
  * @package IumioFramework\Core\Additionnal\Console\Manager\Display\Style
+ * @author RAFINA Dany <danyrafina@gmail.com>
  */
 
 class IumioManagerColor
@@ -12,6 +13,9 @@ class IumioManagerColor
     private $foreground_colors = array();
     private $background_colors = array();
 
+    /**
+     * IumioManagerColor constructor.
+     */
     public function __construct() {
         // Set up shell colors
         $this->foreground_colors['black'] = '0;30';
@@ -41,8 +45,15 @@ class IumioManagerColor
         $this->background_colors['light_gray'] = '47';
     }
 
-    // Returns colored string
-    public function getColoredString(string $string, string $foreground_color = null, string $background_color = null) {
+
+    /** Return colored string
+     * @param string $string message
+     * @param string|null $foreground_color Foreground color
+     * @param string|null $background_color Background color
+     * @return string Colored string
+     */
+    public function getColoredString(string $string, string $foreground_color = null, string $background_color = null):string
+    {
         $colored_string = "";
 
         // Check if given foreground color found
@@ -57,16 +68,24 @@ class IumioManagerColor
         // Add string and end coloring
         $colored_string .=  $string . "\033[0m";
 
-        return $colored_string;
+        return ($colored_string);
     }
 
-    // Returns all foreground color names
-    public function getForegroundColors() {
-        return array_keys($this->foreground_colors);
+
+    /** Returns all foreground color names
+     * @return array Foreground color name array
+     */
+    public function getForegroundColors():array
+    {
+        return (array_keys($this->foreground_colors));
     }
 
-    // Returns all background color names
-    public function getBackgroundColors() {
-        return array_keys($this->background_colors);
+
+    /** Returns all background color names
+     * @return array Background Color name array
+     */
+    public function getBackgroundColors():array
+    {
+        return (array_keys($this->background_colors));
     }
 }

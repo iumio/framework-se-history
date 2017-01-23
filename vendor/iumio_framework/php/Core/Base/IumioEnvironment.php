@@ -7,14 +7,15 @@ use ArrayObject;
 /**
  * Class IumioEnvironment
  * @package IumioFramework\Core\Base
+ * @author RAFINA Dany <danyrafina@gmail.com>
  */
 
 class IumioEnvironment
 {
 
-    /**
-     * @param string $env
-     * @return int
+    /** Define all environment constants
+     * @param string $env Environmment
+     * @return int Is a success
      */
     public static function definer(string $env):int
     {
@@ -33,9 +34,9 @@ class IumioEnvironment
         return (1);
     }
 
-    /**
-     * @param array $options
-     * @return int
+    /** Display an Error
+     * @param array $options Error options
+     * @return int Is success
      */
     public static function displayError(array $options):int
     {

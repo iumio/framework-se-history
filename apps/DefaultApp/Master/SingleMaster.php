@@ -5,14 +5,15 @@ namespace DefaultApp\Master;
 use IumioFramework\Masters\IumioUltimaMaster;
 
 /**
- * Class SigleMaster
+ * Class SingleMaster
  * @package DefaultApp\Master
+ * @author RAFINA Dany <danyrafina@gmail.com>
  */
 
 class SingleMaster extends IumioUltimaMaster
 {
 
-    /**
+    /** Go to name page
      * @param string $firstname
      * @param string $lastname
      */

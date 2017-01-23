@@ -32,8 +32,8 @@ abstract class IumioUltimaCore
     protected $startTime;
     protected $loadClassCache;
 
-    const VERSION = '0.0.6';
-    const VERSION_ID = 20816;
+    const VERSION = '0.0.7';
+    const VERSION_ID = 201707;
     const MAJOR_VERSION = 1;
     const MINOR_VERSION = 0;
     const RELEASE_VERSION = 1;
@@ -45,7 +45,7 @@ abstract class IumioUltimaCore
     /**
      * Constructor.
      *
-     * @param string $env The environment
+     * @param string $environment The environment
      * @param bool   $debug       Whether to enable debugging or not
      */
 
@@ -185,9 +185,9 @@ abstract class IumioUltimaCore
     }
 
 
-    /**
-     * @param HttpListener $request
-     * @return int
+    /** Go to controller
+     * @param HttpListener $request parameters
+     * @return int Return as success
      * @throws \Exception
      */
     public function dispatching(HttpListener $request):int
@@ -203,7 +203,7 @@ abstract class IumioUltimaCore
 
             if ($callback == NULL)
                 // REPLACE WITH THE FUTURE 404 EXCEPTION
-                throw (new Server404(new \ArrayObject(array("solution" => "Please check your URI"))))->display();
+                throw new Server404(new \ArrayObject(array("solution" => "Please check your URI")));
 
             $method = $callback['method'];
             $controller = $callback['controller'];

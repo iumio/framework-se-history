@@ -5,6 +5,7 @@ namespace IumioFramework\Core\Requirement\Relexion;
 /**
  * Class IumioReflexion
  * @package IumioFramework\Core\Requirement\Relexion
+ * @author RAFINA Dany <danyrafina@gmail.com>
  */
 class IumioReflexion
 {

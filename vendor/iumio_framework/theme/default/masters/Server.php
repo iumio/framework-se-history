@@ -4,7 +4,9 @@ namespace IumioFramework\Theme\Server;
 use ArrayObject;
 
 /**
- * Class Server
+ * Interface Server
+ * @package IumioFramework\Theme\Server
+ * @author RAFINA Dany <danyrafina@gmail.com>
  */
 
 interface Server

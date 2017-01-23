@@ -5,14 +5,15 @@ namespace IumioFramework\Core\Additionnal\Server;
 /**
  * Class IumioServer
  * @package IumioFramework\Core\Additionnal\Server
+ * @author RAFINA Dany <danyrafina@gmail.com>
  */
 class IumioServerManager
 {
     /** Create an element on the server
      * @param string $path Element Path
      * @param string $type Element type
-     * @return int
-     * @throws \Exception
+     * @return int Result
+     * @throws \Exception Generate Error
      */
     static public function create(string $path, string $type):int
     {

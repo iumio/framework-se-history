@@ -7,6 +7,7 @@ use Resource;
 /**
  * Class RtListener
  * @package IumioFramework\Core\Base
+ * @author RAFINA Dany <danyrafina@gmail.com>
  */
 
 class RtListener implements Listener
@@ -25,8 +26,8 @@ class RtListener implements Listener
         $this->appName = $appName;
     }
 
-    /**
-     * @return int
+    /** Open a file
+     * @return int Is success
      */
     public function open():int
     {
@@ -105,8 +106,8 @@ class RtListener implements Listener
 
     }
 
-    /**
-     * @return int
+    /** returl router list
+     * @return int Is a successs
      */
     public function listingRouters():int
     {
@@ -131,7 +132,7 @@ class RtListener implements Listener
         return (0);
     }
 
-    /**
+    /** Render router
      * @return array
      */
     public function render():array

@@ -3,6 +3,12 @@
 namespace IumioFramework\Theme\Server;
 use ArrayObject;
 
+/**
+ * Class Server404
+ * @package IumioFramework\Theme\Server
+ * @author RAFINA Dany <danyrafina@gmail.com>
+ */
+
 class Server404 extends \Exception implements Server
 {
     protected $code = '404';
@@ -29,10 +35,11 @@ class Server404 extends \Exception implements Server
             else if ($it->key() == "solution")
                 $this->solution = $value;
         }
+        $this->display();
     }
 
     /**
-     *
+     * Display 404 error
      */
     public function display()
     {

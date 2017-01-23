@@ -1,14 +1,13 @@
 <?php
 
-namespace IumioFramework\Core\Base;
-
+namespace IumioFramework\Core\Http;
 
 /**
- * HeaderBag is a container for HTTP headers.
+ * Headers manages header features.
  *
- * @author Fabien Potencier <fabien@symfony.com>
+ * @author RAFINA Dany <danyrafina@gmail.com>
  */
-class HeaderBag implements \IteratorAggregate, \Countable
+class Headers implements \IteratorAggregate, \Countable
 {
     protected $headers = array();
     protected $cacheControl = array();

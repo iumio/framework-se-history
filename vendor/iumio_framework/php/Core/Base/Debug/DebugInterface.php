@@ -5,6 +5,7 @@ namespace IumioFramework\Core\Base\Debug;
 /**
  * Interface DebugInterface
  * @package IumioFramework\Core\Base\Debug
+ * @author RAFINA Dany <danyrafina@gmail.com>
  */
 
 interface DebugInterface

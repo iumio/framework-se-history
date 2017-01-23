@@ -4,13 +4,14 @@
 /**
  * Class Autoloader
  * This class loads a class when is calling
+ * @author RAFINA Dany <danyrafina@gmail.com>
  */
 class Autoloader {
 
     /** Register this class
-     * @param $class Class name
+     * @param $class string Class name
      */
-    static public function register(String $class)
+    static public function register(string $class)
     {
         $path = realpath(strstr($_SERVER['DOCUMENT_ROOT'], 'web', true));
         $array2 = explode(chr(92), $class);

@@ -16,6 +16,7 @@ catch (\Exception $exception)
 /**
  * Class IumioMustache
  * @package IumioFramework\Core\Additionnal\Template
+ * @author RAFINA Dany <danyrafina@gmail.com>
  */
 
 final class IumioMustache
@@ -44,7 +45,7 @@ final class IumioMustache
 
             $options =  array('extension' => self::$viewExtention);
             self::$instance = new \Mustache_Engine(array(
-                'template_class_prefix' => '__MyTemplates_',
+                'template_class_prefix' => '__IumioTemp_',
                 'cache' => $envcache.'/tmp/cache/mustache',
                 'cache_file_mode' => 0666, // Please, configure your umask instead of doing this :)
                 'cache_lambda_templates' => true,

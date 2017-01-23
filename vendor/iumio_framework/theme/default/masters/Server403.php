@@ -6,6 +6,7 @@ use ArrayObject;
 /**
  * Class Server403
  * @package IumioFramework\Theme\Server
+ * @author RAFINA Dany <danyrafina@gmail.com>
  */
 class Server403 extends \Exception implements Server
 {
@@ -33,10 +34,11 @@ class Server403 extends \Exception implements Server
             else if ($it->key() == "solution")
                 $this->solution = $value;
         }
+        $this->display();
     }
 
     /**
-     *
+     * Display 403 Error
      */
     public function display()
     {
