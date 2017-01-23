@@ -6,14 +6,14 @@ IUMIO Framework
 
 Created by DANY RAFINA <danyrafina@gmail.com>
 
-Actual version : 0.0.1 ALPHA
+Actual version : 0.0.7 ALPHA
 
 
 #Requirements : #
 * Server language : PHP 7.0 or later
-* View extention :  PHP
 * ORM : Omium
 * ORM Compatibility : MySQL
+* Engine Template : Mustache
 * Available Environments : DEV, PREPROD, PROD
 * Engine Template : Mustache
 
