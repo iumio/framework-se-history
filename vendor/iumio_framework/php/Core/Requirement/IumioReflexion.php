@@ -23,11 +23,13 @@ class IumioReflexion
     {
         try
         {
+            echo $class."\n";
+            exit();
             $reflection = new \ReflectionMethod($class, $method);
         }
         catch (\Exception $ex)
         {
-            throw new \Exception("Iumio Relexion Error : ".$ex->getMessage());
+            throw new \Exception($ex->getMessage());
         }
 
         $pass = array();
@@ -40,9 +42,10 @@ class IumioReflexion
         }
         catch (\Exception $ex)
         {
-            throw new \Exception("Iumio Relexion Invoke Error : ".$ex->getMessage());
+            throw new \Exception("Iumio Reflexion Invoke Error : ".$ex->getMessage());
         }
 
         return ($rs);
     }
+
 }

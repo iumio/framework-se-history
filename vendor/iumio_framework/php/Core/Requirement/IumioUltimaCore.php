@@ -202,7 +202,6 @@ abstract class IumioUltimaCore
             $callback = $this->manage($request, $rt->routes());
 
             if ($callback == NULL)
-                // REPLACE WITH THE FUTURE 404 EXCEPTION
                 throw new Server404(new \ArrayObject(array("solution" => "Please check your URI")));
 
             $method = $callback['method'];
@@ -212,7 +211,6 @@ abstract class IumioUltimaCore
             $master = "\\$defname\\Master\\{$controller}Master";
             try
             {
-                // $invoke = new \ReflectionMethod($master, $method);
                 $call = new IumioReflexion();
                 define("APP_CALL", $def['name']);
                 if (isset($callback['pval']))
