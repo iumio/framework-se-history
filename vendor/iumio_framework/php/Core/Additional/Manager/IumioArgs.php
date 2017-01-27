@@ -42,7 +42,7 @@ class IumioArgs
             Output::displayAsError("Iumio Command Error : Command not found.\n For more information, you can use the --help command to get a command list.");
 
         $ref = new IumioReflexion();
-        $ref->__named($c['class'], "commandListRender", (($argc >= 3)? $argv : array()));
+        $ref->__simple($c['class'], (($argc >= 3)? $argv : array()));
 
     }
 
@@ -70,7 +70,7 @@ class IumioArgs
 
         foreach ($commands as $command => $val) {
             if ($command == $name)
-                print_r($command);
+                // print_r($command);
                 return (array("name" => $command, "class" => $val->class, "desc" => $val->desc));
         }
         return ($finalC);

@@ -23,13 +23,13 @@ class IumioReflexion
     {
         try
         {
-            echo $class."\n";
-            exit();
+            // echo $class."\n";
+            // exit();
             $reflection = new \ReflectionMethod($class, $method);
         }
         catch (\Exception $ex)
         {
-            throw new \Exception($ex->getMessage());
+            throw new \Exception("Iumio Reflexion Method Error : ".$ex->getMessage());
         }
 
         $pass = array();
@@ -48,4 +48,24 @@ class IumioReflexion
         return ($rs);
     }
 
+    /** Create a simple instance
+     * @param string $class Class Name
+     * @param array $args Constructor parameters
+     * @throws \Exception
+     */
+    public function __simple(string $class, array $args = array())
+    {
+        try
+        {
+            $class = new \ReflectionClass($class);
+            if (empty($args))
+                $class->newInstanceArgs();
+            else
+                $class->newInstanceArgs($args);
+        }
+        catch (\Exception $ex)
+        {
+            throw new \Exception("Iumio Reflexion Class Error : ".$ex->getMessage());
+        }
+    }
 }

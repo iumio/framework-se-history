@@ -3,11 +3,11 @@
     "version": "0.0.1",
     "commands": {
       "--help": {
-          "class" : "\/IumioFramework\/Manager\/Console\/Module\/Help\/IumioManagerHelp",
+          "class" : "\\IumioFramework\\Manager\\Console\\Module\\Help\\IumioManagerHelp",
           "desc"  : "Get information about a command"
       },
       "app-cache-delete": {
-          "class" : "\/IumioFramework\/Manager\/Console\/Module\/Help\/IumioManagerHelp",
+          "class" : "\\IumioFramework\\Manager\\Console\\Module\\Help\\IumioManagerHelp",
           "desc"  : "Remove environement cache"
       }
     }

@@ -16,32 +16,35 @@ class IumioManagerOutput
 
     /** display Success Message
      * @param string $message Message to display
+     * @param string $exit Exit script
      */
-    final static public function displayAsSuccess(string $message)
+    final static public function displayAsSuccess(string $message, string $exit = "yes")
     {
         $colors = self::getManagerColorInstance();
         echo $colors->getColoredString($message, "black", "green") . "\n";
-        exit();
+        if ($exit == "yes") exit();
     }
 
     /** display Notice Message
      * @param string $message Message to display
+     * @param string $exit Exit script
      */
-    final static public function displayAsNotice(string $message)
+    final static public function displayAsNotice(string $message, string $exit = "yes")
     {
         $colors = self::getManagerColorInstance();
         echo $colors->getColoredString($message, "black", "yellow") . "\n";
-        exit();
+        if ($exit == "yes") exit();
     }
 
     /** display Error Message
      * @param string $message Message to display
+     * @param string $exit Exit script
      */
-    final static public function displayAsError(string $message)
+    final static public function displayAsError(string $message, string $exit = "yes")
     {
         $colors = self::getManagerColorInstance();
         echo $colors->getColoredString($message, "red", "black") . "\n";
-        exit();
+        if ($exit == "yes") exit();
     }
 
     /** Get OColor instance
