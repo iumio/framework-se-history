@@ -22,6 +22,7 @@ interface IumioManagerModule
 
     /**
      * IumioManagerModule constructor.
+     * @param array $options Method parameters
      */
-    public function __construct();
+    public function __construct(array $options = array());
 }

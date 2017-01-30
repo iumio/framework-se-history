@@ -61,7 +61,7 @@ class IumioReflexion
             if (empty($args))
                 $class->newInstanceArgs();
             else
-                $class->newInstanceArgs($args);
+                $class->newInstanceArgs(array($args));
         }
         catch (\Exception $ex)
         {

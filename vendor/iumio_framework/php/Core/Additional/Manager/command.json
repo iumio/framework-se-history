@@ -2,13 +2,17 @@
     "name": "IumioCommand",
     "version": "0.0.1",
     "commands": {
-      "--help": {
+      "help": {
           "class" : "\\IumioFramework\\Manager\\Console\\Module\\Help\\IumioManagerHelp",
-          "desc"  : "Get information about a command"
+          "desc"  : "Get informations about a command"
       },
-      "app-cache-delete": {
-          "class" : "\\IumioFramework\\Manager\\Console\\Module\\Help\\IumioManagerHelp",
-          "desc"  : "Remove environement cache"
+      "cache-delete": {
+          "class" : "\\IumioFramework\\Manager\\Console\\Module\\Cache\\CacheManager",
+          "desc"  : "Remove environement cache from directory cache \n \t --env: Environment name (DEV, PROD, PREPROD, ALL)"
+      },
+      "assets-manager": {
+        "class" : "\\IumioFramework\\Manager\\Console\\Module\\Assets\\AssetsManager",
+        "desc"  : "Manage project assets \n \t --move : Move project to an other location  \n \t --symlink (must with --move option) Symbolic link will be created \n \t --clear : clear all web assets \n \t --env: Environment name (DEV, PROD, PREPROD, ALL)"
       }
     }
 }

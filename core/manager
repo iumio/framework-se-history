@@ -30,8 +30,15 @@ class manager
     {
         Debug::enabled();
         $man = new CoreManager();
+        $this->define();
         $man->run($argc, $argv);
 
+    }
+
+    final private function define()
+    {
+        \define('ROOT', __DIR__, true);
+        \define('ROOT_CACHE', __DIR__.'/cache', true);
     }
 }
 
