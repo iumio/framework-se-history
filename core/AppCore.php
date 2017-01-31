@@ -29,7 +29,7 @@ class AppCore extends IumioUltimaCore
     public function registerApps()
     {
         $apps = array(
-            "DefaultApp" => array("hasdefault" => new \DefaultApp\DefaultApp())
+            "Default2App" => array("hasdefault" => new \Default2App\Default2App())
         );
         return $apps;
     }

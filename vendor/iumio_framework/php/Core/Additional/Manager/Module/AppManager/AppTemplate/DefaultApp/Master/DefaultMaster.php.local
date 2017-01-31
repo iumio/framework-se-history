@@ -1,0 +1,38 @@
+?php
+
+namespace {appname}\Master;
+
+use IumioFramework\Masters\IumioUltimaMaster;
+
+/**
+ * Class DefaultMaster
+ * @package {appname}\Master
+ */
+
+class DefaultMaster extends IumioUltimaMaster
+{
+
+    /**
+     * DefaultMaster constructor.
+     */
+    public function __construct()
+    {
+        $this->mastering($this);
+    }
+
+    /**
+     * Go to index page
+     */
+    public function indexGo(string $hi)
+    {
+        return ($this->render("index", array("sent" => "Voici votre premier site :".$hi)));
+    }
+
+    /** show hello
+     */
+    public function show_helloGo()
+    {
+        $this->changeRenderExtention(".ium");
+        return ($this->render("index2"));
+    }
+}

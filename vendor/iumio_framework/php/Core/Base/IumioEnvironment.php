@@ -30,6 +30,7 @@ class IumioEnvironment
         define('CACHE_PROD', strstr($_SERVER['DOCUMENT_ROOT'], 'web', true)."core/cache/prod/");
         define('CACHE_PREPROD', strstr($_SERVER['DOCUMENT_ROOT'], 'web', true)."core/cache/preprod/");
         define('THEME', strstr($_SERVER['DOCUMENT_ROOT'], 'web', true)."vendor/iumio_framework/theme/");
+        define('WEB_ASSETS', "//".$_SERVER['HTTP_HOST']."/components/apps/");
         define('ROOT_APPS', strstr($_SERVER['DOCUMENT_ROOT'], 'web', true)."apps/");
 
         return (1);
@@ -46,4 +47,5 @@ class IumioEnvironment
 
         return (1);
     }
+
 }

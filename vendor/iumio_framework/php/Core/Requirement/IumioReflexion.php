@@ -23,15 +23,13 @@ class IumioReflexion
     {
         try
         {
-            // echo $class."\n";
-            // exit();
             $reflection = new \ReflectionMethod($class, $method);
         }
         catch (\Exception $ex)
         {
+            print_r($ex->getMessage());
             throw new \Exception("Iumio Reflexion Method Error : ".$ex->getMessage());
         }
-
         $pass = array();
         foreach($reflection->getParameters() as $param)
             $pass[] = $args[$param->getName()] ?? $param->getDefaultValue();

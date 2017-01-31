@@ -23,7 +23,7 @@ final class IumioMustache
 {
     private static $instance = NULL;
     private static $appCall = NULL;
-    public static $viewExtention = ".html.iumio";
+    public static $viewExtention = ".html";
 
     /**
      * IumioMustache constructor.
@@ -50,7 +50,7 @@ final class IumioMustache
                 'cache_file_mode' => 0666, // Please, configure your umask instead of doing this :)
                 'cache_lambda_templates' => true,
                 'loader' => new \Mustache_Loader_FilesystemLoader(ROOT_APPS.self::$appCall.'/Front/views', $options),
-                'partials_loader' => new \Mustache_Loader_FilesystemLoader(ROOT_APPS.self::$appCall.'/Front/views/partials'),
+                'partials_loader' => new \Mustache_Loader_FilesystemLoader(ROOT_APPS.self::$appCall.'/Front/views/partials', $options),
                 'helpers' => array('i18n' => function($text) {
                     // do something translatey here...
                 }),

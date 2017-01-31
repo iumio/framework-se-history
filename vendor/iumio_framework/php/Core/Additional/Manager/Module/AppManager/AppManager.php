@@ -1,17 +1,17 @@
 <?php
 
-namespace IumioFramework\Manager\Console\Module\Assets;
+namespace IumioFramework\Manager\Console\Module\App;
 use IumioFramework\Core\Additionnal\Server\IumioServerManager as Server;
 use IumioFramework\Manager\Console\Module\IumioManagerModule as ModuleInterface;
 use IumioFramework\Core\Additionnal\Console\Manager\Display\IumioManagerOutput as Output;
 
 /**
- * Class AssetsManager
- * @package IumioFramework\Manager\Console\Module\Assets
+ * Class AppManager
+ * @package IumioFramework\Manager\Console\Module\App
  * @author RAFINA Dany <danyrafina@gmail.com>
  */
 
-class AssetsManager implements ModuleInterface
+class AppManager implements ModuleInterface
 {
     protected $options;
 

@@ -5,7 +5,6 @@ namespace IumioFramework\Masters;
 use IumioFramework\Core\Http\ParameterRequest;
 use IumioFramework\Core\Additionnal\Template\IumioMustache;
 
-
 /**
  * Class IumioUltimaMaster
  * This is the parent master for all subclass
@@ -51,13 +50,14 @@ class IumioUltimaMaster
      * @param array $options options to view
      * @throws \Exception Generate Exception
      */
-    final protected function render(string $view, array $options)
+    final protected function render(string $view, array $options = array())
     {
         $this->appMastering = APP_CALL;
         $m = IumioMustache::getMustacheInstance($this->appMastering);
         try
         {
             $tpl = $m->loadTemplate($view.IumioMustache::$viewExtention);
+            $options['webassets'] = function ($assets) { return (WEB_ASSETS.strtolower(APP_CALL)."/".$assets);};
             echo $tpl->render($options);
             exit();
         }
