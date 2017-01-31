@@ -1,13 +1,12 @@
 <?php
 
-namespace Default2App\Master;
+namespace TestApp\Master;
 
 use IumioFramework\Masters\IumioUltimaMaster;
 
 /**
  * Class DefaultMaster
- * @package Default2App\Master
- * @author RAFINA Dany <danyrafina@gmail.com>
+ * @package TestApp\Master
  */
 
 class DefaultMaster extends IumioUltimaMaster

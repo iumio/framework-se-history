@@ -1,15 +1,15 @@
 <?php
 
-namespace helloApp;
+namespace TestApp;
 
 use IumioFramework\Core\Requirement\IumioAppModel as App;
 
 /**
- * Class helloApp
- * @package helloApp
+ * Class TestApp
+ * @package TestApp
  */
 
-class helloApp extends App
+class TestApp extends App
 {
     /*** REGISTER TO APP ***/
 

@@ -28,6 +28,8 @@ class Server404 extends \Exception implements Server
         $it = $component->getIterator();
         foreach ($it as $one => $value)
         {
+            if ($it->key() == "code")
+                $this->code = $value;
             if ($it->key() == "codeTitle")
                 $this->codeTitle = $value;
             else if ($it->key() == "explain")

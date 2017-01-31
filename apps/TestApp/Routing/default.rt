@@ -1,4 +1,4 @@
-routingRegister : helloApp
+routingRegister : TestApp
 
 name : default_start
 path : /hello

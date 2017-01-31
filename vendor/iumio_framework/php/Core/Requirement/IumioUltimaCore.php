@@ -126,10 +126,7 @@ abstract class IumioUltimaCore
     protected function detectDefaultApp(array $apps):array
     {
         foreach ($apps as $oneapp => $val)
-        {
-            if (isset($val['hasdefault']))
-                return (array("name" => $oneapp, "value" => $val));
-        }
+            if ($val['isdefault'] == "yes") return (array("name" => $oneapp, "value" => $val));
 
         throw new \Exception("No Default app is detected");
     }
@@ -227,6 +224,15 @@ abstract class IumioUltimaCore
         else
             throw new \Exception("L'enregistrement du routeur a échoué");
         return (1);
+    }
+
+    /** Return app declaration file
+     * @return \stdClass File result
+     */
+    final protected function getClassFile():\stdClass
+    {
+        $a = json_decode(file_get_contents(CORE.'apps.json'));
+        return ($a == NULL ? new \stdClass() : $a);
     }
 
 

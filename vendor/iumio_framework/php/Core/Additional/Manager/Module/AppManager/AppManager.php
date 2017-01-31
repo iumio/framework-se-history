@@ -20,7 +20,7 @@ class AppManager implements ModuleInterface
         "\nYeah! Would you like to set this app as default ? (yes/no)",
         "This informations are correct ?"
     );
-    protected $params = array("appname" => "", "template" => "", "hasdefault" => "", "correct" => "");
+    protected $params = array("appname" => "", "template" => "", "isdefault" => "", "correct" => "");
 
     public function __render()
     {
@@ -31,8 +31,8 @@ class AppManager implements ModuleInterface
             $opt = $this->options[2] ?? null;
             if ($opt == "new-project")
                 $this->stepNewProject();
-            elseif ($opt == "--copy")
-                $this->copyAssets($this->options);
+            // elseif ($opt == "delete-project")
+              //  $this->stepDeleteProject($this->options);
             else
                 Output::outputAsError("App Manager Error \n \t This command doesn't exist. Referer to help comannd");
         }
@@ -86,7 +86,7 @@ class AppManager implements ModuleInterface
         Output::outputAsSuccess("Welcome to Iumio app manager. I'm assist you to create your new app. Many question will ask you so are you ready ?\n\n", "none");
         Output::outputAsSuccess($this->stage[0], "none");
 
-       $this->params['appname'] = $this->listener();
+       $this->params['appname'] = ucfirst($this->listener());
 
         $e = false;
             while ($e == false)
@@ -105,7 +105,7 @@ class AppManager implements ModuleInterface
                 }
 
                 Output::outputAsSuccess($this->stage[0], "none");
-                $this->params['appname'] = $this->listener();
+                $this->params['appname'] = ucfirst($this->listener());
             }
             Output::outputAsSuccess("Great! Your app name is ".$this->params['appname']."\n", "none");
             Output::outputAsSuccess($this->stage[1], "none");
@@ -117,12 +117,12 @@ class AppManager implements ModuleInterface
             $this->params['template'] = $this->listener();
         }
         Output::outputAsSuccess($this->stage[2], "none");
-        $this->params['hasdefault'] = $this->listener();
-        while ($this->checkBooleanResponse($this->params['hasdefault']) != 1)
+        $this->params['isdefault'] = $this->listener();
+        while ($this->checkBooleanResponse($this->params['isdefault']) != 1)
         {
             Output::outputAsError("Invalid response. Please Retry (yes/no).\n", "none");
             Output::outputAsSuccess($this->stage[2], "none");
-            $this->params['hasdefault'] = $this->listener();
+            $this->params['isdefault'] = $this->listener();
         }
 
         $this->showRecap();
@@ -147,7 +147,7 @@ class AppManager implements ModuleInterface
         Output::outputAsSuccess("\n This is a recap of your app : \n", "none");
         Output::outputAsSuccess("\t - App name: ".$this->params['appname']." \n", "none");
         Output::outputAsSuccess("\t - Use default template : ".$this->params['template']." \n", "none");
-        Output::outputAsSuccess("\t - As default app : ".$this->params['hasdefault']." \n", "none");
+        Output::outputAsSuccess("\t - As default app : ".$this->params['isdefault']." \n", "none");
     }
 
     /**
@@ -183,7 +183,25 @@ class AppManager implements ModuleInterface
         rename($napp."/Master/DefaultMaster.php.local", $napp."/Master/DefaultMaster.php");
 
         // REGISTER TO APP CORE
-
+        $f = json_decode(file_get_contents(ROOT_PROJECT."/core/apps.json"));
+        $lastapp = count($f);
+        if ($this->params['isdefault'] == "yes")
+        {
+            foreach ($f as $one => $val)
+            {
+                if ($val->isdefault == "yes")
+                {
+                    $val->isdefault = "no";
+                    break;
+                }
+            }
+        }
+        $f->$lastapp->name = $this->params['appname'];
+        $f->$lastapp->isdefault = $this->params['isdefault'];
+        $f->$lastapp->class = "\\".$this->params['appname']."\\".$this->params['appname'];
+        $f = json_encode($f);
+        file_put_contents(ROOT_PROJECT."/core/apps.json", $f);
+        Output::outputAsSuccess("\n Your app is ready to use. To test your app go to project location on your browser with parameter /hello. Enjoy ! \n", "none");
     }
     /**
      * @param array $options

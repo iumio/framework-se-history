@@ -41,7 +41,7 @@ class CacheManager implements ModuleInterface
      */
     private function deleteCache(string $env, string $isdefault = null)
     {
-        Output::displayAsSuccess("Hey, I delete cache from $env environment ".($isdefault == null)? 'as default' : '', "none");
+        Output::displayAsSuccess("Hey, I delete cache from $env environment ".(($isdefault == null)? 'as default' : ''), "none");
         Output::displayAsSuccess("......................", "none");
         $this->callDelCreaServer($env);
         Output::displayAsSuccess("Cache delete for $env environment is successfull.");
