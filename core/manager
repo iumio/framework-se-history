@@ -35,9 +35,13 @@ class manager
 
     }
 
+    /**
+     * Define environment variable for all iumio manager components
+     */
     final private function define()
     {
         \define('ROOT', __DIR__, true);
+        \define('ROOT_PROJECT', __DIR__.'/..', true);
         \define('ROOT_CACHE', __DIR__.'/cache', true);
     }
 }

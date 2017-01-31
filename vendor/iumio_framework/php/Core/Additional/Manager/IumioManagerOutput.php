@@ -43,7 +43,7 @@ class IumioManagerOutput
     final static public function displayAsError(string $message, string $exit = "yes")
     {
         $colors = self::getManagerColorInstance();
-        echo $colors->getColoredString($message, "red", "black") . "\n";
+        echo $colors->getColoredString($message, "white", "red") . "\n";
         if ($exit == "yes") exit();
     }
 
