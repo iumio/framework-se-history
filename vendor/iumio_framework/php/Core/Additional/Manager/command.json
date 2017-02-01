@@ -1,6 +1,6 @@
 {
     "name": "IumioCommand",
-    "version": "0.0.1",
+    "version": "0.0.4",
     "commands": {
       "help": {
           "class" : "\\IumioFramework\\Manager\\Console\\Module\\Help\\IumioManagerHelp",
@@ -16,7 +16,8 @@
       },
       "app-manager": {
         "class" : "\\IumioFramework\\Manager\\Console\\Module\\App\\AppManager",
-        "desc"  : "Manage project assets \n \t --copy : Copy project assets to web directory  \n \t --symlink (must with --copy option) Symbolic link will be created \n \t --clear : clear all web assets \n \t --appname : App name 'Example --appname=DefaultApp' (must be use with --copy or --clear option\n"
+        "desc"  : "Manage project \n \t new-project : Create project  \n \t switch-project : Change the defauult project \n \t delete-project : Remove a project \n"
       }
+
     }
 }

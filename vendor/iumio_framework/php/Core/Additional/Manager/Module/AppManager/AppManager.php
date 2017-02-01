@@ -3,7 +3,7 @@
 namespace IumioFramework\Manager\Console\Module\App;
 use IumioFramework\Core\Additionnal\Server\IumioServerManager as Server;
 use IumioFramework\Manager\Console\Module\IumioManagerModule as ModuleInterface;
-use IumioFramework\Core\Additionnal\Console\Manager\Display\IumioManagerOutput as Output;
+use IumioFramework\Manager\Console\Module\App\AppManagerOutput as Output;
 
 /**
  * Class AppManager
@@ -14,59 +14,177 @@ use IumioFramework\Core\Additionnal\Console\Manager\Display\IumioManagerOutput a
 class AppManager implements ModuleInterface
 {
     protected $options;
+    protected $stage = array(
+        "App name (like DefaultApp --> end with App): ",
+        "Iumio purpose you a default template with your app. Would you like to have one ? (yes/no): ",
+        "\nYeah! Would you like to set this app as default ? (yes/no)",
+        "This informations are correct ?"
+    );
+    protected $params = array("appname" => "", "template" => "", "hasdefault" => "", "correct" => "");
 
     public function __render()
     {
         if (empty($this->options))
-            Output::displayAsError("Assets Manager Error \n \t You must to have an option. Referer to help comannd.");
+            Output::outputAsError("App Manager Error \n \t You must to have an option. Referer to help comannd.");
         else
         {
             $opt = $this->options[2] ?? null;
-            if ($opt == "--clear")
-                $this->clearAssets($this->options);
+            if ($opt == "new-project")
+                $this->stepNewProject();
             elseif ($opt == "--copy")
                 $this->copyAssets($this->options);
-            elseif ($opt == "--env=prod" || $opt == "--env=PROD")
-                $this->deleteCache("prod", "yes");
-            elseif ($opt == "--env=all" || $opt == "--env=ALL")
-                $this->deleteAllCache();
             else
-                Output::displayAsError("Assets Manager Error \n \t This command doesn't exist. Referer to help comannd");
+                Output::outputAsError("App Manager Error \n \t This command doesn't exist. Referer to help comannd");
         }
+    }
+
+    /** Check app name format
+     * @param string $appname App name
+     * @return int Is valid app name
+     */
+    final protected function checkAppName(string $appname):int
+    {
+        if ($appname == "App") return (-1);
+        if (strpos($appname, "App") == false) return (-1);
+        return (1);
+    }
+
+    /** Check boolean response
+     * @param string $res response
+     * @return int Is valid boolean response
+     */
+    final protected function checkBooleanResponse(string $res):int
+    {
+        if ($res == "yes" || $res == "no") return (1);
+        return (-1);
+    }
+
+    /** Check if app name exist
+     * @param string $appname App name
+     * @return bool If app exist
+     */
+    final protected function checkAppExist(string $appname):bool
+    {
+        if (file_exists(ROOT_PROJECT."/apps/".$appname)) return (true);
+        return (false);
+    }
+
+    /** Listen the STDIN
+     * @return string STDIN value
+     */
+    final protected function listener():string
+    {
+        while ($resp = rtrim(fgets(STDIN))) return $resp;
+        return ('');
     }
 
     /**
-     * @param array $options
+     *
      */
-    private function clearAssets(array $options)
+    final protected function stepNewProject()
     {
-        $appname = NULL;
-        if ((isset($options[3]) && (strpos($options[3], "--appname=") !== false && $ch = $options[3])))
+        Output::outputAsSuccess("Welcome to Iumio app manager. I'm assist you to create your new app. Many question will ask you so are you ready ?\n\n", "none");
+        Output::outputAsSuccess($this->stage[0], "none");
+
+       $this->params['appname'] = $this->listener();
+
+        $e = false;
+            while ($e == false)
+            {
+                if ($this->checkAppName($this->params['appname']) != 1)
+                    Output::outputAsError("Your app name is invalid. Please Retry.\n", "none");
+                else if ($this->checkAppExist($this->params['appname']) == true)
+                {
+                    $e = false;
+                    Output::outputAsError("This app name is already exist, Please enter an other app name.\n", "none");
+                }
+                else
+                {
+                    $e = true;
+                    continue;
+                }
+
+                Output::outputAsSuccess($this->stage[0], "none");
+                $this->params['appname'] = $this->listener();
+            }
+            Output::outputAsSuccess("Great! Your app name is ".$this->params['appname']."\n", "none");
+            Output::outputAsSuccess($this->stage[1], "none");
+            $this->params['template'] = $this->listener();
+        while ($this->checkBooleanResponse($this->params['template']) != 1)
         {
-            $e = explode("=", $ch);
-            $appname = $e[1];
-            if (strpos($appname, "App") == false)
-                Output::displayAsError("Assets Manager Error : App name is invalid");
-
+            Output::outputAsError("Invalid response. Please Retry (yes/no).\n", "none");
+            Output::outputAsSuccess($this->stage[1], "none");
+            $this->params['template'] = $this->listener();
         }
-        if (!is_dir(ROOT_PROJECT."/web/components/apps/".strtolower($appname)))
-            Output::displayAsNotice("Assets Manager Notice: App $appname is not register on web assets.");
-
-        if ($appname != NULL)
+        Output::outputAsSuccess($this->stage[2], "none");
+        $this->params['hasdefault'] = $this->listener();
+        while ($this->checkBooleanResponse($this->params['hasdefault']) != 1)
         {
-            Output::displayAsSuccess("Hey, I clear web assets for $appname", "none");
-            Output::displayAsSuccess("......................", "none");
-            $this->callDelCreaServer($appname);
-            Output::displayAsSuccess("Task to clear $appname web assets is successfull.");
+            Output::outputAsError("Invalid response. Please Retry (yes/no).\n", "none");
+            Output::outputAsSuccess($this->stage[2], "none");
+            $this->params['hasdefault'] = $this->listener();
         }
 
-        Output::displayAsSuccess("Hey, I clear assets on web directory", "none");
-        Output::displayAsSuccess("......................", "none");
-        $this->callDelCreaServer('#none');
-        Output::displayAsSuccess("Task to clear all assets is successfull.");
+        $this->showRecap();
+        Output::outputAsSuccess($this->stage[3], "none");
+        $this->params['correct'] = $this->listener();
+        while ($this->checkBooleanResponse($this->params['correct']) != 1)
+        {
+            Output::outputAsError("Invalid response. Please Retry (yes/no).\n", "none");
+            Output::outputAsSuccess($this->stage[3], "none");
+            $this->params['correct'] = $this->listener();
+        }
+        if ($this->params['correct'] == "no")
+            Output::outputAsError("Creation Aborted. Please re-run app-manager and enter the correct informations.\n");
+        $this->createAppProcess();
     }
 
+    /**
+     * Show recap
+     */
+    final protected function showRecap()
+    {
+        Output::outputAsSuccess("\n This is a recap of your app : \n", "none");
+        Output::outputAsSuccess("\t - App name: ".$this->params['appname']." \n", "none");
+        Output::outputAsSuccess("\t - Use default template : ".$this->params['template']." \n", "none");
+        Output::outputAsSuccess("\t - As default app : ".$this->params['hasdefault']." \n", "none");
+    }
 
+    /**
+     * Processing to create app
+     */
+    final protected function createAppProcess()
+    {
+        $appname = $this->params['appname'];
+        Output::outputAsSuccess("Processing to create app : $appname \n", "none");
+        Output::outputAsSuccess("........................................", "none");
+        sleep(1);
+        $temp = $this->params['template'];
+        $temdirbase = __DIR__."/AppTemplate";
+        $tempdir = ($temp == "no")? $temdirbase.'/notemplate/{appname}/' : $temdirbase.'/template/{appname}/';
+        Server::copy($tempdir, ROOT_PROJECT."/apps/".$appname, 'directory');
+        $napp = ROOT_PROJECT."/apps/".$appname;
+
+        // APP
+        $f = file_get_contents($napp."/{appname}.php.local");
+        $str = str_replace("{appname}", $appname, $f);
+        file_put_contents($napp."/{appname}.php.local", $str);
+        rename($napp."/{appname}.php.local", $napp."/$appname.php");
+
+        // RT
+        $f = file_get_contents($napp."/Routing/default.rt");
+        $str = str_replace("{appname}", $appname, $f);
+        file_put_contents($napp."/Routing/default.rt", $str);
+
+        // MASTER
+        $f = file_get_contents($napp."/Master/DefaultMaster.php.local");
+        $str = str_replace("{appname}", $appname, $f);
+        file_put_contents($napp."/Master/DefaultMaster.php.local", $str);
+        rename($napp."/Master/DefaultMaster.php.local", $napp."/Master/DefaultMaster.php");
+
+        // REGISTER TO APP CORE
+
+    }
     /**
      * @param array $options
      */

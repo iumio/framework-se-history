@@ -1,12 +1,12 @@
-?php
+<?php
 
-namespace {appname}\Master;
+namespace helloApp\Master;
 
 use IumioFramework\Masters\IumioUltimaMaster;
 
 /**
  * Class DefaultMaster
- * @package {appname}\Master
+ * @package helloApp\Master
  */
 
 class DefaultMaster extends IumioUltimaMaster
@@ -22,17 +22,17 @@ class DefaultMaster extends IumioUltimaMaster
 
     /**
      * Go to index page
+     * @param string $hi Element to show
      */
     public function indexGo(string $hi)
     {
-        return ($this->render("index", array("sent" => "Voici votre premier site :".$hi)));
+        return ($this->render("index2", array("sent" => $hi)));
     }
 
     /** show hello
      */
     public function show_helloGo()
     {
-        $this->changeRenderExtention(".ium");
-        return ($this->render("index2"));
+        return ($this->render("index"));
     }
 }

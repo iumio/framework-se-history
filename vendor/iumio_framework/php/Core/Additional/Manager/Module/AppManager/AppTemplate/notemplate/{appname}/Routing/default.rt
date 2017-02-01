@@ -1,0 +1,5 @@
+routingRegister : {appname}
+
+name : default_index
+path : /indexs
+method : Default%index
