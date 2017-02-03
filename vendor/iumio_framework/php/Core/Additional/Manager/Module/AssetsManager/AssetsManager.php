@@ -46,11 +46,15 @@ class AssetsManager implements ModuleInterface
             $e = explode("=", $ch);
             $appname = $e[1];
             if (strpos($appname, "App") == false)
-                Output::displayAsError("Assets Manager Error : App name is invalid");
+            {
+                if (!in_array("--quiet", $options)) Output::displayAsError("Assets Manager Error : App name is invalid");
+            }
 
         }
         if (!is_dir(ROOT_PROJECT."/web/components/apps/".strtolower($appname)))
-            Output::displayAsNotice("Assets Manager Notice: App $appname is not register on web assets.");
+        {
+            if (!in_array("--quiet", $options)) Output::displayAsNotice("Assets Manager Notice: App $appname is not register on web assets.");
+        }
 
         if ($appname != NULL)
         {
@@ -63,7 +67,10 @@ class AssetsManager implements ModuleInterface
         Output::displayAsSuccess("Hey, I clear assets on web directory", "none");
         Output::displayAsSuccess("......................", "none");
         $this->callDelCreaServer('#none');
-        Output::displayAsSuccess("Task to clear all assets is successfull.");
+        if (isset($options[4]) && $options[4] == "--noexit")
+            Output::displayAsSuccess("Task to clear all assets is successfull.", "none");
+        else
+            Output::displayAsSuccess("Task to clear all assets is successfull.");
     }
 
 
@@ -94,7 +101,10 @@ class AssetsManager implements ModuleInterface
         Output::displayAsSuccess("Hey, I copy ".(($appname != '#none')? 'your assets for '.$appname : 'all assets projects')." on web directory".(($symlink == true)? ' with symlink option' : ''), "none");
         Output::displayAsSuccess(".............................................", "none");
         $this->copy($symlink, $appname);
-        Output::displayAsSuccess("Task to copy assets ".(($appname == '#none')? '' : 'for '.$appname)." is successfull.");
+        if (isset($options[5]) && $options[5] == "--noexit")
+            Output::displayAsSuccess("Task to copy assets ".(($appname == '#none')? '' : 'for '.$appname)." is successfull.", "none");
+        else
+            Output::displayAsSuccess("Task to copy assets ".(($appname == '#none')? '' : 'for '.$appname)." is successfull.");
     }
 
     /** Call Server delete and create function

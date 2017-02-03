@@ -16,7 +16,7 @@
       },
       "app-manager": {
         "class" : "\\IumioFramework\\Manager\\Console\\Module\\App\\AppManager",
-        "desc"  : "Manage project \n \t new-project : Create project  \n \t switch-project : Change the defauult project \n \t delete-project : Remove a project \n"
+        "desc"  : "Manage project \n \t new-project : Create project  \n \t switch-project : Change the default project \n \t remove-project : Remove a project \n"
       }
 
     }

@@ -1,1 +1,1 @@
-{"0":{"name":"TestApp","isdefault":"yes","class":"\\TestApp\\TestApp"}}
+{"0":{"name":"HelloApp","isdefault":"no","class":"\\HelloApp\\HelloApp"},"1":{"name":"TestApp","isdefault":"yes","class":"\\TestApp\\TestApp"},"2":{"name":"MamoApp","isdefault":"no","class":"\\MamoApp\\MamoApp"}}

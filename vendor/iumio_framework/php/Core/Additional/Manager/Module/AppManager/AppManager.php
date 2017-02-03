@@ -2,8 +2,10 @@
 
 namespace IumioFramework\Manager\Console\Module\App;
 use IumioFramework\Core\Additionnal\Server\IumioServerManager as Server;
+use IumioFramework\Core\Additionnal\Server\IumioServerManager;
 use IumioFramework\Manager\Console\Module\IumioManagerModule as ModuleInterface;
 use IumioFramework\Manager\Console\Module\App\AppManagerOutput as Output;
+use IumioFramework\Manager\Console\Module\Assets\AssetsManager as AM;
 
 /**
  * Class AppManager
@@ -18,9 +20,13 @@ class AppManager implements ModuleInterface
         "App name (like DefaultApp --> end with App): ",
         "Iumio purpose you a default template with your app. Would you like to have one ? (yes/no): ",
         "\nYeah! Would you like to set this app as default ? (yes/no)",
-        "This informations are correct ?"
+        "This informations are correct ?",
+        "Delete your app means all file and directory in your app directory will be deleted. Are you sure to confirm this action ?",
+        "Ok. I process to deleting your app",
+        "Delete action is aborted ",
+        "This is app list which registered to app declarator. To select one, please enter the app number"
     );
-    protected $params = array("appname" => "", "template" => "", "isdefault" => "", "correct" => "");
+    protected $params = array("appname" => "", "template" => "", "isdefault" => "", "correct" => "", "applist" => array(), "capp" => "");
 
     public function __render()
     {
@@ -31,8 +37,10 @@ class AppManager implements ModuleInterface
             $opt = $this->options[2] ?? null;
             if ($opt == "new-project")
                 $this->stepNewProject();
-            // elseif ($opt == "delete-project")
-              //  $this->stepDeleteProject($this->options);
+            elseif ($opt == "remove-project")
+              $this->stepRemoveProject($this->options);
+            elseif ($opt == "switch-project")
+                $this->stepSwitchProject($this->options);
             else
                 Output::outputAsError("App Manager Error \n \t This command doesn't exist. Referer to help comannd");
         }
@@ -78,12 +86,13 @@ class AppManager implements ModuleInterface
         return ('');
     }
 
+
     /**
      *
      */
     final protected function stepNewProject()
     {
-        Output::outputAsSuccess("Welcome to Iumio app manager. I'm assist you to create your new app. Many question will ask you so are you ready ?\n\n", "none");
+        Output::outputAsSuccess("Welcome on Iumio app manager. I'm assist you to create your new app. Many question will ask you so are you ready ?\n\n", "none");
         Output::outputAsSuccess($this->stage[0], "none");
 
        $this->params['appname'] = ucfirst($this->listener());
@@ -140,6 +149,87 @@ class AppManager implements ModuleInterface
     }
 
     /**
+     *
+     */
+    final protected function stepRemoveProject()
+    {
+        Output::outputAsSuccess("Welcome on Iumio app manager. I'm assist you to remove your app. Many question will ask you so are you ready ?\n\n", "none");
+        Output::outputAsSuccess($this->stage[0], "none");
+
+        $this->params['appname'] = ucfirst($this->listener());
+
+        $e = false;
+        while ($e == false)
+        {
+            if ($this->checkAppName($this->params['appname']) != 1)
+                Output::outputAsError("Your app name is invalid. Please Retry.\n", "none");
+            else if ($this->checkAppExist($this->params['appname']) == false && $this->checkAppRegister($this->params['appname']) == false)
+            {
+                $e = false;
+                Output::outputAsError("This app is not exist, Please enter an existed app name .\n", "none");
+            }
+            else
+            {
+                $e = true;
+                continue;
+            }
+
+            Output::outputAsSuccess($this->stage[0], "none");
+            $this->params['appname'] = ucfirst($this->listener());
+        }
+
+        if ($this->checkAppExist($this->params['appname']) == true && $this->checkAppRegister($this->params['appname']) == false)
+            Output::outputAsSuccess("Ok ! Your app is ".$this->params['appname'].". It exist on apps directory but it's not declared in app declarator\n", "none");
+        else if ($this->checkAppExist($this->params['appname']) == false && $this->checkAppRegister($this->params['appname']) == true)
+            Output::outputAsSuccess("Ok ! Your app is ".$this->params['appname'].". It's declared in app declarator but not exist in apps directory\n", "none");
+        else
+            Output::outputAsSuccess("Ok ! Your app is ".$this->params['appname'].". It's declared in app declarator and exist in apps directory\n", "none");
+        Output::outputAsNotice($this->stage[4], "none");
+        $conf = $this->listener();
+        while ($this->checkBooleanResponse($conf) != 1)
+        {
+            Output::outputAsError("Invalid response. Please Retry (yes/no).\n", "none");
+            Output::outputAsSuccess($this->stage[4], "none");
+            $conf = $this->listener();
+        }
+        if ($conf == "no") Output::outputAsError($this->stage[6]."\n");
+        $this->removeAppProcess();
+    }
+
+    /**
+     *
+     */
+    final protected function stepSwitchProject()
+    {
+        Output::outputAsSuccess("Welcome on Iumio app manager. I'm assist you to change your default app. Many question will ask you so are you ready ?\n\n", "none");
+        Output::outputAsSuccess($this->stage[7]."\n", "none");
+        $this->showAppsRegister();
+
+        $this->params['capp'] = $this->listener();
+
+        while (!isset($this->params['applist'][$this->params['capp']]))
+        {
+            Output::outputAsError("Your choose is incorrect. Please Retry.\n", "none");
+            Output::outputAsSuccess($this->stage[7]."\n", "none");
+            $this->params['capp'] = $this->listener();
+        }
+        $this->params['capp'] = $this->params['applist'][$this->params['capp']];
+
+        Output::outputAsSuccess("Ok ! You choose ".$this->params['capp']." to be default app. Processing...\n", "none");
+
+        $f = json_decode(file_get_contents(ROOT_PROJECT."/core/apps.json"));
+            foreach ($f as $one => $val)
+            {
+                if ($val->isdefault == "yes") $val->isdefault = "no";
+                if ($val->name == $this->params['capp']) $val->isdefault = "yes";
+            }
+
+        $f = json_encode($f);
+        file_put_contents(ROOT_PROJECT."/core/apps.json", $f);
+        Output::outputAsSuccess("Great ! Your app << ".$this->params['capp']." >> to be the default app.\n", "none");
+    }
+
+    /**
      * Show recap
      */
     final protected function showRecap()
@@ -150,6 +240,38 @@ class AppManager implements ModuleInterface
         Output::outputAsSuccess("\t - As default app : ".$this->params['isdefault']." \n", "none");
     }
 
+    /** Check if app is registered to apps.json
+     * @param string $appname App name
+     * @return bool If exist or not
+     */
+    final protected function checkAppRegister(string $appname):bool
+    {
+        $f = json_decode(file_get_contents(ROOT_PROJECT."/core/apps.json"));
+        foreach ($f as $one => $val)
+        {
+            if ($val->name == $appname) return (true);
+        }
+        return (false);
+    }
+
+
+    /** Show all app in apps.json
+     */
+    final protected function showAppsRegister()
+    {
+        $f = json_decode(file_get_contents(ROOT_PROJECT."/core/apps.json"));
+        $i = 1;
+        if (count($f) == 0)
+            Output::outputAsError("Oups! You have not app registered. Please create an app with app-manager\n");
+        foreach ($f as $one => $val)
+        {
+           Output::outputAsNotice($i.") ".$val->name.(($val->isdefault == "yes")? " : Is default" : "")."\n", "none");
+            array_push($this->params['applist'], $val->name);
+            $i++;
+        }
+        return (false);
+    }
+
     /**
      * Processing to create app
      */
@@ -157,7 +279,7 @@ class AppManager implements ModuleInterface
     {
         $appname = $this->params['appname'];
         Output::outputAsSuccess("Processing to create app : $appname \n", "none");
-        Output::outputAsSuccess("........................................", "none");
+        Output::outputAsSuccess("........................................\n", "none");
         sleep(1);
         $temp = $this->params['template'];
         $temdirbase = __DIR__."/AppTemplate";
@@ -184,93 +306,60 @@ class AppManager implements ModuleInterface
 
         // REGISTER TO APP CORE
         $f = json_decode(file_get_contents(ROOT_PROJECT."/core/apps.json"));
-        $lastapp = count($f);
+        $lastapp = 0;
+        foreach ($f as $one => $val) $lastapp++;
         if ($this->params['isdefault'] == "yes")
         {
             foreach ($f as $one => $val)
             {
-                if ($val->isdefault == "yes")
-                {
+                if ($val->isdefault == "yes") {
                     $val->isdefault = "no";
                     break;
                 }
             }
         }
+
         $f->$lastapp->name = $this->params['appname'];
         $f->$lastapp->isdefault = $this->params['isdefault'];
         $f->$lastapp->class = "\\".$this->params['appname']."\\".$this->params['appname'];
         $f = json_encode($f);
         file_put_contents(ROOT_PROJECT."/core/apps.json", $f);
+        new AM(array("core/manager", "assets-manager", "--copy", "--appname=". $this->params['appname'], "--symlink", "--noexit"));
         Output::outputAsSuccess("\n Your app is ready to use. To test your app go to project location on your browser with parameter /hello. Enjoy ! \n", "none");
     }
+
+
     /**
-     * @param array $options
+     * Processing to remove app
      */
-    private function copyAssets(array $options)
+    final protected function removeAppProcess()
     {
+        $appname = $this->params['appname'];
+        Output::outputAsSuccess("Processing to delete app : $appname \n", "none");
+        Output::outputAsSuccess("........................................\n", "none");
+        sleep(1);
 
-        $appname = '#none';
-        $symlink = false;
-
-        if ((isset($options[3]) && ($options[3] == "--symlink")) ||
-            (isset($options[4]) && ($options[4] == "--symlink")))
-            $symlink = true;
-        if ((isset($options[3]) && (strpos($options[3], "--appname=") !== false && $ch = $options[3])) ||
-            (isset($options[4]) && (strpos($options[4], "--appname=") !== false && $ch = $options[4])) )
-        {
-            $e = explode("=", $ch);
-            $appname = $e[1];
-            if (strpos($appname, "App") == false)
-                Output::displayAsError("Assets Manager Error : App name is invalid");
-
-            if (!is_dir(ROOT_PROJECT."/apps/".$appname))
-                Output::displayAsError("Assets Manager Error: App $appname doesn't exist.");
-        }
-
-        Output::displayAsSuccess("Hey, I copy ".(($appname != '#none')? 'your assets for '.$appname : 'all assets projects')." on web directory".(($symlink == true)? ' with symlink option' : ''), "none");
-        Output::displayAsSuccess(".............................................", "none");
-        $this->copy($symlink, $appname);
-        Output::displayAsSuccess("Task to copy assets ".(($appname == '#none')? '' : 'for '.$appname)." is successfull.");
-    }
-
-    /** Call Server delete and create function
-     * @param string $appname Appn ame name
-     * @param string $env Environment name
-     */
-    private function callDelCreaServer(string $appname, string $env = null)
-    {
-        if ($appname == '#none')
-        {
-            Server::delete(ROOT_PROJECT."/web/components/apps/", 'directory');
-            Server::create(ROOT_PROJECT."/web/components/apps/", 'directory');
-        }
-        else
-            Server::delete(ROOT_PROJECT."/web/components/apps/".strtolower($appname)."/", 'directory');
-
-    }
-
-    /** Process to copy assets
-     * @param bool $symlink Is symlink
-     * @param string|NULL $appname App name
-     */
-    private function copy(bool $symlink, string $appname)
-    {
-        if ($appname != '#none'){
-            if (!is_dir(ROOT_PROJECT."/apps/".$appname."/Front/resources/"))
-                Output::displayAsError("Assets Manager Error: Resource directory for $appname doesn't exist.");
-            Server::copy(ROOT_PROJECT."/apps/".$appname."/Front/resources/", ROOT_PROJECT."/web/components/apps/".strtolower($appname), 'directory', $symlink);
-        }
-        else
-        {
-            $dirs = scandir(ROOT_PROJECT."/apps/");
-
-            foreach ($dirs as $dir) {
-                if ($dir == ".") continue;
-                if ($dir == "..") continue;
-                Server::copy(ROOT_PROJECT."/apps/".$dir."/Front/resources/", ROOT_PROJECT."/web/components/apps/".strtolower($dir), 'directory', $symlink);
+        // DELETE TO APP CORE
+        $f = json_decode(file_get_contents(ROOT_PROJECT."/core/apps.json"));
+        $i = 0;
+        foreach ($f as $one => $val)
+            {
+                if ($val->name == $appname)
+                {
+                    unset($f->$i);
+                    break;
+                }
+                $i++;
             }
-        }
+
+        $f = json_encode($f);
+        file_put_contents(ROOT_PROJECT."/core/apps.json", $f);
+
+        IumioServerManager::delete(ROOT_PROJECT."/apps/$appname", "directory");
+        new AM(array("core/manager", "assets-manager", "--clear", "--appname=". $this->params['appname'], "--noexit", "--quiet"));
+        Output::outputAsSuccess("\n Your app is delete. To create an other app, use app-manager new project \n", "none");
     }
+
 
     public function __alter()
     {
