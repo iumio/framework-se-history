@@ -6,7 +6,7 @@ IUMIO Framework
 
 Created by DANY RAFINA <danyrafina@gmail.com>
 
-Actual version : 0.0.7 ALPHA
+Actual version : 0.1.1 ALPHA
 
 
 #Requirements : #
@@ -15,6 +15,5 @@ Actual version : 0.0.7 ALPHA
 * ORM Compatibility : MySQL
 * Engine Template : Mustache
 * Available Environments : DEV, PREPROD, PROD
-* Engine Template : Mustache
 
 
