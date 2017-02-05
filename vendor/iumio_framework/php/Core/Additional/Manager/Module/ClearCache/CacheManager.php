@@ -17,12 +17,13 @@ class CacheManager implements ModuleInterface
 
     public function __render()
     {
-        if (empty($this->options))
-           $this->deleteCache("dev");
-        else
+        $opt = $this->options[2] ?? null;
+        if ($opt == "--clear")
         {
-            $opt = $this->options[2] ?? null;
-            if ($opt == "--env=dev" || $opt == "--env=DEV")
+            $opt = $this->options[3] ?? null;
+            if ($opt == null)
+                $this->deleteCache("dev");
+            else if ($opt == "--env=dev" || $opt == "--env=DEV")
                 $this->deleteCache("dev", "yes");
             elseif ($opt == "--env=preprod" || $opt == "--env=PREPROD")
                 $this->deleteCache("preprod", "yes");
@@ -31,8 +32,10 @@ class CacheManager implements ModuleInterface
             elseif ($opt == "--env=all" || $opt == "--env=ALL")
                 $this->deleteAllCache();
             else
-                throw new \Exception("Cache Manager Module Error : Environment or option is not available");
+                throw new \Exception("Cache Manager Module Error : Bad option");
         }
+        else
+            Output::displayAsError("Cache Manager Module Error : Option is not exist. Referer to help command to get options list\n");
     }
 
     /** Delete a cache from a specific environment

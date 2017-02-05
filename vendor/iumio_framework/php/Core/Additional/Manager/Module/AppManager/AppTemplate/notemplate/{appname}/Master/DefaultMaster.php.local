@@ -3,6 +3,7 @@
 namespace {appname}\Master;
 
 use IumioFramework\Masters\IumioUltimaMaster;
+use IumioFramework\Core\Base\Http\Response\Response;
 
 /**
  * Class DefaultMaster
@@ -25,6 +26,6 @@ class DefaultMaster extends IumioUltimaMaster
      */
     public function indexGo()
     {
-        return ($this->render("index"));
+        return ((new Response())->JSON_RENDER(array("name" => "First App")));
     }
 }

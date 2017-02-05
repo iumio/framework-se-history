@@ -24,12 +24,8 @@ class AssetsManager implements ModuleInterface
             $opt = $this->options[2] ?? null;
             if ($opt == "--clear")
                 $this->clearAssets($this->options);
-            elseif ($opt == "--copy")
+            else if ($opt == "--copy")
                 $this->copyAssets($this->options);
-            elseif ($opt == "--env=prod" || $opt == "--env=PROD")
-                $this->deleteCache("prod", "yes");
-            elseif ($opt == "--env=all" || $opt == "--env=ALL")
-                $this->deleteAllCache();
             else
                 Output::displayAsError("Assets Manager Error \n \t This command doesn't exist. Referer to help comannd");
         }

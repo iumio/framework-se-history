@@ -1,9 +1,5 @@
 routingRegister : {appname}
 
 name : default_start
-path : /hello
-method : Default%show_hello
-
-name : default_show
-path : /show/{hi}
-method : Default%index
+path : /index
+method : Default%show_index

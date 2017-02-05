@@ -3,12 +3,12 @@
     "version": "0.0.4",
     "commands": {
       "help": {
-          "class" : "\\IumioFramework\\Manager\\Console\\Module\\Help\\IumioManagerHelp",
-          "desc"  : "Get informations about a command"
+          "class" : "\\IumioFramework\\Manager\\Console\\Module\\Help\\HelpManager",
+          "desc"  : "Get informations about a command. You can enter app name after help command (php core/manager help app-manager)\n"
       },
-      "cache-delete": {
+      "cache-manager": {
           "class" : "\\IumioFramework\\Manager\\Console\\Module\\Cache\\CacheManager",
-          "desc"  : "Remove environement cache from directory cache \n \t --env: Environment name (DEV, PROD, PREPROD, ALL)"
+          "desc"  : "Manage iumio cache  \n \t --clear : Clear cache environment (Dev environment as default)  \n \t --env: Environment name (DEV, PROD, PREPROD, ALL) (must used with --clear)\n"
       },
       "assets-manager": {
         "class" : "\\IumioFramework\\Manager\\Console\\Module\\Assets\\AssetsManager",

@@ -35,11 +35,11 @@ class IumioArgs
     public function getArgs(int $argc, array $argv)
     {
         if ($argc == 1)
-            Output::displayAsNotice("Welcome to Iumio Console Manager \n I noticed that you didn't enter any parameters. \n For more information, you can use the --help command to get a command list.", "red", "black");
+            Output::displayAsNotice("Welcome to Iumio Console Manager \n I noticed that you didn't enter any parameters. \n For more information, you can use the help command to get a command list.", "red", "black");
 
         $c = $this->searchCommand($argv[1]);
         if (empty($c))
-            Output::displayAsError("Iumio Command Error : Command not found.\n For more information, you can use the --help command to get a command list.");
+            Output::displayAsError("Iumio Command Error : Command not found.\n For more information, you can use the help command to get a command list.");
 
         $ref = new IumioReflexion();
         $ref->__simple($c['class'], (($argc >= 3)? $argv : array()));

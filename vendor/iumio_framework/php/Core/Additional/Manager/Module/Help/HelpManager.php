@@ -6,12 +6,12 @@ use IumioFramework\Core\Additionnal\Console\Manager\Display\IumioManagerOutput a
 use IumioFramework\Manager\Console\Module\IumioManagerModule as ModuleInterface;
 
 /**
- * Class IumioManagerHelp
+ * Class HelpManager
  * @package IumioFramework\Core\Additionnal\Console\Manager\Help
  * @author RAFINA Dany <danyrafina@gmail.com>
  */
 
-class IumioManagerHelp implements ModuleInterface
+class HelpManager implements ModuleInterface
 {
     protected $options;
 
@@ -22,7 +22,7 @@ class IumioManagerHelp implements ModuleInterface
             throw new \Exception("Iumio Args Error : Command File is empty ");
         $commands = $f->commands;
         if (empty($this->options)) {
-            Output::displayAsSuccess("Hey, this is all available commands", "none");
+            Output::displayAsSuccess("Hey, this is available commands\n", "none");
             foreach ($commands as $command => $val)
                 Output::displayAsSuccess($command . ": " . $val->desc, "none");
         }
