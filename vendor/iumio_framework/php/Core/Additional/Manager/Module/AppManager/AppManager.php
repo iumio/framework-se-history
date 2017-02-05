@@ -42,7 +42,7 @@ class AppManager implements ModuleInterface
             elseif ($opt == "switch-project")
                 $this->stepSwitchProject($this->options);
             else
-                Output::outputAsError("App Manager Error \n \t This command doesn't exist. Referer to help comannd");
+                Output::outputAsError("App Manager Error \n \t This command doesn't exist. Referer to help comannd\n");
         }
     }
 
@@ -204,29 +204,21 @@ class AppManager implements ModuleInterface
         Output::outputAsSuccess("Welcome on Iumio app manager. I'm assist you to change your default app. Many question will ask you so are you ready ?\n\n", "none");
         Output::outputAsSuccess($this->stage[7]."\n", "none");
         $this->showAppsRegister();
-
+        Output::outputAsSuccess("Which number ? : ", "none");
         $this->params['capp'] = $this->listener();
 
-        while (!isset($this->params['applist'][$this->params['capp']]))
+        while (!isset($this->params['applist'][$this->params['capp'] - 1]))
         {
             Output::outputAsError("Your choose is incorrect. Please Retry.\n", "none");
             Output::outputAsSuccess($this->stage[7]."\n", "none");
+            $this->showAppsRegister();
+            Output::outputAsSuccess("Which number ? : ", "none");
             $this->params['capp'] = $this->listener();
         }
-        $this->params['capp'] = $this->params['applist'][$this->params['capp']];
+        $this->params['capp'] = $this->params['applist'][$this->params['capp'] - 1];
 
-        Output::outputAsSuccess("Ok ! You choose ".$this->params['capp']." to be default app. Processing...\n", "none");
-
-        $f = json_decode(file_get_contents(ROOT_PROJECT."/core/apps.json"));
-            foreach ($f as $one => $val)
-            {
-                if ($val->isdefault == "yes") $val->isdefault = "no";
-                if ($val->name == $this->params['capp']) $val->isdefault = "yes";
-            }
-
-        $f = json_encode($f);
-        file_put_contents(ROOT_PROJECT."/core/apps.json", $f);
-        Output::outputAsSuccess("Great ! Your app << ".$this->params['capp']." >> to be the default app.\n", "none");
+        Output::outputAsSuccess("Ok ! You choose ".$this->params['capp']." to be default app.\n", "none");
+        $this->switchAppProcess();
     }
 
     /**
@@ -326,6 +318,29 @@ class AppManager implements ModuleInterface
         file_put_contents(ROOT_PROJECT."/core/apps.json", $f);
         new AM(array("core/manager", "assets-manager", "--copy", "--appname=". $this->params['appname'], "--symlink", "--noexit"));
         Output::outputAsSuccess("\n Your app is ready to use. To test your app go to project location on your browser with parameter /hello. Enjoy ! \n", "none");
+    }
+
+
+    /**
+     * Processing to switch default app
+     */
+    final protected function switchAppProcess()
+    {
+        $appname = $this->params['capp'];
+        Output::outputAsSuccess("Processing to switch app : $appname  to be default\n", "none");
+        Output::outputAsSuccess("........................................\n", "none");
+        sleep(1);
+        $f = json_decode(file_get_contents(ROOT_PROJECT."/core/apps.json"));
+
+        foreach ($f as $one => $val)
+        {
+            if ($val->isdefault == "yes") $val->isdefault = "no";
+            if ($val->name == $this->params['capp']) $val->isdefault = "yes";
+        }
+
+        $f = json_encode($f);
+        file_put_contents(ROOT_PROJECT."/core/apps.json", $f);
+        Output::outputAsSuccess("Great ! Your app << ".$this->params['capp']." >> to be the default app.\n", "none");
     }
 
 

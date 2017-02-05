@@ -119,7 +119,7 @@ class AssetsManager implements ModuleInterface
             Server::create(ROOT_PROJECT."/web/components/apps/", 'directory');
         }
         else
-            Server::delete(ROOT_PROJECT."/web/components/apps/".strtolower($appname)."/", 'directory');
+            Server::delete(ROOT_PROJECT."/web/components/apps/".strtolower($appname), 'directory');
 
     }
 

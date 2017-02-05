@@ -101,7 +101,8 @@ class IumioServerManager
             switch ($type)
             {
                 case "directory":
-                    if (is_dir($path)) {
+                    if (is_link($path)) unlink($path);
+                    else if (is_dir($path)) {
                         try {
                             self::recursiveRmdir($path);
                         } catch (\Exception $e) {
@@ -110,7 +111,8 @@ class IumioServerManager
                     }
                     break;
                 case "file":
-                    if (file($path)) {
+                    if (is_link($path)) unlink($path);
+                    else if (file($path)) {
                         try {
                             unlink($path);
                         } catch (\Exception $e) {
