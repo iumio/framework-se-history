@@ -8,6 +8,23 @@
 <head>
     <title>IUMIO <?= $this->env.' '.$this->code ?></title>
     <meta charset="utf-8" />
+    <link rel="apple-touch-icon" sizes="57x57" href="//<?= HOST ?>/components/theme/default/assets/images/favicon.ico/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="//<?= HOST ?>/components/theme/default/assets/images/favicon.ico/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="//<?= HOST ?>/components/theme/default/assets/images/favicon.ico/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="//<?= HOST ?>/components/theme/default/assets/images/favicon.ico/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="//<?= HOST ?>/components/theme/default/assets/images/favicon.ico/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="//<?= HOST ?>/components/theme/default/assets/images/favicon.ico/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="//<?= HOST ?>/components/theme/default/assets/images/favicon.ico/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="//<?= HOST ?>/components/theme/default/assets/images/favicon.ico/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="//<?= HOST ?>/components/theme/default/assets/images/favicon.ico/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="//<?= HOST ?>/components/theme/default/assets/images/favicon.ico/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="//<?= HOST ?>/components/theme/default/assets/images/favicon.ico/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="//<?= HOST ?>/components/theme/default/assets/images/favicon.ico/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="//<?= HOST ?>/components/theme/default/assets/images/favicon.ico/favicon-16x16.png">
+    <link rel="manifest" href="//<?= HOST ?>/components/theme/default/assets/images/favicon.ico/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="//<?= HOST ?>/components/theme/default/assets/images/favicon.ico/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <!--[if lte IE 8]><script src="//<?= HOST ?>/components/theme/default/assets/js/ie/html5shiv.js"></script><![endif]-->
     <link rel="stylesheet" href="//<?= HOST ?>/components/theme/default/assets/css/main.css" />
@@ -64,35 +81,37 @@
         <section id="one" class="tiles">
             <article>
 									<span class="image">
-										<img src="components/theme/default/assets/images/pic01.jpg" alt="" />
+										<img src="//<?= HOST ?>/components/theme/default/assets/images/pic01.jpg" alt="" />
 									</span>
-                <h3><a href="landing.html" class="link">PHP</a></h3>
+                <header class="major">
+                <h3><a href="#" class="link">PHP</a></h3>
                 <p>Developed full PHP7</p>
+                    </header>
             </article>
             <article>
 									<span class="image">
-										<img src="components/theme/default/assets/images/pic02.jpg" alt="" />
+										<img src="//<?= HOST ?>/components/theme/default/assets/images/pic02.jpg" alt="" />
 									</span>
                 <header class="major">
-                    <h3><a href="landing.html" class="link">Views</a></h3>
+                    <h3><a href="#" class="link">Views</a></h3>
                     <p>Mustache engine template</p>
                 </header>
             </article>
             <article>
 									<span class="image">
-										<img src="components/theme/default/assets/images/pic03.jpg" alt="" />
+										<img src="//<?= HOST ?>/components/theme/default/assets/images/pic03.jpg" alt="" />
 									</span>
                 <header class="major">
-                    <h3><a href="landing.html" class="link">Navigation</a></h3>
+                    <h3><a href="#" class="link">Navigation</a></h3>
                     <p>New Routing File (RT)</p>
                 </header>
             </article>
             <article>
 									<span class="image">
-										<img src="components/theme/default/assets/images/pic04.jpg" alt="" />
+										<img src="//<?= HOST ?>/components/theme/default/assets/images/pic04.jpg" alt="" />
 									</span>
                 <header class="major">
-                    <h3><a href="landing.html" class="link">Environment</a></h3>
+                    <h3><a href="#" class="link">Environment</a></h3>
                     <p>3 Environments (DEV, PREPROD, PROD)</p>
                 </header>
             </article>
