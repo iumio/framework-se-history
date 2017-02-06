@@ -13,7 +13,7 @@ class Autoloader {
      */
     static public function register(string $class)
     {
-        $path = realpath(strstr($_SERVER['DOCUMENT_ROOT'], 'web', true));
+        $path = realpath(__DIR__."/../../../../..");
         $array2 = explode(chr(92), $class);
         $count2 = count($array2) - 1;
         $class = $array2[$count2].".php";
@@ -22,7 +22,7 @@ class Autoloader {
                 $array = explode("/", $filename);
                 $count = count($array) - 1;
                 if ($array[$count] == $class)
-                    require_once $filename;
+                    include_once $filename;
             }
         }
     }

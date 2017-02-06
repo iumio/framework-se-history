@@ -1,4 +1,5 @@
 <!DOCTYPE HTML>
+<?php  use IumioFramework\Core\Requirement\IumioUltimaCore; ?>
 <!--
 	IUMIO theme by HTML5 UP
 	html5up.net | @ajlkn
@@ -8,28 +9,118 @@
 <head>
     <title>IUMIO <?= $this->env.' '.$this->code ?></title>
     <meta charset="utf-8" />
-    <link rel="apple-touch-icon" sizes="57x57" href="//<?= HOST ?>/components/theme/default/assets/images/favicon.ico/apple-icon-57x57.png">
-    <link rel="apple-touch-icon" sizes="60x60" href="//<?= HOST ?>/components/theme/default/assets/images/favicon.ico/apple-icon-60x60.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="//<?= HOST ?>/components/theme/default/assets/images/favicon.ico/apple-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="//<?= HOST ?>/components/theme/default/assets/images/favicon.ico/apple-icon-76x76.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="//<?= HOST ?>/components/theme/default/assets/images/favicon.ico/apple-icon-114x114.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="//<?= HOST ?>/components/theme/default/assets/images/favicon.ico/apple-icon-120x120.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="//<?= HOST ?>/components/theme/default/assets/images/favicon.ico/apple-icon-144x144.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="//<?= HOST ?>/components/theme/default/assets/images/favicon.ico/apple-icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="//<?= HOST ?>/components/theme/default/assets/images/favicon.ico/apple-icon-180x180.png">
-    <link rel="icon" type="image/png" sizes="192x192"  href="//<?= HOST ?>/components/theme/default/assets/images/favicon.ico/android-icon-192x192.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="//<?= HOST ?>/components/theme/default/assets/images/favicon.ico/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="//<?= HOST ?>/components/theme/default/assets/images/favicon.ico/favicon-96x96.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="//<?= HOST ?>/components/theme/default/assets/images/favicon.ico/favicon-16x16.png">
-    <link rel="manifest" href="//<?= HOST ?>/components/theme/default/assets/images/favicon.ico/manifest.json">
+    <link rel="apple-touch-icon" sizes="57x57" href="<?= HOST_CURRENT ?>/components/theme/default/assets/images/favicon.ico/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="<?= HOST_CURRENT ?>/components/theme/default/assets/images/favicon.ico/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="<?= HOST_CURRENT ?>/components/theme/default/assets/images/favicon.ico/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="<?= HOST_CURRENT ?>/components/theme/default/assets/images/favicon.ico/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="<?= HOST_CURRENT ?>/components/theme/default/assets/images/favicon.ico/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="<?= HOST_CURRENT ?>/components/theme/default/assets/images/favicon.ico/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="<?= HOST_CURRENT ?>/components/theme/default/assets/images/favicon.ico/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="<?= HOST_CURRENT ?>/components/theme/default/assets/images/favicon.ico/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="<?= HOST_CURRENT ?>/components/theme/default/assets/images/favicon.ico/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="<?= HOST_CURRENT ?>/components/theme/default/assets/images/favicon.ico/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="<?= HOST_CURRENT ?>/components/theme/default/assets/images/favicon.ico/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="<?= HOST_CURRENT ?>/components/theme/default/assets/images/favicon.ico/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="<?= HOST_CURRENT ?>/components/theme/default/assets/images/favicon.ico/favicon-16x16.png">
+    <link rel="manifest" href="<?= HOST_CURRENT ?>/components/theme/default/assets/images/favicon.ico/manifest.json">
     <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="msapplication-TileImage" content="//<?= HOST ?>/components/theme/default/assets/images/favicon.ico/ms-icon-144x144.png">
+    <meta name="msapplication-TileImage" content="<?= HOST_CURRENT ?>/components/theme/default/assets/images/favicon.ico/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <!--[if lte IE 8]><script src="//<?= HOST ?>/components/theme/default/assets/js/ie/html5shiv.js"></script><![endif]-->
-    <link rel="stylesheet" href="//<?= HOST ?>/components/theme/default/assets/css/main.css" />
-    <!--[if lte IE 9]><link rel="stylesheet" href="//<?= HOST ?>/components/theme/default/assets/css/ie9.css" /><![endif]-->
-    <!--[if lte IE 8]><link rel="stylesheet" href="//<?= HOST ?>/components/theme/default/assets/css/ie8.css" /><![endif]-->
+    <!--[if lte IE 8]><script src="<?= HOST_CURRENT ?>/components/theme/default/assets/js/ie/html5shiv.js"></script><![endif]-->
+    <link rel="stylesheet" href="<?= HOST_CURRENT ?>/components/theme/default/assets/css/main.css" />
+    <!--[if lte IE 9]><link rel="stylesheet" href="<?= HOST_CURRENT ?>/components/theme/default/assets/css/ie9.css" /><![endif]-->
+    <!--[if lte IE 8]><link rel="stylesheet" href="<?= HOST_CURRENT ?>/components/theme/default/assets/css/ie8.css" /><![endif]-->
+    <style type="text/css">
+        body, html
+        {
+            font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+        }
+        #wrapper {
+            padding-top: 0em;
+        }
+        #banner.major {
+            height: 90vh;
+        }
+        .timeline {
+            list-style-type: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .li {
+            transition: all 200ms ease-in;
+        }
+
+        .timestamp {
+            margin-bottom: 20px;
+            padding: 0px 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-weight: 100;
+        }
+
+        .status {
+            padding: 15px 40px;
+            display: flex;
+            justify-content: center;
+            border-top: 2px solid #D6DCE0;
+            position: relative;
+            transition: all 200ms ease-in;
+        }
+        .status h4 {
+            font-weight: 600;
+        }
+        .status:before {
+            content: "";
+            width: 25px;
+            height: 25px;
+            background-color: white;
+            border-radius: 25px;
+            border: 1px solid #ddd;
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transition: all 200ms ease-in;
+        }
+
+        .li.complete .status {
+            border-top: 2px solid #66DC71;
+        }
+        .li.complete .status:before {
+            background-color: #66DC71;
+            border: none;
+            transition: all 200ms ease-in;
+        }
+        .li.complete .status h4 {
+            color: #66DC71;
+        }
+
+        @media (min-device-width: 320px) and (max-device-width: 700px) {
+            .timeline {
+                list-style-type: none;
+                display: block;
+            }
+
+            .li {
+                transition: all 200ms ease-in;
+                display: flex;
+                width: inherit;
+            }
+
+            .timestamp {
+                width: 100px;
+            }
+
+            .status:before {
+                left: -8%;
+                top: 30%;
+                transition: all 200ms ease-in;
+            }
+        }
+    </style>
 </head>
 <body>
 
@@ -38,7 +129,7 @@
 
     <!-- Header -->
     <header id="header" class="alt">
-        <a href="index.html" class="logo"><strong>IUMIO </strong> <span><?= $this->env ?></span></a>
+        <a href="index.php" class="logo"> <img src="<?= HOST_CURRENT ?>/components/theme/default/assets/images/iumio-horizontal-white.png" style="width: 15%"><!--<strong>IUMIO </strong> <span>FRAMEWORK</span>--></a>
         <nav>
             <a href="#menu">Menu</a>
         </nav>
@@ -47,9 +138,9 @@
     <!-- Menu -->
     <nav id="menu">
         <ul class="links">
-            <li><a href="/iumio_dev.php">DEV MODE</a></li>
-            <li><a href="/iumio_preprod.php">PREPROD MODE</a></li>
-            <li><a href="/iumio_prod.php">PROD MODE</a></li>
+            <li><a href="<?= HOST_CURRENT ?>/iumio_dev.php">DEV MODE</a></li>
+            <li><a href="<?= HOST_CURRENT ?>/iumio_preprod.php">PREPROD MODE</a></li>
+            <li><a href="<?= HOST_CURRENT ?>/iumio_prod.php">PROD MODE</a></li>
             <li><a href="#">CONFIG</a></li>
             <li><a href="#">PROFILER</a></li>
 
@@ -71,6 +162,19 @@
                   <?= $this->solution ?></p>
 
             </div>
+            <!--------->
+            <ul class="timeline" id="timeline">
+                <li class="li complete">
+                    <div class="timestamp">
+                        <span class="author"><?= IumioUltimaCore::getInfo("VERSION_EDITION") ?></span>
+                        <span class="date">version <?= IumioUltimaCore::getInfo("VERSION") ?></span>
+                    </div>
+                    <div class="status">
+                        <h4>Actual version</h4>
+                    </div>
+                </li>
+            </ul>
+            <!------>
         </div>
     </section>
 
@@ -81,7 +185,7 @@
         <section id="one" class="tiles">
             <article>
 									<span class="image">
-										<img src="//<?= HOST ?>/components/theme/default/assets/images/pic01.jpg" alt="" />
+										<img src="<?= HOST_CURRENT ?>/components/theme/default/assets/images/pic01.jpg" alt="" />
 									</span>
                 <header class="major">
                 <h3><a href="#" class="link">PHP</a></h3>
@@ -90,7 +194,7 @@
             </article>
             <article>
 									<span class="image">
-										<img src="//<?= HOST ?>/components/theme/default/assets/images/pic02.jpg" alt="" />
+										<img src="<?= HOST_CURRENT ?>/components/theme/default/assets/images/pic02.jpg" alt="" />
 									</span>
                 <header class="major">
                     <h3><a href="#" class="link">Views</a></h3>
@@ -99,7 +203,7 @@
             </article>
             <article>
 									<span class="image">
-										<img src="//<?= HOST ?>/components/theme/default/assets/images/pic03.jpg" alt="" />
+										<img src="<?= HOST_CURRENT ?>/components/theme/default/assets/images/pic03.jpg" alt="" />
 									</span>
                 <header class="major">
                     <h3><a href="#" class="link">Navigation</a></h3>
@@ -108,7 +212,7 @@
             </article>
             <article>
 									<span class="image">
-										<img src="//<?= HOST ?>/components/theme/default/assets/images/pic04.jpg" alt="" />
+										<img src="<?= HOST_CURRENT ?>/components/theme/default/assets/images/pic04.jpg" alt="" />
 									</span>
                 <header class="major">
                     <h3><a href="#" class="link">Environment</a></h3>
@@ -121,10 +225,10 @@
         <section id="two">
             <div class="inner">
                 <header class="major">
-                    <h2>Iumio</h2>
+                    <h2>Iumio Framework</h2>
                 </header>
                 <p style="font-size: 16px;font-weight: 600">Developed in PHP7</p>
-                <p>Iumio is easier to use. You can manipulate this framework as you want. You are the only one to make a decision : choose Iumio. @ Developers are the best @</p>
+                <p>Iumio is easier to use. You can manipulate this framework as you want. You are the only one to make a decision : choose Iumio for your future project. <br> <em>"Iumio Framework, The next generation PHP Framework"</em></p>
             </div>
         </section>
 
@@ -164,13 +268,13 @@
 </div>
 
 <!-- Scripts -->
-<script src="//<?= HOST ?>/components/theme/default/assets/js/jquery.min.js"></script>
-<script src="//<?= HOST ?>/components/theme/default/assets/js/jquery.scrolly.min.js"></script>
-<script src="//<?= HOST ?>/components/theme/default/assets/js/jquery.scrollex.min.js"></script>
-<script src="//<?= HOST ?>/components/theme/default/assets/js/skel.min.js"></script>
-<script src="//<?= HOST ?>/components/theme/default/assets/js/util.js"></script>
-<!--[if lte IE 8]><script src="//<?= HOST ?>/components/theme/default/assets/js/ie/respond.min.js"></script><![endif]-->
-<script src="//<?= HOST ?>/components/theme/default/assets/js/main.js"></script>
+<script src="<?= HOST_CURRENT ?>/components/theme/default/assets/js/jquery.min.js"></script>
+<script src="<?= HOST_CURRENT ?>/components/theme/default/assets/js/jquery.scrolly.min.js"></script>
+<script src="<?= HOST_CURRENT ?>/components/theme/default/assets/js/jquery.scrollex.min.js"></script>
+<script src="<?= HOST_CURRENT ?>/components/theme/default/assets/js/skel.min.js"></script>
+<script src="<?= HOST_CURRENT ?>/components/theme/default/assets/js/util.js"></script>
+<!--[if lte IE 8]><script src="<?= HOST_CURRENT ?>/components/theme/default/assets/js/ie/respond.min.js"></script><![endif]-->
+<script src="<?= HOST_CURRENT ?>/components/theme/default/assets/js/main.js"></script>
 
 </body>
 </html>

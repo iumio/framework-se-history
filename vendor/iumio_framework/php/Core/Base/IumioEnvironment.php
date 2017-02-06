@@ -19,22 +19,44 @@ class IumioEnvironment
      */
     public static function definer(string $env):int
     {
+        $base =  __DIR__."/../../../../../";
         define('ENVIRONMENT', $env);
         define('HOST', $_SERVER['HTTP_HOST']);
-        define('HOST_CURRENT', $_SERVER['HTTP_HOST'].dirname($_SERVER['PHP_SELF']));
-        define('ROOT', strstr($_SERVER['DOCUMENT_ROOT'], 'web', true));
-        define('CORE', strstr($_SERVER['DOCUMENT_ROOT'], 'web', true)."core/");
-        define('ROOT_VENDOR', strstr($_SERVER['DOCUMENT_ROOT'], 'web', true)."vendor/iumio_framework/");
-        define('ROOT_MANAGER', strstr($_SERVER['DOCUMENT_ROOT'], 'web', true)."vendor/iumio_framework/Core/Additional/Manager/");
-        define('ROOT_VENDOR_LIBS', strstr($_SERVER['DOCUMENT_ROOT'], 'web', true)."vendor/libs/");
-        define('CACHE_DEV', strstr($_SERVER['DOCUMENT_ROOT'], 'web', true)."core/cache/dev/");
-        define('CACHE_PROD', strstr($_SERVER['DOCUMENT_ROOT'], 'web', true)."core/cache/prod/");
-        define('CACHE_PREPROD', strstr($_SERVER['DOCUMENT_ROOT'], 'web', true)."core/cache/preprod/");
-        define('THEME', strstr($_SERVER['DOCUMENT_ROOT'], 'web', true)."vendor/iumio_framework/theme/");
-        define('WEB_ASSETS', "//".$_SERVER['HTTP_HOST']."/components/apps/");
-        define('ROOT_APPS', strstr($_SERVER['DOCUMENT_ROOT'], 'web', true)."apps/");
+        $current = 'http://'.$_SERVER['HTTP_HOST'].dirname($_SERVER['PHP_SELF']);
+        $current_temp = substr($current, 0, strpos($current, self::getFileEnv($env)));
+        if (strlen($current_temp) > 0) $current = $current_temp;
+        $current = substr($current, 0, strlen($current) - 1);
+        define('HOST_CURRENT', $current);
+        define('ROOT', $base);
+        define('CORE', $base."core/");
+        define('ROOT_VENDOR', $base."vendor/iumio_framework/");
+        define('ROOT_MANAGER', $base."vendor/iumio_framework/Core/Additional/Manager/");
+        define('ROOT_VENDOR_LIBS', $base."vendor/libs/");
+        define('CACHE_DEV', $base."core/cache/dev/");
+        define('CACHE_PROD', $base."core/cache/prod/");
+        define('CACHE_PREPROD', $base."core/cache/preprod/");
+        define('THEME', $base."vendor/iumio_framework/theme/");
+        define('WEB_ASSETS', $current."/components/apps/");
+        define('ROOT_APPS', $base."apps/");
 
         return (1);
+    }
+
+    /** Get environment file
+     * @param string $env Environment name
+     * @return string Environment file
+     * @throws \Exception
+     */
+    static private function getFileEnv(string $env):string
+    {
+        if ($env == "DEV")
+            return ("iumio_dev.php");
+        else if ($env == "PREPROD")
+            return ("iumio_preprod.php");
+        else if ($env == "PROD")
+            return ("iumio_prod.php");
+        else
+            throw new \Exception("Iumio Environment Error : Environment $env doesn't exist");
     }
 
     /** Display an Error

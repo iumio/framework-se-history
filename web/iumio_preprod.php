@@ -6,10 +6,9 @@
 
 $loader = require __DIR__.'/../vendor/iumio_framework/php/Core/Requirement/Autoloader.php';
 
-use IumioFramework\Core\Base\IumioEnvironment;
-use IumioFramework\Core\Base\Debug\Debug;
-use IumioFramework\Masters\Routing;
-use IumioFramework\Core\Base\Http\{HttpListener};
+use IumioFramework\Core\Base\{IumioEnvironment, Debug\Debug, Http\HttpListener};
+use IumioFramework\Apps\AppCore;
+
 
 /**
  * Class IumioDev
@@ -36,11 +35,10 @@ class IumioPreprod extends IumioEnvironment
             return (1);
         }
 
+        $core = new AppCore('PREPROD', true);
         Debug::enabled();
-        (new Routing())->routingRegister();
-        HttpListener::listen();
-        HttpListener::createFromGlobals();
-        //IumioFramework::start();
+        $request = HttpListener::createFromGlobals();
+        $core->dispatch($request);
 
         //  array('127.0.0.2', 'fe80::1', '::1')
 

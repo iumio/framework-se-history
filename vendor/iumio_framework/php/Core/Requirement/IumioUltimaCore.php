@@ -4,6 +4,7 @@ namespace IumioFramework\Core\Requirement;
 use IumioFramework\Core\Base\Http\HttpListener;
 use IumioFramework\Masters\Routing;
 use IumioFramework\Core\Requirement\Relexion\IumioReflexion;
+use IumioFramework\Theme\Server\Server500;
 use IumioFramework\Theme\Server\Server404;
 
 /**
@@ -32,8 +33,9 @@ abstract class IumioUltimaCore
     protected $startTime;
     protected $loadClassCache;
 
-    const VERSION = '0.1.0';
-    const VERSION_ID = 201710;
+    const VERSION = '0.1.1';
+    const VERSION_EDITION = 'Iumio Framework Standard Edition';
+    const VERSION_ID = 201711;
     const MAJOR_VERSION = 1;
     const MINOR_VERSION = 0;
     const RELEASE_VERSION = 1;
@@ -233,6 +235,29 @@ abstract class IumioUltimaCore
     {
         $a = json_decode(file_get_contents(CORE.'apps.json'));
         return ($a == NULL ? new \stdClass() : $a);
+    }
+
+    /**
+     * @param string $infoname info name
+     * @return string info result
+     * @throws Server500 Error generate
+     */
+    final static public function getInfo(string $infoname):string
+    {
+        $rs = 'none';
+        switch ($infoname)
+        {
+            case 'VERSION':
+                $rs = self::VERSION;
+                break;
+            case 'VERSION_EDITION':
+                $rs = self::VERSION_EDITION;
+                break;
+            case 'VERSION_ID':
+                $rs = self::VERSION_ID;
+                break;
+        }
+        return ($rs);
     }
 
 

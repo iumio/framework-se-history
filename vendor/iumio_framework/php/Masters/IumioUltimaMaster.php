@@ -4,6 +4,7 @@
 namespace IumioFramework\Masters;
 use IumioFramework\Core\Http\ParameterRequest;
 use IumioFramework\Core\Additionnal\Template\IumioMustache;
+use IumioFramework\Core\Requirement\IumioUltimaCore;
 
 /**
  * Class IumioUltimaMaster
@@ -57,7 +58,7 @@ class IumioUltimaMaster
         try
         {
             $tpl = $m->loadTemplate($view.IumioMustache::$viewExtention);
-            $options['webassets'] = function ($assets) { return (WEB_ASSETS.strtolower(APP_CALL)."/".$assets);};
+            $options = $this->declareEngineTemplateFunction($options);
             echo $tpl->render($options);
             exit();
         }
@@ -76,6 +77,17 @@ class IumioUltimaMaster
     {
         IumioMustache::$viewExtention = $ext;
         return (true);
+    }
+
+    /** Enable all engine template function
+     * @param array $options Some options
+     * @return array Implemented options
+     */
+    final protected function declareEngineTemplateFunction(array $options):array
+    {
+        $options['webassets'] = function ($assets) { return (WEB_ASSETS.strtolower(APP_CALL)."/".$assets); };
+        $options['framework_info'] = function ($info) { return (IumioUltimaCore::getInfo($info)); };
+        return $options;
     }
 
 }

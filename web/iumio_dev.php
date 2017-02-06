@@ -6,8 +6,7 @@
 
 $loader = require __DIR__.'/../vendor/iumio_framework/php/Core/Requirement/Autoloader.php';
 
-use IumioFramework\Core\Base\{IumioEnvironment, Debug\Debug, Http\HttpListener, Requirement};
-use IumioFramework\Masters\Routing;
+use IumioFramework\Core\Base\{IumioEnvironment, Debug\Debug, Http\HttpListener};
 use IumioFramework\Apps\AppCore;
 
 /**

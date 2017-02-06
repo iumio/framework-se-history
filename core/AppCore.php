@@ -1,12 +1,9 @@
 <?php
 
 namespace IumioFramework\Apps;
-use IumioFramework\Core\Additionnal\Console\Manager\IumioCommandFile;
-use IumioFramework\Core\Additionnal\Server\IumioServerManager;
 use IumioFramework\Core\Requirement\IumioUltimaCore;
 use IumioFramework\Core\Base\Http\HttpListener;
-use IumioFramework\Theme\Server\Server;
-use IumioFramework\Theme\Server\Server404;
+use IumioFramework\Theme\Server\Server000;
 
 /**
  * Class AppCore
@@ -35,7 +32,7 @@ class AppCore extends IumioUltimaCore
     {
         $classes = $this->getClassFile();
 
-        if (count((array)$classes) == 0)  new Server404(new \ArrayObject(array("code" => "000", "codeTitle" => "No app registered", "explain" => "No app was registered to apps.json", "solution" => "Please create an app with app-manager (php core/manager app-manager new-project)")));
+        if (count((array)$classes) == 0)  new Server000(new \ArrayObject(array()));
         $apps = array();
         foreach ($classes as $class => $val) {
             $val = (array)$val;
@@ -43,12 +40,6 @@ class AppCore extends IumioUltimaCore
         }
         return $apps;
     }
-
-    /*public function getPrimary()
-    {
-
-    }*/
-
 
     /**
      * @param HttpListener $request
