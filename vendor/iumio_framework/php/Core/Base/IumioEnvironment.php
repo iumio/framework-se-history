@@ -22,10 +22,10 @@ class IumioEnvironment
         $base =  __DIR__."/../../../../../";
         define('ENVIRONMENT', $env);
         define('HOST', $_SERVER['HTTP_HOST']);
-        $current = 'http://'.$_SERVER['HTTP_HOST'].dirname($_SERVER['PHP_SELF']);
+        $current = $_SERVER['HTTP_HOST'].dirname($_SERVER['PHP_SELF']);
         $current_temp = substr($current, 0, strpos($current, self::getFileEnv($env)));
         if (strlen($current_temp) > 0) $current = $current_temp;
-        $current = substr($current, 0, strlen($current) - 1);
+        if ($current[strlen($current) - 1] == "/") $current = substr($current, 0, (strlen($current) - 1));
         define('HOST_CURRENT', $current);
         define('ROOT', $base);
         define('CORE', $base."core/");
