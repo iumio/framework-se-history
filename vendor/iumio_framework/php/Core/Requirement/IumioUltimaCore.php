@@ -33,9 +33,9 @@ abstract class IumioUltimaCore
     protected $startTime;
     protected $loadClassCache;
 
-    const VERSION = '0.1.1';
+    const VERSION = '0.1.2';
     const VERSION_EDITION = 'Iumio Framework Standard Edition';
-    const VERSION_ID = 201711;
+    const VERSION_ID = 201712;
     const MAJOR_VERSION = 1;
     const MINOR_VERSION = 0;
     const RELEASE_VERSION = 1;
