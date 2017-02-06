@@ -167,7 +167,7 @@
                 <li class="li complete">
                     <div class="timestamp">
                         <span class="author"><?= IumioUltimaCore::getInfo("VERSION_EDITION") ?></span>
-                        <span class="date">version <?= IumioUltimaCore::getInfo("VERSION") ?></span>
+                        <span class="date">version <?= IumioUltimaCore::getInfo("VERSION") ?> <?= IumioUltimaCore::getInfo("VERSION_STAGE") ?></span>
                     </div>
                     <div class="status">
                         <h4>Actual version</h4>

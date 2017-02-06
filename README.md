@@ -5,7 +5,7 @@ Iumio Framework, The next generation PHP Framework
 
 Created by DANY RAFINA <danyrafina@gmail.com>
 
-Actual version : 0.1.2 ALPHA
+Actual version : 0.1.3 ALPHA
 
 
 #Requirements : #

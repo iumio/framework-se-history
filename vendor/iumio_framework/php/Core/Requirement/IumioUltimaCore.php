@@ -33,9 +33,10 @@ abstract class IumioUltimaCore
     protected $startTime;
     protected $loadClassCache;
 
-    const VERSION = '0.1.2';
+    const VERSION = '0.1.3';
     const VERSION_EDITION = 'Iumio Framework Standard Edition';
-    const VERSION_ID = 201712;
+    const VERSION_STAGE = 'ALPHA';
+    const VERSION_ID = 201713;
     const MAJOR_VERSION = 1;
     const MINOR_VERSION = 0;
     const RELEASE_VERSION = 1;
@@ -256,6 +257,9 @@ abstract class IumioUltimaCore
                 break;
             case 'VERSION_ID':
                 $rs = self::VERSION_ID;
+                break;
+            case 'VERSION_STAGE':
+                $rs = self::VERSION_STAGE;
                 break;
         }
         return ($rs);
