@@ -1,0 +1,11 @@
+{
+    "default" :
+      {
+          "db_host" : "localhost",
+          "db_name" : "test",
+          "db_port" : "",
+          "db_user" : "root",
+          "db_password" : "root",
+          "db_driver" : "mysql"
+      }
+}

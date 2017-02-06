@@ -5,6 +5,7 @@ namespace IumioFramework\Masters;
 use IumioFramework\Core\Http\ParameterRequest;
 use IumioFramework\Core\Additionnal\Template\IumioMustache;
 use IumioFramework\Core\Requirement\IumioUltimaCore;
+use IumioFramework\Core\Base\Database\IumioDatabaseAccess as IDA;
 
 /**
  * Class IumioUltimaMaster
@@ -69,6 +70,7 @@ class IumioUltimaMaster
 
     }
 
+
     /** Change views Render extension
      * @param string $ext new extention
      * @return bool
@@ -88,6 +90,15 @@ class IumioUltimaMaster
         $options['webassets'] = function ($assets) { return (WEB_ASSETS.strtolower(APP_CALL)."/".$assets); };
         $options['framework_info'] = function ($info) { return (IumioUltimaCore::getInfo($info)); };
         return $options;
+    }
+
+    /** Get Database service
+     * @param string|null $name Database name
+     * @return \PDO PDO instance (Connection instance)
+     */
+    final protected function getDbConnection(string $name = '#none'):\PDO
+    {
+        return (IDA::getDbInstance($name));
     }
 
 }

@@ -1,10 +1,5 @@
 <?php
 
-/**
- * IUMIO FRAMEWORK PROJECT
- * @author Dany RAFINA <danyrafina@compared.fr>
- */
-
 namespace IumioFramework\Core\Base;
 
 /**
