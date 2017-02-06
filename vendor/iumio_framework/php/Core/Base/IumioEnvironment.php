@@ -21,8 +21,8 @@ class IumioEnvironment
     {
         $base =  __DIR__."/../../../../../";
         define('ENVIRONMENT', $env);
-        define('HOST', $_SERVER['HTTP_HOST']);
-        $current = $_SERVER['HTTP_HOST'].dirname($_SERVER['PHP_SELF']);
+        define('HOST', self::getProtocol()."://".$_SERVER['HTTP_HOST']);
+        $current = self::getProtocol()."://".$_SERVER['HTTP_HOST'].dirname($_SERVER['PHP_SELF']);
         $current_temp = substr($current, 0, strpos($current, self::getFileEnv($env)));
         if (strlen($current_temp) > 0) $current = $current_temp;
         if ($current[strlen($current) - 1] == "/") $current = substr($current, 0, (strlen($current) - 1));
@@ -69,6 +69,14 @@ class IumioEnvironment
         $server->display();
 
         return (1);
+    }
+
+    /** Get protocol
+     * @return string Protocol value
+     */
+    static private function getProtocol()
+    {
+        return ((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off')? "https" : "http");
     }
 
 }

@@ -310,7 +310,7 @@ class AppManager implements ModuleInterface
                 }
             }
         }
-
+        $f->$lastapp = new \stdClass();
         $f->$lastapp->name = $this->params['appname'];
         $f->$lastapp->isdefault = $this->params['isdefault'];
         $f->$lastapp->class = "\\".$this->params['appname']."\\".$this->params['appname'];

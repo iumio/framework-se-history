@@ -18,7 +18,7 @@ class AssetsManager implements ModuleInterface
     public function __render()
     {
         if (empty($this->options))
-            Output::displayAsError("Assets Manager Error \n \t You must to have an option. Referer to help comannd.");
+            Output::displayAsError("Assets Manager Error \n \t You must to have an option. Referer to help command\n");
         else
         {
             $opt = $this->options[2] ?? null;
@@ -27,7 +27,7 @@ class AssetsManager implements ModuleInterface
             else if ($opt == "--copy")
                 $this->copyAssets($this->options);
             else
-                Output::displayAsError("Assets Manager Error \n \t This command doesn't exist. Referer to help comannd");
+                Output::displayAsError("Assets Manager Error \n \t This command doesn't exist. Referer to help command\n");
         }
     }
 
@@ -49,7 +49,7 @@ class AssetsManager implements ModuleInterface
         }
         if (!is_dir(ROOT_PROJECT."/web/components/apps/".strtolower($appname)))
         {
-            if (!in_array("--quiet", $options)) Output::displayAsNotice("Assets Manager Notice: App $appname is not register on web assets.");
+            if (!in_array("--quiet", $options)) Output::displayAsNotice("Assets Manager Notice: App $appname is not register on web assets.\n");
         }
 
         if ($appname != NULL)
@@ -126,9 +126,9 @@ class AssetsManager implements ModuleInterface
     private function copy(bool $symlink, string $appname)
     {
         if ($appname != '#none'){
-            if (!is_dir(ROOT_PROJECT."/apps/".$appname."/Front/resources/"))
+            if (!is_dir(ROOT_PROJECT."/apps/".$appname."/Front/Resources/"))
                 Output::displayAsError("Assets Manager Error: Resource directory for $appname doesn't exist.");
-            Server::copy(ROOT_PROJECT."/apps/".$appname."/Front/resources/", ROOT_PROJECT."/web/components/apps/".strtolower($appname), 'directory', $symlink);
+            Server::copy(ROOT_PROJECT."/apps/".$appname."/Front/Resources/", ROOT_PROJECT."/web/components/apps/".strtolower($appname), 'directory', $symlink);
         }
         else
         {
@@ -137,7 +137,7 @@ class AssetsManager implements ModuleInterface
             foreach ($dirs as $dir) {
                 if ($dir == ".") continue;
                 if ($dir == "..") continue;
-                Server::copy(ROOT_PROJECT."/apps/".$dir."/Front/resources/", ROOT_PROJECT."/web/components/apps/".strtolower($dir), 'directory', $symlink);
+                Server::copy(ROOT_PROJECT."/apps/".$dir."/Front/Resources/", ROOT_PROJECT."/web/components/apps/".strtolower($dir), 'directory', $symlink);
             }
         }
     }

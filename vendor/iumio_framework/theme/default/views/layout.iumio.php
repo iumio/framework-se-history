@@ -9,28 +9,28 @@
 <head>
     <title>IUMIO <?= $this->env.' '.$this->code ?></title>
     <meta charset="utf-8" />
-    <link rel="apple-touch-icon" sizes="57x57" href="//<?= HOST_CURRENT ?>/components/theme/default/assets/images/favicon.ico/apple-icon-57x57.png">
-    <link rel="apple-touch-icon" sizes="60x60" href="//<?= HOST_CURRENT ?>/components/theme/default/assets/images/favicon.ico/apple-icon-60x60.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="//<?= HOST_CURRENT ?>/components/theme/default/assets/images/favicon.ico/apple-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="//<?= HOST_CURRENT ?>/components/theme/default/assets/images/favicon.ico/apple-icon-76x76.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="//<?= HOST_CURRENT ?>/components/theme/default/assets/images/favicon.ico/apple-icon-114x114.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="//<?= HOST_CURRENT ?>/components/theme/default/assets/images/favicon.ico/apple-icon-120x120.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="//<?= HOST_CURRENT ?>/components/theme/default/assets/images/favicon.ico/apple-icon-144x144.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="//<?= HOST_CURRENT ?>/components/theme/default/assets/images/favicon.ico/apple-icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="//<?= HOST_CURRENT ?>/components/theme/default/assets/images/favicon.ico/apple-icon-180x180.png">
-    <link rel="icon" type="image/png" sizes="192x192"  href="//<?= HOST_CURRENT ?>/components/theme/default/assets/images/favicon.ico/android-icon-192x192.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="//<?= HOST_CURRENT ?>/components/theme/default/assets/images/favicon.ico/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="//<?= HOST_CURRENT ?>/components/theme/default/assets/images/favicon.ico/favicon-96x96.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="//<?= HOST_CURRENT ?>/components/theme/default/assets/images/favicon.ico/favicon-16x16.png">
-    <link rel="manifest" href="//<?= HOST_CURRENT ?>/components/theme/default/assets/images/favicon.ico/manifest.json">
+    <link rel="apple-touch-icon" sizes="57x57" href="<?= HOST_CURRENT ?>/components/theme/default/assets/images/favicon.ico/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="<?= HOST_CURRENT ?>/components/theme/default/assets/images/favicon.ico/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="<?= HOST_CURRENT ?>/components/theme/default/assets/images/favicon.ico/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="<?= HOST_CURRENT ?>/components/theme/default/assets/images/favicon.ico/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="<?= HOST_CURRENT ?>/components/theme/default/assets/images/favicon.ico/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="<?= HOST_CURRENT ?>/components/theme/default/assets/images/favicon.ico/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="<?= HOST_CURRENT ?>/components/theme/default/assets/images/favicon.ico/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="<?= HOST_CURRENT ?>/components/theme/default/assets/images/favicon.ico/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="<?= HOST_CURRENT ?>/components/theme/default/assets/images/favicon.ico/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="<?= HOST_CURRENT ?>/components/theme/default/assets/images/favicon.ico/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="<?= HOST_CURRENT ?>/components/theme/default/assets/images/favicon.ico/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="<?= HOST_CURRENT ?>/components/theme/default/assets/images/favicon.ico/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="<?= HOST_CURRENT ?>/components/theme/default/assets/images/favicon.ico/favicon-16x16.png">
+    <link rel="manifest" href="<?= HOST_CURRENT ?>/components/theme/default/assets/images/favicon.ico/manifest.json">
     <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="msapplication-TileImage" content="//<?= HOST_CURRENT ?>/components/theme/default/assets/images/favicon.ico/ms-icon-144x144.png">
+    <meta name="msapplication-TileImage" content="<?= HOST_CURRENT ?>/components/theme/default/assets/images/favicon.ico/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <!--[if lte IE 8]><script src="//<?= HOST_CURRENT ?>/components/theme/default/assets/js/ie/html5shiv.js"></script><![endif]-->
-    <link rel="stylesheet" href="//<?= HOST_CURRENT ?>/components/theme/default/assets/css/main.css" />
-    <!--[if lte IE 9]><link rel="stylesheet" href="//<?= HOST_CURRENT ?>/components/theme/default/assets/css/ie9.css" /><![endif]-->
-    <!--[if lte IE 8]><link rel="stylesheet" href="//<?= HOST_CURRENT ?>/components/theme/default/assets/css/ie8.css" /><![endif]-->
+    <!--[if lte IE 8]><script src="<?= HOST_CURRENT ?>/components/theme/default/assets/js/ie/html5shiv.js"></script><![endif]-->
+    <link rel="stylesheet" href="<?= HOST_CURRENT ?>/components/theme/default/assets/css/main.css" />
+    <!--[if lte IE 9]><link rel="stylesheet" href="<?= HOST_CURRENT ?>/components/theme/default/assets/css/ie9.css" /><![endif]-->
+    <!--[if lte IE 8]><link rel="stylesheet" href="<?= HOST_CURRENT ?>/components/theme/default/assets/css/ie8.css" /><![endif]-->
     <style type="text/css">
         body, html
         {
@@ -129,7 +129,7 @@
 
     <!-- Header -->
     <header id="header" class="alt">
-        <a href="index.php" class="logo"> <img src="//<?= HOST_CURRENT ?>/components/theme/default/assets/images/iumio-horizontal-white.png" style="width: 15%"><!--<strong>IUMIO </strong> <span>FRAMEWORK</span>--></a>
+        <a href="index.php" class="logo"> <img src="<?= HOST_CURRENT ?>/components/theme/default/assets/images/iumio-horizontal-white.png" style="width: 15%"><!--<strong>IUMIO </strong> <span>FRAMEWORK</span>--></a>
         <nav>
             <a href="#menu">Menu</a>
         </nav>
@@ -138,9 +138,9 @@
     <!-- Menu -->
     <nav id="menu">
         <ul class="links">
-            <li><a href="//<?= HOST_CURRENT ?>/iumio_dev.php">DEV MODE</a></li>
-            <li><a href="//<?= HOST_CURRENT ?>/iumio_preprod.php">PREPROD MODE</a></li>
-            <li><a href="//<?= HOST_CURRENT ?>/iumio_prod.php">PROD MODE</a></li>
+            <li><a href="<?= HOST_CURRENT ?>/iumio_dev.php">DEV MODE</a></li>
+            <li><a href="<?= HOST_CURRENT ?>/iumio_preprod.php">PREPROD MODE</a></li>
+            <li><a href="<?= HOST_CURRENT ?>/iumio_prod.php">PROD MODE</a></li>
             <li><a href="#">CONFIG</a></li>
             <li><a href="#">PROFILER</a></li>
 
@@ -185,7 +185,7 @@
         <section id="one" class="tiles">
             <article>
 									<span class="image">
-										<img src="//<?= HOST_CURRENT ?>/components/theme/default/assets/images/pic01.jpg" alt="" />
+										<img src="<?= HOST_CURRENT ?>/components/theme/default/assets/images/pic01.jpg" alt="" />
 									</span>
                 <header class="major">
                 <h3><a href="#" class="link">PHP</a></h3>
@@ -194,7 +194,7 @@
             </article>
             <article>
 									<span class="image">
-										<img src="//<?= HOST_CURRENT ?>/components/theme/default/assets/images/pic02.jpg" alt="" />
+										<img src="<?= HOST_CURRENT ?>/components/theme/default/assets/images/pic02.jpg" alt="" />
 									</span>
                 <header class="major">
                     <h3><a href="#" class="link">Views</a></h3>
@@ -203,7 +203,7 @@
             </article>
             <article>
 									<span class="image">
-										<img src="//<?= HOST_CURRENT ?>/components/theme/default/assets/images/pic03.jpg" alt="" />
+										<img src="<?= HOST_CURRENT ?>/components/theme/default/assets/images/pic03.jpg" alt="" />
 									</span>
                 <header class="major">
                     <h3><a href="#" class="link">Navigation</a></h3>
@@ -212,7 +212,7 @@
             </article>
             <article>
 									<span class="image">
-										<img src="//<?= HOST_CURRENT ?>/components/theme/default/assets/images/pic04.jpg" alt="" />
+										<img src="<?= HOST_CURRENT ?>/components/theme/default/assets/images/pic04.jpg" alt="" />
 									</span>
                 <header class="major">
                     <h3><a href="#" class="link">Environment</a></h3>
@@ -268,13 +268,13 @@
 </div>
 
 <!-- Scripts -->
-<script src="//<?= HOST_CURRENT ?>/components/theme/default/assets/js/jquery.min.js"></script>
-<script src="//<?= HOST_CURRENT ?>/components/theme/default/assets/js/jquery.scrolly.min.js"></script>
-<script src="//<?= HOST_CURRENT ?>/components/theme/default/assets/js/jquery.scrollex.min.js"></script>
-<script src="//<?= HOST_CURRENT ?>/components/theme/default/assets/js/skel.min.js"></script>
-<script src="//<?= HOST_CURRENT ?>/components/theme/default/assets/js/util.js"></script>
-<!--[if lte IE 8]><script src="//<?= HOST_CURRENT ?>/components/theme/default/assets/js/ie/respond.min.js"></script><![endif]-->
-<script src="//<?= HOST_CURRENT ?>/components/theme/default/assets/js/main.js"></script>
+<script src="<?= HOST_CURRENT ?>/components/theme/default/assets/js/jquery.min.js"></script>
+<script src="<?= HOST_CURRENT ?>/components/theme/default/assets/js/jquery.scrolly.min.js"></script>
+<script src="<?= HOST_CURRENT ?>/components/theme/default/assets/js/jquery.scrollex.min.js"></script>
+<script src="<?= HOST_CURRENT ?>/components/theme/default/assets/js/skel.min.js"></script>
+<script src="<?= HOST_CURRENT ?>/components/theme/default/assets/js/util.js"></script>
+<!--[if lte IE 8]><script src="<?= HOST_CURRENT ?>/components/theme/default/assets/js/ie/respond.min.js"></script><![endif]-->
+<script src="<?= HOST_CURRENT ?>/components/theme/default/assets/js/main.js"></script>
 
 </body>
 </html>

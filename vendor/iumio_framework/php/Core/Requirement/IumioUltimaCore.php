@@ -148,8 +148,9 @@ abstract class IumioUltimaCore
         foreach ($routes as $route)
         {
             $mat = Routing::matches($route['path'], $path, $route);
+            $mat2 = Routing::matches($route['path']."/", $path, $route);
 
-            if ($mat['similar'] > $baseSimilar)
+            if (($mat['similar'] > $baseSimilar) || $mat2['similar'] > $baseSimilar)
             {
                $baseSimilar = $mat['similar'];
                 $controller = $route;
