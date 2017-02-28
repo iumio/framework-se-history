@@ -11,17 +11,17 @@ namespace IumioFramework\Core\Base\Json;
 interface JsonInterface
 {
 
-    /**
-     * @param $filepath
-     * @return \stdClass
+    /** Open configuration file
+     * @param $filepath string
+     * @return \stdClass element of file
      */
-    public static function open($filepath):\stdClass;
+    public static function open(string $filepath):\stdClass;
 
-    /**
-     * @param $filepath
-     * @return int
+    /** Close configuration file
+     * @param $filepath string File path
+     * @return int Is closed
      */
-    public static function close($filepath):int;
+    public static function close(string $filepath):int;
 
 
 }

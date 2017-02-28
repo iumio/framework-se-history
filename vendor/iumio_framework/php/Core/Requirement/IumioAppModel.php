@@ -3,14 +3,15 @@
 namespace IumioFramework\Core\Requirement;
 
 /**
- * Class IumioAppModel
+ * Abstract Class IumioAppModel
  * @package IumioFramework\Core\Requirement
  * @author RAFINA Dany <danyrafina@gmail.com>
  */
 
-class IumioAppModel
+abstract class IumioAppModel
 {
     private $app;
+    protected $coname;
 
     /**
      *  Get router
@@ -27,5 +28,4 @@ class IumioAppModel
     {
 
     }
-
 }

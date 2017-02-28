@@ -43,6 +43,11 @@ class manager
         \define('ROOT', __DIR__, true);
         \define('ROOT_PROJECT', __DIR__.'/..', true);
         \define('ROOT_CACHE', __DIR__.'/cache', true);
+        \define('ROOT_APPS', __DIR__.'/..'."/apps/", true);
+        \define('CORE',  __DIR__.'/..'."/core/", true);
+        \define('ROOT_VENDOR_LIBS',  __DIR__.'/..'."/vendor/libs/", true);
+        \define('ROOT_VENDOR_CLI_MODULES',  __DIR__.'/..'."/vendor/iumio_framework/php/Core/Additional/Manager/Module/", true);
+
     }
 }
 

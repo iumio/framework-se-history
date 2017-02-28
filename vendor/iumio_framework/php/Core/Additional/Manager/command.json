@@ -1,6 +1,6 @@
 {
     "name": "IumioCommand",
-    "version": "0.0.4",
+    "version": "0.0.5",
     "commands": {
       "help": {
           "class" : "\\IumioFramework\\Manager\\Console\\Module\\Help\\HelpManager",
@@ -17,6 +17,10 @@
       "app-manager": {
         "class" : "\\IumioFramework\\Manager\\Console\\Module\\App\\AppManager",
         "desc"  : "Manage project \n \t new-project : Create project  \n \t switch-project : Change the default project \n \t remove-project : Remove a project \n"
+      },
+      "doctrine-manager": {
+        "class" : "\\IumioFramework\\Manager\\Console\\Module\\Doctrine\\DoctrineManager",
+        "desc"  : "Manage Doctrine project \n \t --appname : App name 'Example --appname=DefaultApp'\n"
       }
 
     }

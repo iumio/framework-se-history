@@ -13,7 +13,11 @@ class JsonListener implements JsonInterface
     static private $file = NULL;
     static private $filepath = NULL;
 
-    public static function open($filepath):\stdClass
+    /** Open file configuration
+     * @param $filepath string Filepath
+     * @return \stdClass File content
+     */
+    public static function open(string $filepath):\stdClass
     {
         if ($filepath == self::$filepath && self::$file != NULL)
             return (self::$file);
@@ -21,7 +25,11 @@ class JsonListener implements JsonInterface
         return ($a == NULL ? new \stdClass() : $a);
     }
 
-    public static function close($filepath):int
+    /** Close file configuration
+     * @param string $filepath File path
+     * @return int Is file closed
+     */
+    public static function close(string $filepath):int
     {
         if (self::$file != NULL) {
             $filepath = NULL;

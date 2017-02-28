@@ -1,0 +1,5 @@
+routingRegister : TestApp
+
+name : default_start
+path : /index
+method : Default%show_index

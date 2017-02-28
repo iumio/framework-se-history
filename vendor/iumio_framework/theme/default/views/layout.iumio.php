@@ -7,7 +7,7 @@
 -->
 <html>
 <head>
-    <title>IUMIO <?= $this->env.' '.$this->code ?></title>
+    <title>Iumio <?= ucfirst(strtolower($this->env)).' '.$this->code ?></title>
     <meta charset="utf-8" />
     <link rel="apple-touch-icon" sizes="57x57" href="<?= HOST_CURRENT ?>/components/theme/default/assets/images/favicon.ico/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="<?= HOST_CURRENT ?>/components/theme/default/assets/images/favicon.ico/apple-icon-60x60.png">
@@ -40,7 +40,7 @@
             padding-top: 0em;
         }
         #banner.major {
-            height: 90vh;
+            height: 135vh;
         }
         .timeline {
             list-style-type: none;
@@ -138,16 +138,17 @@
     <!-- Menu -->
     <nav id="menu">
         <ul class="links">
-            <li><a href="<?= HOST_CURRENT ?>/iumio_dev.php">DEV MODE</a></li>
-            <li><a href="<?= HOST_CURRENT ?>/iumio_preprod.php">PREPROD MODE</a></li>
-            <li><a href="<?= HOST_CURRENT ?>/iumio_prod.php">PROD MODE</a></li>
-            <li><a href="#">CONFIG</a></li>
-            <li><a href="#">PROFILER</a></li>
+            <li><a href="<?= HOST_CURRENT ?>/iumio_dev.php">Dev Mode</a></li>
+            <li><a href="<?= HOST_CURRENT ?>/iumio_preprod.php">Preprod Mode</a></li>
+            <li><a href="<?= HOST_CURRENT ?>/iumio_prod.php">Prod Mode</a></li>
+            <li><a href="#">Config</a></li>
+            <li><a href="#">Profiler</a></li>
 
         </ul>
         <ul class="actions vertical">
-            <li><a href="#" class="button special fit">CONTACT IUMIO SUPPORT</a></li>
-            <li><a href="https://iumio.com" class="button fit">IUMIO WEBSITE</a></li>
+            <li><a href="#" class="button special fit">Contact Iumio support</a></li>
+            <li><a href="https://framework.iumio.com" class="button fit">Iumio Website</a></li>
+            <li><a href="https://docs.framework.iumio.com/" class="button fit">Iumio Documentation</a></li>
         </ul>
     </nav>
 
@@ -155,7 +156,7 @@
     <section id="banner" class="major">
         <div class="inner">
             <header class="major">
-                <h1>IUMIO <?= $this->env.' '.$this->code.' '.$this->codeTitle ?></h1>
+                <h1>Iumio <?= ucfirst(strtolower($this->env)).' '.$this->code.' '.$this->codeTitle ?></h1>
             </header>
             <div class="content">
                 <p><?= $this->explain ?><br />
@@ -217,6 +218,25 @@
                 <header class="major">
                     <h3><a href="#" class="link">Environment</a></h3>
                     <p>3 Environments (DEV, PREPROD, PROD)</p>
+                </header>
+            </article>
+
+            <article>
+									<span class="image">
+										<img src="<?= HOST_CURRENT ?>/components/theme/default/assets/images/pic05.jpg" alt="" />
+									</span>
+                <header class="major">
+                    <h3><a href="http://www.doctrine-project.org/" class="link">ORM</a></h3>
+                    <p>Used ORM named <a href="http://www.doctrine-project.org/">Doctrine 2</a></p>
+                </header>
+            </article>
+            <article>
+									<span class="image">
+										<img src="<?= HOST_CURRENT ?>/components/theme/default/assets/images/pic06.jpg" alt="" />
+									</span>
+                <header class="major">
+                    <h3><a href="#" class="link">Configuration files</a></h3>
+                    <p>Used JSON format as configuration files</p>
                 </header>
             </article>
         </section>

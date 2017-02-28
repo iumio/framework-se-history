@@ -37,7 +37,7 @@ class Server000 extends \Exception implements Server
     }
 
     /**
-     * Display 403 Error
+     * Display 000 Error
      */
     public function display()
     {

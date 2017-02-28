@@ -34,7 +34,6 @@ class IumioDatabaseAccess
             }
             else
             {
-
                 $dns = $file->$databaseName->db_driver.":dbname=".$file->$databaseName->db_name.";host=".$file->$databaseName->db_host;
                 $user = $file->$databaseName->db_user;
                 $passwd = $file->$databaseName->db_password;

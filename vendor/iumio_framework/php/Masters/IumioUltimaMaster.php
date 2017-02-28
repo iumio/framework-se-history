@@ -6,6 +6,7 @@ use IumioFramework\Core\Http\ParameterRequest;
 use IumioFramework\Core\Additionnal\Template\IumioMustache;
 use IumioFramework\Core\Requirement\IumioUltimaCore;
 use IumioFramework\Core\Base\Database\IumioDatabaseAccess as IDA;
+use IumioFramework\Core\Base\Database\ORM\IumioUltimaDoctrine as UltimaDoctrine;
 
 /**
  * Class IumioUltimaMaster
@@ -18,6 +19,7 @@ class IumioUltimaMaster
 {
     protected $masterFirst = NULL;
     protected $appMastering = NULL;
+    protected $doctrine = NULL;
 
     /** Set a file to master
      * @param mixed $himself
@@ -70,6 +72,16 @@ class IumioUltimaMaster
 
     }
 
+    /** Get doctrine instance
+     * @return UltimaDoctrine|null Doctrine instance or null
+     */
+    final protected function getDoctrine()
+    {
+        if ($this->doctrine == null)
+            $this->doctrine = new UltimaDoctrine(APP_CALL);
+        return ($this->doctrine);
+    }
+
 
     /** Change views Render extension
      * @param string $ext new extention
@@ -96,7 +108,7 @@ class IumioUltimaMaster
      * @param string|null $name Database name
      * @return \PDO PDO instance (Connection instance)
      */
-    final protected function getDbConnection(string $name = '#none'):\PDO
+    final protected function getConnection(string $name = '#none'):\PDO
     {
         return (IDA::getDbInstance($name));
     }
