@@ -24,8 +24,8 @@ class AppCore extends IumioUltimaCore
     }
 
 
-    /**
-     * @return array
+    /** Get all app register on apps.json
+     * @return array Apps register
      */
 
     public function registerApps():array

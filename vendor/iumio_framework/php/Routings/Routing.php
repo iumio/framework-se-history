@@ -15,6 +15,7 @@ class Routing extends RtListener
 {
     private $app;
     private $framework;
+    private $isbase;
 
     /**
      * Register a router to IumioCore
@@ -24,11 +25,13 @@ class Routing extends RtListener
      * Routing constructor.
      * @param string $app App name
      * @param string $framework framework name
+     * @param bool $isbase Check is a base app
      */
-    public function __construct(string $app, string $framework)
+    public function __construct(string $app, string $framework, bool $isbase = false)
     {
         $this->app =  $app;
         $this->framework = $framework;
+        $this->isbase = $isbase;
         parent::__construct($app);
     }
 
@@ -37,7 +40,7 @@ class Routing extends RtListener
      */
     public function routingRegister():bool
     {
-        return ((parent::open() == 1)? true : false);
+        return ((parent::open($this->isbase) == 1)? true : false);
     }
 
     /** Get all route

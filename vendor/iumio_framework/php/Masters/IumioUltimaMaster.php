@@ -47,6 +47,7 @@ class IumioUltimaMaster
                 return (new ParameterRequest())->get('query');
                 break;
         }
+        return (NULL);
     }
 
     /** Show a view
@@ -100,7 +101,29 @@ class IumioUltimaMaster
     final protected function declareEngineTemplateFunction(array $options):array
     {
         $options['webassets'] = function ($assets) { return (WEB_ASSETS.strtolower(APP_CALL)."/".$assets); };
+
         $options['framework_info'] = function ($info) { return (IumioUltimaCore::getInfo($info)); };
+
+        $options['btsp_js'] = function ($min = null) { return ("<script type='text/javascript' src='".WEB_LIBS."bootstrap/js/bootstrap.".(($min != null)? $min."." : "")."js'></script>"); };
+        $options['btsp_css'] = function ($min = null) { return ("<link href='".WEB_LIBS."bootstrap/css/bootstrap.".(($min != null)? $min."." : "")."css' rel='stylesheet' />"); };
+
+        $options['jquery'] = function ($min = null) { return ("<script type='text/javascript' src='".WEB_LIBS."jquery/jquery.".(($min != null)? $min."." : "")."js'></script>"); };
+
+        $options['css'] = function ($assets) { return ("<link href='".WEB_ASSETS.strtolower(APP_CALL)."/".$assets.".css' rel='stylesheet' />"); };
+        $options['js'] = function ($assets) { return ("<script type='text/javascript' src='".WEB_ASSETS.strtolower(APP_CALL)."/".$assets.".js'></script>"); };
+
+        $options['css_libs'] = function ($assets) { return ("<link href='".WEB_COMPONENTS."libs/".$assets.".css' rel='stylesheet' />"); };
+        $options['js_libs'] = function ($assets) { return ("<script type='text/javascript' src='".WEB_COMPONENTS."libs/".$assets.".js'></script>"); };
+
+        $options['css_fgm'] = function ($assets) { return ("<link href='".WEB_COMPONENTS."libs/fgm_libs/css/".$assets.".css' rel='stylesheet' />"); };
+        $options['js_fgm'] = function ($assets) { return ("<script type='text/javascript' src='".WEB_COMPONENTS."libs/fgm_libs/js/".$assets.".js'></script>"); };
+        $options['img_fgm'] = function ($assets) { return (WEB_COMPONENTS."libs/fgm_libs/img/".$assets); };
+
+        $options['css_iumio'] = function ($assets) { return ("<link href='".WEB_COMPONENTS."libs/iumio_framework/css/".$assets.".css' rel='stylesheet' />"); };
+        $options['js_iumio'] = function ($assets) { return ("<script type='text/javascript' src='".WEB_COMPONENTS."libs/iumio_framework/js/".$assets.".js'></script>"); };
+        $options['img_iumio'] = function ($assets) { return (WEB_COMPONENTS."libs/iumio_framework/img/".$assets); };
+
+
         return $options;
     }
 

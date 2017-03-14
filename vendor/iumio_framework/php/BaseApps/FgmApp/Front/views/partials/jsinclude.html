@@ -1,0 +1,31 @@
+<!--   Core JS Files   -->
+{{# jquery }}{{/jquery }}
+{{# btsp_js }}min{{/btsp_js }}
+<!--  Checkbox, Radio & Switch Plugins -->
+{{# js_fgm }}bootstrap-checkbox-radio-switch{{/js_fgm }}
+<!--  Charts Plugin -->
+{{# js_fgm }}chartist.min{{/js_fgm }}
+<!--  Notifications Plugin    -->
+{{# js_fgm }}bootstrap-notify{{/js_fgm }}
+<!--  Google Maps Plugin    -->
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+<!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->
+{{# js_fgm }}light-bootstrap-dashboard{{/js_fgm }}
+<!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
+{{# js_fgm }}demo{{/js_fgm }}
+<script type="text/javascript">
+    $(document).ready(function(){
+
+        demo.initChartist();
+
+        $.notify({
+            icon: 'pe-7s-gift',
+            message: "Welcome to <b>Light Bootstrap Dashboard</b> - a beautiful freebie for every web developer."
+
+        },{
+            type: 'info',
+            timer: 4000
+        });
+
+    });
+</script>

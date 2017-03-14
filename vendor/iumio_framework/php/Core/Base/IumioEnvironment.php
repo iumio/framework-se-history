@@ -29,6 +29,7 @@ class IumioEnvironment
         define('HOST_CURRENT', $current);
         define('ROOT', $base);
         define('CORE', $base."core/");
+        define('BASE_APPS', $base."vendor/iumio_framework/php/BaseApps/");
         define('ROOT_VENDOR', $base."vendor/iumio_framework/");
         define('ROOT_MANAGER', $base."vendor/iumio_framework/Core/Additional/Manager/");
         define('ROOT_VENDOR_LIBS', $base."vendor/libs/");
@@ -37,6 +38,8 @@ class IumioEnvironment
         define('CACHE_PREPROD', $base."core/cache/preprod/");
         define('THEME', $base."vendor/iumio_framework/theme/");
         define('WEB_ASSETS', $current."/components/apps/");
+        define('WEB_LIBS', $current."/components/libs/");
+        define('WEB_COMPONENTS', $current."/components/");
         define('ROOT_APPS', $base."apps/");
 
         return (1);

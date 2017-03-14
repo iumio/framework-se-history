@@ -4,8 +4,7 @@ namespace IumioFramework\Core\Requirement;
 use IumioFramework\Core\Base\Http\HttpListener;
 use IumioFramework\Masters\Routing;
 use IumioFramework\Core\Requirement\Relexion\IumioReflexion;
-use IumioFramework\Theme\Server\Server500;
-use IumioFramework\Theme\Server\Server404;
+use IumioFramework\Theme\Server\{Server500, Server404, Server000};
 
 /**
  * Class IumioUltimaCore
@@ -135,11 +134,14 @@ abstract class IumioUltimaCore
     }
 
     /**
+     * Detect url matches
+
      * @param HttpListener $request
      * @param array $routes
+     * @param string $baseurl Contain base url if it's a component is calling
      * @return mixed
      */
-    protected function manage(HttpListener $request, array $routes)
+    protected function manage(HttpListener $request, array $routes, string $baseurl = '')
     {
         $controller = NULL;
         $baseSimilar = 0;
@@ -148,8 +150,8 @@ abstract class IumioUltimaCore
 
         foreach ($routes as $route)
         {
-            $mat = Routing::matches($route['path'], $path, $route);
-            $mat2 = Routing::matches($route['path']."/", $path, $route);
+            $mat = Routing::matches($baseurl.$route['path'], $path, $route);
+            $mat2 = Routing::matches($baseurl.$route['path']."/", $path, $route);
 
             if (($mat['similar'] > $baseSimilar) || $mat2['similar'] > $baseSimilar)
             {
@@ -157,6 +159,7 @@ abstract class IumioUltimaCore
                 $controller = $route;
                 if (isset($controller['params']) && count($controller['params']) > 0)
                 {
+                    echo "smi";
                     $pval = $this->assembly($controller['params'], $mat['result']);
                     $controller['pval'] = $pval;
                     unset($controller['params']);
@@ -189,13 +192,18 @@ abstract class IumioUltimaCore
     /** Go to controller
      * @param HttpListener $request parameters
      * @return int Return as success
-     * @throws \Exception
+     * @throws Server404
+     * @throws Server500
      */
     public function dispatching(HttpListener $request):int
     {
 
         $apps = $this->registerApps();
         $def = $this->detectDefaultApp($apps);
+
+        $bapps = $this->registerBaseApps();
+
+        if ($this->isComponentCall($bapps, $request)) return (1);
 
         $rt = new Routing($def['name'], 'iumio');
         if ($rt->routingRegister() == true)
@@ -214,6 +222,7 @@ abstract class IumioUltimaCore
             {
                 $call = new IumioReflexion();
                 define("APP_CALL", $def['name']);
+                define("IS_IUMIO_COMPONENT", false);
                 if (isset($callback['pval']))
                     $call->__named($master, $method, $callback['pval']);
                 else
@@ -221,13 +230,92 @@ abstract class IumioUltimaCore
             }
             catch (\Exception $exception)
             {
-                throw new \Exception("Iumio Core Error : Class $master or method $master::$method doesn't exist => ".$exception->getMessage());
+                new Server500(new \ArrayObject(array("explain" =>"Iumio Core Error : Class $master or method $master::$method doesn't exist", "solution" => $exception->getMessage())));
             }
 
         }
         else
-            throw new \Exception("L'enregistrement du routeur a échoué");
+            throw new Server500(new \ArrayObject(array("explain" =>"Iumio router register fail  ", "solution" => "Please check your app configuration")));
         return (1);
+    }
+
+    /** Check if it's component is calling
+     * @param array $bases Base Apps
+     * @param HttpListener $request Current request
+     * @return bool If component is calling
+     * @throws Server500 Generate error server
+     * @throws \Exception
+     */
+    public function isComponentCall(array $bases, HttpListener $request): bool
+    {
+        foreach ($bases as $def) {
+            if (isset($def['appclass'])) {
+                if (method_exists($def['appclass'], 'off') == true) {
+                    if (($def['appclass'])::baseStatus() == 0) return (false);
+                    $rt = new Routing($def['name'], 'iumio', true);
+                    if ($rt->routingRegister() == true) {
+                        $callback = $this->manage($request, $rt->routes(), "/".$def['base_url']);
+                        if ($callback == NULL) return (false);
+                        $method = $callback['method'];
+                        $controller = $callback['controller'];
+
+                        $defname = $def['name'];
+                        $master = "\\$defname\\Master\\{$controller}Master";
+                        try {
+                            $call = new IumioReflexion();
+                            define("APP_CALL", $def['name']);
+                            define("IS_IUMIO_COMPONENT", true);
+                            if (isset($callback['pval']))
+                                $call->__named($master, $method, $callback['pval']);
+                            else
+                                $call->__named($master, $method);
+                        } catch (\Exception $exception) {
+                            throw new \Exception("Iumio Core Error : Class $master or method $master::$method doesn't exist => " . $exception->getMessage());
+                        }
+                    } else
+                        throw new Server500(new \ArrayObject(array("explain" => $def['name'] . " component not contain a related router", "solution" => "Please check the if 'routingRegister' is present in your router")));
+                } else
+                    throw new Server500(new \ArrayObject(array("explain" => $def['name'] . " component doesn't contain 'off' method ", "solution" => "Please add off method to your component")));
+            }
+            else
+                throw new Server500(new \ArrayObject(array("explain" => "Component doesn't exist ", "solution" => "Check apps.json file in base app")));
+             $this->booted;
+        }
+       return (true);
+    }
+
+
+    /** Get all app register on apps.json
+     * @return array Apps register
+     */
+
+    public function registerApps():array
+    {
+        $classes = $this->getClassFile();
+
+        if (count((array)$classes) == 0)  new Server000(new \ArrayObject(array()));
+        $apps = array();
+        foreach ($classes as $class => $val) {
+            $val = (array)$val;
+            $apps[$val['name']] =  array("isdefault" =>$val['isdefault'],  "appclass" => new $val['class']());
+        }
+        return $apps;
+    }
+
+    /** Get all app register on apps.json
+     * @return array Apps register
+     */
+
+    public function registerBaseApps():array
+    {
+        $classes = $this->getBaseClassFile();
+
+        $apps = array();
+        foreach ($classes as $class => $val) {
+            $val = (array)$val;
+            $apps[$val['name']] =  array("name" => $val['name'], "appclass" => new $val['class'](), "base_url" =>$val['base_url']);
+        }
+        return $apps;
     }
 
     /** Return app declaration file
@@ -236,6 +324,15 @@ abstract class IumioUltimaCore
     final protected function getClassFile():\stdClass
     {
         $a = json_decode(file_get_contents(CORE.'apps.json'));
+        return ($a == NULL ? new \stdClass() : $a);
+    }
+
+    /** Return base app declaration file
+     * @return \stdClass File result
+     */
+    final protected function getBaseClassFile():\stdClass
+    {
+        $a = json_decode(file_get_contents(BASE_APPS.'apps.json'));
         return ($a == NULL ? new \stdClass() : $a);
     }
 

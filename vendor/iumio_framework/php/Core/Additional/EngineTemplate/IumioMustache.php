@@ -40,8 +40,11 @@ final class IumioMustache
             else if (ENVIRONMENT == "PREPROD")
                 $envcache = CACHE_PREPROD;
 
-            IumioServerManager::create(ROOT_APPS.self::$appCall.'/Front/views', "directory");
-            IumioServerManager::create(ROOT_APPS.self::$appCall.'/Front/views/partials', "directory");
+
+            $dirapp = ((IS_IUMIO_COMPONENT)? BASE_APPS :  ROOT_APPS);
+
+            IumioServerManager::create($dirapp . self::$appCall . '/Front/views', "directory");
+            IumioServerManager::create($dirapp . self::$appCall . '/Front/views/partials', "directory");
 
             $options =  array('extension' => self::$viewExtention);
             self::$instance = new \Mustache_Engine(array(
@@ -49,8 +52,8 @@ final class IumioMustache
                 'cache' => $envcache.'/tmp/cache/mustache',
                 'cache_file_mode' => 0666, // Please, configure your umask instead of doing this :)
                 'cache_lambda_templates' => true,
-                'loader' => new \Mustache_Loader_FilesystemLoader(ROOT_APPS.self::$appCall.'/Front/views', $options),
-                'partials_loader' => new \Mustache_Loader_FilesystemLoader(ROOT_APPS.self::$appCall.'/Front/views/partials', $options),
+                'loader' => new \Mustache_Loader_FilesystemLoader($dirapp.self::$appCall.'/Front/views', $options),
+                'partials_loader' => new \Mustache_Loader_FilesystemLoader($dirapp.self::$appCall.'/Front/views/partials', $options),
                 'helpers' => array('i18n' => function($text) {
                     // do something translatey here...
                 }),

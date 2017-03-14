@@ -18,9 +18,9 @@
         "class" : "\\IumioFramework\\Manager\\Console\\Module\\App\\AppManager",
         "desc"  : "Manage project \n \t new-project : Create project  \n \t switch-project : Change the default project \n \t remove-project : Remove a project \n"
       },
-      "doctrine-manager": {
-        "class" : "\\IumioFramework\\Manager\\Console\\Module\\Doctrine\\DoctrineManager",
-        "desc"  : "Manage Doctrine project \n \t --appname : App name 'Example --appname=DefaultApp'\n"
+      "propel-manager": {
+        "class" : "\\IumioFramework\\Manager\\Console\\Module\\Propel\\PropelManager",
+        "desc"  : "Manage Propel project \n \t --appname : App name 'Example --appname=DefaultApp'\n"
       }
 
     }

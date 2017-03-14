@@ -27,17 +27,18 @@ class RtListener implements Listener
     }
 
     /** Open a file
+     * @param bool $isbase Open routing for base app
      * @return int Is success
      */
-    public function open():int
+    public function open(bool $isbase = false):int
     {
-        if ($this->listingRouters() == 0)
+        if ($this->listingRouters($isbase) == 0)
             return (0);
 
         $routingArray = array();
 
         foreach($this->routers as $file) {
-            if(($router = fopen(ROOT."/apps/".$this->appName."/Routing/".$file, "r"))) {
+            if(($router = fopen(((!$isbase)? ROOT."/apps/" : BASE_APPS).$this->appName."/Routing/".$file, "r"))) {
                 while ($listen = fgets($router, 1024))
                 {
                     $listen = preg_replace('/\s+/', '', $listen);
@@ -106,13 +107,15 @@ class RtListener implements Listener
 
     }
 
-    /** returl router list
+
+    /** Return router list
+     * @param bool $isbase Is a base app
      * @return int Is a successs
      */
-    public function listingRouters():int
+    public function listingRouters(bool $isbase = false):int
     {
         if ($this->appWording() == 1) {
-            $this->routers = scandir(ROOT . "/apps/" . $this->appName . "/Routing");
+            $this->routers = scandir(((!$isbase)? ROOT . "/apps/" : BASE_APPS) . $this->appName . "/Routing");
             return (1);
         }
         return (0);

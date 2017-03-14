@@ -2,14 +2,14 @@
 
 namespace TestApp\Master;
 
-use IumioFramework\Masters\IumioUltimaMaster;
+use IumioFramework\Masters\IumioUltimaMaster as Master;
 
 /**
  * Class DefaultMaster
  * @package TestApp\Master
  */
 
-class DefaultMaster extends IumioUltimaMaster
+class DefaultMaster extends Master
 {
 
     /**
@@ -33,7 +33,7 @@ class DefaultMaster extends IumioUltimaMaster
      */
     public function show_indexGo()
     {
-        print_r($this->getDoctrine()->getEntityManager());
+        //print_r($this->getDoctrine()->getEntityManager());
         return ($this->render("index"));
     }
 }

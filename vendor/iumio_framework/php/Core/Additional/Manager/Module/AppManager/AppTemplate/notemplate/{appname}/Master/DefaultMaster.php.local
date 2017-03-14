@@ -2,7 +2,7 @@
 
 namespace {appname}\Master;
 
-use IumioFramework\Masters\IumioUltimaMaster;
+use IumioFramework\Masters\IumioUltimaMaster as Master;
 use IumioFramework\Core\Base\Http\Response\Response;
 
 /**
@@ -10,7 +10,7 @@ use IumioFramework\Core\Base\Http\Response\Response;
  * @package {appname}\Master
  */
 
-class DefaultMaster extends IumioUltimaMaster
+class DefaultMaster extends Master
 {
 
     /**
