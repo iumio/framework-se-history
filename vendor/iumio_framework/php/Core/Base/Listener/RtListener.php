@@ -1,12 +1,12 @@
 <?php
 
 
-namespace IumioFramework\Core\Base;
-use IumioFramework\Core\Base\Debug\Debug;
+namespace iumioFramework\Core\Base;
+use iumioFramework\Core\Base\Debug\Debug;
 use Resource;
 /**
  * Class RtListener
- * @package IumioFramework\Core\Base
+ * @package iumioFramework\Core\Base
  * @author RAFINA Dany <danyrafina@gmail.com>
  */
 

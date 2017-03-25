@@ -1,10 +1,10 @@
 <?php
 
-namespace IumioFramework\Core\Base;
+namespace iumioFramework\Core\Base;
 
 /**
  * Interface
- * @package IumioFramework\Core\Base
+ * @package iumioFramework\Core\Base
  * @author RAFINA Dany <danyrafina@gmail.com>
  */
 

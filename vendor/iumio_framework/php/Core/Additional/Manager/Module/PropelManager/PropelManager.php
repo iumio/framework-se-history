@@ -1,14 +1,14 @@
 <?php
 
 
-namespace IumioFramework\Manager\Console\Module\Propel;
-use IumioFramework\Manager\Console\Module\IumioManagerModule as ModuleInterface;
+namespace iumioFramework\Manager\Console\Module\Propel;
+use iumioFramework\Manager\Console\Module\iumioManagerModule as ModuleInterface;
 
-use IumioFramework\Core\Additionnal\Console\Manager\Display\IumioManagerOutput as Output;
+use iumioFramework\Core\Additionnal\Console\Manager\Display\iumioManagerOutput as Output;
 
 /**
  * Class PropelManager
- * @package IumioFramework\Manager\Console\Module\Propel
+ * @package iumioFramework\Manager\Console\Module\Propel
  * @author RAFINA Dany <danyrafina@gmail.com>
  */
 

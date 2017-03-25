@@ -1,11 +1,11 @@
 <?php
 
-namespace IumioFramework\Theme\Server;
+namespace iumioFramework\Theme\Server;
 use ArrayObject;
 
 /**
  * Class Server000
- * @package IumioFramework\Theme\Server
+ * @package iumioFramework\Theme\Server
  * @author RAFINA Dany <danyrafina@gmail.com>
  */
 class Server000 extends \Exception implements Server

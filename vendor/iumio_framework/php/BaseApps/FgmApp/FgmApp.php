@@ -2,7 +2,7 @@
 
 namespace FgmApp;
 
-use IumioFramework\Core\Requirement\IumioAppBaseModel as BaseApp;
+use iumioFramework\Core\Requirement\iumioAppBaseModel as BaseApp;
 
 /**
  * Class FgmApp
@@ -12,7 +12,7 @@ use IumioFramework\Core\Requirement\IumioAppBaseModel as BaseApp;
 class FgmApp extends BaseApp
 {
 
-    /** Enable Iumio FGM
+    /** Enable iumio FGM
      * @return int FGM status
      */
     static public final function on():int
@@ -21,7 +21,7 @@ class FgmApp extends BaseApp
         return (self::$start);
     }
 
-    /** Disable Iumio FGM
+    /** Disable iumio FGM
      * @return int FGM status
      */
     static public final function off():int

@@ -2,7 +2,7 @@
 
 namespace TestApp;
 
-use IumioFramework\Core\Requirement\IumioAppModel as App;
+use iumioFramework\Core\Requirement\iumioAppModel as App;
 
 /**
  * Class TestApp

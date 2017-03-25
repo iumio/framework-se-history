@@ -1,10 +1,10 @@
 <?php
 
-namespace IumioFramework\Core\Base\Http\Response;
+namespace iumioFramework\Core\Base\Http\Response;
 
 /**
  * Class Response
- * @package IumioFramework\Core\Base\Http\Response
+ * @package iumioFramework\Core\Base\Http\Response
  * @author RAFINA Dany <danyrafina@gmail.com>
  */
 

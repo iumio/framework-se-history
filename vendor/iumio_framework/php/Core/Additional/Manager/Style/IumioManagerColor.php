@@ -1,20 +1,20 @@
 <?php
 
-namespace IumioFramework\Core\Additionnal\Console\Manager\Display\Style;
+namespace iumioFramework\Core\Additionnal\Console\Manager\Display\Style;
 
 /**
- * Class IumioManagerColor
- * @package IumioFramework\Core\Additionnal\Console\Manager\Display\Style
+ * Class iumioManagerColor
+ * @package iumioFramework\Core\Additionnal\Console\Manager\Display\Style
  * @author RAFINA Dany <danyrafina@gmail.com>
  */
 
-class IumioManagerColor
+class iumioManagerColor
 {
     private $foreground_colors = array();
     private $background_colors = array();
 
     /**
-     * IumioManagerColor constructor.
+     * iumioManagerColor constructor.
      */
     public function __construct() {
         // Set up shell colors

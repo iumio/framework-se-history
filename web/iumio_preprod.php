@@ -1,21 +1,21 @@
 <?php
 
 /**
- * Iumio File for preproduction environment
+ * iumio File for preproduction environment
  */
 
 $loader = require __DIR__.'/../vendor/iumio_framework/php/Core/Requirement/Autoloader.php';
 
-use IumioFramework\Core\Base\{IumioEnvironment, Debug\Debug, Http\HttpListener};
-use IumioFramework\Apps\AppCore;
+use iumioFramework\Core\Base\{iumioEnvironment, Debug\Debug, Http\HttpListener};
+use iumioFramework\Apps\AppCore;
 use FgmApp\FgmApp as FGM;
 
 
 /**
- * Class IumioDev
+ * Class iumioDev
  */
 
-class IumioPreprod extends IumioEnvironment
+class iumioPreprod extends iumioEnvironment
 {
 
     /**
@@ -48,5 +48,5 @@ class IumioPreprod extends IumioEnvironment
     }
 }
 
-IumioPreprod::start();
+iumioPreprod::start();
 

@@ -1,15 +1,15 @@
 <?php
 
-namespace IumioFramework\Apps;
-use IumioFramework\Core\Requirement\IumioUltimaCore;
-use IumioFramework\Core\Base\Http\HttpListener;
-use IumioFramework\Theme\Server\Server000;
+namespace iumioFramework\Apps;
+use iumioFramework\Core\Requirement\iumioUltimaCore;
+use iumioFramework\Core\Base\Http\HttpListener;
+use iumioFramework\Theme\Server\Server000;
 
 /**
  * Class AppCore
- * @package IumioFramework\Apps
+ * @package iumioFramework\Apps
  */
-class AppCore extends IumioUltimaCore
+class AppCore extends iumioUltimaCore
 {
     /**
      * AppCore constructor.

@@ -1,8 +1,7 @@
 <?php
 
 
-namespace IumioFramework\Core\Base\Http;
-use IumioFramework\Core\Http\ParameterRequest;
+namespace iumioFramework\Core\Base\Http;
 
 /**
  * ServerRequest is a container for HTTP headers from the $_SERVER variable.

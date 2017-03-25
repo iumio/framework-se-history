@@ -1,7 +1,7 @@
-Iumio Framework
+iumio Framework
 ==============
 
-Iumio Framework, The next generation PHP Framework
+iumio Framework, The next generation PHP Framework
 
 Created by DANY RAFINA <danyrafina@gmail.com>
 

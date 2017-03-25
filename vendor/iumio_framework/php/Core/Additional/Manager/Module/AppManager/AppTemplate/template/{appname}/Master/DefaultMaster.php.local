@@ -2,7 +2,7 @@
 
 namespace {appname}\Master;
 
-use IumioFramework\Masters\IumioUltimaMaster as Master;
+use iumioFramework\Masters\iumioUltimaMaster as Master;
 
 /**
  * Class DefaultMaster

@@ -1,11 +1,11 @@
 <?php
 
 namespace FgmApp\Master;
-use IumioFramework\Masters\IumioUltimaMaster as Master;
+use iumioFramework\Masters\iumioUltimaMaster as Master;
 
 /**
  * Class DashboardMaster
- * @package IumioFramework\Core\Fgm
+ * @package iumioFramework\Core\Fgm
  * @author RAFINA Dany <danyrafina@gmail.com>
  */
 
@@ -16,6 +16,7 @@ class DashboardMaster extends Master
      */
     public function indexGo()
     {
-        $this->render("index3");
+        $this->render("index");
     }
+
 }

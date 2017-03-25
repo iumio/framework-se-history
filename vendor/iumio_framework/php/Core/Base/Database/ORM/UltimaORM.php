@@ -1,10 +1,10 @@
 <?php
 
-namespace IumioFramework\Core\Base\Database\ORM;
+namespace iumioFramework\Core\Base\Database\ORM;
 
 /**
  * Trait UltimaORM
- * @package IumioFramework\Core\Base\Database\ORM
+ * @package iumioFramework\Core\Base\Database\ORM
  * @author RAFINA Dany <danyrafina@gmail.com>
  */
 trait UltimaORM

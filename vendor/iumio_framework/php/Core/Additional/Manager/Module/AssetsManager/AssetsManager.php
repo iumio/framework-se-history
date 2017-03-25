@@ -1,13 +1,13 @@
 <?php
 
-namespace IumioFramework\Manager\Console\Module\Assets;
-use IumioFramework\Core\Additionnal\Server\IumioServerManager as Server;
-use IumioFramework\Manager\Console\Module\IumioManagerModule as ModuleInterface;
-use IumioFramework\Core\Additionnal\Console\Manager\Display\IumioManagerOutput as Output;
+namespace iumioFramework\Manager\Console\Module\Assets;
+use iumioFramework\Core\Additionnal\Server\iumioServerManager as Server;
+use iumioFramework\Manager\Console\Module\iumioManagerModule as ModuleInterface;
+use iumioFramework\Core\Additionnal\Console\Manager\Display\iumioManagerOutput as Output;
 
 /**
  * Class AssetsManager
- * @package IumioFramework\Manager\Console\Module\Assets
+ * @package iumioFramework\Manager\Console\Module\Assets
  * @author RAFINA Dany <danyrafina@gmail.com>
  */
 

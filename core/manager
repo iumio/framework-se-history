@@ -1,6 +1,6 @@
 <?php
 
-namespace IumioFramework\Core\Additionnal\Console\Manager;
+namespace iumioFramework\Core\Additionnal\Console\Manager;
 
 try
 {
@@ -8,15 +8,15 @@ try
 }
 catch (\Exception $e)
 {
-    throw new \Exception("Iumio Manager error : cannot get autoloader => ".$e->getMessage());
+    throw new \Exception("iumio Manager error : cannot get autoloader => ".$e->getMessage());
 }
 
-use IumioFramework\Core\Base\Debug\Debug;
-use IumioFramework\Core\Additionnal\Console\Manager\IumioManager as CoreManager;
+use iumioFramework\Core\Base\Debug\Debug;
+use iumioFramework\Core\Additionnal\Console\Manager\iumioManager as CoreManager;
 
 /**
  * Class manager
- * @package IumioFramework\Core\Additionnal\Console\Manager
+ * @package iumioFramework\Core\Additionnal\Console\Manager
  * @author RAFINA Dany <danyrafina@gmail.com>
  */
 

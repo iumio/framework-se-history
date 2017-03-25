@@ -1,5 +1,0 @@
-routingRegister : FgmApp
-
-name : iumio_fgm_index
-path : /dashboard
-method : Dashboard%index

@@ -1,15 +1,15 @@
 <?php
 
-namespace IumioFramework\Manager\Console\Module\App;
-use IumioFramework\Core\Additionnal\Server\IumioServerManager as Server;
-use IumioFramework\Core\Additionnal\Server\IumioServerManager;
-use IumioFramework\Manager\Console\Module\IumioManagerModule as ModuleInterface;
-use IumioFramework\Manager\Console\Module\App\AppManagerOutput as Output;
-use IumioFramework\Manager\Console\Module\Assets\AssetsManager as AM;
+namespace iumioFramework\Manager\Console\Module\App;
+use iumioFramework\Core\Additionnal\Server\iumioServerManager as Server;
+use iumioFramework\Core\Additionnal\Server\iumioServerManager;
+use iumioFramework\Manager\Console\Module\iumioManagerModule as ModuleInterface;
+use iumioFramework\Manager\Console\Module\App\AppManagerOutput as Output;
+use iumioFramework\Manager\Console\Module\Assets\AssetsManager as AM;
 
 /**
  * Class AppManager
- * @package IumioFramework\Manager\Console\Module\App
+ * @package iumioFramework\Manager\Console\Module\App
  * @author RAFINA Dany <danyrafina@gmail.com>
  */
 
@@ -18,7 +18,7 @@ class AppManager implements ModuleInterface
     protected $options;
     protected $stage = array(
         "App name (like DefaultApp --> end with App): ",
-        "Iumio purpose you a default template with your app. Would you like to have one ? (yes/no): ",
+        "iumio purpose you a default template with your app. Would you like to have one ? (yes/no): ",
         "\nYeah! Would you like to set this app as default ? (yes/no)",
         "This informations are correct ?",
         "Delete your app means all file and directory in your app directory will be deleted. Are you sure to confirm this action ?",
@@ -92,7 +92,7 @@ class AppManager implements ModuleInterface
      */
     final protected function stepNewProject()
     {
-        Output::outputAsSuccess("Welcome on Iumio app manager. I'm assist you to create your new app. Many question will ask you so are you ready ?\n\n", "none");
+        Output::outputAsSuccess("Welcome on iumio app manager. I'm assist you to create your new app. Many question will ask you so are you ready ?\n\n", "none");
         Output::outputAsSuccess($this->stage[0], "none");
 
        $this->params['appname'] = ucfirst($this->listener());
@@ -153,7 +153,7 @@ class AppManager implements ModuleInterface
      */
     final protected function stepRemoveProject()
     {
-        Output::outputAsSuccess("Welcome on Iumio app manager. I'm assist you to remove your app. Many question will ask you so are you ready ?\n\n", "none");
+        Output::outputAsSuccess("Welcome on iumio app manager. I'm assist you to remove your app. Many question will ask you so are you ready ?\n\n", "none");
         Output::outputAsSuccess($this->stage[0], "none");
 
         $this->params['appname'] = ucfirst($this->listener());
@@ -201,7 +201,7 @@ class AppManager implements ModuleInterface
      */
     final protected function stepSwitchProject()
     {
-        Output::outputAsSuccess("Welcome on Iumio app manager. I'm assist you to change your default app. Many question will ask you so are you ready ?\n\n", "none");
+        Output::outputAsSuccess("Welcome on iumio app manager. I'm assist you to change your default app. Many question will ask you so are you ready ?\n\n", "none");
         Output::outputAsSuccess($this->stage[7]."\n", "none");
         $this->showAppsRegister();
         Output::outputAsSuccess("Which number ? : ", "none");
@@ -371,7 +371,7 @@ class AppManager implements ModuleInterface
         $f = json_encode($f);
         file_put_contents(ROOT_PROJECT."/core/apps.json", $f);
 
-        IumioServerManager::delete(ROOT_PROJECT."/apps/$appname", "directory");
+        iumioServerManager::delete(ROOT_PROJECT."/apps/$appname", "directory");
         new AM(array("core/manager", "assets-manager", "--clear", "--appname=". $this->params['appname'], "--noexit", "--quiet"));
         Output::outputAsSuccess("\n Your app is delete. To create an other app, use app-manager new project \n", "none");
     }

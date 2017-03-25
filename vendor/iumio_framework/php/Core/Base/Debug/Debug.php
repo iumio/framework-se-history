@@ -1,14 +1,14 @@
 <?php
 
 
-namespace IumioFramework\Core\Base\Debug;
+namespace iumioFramework\Core\Base\Debug;
 use DateTime;
-use IumioFramework\Core\Base\Debug\DebugInterface;
+use iumioFramework\Core\Base\Debug\DebugInterface;
 
 
 /**
  * Class Debug
- * @package IumioFramework\Core\Base\Debug
+ * @package iumioFramework\Core\Base\Debug
  * @author RAFINA Dany <danyrafina@gmail.com>
  */
 

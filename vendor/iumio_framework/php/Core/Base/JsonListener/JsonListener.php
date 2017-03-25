@@ -1,10 +1,10 @@
 <?php
 
-namespace IumioFramework\Core\Base\Json;
+namespace iumioFramework\Core\Base\Json;
 
 /**
- * Class IumioDatabaseAccess
- * @package IumioFramework\Core\Base\Json
+ * Class iumioDatabaseAccess
+ * @package iumioFramework\Core\Base\Json
  * @author RAFINA Dany <danyrafina@gmail.com>
  */
 

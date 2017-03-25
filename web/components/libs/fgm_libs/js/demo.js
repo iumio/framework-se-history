@@ -54,7 +54,7 @@ demo = {
         ];
     
         Chartist.Line('#chartHours', dataSales, optionsSales, responsiveSales);
-        
+
     
         var data = {
           labels: ['Jan', 'Feb', 'Mar', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
@@ -84,7 +84,7 @@ demo = {
         ];
         
         Chartist.Bar('#chartActivity', data, options, responsiveOptions);
-    
+
         var dataPreferences = {
             series: [
                 [25, 30, 20, 25]
@@ -107,7 +107,7 @@ demo = {
         Chartist.Pie('#chartPreferences', {
           labels: ['62%','32%','6%'],
           series: [62, 32, 6]
-        });   
+        });
     },
     
     initGoogleMaps: function(){

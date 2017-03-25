@@ -1,11 +1,11 @@
 <?php
 
-namespace IumioFramework\Theme\Server;
+namespace iumioFramework\Theme\Server;
 use ArrayObject;
 
 /**
  * Interface Server
- * @package IumioFramework\Theme\Server
+ * @package iumioFramework\Theme\Server
  * @author RAFINA Dany <danyrafina@gmail.com>
  */
 

@@ -1,25 +1,25 @@
 {
-    "name": "IumioCommand",
+    "name": "iumioCommand",
     "version": "0.0.5",
     "commands": {
       "help": {
-          "class" : "\\IumioFramework\\Manager\\Console\\Module\\Help\\HelpManager",
+          "class" : "\\iumioFramework\\Manager\\Console\\Module\\Help\\HelpManager",
           "desc"  : "Get informations about a command. You can enter app name after help command (php core/manager help app-manager)\n"
       },
       "cache-manager": {
-          "class" : "\\IumioFramework\\Manager\\Console\\Module\\Cache\\CacheManager",
+          "class" : "\\iumioFramework\\Manager\\Console\\Module\\Cache\\CacheManager",
           "desc"  : "Manage iumio cache  \n \t --clear : Clear cache environment (Dev environment as default)  \n \t --env: Environment name (DEV, PROD, PREPROD, ALL) (must used with --clear)\n"
       },
       "assets-manager": {
-        "class" : "\\IumioFramework\\Manager\\Console\\Module\\Assets\\AssetsManager",
+        "class" : "\\iumioFramework\\Manager\\Console\\Module\\Assets\\AssetsManager",
         "desc"  : "Manage project assets \n \t --copy : Copy project assets to web directory  \n \t --symlink (must with --copy option) Symbolic link will be created \n \t --clear : clear all web assets \n \t --appname : App name 'Example --appname=DefaultApp' (must be use with --copy or --clear option\n"
       },
       "app-manager": {
-        "class" : "\\IumioFramework\\Manager\\Console\\Module\\App\\AppManager",
+        "class" : "\\iumioFramework\\Manager\\Console\\Module\\App\\AppManager",
         "desc"  : "Manage project \n \t new-project : Create project  \n \t switch-project : Change the default project \n \t remove-project : Remove a project \n"
       },
       "propel-manager": {
-        "class" : "\\IumioFramework\\Manager\\Console\\Module\\Propel\\PropelManager",
+        "class" : "\\iumioFramework\\Manager\\Console\\Module\\Propel\\PropelManager",
         "desc"  : "Manage Propel project \n \t --appname : App name 'Example --appname=DefaultApp'\n"
       }
 

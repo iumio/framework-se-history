@@ -1,10 +1,10 @@
 <?php
 
-namespace IumioFramework\Core\Base\Debug;
+namespace iumioFramework\Core\Base\Debug;
 
 /**
  * Interface DebugInterface
- * @package IumioFramework\Core\Base\Debug
+ * @package iumioFramework\Core\Base\Debug
  * @author RAFINA Dany <danyrafina@gmail.com>
  */
 

@@ -1,13 +1,13 @@
 <?php
 
 
-namespace IumioFramework\Masters;
-use IumioFramework\Core\Base\Debug\Debug;
-use IumioFramework\Core\Base\RtListener;
+namespace iumioFramework\Masters;
+use iumioFramework\Core\Base\Debug\Debug;
+use iumioFramework\Core\Base\RtListener;
 
 /**
  * Class Routing
- * @package IumioFramework\Masters
+ * @package iumioFramework\Masters
  * @author RAFINA Dany <danyrafina@gmail.com>
  */
 
@@ -18,7 +18,7 @@ class Routing extends RtListener
     private $isbase;
 
     /**
-     * Register a router to IumioCore
+     * Register a router to iumioCore
      */
 
     /**

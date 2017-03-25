@@ -1,16 +1,16 @@
 <?php
 
-namespace IumioFramework\Manager\Console\Module\Doctrine;
+namespace iumioFramework\Manager\Console\Module\Doctrine;
 
 use Doctrine\ORM\Tools\Setup;
 use Doctrine\ORM\EntityManager;
-use IumioFramework\Theme\Server\Server500;
-use IumioFramework\Core\Base\Json\JsonListener as JL;
-use IumioFramework\Core\Additionnal\Console\Manager\Display\IumioManagerOutput as Output;
+use iumioFramework\Theme\Server\Server500;
+use iumioFramework\Core\Base\Json\JsonListener as JL;
+use iumioFramework\Core\Additionnal\Console\Manager\Display\iumioManagerOutput as Output;
 
 /**
  * Class DoctrineComponentsManager
- * @package IumioFramework\Manager\Console\Module\Doctrine
+ * @package iumioFramework\Manager\Console\Module\Doctrine
  * @author RAFINA Dany <danyrafina@gmail.com>
  */
 class DoctrineComponentsManager
@@ -27,7 +27,7 @@ class DoctrineComponentsManager
     protected $connectionName = 'default';
 
     /**
-     * IumioUltimaDoctrine constructor.
+     * iumioUltimaDoctrine constructor.
      * @param string $app App name
      * @param string|null $entitypath Entity Path if is differ of default path
      */

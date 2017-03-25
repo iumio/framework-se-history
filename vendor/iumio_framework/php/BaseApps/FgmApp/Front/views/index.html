@@ -1,25 +1,95 @@
 {{> head }}
 <body>
 
-<header id="header"><p>Bienvenue</p></header>
+<div class="wrapper">
+        {{> sidebar }}
+    <div class="main-panel">
+        <nav class="navbar navbar-default navbar-fixed">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-example-2">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">Dashboard</a>
+                </div>
 
-<div id="container">
+            </div>
+        </nav>
 
-    <main id="center" class="column">
-        <article>
 
-            <h1>Voici votre application</h1>
-            <p><script>generateText(50)</script></p>
+        <div class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="header">
+                                <h4 class="title">iumio Framework</h4>
+                                <p class="category">Caracteristics</p>
+                            </div>
+                            <div class="content">
+                                <ul>
+                                    <li>Framework edition : {{#f_info}}VERSION_EDITION{{/f_info}} </li>
 
-        </article>
-    </main>
+                                    <li>Actual version : {{#f_info}}VERSION_STAGE{{/f_info}} {{#f_info}}VERSION{{/f_info}} </li>
 
-    {{> menuleft }}
+                                </ul>
 
-    {{> menuright }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="header">
+                                <h4 class="title">Server</h4>
+                                <p class="category">Informations</p>
+                            </div>
+                            <div class="content">
+                                <ul>
+                                    <li>PHP version : {{#s_info}}PHP_VERSION{{/s_info}}</li>
+                                    <li>Domain : {{#s_info}}SERVER_NAME{{/s_info}}</li>
+                                </ul>
 
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-8">
+                        <div class="card">
+                            <div class="header">
+                                <h4 class="title">Users Behavior</h4>
+                                <p class="category">24 Hours performance</p>
+                            </div>
+                            <div class="content">
+                                <div id="chartHours" class="ct-chart"></div>
+                                <div class="footer">
+                                    <div class="legend">
+                                        <i class="fa fa-circle text-info"></i> Open
+                                        <i class="fa fa-circle text-danger"></i> Click
+                                        <i class="fa fa-circle text-warning"></i> Click Second Time
+                                    </div>
+                                    <hr>
+                                    <div class="stats">
+                                        <i class="fa fa-history"></i> Updated 3 minutes ago
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {{> footer }}
+
+    </div>
 </div>
-{{> footer }}
+
+
 </body>
+{{> jsinclude }}
+
 
 </html>

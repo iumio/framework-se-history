@@ -1,7 +1,7 @@
 <?php
 
-namespace IumioFramework\Core\Base\Http;
-use IumioFramework\Core\Http\{ParameterRequest, Server, Headers};
+namespace iumioFramework\Core\Base\Http;
+
 
 /**
  * Request represents an HTTP request.
@@ -169,7 +169,7 @@ class HttpListener
     protected $format;
 
     /**
-     * @var \Symfony\Component\HttpFoundation\Session\SessionInterface
+     * @var SessionInterfaceRequest
      */
     protected $session;
 
@@ -279,8 +279,6 @@ class HttpListener
             $request->request = new ParameterRequest($data);
         }
 
-       // print_r($request);
-
         return $request;
     }
 
@@ -306,7 +304,7 @@ class HttpListener
             'SERVER_NAME' => 'localhost',
             'SERVER_PORT' => 80,
             'HTTP_HOST' => 'localhost',
-            'HTTP_USER_AGENT' => 'Symfony/2.X',
+            'HTTP_USER_AGENT' => 'iumio Framework/0.X',
             'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
             'HTTP_ACCEPT_LANGUAGE' => 'en-us,en;q=0.5',
             'HTTP_ACCEPT_CHARSET' => 'ISO-8859-1,utf-8;q=0.7,*;q=0.7',
@@ -416,7 +414,7 @@ class HttpListener
      * @param array $files      The FILES parameters
      * @param array $server     The SERVER parameters
      *
-     * @return Request The duplicated request
+     * @return HttpListener The duplicated request
      */
     public function duplicate(array $query = null, array $request = null, array $attributes = null, array $cookies = null, array $files = null, array $server = null)
     {
@@ -474,7 +472,7 @@ class HttpListener
         $this->request = clone $this->request;
         $this->attributes = clone $this->attributes;
         $this->cookies = clone $this->cookies;
-        $this->files = clone $this->files;
+        // $this->files = clone $this->files;
         $this->server = clone $this->server;
         $this->headers = clone $this->headers;
     }
@@ -741,7 +739,7 @@ class HttpListener
     /**
      * Gets the Session.
      *
-     * @return SessionInterface|null The session
+     * @return SessionInterfaceRequest|null The session
      */
     public function getSession()
     {
@@ -826,7 +824,7 @@ class HttpListener
         }
 
         if ($hasTrustedForwardedHeader && $hasTrustedClientIpHeader && $forwardedClientIps !== $xForwardedForClientIps) {
-            throw new ConflictingHeadersException('The request has both a trusted Forwarded header and a trusted Client IP header, conflicting with each other with regards to the originating IP addresses of the request. This is the result of a misconfiguration. You should either configure your proxy only to send one of these headers, or configure Symfony to distrust one of them.');
+            throw new ConflictingHeadersException('The request has both a trusted Forwarded header and a trusted Client IP header, conflicting with each other with regards to the originating IP addresses of the request. This is the result of a misconfiguration. You should either configure your proxy only to send one of these headers, or configure iumio Framework to distrust one of them.');
         }
 
         if (!$hasTrustedForwardedHeader && !$hasTrustedClientIpHeader) {
@@ -887,9 +885,9 @@ class HttpListener
      */
     public function getPathInfo()
     {
-        if (null === $this->pathInfo) {
+        //if (null === $this->pathInfo) {
             $this->pathInfo = $this->preparePathInfo();
-        }
+        //}
 
         return $this->pathInfo;
     }
@@ -908,9 +906,9 @@ class HttpListener
      */
     public function getBasePath()
     {
-        if (null === $this->basePath) {
+       // if (null === $this->basePath) {
             $this->basePath = $this->prepareBasePath();
-        }
+        //}
 
         return $this->basePath;
     }
@@ -1786,6 +1784,7 @@ class HttpListener
             $baseUrl = substr($requestUri, 0, $pos + strlen($baseUrl));
         }
 
+        exit($baseUrl. '/'.DIRECTORY_SEPARATOR);
         return rtrim($baseUrl, '/'.DIRECTORY_SEPARATOR);
     }
 
@@ -1911,7 +1910,7 @@ class HttpListener
             $request = call_user_func(self::$requestFactory, $query, $request, $attributes, $cookies, $files, $server, $content);
 
             if (!$request instanceof self) {
-                throw new \LogicException('The Request factory must return an instance of Symfony\Component\HttpFoundation\Request.');
+                throw new \LogicException('The Request factory must return an instance of .');
             }
 
             return $request;

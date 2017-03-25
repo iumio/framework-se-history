@@ -1,6 +1,6 @@
 <?php
 
-namespace IumioFramework\Core\Http;
+namespace iumioFramework\Core\Base\Http;
 
 
 /**

@@ -2,8 +2,8 @@
 
 namespace {appname}\Master;
 
-use IumioFramework\Masters\IumioUltimaMaster as Master;
-use IumioFramework\Core\Base\Http\Response\Response;
+use iumioFramework\Masters\iumioUltimaMaster as Master;
+use iumioFramework\Core\Base\Http\Response\Response;
 
 /**
  * Class DefaultMaster

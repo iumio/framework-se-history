@@ -1,13 +1,13 @@
 <?php
 
 
-namespace IumioFramework\Manager\Console\Module\App;
+namespace iumioFramework\Manager\Console\Module\App;
 
-use IumioFramework\Core\Additionnal\Console\Manager\Display\IumioManagerOutput as IMO;
+use iumioFramework\Core\Additionnal\Console\Manager\Display\iumioManagerOutput as IMO;
 
 /**
  * Class AppManagerOutput
- * @package IumioFramework\Manager\Console\Module\App
+ * @package iumioFramework\Manager\Console\Module\App
  * @author RAFINA Dany <danyrafina@gmail.com>
  */
 class AppManagerOutput extends IMO

@@ -1,13 +1,13 @@
 <!DOCTYPE HTML>
-<?php  use IumioFramework\Core\Requirement\IumioUltimaCore; ?>
+<?php  use iumioFramework\Core\Requirement\iumioUltimaCore; ?>
 <!--
-	IUMIO theme by HTML5 UP
+	iumio theme by HTML5 UP
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
 <html>
 <head>
-    <title>Iumio <?= ucfirst(strtolower($this->env)).' '.$this->code ?></title>
+    <title>iumio <?= ucfirst(strtolower($this->env)).' '.$this->code ?></title>
     <meta charset="utf-8" />
     <link rel="apple-touch-icon" sizes="57x57" href="<?= HOST_CURRENT ?>/components/theme/default/assets/images/favicon.ico/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="<?= HOST_CURRENT ?>/components/theme/default/assets/images/favicon.ico/apple-icon-60x60.png">
@@ -129,7 +129,7 @@
 
     <!-- Header -->
     <header id="header" class="alt">
-        <a href="index.php" class="logo"> <img src="<?= HOST_CURRENT ?>/components/theme/default/assets/images/iumio-horizontal-white.png" style="width: 15%"><!--<strong>IUMIO </strong> <span>FRAMEWORK</span>--></a>
+        <a href="index.php" class="logo"> <img src="<?= HOST_CURRENT ?>/components/theme/default/assets/images/iumio-horizontal-white.png" style="width: 15%"><!--<strong>iumio </strong> <span>FRAMEWORK</span>--></a>
         <nav>
             <a href="#menu">Menu</a>
         </nav>
@@ -146,9 +146,9 @@
 
         </ul>
         <ul class="actions vertical">
-            <li><a href="#" class="button special fit">Contact Iumio support</a></li>
-            <li><a href="https://framework.iumio.com" class="button fit">Iumio Website</a></li>
-            <li><a href="https://docs.framework.iumio.com/" class="button fit">Iumio Documentation</a></li>
+            <li><a href="#" class="button special fit">Contact iumio support</a></li>
+            <li><a href="https://framework.iumio.com" class="button fit">iumio Website</a></li>
+            <li><a href="https://docs.framework.iumio.com/" class="button fit">iumio Documentation</a></li>
         </ul>
     </nav>
 
@@ -156,7 +156,7 @@
     <section id="banner" class="major">
         <div class="inner">
             <header class="major">
-                <h1>Iumio <?= ucfirst(strtolower($this->env)).' '.$this->code.' '.$this->codeTitle ?></h1>
+                <h1>iumio <?= ucfirst(strtolower($this->env)).' '.$this->code.' '.$this->codeTitle ?></h1>
             </header>
             <div class="content">
                 <p><?= $this->explain ?><br />
@@ -167,8 +167,8 @@
             <ul class="timeline" id="timeline">
                 <li class="li complete">
                     <div class="timestamp">
-                        <span class="author"><?= IumioUltimaCore::getInfo("VERSION_EDITION") ?></span>
-                        <span class="date">version <?= IumioUltimaCore::getInfo("VERSION") ?> <?= IumioUltimaCore::getInfo("VERSION_STAGE") ?></span>
+                        <span class="author"><?= iumioUltimaCore::getInfo("VERSION_EDITION") ?></span>
+                        <span class="date">version <?= iumioUltimaCore::getInfo("VERSION") ?> <?= iumioUltimaCore::getInfo("VERSION_STAGE") ?></span>
                     </div>
                     <div class="status">
                         <h4>Actual version</h4>
@@ -245,10 +245,10 @@
         <section id="two">
             <div class="inner">
                 <header class="major">
-                    <h2>Iumio Framework</h2>
+                    <h2>iumio Framework</h2>
                 </header>
                 <p style="font-size: 16px;font-weight: 600">Developed in PHP7</p>
-                <p>Iumio is easier to use. You can manipulate this framework as you want. You are the only one to make a decision : choose Iumio for your future project. <br> <em>"Iumio Framework, The next generation PHP Framework"</em></p>
+                <p>iumio is easier to use. You can manipulate this framework as you want. You are the only one to make a decision : choose iumio for your future project. <br> <em>"iumio Framework, The next generation PHP Framework"</em></p>
             </div>
         </section>
 
@@ -280,7 +280,7 @@
                 <!--<li><a href="#" class="icon alt fa-linkedin"><span class="label">LinkedIn</span></a></li>-->
             </ul>
             <ul class="copyright">
-                <li>&copy; 2017 Iumio Framework</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+                <li>&copy; 2017 iumio Framework</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
             </ul>
         </div>
     </footer>
