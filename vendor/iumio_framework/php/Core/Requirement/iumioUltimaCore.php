@@ -325,7 +325,7 @@ abstract class iumioUltimaCore
      */
     final protected function getClassFile():\stdClass
     {
-        $a = json_decode(file_get_contents(CORE.'apps.json'));
+        $a = json_decode(file_get_contents(ELEMS.'apps.json'));
         return ($a == NULL ? new \stdClass() : $a);
     }
 

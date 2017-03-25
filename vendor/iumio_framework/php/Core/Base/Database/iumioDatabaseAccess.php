@@ -22,7 +22,7 @@ class iumioDatabaseAccess
     {
         try
         {
-            $file = JL::open(CORE."/config_files/databases.json");
+            $file = JL::open(ELEMS."/config_files/databases.json");
             if (count( (array) $file) == 0)
                 throw new Server500(new \ArrayObject(array("explain" => "Database file is empty", "solution" => "Add database informations in databases.json")));
             if ($databaseName == "#none")

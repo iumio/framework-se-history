@@ -13,7 +13,7 @@ class Server000 extends \Exception implements Server
     protected $code = '000';
     private $codeTitle = 'No app registered';
     private $explain =  'No app was registered in apps.json';
-    private $solution = "PLEASE CREATE AN APP WITH APP-MANAGER (PHP CORE/MANAGER APP-MANAGER NEW-PROJECT)";
+    private $solution = "PLEASE CREATE AN APP WITH APP-MANAGER (PHP ELEMENTS/MANAGER APP-MANAGER NEW-PROJECT)";
     private $env = NULL;
 
     /**

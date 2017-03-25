@@ -40,7 +40,7 @@ class DoctrineComponentsManager
 
     final protected function createEntityManagerInstance(bool $mode)
     {
-        $file = JL::open(CORE."/config_files/databases.json");
+        $file = JL::open(ELEMS."/config_files/databases.json");
         if (count( (array) $file) == 0)
             Output::displayAsError("Doctrine Manager Error \n \t Database file is empty. Add database driver in databases.json\n");
 
@@ -77,7 +77,7 @@ class DoctrineComponentsManager
      */
      public function getConnection(bool $mode = false)
     {
-        $file = JL::open(CORE."/config_files/databases.json");
+        $file = JL::open(ELEMS."/config_files/databases.json");
         if (count( (array) $file) == 0)
             Output::displayAsError("Doctrine Manager Error \n \t Database file is empty. Add database driver in databases.json\n");
 

@@ -29,7 +29,7 @@ class iumioUltimaDoctrine
 
     final protected function createEntityManagerInstance(bool $mode)
     {
-        $file = JL::open(CORE."/config_files/databases.json");
+        $file = JL::open(ELEMS."/config_files/databases.json");
         if (count( (array) $file) == 0)
             throw new Server500(new \ArrayObject(array("explain" => "Database file is empty", "solution" => "Add database informations in databases.json")));
 
@@ -63,7 +63,7 @@ class iumioUltimaDoctrine
      */
      public function getConnection(bool $mode = false)
     {
-        $file = JL::open(CORE."/config_files/databases.json");
+        $file = JL::open(ELEMS."/config_files/databases.json");
         if (count( (array) $file) == 0)
             throw new Server500(new \ArrayObject(array("explain" => "Database file is empty", "solution" => "Add database informations in databases.json")));
 

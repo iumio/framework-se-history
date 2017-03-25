@@ -28,7 +28,7 @@ class iumioEnvironment
         if ($current[strlen($current) - 1] == "/") $current = substr($current, 0, (strlen($current) - 1));
         define('HOST_CURRENT', $current);
         define('ROOT', $base);
-        define('CORE', $base."core/");
+        define('ELEMS', $base."elements/");
         define('BASE_APPS', $base."vendor/iumio_framework/php/BaseApps/");
         define('ROOT_VENDOR', $base."vendor/iumio_framework/");
         define('ROOT_MANAGER', $base."vendor/iumio_framework/Core/Additional/Manager/");
