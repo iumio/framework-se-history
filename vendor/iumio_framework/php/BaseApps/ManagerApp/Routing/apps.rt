@@ -1,0 +1,5 @@
+routingRegister : ManagerApp
+
+name : iumio_manager_app_manager
+path :  /_manager/apps
+method : Apps%apps

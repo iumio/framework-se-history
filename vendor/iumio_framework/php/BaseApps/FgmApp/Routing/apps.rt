@@ -1,5 +1,0 @@
-routingRegister : FgmApp
-
-name : iumio_fgm_app_manager
-path :  /_fgm/apps
-method : Apps%apps

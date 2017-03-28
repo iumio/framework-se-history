@@ -1,11 +1,11 @@
 <?php
 
-namespace FgmApp\Master;
+namespace ManagerApp\Master;
 use iumioFramework\Masters\iumioUltimaMaster as Master;
 
 /**
  * Class DashboardMaster
- * @package iumioFramework\Core\Fgm
+ * @package iumioFramework\Core\Manager
  * @author RAFINA Dany <danyrafina@gmail.com>
  */
 

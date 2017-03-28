@@ -8,7 +8,7 @@ $loader = require __DIR__.'/../vendor/iumio_framework/php/Core/Requirement/Autol
 
 use iumioFramework\Core\Base\{iumioEnvironment, Debug\Debug, Http\HttpListener};
 use iumioFramework\Apps\AppCore;
-use FgmApp\FgmApp as FGM;
+use ManagerApp\ManagerApp as GManager;
 
 /**
  * Class iumioDev
@@ -37,7 +37,7 @@ class iumioProd extends iumioEnvironment
 
         $core = new AppCore('PROD', true);
         Debug::enabled();
-        FGM::off();
+        GManager::off();
         $request = HttpListener::createFromGlobals();
         $core->dispatch($request);
         //  array('127.0.0.2', 'fe80::1', '::1')

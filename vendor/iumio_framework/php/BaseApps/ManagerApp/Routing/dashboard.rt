@@ -1,0 +1,10 @@
+routingRegister : ManagerApp
+
+name : iumio_manager_index
+path : /_manager/dashboard
+method : Dashboard%index
+
+name : iumio_manager_index_2
+path :  /_manager
+method : Dashboard%index
+

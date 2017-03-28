@@ -8,7 +8,7 @@ $loader = require __DIR__.'/../vendor/iumio_framework/php/Core/Requirement/Autol
 
 use iumioFramework\Core\Base\{iumioEnvironment, Debug\Debug, Http\HttpListener};
 use iumioFramework\Apps\AppCore;
-use FgmApp\FgmApp as FGM;
+use ManagerApp\ManagerApp as GManager;
 
 
 /**
@@ -38,7 +38,7 @@ class iumioPreprod extends iumioEnvironment
 
         $core = new AppCore('PREPROD', true);
         Debug::enabled();
-        FGM::on();
+        GManager::on();
         $request = HttpListener::createFromGlobals();
         $core->dispatch($request);
 

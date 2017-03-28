@@ -1,19 +1,19 @@
 <?php
 
-namespace FgmApp;
+namespace ManagerApp;
 
 use iumioFramework\Core\Requirement\iumioAppBaseModel as BaseApp;
 
 /**
- * Class FgmApp
+ * Class ManagerApp
  * @package FgmApp
  */
 
-class FgmApp extends BaseApp
+class ManagerApp extends BaseApp
 {
 
-    /** Enable iumio FGM
-     * @return int FGM status
+    /** Enable iumio Manager
+     * @return int Manager status
      */
     static public final function on():int
     {
@@ -21,8 +21,8 @@ class FgmApp extends BaseApp
         return (self::$start);
     }
 
-    /** Disable iumio FGM
-     * @return int FGM status
+    /** Disable iumio Manager
+     * @return int Manager status
      */
     static public final function off():int
     {
