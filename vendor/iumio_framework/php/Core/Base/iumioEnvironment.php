@@ -50,7 +50,7 @@ class iumioEnvironment
      * @return string Environment file
      * @throws \Exception
      */
-    static private function getFileEnv(string $env):string
+    static public function getFileEnv(string $env):string
     {
         if ($env == "DEV")
             return ("iumio_dev.php");

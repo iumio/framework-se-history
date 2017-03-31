@@ -145,9 +145,8 @@ abstract class iumioUltimaCore
     {
         $controller = NULL;
         $baseSimilar = 0;
-        $path = $request->server->get('PATH_INFO');
-        // print_r($request);
-        // exit();
+        $path = $request->server->get('REQUEST_URI');
+
         if ($path == "") $path = "/";
 
         foreach ($routes as $route)
@@ -161,7 +160,6 @@ abstract class iumioUltimaCore
                 $controller = $route;
                 if (isset($controller['params']) && count($controller['params']) > 0)
                 {
-                    echo "smi";
                     $pval = $this->assembly($controller['params'], $mat['result']);
                     $controller['pval'] = $pval;
                     unset($controller['params']);

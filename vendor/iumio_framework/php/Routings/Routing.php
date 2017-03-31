@@ -4,6 +4,7 @@
 namespace iumioFramework\Masters;
 use iumioFramework\Core\Base\Debug\Debug;
 use iumioFramework\Core\Base\RtListener;
+use iumioFramework\Core\Base\iumioEnvironment as Env;
 
 /**
  * Class Routing
@@ -64,7 +65,11 @@ class Routing extends RtListener
         $aRE = explode('/', $appRoute);
         $wRE = explode('/', $webRoute);
 
-        if ($appRoute == $webRoute)
+        $script = "";
+        if (strpos($webRoute, Env::getFileEnv(ENVIRONMENT)) !== false)
+            $script = "/".Env::getFileEnv(ENVIRONMENT);
+
+        if ($script.$appRoute == $webRoute)
             return (array("is" => "same", "similar" => 100));
 
         if ((count($aRE) == count($wRE)) && count($aRE) > 0)
@@ -77,7 +82,7 @@ class Routing extends RtListener
         if (isset($route['params']))
         {
             if (count($paramValues) == count($route['params'])) {
-                similar_text($appRoute, $webRoute, $pe);
+                similar_text($script.$appRoute, $webRoute, $pe);
                 return (array("is" => "partial", "result" => $paramValues, "similar" => $pe));
             }
         }
