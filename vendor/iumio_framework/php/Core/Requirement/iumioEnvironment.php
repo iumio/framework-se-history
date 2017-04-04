@@ -1,7 +1,7 @@
 <?php
 
 namespace iumioFramework\Core\Base;
-use iumioFramework\Theme\Server\Server403;
+use iumioFramework\Exception\Server\Server403;
 use ArrayObject;
 
 /**
@@ -36,9 +36,11 @@ class iumioEnvironment
         define('CACHE_DEV', $base."core/cache/dev/");
         define('CACHE_PROD', $base."core/cache/prod/");
         define('CACHE_PREPROD', $base."core/cache/preprod/");
-        define('THEME', $base."vendor/iumio_framework/theme/");
+        define('SERVER_VIEWS', $base."vendor/iumio_framework/php/Core/Exceptions/Server/views/");
+        define('SERVER', $base."vendor/iumio_framework/php/Core/Exceptions/Server/");
         define('WEB_ASSETS', $current."/components/apps/");
         define('WEB_LIBS', $current."/components/libs/");
+        define('WEB_FRAMEWORK', $current."/components/libs/iumio_framework/");
         define('WEB_COMPONENTS', $current."/components/");
         define('ROOT_APPS', $base."apps/");
 

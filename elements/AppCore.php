@@ -3,7 +3,7 @@
 namespace iumioFramework\Apps;
 use iumioFramework\Core\Requirement\iumioUltimaCore;
 use iumioFramework\Core\Base\Http\HttpListener;
-use iumioFramework\Theme\Server\Server000;
+use iumioFramework\Exception\Server\Server000;
 
 /**
  * Class AppCore

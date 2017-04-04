@@ -53,7 +53,7 @@ class Routing extends RtListener
     }
 
 
-    /** Get simularity routes
+    /** Get similarity routes
      * @param $appRoute string the app route
      * @param $webRoute string The URI
      * @param $route array Params app name

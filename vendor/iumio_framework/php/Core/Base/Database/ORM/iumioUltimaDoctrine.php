@@ -3,7 +3,7 @@
 namespace iumioFramework\Core\Base\Database\ORM;
 use Doctrine\ORM\Tools\Setup;
 use Doctrine\ORM\EntityManager;
-use iumioFramework\Theme\Server\Server500;
+use iumioFramework\Exception\Server\Server500;
 use iumioFramework\Core\Base\Json\JsonListener as JL;
 
 /**

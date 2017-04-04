@@ -2,6 +2,7 @@
 
 namespace ManagerApp\Master;
 use iumioFramework\Masters\iumioUltimaMaster as Master;
+use iumioFramework\Core\Base\Json\JsonListener;
 
 /**
  * Class AppsMaster

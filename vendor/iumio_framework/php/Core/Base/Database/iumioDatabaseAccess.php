@@ -1,7 +1,7 @@
 <?php
 
 namespace iumioFramework\Core\Base\Database;
-use iumioFramework\Theme\Server\Server500;
+use iumioFramework\Exception\Server\Server500;
 use iumioFramework\Core\Base\Json\JsonListener as JL;
 
 /**

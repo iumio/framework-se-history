@@ -2,12 +2,11 @@
 
 
 namespace iumioFramework\Masters;
-use iumioFramework\Core\Http\ParameterRequest;
+use iumioFramework\Core\Base\Http\ParameterRequest;
 use iumioFramework\Core\Additionnal\Template\iumioMustache;
 use iumioFramework\Core\Requirement\iumioUltimaCore;
 use iumioFramework\Core\Base\Database\iumioDatabaseAccess as IDA;
-use iumioFramework\Core\Base\Database\ORM\iumioUltimaDoctrine as UltimaDoctrine;
-use iumioFramework\Theme\Server\Server500;
+use iumioFramework\Exception\Server\Server500;
 
 /**
  * Class iumioUltimaMaster
@@ -149,7 +148,6 @@ class iumioUltimaMaster
     final protected function generateRoute(string $routename):string
     {
         $app = APP_CALL;
-        echo $_SERVER['SCRIPT_NAME']."<br>";
         $rt = new Routing($app, 'iumio', true);
         if (!$rt->routingRegister())
             throw new Server500(new \ArrayObject(array("solution" => "Please check all RT file", "explain" => "Cannot open your RT file")));

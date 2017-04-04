@@ -22,7 +22,11 @@ var core = {
 
         // Here, do what ever you want
     },
-    
+
+    ajax : function () {
+        var request = r;
+    },
+
     injectView :  function () {
     }
 }
