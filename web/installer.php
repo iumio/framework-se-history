@@ -236,7 +236,7 @@ function createAppProcess($appname, $default, $temp)
         .sp-circle-link {
             position: absolute;
             left: 46%;
-            bottom: 370px;
+            bottom: 400px;
             margin-left: -50px;
             text-align: center;
             line-height: 100px;
@@ -466,9 +466,9 @@ function createAppProcess($appname, $default, $temp)
         <div class="sp-content">
             <div class="sp-globe"></div>
             <img id="iumiomg" src="https://framework.iumio.com/wp-content/uploads/2017/03/iumio-horizontal-white-1.png" width="10%">
-            <h2 class="frame-1" id="frame1">iumio Framework SE</h2>
+            <h2 class="frame-1" id="frame1">iumio Framework SE </h2>
 
-            <h3 class="alterh2" id="textd">iumio Framework SE <br> <span style="font-size: 25px">Configure your future app now </span> </h3>
+            <h3 class="alterh2" id="textd" style="font-size: 55px;">iumio Framework SE <em>Installer</em> <br> <span style="font-size: 25px">Configure your future app now </span> </h3>
 
             <a class="sp-circle-link" id="clicked" href="#">Start to configure</a>
 
@@ -1171,7 +1171,7 @@ function createAppProcess($appname, $default, $temp)
             <div class="anim block" id="step3" style="display: none;color: white;padding-top: 100px">
                 <h3 style="font-size: 30px;text-decoration: underline">Framework Info : </h3>
                 <div style="padding-left: 10px">
-                    <h3>Framework version : 0.1.5 in Pre-Beta</h3>
+                    <h3>Framework version : 0.1.5 in Pre-Beta stage</h3>
                     <h3>Creator : RAFINA Dany</h3>
                     <h3>Framework Edition : Standard Edition</h3>
                     <h3>Compatiblility : PHP 7 and later</h3>
@@ -1188,7 +1188,7 @@ function createAppProcess($appname, $default, $temp)
             <div class="anim block" id="step4" style="display: none;color: white;padding-top: 100px">
                 <h3 style="font-size: 40px;text-align: center">Tell me your app name : </h3>
                 <h4 style="font-size: 20px;text-align: center;color: darkred;display: none" id="error1">Your app name is incorrect</h4>
-                <h3 style="font-size: 20px;text-align: center;"><em>Your app name must end with "App" keyword (example TestApp) </em></h3>
+                <h3 style="font-size: 20px;text-align: center;"><em>Your app name must to end with "App" keyword (example TestApp) </em></h3>
                 <div style="padding-left: 0px;text-align: center">
                     <input class="appname" type="text" id="appname" >
                 </div>
@@ -1220,12 +1220,12 @@ function createAppProcess($appname, $default, $temp)
             </div>
 
             <div class="anim block" id="step7" style="display: none;color: white;padding-top: 200px;text-align: center">
-                <h3 style="font-size: 30px;">Processing to create an app ... </h3>
+                <h3 style="font-size: 30px;">Processing ... </h3>
                 <div style="margin: auto" class="loader"></div>
             </div>
 
             <div class="anim block" id="step8" style="display: none;color: white;padding-top: 300px;text-align: center">
-                <h3 style="font-size: 40px;">Your app is created.</h3>
+                <h3 style="font-size: 40px;">Your app was created.</h3>
                 <h3 style="font-size: 30px;text-align: center;"><em>Now you must to remove installer.php file</em></h3>
             </div>
 
