@@ -1,17 +1,13 @@
 iumio Framework
 ==============
 
-iumio Framework, The next generation PHP Framework
+iumio Framework, The next generation of PHP Frameworks
 
 Created by DANY RAFINA <danyrafina@gmail.com>
 
-Actual version : 0.1.4 ALPHA
+Actual version : 0.1.5 PRE-BETA
 
-
-#Requirements : #
 * Server language : PHP 7.0 or later
-* ORM : Omium
-* ORM Compatibility : MySQL
 * Engine Template : Mustache
 * Available Environments : DEV, PREPROD, PROD
 

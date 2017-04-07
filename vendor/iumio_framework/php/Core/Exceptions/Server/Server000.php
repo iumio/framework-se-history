@@ -20,7 +20,7 @@ class Server000 extends AbstractServer
         $this->code = '000';
         $this->codeTitle = 'No app registered';
         $this->explain =  'No app was registered in apps.json';
-        $this->solution = "PLEASE CREATE AN APP WITH APP-MANAGER (PHP ELEMENTS/MANAGER APP-MANAGER NEW-PROJECT)";
+        $this->solution = "Please create an app with app manager";
         $this->env = NULL;
         parent::__construct($component, 'No app registered');
     }

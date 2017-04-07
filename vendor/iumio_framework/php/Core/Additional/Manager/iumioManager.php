@@ -1,7 +1,6 @@
 <?php
 
 namespace  iumioFramework\Core\Additionnal\Console\Manager;
-use iumioFramework\Core\Additionnal\Console\Manager\iumioArgs as Args;
 
 /**
  * Class iumioManager
@@ -18,7 +17,7 @@ class iumioManager
      */
     final public function run(int $argc, array $argv)
     {
-        $ar = new Args();
+        $ar = new iumioArgs();
         $ar->getArgs($argc, $argv);
     }
 }

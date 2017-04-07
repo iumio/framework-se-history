@@ -1,25 +1,22 @@
 <?php
 
-/**
- * iumio File for preproduction environment
- */
-
 $loader = require __DIR__.'/../vendor/iumio_framework/php/Core/Requirement/Autoloader.php';
 
 use iumioFramework\Core\Base\{iumioEnvironment, Debug\Debug, Http\HttpListener};
 use iumioFramework\Apps\AppCore;
 use ManagerApp\ManagerApp as GManager;
 
-
 /**
- * Class iumioDev
+ * Class iumioPreprod
+ * iumio Class for preproduction environment
+ * @author RAFINA Dany <danyrafina@gmail.com>
  */
 
 class iumioPreprod extends iumioEnvironment
 {
 
-    /**
-     * @return int
+    /** Start Application
+     * @return int Is Ready
      */
     static public function start():int
     {
@@ -47,6 +44,6 @@ class iumioPreprod extends iumioEnvironment
         return (1);
     }
 }
-
+// Enable the application
 iumioPreprod::start();
 

@@ -32,10 +32,10 @@ abstract class iumioUltimaCore
     protected $startTime;
     protected $loadClassCache;
 
-    const VERSION = '0.1.4';
+    const VERSION = '0.1.5';
     const VERSION_EDITION = 'iumio Framework Standard Edition';
-    const VERSION_STAGE = 'ALPHA';
-    const VERSION_ID = 201714;
+    const VERSION_STAGE = 'PRE-BETA';
+    const VERSION_ID = 201715;
     const MAJOR_VERSION = 1;
     const MINOR_VERSION = 0;
     const RELEASE_VERSION = 1;
@@ -284,7 +284,6 @@ abstract class iumioUltimaCore
        return (true);
     }
 
-
     /** Get all app register on apps.json
      * @return array Apps register
      */
@@ -387,13 +386,7 @@ abstract class iumioUltimaCore
             case 'VERSION_STAGE':
                 $rs = self::VERSION_STAGE;
                 break;
-            case 'PHP_VERSION':
-                $rs = phpversion();
-                break;
         }
         return ($rs);
     }
-
-
-
 }

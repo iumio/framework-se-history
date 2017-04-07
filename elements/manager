@@ -4,7 +4,7 @@ namespace iumioFramework\Core\Additionnal\Console\Manager;
 
 try
 {
-    $loader = require __DIR__.'/../vendor/iumio_framework/php/Core/Requirement/Autoloader.php';
+    $loader = require_once __DIR__.'/../vendor/iumio_framework/php/Core/Requirement/Autoloader.php';
 }
 catch (\Exception $e)
 {
@@ -13,7 +13,7 @@ catch (\Exception $e)
 
 use iumioFramework\Core\Base\Debug\Debug;
 use iumioFramework\Core\Additionnal\Console\Manager\iumioManager as CoreManager;
-
+error_reporting(E_ALL);
 /**
  * Class manager
  * @package iumioFramework\Core\Additionnal\Console\Manager

@@ -1,9 +1,5 @@
 <?php
 
-/**
- * iumio File for development environment
- */
-
 $loader = require __DIR__.'/../vendor/iumio_framework/php/Core/Requirement/Autoloader.php';
 
 use iumioFramework\Core\Base\{iumioEnvironment, Debug\Debug, Http\HttpListener};
@@ -11,14 +7,15 @@ use iumioFramework\Apps\AppCore;
 use ManagerApp\ManagerApp as GManager;
 
 /**
- * Class iumioDev
+ * Class iumioProd
+ * iumio Class for production environment
+ * @author RAFINA Dany <danyrafina@gmail.com>
  */
-
 class iumioProd extends iumioEnvironment
 {
 
-    /**
-     * @return int
+    /** Start Application
+     * @return int Is Ready
      */
     static public function start():int
     {
@@ -46,4 +43,5 @@ class iumioProd extends iumioEnvironment
     }
 }
 
+// Enable the application
 iumioProd::start();
