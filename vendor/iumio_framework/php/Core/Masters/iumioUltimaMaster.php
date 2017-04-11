@@ -163,12 +163,12 @@ class iumioUltimaMaster
                 else if ($env == "PROD")
                     $env = "iumio_prod.php";
 
-                if (strpos($_SERVER['SCRIPT_NAME'], $env) == false)
+                if (strpos($_SERVER['REQUEST_URI'], $env) == false)
                     $env = "";
                 else
                     $env = "/".$env;
 
-                return ($_SERVER['SCRIPT_NAME'].$one['path']);
+                return ($env.$one['path']);
             }
         }
 

@@ -20,4 +20,12 @@ class AppsMaster extends Master
     {
         $this->render("appmanager");
     }
+
+    /**
+     * Going to base app manager
+     */
+    public function baseAppsGo()
+    {
+        $this->render("baseappmanager");
+    }
 }

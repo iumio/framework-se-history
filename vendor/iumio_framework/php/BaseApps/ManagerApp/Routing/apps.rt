@@ -3,3 +3,7 @@ routingRegister : ManagerApp
 name : iumio_manager_app_manager
 path :  /_manager/apps
 method : Apps%apps
+
+name : iumio_manager_base_app_manager
+path :  /_manager/base-apps
+method : Apps%baseApps
