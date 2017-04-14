@@ -41,7 +41,7 @@ class BaseApp extends iumioApp
         rename($napp."/Master/DefaultMaster.php.local", $napp."/Master/DefaultMaster.php");
 
         // REGISTER TO APP CORE
-        $f = json_decode(file_get_contents(ROOT."/elements/apps.json"));
+        $f = json_decode(file_get_contents(ROOT."/elements/config_files/apps.json"));
         $lastapp = 0;
         foreach ($f as $one => $val) $lastapp++;
         if ($this->params['isdefault'] == "yes")
@@ -59,7 +59,7 @@ class BaseApp extends iumioApp
         $f->$lastapp->isdefault = $this->params['isdefault'];
         $f->$lastapp->class = "\\".$this->params['appname']."\\".$this->params['appname'];
         $f = json_encode($f);
-        file_put_contents(ROOT."/elements/apps.json", $f);
+        file_put_contents(ROOT."/elements/config_files/apps.json", $f);
         if ($this->params['template'] == "yes")
             new AM(array("core/manager", "assets-manager", "--copy", "--appname=". $this->params['appname'], "--symlink", "--noexit"));
         Output::outputAsSuccess("\n Your app is ready to use. To test your app go to project location on your browser with parameter /hello. Enjoy ! \n", "none");
@@ -70,20 +70,18 @@ class BaseApp extends iumioApp
      */
     public function remove()
     {
-        $f = json_decode(file_get_contents(ROOT."/elements/apps.json"));
-        $i = 0;
+        $f = json_decode(file_get_contents(ROOT."/elements/config_files/apps.json"));
         foreach ($f as $one => $val)
         {
             if ($val->name == $this->name)
             {
-                unset($f->$i);
+                unset($f->$one);
                 break;
             }
-            $i++;
         }
 
         $f = json_encode($f);
-        file_put_contents(ROOT."/elements/apps.json", $f);
+        file_put_contents(ROOT."/elements/config_files/apps.json", $f);
 
         ServerManager::delete(ROOT."/apps/".$this->name, "directory");
         ServerManager::delete(ROOT."/web/components/apps/".strtolower($this->name), 'directory');

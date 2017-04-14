@@ -90,15 +90,16 @@ nav ul a {
 #header, #footer {
     font-size: large;
     padding: 0.3em;
-    background: #BCCE98;
+    background: #c7c1c1;
+    text-align: center;
 }
 
 #left {
-    background: #DAE9BC;
+    background: #c7c1c1;
 }
 
 #right {
-    background: #F7FDEB;
+    background: #c7c1c1;
 }
 
 #center {

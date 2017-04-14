@@ -34,7 +34,7 @@ function createAppProcess($appname, $default, $temp)
     rename($napp."/Master/DefaultMaster.php.local", $napp."/Master/DefaultMaster.php");
 
     // REGISTER TO APP CORE
-    $f = json_decode(file_get_contents($base."/elements/apps.json"));
+    $f = json_decode(file_get_contents($base."/elements/config_files/apps.json"));
     $lastapp = 0;
     foreach ($f as $one => $val) $lastapp++;
     if ($default == "1")
@@ -52,7 +52,7 @@ function createAppProcess($appname, $default, $temp)
     $f->$lastapp->isdefault = ($default == "1")? "yes" : "no";
     $f->$lastapp->class = "\\".$appname."\\".$appname;
     $f = json_encode($f);
-    file_put_contents($base."/elements/apps.json", $f);
+    file_put_contents($base."/elements/config_files/apps.json", $f);
     if ($temp == "1")
         iumioFramework\Core\Additionnal\Server\iumioServerManager::copy($base."/apps/".$appname."/Front/Resources/", $base."/web/components/apps/".strtolower($appname), 'directory', true);
 

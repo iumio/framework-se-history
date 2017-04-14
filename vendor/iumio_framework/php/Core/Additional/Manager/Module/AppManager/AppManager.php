@@ -38,7 +38,7 @@ class AppManager implements ModuleInterface
             if ($opt == "new-project")
                 $this->stepNewProject();
             elseif ($opt == "remove-project")
-              $this->stepRemoveProject($this->options);
+                $this->stepRemoveProject($this->options);
             elseif ($opt == "switch-project")
                 $this->stepSwitchProject($this->options);
             else
@@ -95,30 +95,30 @@ class AppManager implements ModuleInterface
         Output::outputAsSuccess("Welcome on iumio app manager. I'm assist you to create your new app. Many question will ask you so are you ready ?\n\n", "none");
         Output::outputAsSuccess($this->stage[0], "none");
 
-       $this->params['appname'] = ucfirst($this->listener());
+        $this->params['appname'] = ucfirst($this->listener());
 
         $e = false;
-            while ($e == false)
+        while ($e == false)
+        {
+            if ($this->checkAppName($this->params['appname']) != 1)
+                Output::outputAsError("Your app name is invalid. Please Retry.\n", "none");
+            else if ($this->checkAppExist($this->params['appname']) == true)
             {
-                if ($this->checkAppName($this->params['appname']) != 1)
-                    Output::outputAsError("Your app name is invalid. Please Retry.\n", "none");
-                else if ($this->checkAppExist($this->params['appname']) == true)
-                {
-                    $e = false;
-                    Output::outputAsError("This app name is already exist, Please enter an other app name.\n", "none");
-                }
-                else
-                {
-                    $e = true;
-                    continue;
-                }
-
-                Output::outputAsSuccess($this->stage[0], "none");
-                $this->params['appname'] = ucfirst($this->listener());
+                $e = false;
+                Output::outputAsError("This app name is already exist, Please enter an other app name.\n", "none");
             }
-            Output::outputAsSuccess("Great! Your app name is ".$this->params['appname']."\n", "none");
-            Output::outputAsSuccess($this->stage[1], "none");
-            $this->params['template'] = $this->listener();
+            else
+            {
+                $e = true;
+                continue;
+            }
+
+            Output::outputAsSuccess($this->stage[0], "none");
+            $this->params['appname'] = ucfirst($this->listener());
+        }
+        Output::outputAsSuccess("Great! Your app name is ".$this->params['appname']."\n", "none");
+        Output::outputAsSuccess($this->stage[1], "none");
+        $this->params['template'] = $this->listener();
         while ($this->checkBooleanResponse($this->params['template']) != 1)
         {
             Output::outputAsError("Invalid response. Please Retry (yes/no).\n", "none");
@@ -238,7 +238,7 @@ class AppManager implements ModuleInterface
      */
     final protected function checkAppRegister(string $appname):bool
     {
-        $f = json_decode(file_get_contents(ROOT_PROJECT."/elements/apps.json"));
+        $f = json_decode(file_get_contents(ROOT_PROJECT."/elements/config_files/apps.json"));
         foreach ($f as $one => $val)
         {
             if ($val->name == $appname) return (true);
@@ -251,13 +251,13 @@ class AppManager implements ModuleInterface
      */
     final protected function showAppsRegister()
     {
-        $f = json_decode(file_get_contents(ROOT_PROJECT."/elements/apps.json"));
+        $f = json_decode(file_get_contents(ROOT_PROJECT."/elements/config_files/apps.json"));
         $i = 1;
         if (count($f) == 0)
             Output::outputAsError("Oups! You have not app registered. Please create an app with app-manager\n");
         foreach ($f as $one => $val)
         {
-           Output::outputAsNotice($i.") ".$val->name.(($val->isdefault == "yes")? " : Is default" : "")."\n", "none");
+            Output::outputAsNotice($i.") ".$val->name.(($val->isdefault == "yes")? " : Is default" : "")."\n", "none");
             array_push($this->params['applist'], $val->name);
             $i++;
         }
@@ -297,7 +297,7 @@ class AppManager implements ModuleInterface
         rename($napp."/Master/DefaultMaster.php.local", $napp."/Master/DefaultMaster.php");
 
         // REGISTER TO APP CORE
-        $f = json_decode(file_get_contents(ROOT_PROJECT."/elements/apps.json"));
+        $f = json_decode(file_get_contents(ROOT_PROJECT."/elements/config_files/apps.json"));
         $lastapp = 0;
         foreach ($f as $one => $val) $lastapp++;
         if ($this->params['isdefault'] == "yes")
@@ -315,7 +315,7 @@ class AppManager implements ModuleInterface
         $f->$lastapp->isdefault = $this->params['isdefault'];
         $f->$lastapp->class = "\\".$this->params['appname']."\\".$this->params['appname'];
         $f = json_encode($f);
-        file_put_contents(ROOT_PROJECT."/elements/apps.json", $f);
+        file_put_contents(ROOT_PROJECT."/elements/config_files/apps.json", $f);
         if ($this->params['template'] == "yes")
             new AM(array("core/manager", "assets-manager", "--copy", "--appname=". $this->params['appname'], "--symlink", "--noexit"));
         Output::outputAsSuccess("\n Your app is ready to use. To test your app go to project location on your browser with parameter /hello. Enjoy ! \n", "none");
@@ -331,7 +331,7 @@ class AppManager implements ModuleInterface
         Output::outputAsSuccess("Processing to switch app : $appname  to be default\n", "none");
         Output::outputAsSuccess("........................................\n", "none");
         sleep(1);
-        $f = json_decode(file_get_contents(ROOT_PROJECT."/elements/apps.json"));
+        $f = json_decode(file_get_contents(ROOT_PROJECT."/elements/config_files/apps.json"));
 
         foreach ($f as $one => $val)
         {
@@ -340,7 +340,7 @@ class AppManager implements ModuleInterface
         }
 
         $f = json_encode($f);
-        file_put_contents(ROOT_PROJECT."/elements/apps.json", $f);
+        file_put_contents(ROOT_PROJECT."/elements/config_files/apps.json", $f);
         Output::outputAsSuccess("Great ! Your app << ".$this->params['capp']." >> to be the default app.\n", "none");
     }
 
@@ -356,20 +356,19 @@ class AppManager implements ModuleInterface
         sleep(1);
 
         // DELETE TO APP CORE
-        $f = json_decode(file_get_contents(ROOT_PROJECT."/elements/apps.json"));
-        $i = 0;
+
+        $f = json_decode(file_get_contents(ROOT_PROJECT."/elements/config_files/apps.json"));
         foreach ($f as $one => $val)
+        {
+            if ($val->name == $appname)
             {
-                if ($val->name == $appname)
-                {
-                    unset($f->$i);
-                    break;
-                }
-                $i++;
+                unset($f->$one);
+                break;
             }
+        }
 
         $f = json_encode($f);
-        file_put_contents(ROOT_PROJECT."/elements/apps.json", $f);
+        file_put_contents(ROOT_PROJECT."/elements/config_files/apps.json", $f);
 
         iumioServerManager::delete(ROOT_PROJECT."/apps/$appname", "directory");
         new AM(array("core/manager", "assets-manager", "--clear", "--appname=". $this->params['appname'], "--noexit", "--quiet"));
