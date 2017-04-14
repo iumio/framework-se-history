@@ -1,4 +1,4 @@
-routingRegister : {appname}
+routingRegister : HelloApp
 
 name : default_start
 path : /index

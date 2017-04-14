@@ -10,7 +10,7 @@ if (isset($_REQUEST["appname"], $_REQUEST["default"] , $_REQUEST["template"]) &&
 function createAppProcess($appname, $default, $temp)
 {
     $base = __DIR__."/../";
-    include_once $base."vendor/iumio_framework/php/Core/Additional/Server/iumioServerManager.php";
+    include_once $base."vendor/iumio_framework/php/Core/ServerManager/iumioServerManager.php";
     $temdirbase = $base."vendor/iumio_framework/php/Core/Additional/Manager/Module/AppManager/AppTemplate";
     $tempdir = ($temp == "0")? $temdirbase.'/notemplate/{appname}' : $temdirbase.'/template/{appname}';
     iumioFramework\Core\Additionnal\Server\iumioServerManager::copy($tempdir, $base."/apps/".$appname, 'directory');
