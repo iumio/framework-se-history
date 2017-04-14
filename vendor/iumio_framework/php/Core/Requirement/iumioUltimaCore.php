@@ -147,9 +147,9 @@ abstract class iumioUltimaCore
         $baseSimilar = 0;
         $path = $request->server->get('REQUEST_URI');
         $rbase = $request->server->get('REDIRECT_BASE');
-        if ($rbase == "/web")
-            $path = str_replace("/web", "", $path);
-
+        if ($rbase != "" && strstr($rbase, "/web") != false)
+            $path = str_replace($rbase, "", $path);
+        
         if ($path == "") $path = "/";
 
         foreach ($routes as $route)
