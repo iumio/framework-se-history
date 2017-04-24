@@ -249,6 +249,11 @@ function createAppProcess($appname, $default, $temp)
             -ms-transform: scale(5);
             transform: scale(5);
         }
+
+        button
+        {
+            cursor: pointer;
+        }
         .sp-circle-link {
             position: absolute;
             left: 46%;
@@ -508,6 +513,186 @@ function createAppProcess($appname, $default, $temp)
         .mbutton:hover
         {
             cursor: pointer;
+        }
+
+
+        #fountainG{
+            position:relative;
+            width:234px;
+            height:28px;
+            margin:auto;
+        }
+
+        .fountainG{
+            position:absolute;
+            top:0;
+            background-color:rgb(0,0,0);
+            width:28px;
+            height:28px;
+            animation-name:bounce_fountainG;
+            -o-animation-name:bounce_fountainG;
+            -ms-animation-name:bounce_fountainG;
+            -webkit-animation-name:bounce_fountainG;
+            -moz-animation-name:bounce_fountainG;
+            animation-duration:1.5s;
+            -o-animation-duration:1.5s;
+            -ms-animation-duration:1.5s;
+            -webkit-animation-duration:1.5s;
+            -moz-animation-duration:1.5s;
+            animation-iteration-count:infinite;
+            -o-animation-iteration-count:infinite;
+            -ms-animation-iteration-count:infinite;
+            -webkit-animation-iteration-count:infinite;
+            -moz-animation-iteration-count:infinite;
+            animation-direction:normal;
+            -o-animation-direction:normal;
+            -ms-animation-direction:normal;
+            -webkit-animation-direction:normal;
+            -moz-animation-direction:normal;
+            transform:scale(.3);
+            -o-transform:scale(.3);
+            -ms-transform:scale(.3);
+            -webkit-transform:scale(.3);
+            -moz-transform:scale(.3);
+            border-radius:19px;
+            -o-border-radius:19px;
+            -ms-border-radius:19px;
+            -webkit-border-radius:19px;
+            -moz-border-radius:19px;
+        }
+
+        #fountainG_1{
+            left:0;
+            animation-delay:0.6s;
+            -o-animation-delay:0.6s;
+            -ms-animation-delay:0.6s;
+            -webkit-animation-delay:0.6s;
+            -moz-animation-delay:0.6s;
+        }
+
+        #fountainG_2{
+            left:29px;
+            animation-delay:0.75s;
+            -o-animation-delay:0.75s;
+            -ms-animation-delay:0.75s;
+            -webkit-animation-delay:0.75s;
+            -moz-animation-delay:0.75s;
+        }
+
+        #fountainG_3{
+            left:58px;
+            animation-delay:0.9s;
+            -o-animation-delay:0.9s;
+            -ms-animation-delay:0.9s;
+            -webkit-animation-delay:0.9s;
+            -moz-animation-delay:0.9s;
+        }
+
+        #fountainG_4{
+            left:88px;
+            animation-delay:1.05s;
+            -o-animation-delay:1.05s;
+            -ms-animation-delay:1.05s;
+            -webkit-animation-delay:1.05s;
+            -moz-animation-delay:1.05s;
+        }
+
+        #fountainG_5{
+            left:117px;
+            animation-delay:1.2s;
+            -o-animation-delay:1.2s;
+            -ms-animation-delay:1.2s;
+            -webkit-animation-delay:1.2s;
+            -moz-animation-delay:1.2s;
+        }
+
+        #fountainG_6{
+            left:146px;
+            animation-delay:1.35s;
+            -o-animation-delay:1.35s;
+            -ms-animation-delay:1.35s;
+            -webkit-animation-delay:1.35s;
+            -moz-animation-delay:1.35s;
+        }
+
+        #fountainG_7{
+            left:175px;
+            animation-delay:1.5s;
+            -o-animation-delay:1.5s;
+            -ms-animation-delay:1.5s;
+            -webkit-animation-delay:1.5s;
+            -moz-animation-delay:1.5s;
+        }
+
+        #fountainG_8{
+            left:205px;
+            animation-delay:1.64s;
+            -o-animation-delay:1.64s;
+            -ms-animation-delay:1.64s;
+            -webkit-animation-delay:1.64s;
+            -moz-animation-delay:1.64s;
+        }
+
+
+
+        @keyframes bounce_fountainG{
+            0%{
+                transform:scale(1);
+                background-color:rgb(0,0,0);
+            }
+
+            100%{
+                transform:scale(.3);
+                background-color:rgb(255,255,255);
+            }
+        }
+
+        @-o-keyframes bounce_fountainG{
+            0%{
+                -o-transform:scale(1);
+                background-color:rgb(0,0,0);
+            }
+
+            100%{
+                -o-transform:scale(.3);
+                background-color:rgb(255,255,255);
+            }
+        }
+
+        @-ms-keyframes bounce_fountainG{
+            0%{
+                -ms-transform:scale(1);
+                background-color:rgb(0,0,0);
+            }
+
+            100%{
+                -ms-transform:scale(.3);
+                background-color:rgb(255,255,255);
+            }
+        }
+
+        @-webkit-keyframes bounce_fountainG{
+            0%{
+                -webkit-transform:scale(1);
+                background-color:rgb(0,0,0);
+            }
+
+            100%{
+                -webkit-transform:scale(.3);
+                background-color:rgb(255,255,255);
+            }
+        }
+
+        @-moz-keyframes bounce_fountainG{
+            0%{
+                -moz-transform:scale(1);
+                background-color:rgb(0,0,0);
+            }
+
+            100%{
+                -moz-transform:scale(.3);
+                background-color:rgb(255,255,255);
+            }
         }
     </style>
 </head>
@@ -1225,7 +1410,7 @@ function createAppProcess($appname, $default, $temp)
                 <div style="text-align: center"><button id="decline">Decline</button> <button id="accept">Accept</button></div>
 
             </div>
-            <div class="anim block" id="step3" style="display: none;color: white;padding-top: 100px;color: black">
+            <div class=" block" id="step3" style="display: none;color: white;color: black">
                 <h3 style="font-size: 30px;text-decoration: underline">Informations : </h3>
                 <div style="padding-left: 10px">
                     <h3>Framework version : 0.1.5 in Pre-Beta stage</h3>
@@ -1233,6 +1418,7 @@ function createAppProcess($appname, $default, $temp)
                     <h3>Compatiblility : PHP 7 and later</h3>
                     <h3><span style="font-size: 22px;color: darkred;font-weight: 800 ">Warning</span> : This version is in Pre-beta stage. Please don't use it for your production projects </h3>
                     <h3>More info : <a class="link" style="color: #1b6d85" onclick="window.open('https://framework.iumio.com', '_blank')">iumio Framework website</a></h3>
+                <h3 style="color: red">iumio Installer is a property of iumio Framework. Do not reproduce or use for personnal and professional.</h3>
                 </div>
                 <br>
                 <br>
@@ -1241,7 +1427,7 @@ function createAppProcess($appname, $default, $temp)
 
             </div>
 
-            <div class="anim block" id="step4" style="display: none;color: white;padding-top: 100px;color:black">
+            <div class=" block" id="step4" style="display: none;color: white;color:black">
                 <h3 style="font-size: 40px;text-align: center">Tell me your app name : </h3>
                 <h4 style="font-size: 20px;text-align: center;color: darkred;display: none" id="error1">Your app name is incorrect</h4>
                 <h3 style="font-size: 20px;text-align: center;"><em>Your app name must to end with "App" keyword (example TestApp) </em></h3>
@@ -1255,7 +1441,7 @@ function createAppProcess($appname, $default, $temp)
 
             </div>
 
-            <div class="anim block" id="step5" style="display: none;color: white;padding-top: 100px;color:black">
+            <div class=" block" id="step5" style="display: none;color: white;color:black">
                 <h3 style="font-size: 40px;text-align: center">Would you like to have a default template ?</h3>
                 <h3 style="font-size: 20px;text-align: center;"><em>iumio purpose you a default template with your app</em></h3>
                 <br>
@@ -1263,7 +1449,7 @@ function createAppProcess($appname, $default, $temp)
                 <div style="text-align: center"><button id="no3">No</button> <button id="yes3">Yes</button></div>
             </div>
 
-            <div class="anim block" id="step6" style="display: none;color: white;padding-top: 100px;text-align: center;color:black">
+            <div class="block" id="step6" style="display: none;color: white;text-align: center;color:black">
                 <h3 style="font-size: 40px;text-decoration: underline;">Recapitulation : </h3>
                 <div style="font-size: 25px">
                     <h3>App name : <span id="appnamers"></span></h3>
@@ -1275,17 +1461,27 @@ function createAppProcess($appname, $default, $temp)
                 <div style="text-align: center"><button id="cancelfinal">Cancel</button> <button id="create">Create your app</button></div>
             </div>
 
-            <div class="anim block" id="step7" style="display: none;color: white;padding-top: 200px;text-align: center">
+            <div class="block" id="step7" style="display: none;color: white;text-align: center;color: black">
                 <h3 style="font-size: 30px;">Processing ... </h3>
-                <div style="margin: auto" class="loader"></div>
+               <br>
+                <div id="fountainG">
+                    <div id="fountainG_1" class="fountainG"></div>
+                    <div id="fountainG_2" class="fountainG"></div>
+                    <div id="fountainG_3" class="fountainG"></div>
+                    <div id="fountainG_4" class="fountainG"></div>
+                    <div id="fountainG_5" class="fountainG"></div>
+                    <div id="fountainG_6" class="fountainG"></div>
+                    <div id="fountainG_7" class="fountainG"></div>
+                    <div id="fountainG_8" class="fountainG"></div>
+                </div>
             </div>
 
-            <div class="anim block" id="step8" style="display: none;color: white;padding-top: 300px;text-align: center;color:black">
+            <div class="block" id="step8" style="display: none;color: white;text-align: center;color:black">
                 <h3 style="font-size: 40px;">Your app was created.</h3>
                 <h3 style="font-size: 30px;text-align: center;"><em>Now you must to remove installer.php file</em></h3>
             </div>
 
-            <div class="anim block" id="step9" style="display: none;color: darkred!important;padding-top: 300px;text-align: center;color:black">
+            <div class="block" id="step9" style="display: none;color: darkred!important;text-align: center;color:black">
                 <h3 style="font-size: 40px;">An error was detected.</h3>
                 <h3 style="font-size: 30px;text-align: center;"><em>Please retry to create an app</em></h3>
             </div>
