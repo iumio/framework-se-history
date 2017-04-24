@@ -1,4 +1,3 @@
-
 <?php include_once SERVER_VIEWS.'partials/header.iumio.php' ?>
 
     <!-- Header -->
@@ -25,7 +24,7 @@
         </ul>
     </nav>
 
-    <!-- Banner -->"
+    <!-- Banner -->
     <section id="banner" class="major">
         <div class="inner">
             <header class="major">

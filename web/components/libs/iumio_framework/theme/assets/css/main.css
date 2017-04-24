@@ -3407,7 +3407,13 @@
 		-webkit-align-items: center;
 		-ms-align-items: center;
 		align-items: center;
-		background-image: url("../images/banner.jpg");
+		width: 100%;
+		height: 100%;
+		z-index: 0;
+		background: -webkit-radial-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3) 35%, rgba(0, 0, 0, 0.7));
+		background: -moz-radial-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3) 35%, rgba(0, 0, 0, 0.7));
+		background: -ms-radial-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3) 35%, rgba(0, 0, 0, 0.7));
+		background: radial-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3) 35%, rgba(0, 0, 0, 0.7));
 		display: -moz-flex;
 		display: -webkit-flex;
 		display: -ms-flex;
@@ -3516,7 +3522,6 @@
 			max-height: 40em;
 			background-size: cover!important;
 
-			background-image: url("../images/iumio_theme_img1.jpg");
 		}
 
 			#banner.major.alt {
