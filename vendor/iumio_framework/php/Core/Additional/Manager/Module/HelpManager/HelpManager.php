@@ -19,12 +19,13 @@ class HelpManager implements ModuleInterface
     {
         $f = File::getFileCommand();
         if ($f == NULL)
-            throw new \Exception("iumio Args Error : Command File is empty ");
+            Output::displayAsError("iumio Args Error : Command File is empty ", "none");
         $commands = $f->commands;
         if (empty($this->options)) {
-            Output::displayAsSuccess("Hey, this is available commands\n", "none");
+            $str = "Hey, this is available commands\n";
             foreach ($commands as $command => $val)
-                Output::displayAsSuccess($command . ": " . $val->desc, "none");
+                $str = $str.$command . ": " . $val->desc."\n---------\n";
+            Output::displayAsSuccess($str, "none");
         }
         else
         {

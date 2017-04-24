@@ -69,10 +69,6 @@ function createAppProcess($appname, $default, $temp)
 
     <style >
 
-        body {
-            background: #310404 url('https://framework.iumio.com/wp-content/uploads/2017/03/helix-nebula-ngc-7293-planetary-fog-constellation-aquarius-113744.jpeg') repeat top left;
-            background-size: auto;
-        }
 
         .container{
             width: 100%;
@@ -131,7 +127,7 @@ function createAppProcess($appname, $default, $temp)
             font-size: 90px;
             width: 100%;
             text-align: center;
-            color: transparent;
+            color: rgba(0, 0, 0, 0.77)!important;
             -webkit-animation: blurFadeInOut 10s ease-in backwards;
 
         }
@@ -140,8 +136,9 @@ function createAppProcess($appname, $default, $temp)
         {
             overflow: scroll;
             height: 300px;
-            color: white;
+            color: #131313;
             font-size: 20px;
+            border-radius: 15px;
             margin: auto;
             width: 100%;
             border: 2px solid white;
@@ -152,6 +149,25 @@ function createAppProcess($appname, $default, $temp)
         {
             margin: auto;
             width: 50%;
+
+        }
+
+        #displaying {
+            display: block;
+            position: relative;
+            top: 40%;
+            transform: translateY(-50%);
+            left: 0%;
+            right: 0%;
+        }
+
+        .block {
+            display: block;
+            position: relative;
+            top: 40%;
+            transform: translateY(-50%);
+            left: 0%;
+            right: 0%;
         }
 
         .loader {
@@ -178,7 +194,7 @@ function createAppProcess($appname, $default, $temp)
 
 
         .alter3 {
-            color: white!important;
+            color: rgba(0, 0, 0, 0.77)!important;
         }
 
         .sp-container h2.frame-1 {
@@ -454,6 +470,45 @@ function createAppProcess($appname, $default, $temp)
                 transform: scale(5);
             }
         }
+
+        .mbutton
+        {
+            text-align: center;
+            /* line-height: 10px; */
+            width: 280px;
+            height: 100px;
+            background-color: rgba(93, 93, 93, 0.58);
+            font-size: 19px!important;
+            -webkit-border-radius: 50%;
+            -moz-border-radius: 50%;
+            border-radius: 0%;
+            color: white;
+            -webkit-animation: fadeInRotate 1s linear 2s backwards;
+            -moz-animation: fadeInRotate 1s linear 2s backwards;
+            -ms-animation: fadeInRotate 1s linear 2s backwards;
+            animation: fadeInRotate 1s linear 2s backwards;
+            -webkit-transform: scale(1) rotate(0deg);
+            -moz-transform: scale(1) rotate(0deg);
+            -o-transform: scale(1) rotate(0deg);
+            -ms-transform: scale(1) rotate(0deg);
+            transform: scale(1) rotate(0deg);
+            padding: 0px 30px;
+            border: none;
+            border-radius: 3px;
+            font-size: 17px;
+            font-weight: 400;
+            white-space: normal;
+            letter-spacing: 0;
+            text-transform: uppercase;
+            -webkit-transition: background-color 0.2s cubic-bezier(0.4,0,0.2,1),-webkit-box-shadow 0.2s cubic-bezier(0.4,0,1,1);
+            transition: box-shadow 0.2s cubic-bezier(0.4,0,1,1),background-color 0.2s cubic-bezier(0.4,0,0.2,1),-webkit-box-shadow 0.2s cubic-bezier(0.4,0,1,1);
+            will-change: box-shadow,transform;
+        }
+
+        .mbutton:hover
+        {
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
@@ -468,11 +523,13 @@ function createAppProcess($appname, $default, $temp)
             <img id="iumiomg" src="https://framework.iumio.com/wp-content/uploads/2017/03/iumio-horizontal-white-1.png" width="10%">
             <h2 class="frame-1" id="frame1">iumio Framework SE </h2>
 
-            <h3 class="alterh2" id="textd" style="font-size: 55px;">iumio Framework SE <em>Installer</em> <br> <span style="font-size: 25px">Configure your future app now </span> </h3>
-
-            <a class="sp-circle-link" id="clicked" href="#">Start to configure</a>
+            <h3 class="alterh2" id="textd" style="font-size: 55px;">iumio Framework SE <em>Installer</em> <br> <span style="font-size: 25px">Configure your future app now </span>
+                <br>
+                <button class="mbutton" id="clicked" type="button">Start to configure</button>
+            </h3>
 
             <div id="displaying" class="" style="display: none">
+                <h3 style="text-align: center; font-size: 30px">iumio Framework Licence</h3>
                 <div class="licence">
                     <h3 style="text-align: center;">GNU GENERAL PUBLIC LICENSE</h3>
                     <p style="text-align: center;">Version 3, 29 June 2007</p>
@@ -1168,11 +1225,10 @@ function createAppProcess($appname, $default, $temp)
                 <div style="text-align: center"><button id="decline">Decline</button> <button id="accept">Accept</button></div>
 
             </div>
-            <div class="anim block" id="step3" style="display: none;color: white;padding-top: 100px">
-                <h3 style="font-size: 30px;text-decoration: underline">Framework Info : </h3>
+            <div class="anim block" id="step3" style="display: none;color: white;padding-top: 100px;color: black">
+                <h3 style="font-size: 30px;text-decoration: underline">Informations : </h3>
                 <div style="padding-left: 10px">
                     <h3>Framework version : 0.1.5 in Pre-Beta stage</h3>
-                    <h3>Creator : RAFINA Dany</h3>
                     <h3>Framework Edition : Standard Edition</h3>
                     <h3>Compatiblility : PHP 7 and later</h3>
                     <h3><span style="font-size: 22px;color: darkred;font-weight: 800 ">Warning</span> : This version is in Pre-beta stage. Please don't use it for your production projects </h3>
@@ -1185,7 +1241,7 @@ function createAppProcess($appname, $default, $temp)
 
             </div>
 
-            <div class="anim block" id="step4" style="display: none;color: white;padding-top: 100px">
+            <div class="anim block" id="step4" style="display: none;color: white;padding-top: 100px;color:black">
                 <h3 style="font-size: 40px;text-align: center">Tell me your app name : </h3>
                 <h4 style="font-size: 20px;text-align: center;color: darkred;display: none" id="error1">Your app name is incorrect</h4>
                 <h3 style="font-size: 20px;text-align: center;"><em>Your app name must to end with "App" keyword (example TestApp) </em></h3>
@@ -1199,7 +1255,7 @@ function createAppProcess($appname, $default, $temp)
 
             </div>
 
-            <div class="anim block" id="step5" style="display: none;color: white;padding-top: 100px">
+            <div class="anim block" id="step5" style="display: none;color: white;padding-top: 100px;color:black">
                 <h3 style="font-size: 40px;text-align: center">Would you like to have a default template ?</h3>
                 <h3 style="font-size: 20px;text-align: center;"><em>iumio purpose you a default template with your app</em></h3>
                 <br>
@@ -1207,7 +1263,7 @@ function createAppProcess($appname, $default, $temp)
                 <div style="text-align: center"><button id="no3">No</button> <button id="yes3">Yes</button></div>
             </div>
 
-            <div class="anim block" id="step6" style="display: none;color: white;padding-top: 100px;text-align: center">
+            <div class="anim block" id="step6" style="display: none;color: white;padding-top: 100px;text-align: center;color:black">
                 <h3 style="font-size: 40px;text-decoration: underline;">Recapitulation : </h3>
                 <div style="font-size: 25px">
                     <h3>App name : <span id="appnamers"></span></h3>
@@ -1224,12 +1280,12 @@ function createAppProcess($appname, $default, $temp)
                 <div style="margin: auto" class="loader"></div>
             </div>
 
-            <div class="anim block" id="step8" style="display: none;color: white;padding-top: 300px;text-align: center">
+            <div class="anim block" id="step8" style="display: none;color: white;padding-top: 300px;text-align: center;color:black">
                 <h3 style="font-size: 40px;">Your app was created.</h3>
                 <h3 style="font-size: 30px;text-align: center;"><em>Now you must to remove installer.php file</em></h3>
             </div>
 
-            <div class="anim block" id="step9" style="display: none;color: darkred!important;padding-top: 300px;text-align: center">
+            <div class="anim block" id="step9" style="display: none;color: darkred!important;padding-top: 300px;text-align: center;color:black">
                 <h3 style="font-size: 40px;">An error was detected.</h3>
                 <h3 style="font-size: 30px;text-align: center;"><em>Please retry to create an app</em></h3>
             </div>

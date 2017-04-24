@@ -8,20 +8,15 @@
       },
       "cache-manager": {
           "class" : "\\iumioFramework\\Manager\\Console\\Module\\Cache\\CacheManager",
-          "desc"  : "Manage iumio cache  \n \t --clear : Clear cache environment (Dev environment as default)  \n \t --env: Environment name (DEV, PROD, PREPROD, ALL) (must used with --clear)\n"
+          "desc"  : "Manage iumio cache  \n        --clear : Clear cache environment (Dev environment as default)  \n        --env: Environment name (DEV, PROD, PREPROD, ALL) (must used with --clear)\n"
       },
       "assets-manager": {
         "class" : "\\iumioFramework\\Manager\\Console\\Module\\Assets\\AssetsManager",
-        "desc"  : "Manage project assets \n \t --copy : Copy project assets to web directory  \n \t --symlink (must with --copy option) Symbolic link will be created \n \t --clear : clear all web assets \n \t --appname : App name 'Example --appname=DefaultApp' (must be use with --copy or --clear option\n"
+        "desc"  : "Manage project assets \n        --copy : Copy project assets to web directory  \n        --symlink (must with --copy option) Symbolic link will be created \n        --clear : clear all web assets \n        --appname : App name 'Example --appname=DefaultApp' (must be use with --copy or --clear option\n"
       },
       "app-manager": {
         "class" : "\\iumioFramework\\Manager\\Console\\Module\\App\\AppManager",
-        "desc"  : "Manage project \n \t new-project : Create project  \n \t switch-project : Change the default project \n \t remove-project : Remove a project \n"
-      },
-      "propel-manager": {
-        "class" : "\\iumioFramework\\Manager\\Console\\Module\\Propel\\PropelManager",
-        "desc"  : "Manage Propel project \n \t --appname : App name 'Example --appname=DefaultApp'\n"
+        "desc"  : "Manage project \n        new-project : Create project  \n        switch-project : Change the default project \n        remove-project : Remove a project \n"
       }
-
     }
 }

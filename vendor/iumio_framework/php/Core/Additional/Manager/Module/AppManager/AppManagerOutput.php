@@ -20,7 +20,29 @@ class AppManagerOutput extends IMO
     static public function outputAsSuccess(string $message, string $exit = "yes")
     {
         $colors = self::getManagerColorInstance();
-        echo $colors->getColoredString($message, "black", "green");
+        echo "\n\n".$colors->getColoredString($message, "black", "green");
+        if ($exit == "yes") exit();
+    }
+
+    /** display As Normal Message
+     * @param string $message Message to display
+     * @param string $exit Exit script
+     */
+    static public function outputAsNormal(string $message, string $exit = "yes")
+    {
+        $colors = self::getManagerColorInstance();
+        echo "\n\n".$colors->getColoredString($message, "black", "green", false);
+        if ($exit == "yes") exit();
+    }
+
+    /** display for read line Message
+     * @param string $message Message to display
+     * @param string $exit Exit script
+     */
+    static public function outputAsReadLine(string $message, string $exit = "yes")
+    {
+        $colors = self::getManagerColorInstance();
+        echo "\n".$colors->getColoredStringReadLine($message, "black", "transparent");
         if ($exit == "yes") exit();
     }
 
@@ -31,7 +53,7 @@ class AppManagerOutput extends IMO
     final static public function outputAsNotice(string $message, string $exit = "yes")
     {
         $colors = self::getManagerColorInstance();
-        echo $colors->getColoredString($message, "black", "yellow");
+        echo "\n\n".$colors->getColoredString($message, "black", "yellow");
         if ($exit == "yes") exit();
     }
 
@@ -42,7 +64,27 @@ class AppManagerOutput extends IMO
     final static public function outputAsError(string $message, string $exit = "yes")
     {
         $colors = self::getManagerColorInstance();
-        echo $colors->getColoredString($message, "white", "red");
+        echo "\n\n".$colors->getColoredString($message, "black", "green");
         if ($exit == "yes") exit();
+    }
+
+    /** display for end Success Message
+     * @param string $message Message to display
+     * @param string $exit Exit script
+     */
+    static public function outputAsEndSuccess(string $message, string $exit = "yes")
+    {
+        $colors = self::getManagerColorInstance();
+        self::clear();
+        echo $colors->getColoredString($message, "black", "green");
+        if ($exit == "yes") exit();
+    }
+
+    /** Clear CLI text
+     * @return bool As a success
+     */
+    final static public function clear():bool
+    {
+        return (parent::clear());
     }
 }

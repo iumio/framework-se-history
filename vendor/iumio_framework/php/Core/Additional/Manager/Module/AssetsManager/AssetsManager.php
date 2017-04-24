@@ -64,9 +64,9 @@ class AssetsManager implements ModuleInterface
         Output::displayAsSuccess("......................", "none");
         $this->callDelCreaServer('#none');
         if (isset($options[4]) && $options[4] == "--noexit")
-            Output::displayAsSuccess("Task to clear all assets is successfull.", "none");
+            Output::displayAsEndSuccess("Task to clear all assets is successfull.", "none");
         else
-            Output::displayAsSuccess("Task to clear all assets is successfull.");
+            Output::displayAsEndSuccess("Task to clear all assets is successfull.");
     }
 
 
@@ -95,7 +95,6 @@ class AssetsManager implements ModuleInterface
         }
 
         Output::displayAsSuccess("Hey, I copy ".(($appname != '#none')? 'your assets for '.$appname : 'all assets projects')." on web directory".(($symlink == true)? ' with symlink option' : ''), "none");
-        Output::displayAsSuccess(".............................................", "none");
         $this->copy($symlink, $appname);
         if (isset($options[5]) && $options[5] == "--noexit")
             Output::displayAsSuccess("Task to copy assets ".(($appname == '#none')? '' : 'for '.$appname)." is successfull.", "none");
