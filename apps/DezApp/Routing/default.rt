@@ -1,5 +1,0 @@
-routingRegister : DezApp
-
-name : default_index
-path : /index
-method : Default%index

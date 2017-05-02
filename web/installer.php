@@ -1418,7 +1418,7 @@ function createAppProcess($appname, $default, $temp)
                     <h3>Compatiblility : PHP 7 and later</h3>
                     <h3><span style="font-size: 22px;color: darkred;font-weight: 800 ">Warning</span> : This version is in Pre-beta stage. Please don't use it for your production projects </h3>
                     <h3>More info : <a class="link" style="color: #1b6d85" onclick="window.open('https://framework.iumio.com', '_blank')">iumio Framework website</a></h3>
-                <h3 style="color: red">iumio Installer is a property of iumio Framework. Do not reproduce or use for personnal and professional.</h3>
+                <h3 style="color: red">iumio Installer is a property of iumio Framework. Do not reproduce!</h3>
                 </div>
                 <br>
                 <br>

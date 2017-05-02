@@ -1,9 +1,0 @@
-routingRegister : WaoutApp
-
-name : default_start
-path : /index
-method : Default%show_index
-
-name : default_test_parameter
-path : /index/{hi}
-method : Default%index
