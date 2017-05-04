@@ -32,10 +32,10 @@ abstract class iumioUltimaCore
     protected $startTime;
     protected $loadClassCache;
 
-    const VERSION = '0.1.5';
+    const VERSION = '0.1.6';
     const VERSION_EDITION = 'iumio Framework Standard Edition';
     const VERSION_STAGE = 'PRE-BETA';
-    const VERSION_ID = 201715;
+    const VERSION_ID = 201716;
     const MAJOR_VERSION = 1;
     const MINOR_VERSION = 0;
     const RELEASE_VERSION = 1;

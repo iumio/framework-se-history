@@ -5,7 +5,7 @@ iumio Framework, The next generation of PHP Frameworks
 
 Created by DANY RAFINA <danyrafina@gmail.com>
 
-Actual version : 0.1.5 PRE-BETA
+Actual version : 0.1.6 PRE-BETA
 
 * Server language : PHP 7.0 or later
 * Engine Template : Mustache
