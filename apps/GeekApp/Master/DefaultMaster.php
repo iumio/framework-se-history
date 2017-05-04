@@ -33,7 +33,6 @@ class DefaultMaster extends Master
      */
     public function show_indexGo()
     {
-        echo("iumio Performance Autoloader : Loading time : ".\Autoloader::$diff. " seconds");
        // exit();
         return ($this->render("index"));
     }

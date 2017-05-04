@@ -1,6 +1,7 @@
 <?php
 
-$loader = require __DIR__.'/../vendor/iumio_framework/php/Core/Requirement/Autoloader.php';
+$loader = require __DIR__.'/../vendor/iumio_framework/php/Core/Requirement/iumoEngineAutoloader.php';
+iumoEngineAutoloader::$env = "PREPROD";
 
 use iumioFramework\Core\Base\{iumioEnvironment, Debug\Debug, Http\HttpListener};
 use iumioFramework\Apps\AppCore;

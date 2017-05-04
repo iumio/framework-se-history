@@ -4,7 +4,7 @@ namespace iumioFramework\Core\Additionnal\Console\Manager;
 
 try
 {
-    $loader = require_once __DIR__.'/../vendor/iumio_framework/php/Core/Requirement/Autoloader.php';
+    $loader = require_once __DIR__.'/../vendor/iumio_framework/php/Core/Requirement/iumoEngineAutoloader.php';
 }
 catch (\Exception $e)
 {
