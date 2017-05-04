@@ -1,4 +1,4 @@
-routingRegister : HelloApp
+routingRegister : GeekApp
 
 name : default_start
 path : /index

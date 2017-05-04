@@ -14,6 +14,7 @@ catch (\Exception $e)
 use iumioFramework\Core\Base\Debug\Debug;
 use iumioFramework\Core\Additionnal\Console\Manager\iumioManager as CoreManager;
 error_reporting(E_ALL);
+
 /**
  * Class manager
  * @package iumioFramework\Core\Additionnal\Console\Manager

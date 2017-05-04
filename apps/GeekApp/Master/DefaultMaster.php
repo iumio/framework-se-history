@@ -1,12 +1,12 @@
 <?php
 
-namespace HelloApp\Master;
+namespace GeekApp\Master;
 
 use iumioFramework\Masters\iumioUltimaMaster as Master;
 
 /**
  * Class DefaultMaster
- * @package HelloApp\Master
+ * @package GeekApp\Master
  */
 
 class DefaultMaster extends Master
@@ -33,6 +33,8 @@ class DefaultMaster extends Master
      */
     public function show_indexGo()
     {
+        echo("iumio Performance Autoloader : Loading time : ".\Autoloader::$diff. " seconds");
+       // exit();
         return ($this->render("index"));
     }
 }
