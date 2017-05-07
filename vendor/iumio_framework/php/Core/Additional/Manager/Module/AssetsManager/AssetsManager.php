@@ -18,7 +18,7 @@ class AssetsManager implements ModuleInterface
     public function __render()
     {
         if (empty($this->options))
-            Output::displayAsError("Assets Manager Error \n \t You must to have an option. Referer to help command\n");
+            Output::displayAsError("Assets Manager Error \n  You must to have an option. Referer to help command\n");
         else
         {
             $opt = $this->options[2] ?? null;
@@ -27,12 +27,12 @@ class AssetsManager implements ModuleInterface
             else if ($opt == "--copy")
                 $this->copyAssets($this->options);
             else
-                Output::displayAsError("Assets Manager Error \n \t This command doesn't exist. Referer to help command\n");
+                Output::displayAsError("Assets Manager Error \n  This command doesn't exist. Referer to help command\n");
         }
     }
 
-    /**
-     * @param array $options
+    /** Clear some assets in web directory
+     * @param array $options Clear options
      */
     private function clearAssets(array $options)
     {
@@ -43,30 +43,28 @@ class AssetsManager implements ModuleInterface
             $appname = $e[1];
             if (strpos($appname, "App") == false)
             {
-                if (!in_array("--quiet", $options)) Output::displayAsError("Assets Manager Error : App name is invalid");
+                if (!in_array("--quiet", $options)) Output::displayAsError("Assets Manager Error : The app name is invalid");
             }
 
         }
         if (!is_dir(ROOT_PROJECT."/web/components/apps/".strtolower($appname)))
         {
-            if (!in_array("--quiet", $options)) Output::displayAsNotice("Assets Manager Notice: App $appname is not register on web assets.\n");
+            if (!in_array("--quiet", $options)) Output::displayAsNotice("Assets Manager Notice: The app $appname is not register in web assets.\n");
         }
 
         if ($appname != NULL)
         {
-            Output::displayAsSuccess("Hey, I clear web assets for $appname", "none");
-            Output::displayAsSuccess("......................", "none");
+            Output::displayAsSuccess("Hey, I'll clean the assets for $appname", "none");
             $this->callDelCreaServer($appname);
-            Output::displayAsSuccess("Task to clear $appname web assets is successfull.");
+            Output::displayAsNormal("$appname assets have been deleted.");
         }
 
-        Output::displayAsSuccess("Hey, I clear assets on web directory", "none");
-        Output::displayAsSuccess("......................", "none");
+        Output::displayAsSuccess("Hey, I'll clean the assets in web folder", "none");
         $this->callDelCreaServer('#none');
         if (isset($options[4]) && $options[4] == "--noexit")
-            Output::displayAsEndSuccess("Task to clear all assets is successfull.", "none");
+            Output::displayAsEndSuccess("All assets have been deleted.", "none");
         else
-            Output::displayAsEndSuccess("Task to clear all assets is successfull.");
+            Output::displayAsNormal("All assets have been deleted.");
     }
 
 
@@ -88,18 +86,18 @@ class AssetsManager implements ModuleInterface
             $e = explode("=", $ch);
             $appname = $e[1];
             if (strpos($appname, "App") == false)
-                Output::displayAsError("Assets Manager Error : App name is invalid");
+                Output::displayAsError("Assets Manager Error : The app name is invalid");
 
             if (!is_dir(ROOT_PROJECT."/apps/".$appname))
                 Output::displayAsError("Assets Manager Error: App $appname doesn't exist.");
         }
 
-        Output::displayAsSuccess("Hey, I copy ".(($appname != '#none')? 'your assets for '.$appname : 'all assets projects')." on web directory".(($symlink == true)? ' with symlink option' : ''), "none");
+        Output::displayAsSuccess("Hey, I'll copy ".(($appname != '#none')? 'the assets for '.$appname : 'all assets')." in web folder".(($symlink == true)? ' with symlink option' : ''), "none");
         $this->copy($symlink, $appname);
         if (isset($options[5]) && $options[5] == "--noexit")
-            Output::displayAsSuccess("Task to copy assets ".(($appname == '#none')? '' : 'for '.$appname)." is successfull.", "none");
+            Output::displayAsNormal("The copy of the assets".(($appname == '#none')? '' : ' for '.$appname)." has been done.", "none");
         else
-            Output::displayAsSuccess("Task to copy assets ".(($appname == '#none')? '' : 'for '.$appname)." is successfull.");
+            Output::displayAsNormal("The copy of the assets".(($appname == '#none')? '' : ' for '.$appname)." has been done.");
     }
 
     /** Call Server delete and create function
@@ -126,7 +124,7 @@ class AssetsManager implements ModuleInterface
     {
         if ($appname != '#none'){
             if (!is_dir(ROOT_PROJECT."/apps/".$appname."/Front/Resources/"))
-                Output::displayAsError("Assets Manager Error: Resource directory for $appname doesn't exist.");
+                Output::displayAsError("Assets Manager Error: The resources folder for $appname doesn't exist.");
             Server::copy(ROOT_PROJECT."/apps/".$appname."/Front/Resources/", ROOT_PROJECT."/web/components/apps/".strtolower($appname), 'directory', $symlink);
         }
         else
@@ -136,6 +134,7 @@ class AssetsManager implements ModuleInterface
             foreach ($dirs as $dir) {
                 if ($dir == ".") continue;
                 if ($dir == "..") continue;
+                if (!is_dir(ROOT_PROJECT."/apps/".$dir)) continue;
                 Server::copy(ROOT_PROJECT."/apps/".$dir."/Front/Resources/", ROOT_PROJECT."/web/components/apps/".strtolower($dir), 'directory', $symlink);
             }
         }

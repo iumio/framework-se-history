@@ -52,6 +52,21 @@ class Routing extends RtListener
         return ($this->router);
     }
 
+    /** Remove blank data in array
+     * @param array $routes Route array
+     * @return array Array cleared
+     */
+    final static private function removeEmptyData(array $routes):array
+    {
+        $c = count($routes);
+        for ($i = 0; $i < $c; $i++)
+        {
+            if (trim($routes[$i]) == "" || $routes[$i] == NULL || empty($routes[$i]))
+                unset($routes[$i]);
+        }
+        return ($routes);
+    }
+
 
     /** Get similarity routes
      * @param $appRoute string the app route
@@ -64,30 +79,60 @@ class Routing extends RtListener
         $paramValues = array();
         $aRE = explode('/', $appRoute);
         $wRE = explode('/', $webRoute);
+        $base = (isset($_SERVER['BASE']) && $_SERVER['BASE'] != "")? $_SERVER['BASE'] : "";
+
+        if (isset($_SERVER['BASE']) && $_SERVER['BASE'] != "")
+        {
+            $remove = explode('/', $_SERVER['BASE']);
+            $remove = array_values(self::removeEmptyData($remove));
+            $remove = array_values($remove);
+            for ($z = 0; $z < count($remove); $z++)
+            {
+                $key = array_search($remove[$z], $wRE);
+                unset($wRE[$key]);
+            }
+            $wRE = array_values($wRE);
+
+        }
 
         $script = "";
         if (strpos($webRoute, Env::getFileEnv(ENVIRONMENT)) !== false)
+        {
             $script = "/".Env::getFileEnv(ENVIRONMENT);
+            $key = array_search(Env::getFileEnv(ENVIRONMENT), $wRE);
+            unset($wRE[$key]);
+            $wRE = array_values($wRE);
+        }
 
-        if ($script.$appRoute == $webRoute)
+        if (($base.$script.$appRoute == $webRoute) || $base.$script.$appRoute."/" == $webRoute)
             return (array("is" => "same", "similar" => 100));
+
+        $wRE = array_values(self::removeEmptyData($wRE));
+        $aRE = array_values(self::removeEmptyData($aRE));
+
 
         if ((count($aRE) == count($wRE)) && count($aRE) > 0)
         {
             for($i = 0; $i < count($aRE); $i++) {
-                if ($aRE[$i] != $wRE[$i]) array_push($paramValues, $wRE[$i]);
+                if ($aRE[$i] != $wRE[$i])
+                    array_push($paramValues, $wRE[$i]);
             }
         }
 
+
         if (isset($route['params']))
         {
-            if (count($paramValues) == count($route['params'])) {
-                similar_text($script.$appRoute, $webRoute, $pe);
+            if (count($aRE) == count($wRE))
+            {
+                similar_text($base.$script.$appRoute, $webRoute, $pe1);
+                similar_text($base.$script.$appRoute."/", $webRoute, $pe2);
+
+                $pe = ($pe1 > $pe2)? $pe1 : $pe2;
                 return (array("is" => "partial", "result" => $paramValues, "similar" => $pe));
             }
+
         }
         return (array("is" => "nomatch", "similar" => 0));
     }
 
 }
-

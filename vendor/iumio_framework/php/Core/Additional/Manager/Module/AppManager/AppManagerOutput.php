@@ -42,7 +42,7 @@ class AppManagerOutput extends IMO
     static public function outputAsReadLine(string $message, string $exit = "yes")
     {
         $colors = self::getManagerColorInstance();
-        echo "\n".$colors->getColoredStringReadLine($message, "black", "transparent");
+        echo "\n".$colors->getColoredStringReadLine($message, "yellow", "transparent");
         if ($exit == "yes") exit();
     }
 
@@ -64,7 +64,7 @@ class AppManagerOutput extends IMO
     final static public function outputAsError(string $message, string $exit = "yes")
     {
         $colors = self::getManagerColorInstance();
-        echo "\n\n".$colors->getColoredString($message, "black", "green");
+        echo "\n\n".$colors->getColoredString($message, "white", "red");
         if ($exit == "yes") exit();
     }
 

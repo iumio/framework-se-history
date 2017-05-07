@@ -1,4 +1,4 @@
-routingRegister : GeekApp
+routingRegister : WeApp
 
 name : default_start
 path : /index

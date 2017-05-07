@@ -32,7 +32,7 @@ class CacheManager implements ModuleInterface
             elseif ($opt == "--env=all" || $opt == "--env=ALL")
                 $this->deleteAllCache();
             else
-                throw new \Exception("Cache Manager Module Error : Bad option");
+                Output::displayAsError("Cache Manager Module Error : Bad option\n");
         }
         else
             Output::displayAsError("Cache Manager Module Error : Option is not exist. Referer to help command to get options list\n");
@@ -44,10 +44,9 @@ class CacheManager implements ModuleInterface
      */
     private function deleteCache(string $env, string $isdefault = null)
     {
-        Output::displayAsSuccess("Hey, I delete cache from $env environment ".(($isdefault == null)? 'as default' : ''), "none");
-        Output::displayAsSuccess("......................", "none");
+        Output::displayAsSuccess("Hey, I delete cache from $env environment ", "none");
         $this->callDelCreaServer($env);
-        Output::displayAsSuccess("Cache delete for $env environment is successfull.");
+        Output::displayAsNormal("Cache delete for $env environment is successfull.");
     }
 
     /** Call Server delete and create function
@@ -65,10 +64,9 @@ class CacheManager implements ModuleInterface
     {
         $a = array("dev", "preprod", "prod");
         Output::displayAsSuccess("Hey, I delete cache for all environment", "none");
-        Output::displayAsSuccess("......................", "none");
         for ($i = 0; $i < count($a); $i++)
             $this->callDelCreaServer($a[$i]);
-        Output::displayAsSuccess("Cache delete for all environment is successfull.");
+        Output::displayAsNormal("Cache was deleted for all environment.");
     }
 
     public function __alter()

@@ -146,24 +146,23 @@ abstract class iumioUltimaCore
         $controller = NULL;
         $baseSimilar = 0;
         $path = $request->server->get('REQUEST_URI');
-        $rbase = $request->server->get('REDIRECT_BASE');
-        if ($rbase != "" && strstr($rbase, "/web") != false)
-            $path = str_replace($rbase, "", $path);
 
         if ($path == "") $path = "/";
 
         foreach ($routes as $route)
         {
             $mat = Routing::matches($baseurl.$route['path'], $path, $route);
-            $mat2 = Routing::matches($baseurl.$route['path']."/", $path, $route);
 
-            if (($mat['similar'] > $baseSimilar) || $mat2['similar'] > $baseSimilar)
+            if (($mat['similar'] > $baseSimilar))
             {
-               $baseSimilar = $mat['similar'];
+                $baseSimilar = $mat['similar'];
                 $controller = $route;
                 if (isset($controller['params']) && count($controller['params']) > 0)
                 {
                     $pval = $this->assembly($controller['params'], $mat['result']);
+
+                    if ($pval == false)
+                        return (NULL);
                     $controller['pval'] = $pval;
                     unset($controller['params']);
                 }
@@ -175,9 +174,9 @@ abstract class iumioUltimaCore
     /** Merge two simple array to key/value array
      * @param array $keys array with all key
      * @param array $values value array
-     * @return array Merged array
+     * @return mixed Merged array or false
      */
-    final protected function assembly(array $keys, array $values):array
+    final protected function assembly(array $keys, array $values)
     {
         return (array_combine($keys, $values));
     }
@@ -282,9 +281,9 @@ abstract class iumioUltimaCore
             }
             else
                 throw new Server500(new \ArrayObject(array("explain" => "Component doesn't exist ", "solution" => "Check apps.json file in base app")));
-             $this->booted;
+            $this->booted;
         }
-       return (true);
+        return (true);
     }
 
     /** Get all app register on apps.json

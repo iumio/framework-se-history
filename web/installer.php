@@ -1478,7 +1478,7 @@ function createAppProcess($appname, $default, $temp)
 
             <div class="block" id="step8" style="display: none;color: white;text-align: center;color:black">
                 <h3 style="font-size: 40px;">Your app was created.</h3>
-                <h3 style="font-size: 30px;text-align: center;"><em>Now you must to remove installer.php file</em></h3>
+                <h3 style="font-size: 30px;text-align: center;">YYour application is available at : <a href="//<?php echo $_SERVER['HTTP_HOST'].((isset($_SERVER['BASE']) && $_SERVER['BASE'] != "")? $_SERVER['BASE'] : "") ?>/iumio_dev.php/index"><?php echo $_SERVER['HTTP_HOST'].((isset($_SERVER['BASE']) && $_SERVER['BASE'] != "")? $_SERVER['BASE'] : "")."/iumio_dev.php/index" ?></a><br><em>Now you must to remove installer.php file</em></h3>
             </div>
 
             <div class="block" id="step9" style="display: none;color: darkred!important;text-align: center;color:black">

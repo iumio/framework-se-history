@@ -1,5 +1,8 @@
 <!-- Main -->
 <!-- Footer -->
+
+
+
 <footer id="footer">
     <div class="inner">
         <ul class="copyright">
@@ -8,8 +11,6 @@
         </ul>
     </div>
 </footer>
-
-</div>
 
 <!-- Scripts -->
 <script src="<?= WEB_FRAMEWORK ?>theme/assets/js/jquery.min.js"></script>

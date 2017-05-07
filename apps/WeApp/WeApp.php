@@ -1,15 +1,15 @@
 <?php
 
-namespace GeekApp;
+namespace WeApp;
 
 use iumioFramework\Core\Requirement\iumioAppModel as App;
 
 /**
- * Class GeekApp
- * @package GeekApp
+ * Class WeApp
+ * @package WeApp
  */
 
-class GeekApp extends App
+class WeApp extends App
 {
     /*** REGISTER TO APP ***/
 

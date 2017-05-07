@@ -1,12 +1,12 @@
 <?php
 
-namespace GeekApp\Master;
+namespace WeApp\Master;
 
 use iumioFramework\Masters\iumioUltimaMaster as Master;
 
 /**
  * Class DefaultMaster
- * @package GeekApp\Master
+ * @package WeApp\Master
  */
 
 class DefaultMaster extends Master
@@ -33,7 +33,6 @@ class DefaultMaster extends Master
      */
     public function show_indexGo()
     {
-       // exit();
         return ($this->render("index"));
     }
 }
