@@ -14,6 +14,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <!--[if lte IE 8]><script src="<?= WEB_FRAMEWORK ?>theme/assets/js/ie/html5shiv.js"></script><![endif]-->
     <link rel="stylesheet" href="<?= WEB_FRAMEWORK ?>theme/assets/css/main.css" />
+    <?= \iumioFramework\Core\Additionnal\TaskBar\iumioTaskBar::getCssTaskBar() ?>
     <!--[if lte IE 9]><link rel="stylesheet" href="<?= WEB_FRAMEWORK ?>theme/assets/css/ie9.css" /><![endif]-->
     <!--[if lte IE 8]><link rel="stylesheet" href="<?= WEB_FRAMEWORK ?>theme/assets/css/ie8.css" /><![endif]-->
     <style type="text/css">

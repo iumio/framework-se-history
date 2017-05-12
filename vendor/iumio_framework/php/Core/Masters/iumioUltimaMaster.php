@@ -4,9 +4,10 @@
 namespace iumioFramework\Masters;
 use iumioFramework\Core\Base\Http\ParameterRequest;
 use iumioFramework\Core\Additionnal\Template\iumioMustache;
-use iumioFramework\Core\Requirement\iumioUltimaCore;
+use iumioFramework\Core\Requirement\{iumioUltimaCore, Ultima\iumioUltima};
 use iumioFramework\Core\Base\Database\iumioDatabaseAccess as IDA;
 use iumioFramework\Exception\Server\Server500;
+use iumioFramework\Core\Additionnal\TaskBar\iumioTaskBar;
 
 /**
  * Class iumioUltimaMaster
@@ -15,7 +16,7 @@ use iumioFramework\Exception\Server\Server500;
  * @author RAFINA Dany <danyrafina@gmail.com>
  */
 
-class iumioUltimaMaster
+class iumioUltimaMaster extends iumioUltima
 {
     protected $masterFirst = NULL;
     protected $appMastering = NULL;
@@ -62,13 +63,27 @@ class iumioUltimaMaster
         try
         {
             $tpl = $m->loadTemplate($view.iumioMustache::$viewExtention);
+
             $options = $this->declareEngineTemplateFunction($options);
-            echo $tpl->render($options);
-            exit();
+            $render =  $tpl->render($options);
+
+            $taskbar = iumioTaskBar::getTaskBar();
+            if ($taskbar != "#none")
+            {
+                $pos = strpos($render, "</body>");
+                $nrender =  substr_replace($render, $taskbar, $pos, 0); // I am very happy today.
+                echo $nrender;
+                exit();
+            }
+            else
+            {
+                echo $render;
+                exit();
+            }
         }
         catch (\Exception $exception)
         {
-            throw new \Exception("iumioUltimaMaster Error : Cannot load ".$view." view file => ".$view.iumioMustache::$viewExtention." <br>".$exception);
+            throw new Server500(new \ArrayObject(array("explain"=>"iumioUltimaMaster Error : Cannot load ".$view." view file => ".$view.iumioMustache::$viewExtention, "solution" => "Verify your view file name")));
         }
 
     }
@@ -127,6 +142,8 @@ class iumioUltimaMaster
 
         $options['route'] = function ($routename) {  return ($this->generateRoute($routename)); };
 
+        $options['taskbar'] = function (){ return(iumioTaskBar::getTaskBar()); };
+
         return $options;
     }
 
@@ -142,12 +159,14 @@ class iumioUltimaMaster
 
     /** Generate route url
      * @param string $routename route name in routing file
+     * @param string $app_called App name
      * @return string|NULL The generated route
      * @throws Server500
      */
-    final protected function generateRoute(string $routename):string
+    final public function generateRoute(string $routename, string $app_called = null):string
     {
-        $app = APP_CALL;
+
+        $app = ($app_called != null)? $app_called : APP_CALL;
         $rt = new Routing($app, 'iumio', true);
         if (!$rt->routingRegister())
             throw new Server500(new \ArrayObject(array("solution" => "Please check all RT file", "explain" => "Cannot open your RT file")));

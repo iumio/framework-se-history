@@ -235,7 +235,7 @@ function createAppProcess($appname, $default, $temp)
             left: 50%;
             top: 50%;
             margin: -137px 0 0 -141px;
-            background: transparent url(http://web-sonick.zz.mu/images/sl/globe.png) no-repeat top left;
+            background: transparent no-repeat top left;
             -webkit-animation: fadeInBack 3.6s linear 14s backwards;
             -moz-animation: fadeInBack 3.6s linear 14s backwards;
             -ms-animation: fadeInBack 3.6s linear 14s backwards;
@@ -705,7 +705,7 @@ function createAppProcess($appname, $default, $temp)
     <div class="sp-container">
         <div class="sp-content">
             <div class="sp-globe"></div>
-            <img id="iumiomg" src="https://framework.iumio.com/wp-content/uploads/2017/03/iumio-horizontal-white-1.png" width="10%">
+            <img id="iumiomg" src="components/libs/iumio_framework/img/logo_white.png" width="10%">
             <h2 class="frame-1" id="frame1">iumio Framework SE </h2>
 
             <h3 class="alterh2" id="textd" style="font-size: 55px;">iumio Framework SE <em>Installer</em> <br> <span style="font-size: 25px">Configure your future app now </span>
@@ -1583,6 +1583,9 @@ function createAppProcess($appname, $default, $temp)
                 appinfo[0] = appname.charAt(0).toUpperCase() + appname.slice(1);
                 document.getElementById("step4").style.display = "none";
                 document.getElementById("step5").style.display = "block";
+                setTimeout(function () {
+                    //location.href=""
+                })
             }
             else
             {

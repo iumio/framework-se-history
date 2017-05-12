@@ -31,7 +31,8 @@ class iumioEnvironment
         define('ELEMS', $base."elements/");
         define('BASE_APPS', $base."vendor/iumio_framework/php/BaseApps/");
         define('ROOT_VENDOR', $base."vendor/iumio_framework/");
-        define('ROOT_MANAGER', $base."vendor/iumio_framework/Core/Additional/Manager/");
+        define('ROOT_MANAGER', $base."vendor/iumio_framework/php/Core/Additional/Manager/");
+        define('ADDITIONALS', $base."vendor/iumio_framework/php/Core/Additional/");
         define('ROOT_VENDOR_LIBS', $base."vendor/libs/");
         define('CACHE_DEV', $base."elements/cache/dev/");
         define('CACHE_PROD', $base."elements/cache/prod/");

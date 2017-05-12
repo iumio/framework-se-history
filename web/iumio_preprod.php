@@ -6,6 +6,7 @@ iumoEngineAutoloader::$env = "PREPROD";
 use iumioFramework\Core\Base\{iumioEnvironment, Debug\Debug, Http\HttpListener};
 use iumioFramework\Apps\AppCore;
 use ManagerApp\ManagerApp as GManager;
+use iumioFramework\Core\Additionnal\TaskBar\iumioTaskBar as TB;
 
 /**
  * Class iumioPreprod
@@ -37,6 +38,7 @@ class iumioPreprod extends iumioEnvironment
         $core = new AppCore('PREPROD', true);
         Debug::enabled();
         GManager::on();
+        TB::switchStatus("on");
         $request = HttpListener::createFromGlobals();
         $core->dispatch($request);
 

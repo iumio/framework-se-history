@@ -3,34 +3,71 @@
     This css enable iumio Task Bar
  */
 .iumioTaskBar {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #333;
-    position: fixed;
+    background-color: #2b4e9e;
     bottom: 0;
-    width: 100%;
+    box-shadow: 0 -1px 0px rgba(0, 0, 0, 0.2);
+    color: #EEE;
+    font: 11px Arial, sans-serif;
+    left: 0;
+    margin: 0;
+    padding: 0 36px 0 0;
+    position: fixed;
+    right: 0;
+    text-align: left;
+    text-transform: none;
+    z-index: 99999;
+    -webkit-font-smoothing: subpixel-antialiased;
+    -moz-osx-font-smoothing: auto;
 }
 
 /*****/
 .iumioTaskBar li {
     float: left;
+    padding-left: 0em!important;
 }
 
 .iumioTaskBar li a {
     display: block;
     color: white;
     text-align: center;
-    padding: 14px 16px;
+    padding: 21px 20px;
+    font-size: 15px;
     text-decoration: none;
 }
 
 .iumioTaskBar li a:hover:not(.active) {
-    background-color: #111;
+    background-color: white;
+    color: black;
+}
+
+.iumioTaskBar li a:hover
+{
+    color: black!important;
 }
 
 .iumioTaskBar .active {
-    background-color: #4CAF50;
+    background-color: #ffffff;
+    color: black;
+}
+
+.iumioTaskBar .active strong {
+    color: black!important;
+}
+
+.iumioTaskBar .flogo
+{
+    padding-left: 0px!important;
+    height: 59px;
+    width: 59px;
+}
+
+.iumioTaskBar .flogo img
+{
+    width: 59px !important;
+}
+
+#iumioTaskBarReduce, #iumioTaskBarRestore
+{
+    cursor: pointer;
 }
 /*****/

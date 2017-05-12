@@ -6,6 +6,7 @@ iumoEngineAutoloader::$env = "PROD";
 use iumioFramework\Core\Base\{iumioEnvironment, Debug\Debug, Http\HttpListener};
 use iumioFramework\Apps\AppCore;
 use ManagerApp\ManagerApp as GManager;
+use iumioFramework\Core\Additionnal\TaskBar\iumioTaskBar as TB;
 
 /**
  * Class iumioProd
@@ -36,6 +37,7 @@ class iumioProd extends iumioEnvironment
         $core = new AppCore('PROD', true);
         Debug::enabled();
         GManager::off();
+        TB::switchStatus("off");
         $request = HttpListener::createFromGlobals();
         $core->dispatch($request);
         //  array('127.0.0.2', 'fe80::1', '::1')

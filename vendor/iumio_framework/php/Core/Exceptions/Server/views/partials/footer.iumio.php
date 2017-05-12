@@ -1,8 +1,6 @@
 <!-- Main -->
 <!-- Footer -->
 
-
-
 <footer id="footer">
     <div class="inner">
         <ul class="copyright">
@@ -12,6 +10,8 @@
     </div>
 </footer>
 
+<?= \iumioFramework\Core\Additionnal\TaskBar\iumioTaskBar::getTaskBar() ?>
+
 <!-- Scripts -->
 <script src="<?= WEB_FRAMEWORK ?>theme/assets/js/jquery.min.js"></script>
 <script src="<?= WEB_FRAMEWORK ?>theme/assets/js/jquery.scrolly.min.js"></script>
@@ -20,6 +20,7 @@
 <script src="<?= WEB_FRAMEWORK ?>theme/assets/js/util.js"></script>
 <!--[if lte IE 8]><script src="<?= WEB_FRAMEWORK ?>theme/assets/js/ie/respond.min.js"></script><![endif]-->
 <script src="<?= WEB_FRAMEWORK ?>theme/assets/js/main.js"></script>
+<?php \iumioFramework\Core\Additionnal\TaskBar\iumioTaskBar::getJsTaskBar() ?>
 
 </body>
 </html>

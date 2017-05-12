@@ -3,7 +3,7 @@
 namespace iumioFramework\Core\Requirement;
 use iumioFramework\Core\Base\Http\HttpListener;
 use iumioFramework\Masters\Routing;
-use iumioFramework\Core\Requirement\Relexion\iumioReflexion;
+use iumioFramework\Core\Requirement\{Relexion\iumioReflexion, Ultima\iumioUltima};
 use iumioFramework\Exception\Server\{Server500, Server404, Server000};
 
 /**
@@ -17,7 +17,7 @@ use iumioFramework\Exception\Server\{Server500, Server404, Server000};
  * @author Dany Rafina <danyrafina@gmail.com>
  */
 
-abstract class iumioUltimaCore
+abstract class iumioUltimaCore extends iumioUltima
 {
 
     protected $apps = array();
@@ -34,6 +34,7 @@ abstract class iumioUltimaCore
 
     const VERSION = '0.1.6';
     const VERSION_EDITION = 'iumio Framework Standard Edition';
+    const VERSION_EDITION_SHORT = 'SE';
     const VERSION_STAGE = 'PRE-BETA';
     const VERSION_ID = 201716;
     const MAJOR_VERSION = 1;
@@ -352,6 +353,9 @@ abstract class iumioUltimaCore
                 break;
             case 'VERSION_EDITION':
                 $rs = self::VERSION_EDITION;
+                break;
+            case 'VERSION_EDITION_SHORT':
+                $rs = self::VERSION_EDITION_SHORT;
                 break;
             case 'VERSION_ID':
                 $rs = self::VERSION_ID;
