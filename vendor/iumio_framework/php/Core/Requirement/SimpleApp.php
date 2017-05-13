@@ -10,7 +10,19 @@ namespace iumioFramework\Core\Requirement;
 
 class SimpleApp extends iumioApp
 {
-    /** Save an App
+
+    /**
+     * SimpleApp constructor.
+     * @param string|null $appname The app name or null
+     */
+    public function __construct(string $appname = null)
+    {
+        if ($appname != null)
+        {
+
+        }
+    }
+
     /** Save an App
      */
     public function save()

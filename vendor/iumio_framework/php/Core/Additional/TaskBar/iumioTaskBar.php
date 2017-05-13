@@ -74,7 +74,7 @@ class iumioTaskBar
                 <li><a href="#about">Clear all cache</a></li>
                 <li style="float: right; list-style: none" class="active" id="iumioTaskBarReduce"><a><strong>></strong></a></li>
                 </ul>
-                <ul class="iumioTaskBar iumioTaskBarVSmall" style="display: none; width: 108px; padding: 0px 0px 0 0;">
+                <ul class="iumioTaskBar iumioTaskBarVSmall" style="display: none; width: 110px; padding: 0px 0px 0 0;">
                 <li class="flogo"><img src="'. WEB_FRAMEWORK.'../iumio_framework/img/icon-iumio-single.png"/> </li>
                 <li id="iumioTaskBarRestore" style="color: black;list-style: none; "><a><strong style="color: red">></strong></a></li>
                 </ul>'.self::getJsTaskBar();

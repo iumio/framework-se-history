@@ -76,9 +76,9 @@ class RtListener implements Listener
                                 $function = $method[1];
                                 $params = $this->detectParameters($path);
                                 if (!empty($params))
-                                    array_push($this->router, array("routename" => $routename, "path" => $path, "controller" => $controller, "method" => $function . "Go", "params" => $params));
+                                    array_push($this->router, array("routename" => $routename, "path" => $path, "controller" => $controller, "method" => $function . "Activity", "params" => $params));
                                 else
-                                    array_push($this->router, array("routename" => $routename, "path" => $path, "controller" => $controller, "method" => $function . "Go"));
+                                    array_push($this->router, array("routename" => $routename, "path" => $path, "controller" => $controller, "method" => $function . "Activity"));
                             }
                         }
                         $routename = NULL;
@@ -92,9 +92,9 @@ class RtListener implements Listener
                             $function = $method[1];
                             $params = $this->detectParameters($path);
                             if (!empty($params))
-                                array_push($this->router, array("routename" => $routename, "path" => $path, "controller" => $controller, "method" => $function . "Go", "params" => $params));
+                                array_push($this->router, array("routename" => $routename, "path" => $path, "controller" => $controller, "method" => $function . "Activity", "params" => $params));
                             else
-                                array_push($this->router, array("routename" => $routename, "path" => $path, "controller" => $controller, "method" => $function . "Go"));
+                                array_push($this->router, array("routename" => $routename, "path" => $path, "controller" => $controller, "method" => $function . "Activity"));
                             $routename = NULL;
                             $method = NULL;
                         }

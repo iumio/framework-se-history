@@ -42,6 +42,7 @@ function createAppProcess($appname, $default, $temp)
         foreach ($f as $one => $val)
         {
             if ($val->isdefault == "yes") {
+                $val->update = new \DateTime('UTC');
                 $val->isdefault = "no";
                 break;
             }
@@ -51,6 +52,9 @@ function createAppProcess($appname, $default, $temp)
     $f->$lastapp->name = $appname;
     $f->$lastapp->isdefault = ($default == "1")? "yes" : "no";
     $f->$lastapp->class = "\\".$appname."\\".$appname;
+    $ndate = new \DateTime('UTC');
+    $f->$lastapp->creation = $ndate;
+    $f->$lastapp->update = $ndate;
     $f = json_encode($f);
     file_put_contents($base."/elements/config_files/apps.json", $f);
     if ($temp == "1")
@@ -1413,7 +1417,7 @@ function createAppProcess($appname, $default, $temp)
             <div class=" block" id="step3" style="display: none;color: white;color: black">
                 <h3 style="font-size: 30px;text-decoration: underline">Informations : </h3>
                 <div style="padding-left: 10px">
-                    <h3>Framework version : 0.1.6 in Pre-Beta stage</h3>
+                    <h3>Framework version : 0.1.7 in Pre-Beta stage</h3>
                     <h3>Framework Edition : Standard Edition</h3>
                     <h3>Compatiblility : PHP 7 and later</h3>
                     <h3><span style="font-size: 22px;color: darkred;font-weight: 800 ">Warning</span> : This version is in Pre-beta stage. Please don't use it for your production projects </h3>
@@ -1478,7 +1482,7 @@ function createAppProcess($appname, $default, $temp)
 
             <div class="block" id="step8" style="display: none;color: white;text-align: center;color:black">
                 <h3 style="font-size: 40px;">Your app was created.</h3>
-                <h3 style="font-size: 30px;text-align: center;">YYour application is available at : <a href="//<?php echo $_SERVER['HTTP_HOST'].((isset($_SERVER['BASE']) && $_SERVER['BASE'] != "")? $_SERVER['BASE'] : "") ?>/iumio_dev.php/index"><?php echo $_SERVER['HTTP_HOST'].((isset($_SERVER['BASE']) && $_SERVER['BASE'] != "")? $_SERVER['BASE'] : "")."/iumio_dev.php/index" ?></a><br><em>Now you must to remove installer.php file</em></h3>
+                <h3 style="font-size: 30px;text-align: center;">Your application is available at : <a href="//<?php echo $_SERVER['HTTP_HOST'].((isset($_SERVER['BASE']) && $_SERVER['BASE'] != "")? $_SERVER['BASE'] : "") ?>/iumio_dev.php/index"><?php echo $_SERVER['HTTP_HOST'].((isset($_SERVER['BASE']) && $_SERVER['BASE'] != "")? $_SERVER['BASE'] : "")."/iumio_dev.php/index" ?></a><br><em>Now you must to remove installer.php file</em><br> Redirect to /index in 10 seconds</h3>
             </div>
 
             <div class="block" id="step9" style="display: none;color: darkred!important;text-align: center;color:black">
@@ -1491,6 +1495,15 @@ function createAppProcess($appname, $default, $temp)
 </div>
 
 <script type="text/javascript">
+
+    function getBaseUrl() {
+        var re = new RegExp(/^.*\//);
+        return re.exec(window.location.href);
+    }
+
+    console.log(location.origin);
+    console.log(location.pathname);
+    console.log();
     var appinfo = [];
     window.setTimeout(function () {
         document.getElementById("textd").className += " alter3";
@@ -1584,8 +1597,8 @@ function createAppProcess($appname, $default, $temp)
                 document.getElementById("step4").style.display = "none";
                 document.getElementById("step5").style.display = "block";
                 setTimeout(function () {
-                    //location.href=""
-                })
+                    location.href= (getBaseUrl()[0])+"iumio_dev.php/index";
+                }, 10000)
             }
             else
             {

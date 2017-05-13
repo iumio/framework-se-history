@@ -13,7 +13,41 @@ abstract class iumioApp
     protected $name;
     protected $namespace;
     protected $default;
+    protected $udapte;
+    protected $creation;
     protected $status;
+
+    /** Get update date
+     * @return \DateTime Update date
+     */
+    public function getUdapte():\DateTime
+    {
+        return $this->udapte;
+    }
+
+    /** change the update date
+     * @param \DateTime $udapte Update date
+     */
+    public function setUdapte(\DateTime $udapte)
+    {
+        $this->udapte = $udapte;
+    }
+
+    /** Get Creation date
+     * @return \DateTime Creation date
+     */
+    public function getCreation():\DateTime
+    {
+        return $this->creation;
+    }
+
+    /** Change the creation date
+     * @param \DateTime $creation The creation date
+     */
+    public function setCreation(\DateTime $creation)
+    {
+        $this->creation = $creation;
+    }
 
     /** Get app id
      * @return int app id

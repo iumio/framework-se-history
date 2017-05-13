@@ -327,6 +327,9 @@ class AppManager implements ModuleInterface
         $f->$lastapp->name = $this->params['appname'];
         $f->$lastapp->isdefault = $this->params['isdefault'];
         $f->$lastapp->class = "\\".$this->params['appname']."\\".$this->params['appname'];
+        $ndate = new \DateTime('UTC');
+        $f->$lastapp->creation = $ndate;
+        $f->$lastapp->update = $ndate;
         $f = json_encode($f);
         file_put_contents(ROOT_PROJECT."/elements/config_files/apps.json", $f);
         if ($this->params['template'] == "yes")
@@ -347,8 +350,16 @@ class AppManager implements ModuleInterface
 
         foreach ($f as $one => $val)
         {
-            if ($val->isdefault == "yes") $val->isdefault = "no";
-            if ($val->name == $this->params['capp']) $val->isdefault = "yes";
+            if ($val->isdefault == "yes")
+            {
+                $val->isdefault = "no";
+                $val->update = new \DateTime('UTC');
+            }
+            if ($val->name == $this->params['capp'])
+            {
+                $val->update = new \DateTime();
+                $val->isdefault = "yes";
+            }
         }
 
         $f = json_encode($f);

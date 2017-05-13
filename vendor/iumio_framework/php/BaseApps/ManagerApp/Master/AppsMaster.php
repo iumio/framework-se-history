@@ -16,7 +16,7 @@ class AppsMaster extends Master
     /**
      * Going to app manager
      */
-    public function appsGo()
+    public function appsActivity()
     {
         $this->render("appmanager");
     }
@@ -24,8 +24,18 @@ class AppsMaster extends Master
     /**
      * Going to base app manager
      */
-    public function baseAppsGo()
+    public function baseAppsActivity()
     {
         $this->render("baseappmanager");
     }
+
+
+    /**
+     * Get All simple App
+     */
+    final private function getAllSimpleApp()
+    {
+
+    }
+
 }

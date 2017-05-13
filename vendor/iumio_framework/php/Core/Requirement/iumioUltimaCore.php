@@ -17,6 +17,7 @@ use iumioFramework\Exception\Server\{Server500, Server404, Server000};
  * @author Dany Rafina <danyrafina@gmail.com>
  */
 
+
 abstract class iumioUltimaCore extends iumioUltima
 {
 
@@ -32,11 +33,11 @@ abstract class iumioUltimaCore extends iumioUltima
     protected $startTime;
     protected $loadClassCache;
 
-    const VERSION = '0.1.6';
+    const VERSION = '0.1.7';
     const VERSION_EDITION = 'iumio Framework Standard Edition';
     const VERSION_EDITION_SHORT = 'SE';
     const VERSION_STAGE = 'PRE-BETA';
-    const VERSION_ID = 201716;
+    const VERSION_ID = 201717;
     const MAJOR_VERSION = 1;
     const MINOR_VERSION = 0;
     const RELEASE_VERSION = 1;

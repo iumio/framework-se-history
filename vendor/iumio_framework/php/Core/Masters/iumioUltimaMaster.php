@@ -187,7 +187,11 @@ class iumioUltimaMaster extends iumioUltima
                 else
                     $env = "/".$env;
 
-                return ($env.$one['path']);
+                $url = $env.$one['path'];
+
+                $base = (isset($_SERVER['BASE']) && $_SERVER['BASE'] != "")? $_SERVER['BASE'] : "";
+
+                return ($base.$url);
             }
         }
 

@@ -14,7 +14,7 @@ class DashboardMaster extends Master
     /**
      * Start FGM dashboard
      */
-    public function indexGo()
+    public function indexActivity()
     {
         $this->render("index");
     }

@@ -24,7 +24,7 @@ class DefaultMaster extends Master
     /**
      * Go to index page
      */
-    public function indexGo()
+    public function indexActivity()
     {
         return ((new Response())->JSON_RENDER(array("name" => "First App")));
     }

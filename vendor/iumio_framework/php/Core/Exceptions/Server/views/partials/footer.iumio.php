@@ -10,7 +10,7 @@
     </div>
 </footer>
 
-<?= \iumioFramework\Core\Additionnal\TaskBar\iumioTaskBar::getTaskBar() ?>
+<?= (\iumioFramework\Core\Additionnal\TaskBar\iumioTaskBar::getTaskBar() != "#none")? \iumioFramework\Core\Additionnal\TaskBar\iumioTaskBar::getTaskBar() : "" ?>
 
 <!-- Scripts -->
 <script src="<?= WEB_FRAMEWORK ?>theme/assets/js/jquery.min.js"></script>
