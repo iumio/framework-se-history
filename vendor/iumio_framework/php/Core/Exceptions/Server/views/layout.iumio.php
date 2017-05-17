@@ -14,7 +14,7 @@
             <li><a href="<?= HOST_CURRENT ?>/iumio_dev.php">Development</a></li>
             <li><a href="<?= HOST_CURRENT ?>/iumio_preprod.php">Preproduction</a></li>
             <li><a href="<?= HOST_CURRENT ?>/iumio_prod.php">Production</a></li>
-            <li><a href="<?= HOST_CURRENT ?>/iumio_dev.php/_manager/">Manager</a></li>
+            <li><a href="<?= (new \iumioFramework\Masters\iumioUltimaMaster())->generateRoute("iumio_manager_index", null, "ManagerApp", true) ?>">Manager</a></li>
 
         </ul>
         <ul class="actions vertical">

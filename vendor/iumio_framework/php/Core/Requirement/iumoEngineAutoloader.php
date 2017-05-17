@@ -13,6 +13,7 @@ class iumoEngineAutoloader {
 
     /** Register this class
      * @param $class string Class name
+     * @return bool
      */
     static public function register(string $class)
     {
@@ -22,8 +23,24 @@ class iumoEngineAutoloader {
             self::buildClassMap(self::$env);
             $map = self::getMapClass();
             {
-                if (!include_once $map[$class])
-                    die ("<br> FATAL ERROR [500] : iumioEngineAutoloader : Undefined class ".$class.". Refer to your app configuration.");
+                if (!@include_once $map[$class])
+                {
+
+                    // FIX FUNCTION SMARTY PLUGIN
+                    if (strpos($class, "Smarty_Internal_Compile_") !== false)
+                        return (true);
+                    try
+                    {
+                        include_once __DIR__."/../Exceptions/Server/Server500.php";
+                        $e = new \iumioFramework\Exception\Server\Server500(new ArrayObject(array("explain" => "iumioEngineAutoloader : Undefined class ".$class, "solution" => "Refer to your app configuration.")));
+                        $e->display("500", "FATAL ERROR");
+                    }
+                    catch (Exception $e)
+                    {
+                        die("iumioEngineAutoloader : Undefined class ".$class);
+                    }
+
+                }
             }
         }
         else
@@ -32,16 +49,45 @@ class iumoEngineAutoloader {
             $map = self::getMapClass();
             if (isset($map[$class]))
             {
-                    if (!include_once $map[$class])
-                        die ("<br> FATAL ERROR [500] : iumioEngineAutoloader : Undefined class ".$class.". Refer to your app configuration.");
+                    if (!@include_once $map[$class])
+                    {
+
+                        // FIX FUNCTION SMARTY PLUGIN
+                        if (strpos($class, "Smarty_Internal_Compile_") !== false)
+                            return (true);
+                        try
+                        {
+                            include_once  __DIR__."/../Exceptions/Server/Server500.php";
+                            $e = new \iumioFramework\Exception\Server\Server500(new ArrayObject(array("explain" => "iumioEngineAutoloader : Undefined class ".$class, "solution" => "Refer to your app configuration.")));
+                            $e->display("500", "FATAL ERROR");
+                        }
+                        catch (Exception $e)
+                        {
+                            die("iumioEngineAutoloader : Undefined class ".$class);
+                        }
+                    }
 
             }
             else {
                 self::buildClassMap(self::$env, true);
                 $map = self::getMapClass();
                 {
-                    if (!include_once $map[$class])
-                        die ("<br> FATAL ERROR [500] : iumioEngineAutoloader : Undefined class ".$class.". Refer to your app configuration.");
+                    if (!@include_once $map[$class])
+                    {
+                        // FIX FUNCTION SMARTY PLUGIN
+                        if (strpos($class, "Smarty_Internal_Compile_") !== false)
+                            return true;
+                        try
+                        {
+                            include_once  __DIR__."/../Exceptions/Server/Server500.php";
+                            $e = new \iumioFramework\Exception\Server\Server500(new ArrayObject(array("explain" => "iumioEngineAutoloader : Undefined class ".$class, "solution" => "Refer to your app configuration.")));
+                            $e->display("500", "FATAL ERROR");
+                        }
+                        catch (Exception $e)
+                        {
+                            die("iumioEngineAutoloader : Undefined class ".$class);
+                        }
+                    }
                 }
             }
         }
@@ -77,8 +123,12 @@ class iumoEngineAutoloader {
             foreach (new RecursiveIteratorIterator(new RecursiveDirectoryIterator($path)) as $filename) {
                 if (strpos($filename, '.php') !== false) {
                     $classname2 = self::classes_in_file($filename->getPathname());
-                    $json[((isset($classname2[0]['namespace']) && $classname2[0]['namespace'] != "" ?($classname2[0]['namespace'])."\\" : "")).
-                    ((isset($classname2[0]['classes']))? $classname2[0]['classes'][0]['name'] : $classname2[0][0]['name'])] = $filename->getPathname();
+                    for ($u = 0; $u < count($classname2[0]); $u++)
+                    {
+                        $json[((isset($classname2[0]['namespace']) && $classname2[0]['namespace'] != "" ?($classname2[0]['namespace'])."\\" : "")).
+                        ((isset($classname2[0]['classes']))? $classname2[0]['classes'][0]['name'] : $classname2[0][$u]['name'])] = $filename->getPathname();
+                    }
+
                 }
             }
             file_put_contents($path . "/elements/config_files/map_".(($env == "DEV")? "dev_" : "")."class.json", json_encode($json));

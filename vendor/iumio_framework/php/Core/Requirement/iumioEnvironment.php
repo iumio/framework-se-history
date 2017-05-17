@@ -29,14 +29,19 @@ class iumioEnvironment
         define('HOST_CURRENT', $current);
         define('ROOT', $base);
         define('ELEMS', $base."elements/");
+        define('CONFIG_DIR', $base."elements/config_files/");
         define('BASE_APPS', $base."vendor/iumio_framework/php/BaseApps/");
         define('ROOT_VENDOR', $base."vendor/iumio_framework/");
         define('ROOT_MANAGER', $base."vendor/iumio_framework/php/Core/Additional/Manager/");
         define('ADDITIONALS', $base."vendor/iumio_framework/php/Core/Additional/");
         define('ROOT_VENDOR_LIBS', $base."vendor/libs/");
+        define('ROOT_CACHE', $base."elements/cache/");
         define('CACHE_DEV', $base."elements/cache/dev/");
         define('CACHE_PROD', $base."elements/cache/prod/");
         define('CACHE_PREPROD', $base."elemets/cache/preprod/");
+        define('COMPILED_DEV', $base."elements/compiled/dev/");
+        define('COMPILED_PROD', $base."elements/compiled/prod/");
+        define('COMPILED_PREPROD', $base."elemets/compiled/preprod/");
         define('SERVER_VIEWS', $base."vendor/iumio_framework/php/Core/Exceptions/Server/views/");
         define('SERVER', $base."vendor/iumio_framework/php/Core/Exceptions/Server/");
         define('WEB_ASSETS', $current."/components/apps/");
@@ -72,7 +77,7 @@ class iumioEnvironment
     public static function displayError(array $options):int
     {
         $server = new Server403(new ArrayObject($options));
-        $server->display();
+        $server->display("403", "FORBIDEEN");
 
         return (1);
     }

@@ -16,7 +16,7 @@ class DashboardMaster extends Master
      */
     public function indexActivity()
     {
-        $this->render("index");
+        return($this->render("index"));
     }
 
 }

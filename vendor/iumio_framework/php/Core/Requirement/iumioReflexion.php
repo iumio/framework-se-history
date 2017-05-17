@@ -27,7 +27,6 @@ class iumioReflexion
         }
         catch (\Exception $ex)
         {
-            print_r($ex->getMessage());
             throw new \Exception("iumio Reflexion Method Error : ".$ex->getMessage());
         }
         $pass = array();
