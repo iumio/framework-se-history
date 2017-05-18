@@ -36,6 +36,7 @@ class iumioEnvironment
         define('ADDITIONALS', $base."vendor/iumio_framework/php/Core/Additional/");
         define('ROOT_VENDOR_LIBS', $base."vendor/libs/");
         define('ROOT_CACHE', $base."elements/cache/");
+        define('ROOT_LOGS', $base."elements/logs/");
         define('CACHE_DEV', $base."elements/cache/dev/");
         define('CACHE_PROD', $base."elements/cache/prod/");
         define('CACHE_PREPROD', $base."elemets/cache/preprod/");

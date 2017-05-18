@@ -3,6 +3,7 @@
 namespace iumioFramework\Exception\Server;
 use ArrayObject;
 
+
 /**
  * Class AbstractServer
  * @package iumioFramework\Exception\Server

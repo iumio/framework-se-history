@@ -4,6 +4,7 @@
 namespace iumioFramework\Core\Base\Debug;
 use DateTime;
 use iumioFramework\Core\Base\Debug\DebugInterface;
+use iumioFramework\Core\Base\Json\JsonListener as JL;
 
 
 /**
@@ -28,7 +29,41 @@ class Debug implements DebugInterface
             self::input($message);
 
             if ($interface == 'file')
-                ;
+            {
+                $debug = array();
+                $debug['time'] = self::$logformat['time'];
+                $debug['content'] = self::$logformat['msg'];
+
+                $debug = json_encode($debug);
+                $log = json_decode(JL::open(ROOT_LOGS.strtolower(ENVIRONMENT).".log.json"));
+                print_r($log);
+                exit();
+
+                /*$f = json_decode(file_get_contents(ROOT_PROJECT."/elements/config_files/apps.json"));
+                $lastapp = 0;
+                foreach ($f as $one => $val) $lastapp++;
+                if ($this->params['isdefault'] == "yes")
+                {
+                    foreach ($f as $one => $val)
+                    {
+                        if ($val->isdefault == "yes") {
+                            $val->isdefault = "no";
+                            break;
+                        }
+                    }
+                }
+                $f->$lastapp = new \stdClass();
+                $f->$lastapp->name = $this->params['appname'];
+                $f->$lastapp->isdefault = $this->params['isdefault'];
+                $f->$lastapp->class = "\\".$this->params['appname']."\\".$this->params['appname'];
+                $ndate = new \DateTime('UTC');
+                $f->$lastapp->creation = $ndate;
+                $f->$lastapp->update = $ndate;
+                $f = json_encode($f);
+                file_put_contents(ROOT_PROJECT."/elements/config_files/apps.json", $f);*/
+
+
+            }
             else if ($interface == 'display')
                 echo "<br> Time : " . self::$logformat['time'] . " ### Content : " . self::$logformat['msg'] . "<br>";
         }

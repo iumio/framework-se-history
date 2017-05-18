@@ -7,7 +7,7 @@ use iumioFramework\Core\Additionnal\Template\iumioSmarty;
 use iumioFramework\Core\Requirement\{iumioUltimaCore, Ultima\iumioUltima};
 use iumioFramework\Core\Base\Database\iumioDatabaseAccess as IDA;
 use iumioFramework\Exception\Server\Server500;
-use iumioFramework\Core\Additionnal\TaskBar\iumioTaskBar;
+
 
 /**
  * Class iumioUltimaMaster
@@ -20,7 +20,6 @@ class iumioUltimaMaster extends iumioUltima
 {
     protected $masterFirst = NULL;
     protected $appMastering = NULL;
-    protected $doctrine = NULL;
 
     /** Set a file to master
      * @param mixed $himself

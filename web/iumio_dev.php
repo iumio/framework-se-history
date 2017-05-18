@@ -37,6 +37,8 @@ class iumioDev extends iumioEnvironment
 
         $core = new AppCore('DEV', true);
         Debug::enabled();
+        Debug::output("dzedezdez");
+
         GManager::on();
         TB::switchStatus("on");
         $request = HttpListener::createFromGlobals();

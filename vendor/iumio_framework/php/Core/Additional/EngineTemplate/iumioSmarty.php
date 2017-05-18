@@ -127,34 +127,6 @@ final class iumioSmarty
         self::$instance->registerPlugin(\Smarty::PLUGIN_FUNCTION, 'route', array("iumioFramework\Core\Additionnal\Template\iumioViewBasePlugin", "route"));
         self::$instance->registerPlugin(\Smarty::PLUGIN_FUNCTION, 'taskbar', array("iumioFramework\Core\Additionnal\Template\iumioViewBasePlugin", "taskbar"));
 
-
-        /*$si->registerPlugin('function', 'f_info', function ($info) { return (iumioUltimaCore::getInfo($info)); });
-
-        $si->registerPlugin('function', 's_info', function ($info) { return (iumioUltimaCore::getServerInfo($info)); });
-
-        $si->registerPlugin('function', 'btsp_js', function ($min = null) { return ("<script type='text/javascript' src='".WEB_LIBS."bootstrap/js/bootstrap.".(($min != null)? $min."." : "")."js'></script>"); });
-        $si->registerPlugin('function', 'btsp_css', function ($min = null) { return ("<link href='".WEB_LIBS."bootstrap/css/bootstrap.".(($min != null)? $min."." : "")."css' rel='stylesheet' />"); });
-
-        $si->registerPlugin('function', 'jquery', function ($min = null) { return ("<script type='text/javascript' src='".WEB_LIBS."jquery/jquery.".(($min != null)? $min."." : "")."js'></script>"); });
-
-        $si->registerPlugin('function', 'css', function ($assets) { return ("<link href='".WEB_ASSETS.strtolower(APP_CALL)."/".$assets.".css' rel='stylesheet' />"); });
-        $si->registerPlugin('function', 'js', function ($assets) { return ("<script type='text/javascript' src='".WEB_ASSETS.strtolower(APP_CALL)."/".$assets.".js'></script>"); });
-
-        $si->registerPlugin('function', 'css_libs', function ($assets) { return ("<link href='".WEB_COMPONENTS."libs/".$assets.".css' rel='stylesheet' />"); });
-        $si->registerPlugin('function', 'js_libs', function ($assets) { return ("<script type='text/javascript' src='".WEB_COMPONENTS."libs/".$assets.".js'></script>"); });
-
-        $si->registerPlugin('function', 'css_im', function ($assets) { return ("<link href='".WEB_COMPONENTS."libs/iumio_manager/css/".$assets.".css' rel='stylesheet' />"); });
-        $si->registerPlugin('function', 'js_im', function ($assets) { return ("<script type='text/javascript' src='".WEB_COMPONENTS."libs/iumio_manager/js/".$assets.".js'></script>"); });
-        $si->registerPlugin('function', 'img_im', function ($assets) { return (WEB_COMPONENTS."libs/iumio_manager/img/".$assets); });
-
-        $si->registerPlugin('function', 'css_iumio', function ($assets) { return ("<link href='".WEB_COMPONENTS."libs/iumio_framework/css/".$assets.".css' rel='stylesheet' />"); });
-        $si->registerPlugin('function', 'js_iumio', function ($assets) { return ("<script type='text/javascript' src='".WEB_COMPONENTS."libs/iumio_framework/js/".$assets.".js'></script>"); });
-        $si->registerPlugin('function', 'img_iumio',  function ($assets) { return (WEB_COMPONENTS."libs/iumio_framework/img/".$assets); });
-
-        $si->registerPlugin('function', 'route', function ($route) {  print_r(json_decode($route)); return ($this->generateRoute($route)); });
-
-        $si->registerPlugin('function', 'taskbar', function (){ return(iumioTaskBar::getTaskBar()); });*/
-
     }
 
     /** Return an instance of iumioSmarty
