@@ -2,6 +2,7 @@
 
 namespace iumioFramework\Core\Additionnal\Template;
 use iumioFramework\Core\Additionnal\Server\iumioServerManager;
+use iumioFramework\Core\Additionnal\Template\iumioSmartyConfiguration as SmartyConfig;
 
 try
 {
@@ -55,20 +56,19 @@ final class iumioSmarty
 
 
             self::$instance = new \Smarty();
+            $sconfig = new SmartyConfig(ENVIRONMENT);
 
             self::$instance->setTemplateDir($dirapp.self::$appCall.'/Front/views');
-            self::$instance->setCompileDir($compiled.'smarty_compiled/');
-            self::$instance->setCacheDir($envcache.'smarty_cache/');
-            self::$instance->setConfigDir(CONFIG_DIR.'smarty_config/');
+            self::$instance->setCompileDir($compiled.$sconfig->getCompiledDirectory());
+            self::$instance->setCacheDir($envcache.$sconfig->getCacheDirectory());
+            self::$instance->setConfigDir(CONFIG_DIR.$sconfig->getConfigDirectory());
 
-            if (ENVIRONMENT != "PROD")
-            {
-                self::$instance->debugging = true;
-                self::$instance->compile_check = true;
-                self::$instance->setForceCompile(true);
-                self::$instance->debug_tpl = 'file:' . ADDITIONALS . 'TaskBar/views/iumioTaskBar.tpl';
-                self::enableSmartyDebug(false);
-            }
+            self::$instance->debugging = $sconfig->getDebug();
+            self::$instance->compile_check = $sconfig->getCompileCheck();
+            self::$instance->setForceCompile($sconfig->getForceCompile());
+            self::$instance->debug_tpl = 'file:' . ADDITIONALS . 'TaskBar/views/iumioTaskBar.tpl';
+            self::enableSmartyDebug($sconfig->getSmartyDebug());
+            self::$instance->caching = $sconfig->getCache();
 
             $this->registerBasePlugins();
 
@@ -87,10 +87,11 @@ final class iumioSmarty
      */
     final static public function enableSmartyDebug(bool $status)
     {
+        $sconfig = new SmartyConfig(ENVIRONMENT);
         if ($status == true)
-            define ('DISPLAY_SMARTY_DEBUG', 'on');
+            define ('DISPLAY_SMARTY_DEBUG', $sconfig->getConsoleDebug());
         else if ($status == false)
-            define ('DISPLAY_SMARTY_DEBUG', 'off');
+            define ('DISPLAY_SMARTY_DEBUG', $sconfig->getConsoleDebug());
     }
 
     /**

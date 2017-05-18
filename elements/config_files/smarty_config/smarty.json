@@ -1,0 +1,39 @@
+{
+  "dev":
+  {
+    "cache_directory" : "smarty_cache/",
+    "compiled_directory" : "smarty_compiled/",
+    "config_directory": "smarty_config/",
+    "debug" : true,
+    "cache" : 0,
+    "compile_check" : true,
+    "force_compile" : false,
+    "smarty_debug" : true,
+    "console_debug" : "off"
+  },
+  "preprod":
+  {
+    "cache_directory" : "smarty_cache/",
+    "compiled_directory" : "smarty_compiled/",
+    "config_directory": "smarty_config/",
+    "debug" : true,
+    "cache" : 1,
+    "compile_check" : true,
+    "force_compile" : false,
+    "smarty_debug" : false,
+    "console_debug" : "off"
+  },
+  "prod":
+  {
+    "cache_directory" : "smarty_cache/",
+    "compiled_directory" : "smarty_compiled/",
+    "config_directory": "smarty_config/",
+    "debug" : false,
+    "cache" : 1,
+    "compile_check" : false,
+    "force_compile" : false,
+    "smarty_debug" : false,
+    "console_debug" : "off"
+  }
+
+}

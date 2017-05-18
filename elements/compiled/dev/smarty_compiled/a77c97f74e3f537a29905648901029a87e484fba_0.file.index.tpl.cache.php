@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.32-dev-1, created on 2017-05-18 12:35:47
+/* Smarty version 3.1.32-dev-1, created on 2017-05-18 12:36:47
   from "/Applications/MAMP/htdocs/iumio-framework/vendor/iumio_framework/php/BaseApps/ManagerApp/Front/views/index.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32-dev-1',
-  'unifunc' => 'content_591d79038158a8_50679371',
+  'unifunc' => 'content_591d793f552532_69926499',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -22,13 +22,14 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:partials/footer.tpl' => 1,
   ),
 ),false)) {
-function content_591d79038158a8_50679371 (Smarty_Internal_Template $_smarty_tpl) {
+function content_591d793f552532_69926499 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
+$_smarty_tpl->compiled->nocache_hash = '710016297591d793b492a01_21725137';
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_598085597591d78ff840758_77860749', "principal");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1394928022591d793b58d725_62410363', "principal");
 ?>
 
 
@@ -37,19 +38,19 @@ $_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_598085597591d78ff8
 <?php $_smarty_tpl->inheritance->endChild($_smarty_tpl, 'template.tpl');
 }
 /* {block "principal"} */
-class Block_598085597591d78ff840758_77860749 extends Smarty_Internal_Block
+class Block_1394928022591d793b58d725_62410363 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'principal' => 
   array (
-    0 => 'Block_598085597591d78ff840758_77860749',
+    0 => 'Block_1394928022591d793b58d725_62410363',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 ?>
 
     <div class="wrapper">
-        <?php $_smarty_tpl->_subTemplateRender('file:partials/sidebar.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+        <?php $_smarty_tpl->_subTemplateRender('file:partials/sidebar.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 9999, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
         <div class="main-panel">
@@ -114,7 +115,7 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
                 </div>
             </div>
 
-            <?php $_smarty_tpl->_subTemplateRender('file:partials/footer.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+            <?php $_smarty_tpl->_subTemplateRender('file:partials/footer.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 9999, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
 

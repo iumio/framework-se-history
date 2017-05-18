@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.32-dev-1, created on 2017-05-18 12:40:46
+/* Smarty version 3.1.32-dev-1, created on 2017-05-18 12:37:46
   from "/Applications/MAMP/htdocs/iumio-framework/vendor/iumio_framework/php/BaseApps/ManagerApp/Front/views/partials/sidebar.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32-dev-1',
-  'unifunc' => 'content_591d7a2e28bb67_44592850',
+  'unifunc' => 'content_591d797a2a1d53_34646557',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,7 +20,8 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_591d7a2e28bb67_44592850 (Smarty_Internal_Template $_smarty_tpl) {
+function content_591d797a2a1d53_34646557 (Smarty_Internal_Template $_smarty_tpl) {
+$_smarty_tpl->compiled->nocache_hash = '1614925217591d79769ba365_34808687';
 ?>
 <div class="sidebar" data-color="blue" data-image="<?php echo iumioFramework\Core\Additionnal\Template\iumioViewBasePlugin::img_iumio(array('name'=>'iumio_img_theme.jpeg'),$_smarty_tpl);?>
 ">

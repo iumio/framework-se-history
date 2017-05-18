@@ -1,0 +1,5 @@
+routingRegister : ManagerApp
+
+name : iumio_manager_smarty_manager
+path :  /_manager/smarty
+method : Smarty%smarty

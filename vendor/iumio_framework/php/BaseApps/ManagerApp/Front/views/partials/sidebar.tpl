@@ -33,6 +33,12 @@
             </a>
         </li>
         <li>
+            <a href="{route name='iumio_manager_smarty_manager'}">
+                <i class="pe-7s-note2"></i>
+                <p>Smarty Manager</p>
+            </a>
+        </li>
+        <li>
             <a href="typography.html">
                 <i class="pe-7s-news-paper"></i>
                 <p>Logs</p>
