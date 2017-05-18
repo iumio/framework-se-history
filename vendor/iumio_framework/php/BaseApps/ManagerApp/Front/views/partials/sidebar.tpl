@@ -27,7 +27,7 @@
             </a>
         </li>
         <li>
-            <a href="table.html">
+            <a href="{route name='iumio_manager_assets_manager'}">
                 <i class="pe-7s-note2"></i>
                 <p>Assets Manager</p>
             </a>

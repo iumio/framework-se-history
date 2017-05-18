@@ -1,0 +1,9 @@
+routingRegister : ManagerApp
+
+name : iumio_manager_assets_manager
+path :  /_manager/assets
+method : Assets%assets
+
+name : iumio_manager_assets_manager_publish
+path :  /_manager/assets/publish
+method : Assets%publish

@@ -389,7 +389,9 @@ class AppManager implements ModuleInterface
             }
         }
 
-        $f = json_encode($f);
+        $f = array_values((array)$f);
+        $f = json_encode((object) $f);
+
         file_put_contents(ROOT_PROJECT."/elements/config_files/apps.json", $f);
 
         iumioServerManager::delete(ROOT_PROJECT."/apps/$appname", "directory");

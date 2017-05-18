@@ -6,7 +6,7 @@ use iumioFramework\Core\Base\Http\ParameterRequest;
 use iumioFramework\Core\Additionnal\Template\iumioSmarty;
 use iumioFramework\Core\Requirement\{iumioUltimaCore, Ultima\iumioUltima};
 use iumioFramework\Core\Base\Database\iumioDatabaseAccess as IDA;
-use iumioFramework\Exception\Server\Server500;
+use iumioFramework\Exception\Server\{Server500, Server404};
 
 
 /**
@@ -60,7 +60,7 @@ class iumioUltimaMaster extends iumioUltima
         $si = iumioSmarty::getSmartyInstance($this->appMastering);
         $si->assign($options);
         $si->display($view.iumioSmarty::$viewExtention);
-    }
+ }
 
 
 
@@ -110,8 +110,9 @@ class iumioUltimaMaster extends iumioUltima
      * @param string $app_called App name
      * @param bool $component Is a application component
      * @return string|NULL The generated route
-     * @throws Server500
+     * @throws Server404|Server500
      */
+
     final public function generateRoute(string $routename,  array $parameters = null, string $app_called = null,  bool $component = false):string
     {
         $app = ($app_called != null)? $app_called : APP_CALL;
@@ -145,7 +146,7 @@ class iumioUltimaMaster extends iumioUltima
             }
         }
 
-        throw new Server500(new \ArrayObject(array("solution" => "Please check all RT file", "explain" => "No route for <span style='color: red;text-decoration: none'>".$routename."</span>")));
+        throw new Server404(new \ArrayObject(array("solution" => "Please check all RT file", "explain" => "No route for <span style='color: red;text-decoration: none'>".$routename."</span>")));
         return ("NRT");
     }
 

@@ -2,6 +2,7 @@
 
 namespace iumioFramework\Exception\Server;
 use ArrayObject;
+use iumioFramework\Core\Base\Debug\Debug;
 
 
 /**
@@ -35,6 +36,8 @@ abstract class AbstractServer extends \Exception implements ServerInterface
             else if ($it->key() == "solution")
                 $this->solution = $value;
         }
+
+        Debug::output("[".$this->code." ".$this->codeTitle."] : ".$this->explain." : ".$this->solution);
         $this->display($this->code, $header_message);
     }
 
@@ -46,6 +49,7 @@ abstract class AbstractServer extends \Exception implements ServerInterface
      */
     public function display(string $code, string $message)
     {
+        ob_clean();
         header('HTTP/1.0 '.$code.' '.$message);
         include_once  SERVER_VIEWS.'layout.iumio.php';
         die();

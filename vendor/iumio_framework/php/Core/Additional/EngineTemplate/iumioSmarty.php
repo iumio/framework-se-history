@@ -69,6 +69,7 @@ final class iumioSmarty
             self::$instance->debug_tpl = 'file:' . ADDITIONALS . 'TaskBar/views/iumioTaskBar.tpl';
             self::enableSmartyDebug($sconfig->getSmartyDebug());
             self::$instance->caching = $sconfig->getCache();
+           // self::$instance->
 
             $this->registerBasePlugins();
 

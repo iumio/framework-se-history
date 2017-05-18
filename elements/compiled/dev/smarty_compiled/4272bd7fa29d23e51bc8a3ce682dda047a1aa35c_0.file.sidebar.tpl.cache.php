@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32-dev-1, created on 2017-05-18 12:37:46
+/* Smarty version 3.1.32-dev-1, created on 2017-05-18 19:07:26
   from "/Applications/MAMP/htdocs/iumio-framework/vendor/iumio_framework/php/BaseApps/ManagerApp/Front/views/partials/sidebar.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32-dev-1',
-  'unifunc' => 'content_591d797a2a1d53_34646557',
+  'unifunc' => 'content_591dd4cea6feb1_71023636',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '4272bd7fa29d23e51bc8a3ce682dda047a1aa35c' => 
     array (
       0 => '/Applications/MAMP/htdocs/iumio-framework/vendor/iumio_framework/php/BaseApps/ManagerApp/Front/views/partials/sidebar.tpl',
-      1 => 1495103859,
+      1 => 1495110383,
       2 => 'file',
     ),
   ),
@@ -20,8 +20,8 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_591d797a2a1d53_34646557 (Smarty_Internal_Template $_smarty_tpl) {
-$_smarty_tpl->compiled->nocache_hash = '1614925217591d79769ba365_34808687';
+function content_591dd4cea6feb1_71023636 (Smarty_Internal_Template $_smarty_tpl) {
+$_smarty_tpl->compiled->nocache_hash = '39625455591dd4cd7e5c27_19213967';
 ?>
 <div class="sidebar" data-color="blue" data-image="<?php echo iumioFramework\Core\Additionnal\Template\iumioViewBasePlugin::img_iumio(array('name'=>'iumio_img_theme.jpeg'),$_smarty_tpl);?>
 ">
@@ -63,7 +63,7 @@ $_smarty_tpl->compiled->nocache_hash = '1614925217591d79769ba365_34808687';
             </a>
         </li>
         <li>
-            <a href="<?php echo iumioFramework\Core\Additionnal\Template\iumioViewBasePlugin::route(array('name'=>'iumio_manager_smarty_manager'),$_smarty_tpl);?>
+            <a href="<?php echo iumioFramework\Core\Additionnal\Template\iumioViewBasePlugin::route(array('name'=>'iumio_manager_smarty_managerf'),$_smarty_tpl);?>
 ">
                 <i class="pe-7s-note2"></i>
                 <p>Smarty Manager</p>

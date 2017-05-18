@@ -23,5 +23,12 @@ interface JsonInterface
      */
     public static function close(string $filepath):int;
 
+    /** Put content in configuration file
+     * @param $filepath string File path
+     * @param $content string new file content
+     * @return int success
+     */
+    public static function put(string $filepath, string $content):int;
+
 
 }

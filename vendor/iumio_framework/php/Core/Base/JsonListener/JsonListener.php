@@ -22,7 +22,20 @@ class JsonListener implements JsonInterface
         if ($filepath == self::$filepath && self::$file != NULL)
             return (self::$file);
         $a = json_decode(file_get_contents($filepath));
+        self::$file = ($a == NULL ? new \stdClass() : $a);
         return ($a == NULL ? new \stdClass() : $a);
+    }
+
+    /** Put content in configuration file
+     * @param $filepath string File path
+     * @param $content string new file content
+     * @return int success
+     */
+    public static function put(string $filepath, string $content):int
+    {
+        file_put_contents($filepath, $content);
+        self::open($filepath);
+        return (1);
     }
 
     /** Close file configuration

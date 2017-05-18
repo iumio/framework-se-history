@@ -1,6 +1,8 @@
 <?php
 
 namespace iumioFramework\Core\Additionnal\Template;
+use iumioFramework\Core\Base\Debug\Debug;
+
 
 /**
  * Class iumioViewBasePlugin
@@ -158,12 +160,13 @@ class iumioViewBasePlugin
     /** Get route url
      * @param array $params Contains name param
      * @return string return route url
+     * @throws \iumioFramework\Exception\Server\Server404
      */
-    // MODIFIED
     final static public function route(array $params)
     {
         $im = new \iumioFramework\Masters\iumioUltimaMaster();
-        return ($im->generateRoute(((isset($params['name']))? $params['name'] : ""), null, null, ((isset($params['component']) && $params['component'] == "yes")? true  : false)));
+        $route = ($im->generateRoute(((isset($params['name']))? $params['name'] : ""), null, null, ((isset($params['component']) && $params['component'] == "yes")? true  : false)));
+        return ($route);
     }
 
     /** Get iumio taskbar

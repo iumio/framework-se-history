@@ -24,6 +24,7 @@
 .iumioTaskBar li {
     float: left;
     padding-left: 0em!important;
+    list-style: none;
 }
 
 .iumioTaskBar li a {
@@ -78,7 +79,7 @@
     visibility: hidden; /* hides sub-menu */
     opacity: 0;
     position: absolute;
-    bottom: 0;
+    bottom: 40px;
     left: 0;
     width: 100%;
     transform: translateY(-2em);
@@ -106,6 +107,7 @@
 .iumioTaskBarDropdownContent
 {
     background-color: #1D62F0;
+    padding: 0 0px 0px 10px!important;
 }
 
 
@@ -123,6 +125,17 @@
 {
     color: black;
     background-color: white;
+}
+
+.iumioTaskBarOneApp
+{
+    color:white!important;
+}
+
+.iumioTaskBarOneApp:hover
+{
+    color:white!important;
+    background-color: orange!important;
 }
 
 /*****/

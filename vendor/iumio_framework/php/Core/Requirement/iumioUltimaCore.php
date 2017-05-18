@@ -154,7 +154,7 @@ abstract class iumioUltimaCore extends iumioUltima
         foreach ($routes as $route)
         {
             $mat = Routing::matches($baseurl.$route['path'], $path, $route);
-
+            
             if (($mat['similar'] > $baseSimilar))
             {
                 $baseSimilar = $mat['similar'];
@@ -163,10 +163,11 @@ abstract class iumioUltimaCore extends iumioUltima
                 {
                     $pval = $this->assembly($controller['params'], $mat['result']);
 
-                    if ($pval == false)
-                        return (NULL);
-                    $controller['pval'] = $pval;
-                    unset($controller['params']);
+                    if ($pval != false)
+                    {
+                        $controller['pval'] = $pval;
+                        unset($controller['params']);
+                    }
                 }
             }
         }
@@ -180,7 +181,7 @@ abstract class iumioUltimaCore extends iumioUltima
      */
     final protected function assembly(array $keys, array $values)
     {
-        return (array_combine($keys, $values));
+        return (@array_combine($keys, $values));
     }
 
     /**
