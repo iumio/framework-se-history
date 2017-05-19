@@ -49,7 +49,7 @@ abstract class AbstractServer extends \Exception implements ServerInterface
      */
     public function display(string $code, string $message)
     {
-        ob_clean();
+        if (ob_get_contents()) ob_end_clean();
         header('HTTP/1.0 '.$code.' '.$message);
         include_once  SERVER_VIEWS.'layout.iumio.php';
         die();

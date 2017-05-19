@@ -16,7 +16,7 @@ class DashboardMaster extends Master
      */
     public function indexActivity()
     {
-        return($this->render("index"));
+        return($this->render("index", array("selected" => "dashboard")));
     }
 
 }

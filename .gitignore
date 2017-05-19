@@ -8,3 +8,5 @@
 out
 gen
 .DS_Store
+elements/config_files/initial.json
+apps/

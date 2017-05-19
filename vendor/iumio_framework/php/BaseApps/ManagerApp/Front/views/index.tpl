@@ -1,4 +1,5 @@
 {extends 'template.tpl'}
+
 {block name="principal"}
     <div class="wrapper">
         {include file='partials/sidebar.tpl'}

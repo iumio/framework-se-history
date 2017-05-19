@@ -81,6 +81,7 @@ class Routing extends RtListener
         $wRE = explode('/', $webRoute);
         $base = (isset($_SERVER['BASE']) && $_SERVER['BASE'] != "")? $_SERVER['BASE'] : "";
 
+
         if (isset($_SERVER['BASE']) && $_SERVER['BASE'] != "")
         {
             $remove = explode('/', $_SERVER['BASE']);
@@ -127,12 +128,36 @@ class Routing extends RtListener
                 similar_text($base.$script.$appRoute, $webRoute, $pe1);
                 similar_text($base.$script.$appRoute."/", $webRoute, $pe2);
 
+                $simi = self::checkArrayRoute($aRE, $wRE);
                 $pe = ($pe1 > $pe2)? $pe1 : $pe2;
+                if ($simi == 0)
+                    $pe = 0;
                 return (array("is" => "partial", "result" => $paramValues, "similar" => $pe));
             }
 
         }
         return (array("is" => "nomatch", "similar" => 0));
     }
+
+    /** Check similarity of array (Route request vs App route)
+     * @param array $web Array web route
+     * @param array $app Array app route
+     * @return int Similarity point
+     */
+    final static private function checkArrayRoute(array $web, array $app):int
+    {
+        $score = 0;
+        $first = 0;
+        for($i = 0; $i < count($web); $i++)
+        {
+            if ($i == 0 && isset($web[0]) && isset($app[0]) && ($web[0] == $app[0]))
+                $first = 1;
+            else if ($first > 0 && $web[$i] == $app[$i])
+                $score++;
+        }
+
+        return ($score);
+    }
+
 
 }

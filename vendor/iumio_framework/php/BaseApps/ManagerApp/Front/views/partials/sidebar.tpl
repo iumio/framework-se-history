@@ -8,55 +8,55 @@
     </div>
 
     <ul class="nav">
-        <li class="active">
+        <li class="{if $selected == "dashboard"}active{/if}">
             <a href="{route name='iumio_manager_index'}">
                 <i class="pe-7s-graph"></i>
                 <p>Dashboard</p>
             </a>
         </li>
-        <li>
+        <li class="{if $selected == "appmanager"}active{/if}">
             <a href="{route name='iumio_manager_app_manager'}">
                 <i class="pe-7s-user"></i>
-                <p>App Manager</p>
+                <p>App</p>
             </a>
         </li>
-        <li>
+        <li class="{if $selected == "basemanager"}active{/if}">
             <a href="{route name='iumio_manager_base_app_manager'}">
                 <i class="pe-7s-user"></i>
-                <p>Base App Manager</p>
+                <p>Base App</p>
             </a>
         </li>
-        <li>
+        <li class="{if $selected == "assetsmanager"}active{/if}">
             <a href="{route name='iumio_manager_assets_manager'}">
                 <i class="pe-7s-note2"></i>
-                <p>Assets Manager</p>
+                <p>Assets</p>
             </a>
         </li>
-        <li>
+        <li class="{if $selected == "smartymanager"}active{/if}">
             <a href="{route name='iumio_manager_smarty_manager'}">
                 <i class="pe-7s-note2"></i>
                 <p>Smarty Manager</p>
             </a>
         </li>
-        <li>
+        <li class="{if $selected == "logsmanager"}active{/if}">
             <a href="typography.html">
                 <i class="pe-7s-news-paper"></i>
                 <p>Logs</p>
             </a>
         </li>
-        <li>
+        <li class="{if $selected == "http"}active{/if}">
             <a href="icons.html">
                 <i class="pe-7s-science"></i>
                 <p>HTTP Listener</p>
             </a>
         </li>
-        <li>
+        <li class="{if $selected == "maps"}active{/if}">
             <a href="maps.html">
                 <i class="pe-7s-map-marker"></i>
                 <p>Maps</p>
             </a>
         </li>
-        <li>
+        <li class="{if $selected == "notification"}active{/if}">
             <a href="notifications.html">
                 <i class="pe-7s-bell"></i>
                 <p>Notifications</p>

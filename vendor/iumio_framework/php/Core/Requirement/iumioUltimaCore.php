@@ -33,12 +33,13 @@ abstract class iumioUltimaCore extends iumioUltima
     protected $name;
     protected $startTime;
     protected $loadClassCache;
+    protected $environment;
 
-    const VERSION = '0.1.8';
+    const VERSION = '0.1.9';
     const VERSION_EDITION = 'iumio Framework Standard Edition';
     const VERSION_EDITION_SHORT = 'SE';
     const VERSION_STAGE = 'PRE-BETA';
-    const VERSION_ID = 201718;
+    const VERSION_ID = 201719;
     const MAJOR_VERSION = 1;
     const MINOR_VERSION = 0;
     const RELEASE_VERSION = 1;

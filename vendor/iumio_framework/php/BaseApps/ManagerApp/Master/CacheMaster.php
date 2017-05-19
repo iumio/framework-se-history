@@ -18,7 +18,7 @@ class CacheMaster extends Master
      */
     public function cacheActivity()
     {
-        return ($this->render("cachemanager"));
+        return ($this->render("cachemanager", array("selected" => "cachemanager")));
     }
 
     /** Clear cache system with specific environment

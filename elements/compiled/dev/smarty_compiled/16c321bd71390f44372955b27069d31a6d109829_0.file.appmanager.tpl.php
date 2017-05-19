@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32-dev-1, created on 2017-05-18 19:39:34
-  from "/Applications/MAMP/htdocs/iumio-framework/vendor/iumio_framework/php/BaseApps/ManagerApp/Front/views/assetsmanager.tpl" */
+/* Smarty version 3.1.32-dev-1, created on 2017-05-19 18:32:22
+  from "/Applications/MAMP/htdocs/iumio-framework/vendor/iumio_framework/php/BaseApps/ManagerApp/Front/views/appmanager.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32-dev-1',
-  'unifunc' => 'content_591ddc56619c31_17196113',
+  'unifunc' => 'content_591f1e16047704_63889618',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '7fe7e7930e1626181c81f8d3d0d3091f25092d65' => 
+    '16c321bd71390f44372955b27069d31a6d109829' => 
     array (
-      0 => '/Applications/MAMP/htdocs/iumio-framework/vendor/iumio_framework/php/BaseApps/ManagerApp/Front/views/assetsmanager.tpl',
-      1 => 1495129173,
+      0 => '/Applications/MAMP/htdocs/iumio-framework/vendor/iumio_framework/php/BaseApps/ManagerApp/Front/views/appmanager.tpl',
+      1 => 1495052871,
       2 => 'file',
     ),
   ),
@@ -22,32 +22,29 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:partials/footer.tpl' => 1,
   ),
 ),false)) {
-function content_591ddc56619c31_17196113 (Smarty_Internal_Template $_smarty_tpl) {
+function content_591f1e16047704_63889618 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_368096637591ddc5660c649_97072008', "principal");
-?>
-
-
-<?php $_smarty_tpl->inheritance->endChild($_smarty_tpl, 'template.tpl');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1967253938591f1e1603bd33_60612185', "principal");
+$_smarty_tpl->inheritance->endChild($_smarty_tpl, 'template.tpl');
 }
 /* {block "principal"} */
-class Block_368096637591ddc5660c649_97072008 extends Smarty_Internal_Block
+class Block_1967253938591f1e1603bd33_60612185 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'principal' => 
   array (
-    0 => 'Block_368096637591ddc5660c649_97072008',
+    0 => 'Block_1967253938591f1e1603bd33_60612185',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 ?>
 
-<div class="wrapper">
-    <?php $_smarty_tpl->_subTemplateRender('file:partials/sidebar.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+    <div class="wrapper">
+        <?php $_smarty_tpl->_subTemplateRender('file:partials/sidebar.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
     <div class="main-panel">
@@ -60,7 +57,7 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">Assets Manager</a>
+                    <a class="navbar-brand" href="#">App Manager</a>
                 </div>
 
             </div>
@@ -110,13 +107,12 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
                 </div>
             </div>
         </div>
-
-        <?php $_smarty_tpl->_subTemplateRender('file:partials/footer.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+            <?php $_smarty_tpl->_subTemplateRender('file:partials/footer.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
 
+        </div>
     </div>
-</div>
 <?php
 }
 }

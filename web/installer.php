@@ -75,7 +75,7 @@ function initialJSON()
     {
         $std = new \stdClass();
         $std->installation = new \DateTime();
-        $std->version = "0.1.8";
+        $std->version = "0.1.9";
         $std->user = get_current_user();
         $std->location = $base;
         $std->os = PHP_OS;
@@ -1439,7 +1439,7 @@ function initialJSON()
             <div class=" block" id="step3" style="display: none;color: white;color: black">
                 <h3 style="font-size: 30px;text-decoration: underline">Informations : </h3>
                 <div style="padding-left: 10px">
-                    <h3>Framework version : 0.1.8 in Pre-Beta stage</h3>
+                    <h3>Framework version : 0.1.9 in Pre-Beta stage</h3>
                     <h3>Framework Edition : Standard Edition</h3>
                     <h3>Compatiblility : PHP 7 and later</h3>
                     <h3><span style="font-size: 22px;color: darkred;font-weight: 800 ">Warning</span> : This version is in Pre-beta stage. Please don't use it for your production projects </h3>

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32-dev-1, created on 2017-05-18 19:08:28
+/* Smarty version 3.1.32-dev-1, created on 2017-05-19 18:32:24
   from "/Applications/MAMP/htdocs/iumio-framework/vendor/iumio_framework/php/BaseApps/ManagerApp/Front/views/template.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32-dev-1',
-  'unifunc' => 'content_591dd50c29ff04_40740428',
+  'unifunc' => 'content_591f1e189e0ad8_64349857',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '9636b9e2ab66ecd95945621d4c4590b795da12c8' => 
     array (
       0 => '/Applications/MAMP/htdocs/iumio-framework/vendor/iumio_framework/php/BaseApps/ManagerApp/Front/views/template.tpl',
-      1 => 1495052681,
+      1 => 1495210804,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_591dd50c29ff04_40740428 (Smarty_Internal_Template $_smarty_tpl) {
+function content_591f1e189e0ad8_64349857 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, false);
 ?>
@@ -28,11 +28,11 @@ $_smarty_tpl->inheritance->init($_smarty_tpl, false);
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <link rel="apple-touch-icon" sizes="180x180" href="<?php echo iumioFramework\Core\Additionnal\Template\iumioViewBasePlugin::img_im(array('path'=>'favicon/apple-touch-icon.png'),$_smarty_tpl);?>
+    <link rel="apple-touch-icon" sizes="180x180" href="<?php echo iumioFramework\Core\Additionnal\Template\iumioViewBasePlugin::img_im(array('name'=>'favicon/apple-touch-icon.png'),$_smarty_tpl);?>
 ">
-    <link rel="icon" type="image/png" sizes="32x32" href="<?php echo iumioFramework\Core\Additionnal\Template\iumioViewBasePlugin::img_im(array('path'=>'favicon/favicon-32x32.png'),$_smarty_tpl);?>
+    <link rel="icon" type="image/png" sizes="32x32" href="<?php echo iumioFramework\Core\Additionnal\Template\iumioViewBasePlugin::img_im(array('name'=>'favicon/favicon-32x32.png'),$_smarty_tpl);?>
 ">
-    <link rel="icon" type="image/png" sizes="16x16" href="<?php echo iumioFramework\Core\Additionnal\Template\iumioViewBasePlugin::img_im(array('path'=>'favicon/favicon-16x16.png'),$_smarty_tpl);?>
+    <link rel="icon" type="image/png" sizes="16x16" href="<?php echo iumioFramework\Core\Additionnal\Template\iumioViewBasePlugin::img_im(array('name'=>'favicon/favicon-16x16.png'),$_smarty_tpl);?>
 ">
     <link rel="manifest" href="<?php echo iumioFramework\Core\Additionnal\Template\iumioViewBasePlugin::img_im(array('path'=>'favicon/manifest.json'),$_smarty_tpl);?>
 ">
@@ -65,7 +65,7 @@ $_smarty_tpl->inheritance->init($_smarty_tpl, false);
 <body>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_309127979591dd50a9a7608_00515601', "principal");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1296211358591f1e17453344_98176816', "principal");
 ?>
 
 
@@ -114,12 +114,12 @@ $_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_309127979591dd50a9
 </body>
 </html><?php }
 /* {block "principal"} */
-class Block_309127979591dd50a9a7608_00515601 extends Smarty_Internal_Block
+class Block_1296211358591f1e17453344_98176816 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'principal' => 
   array (
-    0 => 'Block_309127979591dd50a9a7608_00515601',
+    0 => 'Block_1296211358591f1e17453344_98176816',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {

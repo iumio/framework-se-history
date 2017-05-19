@@ -107,7 +107,9 @@
 .iumioTaskBarDropdownContent
 {
     background-color: #1D62F0;
-    padding: 0 0px 0px 10px!important;
+    padding: 0 0px 0px 0px!important;
+    width: 250px;
+    border : 1px solid white;
 }
 
 
@@ -119,6 +121,11 @@
     padding: 10px 10px 10px 10px;
     cursor: pointer;
     font-size: 20px;
+}
+
+.iumioTaskBarDropdownContent  li:before
+{
+    content: '- ';
 }
 
 .iumioTaskBarDropdownContent  li:hover

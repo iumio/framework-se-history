@@ -133,7 +133,7 @@ function getSimpleApps() {
                 var rs = he - (ObjectLength(result) * 20);
                 if (rs < 0)
                     rs = 0;
-                edd.style.bottom = "0px";
+                edd.style.bottom = "60px";
                 edd.className = " iumioTaskBarDropdownContent iumioTaskBarAllAppRemove";
                 insertAfter(edd, elem);
                 inload = false;

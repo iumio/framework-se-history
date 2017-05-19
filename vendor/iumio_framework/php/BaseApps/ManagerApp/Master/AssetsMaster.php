@@ -18,7 +18,7 @@ class AssetsMaster extends Master
      */
     public function assetsActivity()
     {
-        return ($this->render("assetsmanager"));
+        return ($this->render("assetsmanager", array("selected" => "assetsmanager")));
     }
 
     /** Publish assets

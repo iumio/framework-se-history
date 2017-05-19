@@ -19,7 +19,7 @@ class AppsMaster extends Master
      */
     public function appsActivity()
     {
-        return ($this->render("appmanager"));
+        return ($this->render("appmanager", array("selected" => "appmanager")));
     }
 
     /**
@@ -27,7 +27,7 @@ class AppsMaster extends Master
      */
     public function baseAppsActivity()
     {
-        return ($this->render("baseappmanager"));
+        return ($this->render("baseappmanager", array("selected" => "baseappmanager")));
     }
 
 

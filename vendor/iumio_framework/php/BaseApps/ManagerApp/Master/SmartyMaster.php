@@ -18,7 +18,7 @@ class SmartyMaster extends Master
      */
     public function smartyActivity()
     {
-        return ($this->render("smartymanager"));
+        return ($this->render("smartymanager", array("selected" => "smartymanager")));
     }
 
 
