@@ -77,8 +77,15 @@ class Routing extends RtListener
     static public function matches(string $appRoute, string $webRoute, array $route):array
     {
         $paramValues = array();
+
+        if ($pos = strpos($webRoute,"/?"))
+            return (array("is" => "nomatch", "similar" => 0));
+        if ($pos = strpos($webRoute,"?"))
+            $webRoute = substr_replace($webRoute, '', $pos, (strlen($webRoute) - 1));
+
         $aRE = explode('/', $appRoute);
         $wRE = explode('/', $webRoute);
+
         $base = (isset($_SERVER['BASE']) && $_SERVER['BASE'] != "")? $_SERVER['BASE'] : "";
 
 

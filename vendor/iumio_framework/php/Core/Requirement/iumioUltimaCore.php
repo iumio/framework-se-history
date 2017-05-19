@@ -162,6 +162,7 @@ abstract class iumioUltimaCore extends iumioUltima
         $controller = NULL;
         $baseSimilar = 0;
         $path = $request->server->get('REQUEST_URI');
+        //print_r($request);
 
         if ($path == "") $path = "/";
 

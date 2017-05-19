@@ -7,6 +7,7 @@ use iumioFramework\Core\Additionnal\Template\iumioSmarty;
 use iumioFramework\Core\Requirement\{iumioUltimaCore, Ultima\iumioUltima};
 use iumioFramework\Core\Base\Database\iumioDatabaseAccess as IDA;
 use iumioFramework\Exception\Server\{Server500, Server404};
+use iumioFramework\Core\Base\Http\Session\iumioSession;
 
 
 /**
@@ -41,10 +42,13 @@ class iumioUltimaMaster extends iumioUltima
         switch ($service)
         {
             case 'request':
-                return (new ParameterRequest())->get('request');
+                return (iumioUltimaCore::getRuntimeParameters())->request;
                 break;
             case 'query':
-                return (new ParameterRequest())->get('query');
+                return (iumioUltimaCore::getRuntimeParameters())->query;
+                break;
+            case 'session':
+                return (new iumioSession());
                 break;
         }
         return (NULL);

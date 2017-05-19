@@ -82,13 +82,6 @@ class ParameterRequest implements \IteratorAggregate, \Countable
     public function get($key, $default = null, $deep = false)
     {
 
-        if (strtolower($key) == "request")
-            return (($_REQUEST));
-        else if (strtolower($key) == "post")
-            return (($_POST));
-        else if (strtolower($key) == "get")
-            return (($_GET));
-
         if (!$deep || false === $pos = strpos($key, '[')) {
             return array_key_exists($key, $this->parameters) ? $this->parameters[$key] : $default;
         }

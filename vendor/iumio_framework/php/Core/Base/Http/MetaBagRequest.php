@@ -48,7 +48,7 @@ class MetaBagRequest implements SessionBagRequest
      * @param string $storageKey      The key used to store bag in the session
      * @param int    $updateThreshold The time to wait between two UPDATED updates
      */
-    public function __construct($storageKey = '_sf2_meta', $updateThreshold = 0)
+    public function __construct($storageKey = '_iumio_fm_meta', $updateThreshold = 0)
     {
         $this->storageKey = $storageKey;
         $this->updateThreshold = $updateThreshold;
