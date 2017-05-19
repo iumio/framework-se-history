@@ -60,7 +60,29 @@ function createAppProcess($appname, $default, $temp)
     if ($temp == "1")
         iumioFramework\Core\Additionnal\Server\iumioServerManager::copy($base."/apps/".$appname."/Front/Resources/", $base."/web/components/apps/".strtolower($appname), 'directory', true);
 
+    initialJSON();
     exit("OK");
+}
+
+/**
+ * Build initial.json
+ */
+function initialJSON()
+{
+    $base = __DIR__."/../";
+    $f = json_decode(file_get_contents($base."/elements/config_files/initial.json"));
+    if (empty($f))
+    {
+        $std = new \stdClass();
+        $std->installation = new \DateTime();
+        $std->version = "0.1.8";
+        $std->user = get_current_user();
+        $std->location = $base;
+        $std->os = PHP_OS;
+
+        $rs = json_encode($std);
+        file_put_contents($base."/elements/config_files/initial.json", $rs);
+    }
 }
 
 ?>

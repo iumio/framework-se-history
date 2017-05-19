@@ -5,6 +5,7 @@ use iumioFramework\Core\Base\Http\HttpListener;
 use iumioFramework\Masters\Routing;
 use iumioFramework\Core\Requirement\{Relexion\iumioReflexion, Ultima\iumioUltima};
 use iumioFramework\Exception\Server\{Server500, Server404, Server000};
+use iumioFramework\Core\Base\Json\JsonListener as JL;
 
 /**
  * Class iumioUltimaCore
@@ -59,6 +60,8 @@ abstract class iumioUltimaCore extends iumioUltima
         $this->debug = (bool) $debug;
         $this->rootDir = $this->getRootDir();
         $this->name = $this->getName();
+
+        self::detectFirstInstallation();
 
         if ($this->debug) {
             $this->startTime = microtime(true);
@@ -154,7 +157,7 @@ abstract class iumioUltimaCore extends iumioUltima
         foreach ($routes as $route)
         {
             $mat = Routing::matches($baseurl.$route['path'], $path, $route);
-            
+
             if (($mat['similar'] > $baseSimilar))
             {
                 $baseSimilar = $mat['similar'];
@@ -396,5 +399,28 @@ abstract class iumioUltimaCore extends iumioUltima
                 break;
         }
         return ($rs);
+    }
+
+
+    /** Detect if it is a first install
+     * @return int The success or failure
+     * @throws Server500 File installer.php not existx
+     */
+    final private function detectFirstInstallation():int
+    {
+        $file = JL::open(CONFIG_DIR.'initial.json');
+        if (empty( (array) $file))
+        {
+            if (file_exists(ROOT.'web/installer.php'))
+            {
+                header('Location: installer.php');
+                exit();
+                return (1);
+            }
+            else
+                throw new Server500(new \ArrayObject(array("explain" => "iumio Ultima Core Error : installer.php does not exist in web directory", "solution" => "Please download installer.php in iumio Framework Website to fix this error and put him in web directory")));
+
+        }
+        return (0);
     }
 }
