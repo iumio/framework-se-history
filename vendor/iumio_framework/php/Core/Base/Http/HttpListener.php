@@ -252,9 +252,9 @@ class HttpListener
     /**
      * Creates a new request with values from PHP's super globals.
      *
-     * @return HttpListener A new request
+     * @return HttpListener|ParameterRequest A new request
      */
-    public static function createFromGlobals():HttpListener
+    public static function createFromGlobals()
     {
         //exit('IMA4');
         // With the php's bug #66606, the php's built-in web server

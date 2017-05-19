@@ -48,6 +48,8 @@ abstract class iumioUltimaCore extends iumioUltima
     const END_OF_MAINTENANCE = 'END';
     const END_OF_LIFE = 'END';
 
+    private static $runtime_parameters = null;
+
     /**
      * Constructor.
      *
@@ -94,6 +96,14 @@ abstract class iumioUltimaCore extends iumioUltima
         }
 
         return $this->rootDir;
+    }
+
+    /** Get runtime parameters request
+     * @return null|array
+     */
+    final static public function getRuntimeParameters()
+    {
+        return self::$runtime_parameters;
     }
 
     /**
@@ -206,7 +216,7 @@ abstract class iumioUltimaCore extends iumioUltima
      */
     public function dispatching(HttpListener $request):int
     {
-
+        self::$runtime_parameters = $request;
         $apps = $this->registerApps();
         $def = $this->detectDefaultApp($apps);
 

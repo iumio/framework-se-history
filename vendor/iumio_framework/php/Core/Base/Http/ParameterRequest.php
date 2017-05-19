@@ -70,7 +70,6 @@ class ParameterRequest implements \IteratorAggregate, \Countable
     /**
      * Returns a parameter by name.
      *
-     * Note: Finding deep items is deprecated since version 2.8, to be removed in 3.0.
      *
      * @param string $key     The key
      * @param mixed  $default The default value if the parameter key does not exist
@@ -82,6 +81,13 @@ class ParameterRequest implements \IteratorAggregate, \Countable
      */
     public function get($key, $default = null, $deep = false)
     {
+
+        if (strtolower($key) == "request")
+            return (($_REQUEST));
+        else if (strtolower($key) == "post")
+            return (($_POST));
+        else if (strtolower($key) == "get")
+            return (($_GET));
 
         if (!$deep || false === $pos = strpos($key, '[')) {
             return array_key_exists($key, $this->parameters) ? $this->parameters[$key] : $default;
