@@ -117,16 +117,21 @@ class AppsMaster extends Master
         if (trim($name) == "")
             return ((new Response())->JSON_RENDER(array("code" => 500, "msg" => "Error on app parameters")));
 
-        $temdirbase = ADDITIONALS."AppTemplate";
+        if (file_exists(ROOT_APPS.$name))
+            return ((new Response())->JSON_RENDER(array("code" => 500, "msg" => "App name already exist")));
+
+
+        $temdirbase = ADDITIONALS."Manager/Module/AppManager/AppTemplate";
+
         $tempdir = ($template == "no")? $temdirbase.'/notemplate/{appname}/' : $temdirbase.'/template/{appname}/';
-        iumioServerManager::copy($tempdir, ROOT_APPS."/apps/".$name, 'directory');
-        $napp = ROOT_APPS."/apps/".$name;
+        iumioServerManager::copy($tempdir, ROOT_APPS.$name, 'directory');
+        $napp = ROOT_APPS.$name;
 
         // APP
         $f = file_get_contents($napp."/{appname}.php.local");
         $str = str_replace("{appname}", $name, $f);
         file_put_contents($napp."/{appname}.php.local", $str);
-        rename($napp."/{appname}.php.local", $napp."/$napp.php");
+        rename($napp."/{appname}.php.local", $napp."/".$name.".php");
 
         // RT
         $f = file_get_contents($napp."/Routing/default.rt");
@@ -135,7 +140,7 @@ class AppsMaster extends Master
 
         // MASTER
         $f = file_get_contents($napp."/Master/DefaultMaster.php.local");
-        $str = str_replace("{appname}", $napp, $f);
+        $str = str_replace("{appname}", $name, $f);
         file_put_contents($napp."/Master/DefaultMaster.php.local", $str);
         rename($napp."/Master/DefaultMaster.php.local", $napp."/Master/DefaultMaster.php");
 
@@ -156,7 +161,7 @@ class AppsMaster extends Master
         $f->$lastapp = new \stdClass();
         $f->$lastapp->name = $name;
         $f->$lastapp->isdefault = $default;
-        $f->$lastapp->class = "\\".$this->params['appname']."\\".$name;
+        $f->$lastapp->class = "\\".$name."\\".$name;
         $ndate = new \DateTime('UTC');
         $f->$lastapp->creation = $ndate;
         $f->$lastapp->update = $ndate;
@@ -168,8 +173,7 @@ class AppsMaster extends Master
             $assets->publish();
         }
 
-
-        return (1);
+        return ((new Response())->JSON_RENDER(array("code" => 200, "msg" => "OK")));
 
     }
 }

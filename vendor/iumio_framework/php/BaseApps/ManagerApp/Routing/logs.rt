@@ -1,0 +1,11 @@
+routingRegister : ManagerApp
+
+name : iumio_manager_logs_index
+path : /_manager/logs
+method : Logs%logs
+
+name : iumio_manager__logs_logs_get
+path :  /_manager/logs/get/logs
+method : Logs%getlog
+
+

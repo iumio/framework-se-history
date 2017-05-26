@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32-dev-1, created on 2017-05-19 18:32:25
+/* Smarty version 3.1.32-dev-1, created on 2017-05-26 11:54:07
   from "/Applications/MAMP/htdocs/iumio-framework/vendor/iumio_framework/php/BaseApps/ManagerApp/Front/views/partials/sidebar.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32-dev-1',
-  'unifunc' => 'content_591f1e19bd5307_19814396',
+  'unifunc' => 'content_5927fb3fe17403_92538191',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '4272bd7fa29d23e51bc8a3ce682dda047a1aa35c' => 
     array (
       0 => '/Applications/MAMP/htdocs/iumio-framework/vendor/iumio_framework/php/BaseApps/ManagerApp/Front/views/partials/sidebar.tpl',
-      1 => 1495211450,
+      1 => 1495792445,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_591f1e19bd5307_19814396 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5927fb3fe17403_92538191 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <div class="sidebar" data-color="blue" data-image="<?php echo iumioFramework\Core\Additionnal\Template\iumioViewBasePlugin::img_iumio(array('name'=>'iumio_img_theme.jpeg'),$_smarty_tpl);?>
 ">
@@ -48,11 +48,10 @@ function content_591f1e19bd5307_19814396 (Smarty_Internal_Template $_smarty_tpl)
                 <p>App</p>
             </a>
         </li>
-        <li class="<?php if ($_smarty_tpl->tpl_vars['selected']->value == "basemanager") {?>active<?php }?>">
-            <a href="<?php echo iumioFramework\Core\Additionnal\Template\iumioViewBasePlugin::route(array('name'=>'iumio_manager_base_app_manager'),$_smarty_tpl);?>
-">
+        <li class="<?php if ($_smarty_tpl->tpl_vars['selected']->value == "basemanager") {?>active<?php }?>" style="background-color: silver">
+            <a href="#">
                 <i class="pe-7s-user"></i>
-                <p>Base App</p>
+                <p>Base App (Later)</p>
             </a>
         </li>
         <li class="<?php if ($_smarty_tpl->tpl_vars['selected']->value == "assetsmanager") {?>active<?php }?>">

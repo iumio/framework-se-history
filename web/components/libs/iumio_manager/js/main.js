@@ -130,8 +130,6 @@ var getAppListSimple = function () {
  */
 
 var createOneApp = function (href) {
-
-    var selector = $('.applist');
     var name      = $("input[type=text][name=appname]").val();
     var template  = $("input[type=checkbox][name=template]:checked" ).val();
     var isdefault = $( "input[type=checkbox][name=isdefault]:checked" ).val();
@@ -141,7 +139,26 @@ var createOneApp = function (href) {
     {
         selecttorModal.find(".onealert").html("Oups! Enter an app name");
         selecttorModal.find(".onealert").show();
+        return (false);
     }
+
+    if (name === "App" || name.length <= 3)
+    {
+        selecttorModal.find(".onealert").html("Oups! Error on app name. <br>Your app name must to end with 'App' keyword (example TestApp) ");
+        selecttorModal.find(".onealert").show();
+        return (false);
+    }
+    var p2 = name[name.length - 1];
+    var p1 = name[name.length - 2];
+    var a = name[name.length - 3];
+    var conca = a + p1 + p2;
+
+    if (conca !== "App") {
+        selecttorModal.find(".onealert").html("Oups! Error on app name. <br>Your app name must to end with 'App' keyword (example TestApp) ");
+        selecttorModal.find(".onealert").show();
+        return (false);
+    }
+
    if (typeof template !== "undefined")
        template = "yes";
     else
@@ -163,25 +180,15 @@ var createOneApp = function (href) {
             console.log(data);
             if (data['code'] === 200)
             {
-               /* console.log(data);
-                var results = data['results'];
-                selector.html("");
-                if (results.length === 0)
-                    return (selector.append("<tr><td colspan='6'>No apps</td></tr>"));
-
-                $.each(results, function (index, value) {
-                    selector.append("<tr>" +
-                        "<td>"+index+"</td>" +
-                        "<td>"+value['name']+"</td>" +
-                        "<td>"+value['isdefault']+"</td>" +
-                        "<td>"+value['class']+"</td>" +
-                        "<td><button class=' btn-info btn todefaultapp' attr-href='"+value['link']+"' attr-appname='"+value['name']+"'>SW</button></td>"+
-                        "<td><button class='btn-info btn deleteapp' attr-href='"+value['link_remove']+"' attr-appname='"+value['name']+"'>DE</button></td>"+
-                        "</tr>");
-                });*/
-
-
+               console.log(data);
+                getAppListSimple();
+                if (data['code'] === 200)
+                    operationSuccess();
+                else
+                    operationError();
             }
+            else
+                operationError();
         }
     })
 };

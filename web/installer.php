@@ -1583,7 +1583,7 @@ function initialJSON()
         var sender = "appname="+appinfo[0]+"&default="+String(appinfo[1])+"&template="+String(appinfo[2]);
         xhttp.onreadystatechange = function() {
             document.getElementById("step7").style.display = "none";
-            if (this.readyState == 4 && this.status == 200 && this.responseText == "OK")
+            if (this.readyState === 4 && this.status === 200 && this.responseText === "OK")
             {
                 document.getElementById("step9").style.display = "none";
                 document.getElementById("step8").style.display = "block";

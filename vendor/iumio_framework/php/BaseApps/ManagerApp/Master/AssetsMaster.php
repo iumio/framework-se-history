@@ -33,7 +33,7 @@ class AssetsMaster extends Master
 
     /** Call Server publish assets
      */
-    private function publish()
+    public function publish()
     {
         $dirs = scandir(ROOT."/apps/");
 

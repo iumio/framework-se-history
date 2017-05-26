@@ -20,10 +20,10 @@
                 <p>App</p>
             </a>
         </li>
-        <li class="{if $selected == "basemanager"}active{/if}">
-            <a href="{route name='iumio_manager_base_app_manager'}">
+        <li class="{if $selected == "basemanager"}active{/if}" style="background-color: silver">
+            <a href="#{*route name='iumio_manager_base_app_manager'*}">
                 <i class="pe-7s-user"></i>
-                <p>Base App</p>
+                <p>Base App (Later)</p>
             </a>
         </li>
         <li class="{if $selected == "assetsmanager"}active{/if}">

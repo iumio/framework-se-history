@@ -74,7 +74,7 @@ class iumioServerManager
     {
         try
         {
-            if ($symlink != false) symlink($path, $to);
+            if ($symlink != false) @symlink($path, $to);
             else if ($symlink == false && $type == "directory") self::recursiveCopy($path, $to);
             else if ($symlink == false && $type == "file") copy($path, $to);
             else throw new \Exception("iumio Server Error on Copy: Element type is not regonized");
