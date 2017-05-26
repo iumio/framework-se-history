@@ -46,6 +46,7 @@ class iumioEnvironment
         define('SERVER_VIEWS', $base."vendor/iumio_framework/php/Core/Exceptions/Server/views/");
         define('SERVER', $base."vendor/iumio_framework/php/Core/Exceptions/Server/");
         define('WEB_ASSETS', $current."/components/apps/");
+        define('ROOT_WEB_ASSETS', $base."web/components/apps/");
         define('WEB_LIBS', $current."/components/libs/");
         define('WEB_FRAMEWORK', $current."/components/libs/iumio_framework/");
         define('WEB_COMPONENTS', $current."/components/");

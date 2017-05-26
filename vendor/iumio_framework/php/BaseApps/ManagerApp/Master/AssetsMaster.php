@@ -51,12 +51,10 @@ class AssetsMaster extends Master
      */
     public function clearActivity(string $appname):int
     {
-        if ($appname != "_all" && !is_dir(ROOT."/web/components/apps/".strtolower($appname)))
-            return ((new Response())->JSON_RENDER(array("code" => 500, "msg" => "App assets does not exist")));
         if ($appname == "_all")
-            Server::delete(ROOT."/web/components/apps/", 'directory');
+            Server::delete(ROOT_WEB_ASSETS, 'directory');
         else
-            Server::delete(ROOT."/web/components/apps/".strtolower($appname), 'directory');
+            Server::delete(ROOT_WEB_ASSETS.strtolower($appname), 'directory');
         return ((new Response())->JSON_RENDER(array("code" => 200, "msg" => "OK")));
     }
 
@@ -66,13 +64,17 @@ class AssetsMaster extends Master
      */
     public function clear(string $appname):int
     {
-        if ($appname != "_all" && !is_dir(ROOT."/web/components/apps/".strtolower($appname)))
-            return (0);
         if ($appname == "_all")
-            Server::delete(ROOT."/web/components/apps/", 'directory');
+        {
+            Server::delete(ROOT_WEB_ASSETS, 'directory');
+            Server::create(ROOT_WEB_ASSETS, 'directory');
+        }
         else
-            Server::delete(ROOT."/web/components/apps/".strtolower($appname), 'directory');
+            Server::delete(ROOT_WEB_ASSETS.strtolower($appname), 'directory');
         return (1);
+
+
+
     }
 
 }

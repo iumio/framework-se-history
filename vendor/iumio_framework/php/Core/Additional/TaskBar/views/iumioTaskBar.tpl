@@ -7,7 +7,12 @@
         <li><a class="active" href="#"><strong>{$iumiotaskbar['ve']}</strong></a></li>
         <li><a href="#" class="active">{$iumiotaskbar['env']}</a></li>
         <li><a href="#" class="active"><strong>{$iumiotaskbar['call_app']}</strong></a></li>
-        <li><a href="#" id="iumioTaskBarPublishAssets" attr-href="{$iumiotaskbar['publish_assets']}">Publish all assets</a></li>
+        <li id="iumioTaskBarAssets" class="iumioTaskBarDropdown"><a href="#">Assets</a>
+            <ul class="iumioTaskBarDropdownContent">
+                <li class="iumioTaskBarAssetsClearAll" attr-href="{$iumiotaskbar['publish_assets']}">Publish all</li>
+                <li class="iumioTaskBarAssetsPublishAll" attr-href="{$iumiotaskbar['clear_assets']}">Clear all</li>
+            </ul>
+        </li>
         <li><a href="#" id="iumioTaskBarSwitchApp" attr-href="{$iumiotaskbar['all_simple_apps']}">Switch to default</a></li>
         <li><a href="{$iumiotaskbar['manager']}">Go to manager</a></li>
         <li id="iumioTaskBarCacheClear" class="iumioTaskBarDropdown"><a href="#" >Clear cache</a>

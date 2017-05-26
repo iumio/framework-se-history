@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32-dev-1, created on 2017-05-24 22:25:06
+/* Smarty version 3.1.32-dev-1, created on 2017-05-26 06:50:20
   from "/Applications/MAMP/htdocs/iumio-framework/vendor/iumio_framework/php/BaseApps/ManagerApp/Front/views/index.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32-dev-1',
-  'unifunc' => 'content_5925ec222e3490_28629179',
+  'unifunc' => 'content_5927b40c7320c5_08264447',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'a77c97f74e3f537a29905648901029a87e484fba' => 
     array (
       0 => '/Applications/MAMP/htdocs/iumio-framework/vendor/iumio_framework/php/BaseApps/ManagerApp/Front/views/index.tpl',
-      1 => 1495657498,
+      1 => 1495774215,
       2 => 'file',
     ),
   ),
@@ -22,14 +22,14 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:partials/footer.tpl' => 1,
   ),
 ),false)) {
-function content_5925ec222e3490_28629179 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5927b40c7320c5_08264447 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_2984073545925ec20af8515_69139409', "principal");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_20368486045927b40ad40ac0_10034349', "principal");
 ?>
 
 
@@ -38,12 +38,12 @@ $_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_2984073545925ec20a
 <?php $_smarty_tpl->inheritance->endChild($_smarty_tpl, 'template.tpl');
 }
 /* {block "principal"} */
-class Block_2984073545925ec20af8515_69139409 extends Smarty_Internal_Block
+class Block_20368486045927b40ad40ac0_10034349 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'principal' => 
   array (
-    0 => 'Block_2984073545925ec20af8515_69139409',
+    0 => 'Block_20368486045927b40ad40ac0_10034349',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -97,7 +97,7 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
                                         <li>Base location install : <?php echo $_smarty_tpl->tpl_vars['fi']->value->location;?>
 </li>
 
-                                        <li>Base OS install : <?php echo $_smarty_tpl->tpl_vars['fi']->value->location;?>
+                                        <li>Base OS install : <?php echo $_smarty_tpl->tpl_vars['fi']->value->os;?>
 </li>
 
 

@@ -48,6 +48,12 @@ document.addEventListener('click',function(e){
             case 'iumioTaskBarCacheClearProd':
                 cacheClear(document.querySelector(".iumioTaskBarCacheClearProd"));
                 break;
+            case 'iumioTaskBarAssetsPublishAll':
+                assetsPublish(document.querySelector(".iumioTaskBarAssetsPublishAll"));
+                break;
+            case 'iumioTaskBarAssetsClearAll':
+                assetsClear(document.querySelector(".iumioTaskBarAssetsClearAll"));
+                break;
             case 'iumioTaskBarOneApp':
                 switchApp(e.target);
                 break;
@@ -83,24 +89,44 @@ function cacheClear(elem) {
 }
 
 
-function publishAssets(elem) {
-    var pElem = document.querySelector("#iumioTaskBarPublishAssets");
+function assetsPublish(elem) {
+    var pElem = document.querySelector("#iumioTaskBarAssets");
     var href = elem.getAttribute("attr-href");
     var xhr = new XMLHttpRequest();
     xhr.open('GET', href);
     xhr.send(null);
     xhr.addEventListener('readystatechange', function() {
         if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
-            var content = pElem.parentElement.cloneNode(true);
-            elem.parentElement.style.backgroundColor = 'green';
-            elem.parentElement.innerHTML  = '<a href="#" id="iumioTaskBarPublishAssets">Successful</a>';
+            pElem.style.backgroundColor = 'green';
+            var content = pElem.cloneNode(true);
+            pElem.innerHTML  = '<a href="#">Successful</a>';
             setTimeout(function () {
-                document.querySelector("#iumioTaskBarPublishAssets").parentElement.style.backgroundColor = '#2b4e9e';
-                document.querySelector("#iumioTaskBarPublishAssets").parentElement.innerHTML = content.innerHTML;
+                pElem.style.backgroundColor = '#2b4e9e';
+                pElem.innerHTML = content.innerHTML;
             }, 5000);
         }
     });
 }
+
+function assetsClear(elem) {
+    var pElem = document.querySelector("#iumioTaskBarAssets");
+    var href = elem.getAttribute("attr-href");
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', href);
+    xhr.send(null);
+    xhr.addEventListener('readystatechange', function() {
+        if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+            pElem.style.backgroundColor = 'green';
+            var content = pElem.cloneNode(true);
+            pElem.innerHTML  = '<a href="#">Successful</a>';
+            setTimeout(function () {
+                pElem.style.backgroundColor = '#2b4e9e';
+                pElem.innerHTML = content.innerHTML;
+            }, 5000);
+        }
+    });
+}
+
 
 
 function getSimpleApps() {

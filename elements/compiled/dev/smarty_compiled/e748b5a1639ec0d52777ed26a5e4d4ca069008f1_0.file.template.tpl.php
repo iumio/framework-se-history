@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32-dev-1, created on 2017-05-25 15:19:43
-  from "/Applications/MAMP/htdocs/iumio-framework/apps/SsApp/Front/views/template.tpl" */
+/* Smarty version 3.1.32-dev-1, created on 2017-05-26 07:36:47
+  from "/Applications/MAMP/htdocs/iumio-framework/apps/WeApp/Front/views/template.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32-dev-1',
-  'unifunc' => 'content_5926d9ef15e4f9_15267821',
+  'unifunc' => 'content_5927beef780387_08507522',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '82cc25934d4810b90b6b74292a136c9a551c235b' => 
+    'e748b5a1639ec0d52777ed26a5e4d4ca069008f1' => 
     array (
-      0 => '/Applications/MAMP/htdocs/iumio-framework/apps/SsApp/Front/views/template.tpl',
-      1 => 1495718376,
+      0 => '/Applications/MAMP/htdocs/iumio-framework/apps/WeApp/Front/views/template.tpl',
+      1 => 1495777001,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5926d9ef15e4f9_15267821 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5927beef780387_08507522 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, false);
 ?>
@@ -62,7 +62,7 @@ $_smarty_tpl->inheritance->init($_smarty_tpl, false);
 ');">
     <h1>Welcome to iumio Starter </h1>
     <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_12119164815926d9edeff645_00486184', "parameters");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_17321550935927beef11db28_31889921', "parameters");
 ?>
 
 
@@ -224,12 +224,12 @@ $_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_12119164815926d9ed
 </body>
 </html><?php }
 /* {block "parameters"} */
-class Block_12119164815926d9edeff645_00486184 extends Smarty_Internal_Block
+class Block_17321550935927beef11db28_31889921 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'parameters' => 
   array (
-    0 => 'Block_12119164815926d9edeff645_00486184',
+    0 => 'Block_17321550935927beef11db28_31889921',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {

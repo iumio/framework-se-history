@@ -41,7 +41,7 @@
 
                                         <li>Base location install : {$fi->location}</li>
 
-                                        <li>Base OS install : {$fi->location}</li>
+                                        <li>Base OS install : {$fi->os}</li>
 
 
 

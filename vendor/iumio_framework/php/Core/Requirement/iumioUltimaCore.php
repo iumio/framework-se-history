@@ -146,7 +146,8 @@ abstract class iumioUltimaCore extends iumioUltima
         foreach ($apps as $oneapp => $val)
             if ($val['isdefault'] == "yes") return (array("name" => $oneapp, "value" => $val));
 
-        throw new \Exception("No Default app is detected");
+        throw new Server500(new \ArrayObject(array("explain" => "No Default app is detected", "solution" => "Please edit apps.json to set a default app")));
+
     }
 
     /**
@@ -219,11 +220,10 @@ abstract class iumioUltimaCore extends iumioUltima
     {
         self::$runtime_parameters = $request;
         $apps = $this->registerApps();
-        $def = $this->detectDefaultApp($apps);
-
         $bapps = $this->registerBaseApps();
 
         if ($this->isComponentCall($bapps, $request)) return (1);
+        $def = $this->detectDefaultApp($apps);
 
         $rt = new Routing($def['name'], 'iumio');
         if ($rt->routingRegister() == true)

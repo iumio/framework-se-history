@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32-dev-1, created on 2017-05-19 18:32:25
+/* Smarty version 3.1.32-dev-1, created on 2017-05-26 07:21:48
   from "/Applications/MAMP/htdocs/iumio-framework/vendor/iumio_framework/php/Core/Additional/TaskBar/views/iumioTaskBar.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32-dev-1',
-  'unifunc' => 'content_591f1e19cc7546_97756257',
+  'unifunc' => 'content_5927bb6c2d77f1_79924776',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '01ae7cd703eb02b5e06ed3bc06798a0f6a4563ba' => 
     array (
       0 => '/Applications/MAMP/htdocs/iumio-framework/vendor/iumio_framework/php/Core/Additional/TaskBar/views/iumioTaskBar.tpl',
-      1 => 1495131851,
+      1 => 1495776107,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_591f1e19cc7546_97756257 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5927bb6c2d77f1_79924776 (Smarty_Internal_Template $_smarty_tpl) {
 if (!is_callable('smarty_modifier_debug_print_var')) require_once '/Applications/MAMP/htdocs/iumio-framework/vendor/libs/smarty/libs/plugins/modifier.debug_print_var.php';
 if (isset($_smarty_tpl->tpl_vars['iumiotaskbar']->value) && !empty($_smarty_tpl->tpl_vars['iumiotaskbar']->value)) {?>
     <!-- iumioTaskBar component -->
@@ -36,8 +36,14 @@ if (isset($_smarty_tpl->tpl_vars['iumiotaskbar']->value) && !empty($_smarty_tpl-
 </a></li>
         <li><a href="#" class="active"><strong><?php echo htmlspecialchars($_smarty_tpl->tpl_vars['iumiotaskbar']->value['call_app'], ENT_QUOTES, 'UTF-8');?>
 </strong></a></li>
-        <li><a href="#" id="iumioTaskBarPublishAssets" attr-href="<?php echo htmlspecialchars($_smarty_tpl->tpl_vars['iumiotaskbar']->value['publish_assets'], ENT_QUOTES, 'UTF-8');?>
-">Publish all assets</a></li>
+        <li id="iumioTaskBarAssets" class="iumioTaskBarDropdown"><a href="#">Assets</a>
+            <ul class="iumioTaskBarDropdownContent">
+                <li class="iumioTaskBarAssetsClearAll" attr-href="<?php echo htmlspecialchars($_smarty_tpl->tpl_vars['iumiotaskbar']->value['publish_assets'], ENT_QUOTES, 'UTF-8');?>
+">Publish all</li>
+                <li class="iumioTaskBarAssetsPublishAll" attr-href="<?php echo htmlspecialchars($_smarty_tpl->tpl_vars['iumiotaskbar']->value['clear_assets'], ENT_QUOTES, 'UTF-8');?>
+">Clear all</li>
+            </ul>
+        </li>
         <li><a href="#" id="iumioTaskBarSwitchApp" attr-href="<?php echo htmlspecialchars($_smarty_tpl->tpl_vars['iumiotaskbar']->value['all_simple_apps'], ENT_QUOTES, 'UTF-8');?>
 ">Switch to default</a></li>
         <li><a href="<?php echo htmlspecialchars($_smarty_tpl->tpl_vars['iumiotaskbar']->value['manager'], ENT_QUOTES, 'UTF-8');?>
