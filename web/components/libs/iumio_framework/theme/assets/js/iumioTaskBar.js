@@ -117,7 +117,7 @@ function getSimpleApps() {
     xhr.addEventListener('readystatechange', function() {
         if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
             var result = JSON.parse(xhr.response);
-            result = result['result'];
+            result = result['results'];
             if (ObjectLength(result) > 0)
             {
                 elem.parentNode.className = " iumioTaskBarDropdown";

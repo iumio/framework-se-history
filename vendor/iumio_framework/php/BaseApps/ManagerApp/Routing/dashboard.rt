@@ -8,3 +8,11 @@ name : iumio_manager_index_2
 path :  /_manager
 method : Dashboard%index
 
+name : iumio_manager_logs_get
+path :  /_manager/get/logs
+method : Dashboard%getlastlog
+
+name : iumio_manager_app_default_get
+path :  /_manager/get/app/default
+method : Dashboard%getDefaultApp
+

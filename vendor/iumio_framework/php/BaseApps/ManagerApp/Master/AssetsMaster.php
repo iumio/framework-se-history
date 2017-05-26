@@ -45,24 +45,34 @@ class AssetsMaster extends Master
         }
     }
 
-    /** Delete a cache for all environment
+    /** clear assets of all or one app
+     * @param string $appname App name
+     * @return int JSON response
      */
-    private function deleteAllCache()
+    public function clearActivity(string $appname):int
     {
-        $a = array("dev", "preprod", "prod");
-        for ($i = 0; $i < count($a); $i++)
-            $this->callDelCreaServer($a[$i]);
-    }
-
-
-    /** Clear cache system
-     */
-    public function cacheClearAllActivity()
-    {
-        $this->deleteAllCache();
+        if ($appname != "_all" && !is_dir(ROOT."/web/components/apps/".strtolower($appname)))
+            return ((new Response())->JSON_RENDER(array("code" => 500, "msg" => "App assets does not exist")));
+        if ($appname == "_all")
+            Server::delete(ROOT."/web/components/apps/", 'directory');
+        else
+            Server::delete(ROOT."/web/components/apps/".strtolower($appname), 'directory');
         return ((new Response())->JSON_RENDER(array("code" => 200, "msg" => "OK")));
     }
 
-
+    /** clear assets of all or one app
+     * @param string $appname App name
+     * @return int JSON response
+     */
+    public function clear(string $appname):int
+    {
+        if ($appname != "_all" && !is_dir(ROOT."/web/components/apps/".strtolower($appname)))
+            return (0);
+        if ($appname == "_all")
+            Server::delete(ROOT."/web/components/apps/", 'directory');
+        else
+            Server::delete(ROOT."/web/components/apps/".strtolower($appname), 'directory');
+        return (1);
+    }
 
 }

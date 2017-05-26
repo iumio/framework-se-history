@@ -409,6 +409,17 @@ abstract class iumioUltimaCore extends iumioUltima
             case 'VERSION_STAGE':
                 $rs = self::VERSION_STAGE;
                 break;
+            default:
+                try
+                {
+                    $rs = $_SERVER[$infoname];
+                }
+                catch (\Exception $e)
+                {
+                    throw new Server500(new \ArrayObject(array("explain" => "iumio Ultima Core Error: The server info $infoname does not exist", "solution" => "Check your keyword")));
+                }
+
+                break;
         }
         return ($rs);
     }

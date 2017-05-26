@@ -80,4 +80,13 @@ class Debug implements DebugInterface
        return true;
    }
 
+    /** Get Logs list for specific environment
+     * @return array Logs list
+     */
+   static public function getLogs():array
+   {
+       return ((array) JL::open(ROOT_LOGS.strtolower(ENVIRONMENT).".log.json"));
+   }
+
+
 }

@@ -8,7 +8,7 @@ use iumioFramework\Core\Requirement\{iumioUltimaCore, Ultima\iumioUltima};
 use iumioFramework\Core\Base\Database\iumioDatabaseAccess as IDA;
 use iumioFramework\Exception\Server\{Server500, Server404};
 use iumioFramework\Core\Base\Http\Session\iumioSession;
-
+use iumioFramework\Core\Base\Json\JsonListener as JL;
 
 /**
  * Class iumioUltimaMaster
@@ -203,7 +203,41 @@ class iumioUltimaMaster extends iumioUltima
        $path = implode("/", $arraypath);
 
         return ($path);
+    }
 
+    /** Return instance of specific master in current app
+     * @param string $mastername master name
+     * @return mixed Class instance
+     * @throws Server500
+     */
+    final protected function getMaster(string $mastername)
+    {
+       if (IS_IUMIO_COMPONENT == 1)
+           $file = JL::open(BASE_APPS."apps.json");
+       else
+           $file = JL::open(CONFIG_DIR."apps.json");
+
+       $app = null;
+
+       foreach ($file as $one => $val)
+       {
+           if (isset($val->name) && APP_CALL == $val->name)
+           {
+               $app = $val;
+               break;
+           }
+       }
+
+        if ($app != null)
+        {
+            $class = APP_CALL."\Master\\".$mastername."Master";
+            if (class_exists ($class))
+                return (new $class);
+            else
+                throw new Server500(new \ArrayObject(array("explain" => "Master <em style='font-size: 16px;font-family: Arial'>".$mastername."</em> doest not exist", "solution" => "Please check masters declaration")));
+        }
+        else
+            throw new Server500(new \ArrayObject(array("explain" => ((IS_IUMIO_COMPONENT == 1)? "BaseApp" : "App" )." <em style='font-size: 16px;font-family: Arial'>".APP_CALL."</em> doest not exist in apps.json", "solution" => "Please check app declaration")));
     }
 
 }

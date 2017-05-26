@@ -31,9 +31,10 @@
 {block name="principal"}
 {/block}
 
+{include file='partials/modal.tpl'}
+</div>
+</div>
 
-</div>
-</div>
 <!--   Core JS Files   -->
 {jquery}
 {bootstrap_js min='yes'}

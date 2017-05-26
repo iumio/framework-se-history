@@ -1,7 +1,55 @@
-{extends 'template.tpl'}
-{block name="principal"}
-    <div class="wrapper">
-        {include file='partials/sidebar.tpl'}
+<?php
+/* Smarty version 3.1.32-dev-1, created on 2017-05-24 22:08:51
+  from "/Applications/MAMP/htdocs/iumio-framework/vendor/iumio_framework/php/BaseApps/ManagerApp/Front/views/assetsmanager.tpl" */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '3.1.32-dev-1',
+  'unifunc' => 'content_5925e85358ce03_74675847',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    '7fe7e7930e1626181c81f8d3d0d3091f25092d65' => 
+    array (
+      0 => '/Applications/MAMP/htdocs/iumio-framework/vendor/iumio_framework/php/BaseApps/ManagerApp/Front/views/assetsmanager.tpl',
+      1 => 1495129173,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+    'file:partials/sidebar.tpl' => 1,
+    'file:partials/footer.tpl' => 1,
+  ),
+),false)) {
+function content_5925e85358ce03_74675847 (Smarty_Internal_Template $_smarty_tpl) {
+$_smarty_tpl->_loadInheritance();
+$_smarty_tpl->inheritance->init($_smarty_tpl, true);
+?>
+
+<?php 
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_18480379755925e853583195_56043212', "principal");
+?>
+
+
+<?php $_smarty_tpl->inheritance->endChild($_smarty_tpl, 'template.tpl');
+}
+/* {block "principal"} */
+class Block_18480379755925e853583195_56043212 extends Smarty_Internal_Block
+{
+public $subBlocks = array (
+  'principal' => 
+  array (
+    0 => 'Block_18480379755925e853583195_56043212',
+  ),
+);
+public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
+?>
+
+<div class="wrapper">
+    <?php $_smarty_tpl->_subTemplateRender('file:partials/sidebar.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+?>
+
     <div class="main-panel">
         <nav class="navbar navbar-default navbar-fixed">
             <div class="container-fluid">
@@ -12,7 +60,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">App Manager</a>
+                    <a class="navbar-brand" href="#">Assets Manager</a>
                 </div>
 
             </div>
@@ -33,11 +81,11 @@
                                     <th>Name</th>
                                     <th>Is default</th>
                                     <th>Namespace</th>
-                                    <th>Swich to default</th>
+                                    <th>Edit</th>
                                     <th>Delete</th>
                                     </thead>
-                                    <tbody class="applist" attr-href="{route name='iumio_manager_app_manager_get_simple_apps'}">
-                                    <!--<tr>
+                                    <tbody>
+                                    <tr>
                                         <td>0</td>
                                         <td>DakotaRice</td>
                                         <td>Yes</td>
@@ -52,7 +100,7 @@
                                         <td>B/B</td>
                                         <td><button>E</button></td>
                                         <td><button>D</button></td>
-                                    </tr>-->
+                                    </tr>
                                     </tbody>
                                 </table>
 
@@ -62,8 +110,15 @@
                 </div>
             </div>
         </div>
-            {include file='partials/footer.tpl'}
 
-        </div>
+        <?php $_smarty_tpl->_subTemplateRender('file:partials/footer.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+?>
+
+
     </div>
-{/block}
+</div>
+<?php
+}
+}
+/* {/block "principal"} */
+}

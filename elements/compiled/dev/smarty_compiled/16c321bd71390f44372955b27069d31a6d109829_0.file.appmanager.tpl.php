@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32-dev-1, created on 2017-05-19 18:32:22
+/* Smarty version 3.1.32-dev-1, created on 2017-05-24 22:07:37
   from "/Applications/MAMP/htdocs/iumio-framework/vendor/iumio_framework/php/BaseApps/ManagerApp/Front/views/appmanager.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32-dev-1',
-  'unifunc' => 'content_591f1e16047704_63889618',
+  'unifunc' => 'content_5925e8096f10a5_28379568',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '16c321bd71390f44372955b27069d31a6d109829' => 
     array (
       0 => '/Applications/MAMP/htdocs/iumio-framework/vendor/iumio_framework/php/BaseApps/ManagerApp/Front/views/appmanager.tpl',
-      1 => 1495052871,
+      1 => 1495656456,
       2 => 'file',
     ),
   ),
@@ -22,22 +22,22 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:partials/footer.tpl' => 1,
   ),
 ),false)) {
-function content_591f1e16047704_63889618 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5925e8096f10a5_28379568 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1967253938591f1e1603bd33_60612185', "principal");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_8266875405925e808ba8e57_92261150', "principal");
 $_smarty_tpl->inheritance->endChild($_smarty_tpl, 'template.tpl');
 }
 /* {block "principal"} */
-class Block_1967253938591f1e1603bd33_60612185 extends Smarty_Internal_Block
+class Block_8266875405925e808ba8e57_92261150 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'principal' => 
   array (
-    0 => 'Block_1967253938591f1e1603bd33_60612185',
+    0 => 'Block_8266875405925e808ba8e57_92261150',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -78,11 +78,12 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
                                     <th>Name</th>
                                     <th>Is default</th>
                                     <th>Namespace</th>
-                                    <th>Edit</th>
+                                    <th>Swich to default</th>
                                     <th>Delete</th>
                                     </thead>
-                                    <tbody>
-                                    <tr>
+                                    <tbody class="applist" attr-href="<?php echo iumioFramework\Core\Additionnal\Template\iumioViewBasePlugin::route(array('name'=>'iumio_manager_app_manager_get_simple_apps'),$_smarty_tpl);?>
+">
+                                    <!--<tr>
                                         <td>0</td>
                                         <td>DakotaRice</td>
                                         <td>Yes</td>
@@ -97,7 +98,7 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
                                         <td>B/B</td>
                                         <td><button>E</button></td>
                                         <td><button>D</button></td>
-                                    </tr>
+                                    </tr>-->
                                     </tbody>
                                 </table>
 

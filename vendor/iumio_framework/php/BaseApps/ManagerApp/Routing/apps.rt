@@ -15,3 +15,7 @@ method : Apps%getSimpleApps
 name : iumio_manager_app_manager_switch_default_app
 path :  /_manager/apps/switch_default/{appname}
 method : Apps%switchDefault
+
+name : iumio_manager_app_manager_remove_app
+path :  /_manager/apps/remove/{appname}
+method : Apps%remove
