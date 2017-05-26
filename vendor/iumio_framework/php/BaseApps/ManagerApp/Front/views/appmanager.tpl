@@ -13,6 +13,7 @@
                         <span class="icon-bar"></span>
                     </button>
                     <a class="navbar-brand" href="#">App Manager</a>
+                    <a class="btn-default btn createapp"  attr-href="{route name='iumio_manager_app_manager_create_app'}">Create a new app</a>
                 </div>
 
             </div>

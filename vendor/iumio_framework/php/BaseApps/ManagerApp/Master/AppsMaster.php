@@ -104,4 +104,72 @@ class AppsMaster extends Master
         $assets->clear($appname);
         return ((new Response())->JSON_RENDER(array("code" => 200, "msg" => "OK")));
     }
+
+    /** Create one app
+     * @return int JSON render
+     */
+    public function createActivity():int
+    {
+        $name = $this->get("request")->get("name");
+        $default = $this->get("request")->get("default");
+        $template = $this->get("request")->get("template");
+
+        if (trim($name) == "")
+            return ((new Response())->JSON_RENDER(array("code" => 500, "msg" => "Error on app parameters")));
+
+        $temdirbase = ADDITIONALS."AppTemplate";
+        $tempdir = ($template == "no")? $temdirbase.'/notemplate/{appname}/' : $temdirbase.'/template/{appname}/';
+        iumioServerManager::copy($tempdir, ROOT_APPS."/apps/".$name, 'directory');
+        $napp = ROOT_APPS."/apps/".$name;
+
+        // APP
+        $f = file_get_contents($napp."/{appname}.php.local");
+        $str = str_replace("{appname}", $name, $f);
+        file_put_contents($napp."/{appname}.php.local", $str);
+        rename($napp."/{appname}.php.local", $napp."/$napp.php");
+
+        // RT
+        $f = file_get_contents($napp."/Routing/default.rt");
+        $str = str_replace("{appname}", $name, $f);
+        file_put_contents($napp."/Routing/default.rt", $str);
+
+        // MASTER
+        $f = file_get_contents($napp."/Master/DefaultMaster.php.local");
+        $str = str_replace("{appname}", $napp, $f);
+        file_put_contents($napp."/Master/DefaultMaster.php.local", $str);
+        rename($napp."/Master/DefaultMaster.php.local", $napp."/Master/DefaultMaster.php");
+
+        // REGISTER TO APP CORE
+        $f = json_decode(file_get_contents(ROOT."/elements/config_files/apps.json"));
+        $lastapp = 0;
+        foreach ($f as $one => $val) $lastapp++;
+        if ($default == "yes")
+        {
+            foreach ($f as $one => $val)
+            {
+                if ($val->isdefault == "yes") {
+                    $val->isdefault = "no";
+                    break;
+                }
+            }
+        }
+        $f->$lastapp = new \stdClass();
+        $f->$lastapp->name = $name;
+        $f->$lastapp->isdefault = $default;
+        $f->$lastapp->class = "\\".$this->params['appname']."\\".$name;
+        $ndate = new \DateTime('UTC');
+        $f->$lastapp->creation = $ndate;
+        $f->$lastapp->update = $ndate;
+        $f = json_encode($f);
+        file_put_contents(ROOT."/elements/config_files/apps.json", $f);
+        if ($template == "yes")
+        {
+            $assets = $this->getMaster("Assets");
+            $assets->publish();
+        }
+
+
+        return (1);
+
+    }
 }

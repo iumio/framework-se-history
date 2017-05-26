@@ -18,6 +18,7 @@
     {css_manager name='animate.min'}
     {css_manager name='light-bootstrap-dashboard'}
     {css_manager name='demo'}
+    {css_manager name='index'}
 
     <!--     Fonts and icons     -->
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">

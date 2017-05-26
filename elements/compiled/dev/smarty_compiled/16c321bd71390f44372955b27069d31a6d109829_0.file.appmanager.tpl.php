@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32-dev-1, created on 2017-05-24 22:07:37
+/* Smarty version 3.1.32-dev-1, created on 2017-05-26 08:37:43
   from "/Applications/MAMP/htdocs/iumio-framework/vendor/iumio_framework/php/BaseApps/ManagerApp/Front/views/appmanager.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32-dev-1',
-  'unifunc' => 'content_5925e8096f10a5_28379568',
+  'unifunc' => 'content_5927cd370facd7_12368975',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '16c321bd71390f44372955b27069d31a6d109829' => 
     array (
       0 => '/Applications/MAMP/htdocs/iumio-framework/vendor/iumio_framework/php/BaseApps/ManagerApp/Front/views/appmanager.tpl',
-      1 => 1495656456,
+      1 => 1495780661,
       2 => 'file',
     ),
   ),
@@ -22,22 +22,22 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:partials/footer.tpl' => 1,
   ),
 ),false)) {
-function content_5925e8096f10a5_28379568 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5927cd370facd7_12368975 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_8266875405925e808ba8e57_92261150', "principal");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_4665326245927cd36ab2fe0_41973035', "principal");
 $_smarty_tpl->inheritance->endChild($_smarty_tpl, 'template.tpl');
 }
 /* {block "principal"} */
-class Block_8266875405925e808ba8e57_92261150 extends Smarty_Internal_Block
+class Block_4665326245927cd36ab2fe0_41973035 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'principal' => 
   array (
-    0 => 'Block_8266875405925e808ba8e57_92261150',
+    0 => 'Block_4665326245927cd36ab2fe0_41973035',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -58,6 +58,8 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
                         <span class="icon-bar"></span>
                     </button>
                     <a class="navbar-brand" href="#">App Manager</a>
+                    <a class="btn-default btn createapp"  attr-href="<?php echo iumioFramework\Core\Additionnal\Template\iumioViewBasePlugin::route(array('name'=>'iumio_manager_app_manager_create_app'),$_smarty_tpl);?>
+">Create a new app</a>
                 </div>
 
             </div>

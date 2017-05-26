@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32-dev-1, created on 2017-05-19 19:30:23
+/* Smarty version 3.1.32-dev-1, created on 2017-05-26 07:42:07
   from "/Applications/MAMP/htdocs/iumio-framework/apps/TestApp/Front/views/template.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32-dev-1',
-  'unifunc' => 'content_591f2bafd7e917_80969408',
+  'unifunc' => 'content_5927c02f24d8a4_88174270',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '824b64514e1ad30e59ddc4efd3de7d178dca963d' => 
     array (
       0 => '/Applications/MAMP/htdocs/iumio-framework/apps/TestApp/Front/views/template.tpl',
-      1 => 1495185478,
+      1 => 1495777321,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_591f2bafd7e917_80969408 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5927c02f24d8a4_88174270 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, false);
 ?>
@@ -62,7 +62,7 @@ $_smarty_tpl->inheritance->init($_smarty_tpl, false);
 ');">
     <h1>Welcome to iumio Starter </h1>
     <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_90993219591f2baf518bf3_68642062', "parameters");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_8988275805927c02ec2cad6_49928270', "parameters");
 ?>
 
 
@@ -224,12 +224,12 @@ $_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_90993219591f2baf51
 </body>
 </html><?php }
 /* {block "parameters"} */
-class Block_90993219591f2baf518bf3_68642062 extends Smarty_Internal_Block
+class Block_8988275805927c02ec2cad6_49928270 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'parameters' => 
   array (
-    0 => 'Block_90993219591f2baf518bf3_68642062',
+    0 => 'Block_8988275805927c02ec2cad6_49928270',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {

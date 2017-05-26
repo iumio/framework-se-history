@@ -114,11 +114,72 @@ var getAppListSimple = function () {
                         "<td>"+value['name']+"</td>" +
                         "<td>"+value['isdefault']+"</td>" +
                         "<td>"+value['class']+"</td>" +
-                        "<td><button class='todefaultapp' attr-href='"+value['link']+"' attr-appname='"+value['name']+"'>SW</button></td>"+
-                        "<td><button class='deleteapp' attr-href='"+value['link_remove']+"' attr-appname='"+value['name']+"'>DE</button></td>"+
+                        "<td><button class=' btn-info btn todefaultapp' attr-href='"+value['link']+"' attr-appname='"+value['name']+"'>SW</button></td>"+
+                        "<td><button class='btn-info btn deleteapp' attr-href='"+value['link_remove']+"' attr-appname='"+value['name']+"'>DE</button></td>"+
                         "</tr>");
                 });
                 simpleapps = results;
+
+            }
+        }
+    })
+};
+
+/**
+ * Create on app
+ */
+
+var createOneApp = function (href) {
+
+    var selector = $('.applist');
+    var name      = $("input[type=text][name=appname]").val();
+    var template  = $("input[type=checkbox][name=template]:checked" ).val();
+    var isdefault = $( "input[type=checkbox][name=isdefault]:checked" ).val();
+    var selecttorModal = $("#modalManager");
+
+    if (name === "")
+    {
+        selecttorModal.find(".onealert").html("Oups! Enter an app name");
+        selecttorModal.find(".onealert").show();
+    }
+   if (typeof template !== "undefined")
+       template = "yes";
+    else
+        template = "no";
+
+    if (typeof isdefault !== "undefined")
+        isdefault = "yes";
+    else
+        isdefault = "no";
+
+    selecttorModal.find(".onealert").hide();
+
+    $.ajax({
+        url : href,
+        type : 'POST',
+        dataType : 'json',
+        data : {"name" : name, "template" : template, "default" : isdefault},
+        success : function(data){
+            console.log(data);
+            if (data['code'] === 200)
+            {
+               /* console.log(data);
+                var results = data['results'];
+                selector.html("");
+                if (results.length === 0)
+                    return (selector.append("<tr><td colspan='6'>No apps</td></tr>"));
+
+                $.each(results, function (index, value) {
+                    selector.append("<tr>" +
+                        "<td>"+index+"</td>" +
+                        "<td>"+value['name']+"</td>" +
+                        "<td>"+value['isdefault']+"</td>" +
+                        "<td>"+value['class']+"</td>" +
+                        "<td><button class=' btn-info btn todefaultapp' attr-href='"+value['link']+"' attr-appname='"+value['name']+"'>SW</button></td>"+
+                        "<td><button class='btn-info btn deleteapp' attr-href='"+value['link_remove']+"' attr-appname='"+value['name']+"'>DE</button></td>"+
+                        "</tr>");
+                });*/
+
 
             }
         }
@@ -241,7 +302,44 @@ $(document).ready(function () {
             case "removeapp":
                 removeApp(href);
                 break;
+            case "createvalidapp":
+                createOneApp(href);
+                break;
         }
+    });
+
+
+    /**
+     * Event to show create app modal
+     */
+    $(document).on('click', ".createapp", function () {
+        var selector = $(this);
+        var href = selector.attr("attr-href");
+
+        var selecttorModal = $("#modalManager");
+
+        selecttorModal.find(".modal-header").html("<strong class='text-center'>Create one app</strong>");
+        selecttorModal.find(".modal-header").append("<p class='alert alert-danger onealert' style='display: none'></p>");
+        selecttorModal.find(".modal-body").html("<h4 class='text-center'>Fill in the fields to create an application.</h4>");
+        selecttorModal.find(".modal-body").append("<br>");
+        selecttorModal.find(".modal-body").append("<div class='container'><div class='row'>");
+
+        selecttorModal.find(".modal-body").append("<div class='form-group text-center'><label>Name</label><input type='text' name='appname' class='form-control'></div>");
+        selecttorModal.find(".modal-body").append("</div></div>");
+        selecttorModal.find(".modal-body").append('<div class="container-new">' +
+            '<div class="form-group text-center"> <label>Default template</label> <div class="check"><input id="check" type="checkbox" name="template" style="display: none"/><label for="check"><div class="box"><i class="fa fa-check"></i></div> </label></div></div>' +
+            '<div class="form-group text-center"><label>Default app</label> <div class="check"><input id="check1" name="isdefault"  type="checkbox" style="display: none" /><label for="check1"><div class="box"><i class="fa fa-check"></i></div> </label></div></div>' +
+            '</div>');
+
+        selecttorModal.find(".btn-close").html("Close");
+        selecttorModal.find(".btn-valid").html("Create");
+
+        selecttorModal.find(".btn-valid").attr("attr-href", href);
+        selecttorModal.find(".btn-valid").attr("attr-event", "createvalidapp");
+        selecttorModal.find(".btn-close").show();
+        selecttorModal.find(".btn-valid").show();
+
+        modal("show");
     })
 
 });

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32-dev-1, created on 2017-05-24 21:43:41
+/* Smarty version 3.1.32-dev-1, created on 2017-05-26 09:15:05
   from "/Applications/MAMP/htdocs/iumio-framework/vendor/iumio_framework/php/BaseApps/ManagerApp/Front/views/template.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32-dev-1',
-  'unifunc' => 'content_5925e26d5e6362_52302327',
+  'unifunc' => 'content_5927d5f99abba6_06431418',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '9636b9e2ab66ecd95945621d4c4590b795da12c8' => 
     array (
       0 => '/Applications/MAMP/htdocs/iumio-framework/vendor/iumio_framework/php/BaseApps/ManagerApp/Front/views/template.tpl',
-      1 => 1495655017,
+      1 => 1495782902,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:partials/modal.tpl' => 1,
   ),
 ),false)) {
-function content_5925e26d5e6362_52302327 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5927d5f99abba6_06431418 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, false);
 ?>
@@ -54,6 +54,8 @@ $_smarty_tpl->inheritance->init($_smarty_tpl, false);
 
     <?php echo iumioFramework\Core\Additionnal\Template\iumioViewBasePlugin::css_im(array('name'=>'demo'),$_smarty_tpl);?>
 
+    <?php echo iumioFramework\Core\Additionnal\Template\iumioViewBasePlugin::css_im(array('name'=>'index'),$_smarty_tpl);?>
+
 
     <!--     Fonts and icons     -->
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
@@ -66,7 +68,7 @@ $_smarty_tpl->inheritance->init($_smarty_tpl, false);
 <body>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_6974309535925e26c502df2_55517229', "principal");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_6000903975927d5f8892989_09876677', "principal");
 ?>
 
 
@@ -118,12 +120,12 @@ $_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_6974309535925e26c5
 </body>
 </html><?php }
 /* {block "principal"} */
-class Block_6974309535925e26c502df2_55517229 extends Smarty_Internal_Block
+class Block_6000903975927d5f8892989_09876677 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'principal' => 
   array (
-    0 => 'Block_6974309535925e26c502df2_55517229',
+    0 => 'Block_6000903975927d5f8892989_09876677',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {

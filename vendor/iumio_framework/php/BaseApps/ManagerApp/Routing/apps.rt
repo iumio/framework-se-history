@@ -19,3 +19,7 @@ method : Apps%switchDefault
 name : iumio_manager_app_manager_remove_app
 path :  /_manager/apps/remove/{appname}
 method : Apps%remove
+
+name : iumio_manager_app_manager_create_app
+path :  /_manager/apps/create
+method : Apps%create
