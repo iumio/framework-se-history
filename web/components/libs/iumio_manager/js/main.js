@@ -382,6 +382,42 @@ $(document).ready(function () {
 
 
     /**
+     * Event to show create app modal
+     */
+    $(document).on('click', ".createapp", function () {
+        var selector = $(this);
+        var href = selector.attr("attr-href");
+
+        var selecttorModal = $("#modalManager");
+
+        selecttorModal.find(".modal-header").html("<strong class='text-center'>Create one app</strong>");
+        selecttorModal.find(".modal-header").append("<p class='alert alert-danger onealert' style='display: none'></p>");
+        selecttorModal.find(".modal-body").html("<h4 class='text-center'>Fill in the fields to create an application.</h4>");
+        selecttorModal.find(".modal-body").append("<br>");
+        selecttorModal.find(".modal-body").append("<div class='container'><div class='row'>");
+
+        selecttorModal.find(".modal-body").append("<div class='form-group text-center'><label>Name</label><input type='text' name='appname' class='form-control'></div>");
+        selecttorModal.find(".modal-body").append("</div></div>");
+        selecttorModal.find(".modal-body").append('<div class="container-new">' +
+            '<div class="form-group text-center"> <label>Default template</label> <div class="check"><input id="check" type="checkbox" name="template" style="display: none"/><label for="check"><div class="box"><i class="fa fa-check"></i></div> </label></div></div>' +
+            '<div class="form-group text-center"><label>Default app</label> <div class="check"><input id="check1" name="isdefault"  type="checkbox" style="display: none" /><label for="check1"><div class="box"><i class="fa fa-check"></i></div> </label></div></div>' +
+            '</div>');
+
+        selecttorModal.find(".btn-close").html("Close");
+        selecttorModal.find(".btn-valid").html("Create");
+
+        selecttorModal.find(".btn-valid").attr("attr-href", href);
+        selecttorModal.find(".btn-valid").attr("attr-event", "createvalidapp");
+        selecttorModal.find(".btn-close").show();
+        selecttorModal.find(".btn-valid").show();
+
+        modal("show");
+    });
+
+
+
+
+/**
      * Event to clear logs
      */
     $(document).on('click', ".clearlogs", function () {
@@ -403,6 +439,8 @@ $(document).ready(function () {
 
         modal("show");
     });
+
+
 
 });
 
