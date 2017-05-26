@@ -167,4 +167,32 @@ class iumioServerManager
         closedir($dir);
     }
 
+    /** Check if element is readable
+     * @param string $path Element path
+     * @return bool Is element is readable or not
+     */
+    static public function checkIsReadable(string $path):bool
+    {
+        return (is_readable($path));
+    }
+
+
+    /** Check if element is executable
+ * @param string $path Element path
+ * @return bool Is element is executable or not
+ */
+    static public function checkIsExecutable(string $path):bool
+    {
+        return (is_executable($path));
+    }
+
+    /** Check if element is writable
+     * @param string $path Element path
+     * @return bool Is element is writable or not
+     */
+    static public function checkIsWritable(string $path):bool
+    {
+        return (is_writable($path));
+    }
+
 }

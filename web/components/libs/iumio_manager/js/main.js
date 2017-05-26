@@ -2,6 +2,16 @@
  * iumio Framework Manager main JS
  **/
 
+
+/**
+ * Check if string does not contain any specials characters
+ * @param str String to analyse
+ * @returns {boolean} If string is valid
+ */
+var isValidStr = function (str) {
+    return !/[~`!#$%\^&*+=\-\[\]\\';,/{}|\\":<>\?]/g.test(str);
+};
+
 /**
  * Open or close a modal
  * @param instruction To close or open
@@ -180,7 +190,7 @@ var createOneApp = function (href) {
         return (false);
     }
 
-    if (name === "App" || name.length <= 3)
+    if (name === "App" || name.length <= 3 || !isValidStr(name))
     {
         selecttorModal.find(".onealert").html("Oups! Error on app name. <br>Your app name must to end with 'App' keyword (example TestApp) ");
         selecttorModal.find(".onealert").show();
@@ -191,7 +201,7 @@ var createOneApp = function (href) {
     var a     = name[name.length - 3];
     var conca = a + p1 + p2;
 
-    if (conca !== "App") {
+    if (conca !== "App" && isValidStr(name)) {
         selecttorModal.find(".onealert").html("Oups! Error on app name. <br>Your app name must to end with 'App' keyword (example TestApp) ");
         selecttorModal.find(".onealert").show();
         return (false);

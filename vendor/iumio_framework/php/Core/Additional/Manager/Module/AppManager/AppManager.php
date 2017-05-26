@@ -59,6 +59,7 @@ class AppManager implements ModuleInterface
     {
         if ($appname == "App") return (-1);
         if (strpos($appname, "App") == false) return (-1);
+        if (preg_match('/[\'^£$%&*()}{@#~?><>,|=+¬-]/', $appname)) return (-1);
         return (1);
     }
 

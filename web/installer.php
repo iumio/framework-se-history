@@ -741,6 +741,7 @@ function initialJSON()
 
             <div id="displaying" class="" style="display: none">
                 <h3 style="text-align: center; font-size: 30px">iumio Framework Licence</h3>
+                <p id="errorlicence" style="display: none;text-align: center;font-size: 20px; color: #761c19;">Please check "I agree and accept licence terms and conditions" to continue app installation.</p>
                 <div class="licence">
                     <h3 style="text-align: center;">GNU GENERAL PUBLIC LICENSE</h3>
                     <p style="text-align: center;">Version 3, 29 June 2007</p>
@@ -1430,7 +1431,7 @@ function initialJSON()
                 </div>
                 <br>
                 <br>
-                <div style="text-align: center; font-size: 20px; color: white"><span>I agree and accept licence terms and conditions.</span></div>
+                <div style="text-align: center; font-size: 20px; color: white"><input type="checkbox" id="cterms" style="width: 30px;"><span>I agree and accept licence terms and conditions.</span></div>
                 <br>
                 <br>
                 <div style="text-align: center"><button id="decline">Decline</button> <button id="accept">Accept</button></div>
@@ -1523,6 +1524,16 @@ function initialJSON()
         return re.exec(window.location.href);
     }
 
+    function isValid(str){
+        return !/[~`!#$%\^&*+=\-\[\]\\';,/{}|\\":<>\?]/g.test(str);
+    }
+
+    function redirect() {
+        setTimeout(function () {
+         location.href= (getBaseUrl()[0])+"iumio_dev.php/index";
+         }, 10000);
+    }
+
     console.log(location.origin);
     console.log(location.pathname);
     console.log();
@@ -1543,6 +1554,12 @@ function initialJSON()
         location.reload();
     });
     document.getElementById("accept").addEventListener("click", function () {
+        var check = document.querySelector("#cterms:checked");
+        if (check === null)
+        {
+            document.getElementById("errorlicence").style.display = "block";
+            return ;
+        }
         document.getElementById("displaying").style.display = "none";
         document.getElementById("step3").style.display = "block";
     })
@@ -1551,7 +1568,7 @@ function initialJSON()
         appinfo[1] = 1;
         appinfo[2] = 0;
         document.getElementById("appnamers").innerHTML = appinfo[0];
-        document.getElementById("templaters").innerHTML = (appinfo[2] == 0)? "No" : "Yes";
+        document.getElementById("templaters").innerHTML = (appinfo[2] === 0)? "No" : "Yes";
         document.getElementById("step5").style.display = "none";
         document.getElementById("step6").style.display = "block";
     })
@@ -1560,10 +1577,10 @@ function initialJSON()
         appinfo[1] = 1;
         appinfo[2] = 1;
         document.getElementById("appnamers").innerHTML = appinfo[0];
-        document.getElementById("templaters").innerHTML = (appinfo[2] == 0)? "No" : "Yes";
+        document.getElementById("templaters").innerHTML = (appinfo[2] === 0)? "No" : "Yes";
         document.getElementById("step5").style.display = "none";
         document.getElementById("step6").style.display = "block";
-    })
+    });
 
     document.getElementById("continue").addEventListener("click", function () {
         document.getElementById("step3").style.display = "none";
@@ -1587,6 +1604,7 @@ function initialJSON()
             {
                 document.getElementById("step9").style.display = "none";
                 document.getElementById("step8").style.display = "block";
+                redirect();
             }
             else
             {
@@ -1597,11 +1615,11 @@ function initialJSON()
         window.setTimeout(function () {
             xhttp.send(sender);
         }, 4000);
-    })
+    });
 
     document.getElementById("continue2").addEventListener("click", function () {
         var appname = document.getElementById("appname").value;
-        if (appname == "App" || appname.length <= 3 )
+        if (appname === "App" || appname.length <= 3 ||  !isValid(appname))
             document.getElementById("error1").style.display = "block";
         else if (appname.length <= 3 )
             document.getElementById("error1").style.display = "block";
@@ -1613,22 +1631,18 @@ function initialJSON()
             var a = appname[appname.length - 3];
             var conca = a+p1+p2;
 
-            if (conca == "App")
+
+            if (conca === "App" && isValid(appname))
             {
                 appinfo[0] = appname.charAt(0).toUpperCase() + appname.slice(1);
                 document.getElementById("step4").style.display = "none";
                 document.getElementById("step5").style.display = "block";
-                setTimeout(function () {
-                    location.href= (getBaseUrl()[0])+"iumio_dev.php/index";
-                }, 10000)
             }
             else
-            {
                 document.getElementById("error1").style.display = "block";
-            }
 
         }
 
-    })
+    });
 </script>
 </body></html>

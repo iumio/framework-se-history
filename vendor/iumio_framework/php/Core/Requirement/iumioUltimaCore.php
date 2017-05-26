@@ -1,6 +1,7 @@
 <?php
 
 namespace iumioFramework\Core\Requirement;
+use iumioFramework\Core\Additionnal\Server\iumioServerManager;
 use iumioFramework\Core\Base\Http\HttpListener;
 use iumioFramework\Masters\Routing;
 use iumioFramework\Core\Requirement\{Relexion\iumioReflexion, Ultima\iumioUltima};
@@ -133,6 +134,22 @@ abstract class iumioUltimaCore extends iumioUltima
     public function getEnvironment()
     {
         return $this->environment;
+    }
+
+    /**
+     * Check the correct permission in directory :
+     * /elements
+     * /
+     */
+    public function checkPermission():int
+    {
+        if (!iumioServerManager::checkIsExecutable(ROOT."elements/") || !iumioServerManager::checkIsReadable(ROOT."elements/") || !iumioServerManager::checkIsWritable(ROOT."elements/"))
+        {
+            throw new Server500(new \ArrayObject(array("explain" =>"iumio Ultima Core Error : Directory elements have not good permission", "solution" => "Must be read, write, executable permission")));
+            return (0);
+        }
+        return (1);
+
     }
 
 

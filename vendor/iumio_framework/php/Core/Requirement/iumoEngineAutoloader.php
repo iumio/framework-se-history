@@ -17,6 +17,7 @@ class iumoEngineAutoloader {
      */
     static public function register(string $class)
     {
+        self::checkPermission();
         // $date = new DateTime();
         if (self::$env != "DEV")
         {
@@ -212,6 +213,26 @@ class iumoEngineAutoloader {
             $classes = $final;
         }
         return $classes;
+    }
+
+    /**
+     * Check the correct permission in directory :
+     * /elements
+     * /
+     */
+    static public function checkPermission():int
+    {
+        $base =  __DIR__."/../../../../../";
+        if (!is_executable($base."elements/") || !is_readable($base."elements/") || !is_writable($base."elements/"))
+            throw new \Exception("Directory [elements] have not good permission : Must be read, write, executable permission");
+        if (!is_executable($base."apps") || !is_readable($base."apps") || !is_writable($base."apps"))
+            throw new \Exception("Directory [apps] have not good permission : Must be read, write, executable permission");
+        if (!is_executable($base."web/components/apps") || !is_readable($base."web/components/apps") || !is_writable($base."web/components/apps"))
+            throw new \Exception("Directory [web/components/apps] have not good permission : Must be read, write, executable permission");
+        if (!is_executable($base."web/components/baseapps") || !is_readable($base."web/components/baseapps") || !is_writable($base."web/components/baseapps"))
+            throw new \Exception("Directory [web/components/baseapps] have not good permission : Must be read, write, executable permission");
+        return (1);
+
     }
 }
 
