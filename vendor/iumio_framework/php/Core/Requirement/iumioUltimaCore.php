@@ -290,7 +290,7 @@ abstract class iumioUltimaCore extends iumioUltima
                             else
                                 $call->__named($master, $method);
                         } catch (\Exception $exception) {
-                            throw new \Exception("iumio Core Error : Class $master or method $master::$method doesn't exist => " . $exception->getMessage());
+                            throw new Server500(new \ArrayObject(array("explain" => "iumio Core Error : Class $master or method $master::$method doesn't exist", "solution" => $exception->getMessage())));
                         }
                     } else
                         throw new Server500(new \ArrayObject(array("explain" => $def['name'] . " component not contain a related router", "solution" => "Please check the if 'routingRegister' is present in your router")));

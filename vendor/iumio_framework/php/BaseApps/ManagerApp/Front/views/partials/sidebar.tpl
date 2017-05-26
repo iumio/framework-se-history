@@ -39,27 +39,9 @@
             </a>
         </li>
         <li class="{if $selected == "logsmanager"}active{/if}">
-            <a href="typography.html">
+            <a href="{route name='iumio_manager_logs_manager'}">
                 <i class="pe-7s-news-paper"></i>
                 <p>Logs</p>
-            </a>
-        </li>
-        <li class="{if $selected == "http"}active{/if}">
-            <a href="icons.html">
-                <i class="pe-7s-science"></i>
-                <p>HTTP Listener</p>
-            </a>
-        </li>
-        <li class="{if $selected == "maps"}active{/if}">
-            <a href="maps.html">
-                <i class="pe-7s-map-marker"></i>
-                <p>Maps</p>
-            </a>
-        </li>
-        <li class="{if $selected == "notification"}active{/if}">
-            <a href="notifications.html">
-                <i class="pe-7s-bell"></i>
-                <p>Notifications</p>
             </a>
         </li>
     </ul>

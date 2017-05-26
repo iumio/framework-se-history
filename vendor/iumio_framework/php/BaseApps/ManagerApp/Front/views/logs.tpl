@@ -13,7 +13,7 @@
                         <span class="icon-bar"></span>
                     </button>
                     <a class="navbar-brand" href="#">Logs Manager</a>
-                    <a class="btn-default btn clearlogs"  attr-href="{route name='iumio_manager_app_manager_create_app'}">Clear logs</a>
+                    <a class="btn-default btn clearlogs"  attr-href="{route name='iumio_manager_logs_manager_clear'}" attr-env="{$env}">Clear logs</a>
                 </div>
 
             </div>
@@ -24,20 +24,18 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="header">
-                                <h4 class="title">List of your app </h4>
-                                <p class="category">Referer to apps.json</p>
+                                <h4 class="title">Logs list for {$env} enviromnment </h4>
+                                <p class="category">Referer to {$env}.log.json</p>
                             </div>
                             <div class="content table-responsive table-full-width">
                                 <table class="table table-hover table-striped">
                                     <thead>
                                     <th>ID</th>
                                     <th>Date</th>
-                                    <th>Is default</th>
-                                    <th>Namespace</th>
-                                    <th>Swich to default</th>
-                                    <th>Delete</th>
+                                    <th>Type</th>
+                                    <th>Explain</th>
                                     </thead>
-                                    <tbody class="applist" attr-href="{route name='iumio_manager_app_manager_get_simple_apps'}">
+                                    <tbody class="logslist" attr-href="{route name='iumio_manager_logs_manager_get_all'}">
                                     <!--<tr>
                                         <td>0</td>
                                         <td>DakotaRice</td>

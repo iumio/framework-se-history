@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32-dev-1, created on 2017-05-26 11:54:07
+/* Smarty version 3.1.32-dev-1, created on 2017-05-26 15:12:03
   from "/Applications/MAMP/htdocs/iumio-framework/vendor/iumio_framework/php/BaseApps/ManagerApp/Front/views/partials/sidebar.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32-dev-1',
-  'unifunc' => 'content_5927fb3fe17403_92538191',
+  'unifunc' => 'content_592829a3509ee0_00164434',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '4272bd7fa29d23e51bc8a3ce682dda047a1aa35c' => 
     array (
       0 => '/Applications/MAMP/htdocs/iumio-framework/vendor/iumio_framework/php/BaseApps/ManagerApp/Front/views/partials/sidebar.tpl',
-      1 => 1495792445,
+      1 => 1495804319,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5927fb3fe17403_92538191 (Smarty_Internal_Template $_smarty_tpl) {
+function content_592829a3509ee0_00164434 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <div class="sidebar" data-color="blue" data-image="<?php echo iumioFramework\Core\Additionnal\Template\iumioViewBasePlugin::img_iumio(array('name'=>'iumio_img_theme.jpeg'),$_smarty_tpl);?>
 ">
@@ -69,27 +69,10 @@ function content_5927fb3fe17403_92538191 (Smarty_Internal_Template $_smarty_tpl)
             </a>
         </li>
         <li class="<?php if ($_smarty_tpl->tpl_vars['selected']->value == "logsmanager") {?>active<?php }?>">
-            <a href="typography.html">
+            <a href="<?php echo iumioFramework\Core\Additionnal\Template\iumioViewBasePlugin::route(array('name'=>'iumio_manager_logs_manager'),$_smarty_tpl);?>
+">
                 <i class="pe-7s-news-paper"></i>
                 <p>Logs</p>
-            </a>
-        </li>
-        <li class="<?php if ($_smarty_tpl->tpl_vars['selected']->value == "http") {?>active<?php }?>">
-            <a href="icons.html">
-                <i class="pe-7s-science"></i>
-                <p>HTTP Listener</p>
-            </a>
-        </li>
-        <li class="<?php if ($_smarty_tpl->tpl_vars['selected']->value == "maps") {?>active<?php }?>">
-            <a href="maps.html">
-                <i class="pe-7s-map-marker"></i>
-                <p>Maps</p>
-            </a>
-        </li>
-        <li class="<?php if ($_smarty_tpl->tpl_vars['selected']->value == "notification") {?>active<?php }?>">
-            <a href="notifications.html">
-                <i class="pe-7s-bell"></i>
-                <p>Notifications</p>
             </a>
         </li>
     </ul>

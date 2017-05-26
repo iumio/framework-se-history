@@ -1,11 +1,15 @@
 routingRegister : ManagerApp
 
-name : iumio_manager_logs_index
+name : iumio_manager_logs_manager
 path : /_manager/logs
 method : Logs%logs
 
-name : iumio_manager__logs_logs_get
+name : iumio_manager_logs_manager_get_all
 path :  /_manager/logs/get/logs
 method : Logs%getlog
+
+name : iumio_manager_logs_manager_clear
+path :  /_manager/logs/clear
+method : Logs%clear
 
 

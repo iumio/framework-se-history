@@ -37,7 +37,34 @@ var operationError = function () {
  */
 var getLogs = function () {
 
-    var selector = $('.lastlog');
+        var selector = $('.lastlog');
+        $.ajax({
+            url : selector.attr("attr-href"),
+            type : 'GET',
+            dataType : 'json',
+            success : function(data){
+                if (data['code'] === 200)
+                {
+                    var results = data['results'];
+                    selector.html("");
+                    if (results.length === 0)
+                        return (selector.append("<li>No logs</li>"));
+
+                    $.each(results, function (index, value) {
+                        selector.append("<li>"+value['time']+" : "+value['content']+"</li>");
+                    })
+
+                }
+            }
+        })
+    };
+
+/**
+ * get debug log (unlimited)
+ */
+var getUnlimitedLogs = function () {
+
+    var selector = $('.logslist');
     $.ajax({
         url : selector.attr("attr-href"),
         type : 'GET',
@@ -45,14 +72,25 @@ var getLogs = function () {
         success : function(data){
             if (data['code'] === 200)
             {
-                var results = data['results'];
+               var results = data['results'];
                 selector.html("");
                 if (results.length === 0)
-                    return (selector.append("<li>No logs</li>"));
+                    return (selector.append("<tr><td colspan='4'>No logs</td></tr>"));
 
                 $.each(results, function (index, value) {
-                    selector.append("<li>"+value['time']+" : "+value['content']+"</li>")
-                })
+                    var error = value['content'];
+                    error = error.split(":");
+                    value['content'] = (value['content']).replace((error[0])+": ", "");
+                    error[0] = error[0].replace("[", "");
+                    error[0] = error[0].replace("]", "");
+
+                    selector.append("<tr>" +
+                        "<td>"+index+"</td>" +
+                        "<td>"+value['time']+"</td>" +
+                        "<td>"+error[0]+"</td>" +
+                        "<td style='word-wrap: break-word;width: 75%'>"+value['content']+"</td>" +
+                        "</tr>");
+                });
 
             }
         }
@@ -130,9 +168,9 @@ var getAppListSimple = function () {
  */
 
 var createOneApp = function (href) {
-    var name      = $("input[type=text][name=appname]").val();
-    var template  = $("input[type=checkbox][name=template]:checked" ).val();
-    var isdefault = $( "input[type=checkbox][name=isdefault]:checked" ).val();
+    var name           = $("input[type=text][name=appname]").val();
+    var template       = $("input[type=checkbox][name=template]:checked" ).val();
+    var isdefault      = $( "input[type=checkbox][name=isdefault]:checked" ).val();
     var selecttorModal = $("#modalManager");
 
     if (name === "")
@@ -148,9 +186,9 @@ var createOneApp = function (href) {
         selecttorModal.find(".onealert").show();
         return (false);
     }
-    var p2 = name[name.length - 1];
-    var p1 = name[name.length - 2];
-    var a = name[name.length - 3];
+    var p2    = name[name.length - 1];
+    var p1    = name[name.length - 2];
+    var a     = name[name.length - 3];
     var conca = a + p1 + p2;
 
     if (conca !== "App") {
@@ -214,6 +252,28 @@ var getSwitchApp = function (url) {
     })
 };
 
+
+/**
+ * Clear logs
+ * @param url Url to clear logs
+ */
+var clearLogs = function (url) {
+
+    $.ajax({
+        url : url,
+        type : 'GET',
+        dataType : 'json',
+        success : function(data){
+            if (data['code'] === 200)
+            {
+                getUnlimitedLogs();
+                operationSuccess();
+            }
+        }
+    })
+};
+
+
 /**
  * remove an app
  * @param url Url to remove app
@@ -241,11 +301,13 @@ $(document).ready(function () {
     getLogs();
     getDefaultApp();
     getAppListSimple();
+    getUnlimitedLogs();
 
     setInterval(function () {
         getLogs();
         getDefaultApp();
         getAppListSimple();
+        getUnlimitedLogs();
     }, 7000);
 
     /**
@@ -312,42 +374,35 @@ $(document).ready(function () {
             case "createvalidapp":
                 createOneApp(href);
                 break;
+            case "clearlogs":
+                clearLogs(href);
+                break;
         }
     });
 
 
     /**
-     * Event to show create app modal
+     * Event to clear logs
      */
-    $(document).on('click', ".createapp", function () {
+    $(document).on('click', ".clearlogs", function () {
         var selector = $(this);
         var href = selector.attr("attr-href");
+        var env = selector.attr("attr-env");
 
         var selecttorModal = $("#modalManager");
 
-        selecttorModal.find(".modal-header").html("<strong class='text-center'>Create one app</strong>");
-        selecttorModal.find(".modal-header").append("<p class='alert alert-danger onealert' style='display: none'></p>");
-        selecttorModal.find(".modal-body").html("<h4 class='text-center'>Fill in the fields to create an application.</h4>");
-        selecttorModal.find(".modal-body").append("<br>");
-        selecttorModal.find(".modal-body").append("<div class='container'><div class='row'>");
-
-        selecttorModal.find(".modal-body").append("<div class='form-group text-center'><label>Name</label><input type='text' name='appname' class='form-control'></div>");
-        selecttorModal.find(".modal-body").append("</div></div>");
-        selecttorModal.find(".modal-body").append('<div class="container-new">' +
-            '<div class="form-group text-center"> <label>Default template</label> <div class="check"><input id="check" type="checkbox" name="template" style="display: none"/><label for="check"><div class="box"><i class="fa fa-check"></i></div> </label></div></div>' +
-            '<div class="form-group text-center"><label>Default app</label> <div class="check"><input id="check1" name="isdefault"  type="checkbox" style="display: none" /><label for="check1"><div class="box"><i class="fa fa-check"></i></div> </label></div></div>' +
-            '</div>');
-
-        selecttorModal.find(".btn-close").html("Close");
-        selecttorModal.find(".btn-valid").html("Create");
+        selecttorModal.find(".modal-header").html("<strong class='text-center'>Clear log for "+env+" environment</strong>");
+        selecttorModal.find(".modal-body").html("<h4 class='text-center'>Would you like to empty log file for "+env+" environment ?</h4>");
+        selecttorModal.find(".btn-close").html("No");
+        selecttorModal.find(".btn-valid").html("Yes");
 
         selecttorModal.find(".btn-valid").attr("attr-href", href);
-        selecttorModal.find(".btn-valid").attr("attr-event", "createvalidapp");
+        selecttorModal.find(".btn-valid").attr("attr-event", "clearlogs");
         selecttorModal.find(".btn-close").show();
         selecttorModal.find(".btn-valid").show();
 
         modal("show");
-    })
+    });
 
 });
 

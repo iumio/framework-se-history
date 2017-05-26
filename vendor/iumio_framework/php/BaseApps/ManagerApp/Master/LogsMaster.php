@@ -1,6 +1,7 @@
 <?php
 
 namespace ManagerApp\Master;
+use iumioFramework\Core\Additionnal\Server\iumioServerManager;
 use iumioFramework\Core\Base\Debug\Debug;
 use iumioFramework\Core\Base\Http\Response\Response;
 use iumioFramework\Masters\iumioUltimaMaster as Master;
@@ -17,13 +18,13 @@ class LogsMaster extends Master
     /**
      * Start FGM dashboard
      */
-    public function logctivity()
+    public function logsActivity()
     {
         $file = JL::open(CONFIG_DIR.'initial.json');
         $date =  new \DateTime($file->installation->date);
         $file->installation = $date->format('Y/m/d');
 
-        return($this->render("logs", array("selected" => "logs")));
+        return($this->render("logs", array("selected" => "logmanager", "env" => strtolower(ENVIRONMENT))));
     }
 
     /** Get the last debug logs (unlimited)
@@ -38,6 +39,18 @@ class LogsMaster extends Master
 
         return ((new Response())->JSON_RENDER(array("code" => 200, "results" => $lastn)));
     }
+
+    /** clear log of current environment
+     * @return int JSON response
+     */
+    public function clearActivity():int
+    {
+        iumioServerManager::delete(ROOT_LOGS.strtolower(ENVIRONMENT).".log.json", 'file');
+        @iumioServerManager::create(ROOT_LOGS.strtolower(ENVIRONMENT).".log.json", 'file');
+
+        return ((new Response())->JSON_RENDER(array("code" => 200, "msg" => "OK")));
+    }
+
 
 
 }
