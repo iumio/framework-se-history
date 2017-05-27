@@ -1,6 +1,7 @@
 <?php
 
 namespace iumioFramework\Core\Base\Http\Response;
+use iumioFramework\Core\Base\Http\HttpResponse;
 
 /**
  * Class Response
@@ -17,6 +18,7 @@ final class Response implements ResponseInterface
      */
     public function JSON_RENDER(array $response):int
     {
+        header('HTTP/1.0 '.$response['code'].' '.HttpResponse::getPhrase($response['code']));
         echo json_encode($response);
         return (1);
     }
@@ -90,12 +92,14 @@ final class Response implements ResponseInterface
         return ($xmlElem);
     }
 
-    /** Render to XML format
+    /** Render to TEXT format
      * @param array $response Response array
      * @return int
      */
     public function TEXT_RENDER(array $response):int
     {
+        header('HTTP/1.0 '.$response['code'].' '.HttpResponse::getPhrase($response['code']));
+        echo implode(" ", $response);
         return (1);
     }
 

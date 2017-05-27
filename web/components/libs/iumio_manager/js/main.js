@@ -107,6 +107,43 @@ var getUnlimitedLogs = function () {
     })
 };
 
+
+/**
+ * get databases list
+ */
+var getDatabasesList = function () {
+
+    var selector = $('.databaseslist');
+    $.ajax({
+        url : selector.attr("attr-href"),
+        type : 'GET',
+        dataType : 'json',
+        success : function(data){
+            console.log(data);
+            if (data['code'] === 200)
+            {
+                var results = data['results'];
+                selector.html("");
+                if (results.length === 0)
+                    return (selector.append("<tr><td colspan='4'>No database configuration</td></tr>"));
+
+               $.each(results, function (index, value) {
+                    selector.append("<tr>" +
+                        "<td>"+index+"</td>" +
+                        "<td>"+value['db_name']+"</td>" +
+                        "<td>"+value['db_host']+"</td>" +
+                        "<td>"+value['db_driver']+"</td>" +
+                        "<td><button class=' btn-info btn toeditdatabase' attr-href='"+value['edit']+"' attr-dbconfig='"+value['db_name']+"'>ED</button></td>"+
+                        "<td><button class='btn-info btn todeletedatabase' attr-href='"+value['remove']+"' attr-dbconfig='"+index+"'>DE</button></td>"+
+                        "</tr>");
+                });
+
+
+            }
+        }
+    })
+};
+
 /**
  * get the default app
  */
@@ -284,6 +321,7 @@ var clearLogs = function (url) {
 };
 
 
+
 /**
  * remove an app
  * @param url Url to remove app
@@ -305,6 +343,26 @@ var removeApp = function (url) {
 };
 
 
+/**
+ * remove db configuration
+ * @param url Url to remove db
+ */
+var removeDb = function (url) {
+
+    $.ajax({
+        url : url,
+        type : 'GET',
+        dataType : 'json',
+        success : function(data){
+            getDatabasesList();
+            if (data['code'] === 200)
+                operationSuccess();
+            else
+                operationError();
+        }
+    })
+};
+
 
 $(document).ready(function () {
 
@@ -312,12 +370,14 @@ $(document).ready(function () {
     getDefaultApp();
     getAppListSimple();
     getUnlimitedLogs();
+    getDatabasesList();
 
     setInterval(function () {
         getLogs();
         getDefaultApp();
         getAppListSimple();
         getUnlimitedLogs();
+        getDatabasesList();
     }, 7000);
 
     /**
@@ -330,7 +390,7 @@ $(document).ready(function () {
 
         var selecttorModal = $("#modalManager");
         selecttorModal.find(".modal-header").html("<strong class='text-center'>Switch to default</strong>");
-        selecttorModal.find(".modal-body").html("<h4 class='text-center'>Are you sure to set "+appname+" default app ?</h4>");
+        selecttorModal.find(".modal-body").html("<h4 class='text-center'>Are you sure to set <strong>"+appname+"</strong> default app ?</h4>");
         selecttorModal.find(".btn-close").html("No");
         selecttorModal.find(".btn-valid").html("Yes");
 
@@ -352,7 +412,7 @@ $(document).ready(function () {
 
         var selecttorModal = $("#modalManager");
         selecttorModal.find(".modal-header").html("<strong class='text-center'>Delete "+appname+"</strong>");
-        selecttorModal.find(".modal-body").html("<h4 class='text-center'>Are you sure to delete "+appname+" ?</h4>");
+        selecttorModal.find(".modal-body").html("<h4 class='text-center'>Are you sure to delete <strong>"+appname+"</strong> ?</h4>");
         selecttorModal.find(".btn-close").html("No");
         selecttorModal.find(".btn-valid").html("Yes");
 
@@ -363,6 +423,30 @@ $(document).ready(function () {
 
         modal("show");
     });
+
+
+    /**
+     * Event to delete an database configuration
+     */
+    $(document).on('click', ".todeletedatabase", function () {
+        var selector = $(this);
+        var href = selector.attr("attr-href");
+        var name = selector.attr("attr-dbconfig");
+
+        var selecttorModal = $("#modalManager");
+        selecttorModal.find(".modal-header").html("<strong class='text-center'>Delete "+name+"</strong>");
+        selecttorModal.find(".modal-body").html("<h4 class='text-center'>Are you sure to delete <strong>"+name+"</strong> database configuration ?</h4>");
+        selecttorModal.find(".btn-close").html("No");
+        selecttorModal.find(".btn-valid").html("Yes");
+
+        selecttorModal.find(".btn-valid").attr("attr-href", href);
+        selecttorModal.find(".btn-valid").attr("attr-event", "removedb");
+        selecttorModal.find(".btn-close").show();
+        selecttorModal.find(".btn-valid").show();
+
+        modal("show");
+    });
+
 
 
     /**
@@ -386,6 +470,9 @@ $(document).ready(function () {
                 break;
             case "clearlogs":
                 clearLogs(href);
+                break;
+            case "removedb":
+                removeDb(href);
                 break;
         }
     });
@@ -425,6 +512,70 @@ $(document).ready(function () {
     });
 
 
+    /**
+     * Event to show create app modal
+     */
+    $(document).on('click', ".toeditdatabase", function () {
+        var selector = $(this);
+        var href = selector.attr("attr-href");
+        var name = selector.attr("attr-dbconfig");
+        var result = null;
+
+        $.ajax({
+            url : href,
+            type : 'GET',
+            dataType : 'json',
+            success : function(data){
+                if (data['code'] === 200)
+                {
+
+                    result = data['results'];
+                    console.log(result);
+                }
+                else
+                {
+                    operationError();
+                    return (0);
+                }
+            }
+        });
+
+        var selecttorModal = $("#modalManager");
+
+        selecttorModal.find(".modal-header").html("<strong class='text-center'>Edit "+name+" configuration</strong>");
+        selecttorModal.find(".modal-header").append("<p class='alert alert-danger onealert' style='display: none'></p>");
+        selecttorModal.find(".modal-body").html("<h4 class='text-center'>Edit some fill to update database configuration.</h4>");
+        selecttorModal.find(".modal-body").append("<br>");
+        selecttorModal.find(".modal-body").append("<div class='container'><div class='row'>");
+
+        selecttorModal.find(".modal-body").append("<div class='form-group text-center'><label>Configuration name</label><input type='text' name='appname' class='form-control'></div>");
+        selecttorModal.find(".modal-body").append("</div></div>");
+        selecttorModal.find(".modal-body").append("<div class='form-group text-center'><label>Name</label><input type='text' name='appname' class='form-control'></div>");
+        selecttorModal.find(".modal-body").append("</div></div>");
+        selecttorModal.find(".modal-body").append("<div class='form-group text-center'><label>Host</label><input type='text' name='appname' class='form-control'></div>");
+        selecttorModal.find(".modal-body").append("</div></div>");
+        selecttorModal.find(".modal-body").append("<div class='form-group text-center'><label>User name</label><input type='text' name='appname' class='form-control'></div>");
+        selecttorModal.find(".modal-body").append("</div></div>");
+        selecttorModal.find(".modal-body").append("<div class='form-group text-center'><label>User password</label><input type='text' name='appname' class='form-control'></div>");
+        selecttorModal.find(".modal-body").append("</div></div>");
+        selecttorModal.find(".modal-body").append("<div class='form-group text-center'><label>Port</label><input type='text' name='appname' class='form-control'></div>");
+        selecttorModal.find(".modal-body").append("</div></div>");
+        selecttorModal.find(".modal-body").append("<div class='form-group text-center'><label>Driver</label><input type='text' name='appname' class='form-control'></div>");
+        selecttorModal.find(".modal-body").append("</div></div>");
+
+        selecttorModal.find(".btn-close").html("Close");
+        selecttorModal.find(".btn-valid").html("Update");
+
+        selecttorModal.find(".btn-valid").attr("attr-href", href);
+        selecttorModal.find(".btn-valid").attr("attr-dbconfig", name);
+        selecttorModal.find(".btn-valid").attr("attr-event", "editdatabasesave");
+        selecttorModal.find(".btn-close").show();
+        selecttorModal.find(".btn-valid").show();
+
+        modal("show");
+    });
+
+
 
 
 /**
@@ -438,7 +589,7 @@ $(document).ready(function () {
         var selecttorModal = $("#modalManager");
 
         selecttorModal.find(".modal-header").html("<strong class='text-center'>Clear log for "+env+" environment</strong>");
-        selecttorModal.find(".modal-body").html("<h4 class='text-center'>Would you like to empty log file for "+env+" environment ?</h4>");
+        selecttorModal.find(".modal-body").html("<h4 class='text-center'>Would you like to empty log file for <strong>"+env+"</strong> environment ?</h4>");
         selecttorModal.find(".btn-close").html("No");
         selecttorModal.find(".btn-valid").html("Yes");
 

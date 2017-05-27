@@ -28,7 +28,7 @@
         </li>
         <li class="{if $selected == "assetsmanager"}active{/if}">
             <a href="{route name='iumio_manager_assets_manager'}">
-                <i class="pe-7s-note2"></i>
+                <i class="pe-7s-star"></i>
                 <p>Assets</p>
             </a>
         </li>
@@ -42,6 +42,12 @@
             <a href="{route name='iumio_manager_logs_manager'}">
                 <i class="pe-7s-news-paper"></i>
                 <p>Logs</p>
+            </a>
+        </li>
+        <li class="{if $selected == "databasesmanager"}active{/if}">
+            <a href="{route name='iumio_manager_databases_manager'}">
+                <i class="pe-7s-paperclip"></i>
+                <p>Databases</p>
             </a>
         </li>
     </ul>

@@ -3,6 +3,7 @@
 namespace iumioFramework\Exception\Server;
 use ArrayObject;
 use iumioFramework\Core\Base\Debug\Debug;
+use iumioFramework\Core\Base\Http\HttpResponse;
 
 
 /**
@@ -17,6 +18,7 @@ abstract class AbstractServer extends \Exception implements ServerInterface
     protected $explain = NULL ;
     protected $solution = NULL;
     protected $env = NULL;
+
 
     /**
      * Server000 constructor.
@@ -50,7 +52,7 @@ abstract class AbstractServer extends \Exception implements ServerInterface
     public function display(string $code, string $message)
     {
         if (ob_get_contents()) ob_end_clean();
-        header('HTTP/1.0 '.$code.' '.$message);
+        header('HTTP/1.0 '.$code.' '.HttpResponse::getPhrase($code));
         include_once  SERVER_VIEWS.'layout.iumio.php';
         die();
     }

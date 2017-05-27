@@ -7,5 +7,14 @@
           "db_user" : "root",
           "db_password" : "root",
           "db_driver" : "mysql"
+      },
+    "default2" :
+      {
+        "db_host" : "localhost",
+        "db_name" : "test",
+        "db_port" : "4045",
+        "db_user" : "root",
+        "db_password" : "root",
+        "db_driver" : "pg_sql"
       }
 }

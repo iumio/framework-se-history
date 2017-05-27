@@ -3,7 +3,7 @@
 namespace iumioFramework\Core\Base;
 
 /**
- * Interface
+ * Interface Listener
  * @package iumioFramework\Core\Base
  * @author RAFINA Dany <danyrafina@gmail.com>
  */
