@@ -240,7 +240,7 @@ var getAllCacheEnv = function () {
                         "<td>"+value['name']+"</td>" +
                         "<td>"+value['path']+"</td>" +
                         "<td>"+value['size']+"</td>" +
-                        "<td>"+value['nperms']+"</td>" +
+                        "<td "+((value['perms'] === true)? 'style="background-color:green;color:white;text-align:center"' : 'style="background-color:red;color:white;text-align:center"')+">"+value['nperms']+"</td>" +
                         "<td>"+value['status']+"</td>" +
                         "<td><button class='btn-info btn clearcachespec' attr-href='"+value['clear']+"' attr-env='"+value['env']+"'>CL</button></td>"+
                         "</tr>");

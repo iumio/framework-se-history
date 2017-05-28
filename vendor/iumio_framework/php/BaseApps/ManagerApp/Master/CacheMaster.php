@@ -72,10 +72,11 @@ class CacheMaster extends Master
                 //echo $dir_info->getSize()."<br>";
                 $octal_perms = substr(sprintf('%o', $dir_info->getPerms()), -4);
                 $perms = false;
-                if ($octal_perms === "0777" || $octal_perms === "0775"  || $octal_perms === "0755" || $octal_perms === "7775" || $octal_perms === "7777" || $octal_perms === "7755")
+
+                if ($octal_perms == "0777" || $octal_perms == "0775"  || $octal_perms == "0755" || $octal_perms == "7775" || $octal_perms == "7777" || $octal_perms == "7755")
                     $perms = true;
                 array_push($directory, array("path" => $dir_info->getRealPath(), "name" => $dir_info->getFilename(),
-                    "size" => ($this->formatBytes($dir_info->getSize())), "nperms" => $octal_perms,
+                    "size" => ($this->fileSizeConvert($this->folderSize($dir_info->getRealPath()))), "nperms" => $octal_perms,
                     "perms" => $perms, "status" => (($this->checkFolderIsEmptyOrNot(ROOT_CACHE.$dir_info->getFilename()) == true)? "Empty" : "Is not empty"),
                     "env" => $dir_info->getFilename(),
                     "clear" => $this->generateRoute("iumio_manager_cache_manager_remove", array("env" => $dir_info->getFilename()), null, true)));
@@ -105,21 +106,64 @@ class CacheMaster extends Master
     }
 
 
-    private function formatBytes(int $bytes, int $precision = 2): string
+    /** Get size folder
+     * @param string $dir Dir path
+     * @return int folder size
+     */
+    private function folderSize(string $dir):int
     {
-        $units = array('B', 'KB', 'MB', 'GB', 'TB');
-
-        $bytes = max($bytes, 0);
-        $pow = floor(($bytes ? log($bytes) : 0) / log(1024));
-        $pow = min($pow, count($units) - 1);
-
-        // Uncomment one of the following alternatives
-        // $bytes /= pow(1024, $pow);
-        // $bytes /= (1 << (10 * $pow));
-
-        return round($bytes, $precision) . ' ' . $units[$pow];
+        $size = 0;
+        foreach (glob(rtrim($dir, '/').'/*', GLOB_NOSORT) as $each) {
+            $size += is_file($each) ? filesize($each) : $this->folderSize($each);
+        }
+        return ($size);
     }
 
+    /**
+     * Converts bytes into human readable file size.
+     *
+     * @param int $bytes Directory size
+     * @return string human readable file size (2,87 МB)
+
+     */
+    private function fileSizeConvert(int $bytes)
+    {
+        $bytes = floatval($bytes);
+        $result = "0 B";
+        $arBytes = array(
+            0 => array(
+                "UNIT" => "TB",
+                "VALUE" => pow(1024, 4)
+            ),
+            1 => array(
+                "UNIT" => "GB",
+                "VALUE" => pow(1024, 3)
+            ),
+            2 => array(
+                "UNIT" => "MB",
+                "VALUE" => pow(1024, 2)
+            ),
+            3 => array(
+                "UNIT" => "KB",
+                "VALUE" => 1024
+            ),
+            4 => array(
+                "UNIT" => "B",
+                "VALUE" => 1
+            ),
+        );
+
+        foreach($arBytes as $arItem)
+        {
+            if($bytes >= $arItem["VALUE"])
+            {
+                $result = $bytes / $arItem["VALUE"];
+                $result = str_replace(".", "," , strval(round($result, 2)))." ".$arItem["UNIT"];
+                break;
+            }
+        }
+        return $result;
+    }
 
 
 }
