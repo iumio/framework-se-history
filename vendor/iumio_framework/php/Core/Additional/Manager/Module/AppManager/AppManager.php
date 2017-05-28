@@ -331,7 +331,7 @@ class AppManager implements ModuleInterface
         $ndate = new \DateTime('UTC');
         $f->$lastapp->creation = $ndate;
         $f->$lastapp->update = $ndate;
-        $f = json_encode($f);
+        $f = json_encode($f, JSON_PRETTY_PRINT);
         file_put_contents(ROOT_PROJECT."/elements/config_files/apps.json", $f);
         if ($this->params['template'] == "yes")
             new AM(array("core/manager", "assets-manager", "--copy", "--appname=". $this->params['appname'], "--symlink", "--noexit"));
@@ -363,7 +363,7 @@ class AppManager implements ModuleInterface
             }
         }
 
-        $f = json_encode($f);
+        $f = json_encode($f, JSON_PRETTY_PRINT);
         file_put_contents(ROOT_PROJECT."/elements/config_files/apps.json", $f);
         Output::outputAsEndSuccess("Now, the ".$this->params['capp']." is ", "none");
     }
@@ -391,7 +391,7 @@ class AppManager implements ModuleInterface
         }
 
         $f = array_values((array)$f);
-        $f = json_encode((object) $f);
+        $f = json_encode((object) $f, JSON_PRETTY_PRINT);
 
         file_put_contents(ROOT_PROJECT."/elements/config_files/apps.json", $f);
 

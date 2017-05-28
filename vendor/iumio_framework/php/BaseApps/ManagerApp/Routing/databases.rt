@@ -19,4 +19,8 @@ method : Databases%getonedb
 
 name : iumio_manager_databases_manager_edit_save
 path :  /_manager/databases/edit_save/{dbconfiguration}
-method : Databases%save
+method : Databases%update
+
+name : iumio_manager_databases_manager_create
+path :  /_manager/databases/create
+method : Databases%create

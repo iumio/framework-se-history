@@ -58,7 +58,7 @@ class BaseApp extends iumioApp
         $f->$lastapp->name = $this->params['appname'];
         $f->$lastapp->isdefault = $this->params['isdefault'];
         $f->$lastapp->class = "\\".$this->params['appname']."\\".$this->params['appname'];
-        $f = json_encode($f);
+        $f = json_encode($f, JSON_PRETTY_PRINT);
         file_put_contents(ROOT."/elements/config_files/apps.json", $f);
         if ($this->params['template'] == "yes")
             new AM(array("core/manager", "assets-manager", "--copy", "--appname=". $this->params['appname'], "--symlink", "--noexit"));
@@ -80,7 +80,7 @@ class BaseApp extends iumioApp
             }
         }
 
-        $f = json_encode($f);
+        $f = json_encode($f, JSON_PRETTY_PRINT);
         file_put_contents(ROOT."/elements/config_files/apps.json", $f);
 
         ServerManager::delete(ROOT."/apps/".$this->name, "directory");

@@ -68,7 +68,7 @@ class AppsMaster extends Master
             }
         }
 
-        $file = json_encode($file);
+        $file = json_encode($file, JSON_PRETTY_PRINT);
         JL::put(CONFIG_DIR."apps.json", $file);
         return ((new Response())->JSON_RENDER(array("code" => 200, "msg" => "OK")));
     }
@@ -96,7 +96,7 @@ class AppsMaster extends Master
             return ((new Response())->JSON_RENDER(array("code" => 500, "msg" => "App doest not exist")));
         $file = array_values((array)$file);
 
-        $file = json_encode((object) $file);
+        $file = json_encode((object) $file, JSON_PRETTY_PRINT);
         JL::put(CONFIG_DIR."apps.json", $file);
 
         iumioServerManager::delete(ROOT."/apps/$appname", "directory");
@@ -165,7 +165,7 @@ class AppsMaster extends Master
         $ndate = new \DateTime('UTC');
         $f->$lastapp->creation = $ndate;
         $f->$lastapp->update = $ndate;
-        $f = json_encode($f);
+        $f = json_encode($f, JSON_PRETTY_PRINT);
         file_put_contents(ROOT."/elements/config_files/apps.json", $f);
         if ($template == "yes")
         {

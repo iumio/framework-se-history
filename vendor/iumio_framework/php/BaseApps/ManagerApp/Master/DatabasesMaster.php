@@ -59,7 +59,7 @@ class DatabasesMaster extends Master
 
         if ($remove == false)
             return ((new Response())->JSON_RENDER(array("code" => 500, "msg" => "App doest not exist")));
-        $file = json_encode((object) $file);
+        $file = json_encode((object) $file, JSON_PRETTY_PRINT);
         JL::put(CONFIG_DIR."databases.json", $file);
 
 
@@ -78,30 +78,82 @@ class DatabasesMaster extends Master
         foreach ($file as $one => $val)
         {
             if ($one == $dbconfiguration)
-                return ((new Response())->JSON_RENDER(array("code" => 200, "results" => $file)));
+                return ((new Response())->JSON_RENDER(array("code" => 200, "results" => $val)));
         }
 
         return ((new Response())->JSON_RENDER(array("code" => 200, "results" => array())));
     }
+
 
     /**
      * save one Database
      * @param string $dbconfiguration Database configuration name
      * @return int
      */
-    public function save(string $dbconfiguration):int
+    public function updateActivity(string $dbconfiguration):int
     {
+        $config   = $dbconfiguration;
+        $name     = $this->get("request")->get("name");
+        $host     = $this->get("request")->get("host");
+        $user     = $this->get("request")->get("user");
+        $password = $this->get("request")->get("password");
+        $port     = $this->get("request")->get("port");
+        $driver   = $this->get("request")->get("driver");
+
+        if (trim($name) == "" || trim($config) == "" || trim($host) == "" || trim($user) == "" || trim($driver) == "")
+            return ((new Response())->JSON_RENDER(array("code" => 500, "msg" => "Error on databases parameters")));
+
+        $file = JL::open(CONFIG_DIR.'databases.json');
+        if (!isset($file->$config))
+            return ((new Response())->JSON_RENDER(array("code" => 500, "msg" => "Error on databases parameters")));
+
+        $file->$config = new \stdClass();
+        $file->$config->db_name = $name;
+        $file->$config->db_host = $host;
+        $file->$config->db_port = $port;
+        $file->$config->db_user = $user;
+        $file->$config->db_password = $password;
+        $file->$config->db_driver = $driver;
+
+        JL::put(CONFIG_DIR."databases.json", json_encode($file, JSON_PRETTY_PRINT));
+
+        return ((new Response())->JSON_RENDER(array("code" => 200, "msg" => "OK")));
 
     }
 
     /**
-     * create one Database
-     * @param string $dbconfig Database configuration name
+     * create one Database configuration
+
      * @return int
      */
-    public function create():int
+    public function createActivity():int
     {
+        $config   = $this->get("request")->get("config");
+        $name     = $this->get("request")->get("name");
+        $host     = $this->get("request")->get("host");
+        $user     = $this->get("request")->get("user");
+        $password = $this->get("request")->get("password");
+        $port     = $this->get("request")->get("port");
+        $driver   = $this->get("request")->get("driver");
 
+        if (trim($config) == "" || trim($name) == "" || trim($config) == "" || trim($host) == "" || trim($user) == "" || trim($driver) == "")
+            return ((new Response())->JSON_RENDER(array("code" => 500, "msg" => "Error on databases parameters")));
+
+        $file = JL::open(CONFIG_DIR.'databases.json');
+        if (isset($file->$config))
+            return ((new Response())->JSON_RENDER(array("code" => 500, "msg" => "Error on databases parameters")));
+
+        $file->$config = new \stdClass();
+        $file->$config->db_name = $name;
+        $file->$config->db_host = $host;
+        $file->$config->db_port = $port;
+        $file->$config->db_user = $user;
+        $file->$config->db_password = $password;
+        $file->$config->db_driver = $driver;
+
+        JL::put(CONFIG_DIR."databases.json", json_encode($file, JSON_PRETTY_PRINT));
+
+        return ((new Response())->JSON_RENDER(array("code" => 200, "msg" => "OK")));
     }
 
 }

@@ -19,7 +19,7 @@ final class Response implements ResponseInterface
     public function JSON_RENDER(array $response):int
     {
         header('HTTP/1.0 '.$response['code'].' '.HttpResponse::getPhrase($response['code']));
-        echo json_encode($response);
+        echo json_encode($response, JSON_PRETTY_PRINT);
         return (1);
     }
 

@@ -55,7 +55,7 @@ function createAppProcess($appname, $default, $temp)
     $ndate = new \DateTime('UTC');
     $f->$lastapp->creation = $ndate;
     $f->$lastapp->update = $ndate;
-    $f = json_encode($f);
+    $f = json_encode($f, JSON_PRETTY_PRINT);
     file_put_contents($base."/elements/config_files/apps.json", $f);
     if ($temp == "1")
         iumioFramework\Core\Additionnal\Server\iumioServerManager::copy($base."/apps/".$appname."/Front/Resources/", $base."/web/components/apps/".strtolower($appname), 'directory', true);
@@ -80,7 +80,7 @@ function initialJSON()
         $std->location = $base;
         $std->os = PHP_OS;
 
-        $rs = json_encode($std);
+        $rs = json_encode($std, JSON_PRETTY_PRINT);
         file_put_contents($base."/elements/config_files/initial.json", $rs);
     }
 }

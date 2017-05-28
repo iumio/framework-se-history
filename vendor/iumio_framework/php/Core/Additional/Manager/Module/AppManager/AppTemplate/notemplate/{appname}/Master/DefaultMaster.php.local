@@ -26,6 +26,6 @@ class DefaultMaster extends Master
      */
     public function indexActivity()
     {
-        return ((new Response())->JSON_RENDER(array("name" => "First App")));
+        return ((new Response())->JSON_RENDER(array("code" => 200, ""name" => "First App")));
     }
 }

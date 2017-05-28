@@ -13,7 +13,7 @@
                             <span class="icon-bar"></span>
                         </button>
                         <a class="navbar-brand" href="#">Database Manager</a>
-                        <a class="btn-default btn newdatabase"  attr-href="{route name='iumio_manager_app_manager_create_app'}">Add new database</a>
+                        <a class="btn-default btn createdatabaseconfig"  attr-href="{route name='iumio_manager_databases_manager_create'}">Add new database</a>
                     </div>
 
                 </div>

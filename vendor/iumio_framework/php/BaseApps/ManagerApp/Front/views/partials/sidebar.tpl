@@ -26,6 +26,12 @@
                 <p>Base App (Later)</p>
             </a>
         </li>
+        <li class="{if $selected == "cachemanager"}active{/if}">
+            <a href="{route name='iumio_manager_cache_manager'}">
+                <i class="pe-7s-light"></i>
+                <p>Cache</p>
+            </a>
+        </li>
         <li class="{if $selected == "assetsmanager"}active{/if}">
             <a href="{route name='iumio_manager_assets_manager'}">
                 <i class="pe-7s-star"></i>

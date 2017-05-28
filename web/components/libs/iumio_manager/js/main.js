@@ -46,35 +46,10 @@ var operationError = function () {
  * get debug log (limited to 10 values)
  */
 var getLogs = function () {
+    var selector = $('.lastlog');
+    if (typeof selector.attr("attr-href") === "undefined")
+        return (1);
 
-        var selector = $('.lastlog');
-        $.ajax({
-            url : selector.attr("attr-href"),
-            type : 'GET',
-            dataType : 'json',
-            success : function(data){
-                if (data['code'] === 200)
-                {
-                    var results = data['results'];
-                    selector.html("");
-                    if (results.length === 0)
-                        return (selector.append("<li>No logs</li>"));
-
-                    $.each(results, function (index, value) {
-                        selector.append("<li>"+value['time']+" : "+value['content']+"</li>");
-                    })
-
-                }
-            }
-        })
-    };
-
-/**
- * get debug log (unlimited)
- */
-var getUnlimitedLogs = function () {
-
-    var selector = $('.logslist');
     $.ajax({
         url : selector.attr("attr-href"),
         type : 'GET',
@@ -82,7 +57,35 @@ var getUnlimitedLogs = function () {
         success : function(data){
             if (data['code'] === 200)
             {
-               var results = data['results'];
+                var results = data['results'];
+                selector.html("");
+                if (results.length === 0)
+                    return (selector.append("<li>No logs</li>"));
+
+                $.each(results, function (index, value) {
+                    selector.append("<li>"+value['time']+" : "+value['content']+"</li>");
+                })
+
+            }
+        }
+    });
+};
+
+/**
+ * get debug log (unlimited)
+ */
+var getUnlimitedLogs = function () {
+    var selector = $('.logslist');
+    if (typeof selector.attr("attr-href") === "undefined")
+        return (1);
+    $.ajax({
+        url : selector.attr("attr-href"),
+        type : 'GET',
+        dataType : 'json',
+        success : function(data){
+            if (data['code'] === 200)
+            {
+                var results = data['results'];
                 selector.html("");
                 if (results.length === 0)
                     return (selector.append("<tr><td colspan='4'>No logs</td></tr>"));
@@ -114,12 +117,13 @@ var getUnlimitedLogs = function () {
 var getDatabasesList = function () {
 
     var selector = $('.databaseslist');
+    if (typeof selector.attr("attr-href") === "undefined")
+        return (1);
     $.ajax({
         url : selector.attr("attr-href"),
         type : 'GET',
         dataType : 'json',
         success : function(data){
-            console.log(data);
             if (data['code'] === 200)
             {
                 var results = data['results'];
@@ -127,21 +131,19 @@ var getDatabasesList = function () {
                 if (results.length === 0)
                     return (selector.append("<tr><td colspan='4'>No database configuration</td></tr>"));
 
-               $.each(results, function (index, value) {
+                $.each(results, function (index, value) {
                     selector.append("<tr>" +
                         "<td>"+index+"</td>" +
                         "<td>"+value['db_name']+"</td>" +
                         "<td>"+value['db_host']+"</td>" +
                         "<td>"+value['db_driver']+"</td>" +
-                        "<td><button class=' btn-info btn toeditdatabase' attr-href='"+value['edit']+"' attr-dbconfig='"+value['db_name']+"'>ED</button></td>"+
+                        "<td><button class=' btn-info btn toeditdatabase' attr-href='"+value['edit']+"' attr-href2='"+value['edit_save']+"' attr-dbconfig='"+index+"'>ED</button></td>"+
                         "<td><button class='btn-info btn todeletedatabase' attr-href='"+value['remove']+"' attr-dbconfig='"+index+"'>DE</button></td>"+
                         "</tr>");
                 });
-
-
             }
         }
-    })
+    });
 };
 
 /**
@@ -150,6 +152,8 @@ var getDatabasesList = function () {
 var getDefaultApp = function () {
 
     var selector = $('.defaultapp');
+    if (typeof selector.attr("attr-href") === "undefined")
+        return (1);
     $.ajax({
         url : selector.attr("attr-href"),
         type : 'GET',
@@ -180,6 +184,8 @@ var simpleapps = null;
 var getAppListSimple = function () {
 
     var selector = $('.applist');
+    if (typeof selector.attr("attr-href") === "undefined")
+        return (1);
     $.ajax({
         url : selector.attr("attr-href"),
         type : 'GET',
@@ -187,10 +193,9 @@ var getAppListSimple = function () {
         success : function(data){
             if (data['code'] === 200)
             {
-                console.log(data);
                 var results = data['results'];
                 selector.html("");
-               if (results.length === 0)
+                if (results.length === 0)
                     return (selector.append("<tr><td colspan='6'>No apps</td></tr>"));
 
                 $.each(results, function (index, value) {
@@ -209,6 +214,46 @@ var getAppListSimple = function () {
         }
     })
 };
+
+/**
+ * get all cache environment
+ */
+var getAllCacheEnv = function () {
+
+    var selector = $('.getAllEnvCache');
+    if (typeof selector.attr("attr-href") === "undefined")
+        return (1);
+    $.ajax({
+        url : selector.attr("attr-href"),
+        type : 'GET',
+        dataType : 'json',
+        success : function(data){
+            if (data['code'] === 200)
+            {
+                var results = data['results'];
+                selector.html("");
+                if (results.length === 0)
+                    return (selector.append("<tr><td colspan='6'>No cache directory</td></tr>"));
+
+                $.each(results, function (index, value) {
+                    selector.append("<tr>" +
+                        "<td>"+value['name']+"</td>" +
+                        "<td>"+value['path']+"</td>" +
+                        "<td>"+value['size']+"</td>" +
+                        "<td>"+value['nperms']+"</td>" +
+                        "<td>"+value['status']+"</td>" +
+                        "<td><button class='btn-info btn clearcachespec' attr-href='"+value['clear']+"' attr-env='"+value['env']+"'>CL</button></td>"+
+                        "</tr>");
+                });
+                simpleapps = results;
+
+            }
+        }
+    })
+};
+
+
+
 
 /**
  * Create on app
@@ -244,8 +289,8 @@ var createOneApp = function (href) {
         return (false);
     }
 
-   if (typeof template !== "undefined")
-       template = "yes";
+    if (typeof template !== "undefined")
+        template = "yes";
     else
         template = "no";
 
@@ -262,10 +307,8 @@ var createOneApp = function (href) {
         dataType : 'json',
         data : {"name" : name, "template" : template, "default" : isdefault},
         success : function(data){
-            console.log(data);
             if (data['code'] === 200)
             {
-               console.log(data);
                 getAppListSimple();
                 if (data['code'] === 200)
                     operationSuccess();
@@ -277,6 +320,96 @@ var createOneApp = function (href) {
         }
     })
 };
+
+
+/**
+ * save database configuration
+ */
+
+var saveDatabaseConfiguration = function (href) {
+    var name           = $("input[type=text][name=name]").val();
+    var host           = $("input[type=text][name=host]").val();
+    var user           = $("input[type=text][name=user]").val();
+    var password       = $("input[type=text][name=password]").val();
+    var port           = $("input[type=number][name=port]").val();
+    var driver         = $("input[type=text][name=driver]").val();
+
+    var selecttorModal = $("#modalManager");
+
+    if (name === ""  || host === ""  || user === ""  || password === ""  || driver === "" )
+    {
+        selecttorModal.find(".onealert").html("Oups! An error was detected");
+        selecttorModal.find(".onealert").show();
+        return (false);
+    }
+
+    selecttorModal.find(".onealert").hide();
+
+    $.ajax({
+        url : href,
+        type : 'POST',
+        dataType : 'json',
+        data : {"name" : name, "host" : host, "user" : user, "password" : password, "port" : port, "driver" : driver},
+        success : function(data){
+            if (data['code'] === 200)
+            {
+                getDatabasesList();
+                if (data['code'] === 200)
+                    operationSuccess();
+                else
+                    operationError();
+            }
+            else
+                operationError();
+        }
+    });
+};
+
+
+/**
+ * create database configuration
+ */
+
+var createDatabaseConfiguration = function (href) {
+    var config         = $("input[type=text][name=config]").val();
+    var name           = $("input[type=text][name=name]").val();
+    var host           = $("input[type=text][name=host]").val();
+    var user           = $("input[type=text][name=user]").val();
+    var password       = $("input[type=text][name=password]").val();
+    var port           = $("input[type=number][name=port]").val();
+    var driver         = $("input[type=text][name=driver]").val();
+
+    var selecttorModal = $("#modalManager");
+
+    if (config === ""  || name === ""  || host === ""  || user === ""  || password === ""  || driver === "" )
+    {
+        selecttorModal.find(".onealert").html("Oups! An error was detected");
+        selecttorModal.find(".onealert").show();
+        return (false);
+    }
+
+    selecttorModal.find(".onealert").hide();
+
+    $.ajax({
+        url : href,
+        type : 'POST',
+        dataType : 'json',
+        data : {"config" : config, "name" : name, "host" : host, "user" : user, "password" : password, "port" : port, "driver" : driver},
+        success : function(data){
+            if (data['code'] === 200)
+            {
+                getDatabasesList();
+                if (data['code'] === 200)
+                    operationSuccess();
+                else
+                    operationError();
+            }
+            else
+                operationError();
+        }
+    });
+};
+
 
 
 /**
@@ -344,6 +477,46 @@ var removeApp = function (url) {
 
 
 /**
+ * clear all cache
+ * @param url Url to remove all cache
+ */
+var clearAllCache = function (url) {
+
+    $.ajax({
+        url : url,
+        type : 'GET',
+        dataType : 'json',
+        success : function(data){
+            getAllCacheEnv();
+            if (data['code'] === 200)
+                operationSuccess();
+            else
+                operationError();
+        }
+    })
+};
+
+/**
+ * clear cache for specific env
+ * @param url Url to clear cache for specific env
+ */
+var clearCache = function (url) {
+
+    $.ajax({
+        url : url,
+        type : 'GET',
+        dataType : 'json',
+        success : function(data){
+            getAllCacheEnv();
+            if (data['code'] === 200)
+                operationSuccess();
+            else
+                operationError();
+        }
+    })
+};
+
+/**
  * remove db configuration
  * @param url Url to remove db
  */
@@ -371,6 +544,7 @@ $(document).ready(function () {
     getAppListSimple();
     getUnlimitedLogs();
     getDatabasesList();
+    getAllCacheEnv();
 
     setInterval(function () {
         getLogs();
@@ -378,6 +552,7 @@ $(document).ready(function () {
         getAppListSimple();
         getUnlimitedLogs();
         getDatabasesList();
+        getAllCacheEnv();
     }, 7000);
 
     /**
@@ -474,6 +649,19 @@ $(document).ready(function () {
             case "removedb":
                 removeDb(href);
                 break;
+            case "editdatabasesave":
+                saveDatabaseConfiguration(href);
+                break;
+            case "createsavedatabase":
+                createDatabaseConfiguration(href);
+                break;
+            case "clearallcache":
+                clearAllCache(href);
+                break;
+            case "clearcache":
+                clearCache(href);
+                break;
+
         }
     });
 
@@ -513,11 +701,12 @@ $(document).ready(function () {
 
 
     /**
-     * Event to show create app modal
+     * Event to show edit database modal
      */
     $(document).on('click', ".toeditdatabase", function () {
         var selector = $(this);
         var href = selector.attr("attr-href");
+        var href2 = selector.attr("attr-href2");
         var name = selector.attr("attr-dbconfig");
         var result = null;
 
@@ -528,9 +717,40 @@ $(document).ready(function () {
             success : function(data){
                 if (data['code'] === 200)
                 {
-
                     result = data['results'];
-                    console.log(result);
+                    var selecttorModal = $("#modalManager");
+
+                    selecttorModal.find(".modal-header").html("<strong class='text-center'>Edit "+name+" configuration</strong>");
+                    selecttorModal.find(".modal-header").append("<p class='alert alert-danger onealert' style='display: none'></p>");
+                    selecttorModal.find(".modal-body").html("<h4 class='text-center'>Edit fields to update database configuration.</h4>");
+                    selecttorModal.find(".modal-body").append("<br>");
+                    selecttorModal.find(".modal-body").append("<div class='container'><div class='row'>");
+
+                    selecttorModal.find(".modal-body").append("<div class='form-group text-center'><label>Configuration name</label><input type='text' name='config' class='form-control text-center' value='"+name+"' disabled='disabled'></div>");
+                    selecttorModal.find(".modal-body").append("</div></div>");
+                    selecttorModal.find(".modal-body").append("<div class='form-group text-center'><label>Name</label><input type='text' name='name' class='form-control text-center' value='"+result['db_name']+"'></div>");
+                    selecttorModal.find(".modal-body").append("</div></div>");
+                    selecttorModal.find(".modal-body").append("<div class='form-group text-center'><label>Host</label><input type='text' name='host' class='form-control text-center' value='"+result['db_host']+"'></div>");
+                    selecttorModal.find(".modal-body").append("</div></div>");
+                    selecttorModal.find(".modal-body").append("<div class='form-group text-center'><label>User name</label><input type='text' name='user' class='form-control text-center' value='"+result['db_user']+"'></div>");
+                    selecttorModal.find(".modal-body").append("</div></div>");
+                    selecttorModal.find(".modal-body").append("<div class='form-group text-center'><label>User password</label><input type='text' name='password' class='form-control text-center' value='"+result['db_password']+"'></div>");
+                    selecttorModal.find(".modal-body").append("</div></div>");
+                    selecttorModal.find(".modal-body").append("<div class='form-group text-center'><label>Port</label><input type='number' name='port' class='form-control text-center' value='"+result['db_port']+"'></div>");
+                    selecttorModal.find(".modal-body").append("</div></div>");
+                    selecttorModal.find(".modal-body").append("<div class='form-group text-center'><label>Driver</label><input type='text' name='driver' class='form-control text-center' value='"+result['db_driver']+"'></div>");
+                    selecttorModal.find(".modal-body").append("</div></div>");
+
+                    selecttorModal.find(".btn-close").html("Close");
+                    selecttorModal.find(".btn-valid").html("Update");
+
+                    selecttorModal.find(".btn-valid").attr("attr-href", href2);
+                    selecttorModal.find(".btn-valid").attr("attr-dbconfig", name);
+                    selecttorModal.find(".btn-valid").attr("attr-event", "editdatabasesave");
+                    selecttorModal.find(".btn-close").show();
+                    selecttorModal.find(".btn-valid").show();
+
+                    modal("show");
                 }
                 else
                 {
@@ -539,36 +759,43 @@ $(document).ready(function () {
                 }
             }
         });
+    });
+
+    /**
+     * Event to show create database config modal
+     */
+    $(document).on('click', ".createdatabaseconfig", function () {
+        var selector = $(this);
+        var href = selector.attr("attr-href");
 
         var selecttorModal = $("#modalManager");
 
-        selecttorModal.find(".modal-header").html("<strong class='text-center'>Edit "+name+" configuration</strong>");
+        selecttorModal.find(".modal-header").html("<strong class='text-center'>Create a new database configuration</strong>");
         selecttorModal.find(".modal-header").append("<p class='alert alert-danger onealert' style='display: none'></p>");
-        selecttorModal.find(".modal-body").html("<h4 class='text-center'>Edit some fill to update database configuration.</h4>");
+        selecttorModal.find(".modal-body").html("<h4 class='text-center'>Fill in the fields to create a database configuration.</h4>");
         selecttorModal.find(".modal-body").append("<br>");
         selecttorModal.find(".modal-body").append("<div class='container'><div class='row'>");
 
-        selecttorModal.find(".modal-body").append("<div class='form-group text-center'><label>Configuration name</label><input type='text' name='appname' class='form-control'></div>");
+        selecttorModal.find(".modal-body").append("<div class='form-group text-center'><label>Configuration name</label><input type='text' name='config' class='form-control text-center'></div>");
         selecttorModal.find(".modal-body").append("</div></div>");
-        selecttorModal.find(".modal-body").append("<div class='form-group text-center'><label>Name</label><input type='text' name='appname' class='form-control'></div>");
+        selecttorModal.find(".modal-body").append("<div class='form-group text-center'><label>Name</label><input type='text' name='name' class='form-control text-center'></div>");
         selecttorModal.find(".modal-body").append("</div></div>");
-        selecttorModal.find(".modal-body").append("<div class='form-group text-center'><label>Host</label><input type='text' name='appname' class='form-control'></div>");
+        selecttorModal.find(".modal-body").append("<div class='form-group text-center'><label>Host</label><input type='text' name='host' class='form-control text-center'></div>");
         selecttorModal.find(".modal-body").append("</div></div>");
-        selecttorModal.find(".modal-body").append("<div class='form-group text-center'><label>User name</label><input type='text' name='appname' class='form-control'></div>");
+        selecttorModal.find(".modal-body").append("<div class='form-group text-center'><label>User name</label><input type='text' name='user' class='form-control text-center'></div>");
         selecttorModal.find(".modal-body").append("</div></div>");
-        selecttorModal.find(".modal-body").append("<div class='form-group text-center'><label>User password</label><input type='text' name='appname' class='form-control'></div>");
+        selecttorModal.find(".modal-body").append("<div class='form-group text-center'><label>User password</label><input type='text' name='password' class='form-control text-center'></div>");
         selecttorModal.find(".modal-body").append("</div></div>");
-        selecttorModal.find(".modal-body").append("<div class='form-group text-center'><label>Port</label><input type='text' name='appname' class='form-control'></div>");
+        selecttorModal.find(".modal-body").append("<div class='form-group text-center'><label>Port</label><input type='number' name='port' class='form-control text-center'></div>");
         selecttorModal.find(".modal-body").append("</div></div>");
-        selecttorModal.find(".modal-body").append("<div class='form-group text-center'><label>Driver</label><input type='text' name='appname' class='form-control'></div>");
+        selecttorModal.find(".modal-body").append("<div class='form-group text-center'><label>Driver</label><input type='text' name='driver' class='form-control text-center'></div>");
         selecttorModal.find(".modal-body").append("</div></div>");
 
         selecttorModal.find(".btn-close").html("Close");
         selecttorModal.find(".btn-valid").html("Update");
 
         selecttorModal.find(".btn-valid").attr("attr-href", href);
-        selecttorModal.find(".btn-valid").attr("attr-dbconfig", name);
-        selecttorModal.find(".btn-valid").attr("attr-event", "editdatabasesave");
+        selecttorModal.find(".btn-valid").attr("attr-event", "createsavedatabase");
         selecttorModal.find(".btn-close").show();
         selecttorModal.find(".btn-valid").show();
 
@@ -577,8 +804,7 @@ $(document).ready(function () {
 
 
 
-
-/**
+    /**
      * Event to clear logs
      */
     $(document).on('click', ".clearlogs", function () {
@@ -602,6 +828,52 @@ $(document).ready(function () {
     });
 
 
+    /**
+     * Event to clear all cache
+     */
+    $(document).on('click', ".clearcache", function () {
+        var selector = $(this);
+        var href = selector.attr("attr-href");
+        var env = selector.attr("attr-env");
+
+        var selecttorModal = $("#modalManager");
+
+        selecttorModal.find(".modal-header").html("<strong class='text-center'>Clear cache for all environment</strong>");
+        selecttorModal.find(".modal-body").html("<h4 class='text-center'>Would you like to empty cache folder for all environment ?</h4>");
+        selecttorModal.find(".btn-close").html("No");
+        selecttorModal.find(".btn-valid").html("Yes");
+
+        selecttorModal.find(".btn-valid").attr("attr-href", href);
+        selecttorModal.find(".btn-valid").attr("attr-event", "clearallcache");
+        selecttorModal.find(".btn-close").show();
+        selecttorModal.find(".btn-valid").show();
+
+        modal("show");
+    });
+
+
+    /**
+     * Event to clear all cache
+     */
+    $(document).on('click', ".clearcachespec", function () {
+        var selector = $(this);
+        var href = selector.attr("attr-href");
+        var env = selector.attr("attr-env");
+
+        var selecttorModal = $("#modalManager");
+
+        selecttorModal.find(".modal-header").html("<strong class='text-center'>Clear cache for "+env+" environment</strong>");
+        selecttorModal.find(".modal-body").html("<h4 class='text-center'>Would you like to empty cache folder for <strong>"+env+"</strong> environment ?</h4>");
+        selecttorModal.find(".btn-close").html("No");
+        selecttorModal.find(".btn-valid").html("Yes");
+
+        selecttorModal.find(".btn-valid").attr("attr-href", href);
+        selecttorModal.find(".btn-valid").attr("attr-event", "clearcache");
+        selecttorModal.find(".btn-close").show();
+        selecttorModal.find(".btn-valid").show();
+
+        modal("show");
+    });
 
 });
 

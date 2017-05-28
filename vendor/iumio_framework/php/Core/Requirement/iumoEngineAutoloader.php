@@ -132,7 +132,7 @@ class iumoEngineAutoloader {
 
                 }
             }
-            file_put_contents($path . "/elements/config_files/map_".(($env == "DEV")? "dev_" : "")."class.json", json_encode($json));
+            file_put_contents($path . "/elements/config_files/map_".(($env == "DEV")? "dev_" : "")."class.json", json_encode($json, JSON_PRETTY_PRINT));
             return (true);
         }
         return (false);

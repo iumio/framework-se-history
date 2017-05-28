@@ -37,7 +37,7 @@ class Debug implements DebugInterface
                 $c = count($log);
                 $log[$c] = $debug;
                 $log = (object) $log;
-                JL::put(ROOT_LOGS.strtolower(ENVIRONMENT).".log.json", json_encode($log));
+                JL::put(ROOT_LOGS.strtolower(ENVIRONMENT).".log.json", json_encode($log, JSON_PRETTY_PRINT));
             }
             else if ($interface == 'display')
                 echo "<br> Time : " . self::$logformat['time'] . " ### Content : " . self::$logformat['msg'] . "<br>";

@@ -11,3 +11,7 @@ method : Cache%cacheClearAll
 name : iumio_manager_cache_manager_remove
 path :  /_manager/cache/clear/{env}
 method : Cache%cacheClear
+
+name : iumio_manager_cache_manager_get_all
+path :  /_manager/cache/get/all
+method : Cache%getAllEnv
