@@ -42,9 +42,6 @@ document.addEventListener('click',function(e){
             case 'iumioTaskBarCacheClearDev':
                 cacheClear(document.querySelector(".iumioTaskBarCacheClearDev"));
                 break;
-            case 'iumioTaskBarCacheClearPreprod':
-                cacheClear(document.querySelector(".iumioTaskBarCacheClearPreprod"));
-                break;
             case 'iumioTaskBarCacheClearProd':
                 cacheClear(document.querySelector(".iumioTaskBarCacheClearProd"));
                 break;

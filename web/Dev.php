@@ -1,7 +1,7 @@
 <?php
 
 $loader = require __DIR__.'/../vendor/iumio_framework/php/Core/Requirement/iumoEngineAutoloader.php';
-iumoEngineAutoloader::$env = "PREPROD";
+iumoEngineAutoloader::$env = "DEV";
 
 use iumioFramework\Core\Base\{iumioEnvironment, Debug\Debug, Http\HttpListener};
 use iumioFramework\Apps\AppCore;
@@ -9,12 +9,12 @@ use ManagerApp\ManagerApp as GManager;
 use iumioFramework\Core\Additionnal\TaskBar\iumioTaskBar as TB;
 
 /**
- * Class iumioPreprod
- * iumio Class for preproduction environment
+ * Class Dev
+ * iumio Class for development environment
  * @author RAFINA Dany <danyrafina@gmail.com>
  */
 
-class iumioPreprod extends iumioEnvironment
+class Dev extends iumioEnvironment
 {
 
     /** Start Application
@@ -23,7 +23,7 @@ class iumioPreprod extends iumioEnvironment
     static public function start():int
     {
 
-        parent::definer('PREPROD');
+        parent::definer('DEV');
         // This check prevents access to debug front controllers that are deployed by accident to production servers.
         // Feel free to remove this, extend it, or make something more sophisticated.
         if (isset($_SERVER['HTTP_CLIENT_IP'])
@@ -35,7 +35,7 @@ class iumioPreprod extends iumioEnvironment
             return (1);
         }
 
-        $core = new AppCore('PREPROD', true);
+        $core = new AppCore('DEV', true);
         Debug::enabled();
         GManager::on();
         TB::switchStatus("on");
@@ -47,6 +47,6 @@ class iumioPreprod extends iumioEnvironment
         return (1);
     }
 }
-// Enable the application
-iumioPreprod::start();
 
+// Enable the application
+Dev::start();

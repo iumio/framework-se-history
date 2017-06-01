@@ -131,11 +131,9 @@ class iumioUltimaMaster extends iumioUltima
                 $one['path'] = $this->analysePath($one['routename'], $one['path'], ((is_array($parameters))? $parameters : array()));
                 $env = ENVIRONMENT;
                 if ($env == "DEV")
-                    $env = "iumio_dev.php";
-                else if ($env == "PREPROD")
-                    $env = "iumio_preprod.php";
+                    $env = "Dev.php";
                 else if ($env == "PROD")
-                    $env = "iumio_prod.php";
+                    $env = "Prod.php";
 
                 if (strpos($_SERVER['REQUEST_URI'], $env) == false)
                     $env = "";

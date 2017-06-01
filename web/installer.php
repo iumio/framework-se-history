@@ -77,7 +77,7 @@ function initialJSON()
         $std->installation = new \DateTime();
         $std->version = "0.1.9";
         $std->user = get_current_user();
-        $std->location = $base;
+        $std->location = realpath($base);
         $std->os = PHP_OS;
 
         $rs = json_encode($std, JSON_PRETTY_PRINT);
@@ -1505,7 +1505,7 @@ function initialJSON()
 
             <div class="block" id="step8" style="display: none;color: white;text-align: center;color:black">
                 <h3 style="font-size: 40px;">Your app was created.</h3>
-                <h3 style="font-size: 30px;text-align: center;">Your application is available at : <a href="//<?php echo $_SERVER['HTTP_HOST'].((isset($_SERVER['BASE']) && $_SERVER['BASE'] != "")? $_SERVER['BASE'] : "") ?>/iumio_dev.php/index"><?php echo $_SERVER['HTTP_HOST'].((isset($_SERVER['BASE']) && $_SERVER['BASE'] != "")? $_SERVER['BASE'] : "")."/iumio_dev.php/index" ?></a><br><em>Now you must to remove installer.php file</em><br> Redirect to /index in 10 seconds</h3>
+                <h3 style="font-size: 30px;text-align: center;">Your application is available at : <a href="//<?php echo $_SERVER['HTTP_HOST'].((isset($_SERVER['BASE']) && $_SERVER['BASE'] != "")? $_SERVER['BASE'] : "") ?>/Dev.php/index"><?php echo $_SERVER['HTTP_HOST'].((isset($_SERVER['BASE']) && $_SERVER['BASE'] != "")? $_SERVER['BASE'] : "")."/Dev.php/index" ?></a><br><em>Now you must to remove installer.php file</em><br> Redirect to /index in 10 seconds</h3>
             </div>
 
             <div class="block" id="step9" style="display: none;color: darkred!important;text-align: center;color:black">
@@ -1530,13 +1530,11 @@ function initialJSON()
 
     function redirect() {
         setTimeout(function () {
-         location.href= (getBaseUrl()[0])+"iumio_dev.php/index";
+         location.href= (getBaseUrl()[0])+"Dev.php/index";
          }, 10000);
     }
 
-    console.log(location.origin);
-    console.log(location.pathname);
-    console.log();
+
     var appinfo = [];
     window.setTimeout(function () {
         document.getElementById("textd").className += " alter3";

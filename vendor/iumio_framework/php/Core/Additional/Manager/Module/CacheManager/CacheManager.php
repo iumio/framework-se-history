@@ -25,8 +25,6 @@ class CacheManager implements ModuleInterface
                 $this->deleteCache("dev");
             else if ($opt == "--env=dev" || $opt == "--env=DEV")
                 $this->deleteCache("dev", "yes");
-            elseif ($opt == "--env=preprod" || $opt == "--env=PREPROD")
-                $this->deleteCache("preprod", "yes");
             elseif ($opt == "--env=prod" || $opt == "--env=PROD")
                 $this->deleteCache("prod", "yes");
             elseif ($opt == "--env=all" || $opt == "--env=ALL")
@@ -62,7 +60,7 @@ class CacheManager implements ModuleInterface
      */
     private function deleteAllCache()
     {
-        $a = array("dev", "preprod", "prod");
+        $a = array("dev", "prod");
         Output::displayAsSuccess("Hey, I delete cache for all environment", "none");
         for ($i = 0; $i < count($a); $i++)
             $this->callDelCreaServer($a[$i]);

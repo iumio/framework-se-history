@@ -11,9 +11,8 @@
     <!-- Menu -->
     <nav id="menu">
         <ul class="links">
-            <li><a href="<?= HOST_CURRENT ?>/iumio_dev.php">Development</a></li>
-            <li><a href="<?= HOST_CURRENT ?>/iumio_preprod.php">Preproduction</a></li>
-            <li><a href="<?= HOST_CURRENT ?>/iumio_prod.php">Production</a></li>
+            <li><a href="<?= HOST_CURRENT ?>/Dev.php">Development</a></li>
+            <li><a href="<?= HOST_CURRENT ?>/Prod.php">Production</a></li>
             <li><a href="<?= (new \iumioFramework\Masters\iumioUltimaMaster())->generateRoute("iumio_manager_index", null, "ManagerApp", true) ?>">Manager</a></li>
 
         </ul>

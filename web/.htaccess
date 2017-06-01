@@ -5,7 +5,7 @@
 ### <danyrafina@gmail.com> ---------- ###
 #########################################
 
-DirectoryIndex iumio_dev.php
+DirectoryIndex Dev.php
 
 <IfModule mod_negotiation.c>
     Options -MultiViews
@@ -24,20 +24,20 @@ DirectoryIndex iumio_dev.php
 
 
     RewriteCond %{ENV:REDIRECT_STATUS} ^$
-    RewriteRule ^iumio_dev\.php(/(.*)|$) %{ENV:BASE}/$2 [R=301,L]
+    RewriteRule ^Dev\.php(/(.*)|$) %{ENV:BASE}/$2 [R=301,L]
 
 
     RewriteCond %{REQUEST_FILENAME} -f
     RewriteRule .? - [L]
 
     # Rewrite all other queries to the front controller.
-    RewriteRule .? %{ENV:BASE}/iumio_dev.php [L]
+    RewriteRule .? %{ENV:BASE}/Dev.php [L]
 </IfModule>
 
 <IfModule !mod_rewrite.c>
     <IfModule mod_alias.c>
 
-        RedirectMatch 302 ^/$ /iumio_dev.php/
+        RedirectMatch 302 ^/$ /Dev.php/
 
     </IfModule>
 </IfModule>

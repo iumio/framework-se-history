@@ -39,10 +39,8 @@ class iumioEnvironment
         define('ROOT_LOGS', $base."elements/logs/");
         define('CACHE_DEV', $base."elements/cache/dev/");
         define('CACHE_PROD', $base."elements/cache/prod/");
-        define('CACHE_PREPROD', $base."elemets/cache/preprod/");
         define('COMPILED_DEV', $base."elements/compiled/dev/");
         define('COMPILED_PROD', $base."elements/compiled/prod/");
-        define('COMPILED_PREPROD', $base."elemets/compiled/preprod/");
         define('SERVER_VIEWS', $base."vendor/iumio_framework/php/Core/Exceptions/Server/views/");
         define('SERVER', $base."vendor/iumio_framework/php/Core/Exceptions/Server/");
         define('WEB_ASSETS', $current."/components/apps/");
@@ -63,11 +61,9 @@ class iumioEnvironment
     static public function getFileEnv(string $env):string
     {
         if ($env == "DEV")
-            return ("iumio_dev.php");
-        else if ($env == "PREPROD")
-            return ("iumio_preprod.php");
+            return ("Dev.php");
         else if ($env == "PROD")
-            return ("iumio_prod.php");
+            return ("Prod.php");
         else
             throw new \Exception("iumio Environment Error : Environment $env doesn't exist");
     }

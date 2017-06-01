@@ -36,14 +36,11 @@ class iumioSmartyConfiguration
             case "dev":
                 $file = (array) (JL::open(CONFIG_DIR."smarty_config/smarty.json"));
                 break;
-            case "preprod":
-                $file = (array) (JL::open(CONFIG_DIR."smarty_config/smarty.json"));
-                break;
             case "prod":
                 $file = (array) (JL::open(CONFIG_DIR."smarty_config/smarty.json"));
                 break;
             default:
-                throw new Server500(new \ArrayObject(array("explain" => "iumio Smarty Configuration Error : Unknow $env environment", "solution" => "Environment must be [dev, preprod, prod]")));
+                throw new Server500(new \ArrayObject(array("explain" => "iumio Smarty Configuration Error : Unknow $env environment", "solution" => "Environment must be [dev, prod]")));
                 break;
         }
         if (empty($file))

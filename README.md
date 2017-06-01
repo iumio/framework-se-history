@@ -9,7 +9,7 @@ Actual version : 0.1.9 PRE-BETA
 
 * Server language : PHP 7.0 or later
 * Engine Template : Mustache
-* Available Environments : DEV, PREPROD, PROD
+* Available Environments : DEV and PROD
 
 
 

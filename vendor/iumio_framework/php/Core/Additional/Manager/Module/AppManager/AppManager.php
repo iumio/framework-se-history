@@ -333,11 +333,32 @@ class AppManager implements ModuleInterface
         $f->$lastapp->update = $ndate;
         $f = json_encode($f, JSON_PRETTY_PRINT);
         file_put_contents(ROOT_PROJECT."/elements/config_files/apps.json", $f);
+        $this->initialJSON();
         if ($this->params['template'] == "yes")
             new AM(array("core/manager", "assets-manager", "--copy", "--appname=". $this->params['appname'], "--symlink", "--noexit"));
         Output::outputAsEndSuccess("Your app is ready to use. To test your app, go to project location on your browser with parameter /index. Enjoy !", "none");
     }
 
+
+    /**
+     * Build initial.json
+     */
+    final protected function initialJSON()
+    {
+        $f = json_decode(file_get_contents(ROOT_PROJECT."/elements/config_files/initial.json"));
+        if (empty($f))
+        {
+            $std = new \stdClass();
+            $std->installation = new \DateTime();
+            $std->version = "0.1.9";
+            $std->user = get_current_user();
+            $std->location = realpath(ROOT_PROJECT);
+            $std->os = PHP_OS;
+
+            $rs = json_encode($std, JSON_PRETTY_PRINT);
+            file_put_contents(ROOT_PROJECT."/elements/config_files/initial.json", $rs);
+        }
+    }
 
     /**
      * Processing to switch default app

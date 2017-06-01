@@ -18,5 +18,21 @@
     "4": {
         "time": "2017-05-28 20:05:56",
         "content": "[500 INTERNAL ERROR] : iumio Core Error : Class \\ManagerApp\\Master\\CacheMaster or method \\ManagerApp\\Master\\CacheMaster::getAllEnvActivity doesn't exist : iumio Reflexion Method Error : Class \\ManagerApp\\Master\\CacheMaster does not exist"
+    },
+    "5": {
+        "time": "2017-06-01 15:06:01",
+        "content": "[404 NOT FOUND] : The ressource you try to access is not found. : Please check your URI"
+    },
+    "6": {
+        "time": "2017-06-01 15:06:31",
+        "content": "[404 NOT FOUND] : The ressource you try to access is not found. : Please check your URI"
+    },
+    "7": {
+        "time": "2017-06-01 15:06:36",
+        "content": "[404 NOT FOUND] : The ressource you try to access is not found. : Please check your URI"
+    },
+    "8": {
+        "time": "2017-06-01 21:06:30",
+        "content": "[404 NOT FOUND] : The ressource you try to access is not found. : Please check your URI"
     }
 }

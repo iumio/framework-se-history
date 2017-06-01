@@ -19,7 +19,6 @@
             <ul class="iumioTaskBarDropdownContent">
                 <li class="iumioTaskBarCacheClearAll" attr-href="{$iumiotaskbar['cache_clear_all']}">All</li>
                 <li class="iumioTaskBarCacheClearDev" attr-href="{$iumiotaskbar['cache_clear_dev']}">Dev</li>
-                <li class="iumioTaskBarCacheClearPreprod" attr-href="{$iumiotaskbar['cache_clear_preprod']}">Preprod</li>
                 <li class="iumioTaskBarCacheClearProd" attr-href="{$iumiotaskbar['cache_clear_prod']}">Prod</li>
             </ul></li>
         <li style="float: right; list-style: none" class="active" id="iumioTaskBarReduce"><a><strong>></strong></a></li>

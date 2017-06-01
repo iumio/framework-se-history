@@ -1,1 +1,47 @@
-{"0":{"name":"TestApp","isdefault":"no","class":"\\TestApp\\TestApp","creation":{"date":"2017-05-26 05:42:01.360285","timezone_type":3,"timezone":"UTC"},"update":{"date":"2017-05-26 16:55:01.026339","timezone_type":3,"timezone":"UTC"}},"1":{"name":"moApp","isdefault":"yes","class":"\\moApp\\moApp","creation":{"date":"2017-05-26 09:40:41.812324","timezone_type":3,"timezone":"UTC"},"update":{"date":"2017-05-27 18:14:19.157313","timezone_type":3,"timezone":"Europe\/Paris"}},"2":{"name":"TellMeApp","isdefault":"no","class":"\\TellMeApp\\TellMeApp","creation":{"date":"2017-05-26 16:55:01.026926","timezone_type":3,"timezone":"UTC"},"update":{"date":"2017-05-27 16:14:19.157359","timezone_type":3,"timezone":"UTC"}}}
+{
+    "0": {
+        "name": "TestApp",
+        "isdefault": "no",
+        "class": "\\TestApp\\TestApp",
+        "creation": {
+            "date": "2017-05-26 05:42:01.360285",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "update": {
+            "date": "2017-05-26 16:55:01.026339",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        }
+    },
+    "1": {
+        "name": "moApp",
+        "isdefault": "no",
+        "class": "\\moApp\\moApp",
+        "creation": {
+            "date": "2017-05-26 09:40:41.812324",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "update": {
+            "date": "2017-05-29 07:59:33.250399",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        }
+    },
+    "2": {
+        "name": "TellMeApp",
+        "isdefault": "yes",
+        "class": "\\TellMeApp\\TellMeApp",
+        "creation": {
+            "date": "2017-05-26 16:55:01.026926",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "update": {
+            "date": "2017-05-29 09:59:33.250672",
+            "timezone_type": 3,
+            "timezone": "Europe\/Paris"
+        }
+    }
+}

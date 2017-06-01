@@ -46,7 +46,7 @@ class CacheMaster extends Master
      */
     private function deleteAllCache()
     {
-        $a = array("dev", "preprod", "prod");
+        $a = array("dev", "prod");
         for ($i = 0; $i < count($a); $i++)
             $this->callDelCreaServer($a[$i]);
     }

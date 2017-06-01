@@ -8,7 +8,7 @@
       },
       "cache-manager": {
           "class" : "\\iumioFramework\\Manager\\Console\\Module\\Cache\\CacheManager",
-          "desc"  : "Manage iumio cache  \n        --clear : Clear cache environment (Dev environment as default)  \n        --env: Environment name (DEV, PROD, PREPROD, ALL) (must used with --clear)\n"
+          "desc"  : "Manage iumio cache  \n        --clear : Clear cache environment (Dev environment as default)  \n        --env: Environment name (DEV, PROD, ALL) (must used with --clear)\n"
       },
       "assets-manager": {
         "class" : "\\iumioFramework\\Manager\\Console\\Module\\Assets\\AssetsManager",

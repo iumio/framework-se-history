@@ -43,12 +43,6 @@ final class iumioSmarty
                 $envcache = CACHE_PROD;
                 $compiled = COMPILED_PROD;
             }
-            else if (ENVIRONMENT == "PREPROD")
-            {
-                $envcache = CACHE_PREPROD;
-                $compiled = COMPILED_PREPROD;
-            }
-
 
             $dirapp = ((IS_IUMIO_COMPONENT)? BASE_APPS :  ROOT_APPS);
 
