@@ -12,7 +12,7 @@
       },
       "assets-manager": {
         "class" : "\\iumioFramework\\Manager\\Console\\Module\\Assets\\AssetsManager",
-        "desc"  : "Manage project assets \n        --copy : Copy project assets to web directory  \n        --symlink (must with --copy option) Symbolic link will be created \n        --clear : clear all web assets \n        --appname : App name 'Example --appname=DefaultApp' (must be use with --copy or --clear option\n"
+        "desc"  : "Manage project assets \n        --copy : Copy project assets to web directory  \n        --symlink (must with --copy option) Symbolic link will be created \n        --clear : clear all web assets \n        --appname : App name 'Example --appname=DefaultApp' (must be use with --copy or --clear option)       \n        --env: Environment name (DEV, PROD, ALL) (required with --apname)\n"
       },
       "app-manager": {
         "class" : "\\iumioFramework\\Manager\\Console\\Module\\App\\AppManager",

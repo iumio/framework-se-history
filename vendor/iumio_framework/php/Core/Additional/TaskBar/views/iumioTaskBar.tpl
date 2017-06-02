@@ -9,17 +9,21 @@
         <li><a href="#" class="active"><strong>{$iumiotaskbar['call_app']}</strong></a></li>
         <li id="iumioTaskBarAssets" class="iumioTaskBarDropdown"><a href="#">Assets</a>
             <ul class="iumioTaskBarDropdownContent">
-                <li class="iumioTaskBarAssetsClearAll" attr-href="{$iumiotaskbar['publish_assets']}">Publish all</li>
-                <li class="iumioTaskBarAssetsPublishAll" attr-href="{$iumiotaskbar['clear_assets']}">Clear all</li>
+                <li class="iumioTaskBarAssetsClearAll"    attr-href="{$iumiotaskbar['publish_assets_all']}"  >Publish all</li>
+                <li class="iumioTaskBarAssetsClearDev"    attr-href="{$iumiotaskbar['publish_assets_dev']}"  >Publish dev</li>
+                <li class="iumioTaskBarAssetsClearProd"   attr-href="{$iumiotaskbar['publish_assets_prod']}" >Publish prod</li>
+                <li class="iumioTaskBarAssetsPublishAll"  attr-href="{$iumiotaskbar['clear_assets_all']}"    >Clear all</li>
+                <li class="iumioTaskBarAssetsPublishDev"  attr-href="{$iumiotaskbar['clear_assets_dev']}"    >Clear dev</li>
+                <li class="iumioTaskBarAssetsPublishProd" attr-href="{$iumiotaskbar['clear_assets_prod']}"   >Clear prod</li>
             </ul>
         </li>
         <li><a href="#" id="iumioTaskBarSwitchApp" attr-href="{$iumiotaskbar['all_simple_apps']}">Switch to default</a></li>
         <li><a href="{$iumiotaskbar['manager']}">Go to manager</a></li>
         <li id="iumioTaskBarCacheClear" class="iumioTaskBarDropdown"><a href="#" >Clear cache</a>
             <ul class="iumioTaskBarDropdownContent">
-                <li class="iumioTaskBarCacheClearAll" attr-href="{$iumiotaskbar['cache_clear_all']}">All</li>
-                <li class="iumioTaskBarCacheClearDev" attr-href="{$iumiotaskbar['cache_clear_dev']}">Dev</li>
-                <li class="iumioTaskBarCacheClearProd" attr-href="{$iumiotaskbar['cache_clear_prod']}">Prod</li>
+                <li class="iumioTaskBarCacheClearAll" attr-href="{$iumiotaskbar['cache_clear_all']}">Clear all</li>
+                <li class="iumioTaskBarCacheClearDev" attr-href="{$iumiotaskbar['cache_clear_dev']}">Clear dev</li>
+                <li class="iumioTaskBarCacheClearProd" attr-href="{$iumiotaskbar['cache_clear_prod']}">Clear prod</li>
             </ul></li>
         <li style="float: right; list-style: none" class="active" id="iumioTaskBarReduce"><a><strong>></strong></a></li>
     </ul>

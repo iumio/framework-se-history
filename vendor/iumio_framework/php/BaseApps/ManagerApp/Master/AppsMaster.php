@@ -101,7 +101,7 @@ class AppsMaster extends Master
 
         iumioServerManager::delete(ROOT."/apps/$appname", "directory");
         $assets = $this->getMaster("Assets");
-        $assets->clear($appname);
+        $assets->clear($appname, "all");
         return ((new Response())->JSON_RENDER(array("code" => 200, "msg" => "OK")));
     }
 
@@ -170,7 +170,7 @@ class AppsMaster extends Master
         if ($template == "yes")
         {
             $assets = $this->getMaster("Assets");
-            $assets->publish();
+            $assets->publish($name, "dev");
         }
 
         return ((new Response())->JSON_RENDER(array("code" => 200, "msg" => "OK")));

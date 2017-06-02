@@ -63,7 +63,6 @@ final class iumioSmarty
             self::$instance->debug_tpl = 'file:' . ADDITIONALS . 'TaskBar/views/iumioTaskBar.tpl';
             self::enableSmartyDebug($sconfig->getSmartyDebug());
             self::$instance->caching = $sconfig->getCache();
-           // self::$instance->
 
             $this->registerBasePlugins();
 
@@ -111,9 +110,9 @@ final class iumioSmarty
         self::$instance->registerPlugin(\Smarty::PLUGIN_FUNCTION, 'css_libs', array("iumioFramework\Core\Additionnal\Template\iumioViewBasePlugin", "css_libs"));
         self::$instance->registerPlugin(\Smarty::PLUGIN_FUNCTION, 'js_libs', array("iumioFramework\Core\Additionnal\Template\iumioViewBasePlugin", "js_libs"));
 
-        self::$instance->registerPlugin(\Smarty::PLUGIN_FUNCTION, 'css_manager', array("iumioFramework\Core\Additionnal\Template\iumioViewBasePlugin", "css_im"));
-        self::$instance->registerPlugin(\Smarty::PLUGIN_FUNCTION, 'js_manager', array("iumioFramework\Core\Additionnal\Template\iumioViewBasePlugin", "js_im"));
-        self::$instance->registerPlugin(\Smarty::PLUGIN_FUNCTION, 'img_manager', array("iumioFramework\Core\Additionnal\Template\iumioViewBasePlugin", "img_im"));
+        self::$instance->registerPlugin(\Smarty::PLUGIN_FUNCTION, 'css_manager', array("iumioFramework\Core\Additionnal\Template\iumioViewBasePlugin", "css_manager"));
+        self::$instance->registerPlugin(\Smarty::PLUGIN_FUNCTION, 'js_manager', array("iumioFramework\Core\Additionnal\Template\iumioViewBasePlugin", "js_manager"));
+        self::$instance->registerPlugin(\Smarty::PLUGIN_FUNCTION, 'img_manager', array("iumioFramework\Core\Additionnal\Template\iumioViewBasePlugin", "img_manager"));
 
         self::$instance->registerPlugin(\Smarty::PLUGIN_FUNCTION, 'css_iumio', array("iumioFramework\Core\Additionnal\Template\iumioViewBasePlugin", "css_iumio"));
         self::$instance->registerPlugin(\Smarty::PLUGIN_FUNCTION, 'js_iumio', array("iumioFramework\Core\Additionnal\Template\iumioViewBasePlugin", "js_iumio"));

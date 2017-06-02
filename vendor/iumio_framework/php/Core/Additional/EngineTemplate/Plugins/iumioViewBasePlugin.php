@@ -19,7 +19,7 @@ class iumioViewBasePlugin
      */
     static public function webassets(array $params):string
     {
-        return (WEB_ASSETS.strtolower(APP_CALL)."/".$params['path']);
+        return (WEB_ASSETS.strtolower(ENVIRONMENT)."/".strtolower(APP_CALL)."/".$params['path']);
     }
 
     /** Get framework infos
@@ -107,25 +107,25 @@ class iumioViewBasePlugin
      * @param array $params Contains name param
      * @return string return css manager
      */
-    final static public function css_im(array $params)
+    final static public function css_manager(array $params)
     {
-        return ("<link href='".WEB_COMPONENTS."libs/iumio_manager/css/".((isset($params['name']))? $params['name']."." : "")."css' rel='stylesheet' />");
+        return ("<link href='".WEB_COMPONENTS."libs/iumio_manager/css/".((isset($params['name']))? $params['name'].".".((isset($params['min']) && $params['min'] == "yes")? "min"."." : "") : "")."css' rel='stylesheet' />");
     }
 
     /** Get js manager file
      * @param array $params Contains name param
      * @return string return js manager
      */
-    final static public function js_im(array $params)
+    final static public function js_manager(array $params)
     {
-        return ("<script type='text/javascript' src='".WEB_COMPONENTS."libs/iumio_manager/js/".((isset($params['name']))? $params['name']."." : "")."js'></script>");
+        return ("<script type='text/javascript' src='".WEB_COMPONENTS."libs/iumio_manager/js/".((isset($params['name']))? $params['name'].".".((isset($params['min']) && $params['min'] == "yes")? "min"."." : "") : "")."js'></script>");
     }
 
     /** Get image manager file
      * @param array $params Contains name param
      * @return string return image manager
      */
-    final static public function img_im(array $params)
+    final static public function img_manager(array $params)
     {
         return (WEB_COMPONENTS."libs/iumio_manager/img/".((isset($params['name']))? $params['name'] : ""));
     }
@@ -136,7 +136,7 @@ class iumioViewBasePlugin
      */
     final static public function css_iumio(array $params)
     {
-        return ("<link href='".WEB_COMPONENTS."libs/iumio_framework/css/".((isset($params['name']))? $params['name']."." : "")."css' rel='stylesheet' />");
+        return ("<link href='".WEB_COMPONENTS."libs/iumio_framework/css/".((isset($params['name']))? $params['name'].".".((isset($params['min']) && $params['min'] == "yes")? "min"."." : "") : "")."css' rel='stylesheet' />");
     }
 
     /** Get js iumio lib file
@@ -145,7 +145,7 @@ class iumioViewBasePlugin
      */
     final static public function js_iumio(array $params)
     {
-        return ("<script type='text/javascript' src='".WEB_COMPONENTS."libs/iumio_framework/js/".((isset($params['name']))? $params['name']."." : "")."js'></script>");
+        return ("<script type='text/javascript' src='".WEB_COMPONENTS."libs/iumio_framework/js/".((isset($params['name']))? $params['name'].".".((isset($params['min']) && $params['min'] == "yes")? "min"."." : "") : "")."js'></script>");
     }
 
     /** Get img iumio lib file

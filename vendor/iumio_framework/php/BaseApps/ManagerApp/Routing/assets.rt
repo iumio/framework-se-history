@@ -5,9 +5,9 @@ path :  /_manager/assets
 method : Assets%assets
 
 name : iumio_manager_assets_manager_publish
-path :  /_manager/assets/publish
+path :  /_manager/assets/publish/{appname}/{env}
 method : Assets%publish
 
 name : iumio_manager_assets_manager_clear
-path :  /_manager/assets/clear/{appname}
+path :  /_manager/assets/clear/{appname}/{env}
 method : Assets%clear

@@ -5,8 +5,8 @@
     <link rel="apple-touch-icon" sizes="180x180" href="{img_manager name='favicon/apple-touch-icon.png'}">
     <link rel="icon" type="image/png" sizes="32x32" href="{img_manager name='favicon/favicon-32x32.png'}">
     <link rel="icon" type="image/png" sizes="16x16" href="{img_manager name='favicon/favicon-16x16.png'}">
-    <link rel="manifest" href="{img_manager path='favicon/manifest.json'}">
-    <link rel="mask-icon" href="{img_manager path='favicon/safari-pinned-tab.svg'}" color="#5bbad5">
+    <link rel="manifest" href="{img_manager name='favicon/manifest.json'}">
+    <link rel="mask-icon" href="{img_manager name='favicon/safari-pinned-tab.svg'}" color="#5bbad5">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
     <title>iumio Manager</title>
@@ -49,22 +49,6 @@
 {js_manager name='demo'}
 
 {js_manager name='main'}
-<script type="text/javascript">
-    $(document).ready(function(){
-
-        demo.initChartist();
-
-        $.notify({
-            icon: 'pe-7s-gift',
-            message: "Welcome to <b>iumio Manager</b> - a beautiful dashboard manager for every web developer."
-
-        },{
-            type: 'info',
-            timer: 4000
-        });
-
-    });
-</script>
 
 </body>
 </html>

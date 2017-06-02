@@ -1,38 +1,590 @@
 {
     "0": {
-        "time": "2017-05-28 18:05:51",
-        "content": "[404 NOT FOUND] : The ressource you try to access is not found. : Please check your URI"
+        "time": "2017-06-02 10:06:41",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
     },
     "1": {
-        "time": "2017-05-28 19:05:21",
-        "content": "[500 INTERNAL ERROR] : iumio Core Error : Class \\ManagerApp\\Master\\CacheMaster or method \\ManagerApp\\Master\\CacheMaster::getAllEnvActivity doesn't exist : iumio Reflexion Method Error : Class \\ManagerApp\\Master\\CacheMaster does not exist"
+        "time": "2017-06-02 10:06:41",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
     },
     "2": {
-        "time": "2017-05-28 19:05:38",
-        "content": "[500 INTERNAL ERROR] : iumio Core Error : Class \\ManagerApp\\Master\\CacheMaster or method \\ManagerApp\\Master\\CacheMaster::getAllEnvActivity doesn't exist : iumio Reflexion Method Error : Class \\ManagerApp\\Master\\CacheMaster does not exist"
-    },
-    "3": {
-        "time": "2017-05-28 19:05:54",
-        "content": "[500 INTERNAL ERROR] : iumioEngineAutoloader : Undefined class ManagerApp\\Master\\DirectoryIterator : Refer to your app configuration."
-    },
-    "4": {
-        "time": "2017-05-28 20:05:56",
-        "content": "[500 INTERNAL ERROR] : iumio Core Error : Class \\ManagerApp\\Master\\CacheMaster or method \\ManagerApp\\Master\\CacheMaster::getAllEnvActivity doesn't exist : iumio Reflexion Method Error : Class \\ManagerApp\\Master\\CacheMaster does not exist"
-    },
-    "5": {
-        "time": "2017-06-01 15:06:01",
+        "time": "2017-06-02 10:06:45",
         "content": "[404 NOT FOUND] : The ressource you try to access is not found. : Please check your URI"
     },
+    "3": {
+        "time": "2017-06-02 10:06:45",
+        "content": "[404 NOT FOUND] : The ressource you try to access is not found. : Please check your URI"
+    },
+    "4": {
+        "time": "2017-06-02 10:06:45",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "5": {
+        "time": "2017-06-02 10:06:45",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
     "6": {
-        "time": "2017-06-01 15:06:31",
+        "time": "2017-06-02 10:06:10",
         "content": "[404 NOT FOUND] : The ressource you try to access is not found. : Please check your URI"
     },
     "7": {
-        "time": "2017-06-01 15:06:36",
+        "time": "2017-06-02 10:06:10",
         "content": "[404 NOT FOUND] : The ressource you try to access is not found. : Please check your URI"
     },
     "8": {
-        "time": "2017-06-01 21:06:30",
+        "time": "2017-06-02 10:06:10",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "9": {
+        "time": "2017-06-02 10:06:10",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "10": {
+        "time": "2017-06-02 10:06:10",
         "content": "[404 NOT FOUND] : The ressource you try to access is not found. : Please check your URI"
+    },
+    "11": {
+        "time": "2017-06-02 10:06:10",
+        "content": "[404 NOT FOUND] : The ressource you try to access is not found. : Please check your URI"
+    },
+    "12": {
+        "time": "2017-06-02 10:06:10",
+        "content": "[404 NOT FOUND] : The ressource you try to access is not found. : Please check your URI"
+    },
+    "13": {
+        "time": "2017-06-02 10:06:10",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "14": {
+        "time": "2017-06-02 10:06:10",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "15": {
+        "time": "2017-06-02 10:06:10",
+        "content": "[404 NOT FOUND] : The ressource you try to access is not found. : Please check your URI"
+    },
+    "16": {
+        "time": "2017-06-02 10:06:10",
+        "content": "[404 NOT FOUND] : The ressource you try to access is not found. : Please check your URI"
+    },
+    "17": {
+        "time": "2017-06-02 10:06:10",
+        "content": "[404 NOT FOUND] : The ressource you try to access is not found. : Please check your URI"
+    },
+    "18": {
+        "time": "2017-06-02 10:06:10",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "19": {
+        "time": "2017-06-02 10:06:10",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "20": {
+        "time": "2017-06-02 10:06:10",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "21": {
+        "time": "2017-06-02 10:06:10",
+        "content": "[404 NOT FOUND] : The ressource you try to access is not found. : Please check your URI"
+    },
+    "22": {
+        "time": "2017-06-02 10:06:10",
+        "content": "[404 NOT FOUND] : The ressource you try to access is not found. : Please check your URI"
+    },
+    "23": {
+        "time": "2017-06-02 10:06:10",
+        "content": "[404 NOT FOUND] : The ressource you try to access is not found. : Please check your URI"
+    },
+    "24": {
+        "time": "2017-06-02 10:06:10",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "25": {
+        "time": "2017-06-02 10:06:10",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "26": {
+        "time": "2017-06-02 10:06:10",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "27": {
+        "time": "2017-06-02 10:06:38",
+        "content": "[404 NOT FOUND] : The ressource you try to access is not found. : Please check your URI"
+    },
+    "28": {
+        "time": "2017-06-02 10:06:38",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "29": {
+        "time": "2017-06-02 10:06:40",
+        "content": "[404 NOT FOUND] : The ressource you try to access is not found. : Please check your URI"
+    },
+    "30": {
+        "time": "2017-06-02 10:06:40",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "31": {
+        "time": "2017-06-02 10:06:24",
+        "content": "[404 NOT FOUND] : The ressource you try to access is not found. : Please check your URI"
+    },
+    "32": {
+        "time": "2017-06-02 10:06:25",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "33": {
+        "time": "2017-06-02 10:06:12",
+        "content": "[404 NOT FOUND] : The ressource you try to access is not found. : Please check your URI"
+    },
+    "34": {
+        "time": "2017-06-02 10:06:12",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "35": {
+        "time": "2017-06-02 10:06:13",
+        "content": "[404 NOT FOUND] : The ressource you try to access is not found. : Please check your URI"
+    },
+    "36": {
+        "time": "2017-06-02 10:06:13",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "37": {
+        "time": "2017-06-02 10:06:36",
+        "content": "[404 NOT FOUND] : The ressource you try to access is not found. : Please check your URI"
+    },
+    "38": {
+        "time": "2017-06-02 10:06:36",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "39": {
+        "time": "2017-06-02 10:06:57",
+        "content": "[404 NOT FOUND] : The ressource you try to access is not found. : Please check your URI"
+    },
+    "40": {
+        "time": "2017-06-02 10:06:57",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "41": {
+        "time": "2017-06-02 10:06:13",
+        "content": "[404 NOT FOUND] : The ressource you try to access is not found. : Please check your URI"
+    },
+    "42": {
+        "time": "2017-06-02 10:06:13",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "43": {
+        "time": "2017-06-02 10:06:21",
+        "content": "[404 NOT FOUND] : The ressource you try to access is not found. : Please check your URI"
+    },
+    "44": {
+        "time": "2017-06-02 10:06:21",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "45": {
+        "time": "2017-06-02 10:06:34",
+        "content": "[404 NOT FOUND] : The ressource you try to access is not found. : Please check your URI"
+    },
+    "46": {
+        "time": "2017-06-02 10:06:34",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "47": {
+        "time": "2017-06-02 10:06:43",
+        "content": "[404 NOT FOUND] : The ressource you try to access is not found. : Please check your URI"
+    },
+    "48": {
+        "time": "2017-06-02 10:06:43",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "49": {
+        "time": "2017-06-02 10:06:49",
+        "content": "[404 NOT FOUND] : The ressource you try to access is not found. : Please check your URI"
+    },
+    "50": {
+        "time": "2017-06-02 10:06:49",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "51": {
+        "time": "2017-06-02 10:06:24",
+        "content": "[404 NOT FOUND] : The ressource you try to access is not found. : Please check your URI"
+    },
+    "52": {
+        "time": "2017-06-02 10:06:24",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "53": {
+        "time": "2017-06-02 10:06:27",
+        "content": "[404 NOT FOUND] : The ressource you try to access is not found. : Please check your URI"
+    },
+    "54": {
+        "time": "2017-06-02 10:06:27",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "55": {
+        "time": "2017-06-02 10:06:21",
+        "content": "[404 NOT FOUND] : The ressource you try to access is not found. : Please check your URI"
+    },
+    "56": {
+        "time": "2017-06-02 10:06:21",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "57": {
+        "time": "2017-06-02 10:06:06",
+        "content": "[404 NOT FOUND] : The ressource you try to access is not found. : Please check your URI"
+    },
+    "58": {
+        "time": "2017-06-02 10:06:06",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "59": {
+        "time": "2017-06-02 10:06:21",
+        "content": "[404 NOT FOUND] : The ressource you try to access is not found. : Please check your URI"
+    },
+    "60": {
+        "time": "2017-06-02 10:06:21",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "61": {
+        "time": "2017-06-02 10:06:24",
+        "content": "[404 NOT FOUND] : The ressource you try to access is not found. : Please check your URI"
+    },
+    "62": {
+        "time": "2017-06-02 10:06:24",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "63": {
+        "time": "2017-06-02 10:06:58",
+        "content": "[404 NOT FOUND] : The ressource you try to access is not found. : Please check your URI"
+    },
+    "64": {
+        "time": "2017-06-02 10:06:58",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "65": {
+        "time": "2017-06-02 10:06:43",
+        "content": "[404 NOT FOUND] : The ressource you try to access is not found. : Please check your URI"
+    },
+    "66": {
+        "time": "2017-06-02 10:06:43",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "67": {
+        "time": "2017-06-02 10:06:44",
+        "content": "[404 NOT FOUND] : The ressource you try to access is not found. : Please check your URI"
+    },
+    "68": {
+        "time": "2017-06-02 10:06:44",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "69": {
+        "time": "2017-06-02 10:06:21",
+        "content": "[500 INTERNAL ERROR] : iumioEngineAutoloader : Undefined class iumioFramework\\Core\\Requirement\\iumioAppBaseModel : Refer to your app configuration."
+    },
+    "70": {
+        "time": "2017-06-02 10:06:48",
+        "content": "[404 NOT FOUND] : The ressource you try to access is not found. : Please check your URI"
+    },
+    "71": {
+        "time": "2017-06-02 10:06:48",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "72": {
+        "time": "2017-06-02 10:06:02",
+        "content": "[500 INTERNAL ERROR] : iumio Core Error : Class \\ManagerApp\\Master\\DashboardMaster or method \\ManagerApp\\Master\\DashboardMaster::indexActivity doesn't exist : iumio Reflexion Invoke Error : iumioTemplate Error : Cannot loading Smarty Engine Template => Plugin \"css_manager\" not callable"
+    },
+    "73": {
+        "time": "2017-06-02 10:06:02",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "74": {
+        "time": "2017-06-02 10:06:02",
+        "content": "[404 NOT FOUND] : The ressource you try to access is not found. : Please check your URI"
+    },
+    "75": {
+        "time": "2017-06-02 10:06:02",
+        "content": "[404 NOT FOUND] : The ressource you try to access is not found. : Please check your URI"
+    },
+    "76": {
+        "time": "2017-06-02 10:06:02",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "77": {
+        "time": "2017-06-02 10:06:02",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "78": {
+        "time": "2017-06-02 10:06:14",
+        "content": "[500 INTERNAL ERROR] : iumio Core Error : Class \\ManagerApp\\Master\\DashboardMaster or method \\ManagerApp\\Master\\DashboardMaster::indexActivity doesn't exist : iumio Reflexion Invoke Error : iumioTemplate Error : Cannot loading Smarty Engine Template => Plugin \"css_manager\" not callable"
+    },
+    "79": {
+        "time": "2017-06-02 10:06:14",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "80": {
+        "time": "2017-06-02 10:06:15",
+        "content": "[404 NOT FOUND] : The ressource you try to access is not found. : Please check your URI"
+    },
+    "81": {
+        "time": "2017-06-02 10:06:15",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "82": {
+        "time": "2017-06-02 10:06:55",
+        "content": "[500 INTERNAL ERROR] : iumio Core Error : Class \\ManagerApp\\Master\\DashboardMaster or method \\ManagerApp\\Master\\DashboardMaster::indexActivity doesn't exist : iumio Reflexion Invoke Error : iumioTemplate Error : Cannot loading Smarty Engine Template => Plugin \"css_manager\" not callable"
+    },
+    "83": {
+        "time": "2017-06-02 10:06:55",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "84": {
+        "time": "2017-06-02 10:06:55",
+        "content": "[404 NOT FOUND] : The ressource you try to access is not found. : Please check your URI"
+    },
+    "85": {
+        "time": "2017-06-02 10:06:55",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "86": {
+        "time": "2017-06-02 10:06:56",
+        "content": "[500 INTERNAL ERROR] : iumio Core Error : Class \\ManagerApp\\Master\\DashboardMaster or method \\ManagerApp\\Master\\DashboardMaster::indexActivity doesn't exist : iumio Reflexion Invoke Error : iumioTemplate Error : Cannot loading Smarty Engine Template => Plugin \"css_manager\" not callable"
+    },
+    "87": {
+        "time": "2017-06-02 10:06:56",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "88": {
+        "time": "2017-06-02 10:06:56",
+        "content": "[404 NOT FOUND] : The ressource you try to access is not found. : Please check your URI"
+    },
+    "89": {
+        "time": "2017-06-02 10:06:56",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "90": {
+        "time": "2017-06-02 10:06:57",
+        "content": "[500 INTERNAL ERROR] : iumio Core Error : Class \\ManagerApp\\Master\\DashboardMaster or method \\ManagerApp\\Master\\DashboardMaster::indexActivity doesn't exist : iumio Reflexion Invoke Error : iumioTemplate Error : Cannot loading Smarty Engine Template => Plugin \"css_manager\" not callable"
+    },
+    "91": {
+        "time": "2017-06-02 10:06:57",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "92": {
+        "time": "2017-06-02 10:06:57",
+        "content": "[404 NOT FOUND] : The ressource you try to access is not found. : Please check your URI"
+    },
+    "93": {
+        "time": "2017-06-02 10:06:57",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "94": {
+        "time": "2017-06-02 10:06:57",
+        "content": "[500 INTERNAL ERROR] : iumio Core Error : Class \\ManagerApp\\Master\\DashboardMaster or method \\ManagerApp\\Master\\DashboardMaster::indexActivity doesn't exist : iumio Reflexion Invoke Error : iumioTemplate Error : Cannot loading Smarty Engine Template => Plugin \"css_manager\" not callable"
+    },
+    "95": {
+        "time": "2017-06-02 10:06:57",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "96": {
+        "time": "2017-06-02 10:06:57",
+        "content": "[404 NOT FOUND] : The ressource you try to access is not found. : Please check your URI"
+    },
+    "97": {
+        "time": "2017-06-02 10:06:57",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "98": {
+        "time": "2017-06-02 10:06:58",
+        "content": "[500 INTERNAL ERROR] : iumio Core Error : Class \\ManagerApp\\Master\\DashboardMaster or method \\ManagerApp\\Master\\DashboardMaster::indexActivity doesn't exist : iumio Reflexion Invoke Error : iumioTemplate Error : Cannot loading Smarty Engine Template => Plugin \"css_manager\" not callable"
+    },
+    "99": {
+        "time": "2017-06-02 10:06:58",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "100": {
+        "time": "2017-06-02 10:06:58",
+        "content": "[404 NOT FOUND] : The ressource you try to access is not found. : Please check your URI"
+    },
+    "101": {
+        "time": "2017-06-02 10:06:58",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "102": {
+        "time": "2017-06-02 10:06:58",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "103": {
+        "time": "2017-06-02 10:06:50",
+        "content": "[404 NOT FOUND] : The ressource you try to access is not found. : Please check your URI"
+    },
+    "104": {
+        "time": "2017-06-02 10:06:50",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "105": {
+        "time": "2017-06-02 10:06:58",
+        "content": "[404 NOT FOUND] : The ressource you try to access is not found. : Please check your URI"
+    },
+    "106": {
+        "time": "2017-06-02 10:06:58",
+        "content": "[404 NOT FOUND] : The ressource you try to access is not found. : Please check your URI"
+    },
+    "107": {
+        "time": "2017-06-02 10:06:58",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "108": {
+        "time": "2017-06-02 10:06:58",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "109": {
+        "time": "2017-06-02 10:06:22",
+        "content": "[404 NOT FOUND] : The ressource you try to access is not found. : Please check your URI"
+    },
+    "110": {
+        "time": "2017-06-02 10:06:22",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "111": {
+        "time": "2017-06-02 10:06:28",
+        "content": "[404 NOT FOUND] : The ressource you try to access is not found. : Please check your URI"
+    },
+    "112": {
+        "time": "2017-06-02 10:06:28",
+        "content": "[404 NOT FOUND] : The ressource you try to access is not found. : Please check your URI"
+    },
+    "113": {
+        "time": "2017-06-02 10:06:28",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "114": {
+        "time": "2017-06-02 10:06:28",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "115": {
+        "time": "2017-06-02 10:06:34",
+        "content": "[404 NOT FOUND] : The ressource you try to access is not found. : Please check your URI"
+    },
+    "116": {
+        "time": "2017-06-02 10:06:34",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "117": {
+        "time": "2017-06-02 10:06:34",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "118": {
+        "time": "2017-06-02 10:06:01",
+        "content": "[404 NOT FOUND] : The ressource you try to access is not found. : Please check your URI"
+    },
+    "119": {
+        "time": "2017-06-02 10:06:01",
+        "content": "[404 NOT FOUND] : The ressource you try to access is not found. : Please check your URI"
+    },
+    "120": {
+        "time": "2017-06-02 10:06:01",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "121": {
+        "time": "2017-06-02 10:06:01",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "122": {
+        "time": "2017-06-02 10:06:17",
+        "content": "[404 NOT FOUND] : The ressource you try to access is not found. : Please check your URI"
+    },
+    "123": {
+        "time": "2017-06-02 10:06:17",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "124": {
+        "time": "2017-06-02 10:06:17",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "125": {
+        "time": "2017-06-02 10:06:17",
+        "content": "[404 NOT FOUND] : The ressource you try to access is not found. : Please check your URI"
+    },
+    "126": {
+        "time": "2017-06-02 10:06:17",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "127": {
+        "time": "2017-06-02 10:06:31",
+        "content": "[404 NOT FOUND] : The ressource you try to access is not found. : Please check your URI"
+    },
+    "128": {
+        "time": "2017-06-02 10:06:31",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "129": {
+        "time": "2017-06-02 10:06:34",
+        "content": "[404 NOT FOUND] : The ressource you try to access is not found. : Please check your URI"
+    },
+    "130": {
+        "time": "2017-06-02 10:06:34",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "131": {
+        "time": "2017-06-02 10:06:55",
+        "content": "[404 NOT FOUND] : The ressource you try to access is not found. : Please check your URI"
+    },
+    "132": {
+        "time": "2017-06-02 10:06:55",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "133": {
+        "time": "2017-06-02 10:06:11",
+        "content": "[404 NOT FOUND] : The ressource you try to access is not found. : Please check your URI"
+    },
+    "134": {
+        "time": "2017-06-02 10:06:11",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "135": {
+        "time": "2017-06-02 10:06:43",
+        "content": "[404 NOT FOUND] : The ressource you try to access is not found. : Please check your URI"
+    },
+    "136": {
+        "time": "2017-06-02 10:06:43",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "137": {
+        "time": "2017-06-02 10:06:47",
+        "content": "[404 NOT FOUND] : The ressource you try to access is not found. : Please check your URI"
+    },
+    "138": {
+        "time": "2017-06-02 10:06:47",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "139": {
+        "time": "2017-06-02 10:06:26",
+        "content": "[404 NOT FOUND] : The ressource you try to access is not found. : Please check your URI"
+    },
+    "140": {
+        "time": "2017-06-02 10:06:26",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "141": {
+        "time": "2017-06-02 10:06:30",
+        "content": "[404 NOT FOUND] : The ressource you try to access is not found. : Please check your URI"
+    },
+    "142": {
+        "time": "2017-06-02 10:06:30",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "143": {
+        "time": "2017-06-02 10:06:33",
+        "content": "[404 NOT FOUND] : The ressource you try to access is not found. : Please check your URI"
+    },
+    "144": {
+        "time": "2017-06-02 10:06:33",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "145": {
+        "time": "2017-06-02 10:06:23",
+        "content": "[404 NOT FOUND] : The ressource you try to access is not found. : Please check your URI"
+    },
+    "146": {
+        "time": "2017-06-02 10:06:23",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
     }
 }

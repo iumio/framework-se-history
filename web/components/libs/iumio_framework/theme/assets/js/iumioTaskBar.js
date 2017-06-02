@@ -51,15 +51,20 @@ document.addEventListener('click',function(e){
             case 'iumioTaskBarAssetsClearAll':
                 assetsClear(document.querySelector(".iumioTaskBarAssetsClearAll"));
                 break;
+            case 'iumioTaskBarAssetsPublishDev':
+                assetsPublish(document.querySelector(".iumioTaskBarAssetsPublishDev"));
+                break;
+            case 'iumioTaskBarAssetsClearDev':
+                assetsClear(document.querySelector(".iumioTaskBarAssetsClearDev"));
+                break;
+            case 'iumioTaskBarAssetsPublishProd':
+                assetsPublish(document.querySelector(".iumioTaskBarAssetsPublishProd"));
+                break;
+            case 'iumioTaskBarAssetsClearProd':
+                assetsClear(document.querySelector(".iumioTaskBarAssetsClearProd"));
+                break;
             case 'iumioTaskBarOneApp':
                 switchApp(e.target);
-                break;
-        }
-
-        switch (e.target.id)
-        {
-            case 'iumioTaskBarPublishAssets':
-                publishAssets(document.querySelector("#iumioTaskBarPublishAssets"));
                 break;
         }
     }

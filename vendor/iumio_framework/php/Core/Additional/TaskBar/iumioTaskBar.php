@@ -82,17 +82,21 @@ class iumioTaskBar
                 <li><a href="#" class="active"><strong>'. ((!defined('APP_CALL'))? "NO APP CALLED" : APP_CALL) .'</strong></a></li>
                 <li id="iumioTaskBarAssets" class="iumioTaskBarDropdown"><a href="#">Assets</a>
                     <ul class="iumioTaskBarDropdownContent">
-                        <li class="iumioTaskBarAssetsClearAll" attr-href="'.$um->generateRoute("iumio_manager_assets_manager_publish", null, "ManagerApp", true).'">Publish all</li>
-                        <li class="iumioTaskBarAssetsPublishAll" attr-href="'.$um->generateRoute("iumio_manager_assets_manager_clear", array("appname" => "_all"), "ManagerApp", true).'">Clear all</li>
+                        <li class="iumioTaskBarAssetsPublishAll" attr-href="'.$um->generateRoute("iumio_manager_assets_manager_publish", array("env" => "all", "appname" => "_all"), "ManagerApp", true).'">Clear all</li>
+                        <li class="iumioTaskBarAssetsClearDev" attr-href="'.$um->generateRoute("iumio_manager_assets_manager_publish", array("env" => "dev", "appname" => "_all"), "ManagerApp", true).'">Publish dev</li>      
+                        <li class="iumioTaskBarAssetsPublishProd" attr-href="'.$um->generateRoute("iumio_manager_assets_manager_publish", array("env" => "prod", "appname" => "_all"), "ManagerApp", true).'">Clear prod</li>
+                        <li class="iumioTaskBarAssetsClearAll" attr-href="'.$um->generateRoute("iumio_manager_assets_manager_clear", array("env" => "all", "appname" => "_all"), "ManagerApp", true).'">Publish all</li>
+                        <li class="iumioTaskBarAssetsPublishDev" attr-href="'.$um->generateRoute("iumio_manager_assets_manager_clear", array("env" => "dev", "appname" => "_all"), "ManagerApp", true).'">Clear dev</li>
+                        <li class="iumioTaskBarAssetsClearProd" attr-href="'.$um->generateRoute("iumio_manager_assets_manager_clear", array("prod" => "prod", "appname" => "_all"), "ManagerApp", true).'">Publish prod</li>
                     </ul>
                 </li>
                 <li><a href="#" id="iumioTaskBarSwitchApp" attr-href="'.$um->generateRoute("iumio_manager_app_manager_get_simple_apps", null, "ManagerApp", true).'">Switch to default</a></li>
                 <li><a href="'. $um->generateRoute("iumio_manager_index", null, "ManagerApp", true) .'">Go to manager</a></li>
                 <li id="iumioTaskBarCacheClear" class="iumioTaskBarDropdown"><a href="#" >Clear cache</a>
                 <ul class="iumioTaskBarDropdownContent">
-                <li class="iumioTaskBarCacheClearAll" attr-href="'.$um->generateRoute("iumio_manager_cache_manager_remove_all", null, "ManagerApp", true).'">All</li>
-                <li class="iumioTaskBarCacheClearDev" attr-href="'.$um->generateRoute("iumio_manager_cache_manager_remove", array("env" => "dev"), "ManagerApp", true).'">Dev</li>
-               <li class="iumioTaskBarCacheClearProd" attr-href="'.$um->generateRoute("iumio_manager_cache_manager_remove", array("env" => "prod"), "ManagerApp", true).'">Prod</li>
+                <li class="iumioTaskBarCacheClearAll" attr-href="'.$um->generateRoute("iumio_manager_cache_manager_remove_all", null, "ManagerApp", true).'">Clear all</li>
+                <li class="iumioTaskBarCacheClearDev" attr-href="'.$um->generateRoute("iumio_manager_cache_manager_remove", array("env" => "dev"), "ManagerApp", true).'">Clear dev</li>
+               <li class="iumioTaskBarCacheClearProd" attr-href="'.$um->generateRoute("iumio_manager_cache_manager_remove", array("env" => "prod"), "ManagerApp", true).'">Clear prod</li>
                 </ul></li>
                 <li style="float: right; list-style: none" class="active" id="iumioTaskBarReduce"><a><strong>></strong></a></li>
                 </ul>
@@ -130,8 +134,12 @@ class iumioTaskBar
             $options['cache_clear_all']     =  $um->generateRoute("iumio_manager_cache_manager_remove_all", null, "ManagerApp", true);
             $options['cache_clear_dev']     =  $um->generateRoute("iumio_manager_cache_manager_remove", array("env" => "dev"), "ManagerApp", true);
             $options['cache_clear_prod']    =  $um->generateRoute("iumio_manager_cache_manager_remove", array("env" => "prod"), "ManagerApp", true);
-            $options['publish_assets']      =  $um->generateRoute("iumio_manager_assets_manager_publish", null, "ManagerApp", true);
-            $options['clear_assets']        =  $um->generateRoute("iumio_manager_assets_manager_clear", array("appname" => "_all"), "ManagerApp", true);
+            $options['publish_assets_all']  =  $um->generateRoute("iumio_manager_assets_manager_publish", array("env" => "all", "appname" => "_all"), "ManagerApp", true);
+            $options['publish_assets_dev']  =  $um->generateRoute("iumio_manager_assets_manager_publish", array("env" => "dev", "appname" => "_all"), "ManagerApp", true);
+            $options['publish_assets_prod'] =  $um->generateRoute("iumio_manager_assets_manager_publish", array("env" => "prod", "appname" => "_all"), "ManagerApp", true);
+            $options['clear_assets_all']    =  $um->generateRoute("iumio_manager_assets_manager_clear", array("env" => "all", "appname" => "_all"), "ManagerApp", true);
+            $options['clear_assets_dev']    =  $um->generateRoute("iumio_manager_assets_manager_clear", array("env" => "dev", "appname" => "_all"), "ManagerApp", true);
+            $options['clear_assets_prod']   =  $um->generateRoute("iumio_manager_assets_manager_clear", array("env" => "prod", "appname" => "_all"), "ManagerApp", true);
             $options['all_simple_apps']     =  $um->generateRoute("iumio_manager_app_manager_get_simple_apps", null, "ManagerApp", true);
 
         }
