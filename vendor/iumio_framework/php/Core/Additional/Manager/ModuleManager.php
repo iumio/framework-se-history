@@ -1,14 +1,14 @@
 <?php
 
-namespace iumioFramework\Manager\Console\Module;
+namespace iumioFramework\Core\Console\Module;
 
 /**
- * Interface iumioManagerModule
- * @package iumioFramework\Manager\Console\Module
+ * Interface ModuleManager
+ * @package iumioFramework\Core\Console\Module
  * @author RAFINA Dany <danyrafina@gmail.com>
  */
 
-interface iumioManagerModule
+interface ModuleManager
 {
     /** Display result in prompt
      * @return mixed
@@ -21,7 +21,7 @@ interface iumioManagerModule
     public function __alter();
 
     /**
-     * iumioManagerModule constructor.
+     * ModuleManager constructor.
      * @param array $options Method parameters
      */
     public function __construct(array $options = array());

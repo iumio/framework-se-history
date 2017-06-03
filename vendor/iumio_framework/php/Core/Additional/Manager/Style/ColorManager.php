@@ -1,20 +1,20 @@
 <?php
 
-namespace iumioFramework\Core\Additionnal\Console\Manager\Display\Style;
-
+namespace iumioFramework\Core\Console\Display\Style;
+use iumioFramework\Core\Console\CoreManager;
 /**
- * Class iumioManagerColor
- * @package iumioFramework\Core\Additionnal\Console\Manager\Display\Style
+ * Class ColorManager
+ * @package iumioFramework\Core\Console\Display\Style
  * @author RAFINA Dany <danyrafina@gmail.com>
  */
 
-class iumioManagerColor
+class ColorManager
 {
     private $foreground_colors = array();
     private $background_colors = array();
 
     /**
-     * iumioManagerColor constructor.
+     * ColorManager constructor.
      */
     public function __construct() {
         // Set up shell colors
@@ -55,9 +55,8 @@ class iumioManagerColor
      */
     public function getColoredString(string $string, string $foreground_color = null, string $background_color = null, bool $header = true):string
     {
-
         if ($header) {
-            $title = "iumio Manager";
+            $title = "Console Manager - ".CoreManager::getCurrentModule();
             $titleSeparator = $this->copyContent("-", strlen($title) + 10);
             $string = "\n\n" . $title . "\n" . $titleSeparator . "\n\n" . $string . "\n\n";
         }
@@ -160,9 +159,7 @@ class iumioManagerColor
         for ($i = 0; $i < $coef; $i++)
             $str = $str.$content;
         return ($str);
-
     }
-
 
     /** Returns all background color names
      * @return array Background Color name array

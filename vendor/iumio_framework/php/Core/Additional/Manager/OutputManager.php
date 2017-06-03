@@ -1,15 +1,15 @@
 <?php
 
-namespace iumioFramework\Core\Additionnal\Console\Manager\Display;
-use iumioFramework\Core\Additionnal\Console\Manager\Display\Style\iumioManagerColor as OColor;
+namespace iumioFramework\Core\Console\Display;
+use iumioFramework\Core\Console\Display\Style\ColorManager as Color;
 
 /**
- * Class iumioManagerOutput
- * @package iumioFramework\Core\Additionnal\Console\Manager\Display
+ * Class OutputManager
+ * @package iumioFramework\Core\Console\Display
  * @author RAFINA Dany <danyrafina@gmail.com>
  */
 
-class iumioManagerOutput
+class OutputManager
 {
 
     static protected $managerColor = NULL;
@@ -82,12 +82,12 @@ class iumioManagerOutput
         if ($exit == "yes") exit();
     }
 
-    /** Get OColor instance
-     * @return OColor OColor instance
+    /** Get Color instance
+     * @return Color Color instance
      */
-    final static protected function getManagerColorInstance():OColor
+    final static protected function getManagerColorInstance():Color
     {
-        return((self::$managerColor == NULL)? self::$managerColor = new OColor() : self::$managerColor);
+        return((self::$managerColor == NULL)? self::$managerColor = new Color() : self::$managerColor);
     }
 
     /** Clear the command line text

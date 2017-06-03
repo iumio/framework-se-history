@@ -1,16 +1,15 @@
 <?php
 
+namespace iumioFramework\Core\Console\Module\App;
 
-namespace iumioFramework\Manager\Console\Module\App;
+use iumioFramework\Core\Console\Display\OutputManager;
 
-use iumioFramework\Core\Additionnal\Console\Manager\Display\iumioManagerOutput as IMO;
-error_reporting(E_ALL);
 /**
- * Class AppManagerOutput
- * @package iumioFramework\Manager\Console\Module\App
+ * Class OutputManagerOverride
+ * @package iumioFramework\Core\Console\Module\App
  * @author RAFINA Dany <danyrafina@gmail.com>
  */
-class AppManagerOutput extends IMO
+class OutputManagerOverride extends OutputManager
 {
 
     /** display Success Message

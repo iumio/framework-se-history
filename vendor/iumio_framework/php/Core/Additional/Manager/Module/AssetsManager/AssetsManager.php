@@ -1,24 +1,25 @@
 <?php
 
-namespace iumioFramework\Manager\Console\Module\Assets;
+namespace iumioFramework\Core\Console\Module\Assets;
 use iumioFramework\Core\Additionnal\Server\iumioServerManager as Server;
-use iumioFramework\Manager\Console\Module\iumioManagerModule as ModuleInterface;
-use iumioFramework\Core\Additionnal\Console\Manager\Display\iumioManagerOutput as Output;
+use iumioFramework\Core\Console\{
+    CoreManager, Module\ModuleManager, Display\OutputManager as Output
+};
 
 /**
  * Class AssetsManager
- * @package iumioFramework\Manager\Console\Module\Assets
+ * @package iumioFramework\Core\Console\Module\Assets
  * @author RAFINA Dany <danyrafina@gmail.com>
  */
 
-class AssetsManager implements ModuleInterface
+class AssetsManager implements ModuleManager
 {
     protected $options;
 
     public function __render()
     {
         if (empty($this->options))
-            Output::displayAsError("Assets Manager Error \n  You must to have an option. Referer to help command\n");
+            Output::displayAsError("Assets Manager Error \n  You must to specify an option\n");
         else
         {
             $opt = $this->options[2] ?? null;
@@ -291,6 +292,7 @@ class AssetsManager implements ModuleInterface
 
     public function __construct(array $options = array())
     {
+        CoreManager::setCurrentModule("App Manager");
         if (empty($options))
             $this->__render();
         else

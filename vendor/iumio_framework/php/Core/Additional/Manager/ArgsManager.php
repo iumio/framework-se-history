@@ -1,27 +1,23 @@
 <?php
 
-namespace iumioFramework\Core\Additionnal\Console\Manager;
-use iumioFramework\Core\Base\Debug\Debug;
-use iumioFramework\Core\Additionnal\Console\Manager\Display\iumioManagerOutput as Output;
+namespace iumioFramework\Core\Console;
 use iumioFramework\Core\Requirement\Relexion\iumioReflexion as Reflex;
-use iumioFramework\Core\Additionnal\Console\Manager\iumioCommandFile as File;
-use iumioFramework\Core\Requirement\Relexion\iumioReflexion;
+use iumioFramework\Core\Console\{ComManager as File, Display\OutputManager as Output};
 
 /**
- * Class iumioArgs
- * @package iumioFramework\Core\Additionnal\Console\Manager
+ * Class ArgsManager
+ * @package iumioFramework\Core\Console
  * @author RAFINA Dany <danyrafina@gmail.com>
  */
 
-class iumioArgs
+class ArgsManager
 {
 
     static public $option = array();
     protected $fileCommand = NULL;
 
     /**
-     * iumioArgs constructor.
-     * Make
+     * ArgsManager constructor.
      */
     public function __construct()
     {
@@ -41,19 +37,11 @@ class iumioArgs
         if (empty($c))
             Output::displayAsError("iumio Command Error : Command not found.\n For more information, you can use the help command to get a command list.");
 
-        $ref = new iumioReflexion();
+        $ref = new Reflex();
         $ref->__simple($c['class'], (($argc >= 3)? $argv : array()));
 
     }
 
-    /** Get matches arguments
-     * @param int $argc Argument number
-     * @param array $argv Arguments
-     */
-    protected function matches(int $argc, array $argv)
-    {
-        // TO DO
-    }
 
     /** Search a command name
      * @param string $name Command name
@@ -70,7 +58,6 @@ class iumioArgs
 
         foreach ($commands as $command => $val) {
             if ($command == $name)
-                // print_r($command);
                 return (array("name" => $command, "class" => $val->class, "desc" => $val->desc));
         }
         return ($finalC);

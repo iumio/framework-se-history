@@ -1,28 +1,27 @@
 <?php
 
-namespace iumioFramework\Manager\Console\Module\App;
+namespace iumioFramework\Core\Console\Module\App;
+
+use iumioFramework\Bin\ConsoleManager;
 use iumioFramework\Core\Additionnal\Server\iumioServerManager as Server;
-use iumioFramework\Core\Additionnal\Server\iumioServerManager;
-use iumioFramework\Manager\Console\Module\Help\HelpManager;
-use iumioFramework\Manager\Console\Module\iumioManagerModule as ModuleInterface;
-use iumioFramework\Manager\Console\Module\App\AppManagerOutput as Output;
-use iumioFramework\Manager\Console\Module\Assets\AssetsManager as AM;
+use iumioFramework\Core\Console\CoreManager;
+use iumioFramework\Core\Console\Module\{ModuleManager, Help\HelpManager, App\OutputManagerOverride as Output, Assets\AssetsManager as AM};
 
 /**
  * Class AppManager
- * @package iumioFramework\Manager\Console\Module\App
+ * @package iumioFramework\Core\Console\Module\App
  * @author RAFINA Dany <danyrafina@gmail.com>
  */
 
-class AppManager implements ModuleInterface
+class AppManager implements ModuleManager
 {
     protected $options;
     protected $stage = array(
         "App name (like DefaultApp --> end with App): ",
-        "iumio purpose you a default template with your app. Would you like to have one ? (yes/no): ",
-        "Yeah! Would you like to set this app as default ? (yes/no)",
-        "This informations are correct ? (yes/no)",
-        "Delete your app means all file and directory in your app directory will be deleted. Are you sure to confirm this action ? (yes/no)",
+        "iumio purpose you a default template with your app. Would you like to have one ? (yes/no) - Tap Enter for yes: ",
+        "Yeah! Would you like to set this app as default ? (yes/no) -  Tap Enter for yes:",
+        "Informations are correct ? (yes/no) - Tap Enter for yes:",
+        "Delete your app means all file and directory in your app directory will be deleted. Are you sure to confirm this action ? (yes/no) - Tap Enter for yes:",
         "Ok. I process to deleting your app ...",
         "Delete action is aborted ",
         "This is app list which registered to app declarator. To select one, please enter the app number"
@@ -33,7 +32,7 @@ class AppManager implements ModuleInterface
     {
         if (empty($this->options))
         {
-            Output::outputAsError("App Manager Error \n   This command doesn't exist. Referer to help comannd\n", "no");
+            Output::outputAsError("App Manager Error \n  You must to specify an option\n", "no");
             new HelpManager(array("2" => "app"));
             exit();
         }
@@ -69,7 +68,7 @@ class AppManager implements ModuleInterface
      */
     final protected function checkBooleanResponse(string $res):int
     {
-        if ($res == "yes" || $res == "no") return (1);
+        if ($res == "yes" || $res == "no" || $res == "") return (1);
         return (-1);
     }
 
@@ -99,7 +98,7 @@ class AppManager implements ModuleInterface
     final protected function stepNewProject()
     {
         Output::clear();
-        Output::outputAsSuccess("Welcome on app manager. I'm assist you to create your new app. Many question will ask you.", "none");
+        Output::outputAsSuccess("Welcome on App Manager. I'm assist you to create your new app. Many question will ask you.", "none");
         Output::outputAsReadLine($this->stage[0], "none");
 
         $this->params['appname'] = ucfirst($this->listener());
@@ -125,33 +124,33 @@ class AppManager implements ModuleInterface
         }
         Output::outputAsNormal("Great! Your app name is ".$this->params['appname'], "none");
         Output::outputAsReadLine($this->stage[1], "none");
-        $this->params['template'] = $this->listener();
+        $this->params['template'] = ((!empty($this->listener()))?  $this->listener() : "yes");
         while ($this->checkBooleanResponse($this->params['template']) != 1)
         {
             Output::outputAsError("Invalid response. Please Retry (yes/no)", "none");
             Output::outputAsReadLine($this->stage[1], "none");
-            $this->params['template'] = $this->listener();
+            $this->params['template'] = ((!empty($this->listener()))?  $this->listener() : "yes");
         }
         Output::outputAsReadLine($this->stage[2], "none");
-        $this->params['isdefault'] = $this->listener();
+        $this->params['isdefault'] = ((!empty($this->listener()))?  $this->listener() : "yes");
         while ($this->checkBooleanResponse($this->params['isdefault']) != 1)
         {
             Output::outputAsError("Invalid response. Please Retry (yes/no)", "none");
             Output::outputAsReadLine($this->stage[2], "none");
-            $this->params['isdefault'] = $this->listener();
+            $this->params['isdefault'] = ((!empty($this->listener()))?  $this->listener() : "yes");
         }
 
         $this->showRecap();
         Output::outputAsReadLine($this->stage[3], "none");
-        $this->params['correct'] = $this->listener();
+        $this->params['correct'] = ((!empty($this->listener()))?  $this->listener() : "yes");
         while ($this->checkBooleanResponse($this->params['correct']) != 1)
         {
             Output::outputAsError("Invalid response. Please Retry (yes/no)", "none");
             Output::outputAsReadLine($this->stage[3], "none");
-            $this->params['correct'] = $this->listener();
+            $this->params['correct'] = ((!empty($this->listener()))?  $this->listener() : "yes");
         }
         if ($this->params['correct'] == "no")
-            Output::outputAsError("Creation Aborted. Please re-run app-manager and enter the correct informations");
+            Output::outputAsError("Creation Aborted. Please re-run app and enter the correct informations");
         $this->createAppProcess();
     }
 
@@ -161,7 +160,7 @@ class AppManager implements ModuleInterface
     final protected function stepRemoveProject()
     {
         Output::clear();
-        Output::outputAsSuccess("Welcome on iumio app manager. I'm assist you to remove your app. Many question will ask you.", "none");
+        Output::outputAsSuccess("Welcome on App Manager. I'm assist you to remove your app. Many question will ask you.", "none");
         Output::outputAsReadLine($this->stage[0], "none");
 
         $this->params['appname'] = ucfirst($this->listener());
@@ -193,12 +192,12 @@ class AppManager implements ModuleInterface
         else
             Output::outputAsNormal("Ok ! Your app is ".$this->params['appname'].". It's declared in app declarator and exist in apps directory", "none");
         Output::outputAsReadLine($this->stage[4], "none");
-        $conf = $this->listener();
+        $conf = ((!empty($this->listener()))?  $this->listener() : "yes");
         while ($this->checkBooleanResponse($conf) != 1)
         {
             Output::outputAsError("Invalid response. Please Retry (yes/no)", "none");
             Output::outputAsReadLine($this->stage[4], "none");
-            $conf = $this->listener();
+            $conf = ((!empty($this->listener()))?  $this->listener() : "yes");
         }
         if ($conf == "no") Output::outputAsError($this->stage[6]);
         $this->removeAppProcess();
@@ -210,7 +209,7 @@ class AppManager implements ModuleInterface
     final protected function stepSwitchProject()
     {
         Output::clear();
-        Output::outputAsSuccess("Welcome on app manager. I'm assist you to change your default app. Many question will ask you.\n".$this->stage[7], "none");
+        Output::outputAsSuccess("Welcome on App Manager. I'm assist you to change your default app. Many question will ask you.\n".$this->stage[7], "none");
         // Output::outputAsNormal($this->stage[7]."\n", "none");
         $this->showAppsRegister();
         Output::outputAsReadLine("Which number ? : ", "none");
@@ -266,7 +265,7 @@ class AppManager implements ModuleInterface
         $f = json_decode(file_get_contents(ROOT_PROJECT."/elements/config_files/apps.json"));
         $i = 1;
         if (count($f) == 0)
-            Output::outputAsError("Oups! You have no app registered. Please create an app with app-manager");
+            Output::outputAsError("Oups! You have no app registered. Please create an app with app");
         $str = "";
         foreach ($f as $one => $val)
         {
@@ -386,7 +385,7 @@ class AppManager implements ModuleInterface
 
         $f = json_encode($f, JSON_PRETTY_PRINT);
         file_put_contents(ROOT_PROJECT."/elements/config_files/apps.json", $f);
-        Output::outputAsEndSuccess("Now, the ".$this->params['capp']." is ", "none");
+        Output::outputAsEndSuccess("Now, the ".$this->params['capp']." is the default app", "none");
     }
 
 
@@ -416,9 +415,9 @@ class AppManager implements ModuleInterface
 
         file_put_contents(ROOT_PROJECT."/elements/config_files/apps.json", $f);
 
-        iumioServerManager::delete(ROOT_PROJECT."/apps/$appname", "directory");
+        Server::delete(ROOT_PROJECT."/apps/$appname", "directory");
         new AM(array("core/manager", "assets-manager", "--clear", "--appname=". $this->params['appname'], "--noexit", "--quiet"));
-        Output::outputAsNormal("The application has been deleted. To create a new application, use app-manager.", "none");
+        Output::outputAsNormal("The application has been deleted. To create a new application, use [app create] .", "none");
     }
 
 
@@ -432,6 +431,7 @@ class AppManager implements ModuleInterface
 
     public function __construct(array $options = array())
     {
+        CoreManager::setCurrentModule("App Manager");
         if (empty($options))
             $this->__render();
         else

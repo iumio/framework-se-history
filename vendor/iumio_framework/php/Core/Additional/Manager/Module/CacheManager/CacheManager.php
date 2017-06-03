@@ -1,22 +1,25 @@
 <?php
 
-namespace iumioFramework\Manager\Console\Module\Cache;
+namespace iumioFramework\Core\Console\Module\Cache;
 use iumioFramework\Core\Additionnal\Server\iumioServerManager as Server;
-use iumioFramework\Manager\Console\Module\iumioManagerModule as ModuleInterface;
-use iumioFramework\Core\Additionnal\Console\Manager\Display\iumioManagerOutput as Output;
+use iumioFramework\Core\Console\{
+    CoreManager, Display\OutputManager as Output, Module\ModuleManager
+};
 
 /**
  * Class CacheManager
- * @package iumioFramework\Manager\Console\Module\Cache
+ * @package iumioFramework\Core\Console\Module\Cache
  * @author RAFINA Dany <danyrafina@gmail.com>
  */
 
-class CacheManager implements ModuleInterface
+class CacheManager implements ModuleManager
 {
     protected $options;
 
     public function __render()
     {
+        if (empty($this->options))
+            Output::displayAsError("Cache Manager Module Error : You must to specify an option\n");
         $opt = $this->options[2] ?? null;
         if ($opt == "--clear")
         {
@@ -52,8 +55,8 @@ class CacheManager implements ModuleInterface
      */
     private function callDelCreaServer(string $env)
     {
-        Server::delete(ROOT_CACHE."/$env/", 'directory');
-        Server::create(ROOT_CACHE."/$env/", 'directory');
+        Server::delete(ROOT_CACHE.$env, 'directory');
+        Server::create(ROOT_CACHE.$env, 'directory');
     }
 
     /** Delete a cache for all environment
@@ -74,6 +77,7 @@ class CacheManager implements ModuleInterface
 
     public function __construct(array $options = array())
     {
+        CoreManager::setCurrentModule("Cache Manager");
         if (empty($options))
             $this->__render();
         else

@@ -9,7 +9,7 @@
             "timezone": "UTC"
         },
         "update": {
-            "date": "2017-06-02 21:30:05.256421",
+            "date": "2017-06-03 19:56:36.454522",
             "timezone_type": 3,
             "timezone": "UTC"
         }
@@ -24,14 +24,14 @@
             "timezone": "UTC"
         },
         "update": {
-            "date": "2017-06-02 21:30:12.525847",
+            "date": "2017-06-03 19:53:26.753479",
             "timezone_type": 3,
             "timezone": "UTC"
         }
     },
     "2": {
         "name": "TellMeApp",
-        "isdefault": "no",
+        "isdefault": "yes",
         "class": "\\TellMeApp\\TellMeApp",
         "creation": {
             "date": "2017-05-26 16:55:01.026926",
@@ -39,24 +39,9 @@
             "timezone": "UTC"
         },
         "update": {
-            "date": "2017-06-02 23:30:12.525869",
+            "date": "2017-06-03 21:56:36.454537",
             "timezone_type": 3,
             "timezone": "Europe\/Paris"
-        }
-    },
-    "3": {
-        "name": "WeApp",
-        "isdefault": "yes",
-        "class": "\\WeApp\\WeApp",
-        "creation": {
-            "date": "2017-06-03 17:03:34.743230",
-            "timezone_type": 3,
-            "timezone": "UTC"
-        },
-        "update": {
-            "date": "2017-06-03 17:03:34.743230",
-            "timezone_type": 3,
-            "timezone": "UTC"
         }
     }
 }

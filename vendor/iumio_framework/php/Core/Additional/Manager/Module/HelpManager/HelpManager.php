@@ -1,17 +1,18 @@
 <?php
 
-namespace iumioFramework\Manager\Console\Module\Help;
-use iumioFramework\Core\Additionnal\Console\Manager\iumioCommandFile as File;
-use iumioFramework\Core\Additionnal\Console\Manager\Display\iumioManagerOutput as Output;
-use iumioFramework\Manager\Console\Module\iumioManagerModule as ModuleInterface;
+namespace iumioFramework\Core\Console\Module\Help;
+
+use iumioFramework\Core\Console\{
+    CoreManager, Module\ModuleManager, Display\OutputManager as Output, ComManager as File
+};
 
 /**
  * Class HelpManager
- * @package iumioFramework\Core\Additionnal\Console\Manager\Help
+ * @package iumioFramework\Core\Console\Module\Help
  * @author RAFINA Dany <danyrafina@gmail.com>
  */
 
-class HelpManager implements ModuleInterface
+class HelpManager implements ModuleManager
 {
     protected $options;
 
@@ -19,7 +20,7 @@ class HelpManager implements ModuleInterface
     {
         $f = File::getFileCommand();
         if ($f == NULL)
-            Output::displayAsError("iumio Manager Help Error: Command File is empty ", "none");
+            Output::displayAsError("Help Manager Error: Command File is empty ", "none");
         $commands = $f->commands;
         if (empty($this->options)) {
             $str = "Hey, this is available commands\n";
@@ -31,7 +32,7 @@ class HelpManager implements ModuleInterface
         {
             $opt = $this->options[2] ?? null;
             if ($opt == null)
-                throw new \Exception("iumio Manager Help Error : No option are available");
+                throw new \Exception("Help Manager Error : No option are available");
 
             $i = 0;
 
@@ -55,6 +56,7 @@ class HelpManager implements ModuleInterface
 
     public function __construct(array $options = array())
     {
+        CoreManager::setCurrentModule("Help Manager");
         if (empty($options))
             $this->__render();
         else

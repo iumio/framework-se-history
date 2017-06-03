@@ -3,19 +3,19 @@
     "version": "0.0.5",
     "commands": {
       "help": {
-          "class" : "\\iumioFramework\\Manager\\Console\\Module\\Help\\HelpManager",
+          "class" : "\\iumioFramework\\Core\\Console\\Module\\Help\\HelpManager",
           "desc"  : "Get informations about a command. You can enter app name after help command (php core/manager help app)\n"
       },
       "cache": {
-          "class" : "\\iumioFramework\\Manager\\Console\\Module\\Cache\\CacheManager",
+          "class" : "\\iumioFramework\\Core\\Console\\Module\\Cache\\CacheManager",
           "desc"  : "Manage iumio cache  \n        --clear : Clear cache environment (Dev environment as default)  \n        --env: Environment name (DEV, PROD, ALL) (must used with --clear)\n"
       },
-      "assets-manager": {
-        "class" : "\\iumioFramework\\Manager\\Console\\Module\\Assets\\AssetsManager",
+      "assets": {
+        "class" : "\\iumioFramework\\Core\\Console\\Module\\Assets\\AssetsManager",
         "desc"  : "Manage project assets \n        --copy : Copy project assets to web directory  \n        --symlink (must with --copy option) Symbolic link will be created \n        --clear : clear all web assets \n        --appname : App name 'Example --appname=DefaultApp' (must be use with --copy or --clear option)       \n        --env: Environment name (DEV, PROD, ALL)\n"
       },
       "app": {
-        "class" : "\\iumioFramework\\Manager\\Console\\Module\\App\\AppManager",
+        "class" : "\\iumioFramework\\Core\\Console\\Module\\App\\AppManager",
         "desc"  : "Manage project \n        create : Create project  \n        switch : Change the default project \n        remove : Remove a project \n"
       }
     }
