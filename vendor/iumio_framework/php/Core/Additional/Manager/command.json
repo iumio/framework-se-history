@@ -4,19 +4,19 @@
     "commands": {
       "help": {
           "class" : "\\iumioFramework\\Manager\\Console\\Module\\Help\\HelpManager",
-          "desc"  : "Get informations about a command. You can enter app name after help command (php core/manager help app-manager)\n"
+          "desc"  : "Get informations about a command. You can enter app name after help command (php core/manager help app)\n"
       },
-      "cache-manager": {
+      "cache": {
           "class" : "\\iumioFramework\\Manager\\Console\\Module\\Cache\\CacheManager",
           "desc"  : "Manage iumio cache  \n        --clear : Clear cache environment (Dev environment as default)  \n        --env: Environment name (DEV, PROD, ALL) (must used with --clear)\n"
       },
       "assets-manager": {
         "class" : "\\iumioFramework\\Manager\\Console\\Module\\Assets\\AssetsManager",
-        "desc"  : "Manage project assets \n        --copy : Copy project assets to web directory  \n        --symlink (must with --copy option) Symbolic link will be created \n        --clear : clear all web assets \n        --appname : App name 'Example --appname=DefaultApp' (must be use with --copy or --clear option)       \n        --env: Environment name (DEV, PROD, ALL) (required with --apname)\n"
+        "desc"  : "Manage project assets \n        --copy : Copy project assets to web directory  \n        --symlink (must with --copy option) Symbolic link will be created \n        --clear : clear all web assets \n        --appname : App name 'Example --appname=DefaultApp' (must be use with --copy or --clear option)       \n        --env: Environment name (DEV, PROD, ALL)\n"
       },
-      "app-manager": {
+      "app": {
         "class" : "\\iumioFramework\\Manager\\Console\\Module\\App\\AppManager",
-        "desc"  : "Manage project \n        new-project : Create project  \n        switch-project : Change the default project \n        remove-project : Remove a project \n"
+        "desc"  : "Manage project \n        create : Create project  \n        switch : Change the default project \n        remove : Remove a project \n"
       }
     }
 }

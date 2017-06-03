@@ -152,7 +152,7 @@ function getSimpleApps() {
                 var str = '';
                 for(var i = 0; i < ObjectLength(result); i++)
                 {
-                    var e =   '<li class="iumioTaskBarOneApp" '+((result[i]['isdefault'] === "yes")? "  style='background-color:green;' " : "")+'  attr-href="'+result[i]['link']+'">'+result[i]['name']+'</li>';
+                    var e =   '<li class="iumioTaskBarOneApp" '+((result[i]['isdefault'] === "yes")? "  style='background-color:green;' " : "")+'  attr-href="'+result[i]['link']+'">'+result[i]['name'] +" "+((result[i]['isdefault'] === "yes")? "(default)" : "") +'</li>';
                     str += e;
                 }
                 str += '';

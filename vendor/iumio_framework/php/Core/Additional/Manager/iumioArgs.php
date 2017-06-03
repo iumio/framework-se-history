@@ -35,7 +35,7 @@ class iumioArgs
     public function getArgs(int $argc, array $argv)
     {
         if ($argc == 1)
-            Output::displayAsNotice("Welcome to iumio Console Manager \n  I noticed that you didn't enter any parameters. \n  For more information, you can use the help command to get a command list.", "red", "black");
+            Output::displayAsNotice("Welcome to iumio Console Manager \n  I noticed that you didn't enter any parameters. \n  For more information, you can use the help command to get a command list.");
 
         $c = $this->searchCommand($argv[1]);
         if (empty($c))

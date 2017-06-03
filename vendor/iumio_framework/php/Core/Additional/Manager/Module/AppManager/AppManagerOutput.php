@@ -4,7 +4,7 @@
 namespace iumioFramework\Manager\Console\Module\App;
 
 use iumioFramework\Core\Additionnal\Console\Manager\Display\iumioManagerOutput as IMO;
-
+error_reporting(E_ALL);
 /**
  * Class AppManagerOutput
  * @package iumioFramework\Manager\Console\Module\App
@@ -80,11 +80,4 @@ class AppManagerOutput extends IMO
         if ($exit == "yes") exit();
     }
 
-    /** Clear CLI text
-     * @return bool As a success
-     */
-    final static public function clear():bool
-    {
-        return (parent::clear());
-    }
 }

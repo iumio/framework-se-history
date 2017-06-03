@@ -58,7 +58,7 @@ function createAppProcess($appname, $default, $temp)
     $f = json_encode($f, JSON_PRETTY_PRINT);
     file_put_contents($base."/elements/config_files/apps.json", $f);
     if ($temp == "1")
-        iumioFramework\Core\Additionnal\Server\iumioServerManager::copy($base."/apps/".$appname."/Front/Resources/", $base."/web/components/apps/".strtolower($appname), 'directory', true);
+        iumioFramework\Core\Additionnal\Server\iumioServerManager::copy($base."/apps/".$appname."/Front/Resources/", $base."/web/components/apps/dev/".strtolower($appname), 'directory', true);
 
     initialJSON();
     exit("OK");

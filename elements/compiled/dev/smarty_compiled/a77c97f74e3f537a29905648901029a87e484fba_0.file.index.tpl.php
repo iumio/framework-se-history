@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32-dev-1, created on 2017-06-02 10:44:03
+/* Smarty version 3.1.32-dev-1, created on 2017-06-02 23:21:48
   from "/Applications/MAMP/htdocs/iumio-framework/vendor/iumio_framework/php/BaseApps/ManagerApp/Front/views/index.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32-dev-1',
-  'unifunc' => 'content_59312553c81872_26700325',
+  'unifunc' => 'content_5931d6eca1e726_82663366',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'a77c97f74e3f537a29905648901029a87e484fba' => 
     array (
       0 => '/Applications/MAMP/htdocs/iumio-framework/vendor/iumio_framework/php/BaseApps/ManagerApp/Front/views/index.tpl',
-      1 => 1496393039,
+      1 => 1496393753,
       2 => 'file',
     ),
   ),
@@ -22,14 +22,14 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:partials/footer.tpl' => 1,
   ),
 ),false)) {
-function content_59312553c81872_26700325 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5931d6eca1e726_82663366 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_65583241959312551da3fb7_47300968', "principal");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_15384367385931d6eb8874b3_47731507', "principal");
 ?>
 
 
@@ -38,12 +38,12 @@ $_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_65583241959312551d
 <?php $_smarty_tpl->inheritance->endChild($_smarty_tpl, 'template.tpl');
 }
 /* {block "principal"} */
-class Block_65583241959312551da3fb7_47300968 extends Smarty_Internal_Block
+class Block_15384367385931d6eb8874b3_47731507 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'principal' => 
   array (
-    0 => 'Block_65583241959312551da3fb7_47300968',
+    0 => 'Block_15384367385931d6eb8874b3_47731507',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -163,7 +163,6 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 
                                 </div>
                             </div>
-                            <div id="chartActivity" class="ct-chart"></div>
                         </div>
 
                     </div>

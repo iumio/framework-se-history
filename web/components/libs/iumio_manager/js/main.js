@@ -199,7 +199,7 @@ var getAppListSimple = function () {
                     return (selector.append("<tr><td colspan='6'>No apps</td></tr>"));
 
                 $.each(results, function (index, value) {
-                    selector.append("<tr>" +
+                    selector.append("<tr "+((value['isdefault'] === "yes")? "style='background-color:#4762be;color:white'": "")+">" +
                         "<td>"+index+"</td>" +
                         "<td>"+value['name']+"</td>" +
                         "<td>"+value['isdefault']+"</td>" +

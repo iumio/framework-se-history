@@ -93,7 +93,7 @@ class iumioManagerOutput
     /** Clear the command line text
      * @return bool As a success
      */
-    static public function clear():bool
+    final static public function clear():bool
     {
         echo chr(27).chr(91).'H'.chr(27).chr(91).'J'; // ^[H^[J;
         return (true);

@@ -33,19 +33,19 @@ class AppManager implements ModuleInterface
     {
         if (empty($this->options))
         {
-            Output::outputAsError("App Manager Error \n  You must specify an option. Referer to help comannd.", "no");
-            new HelpManager(array("2" => "app-manager"));
+            Output::outputAsError("App Manager Error \n   This command doesn't exist. Referer to help comannd\n", "no");
+            new HelpManager(array("2" => "app"));
+            exit();
         }
-
         else
         {
             $opt = $this->options[2] ?? null;
-            if ($opt == "new-project")
+            if ($opt == "create")
                 $this->stepNewProject();
-            elseif ($opt == "remove-project")
-                $this->stepRemoveProject($this->options);
-            elseif ($opt == "switch-project")
-                $this->stepSwitchProject($this->options);
+            elseif ($opt == "remove")
+                $this->stepRemoveProject();
+            elseif ($opt == "switch")
+                $this->stepSwitchProject();
             else
                 Output::outputAsError("App Manager Error \n   This command doesn't exist. Referer to help comannd\n");
         }
