@@ -12,7 +12,8 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="#">Smarty Manager</a>
+                        <a class="navbar-brand" href="#">Compiled Manager</a>
+                        <a class="btn-default btn clearcache"  attr-href="{route name='iumio_manager_compile_manager_remove_all'}">Clear all compiled file</a>
                     </div>
 
                 </div>
@@ -23,20 +24,20 @@
                         <div class="col-md-12">
                             <div class="card">
                                 <div class="header">
-                                    <h4 class="title">List of smarty configurations</h4>
-                                    <p class="category">Referer to smarty.json</p>
+                                    <h4 class="title">Compiled list</h4>
+                                    <p class="category">Referer to compilation directory</p>
                                 </div>
                                 <div class="content table-responsive table-full-width">
                                     <table class="table table-hover table-striped">
                                         <thead>
-                                        <th>Config name</th>
-                                        <th>Debug</th>
-                                        <th>Cache</th>
-                                        <th>Console</th>
-                                        <th>Edit</th>
+                                        <th>Directory name</th>
+                                        <th>Path</th>
+                                        <th>Size</th>
+                                        <th>Permissions</th>
+                                        <th>Status</th>
+                                        <th>Clear</th>
                                         </thead>
-                                        <tbody class="smartyconfigs" attr-href="{route name='iumio_manager_smarty_manager_get_all'}">
-
+                                        <tbody class="getAllEnvCompile" attr-href="{route name='iumio_manager_compile_manager_get_all'}">
                                         </tbody>
                                     </table>
 
@@ -44,9 +45,10 @@
                             </div>
                         </div>
                     </div>
+
+
                 </div>
             </div>
-
             {include file='partials/footer.tpl'}
 
         </div>

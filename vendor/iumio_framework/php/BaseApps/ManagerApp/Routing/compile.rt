@@ -1,0 +1,17 @@
+routingRegister : ManagerApp
+
+name : iumio_manager_compile_manager
+path :  /_manager/compile
+method : Compile%compile
+
+name : iumio_manager_compile_manager_remove_all
+path :  /_manager/compile/clear/all
+method : Compile%compileClearAll
+
+name : iumio_manager_compile_manager_remove
+path :  /_manager/compile/clear/{env}
+method : Compile%compileClear
+
+name : iumio_manager_compile_manager_get_all
+path :  /_manager/compile/get/all
+method : Compile%getAllEnv

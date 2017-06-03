@@ -3,3 +3,15 @@ routingRegister : ManagerApp
 name : iumio_manager_smarty_manager
 path :  /_manager/smarty
 method : Smarty%smarty
+
+name : iumio_manager_smarty_manager_get_all
+path :  /_manager/smarty/get/all
+method : Smarty%getAll
+
+name : iumio_manager_smarty_manager_edit
+path :  /_manager/smarty/get/{config}
+method : Smarty%edit
+
+name : iumio_manager_smarty_manager_save
+path :  /_manager/smarty/save/{config}
+method : Smarty%save

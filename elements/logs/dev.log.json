@@ -766,5 +766,333 @@
     "191": {
         "time": "2017-06-03 21:06:32",
         "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "192": {
+        "time": "2017-06-04 00:06:47",
+        "content": "[500 INTERNAL ERROR] : iumio Core Error : Class \\ManagerApp\\Master\\SmartyMaster or method \\ManagerApp\\Master\\SmartyMaster::getAllActivity doesn't exist : iumio Reflexion Method Error : Class \\ManagerApp\\Master\\SmartyMaster does not exist"
+    },
+    "193": {
+        "time": "2017-06-04 00:06:47",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "194": {
+        "time": "2017-06-04 00:06:54",
+        "content": "[500 INTERNAL ERROR] : iumio Core Error : Class \\ManagerApp\\Master\\SmartyMaster or method \\ManagerApp\\Master\\SmartyMaster::getAllActivity doesn't exist : iumio Reflexion Method Error : Class \\ManagerApp\\Master\\SmartyMaster does not exist"
+    },
+    "195": {
+        "time": "2017-06-04 00:06:54",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "196": {
+        "time": "2017-06-04 00:06:00",
+        "content": "[500 INTERNAL ERROR] : iumio Core Error : Class \\ManagerApp\\Master\\SmartyMaster or method \\ManagerApp\\Master\\SmartyMaster::getAllActivity doesn't exist : iumio Reflexion Method Error : Class \\ManagerApp\\Master\\SmartyMaster does not exist"
+    },
+    "197": {
+        "time": "2017-06-04 00:06:00",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "198": {
+        "time": "2017-06-04 00:06:09",
+        "content": "[500 INTERNAL ERROR] : iumio Core Error : Class \\ManagerApp\\Master\\SmartyMaster or method \\ManagerApp\\Master\\SmartyMaster::getAllActivity doesn't exist : iumio Reflexion Method Error : Class \\ManagerApp\\Master\\SmartyMaster does not exist"
+    },
+    "199": {
+        "time": "2017-06-04 00:06:09",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "200": {
+        "time": "2017-06-04 00:06:15",
+        "content": "[500 INTERNAL ERROR] : iumio Core Error : Class \\ManagerApp\\Master\\SmartyMaster or method \\ManagerApp\\Master\\SmartyMaster::getAllActivity doesn't exist : iumio Reflexion Method Error : Class \\ManagerApp\\Master\\SmartyMaster does not exist"
+    },
+    "201": {
+        "time": "2017-06-04 00:06:15",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "202": {
+        "time": "2017-06-04 00:06:22",
+        "content": "[500 INTERNAL ERROR] : iumio Core Error : Class \\ManagerApp\\Master\\SmartyMaster or method \\ManagerApp\\Master\\SmartyMaster::getAllActivity doesn't exist : iumio Reflexion Method Error : Class \\ManagerApp\\Master\\SmartyMaster does not exist"
+    },
+    "203": {
+        "time": "2017-06-04 00:06:22",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "204": {
+        "time": "2017-06-04 00:06:29",
+        "content": "[500 INTERNAL ERROR] : iumio Core Error : Class \\ManagerApp\\Master\\SmartyMaster or method \\ManagerApp\\Master\\SmartyMaster::getAllActivity doesn't exist : iumio Reflexion Method Error : Class \\ManagerApp\\Master\\SmartyMaster does not exist"
+    },
+    "205": {
+        "time": "2017-06-04 00:06:29",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "206": {
+        "time": "2017-06-04 00:06:36",
+        "content": "[500 INTERNAL ERROR] : iumio Core Error : Class \\ManagerApp\\Master\\SmartyMaster or method \\ManagerApp\\Master\\SmartyMaster::getAllActivity doesn't exist : iumio Reflexion Method Error : Class \\ManagerApp\\Master\\SmartyMaster does not exist"
+    },
+    "207": {
+        "time": "2017-06-04 00:06:36",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "208": {
+        "time": "2017-06-04 00:06:43",
+        "content": "[500 INTERNAL ERROR] : iumio Core Error : Class \\ManagerApp\\Master\\SmartyMaster or method \\ManagerApp\\Master\\SmartyMaster::getAllActivity doesn't exist : iumio Reflexion Method Error : Class \\ManagerApp\\Master\\SmartyMaster does not exist"
+    },
+    "209": {
+        "time": "2017-06-04 00:06:43",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "210": {
+        "time": "2017-06-04 00:06:50",
+        "content": "[500 INTERNAL ERROR] : iumio Core Error : Class \\ManagerApp\\Master\\SmartyMaster or method \\ManagerApp\\Master\\SmartyMaster::getAllActivity doesn't exist : iumio Reflexion Method Error : Class \\ManagerApp\\Master\\SmartyMaster does not exist"
+    },
+    "211": {
+        "time": "2017-06-04 00:06:50",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "212": {
+        "time": "2017-06-04 00:06:57",
+        "content": "[500 INTERNAL ERROR] : iumio Core Error : Class \\ManagerApp\\Master\\SmartyMaster or method \\ManagerApp\\Master\\SmartyMaster::getAllActivity doesn't exist : iumio Reflexion Method Error : Class \\ManagerApp\\Master\\SmartyMaster does not exist"
+    },
+    "213": {
+        "time": "2017-06-04 00:06:57",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "214": {
+        "time": "2017-06-04 00:06:04",
+        "content": "[500 INTERNAL ERROR] : iumio Core Error : Class \\ManagerApp\\Master\\SmartyMaster or method \\ManagerApp\\Master\\SmartyMaster::getAllActivity doesn't exist : iumio Reflexion Method Error : Class \\ManagerApp\\Master\\SmartyMaster does not exist"
+    },
+    "215": {
+        "time": "2017-06-04 00:06:04",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "216": {
+        "time": "2017-06-04 00:06:11",
+        "content": "[500 INTERNAL ERROR] : iumio Core Error : Class \\ManagerApp\\Master\\SmartyMaster or method \\ManagerApp\\Master\\SmartyMaster::getAllActivity doesn't exist : iumio Reflexion Method Error : Class \\ManagerApp\\Master\\SmartyMaster does not exist"
+    },
+    "217": {
+        "time": "2017-06-04 00:06:11",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "218": {
+        "time": "2017-06-04 00:06:18",
+        "content": "[500 INTERNAL ERROR] : iumio Core Error : Class \\ManagerApp\\Master\\SmartyMaster or method \\ManagerApp\\Master\\SmartyMaster::getAllActivity doesn't exist : iumio Reflexion Method Error : Class \\ManagerApp\\Master\\SmartyMaster does not exist"
+    },
+    "219": {
+        "time": "2017-06-04 00:06:18",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "220": {
+        "time": "2017-06-04 00:06:25",
+        "content": "[500 INTERNAL ERROR] : iumio Core Error : Class \\ManagerApp\\Master\\SmartyMaster or method \\ManagerApp\\Master\\SmartyMaster::getAllActivity doesn't exist : iumio Reflexion Method Error : Class \\ManagerApp\\Master\\SmartyMaster does not exist"
+    },
+    "221": {
+        "time": "2017-06-04 00:06:25",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "222": {
+        "time": "2017-06-04 00:06:32",
+        "content": "[500 INTERNAL ERROR] : iumio Core Error : Class \\ManagerApp\\Master\\SmartyMaster or method \\ManagerApp\\Master\\SmartyMaster::getAllActivity doesn't exist : iumio Reflexion Method Error : Class \\ManagerApp\\Master\\SmartyMaster does not exist"
+    },
+    "223": {
+        "time": "2017-06-04 00:06:32",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "224": {
+        "time": "2017-06-04 00:06:39",
+        "content": "[500 INTERNAL ERROR] : iumio Core Error : Class \\ManagerApp\\Master\\SmartyMaster or method \\ManagerApp\\Master\\SmartyMaster::getAllActivity doesn't exist : iumio Reflexion Method Error : Class \\ManagerApp\\Master\\SmartyMaster does not exist"
+    },
+    "225": {
+        "time": "2017-06-04 00:06:39",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "226": {
+        "time": "2017-06-04 00:06:46",
+        "content": "[500 INTERNAL ERROR] : iumio Core Error : Class \\ManagerApp\\Master\\SmartyMaster or method \\ManagerApp\\Master\\SmartyMaster::getAllActivity doesn't exist : iumio Reflexion Method Error : Class \\ManagerApp\\Master\\SmartyMaster does not exist"
+    },
+    "227": {
+        "time": "2017-06-04 00:06:46",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "228": {
+        "time": "2017-06-04 00:06:53",
+        "content": "[500 INTERNAL ERROR] : iumio Core Error : Class \\ManagerApp\\Master\\SmartyMaster or method \\ManagerApp\\Master\\SmartyMaster::getAllActivity doesn't exist : iumio Reflexion Method Error : Class \\ManagerApp\\Master\\SmartyMaster does not exist"
+    },
+    "229": {
+        "time": "2017-06-04 00:06:53",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "230": {
+        "time": "2017-06-04 00:06:20",
+        "content": "[404 NOT FOUND] : The ressource you try to access is not found. : Please check your URI"
+    },
+    "231": {
+        "time": "2017-06-04 00:06:20",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "232": {
+        "time": "2017-06-04 00:06:00",
+        "content": "[500 INTERNAL ERROR] : iumio Core Error : Class \\ManagerApp\\Master\\SmartyMaster or method \\ManagerApp\\Master\\SmartyMaster::getAllActivity doesn't exist : iumio Reflexion Method Error : Class \\ManagerApp\\Master\\SmartyMaster does not exist"
+    },
+    "233": {
+        "time": "2017-06-04 00:06:00",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "234": {
+        "time": "2017-06-04 00:06:07",
+        "content": "[500 INTERNAL ERROR] : iumio Core Error : Class \\ManagerApp\\Master\\SmartyMaster or method \\ManagerApp\\Master\\SmartyMaster::getAllActivity doesn't exist : iumio Reflexion Method Error : Class \\ManagerApp\\Master\\SmartyMaster does not exist"
+    },
+    "235": {
+        "time": "2017-06-04 00:06:07",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "236": {
+        "time": "2017-06-04 00:06:14",
+        "content": "[500 INTERNAL ERROR] : iumio Core Error : Class \\ManagerApp\\Master\\SmartyMaster or method \\ManagerApp\\Master\\SmartyMaster::getAllActivity doesn't exist : iumio Reflexion Method Error : Class \\ManagerApp\\Master\\SmartyMaster does not exist"
+    },
+    "237": {
+        "time": "2017-06-04 00:06:14",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "238": {
+        "time": "2017-06-04 00:06:21",
+        "content": "[500 INTERNAL ERROR] : iumio Core Error : Class \\ManagerApp\\Master\\SmartyMaster or method \\ManagerApp\\Master\\SmartyMaster::getAllActivity doesn't exist : iumio Reflexion Method Error : Class \\ManagerApp\\Master\\SmartyMaster does not exist"
+    },
+    "239": {
+        "time": "2017-06-04 00:06:21",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "240": {
+        "time": "2017-06-04 00:06:28",
+        "content": "[500 INTERNAL ERROR] : iumio Core Error : Class \\ManagerApp\\Master\\SmartyMaster or method \\ManagerApp\\Master\\SmartyMaster::getAllActivity doesn't exist : iumio Reflexion Method Error : Class \\ManagerApp\\Master\\SmartyMaster does not exist"
+    },
+    "241": {
+        "time": "2017-06-04 00:06:28",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "242": {
+        "time": "2017-06-04 00:06:35",
+        "content": "[500 INTERNAL ERROR] : iumio Core Error : Class \\ManagerApp\\Master\\SmartyMaster or method \\ManagerApp\\Master\\SmartyMaster::getAllActivity doesn't exist : iumio Reflexion Method Error : Class \\ManagerApp\\Master\\SmartyMaster does not exist"
+    },
+    "243": {
+        "time": "2017-06-04 00:06:35",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "244": {
+        "time": "2017-06-04 00:06:42",
+        "content": "[500 INTERNAL ERROR] : iumio Core Error : Class \\ManagerApp\\Master\\SmartyMaster or method \\ManagerApp\\Master\\SmartyMaster::getAllActivity doesn't exist : iumio Reflexion Method Error : Class \\ManagerApp\\Master\\SmartyMaster does not exist"
+    },
+    "245": {
+        "time": "2017-06-04 00:06:42",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "246": {
+        "time": "2017-06-04 00:06:49",
+        "content": "[500 INTERNAL ERROR] : iumio Core Error : Class \\ManagerApp\\Master\\SmartyMaster or method \\ManagerApp\\Master\\SmartyMaster::getAllActivity doesn't exist : iumio Reflexion Method Error : Class \\ManagerApp\\Master\\SmartyMaster does not exist"
+    },
+    "247": {
+        "time": "2017-06-04 00:06:49",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "248": {
+        "time": "2017-06-04 00:06:56",
+        "content": "[500 INTERNAL ERROR] : iumio Core Error : Class \\ManagerApp\\Master\\SmartyMaster or method \\ManagerApp\\Master\\SmartyMaster::getAllActivity doesn't exist : iumio Reflexion Method Error : Class \\ManagerApp\\Master\\SmartyMaster does not exist"
+    },
+    "249": {
+        "time": "2017-06-04 00:06:56",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "250": {
+        "time": "2017-06-04 00:06:03",
+        "content": "[500 INTERNAL ERROR] : iumio Core Error : Class \\ManagerApp\\Master\\SmartyMaster or method \\ManagerApp\\Master\\SmartyMaster::getAllActivity doesn't exist : iumio Reflexion Method Error : Class \\ManagerApp\\Master\\SmartyMaster does not exist"
+    },
+    "251": {
+        "time": "2017-06-04 00:06:03",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "252": {
+        "time": "2017-06-04 00:06:10",
+        "content": "[500 INTERNAL ERROR] : iumio Core Error : Class \\ManagerApp\\Master\\SmartyMaster or method \\ManagerApp\\Master\\SmartyMaster::getAllActivity doesn't exist : iumio Reflexion Method Error : Class \\ManagerApp\\Master\\SmartyMaster does not exist"
+    },
+    "253": {
+        "time": "2017-06-04 00:06:10",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "254": {
+        "time": "2017-06-04 00:06:17",
+        "content": "[500 INTERNAL ERROR] : iumio Core Error : Class \\ManagerApp\\Master\\SmartyMaster or method \\ManagerApp\\Master\\SmartyMaster::getAllActivity doesn't exist : iumio Reflexion Method Error : Class \\ManagerApp\\Master\\SmartyMaster does not exist"
+    },
+    "255": {
+        "time": "2017-06-04 00:06:17",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "256": {
+        "time": "2017-06-04 00:06:24",
+        "content": "[500 INTERNAL ERROR] : iumio Core Error : Class \\ManagerApp\\Master\\SmartyMaster or method \\ManagerApp\\Master\\SmartyMaster::getAllActivity doesn't exist : iumio Reflexion Method Error : Class \\ManagerApp\\Master\\SmartyMaster does not exist"
+    },
+    "257": {
+        "time": "2017-06-04 00:06:24",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "258": {
+        "time": "2017-06-04 00:06:31",
+        "content": "[500 INTERNAL ERROR] : iumio Core Error : Class \\ManagerApp\\Master\\SmartyMaster or method \\ManagerApp\\Master\\SmartyMaster::getAllActivity doesn't exist : iumio Reflexion Method Error : Class \\ManagerApp\\Master\\SmartyMaster does not exist"
+    },
+    "259": {
+        "time": "2017-06-04 00:06:31",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "260": {
+        "time": "2017-06-04 00:06:38",
+        "content": "[500 INTERNAL ERROR] : iumio Core Error : Class \\ManagerApp\\Master\\SmartyMaster or method \\ManagerApp\\Master\\SmartyMaster::getAllActivity doesn't exist : iumio Reflexion Method Error : Class \\ManagerApp\\Master\\SmartyMaster does not exist"
+    },
+    "261": {
+        "time": "2017-06-04 00:06:38",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "262": {
+        "time": "2017-06-04 00:06:45",
+        "content": "[500 INTERNAL ERROR] : iumio Core Error : Class \\ManagerApp\\Master\\SmartyMaster or method \\ManagerApp\\Master\\SmartyMaster::getAllActivity doesn't exist : iumio Reflexion Method Error : Class \\ManagerApp\\Master\\SmartyMaster does not exist"
+    },
+    "263": {
+        "time": "2017-06-04 00:06:45",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "264": {
+        "time": "2017-06-04 00:06:52",
+        "content": "[500 INTERNAL ERROR] : iumio Core Error : Class \\ManagerApp\\Master\\SmartyMaster or method \\ManagerApp\\Master\\SmartyMaster::getAllActivity doesn't exist : iumio Reflexion Method Error : Class \\ManagerApp\\Master\\SmartyMaster does not exist"
+    },
+    "265": {
+        "time": "2017-06-04 00:06:52",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "266": {
+        "time": "2017-06-04 00:06:59",
+        "content": "[500 INTERNAL ERROR] : iumio Core Error : Class \\ManagerApp\\Master\\SmartyMaster or method \\ManagerApp\\Master\\SmartyMaster::getAllActivity doesn't exist : iumio Reflexion Method Error : Class \\ManagerApp\\Master\\SmartyMaster does not exist"
+    },
+    "267": {
+        "time": "2017-06-04 00:06:59",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "268": {
+        "time": "2017-06-04 00:06:06",
+        "content": "[500 INTERNAL ERROR] : iumio Core Error : Class \\ManagerApp\\Master\\SmartyMaster or method \\ManagerApp\\Master\\SmartyMaster::getAllActivity doesn't exist : iumio Reflexion Method Error : Class \\ManagerApp\\Master\\SmartyMaster does not exist"
+    },
+    "269": {
+        "time": "2017-06-04 00:06:06",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "270": {
+        "time": "2017-06-04 00:06:13",
+        "content": "[500 INTERNAL ERROR] : iumio Core Error : Class \\ManagerApp\\Master\\SmartyMaster or method \\ManagerApp\\Master\\SmartyMaster::getAllActivity doesn't exist : iumio Reflexion Method Error : Class \\ManagerApp\\Master\\SmartyMaster does not exist"
+    },
+    "271": {
+        "time": "2017-06-04 00:06:13",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "272": {
+        "time": "2017-06-04 00:06:20",
+        "content": "[500 INTERNAL ERROR] : iumio Core Error : Class \\ManagerApp\\Master\\SmartyMaster or method \\ManagerApp\\Master\\SmartyMaster::getAllActivity doesn't exist : iumio Reflexion Method Error : Class \\ManagerApp\\Master\\SmartyMaster does not exist"
+    },
+    "273": {
+        "time": "2017-06-04 00:06:20",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
     }
 }

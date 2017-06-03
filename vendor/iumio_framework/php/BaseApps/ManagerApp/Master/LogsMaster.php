@@ -24,7 +24,7 @@ class LogsMaster extends Master
         $date =  new \DateTime($file->installation->date);
         $file->installation = $date->format('Y/m/d');
 
-        return($this->render("logs", array("selected" => "logmanager", "env" => strtolower(ENVIRONMENT))));
+        return($this->render("logs", array("selected" => "logsmanager", "env" => strtolower(ENVIRONMENT))));
     }
 
     /** Get the last debug logs (unlimited)

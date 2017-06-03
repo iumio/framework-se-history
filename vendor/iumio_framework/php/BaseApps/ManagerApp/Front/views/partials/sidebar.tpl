@@ -32,6 +32,12 @@
                 <p>Cache</p>
             </a>
         </li>
+        <li class="{if $selected == "compilemanager"}active{/if}">
+            <a href="{route name='iumio_manager_compile_manager'}">
+                <i class="pe-7s-comment"></i>
+                <p>Compiled</p>
+            </a>
+        </li>
         <li class="{if $selected == "assetsmanager"}active{/if}">
             <a href="{route name='iumio_manager_assets_manager'}">
                 <i class="pe-7s-star"></i>

@@ -147,6 +147,40 @@ var getDatabasesList = function () {
 };
 
 /**
+ * get smarty configuration list
+ */
+var getAllSmartyConfigs = function () {
+
+    var selector = $('.smartyconfigs');
+    if (typeof selector.attr("attr-href") === "undefined")
+        return (1);
+    $.ajax({
+        url : selector.attr("attr-href"),
+        type : 'GET',
+        dataType : 'json',
+        success : function(data){
+            if (data['code'] === 200)
+            {
+                var results = data['results'];
+                selector.html("");
+                if (results.length === 0)
+                    return (selector.append("<tr><td colspan='4'>No smarty configurations</td></tr>"));
+
+                $.each(results, function (index, value) {
+                    selector.append("<tr>" +
+                        "<td>"+index+"</td>" +
+                        "<td>"+((value['debug'] === true)? "Enabled" : "Disabled") +"</td>" +
+                        "<td>"+((value['cache'] === 1)? "Enabled" : "Disabled")+"</td>" +
+                        "<td>"+value['console_debug']+"</td>" +
+                        "<td><button class=' btn-info btn editsmartyconfig' attr-href='"+value['edit']+"' attr-href2='"+value['save']+"' attr-config='"+index+"'>ED</button></td>"+
+                        "</tr>");
+                });
+            }
+        }
+    });
+};
+
+/**
  * get the default app
  */
 var getDefaultApp = function () {
@@ -245,7 +279,43 @@ var getAllCacheEnv = function () {
                         "<td><button class='btn-info btn clearcachespec' attr-href='"+value['clear']+"' attr-env='"+value['env']+"'>CL</button></td>"+
                         "</tr>");
                 });
-                simpleapps = results;
+
+            }
+        }
+    })
+};
+
+
+/**
+ * get all compile environment
+ */
+var getAllCompileEnv = function () {
+
+    var selector = $('.getAllEnvCompile');
+    if (typeof selector.attr("attr-href") === "undefined")
+        return (1);
+    $.ajax({
+        url : selector.attr("attr-href"),
+        type : 'GET',
+        dataType : 'json',
+        success : function(data){
+            if (data['code'] === 200)
+            {
+                var results = data['results'];
+                selector.html("");
+                if (results.length === 0)
+                    return (selector.append("<tr><td colspan='6'>No compiled directory</td></tr>"));
+
+                $.each(results, function (index, value) {
+                    selector.append("<tr>" +
+                        "<td>"+value['name']+"</td>" +
+                        "<td>"+value['path']+"</td>" +
+                        "<td>"+value['size']+"</td>" +
+                        "<td "+((value['perms'] === true)? 'style="background-color:green;color:white;text-align:center"' : 'style="background-color:red;color:white;text-align:center"')+">"+value['nperms']+"</td>" +
+                        "<td>"+value['status']+"</td>" +
+                        "<td><button class='btn-info btn clearcompilespec' attr-href='"+value['clear']+"' attr-env='"+value['env']+"'>CL</button></td>"+
+                        "</tr>");
+                });
 
             }
         }
@@ -356,6 +426,81 @@ var saveDatabaseConfiguration = function (href) {
                 getDatabasesList();
                 if (data['code'] === 200)
                     operationSuccess();
+                else
+                    operationError();
+            }
+            else
+                operationError();
+        }
+    });
+};
+
+/**
+ * save smarty configuration
+ */
+
+var saveSmartyConfiguration = function (href) {
+    var debug           = $("input[type=checkbox][name=debug]:checked").val();
+    var cache           = $("input[type=checkbox][name=cache]:checked").val();
+    var compile         = $("input[type=checkbox][name=compile]:checked").val();
+    var force           = $("input[type=checkbox][name=force]:checked").val();
+    var sdebug          = $("input[type=checkbox][name=sdebug]:checked").val();
+    var console         = $("input[type=checkbox][name=console]:checked").val();
+
+
+    var selecttorModal = $("#modalManager");
+
+    if (typeof debug !== "undefined")
+        debug = true;
+    else
+        debug = false;
+
+    if (typeof cache !== "undefined")
+        cache = 1;
+    else
+        cache = 0;
+
+    if (typeof compile !== "undefined")
+        compile = true;
+    else
+        compile = false;
+
+    if (typeof force !== "undefined")
+        force = true;
+    else
+        force = false;
+
+    if (typeof sdebug !== "undefined")
+        sdebug = true;
+    else
+        sdebug = false;
+
+    if (typeof console !== "undefined")
+        console = "on";
+    else
+        console = "off";
+
+
+    selecttorModal.find(".onealert").hide();
+
+    $.ajax({
+        url : href,
+        type : 'POST',
+        dataType : 'json',
+        data : {"debug" : debug, "cache" : cache, "compile" : compile, "force" : force, "sdebug" : sdebug, "console" : console},
+        success : function(data){
+            if (data['code'] === 200)
+            {
+                getDatabasesList();
+                if (data['code'] === 200)
+                {
+                    operationSuccess();
+                    var selecttorModal = $("#modalManager");
+                    selecttorModal.find(".btn-close").hide();
+                    setTimeout(function () {
+                        location.reload();
+                    }, 5000)
+                }
                 else
                     operationError();
             }
@@ -496,6 +641,27 @@ var clearAllCache = function (url) {
     })
 };
 
+
+/**
+ * clear all compile
+ * @param url Url to remove all compile
+ */
+var clearAllCompile = function (url) {
+
+    $.ajax({
+        url : url,
+        type : 'GET',
+        dataType : 'json',
+        success : function(data){
+            getAllCompileEnv();
+            if (data['code'] === 200)
+                operationSuccess();
+            else
+                operationError();
+        }
+    })
+};
+
 /**
  * clear cache for specific env
  * @param url Url to clear cache for specific env
@@ -515,6 +681,28 @@ var clearCache = function (url) {
         }
     })
 };
+
+
+/**
+ * clear compile for specific env
+ * @param url Url to clear compile for specific env
+ */
+var clearCompile = function (url) {
+
+    $.ajax({
+        url : url,
+        type : 'GET',
+        dataType : 'json',
+        success : function(data){
+            getAllCompileEnv();
+            if (data['code'] === 200)
+                operationSuccess();
+            else
+                operationError();
+        }
+    })
+};
+
 
 /**
  * remove db configuration
@@ -545,6 +733,8 @@ $(document).ready(function () {
     getUnlimitedLogs();
     getDatabasesList();
     getAllCacheEnv();
+    getAllCompileEnv();
+    getAllSmartyConfigs();
 
     setInterval(function () {
         getLogs();
@@ -553,6 +743,8 @@ $(document).ready(function () {
         getUnlimitedLogs();
         getDatabasesList();
         getAllCacheEnv();
+        getAllCompileEnv();
+        getAllSmartyConfigs();
     }, 7000);
 
     /**
@@ -661,6 +853,15 @@ $(document).ready(function () {
             case "clearcache":
                 clearCache(href);
                 break;
+            case "clearallcompile":
+                clearAllCompile(href);
+                break;
+            case "clearcompile":
+                clearCompile(href);
+                break;
+            case "editsmartysave":
+                saveSmartyConfiguration(href);
+                break;
 
         }
     });
@@ -747,6 +948,65 @@ $(document).ready(function () {
                     selecttorModal.find(".btn-valid").attr("attr-href", href2);
                     selecttorModal.find(".btn-valid").attr("attr-dbconfig", name);
                     selecttorModal.find(".btn-valid").attr("attr-event", "editdatabasesave");
+                    selecttorModal.find(".btn-close").show();
+                    selecttorModal.find(".btn-valid").show();
+
+                    modal("show");
+                }
+                else
+                {
+                    operationError();
+                    return (0);
+                }
+            }
+        });
+    });
+
+
+    /**
+     * Event to show edit smarty configuration
+     */
+    $(document).on('click', ".editsmartyconfig", function () {
+        var selector = $(this);
+        var href = selector.attr("attr-href");
+        var href2 = selector.attr("attr-href2");
+        var name = selector.attr("attr-config");
+        var result = null;
+
+        $.ajax({
+            url : href,
+            type : 'GET',
+            dataType : 'json',
+            success : function(data){
+                if (data['code'] === 200)
+                {
+                    result = data['results'];
+                    var selecttorModal = $("#modalManager");
+
+                    selecttorModal.find(".modal-header").html("<strong class='text-center'>Edit "+name+" configuration</strong>");
+                    selecttorModal.find(".modal-header").append("<p class='alert alert-danger onealert' style='display: none'></p>");
+                    selecttorModal.find(".modal-body").html("<h4 class='text-center'>Edit fields to update smarty configuration.</h4>");
+                    selecttorModal.find(".modal-body").append("<br>");
+                    selecttorModal.find(".modal-body").append("<div class='container'><div class='row'>");
+
+                    selecttorModal.find(".modal-body").append("<div class='form-group text-center'><label>Configuration name</label><input type='text' name='config' class='form-control text-center' value='"+name+"' disabled='disabled'></div>");
+                    selecttorModal.find(".modal-body").append("</div></div>");
+                    selecttorModal.find(".modal-body").append('<div class="container-new">' +
+                        '<div class="form-group text-center"> <label>Debug</label> <div class="check"><input id="check" type="checkbox" name="debug" '+((result['debug'] === true)? "checked='checked'" : "")+' style="display: none"/><label for="check"><div class="box"><i class="fa fa-check"></i></div> </label></div></div>' +
+                        '<div class="form-group text-center"><label>Cache</label> <div class="check"><input id="check1" name="cache" '+((result['cache'] === 1)? "checked='checked'" : "")+' type="checkbox" style="display: none" /><label for="check1"><div class="box"><i class="fa fa-check"></i></div> </label></div></div>' +
+                        '<div class="form-group text-center"><label>Compile Check</label> <div class="check"><input id="check2" name="compile" '+((result['compile_check'] === true)? "checked='checked'" : "")+' type="checkbox" style="display: none" /><label for="check2"><div class="box"><i class="fa fa-check"></i></div> </label></div></div>' +
+                        '<div class="form-group text-center"><label>Force to compile</label> <div class="check"><input id="check3" name="force" '+((result['force_compile'] === true)? "checked='checked'" : "")+' type="checkbox" style="display: none" /><label for="check3"><div class="box"><i class="fa fa-check"></i></div> </label></div></div>' +
+                        '<div class="form-group text-center"><label>Smarty Debug</label> <div class="check"><input id="check4" name="sdebug" '+((result['smarty_debug'] === true)? "checked='checked'" : "")+' type="checkbox" style="display: none" /><label for="check4"><div class="box"><i class="fa fa-check"></i></div> </label></div></div>' +
+                        '<div class="form-group text-center"><label>Console</label> <div class="check"><input id="check5" name="console" '+((result['console_debug'] === "on")? "checked='checked'" : "")+' type="checkbox" style="display: none" /><label for="check5"><div class="box"><i class="fa fa-check"></i></div> </label></div></div>' +
+                        '</div>');
+                    selecttorModal.find(".modal-body").append("</div></div>");
+
+                    selecttorModal.find(".btn-close").html("Close");
+                    selecttorModal.find(".btn-valid").html("Update");
+
+                    selecttorModal.find(".btn-valid").attr("attr-href", href2);
+                    selecttorModal.find(".btn-valid").attr("attr-config", name);
+                    selecttorModal.find(".btn-valid").attr("attr-event", "editsmartysave");
                     selecttorModal.find(".btn-close").show();
                     selecttorModal.find(".btn-valid").show();
 
@@ -875,5 +1135,52 @@ $(document).ready(function () {
         modal("show");
     });
 
+
+    /**
+     * Event to clear all compile
+     */
+    $(document).on('click', ".clearcompile", function () {
+        var selector = $(this);
+        var href = selector.attr("attr-href");
+        var env = selector.attr("attr-env");
+
+        var selecttorModal = $("#modalManager");
+
+        selecttorModal.find(".modal-header").html("<strong class='text-center'>Clear compiled for all environment</strong>");
+        selecttorModal.find(".modal-body").html("<h4 class='text-center'>Would you like to empty compiled folder for all environment ?</h4>");
+        selecttorModal.find(".btn-close").html("No");
+        selecttorModal.find(".btn-valid").html("Yes");
+
+        selecttorModal.find(".btn-valid").attr("attr-href", href);
+        selecttorModal.find(".btn-valid").attr("attr-event", "clearallcompile");
+        selecttorModal.find(".btn-close").show();
+        selecttorModal.find(".btn-valid").show();
+
+        modal("show");
+    });
+
+
+    /**
+     * Event to clear all compile
+     */
+    $(document).on('click', ".clearcompilespec", function () {
+        var selector = $(this);
+        var href = selector.attr("attr-href");
+        var env = selector.attr("attr-env");
+
+        var selecttorModal = $("#modalManager");
+
+        selecttorModal.find(".modal-header").html("<strong class='text-center'>Clear compiled for "+env+" environment</strong>");
+        selecttorModal.find(".modal-body").html("<h4 class='text-center'>Would you like to empty compiled folder for <strong>"+env+"</strong> environment ?</h4>");
+        selecttorModal.find(".btn-close").html("No");
+        selecttorModal.find(".btn-valid").html("Yes");
+
+        selecttorModal.find(".btn-valid").attr("attr-href", href);
+        selecttorModal.find(".btn-valid").attr("attr-event", "clearcompile");
+        selecttorModal.find(".btn-close").show();
+        selecttorModal.find(".btn-valid").show();
+
+        modal("show");
+    });
 });
 

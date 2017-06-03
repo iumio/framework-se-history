@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32-dev-1, created on 2017-06-02 10:54:52
+/* Smarty version 3.1.32-dev-1, created on 2017-06-04 01:02:09
   from "/Applications/MAMP/htdocs/iumio-framework/vendor/iumio_framework/php/BaseApps/ManagerApp/Front/views/smartymanager.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32-dev-1',
-  'unifunc' => 'content_593127dc441096_75522895',
+  'unifunc' => 'content_59333ff10793d7_15950602',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '11dc170af87665ac57c82823b3e80d45257bae06' => 
     array (
       0 => '/Applications/MAMP/htdocs/iumio-framework/vendor/iumio_framework/php/BaseApps/ManagerApp/Front/views/smartymanager.tpl',
-      1 => 1495101347,
+      1 => 1496523793,
       2 => 'file',
     ),
   ),
@@ -22,22 +22,22 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:partials/footer.tpl' => 1,
   ),
 ),false)) {
-function content_593127dc441096_75522895 (Smarty_Internal_Template $_smarty_tpl) {
+function content_59333ff10793d7_15950602 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_2129399984593127dc438380_89197945', "principal");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_196581514259333ff0a07b12_57796554', "principal");
 $_smarty_tpl->inheritance->endChild($_smarty_tpl, 'template.tpl');
 }
 /* {block "principal"} */
-class Block_2129399984593127dc438380_89197945 extends Smarty_Internal_Block
+class Block_196581514259333ff0a07b12_57796554 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'principal' => 
   array (
-    0 => 'Block_2129399984593127dc438380_89197945',
+    0 => 'Block_196581514259333ff0a07b12_57796554',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -68,36 +68,21 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
                         <div class="col-md-12">
                             <div class="card">
                                 <div class="header">
-                                    <h4 class="title">List of base app</h4>
-                                    <p class="category">Referer to apps.json in base app directory</p>
+                                    <h4 class="title">List of smarty configurations</h4>
+                                    <p class="category">Referer to smarty.json</p>
                                 </div>
                                 <div class="content table-responsive table-full-width">
                                     <table class="table table-hover table-striped">
                                         <thead>
-                                        <th>ID</th>
-                                        <th>Name</th>
-                                        <th>Namespace</th>
-                                        <th>Status</th>
+                                        <th>Config name</th>
+                                        <th>Debug</th>
+                                        <th>Cache</th>
+                                        <th>Console</th>
                                         <th>Edit</th>
-                                        <th>Delete</th>
                                         </thead>
-                                        <tbody>
-                                        <tr>
-                                            <td>0</td>
-                                            <td>DakotaRice</td>
-                                            <td>A/A</td>
-                                            <td>on</td>
-                                            <td><button>E</button></td>
-                                            <td><button>D</button></td>
-                                        </tr>
-                                        <tr>
-                                            <td>0</td>
-                                            <td>DakotaRice</td>
-                                            <td>V/V</td>
-                                            <td>on</td>
-                                            <td><button>E</button></td>
-                                            <td><button>D</button></td>
-                                        </tr>
+                                        <tbody class="smartyconfigs" attr-href="<?php echo iumioFramework\Core\Additionnal\Template\iumioViewBasePlugin::route(array('name'=>'iumio_manager_smarty_manager_get_all'),$_smarty_tpl);?>
+">
+
                                         </tbody>
                                     </table>
 
