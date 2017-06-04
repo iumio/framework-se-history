@@ -1094,5 +1094,205 @@
     "273": {
         "time": "2017-06-04 00:06:20",
         "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "274": {
+        "time": "2017-06-04 03:06:20",
+        "content": "[500 INTERNAL ERROR] : Parameters count does not matches for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_publish<\/em> route : Please check your parameters declaration"
+    },
+    "275": {
+        "time": "2017-06-04 03:06:20",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "276": {
+        "time": "2017-06-04 03:06:41",
+        "content": "[500 INTERNAL ERROR] : Parameters count does not matches for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_publish<\/em> route : Please check your parameters declaration"
+    },
+    "277": {
+        "time": "2017-06-04 03:06:41",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "278": {
+        "time": "2017-06-04 03:06:42",
+        "content": "[500 INTERNAL ERROR] : Parameters count does not matches for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_publish<\/em> route : Please check your parameters declaration"
+    },
+    "279": {
+        "time": "2017-06-04 03:06:42",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "280": {
+        "time": "2017-06-04 03:06:09",
+        "content": "[500 INTERNAL ERROR] : Parameters count does not matches for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_publish<\/em> route : Please check your parameters declaration"
+    },
+    "281": {
+        "time": "2017-06-04 03:06:09",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "282": {
+        "time": "2017-06-04 03:06:12",
+        "content": "[404 NOT FOUND] : The ressource you try to access is not found. : Please check your URI"
+    },
+    "283": {
+        "time": "2017-06-04 03:06:12",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "284": {
+        "time": "2017-06-04 03:06:15",
+        "content": "[500 INTERNAL ERROR] : Parameters count does not matches for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_publish<\/em> route : Please check your parameters declaration"
+    },
+    "285": {
+        "time": "2017-06-04 03:06:15",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "286": {
+        "time": "2017-06-04 03:06:44",
+        "content": "[500 INTERNAL ERROR] : Parameters count does not matches for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_publish<\/em> route : Please check your parameters declaration"
+    },
+    "287": {
+        "time": "2017-06-04 03:06:44",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "288": {
+        "time": "2017-06-04 03:06:45",
+        "content": "[500 INTERNAL ERROR] : iumio Core Error : Class \\ManagerApp\\Master\\AssetsMaster or method \\ManagerApp\\Master\\AssetsMaster::assetsActivity doesn't exist : iumio Reflexion Invoke Error : Syntax error in template \"file:\/Applications\/MAMP\/htdocs\/iumio-framework\/vendor\/iumio_framework\/php\/BaseApps\/ManagerApp\/Front\/views\/assetsmanager.tpl\"  on line 33 \"<a class=\"btn-default btn publishallassets\"  attr-href=\"{route name='iumio_manager_assets_manager_publish' params={'id': 'ddd' }}\">Publish all<\/a>\"  - Unexpected \": \", expected one of: \"}\""
+    },
+    "289": {
+        "time": "2017-06-04 03:06:45",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "290": {
+        "time": "2017-06-04 03:06:30",
+        "content": "[500 INTERNAL ERROR] : iumio Core Error : Class \\ManagerApp\\Master\\AssetsMaster or method \\ManagerApp\\Master\\AssetsMaster::assetsActivity doesn't exist : iumio Reflexion Invoke Error : Syntax error in template \"file:\/Applications\/MAMP\/htdocs\/iumio-framework\/vendor\/iumio_framework\/php\/BaseApps\/ManagerApp\/Front\/views\/assetsmanager.tpl\"  on line 33 \"<a class=\"btn-default btn publishallassets\"  attr-href=\"{route name='iumio_manager_assets_manager_publish' params=\"{id: ddd }\"}\">Publish all<\/a>\"  - Unexpected \": \""
+    },
+    "291": {
+        "time": "2017-06-04 03:06:30",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "292": {
+        "time": "2017-06-04 03:06:31",
+        "content": "[500 INTERNAL ERROR] : iumio Core Error : Class \\ManagerApp\\Master\\AssetsMaster or method \\ManagerApp\\Master\\AssetsMaster::assetsActivity doesn't exist : iumio Reflexion Invoke Error : Syntax error in template \"file:\/Applications\/MAMP\/htdocs\/iumio-framework\/vendor\/iumio_framework\/php\/BaseApps\/ManagerApp\/Front\/views\/assetsmanager.tpl\"  on line 33 \"<a class=\"btn-default btn publishallassets\"  attr-href=\"{route name='iumio_manager_assets_manager_publish' params=\"{id: ddd }\"}\">Publish all<\/a>\"  - Unexpected \": \""
+    },
+    "293": {
+        "time": "2017-06-04 03:06:31",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "294": {
+        "time": "2017-06-04 03:06:10",
+        "content": "[500 INTERNAL ERROR] : iumio Core Error : Class \\ManagerApp\\Master\\AssetsMaster or method \\ManagerApp\\Master\\AssetsMaster::assetsActivity doesn't exist : iumio Reflexion Invoke Error : Syntax error in template \"file:\/Applications\/MAMP\/htdocs\/iumio-framework\/vendor\/iumio_framework\/php\/BaseApps\/ManagerApp\/Front\/views\/assetsmanager.tpl\"  on line 33 \"<a class=\"btn-default btn publishallassets\"  attr-href=\"{route name='iumio_manager_assets_manager_publish' params=[id: ddd] } \">Publish all<\/a>\"  - Unexpected \": \", expected one of: \"\",\"\" , \"]\""
+    },
+    "295": {
+        "time": "2017-06-04 03:06:10",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "296": {
+        "time": "2017-06-04 03:06:11",
+        "content": "[500 INTERNAL ERROR] : iumio Core Error : Class \\ManagerApp\\Master\\AssetsMaster or method \\ManagerApp\\Master\\AssetsMaster::assetsActivity doesn't exist : iumio Reflexion Invoke Error : Syntax error in template \"file:\/Applications\/MAMP\/htdocs\/iumio-framework\/vendor\/iumio_framework\/php\/BaseApps\/ManagerApp\/Front\/views\/assetsmanager.tpl\"  on line 33 \"<a class=\"btn-default btn publishallassets\"  attr-href=\"{route name='iumio_manager_assets_manager_publish' params=[id: ddd] } \">Publish all<\/a>\"  - Unexpected \": \", expected one of: \"\",\"\" , \"]\""
+    },
+    "297": {
+        "time": "2017-06-04 03:06:11",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "298": {
+        "time": "2017-06-04 03:06:33",
+        "content": "[500 INTERNAL ERROR] : iumio Core Error : Class \\ManagerApp\\Master\\AssetsMaster or method \\ManagerApp\\Master\\AssetsMaster::assetsActivity doesn't exist : iumio Reflexion Invoke Error : Syntax error in template \"file:\/Applications\/MAMP\/htdocs\/iumio-framework\/vendor\/iumio_framework\/php\/BaseApps\/ManagerApp\/Front\/views\/assetsmanager.tpl\"  on line 33 \"<a class=\"btn-default btn publishallassets\"  attr-href=\"{route name='iumio_manager_assets_manager_publish' params=\"{id: ddd}\" } \">Publish all<\/a>\"  - Unexpected \": \""
+    },
+    "299": {
+        "time": "2017-06-04 03:06:33",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "300": {
+        "time": "2017-06-04 03:06:43",
+        "content": "[500 INTERNAL ERROR] : iumio Core Error : Class \\ManagerApp\\Master\\AssetsMaster or method \\ManagerApp\\Master\\AssetsMaster::assetsActivity doesn't exist : iumio Reflexion Invoke Error : Syntax error in template \"file:\/Applications\/MAMP\/htdocs\/iumio-framework\/vendor\/iumio_framework\/php\/BaseApps\/ManagerApp\/Front\/views\/assetsmanager.tpl\"  on line 33 \"<a class=\"btn-default btn publishallassets\"  attr-href=\"{route name='iumio_manager_assets_manager_publish' params=\"{{id: ddd}}\" } \">Publish all<\/a>\"  - Unexpected \": \", expected one of: \"}\""
+    },
+    "301": {
+        "time": "2017-06-04 03:06:43",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "302": {
+        "time": "2017-06-04 03:06:06",
+        "content": "[500 INTERNAL ERROR] : Parameters count does not matches for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_publish<\/em> route : Please check your parameters declaration"
+    },
+    "303": {
+        "time": "2017-06-04 03:06:06",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "304": {
+        "time": "2017-06-04 03:06:36",
+        "content": "[500 INTERNAL ERROR] : Parameters count does not matches for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_publish<\/em> route : Please check your parameters declaration"
+    },
+    "305": {
+        "time": "2017-06-04 03:06:36",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "306": {
+        "time": "2017-06-04 03:06:56",
+        "content": "[500 INTERNAL ERROR] : iumio Core Error : Class \\ManagerApp\\Master\\AssetsMaster or method \\ManagerApp\\Master\\AssetsMaster::assetsActivity doesn't exist : iumio Reflexion Invoke Error : Syntax error in template \"file:\/Applications\/MAMP\/htdocs\/iumio-framework\/vendor\/iumio_framework\/php\/BaseApps\/ManagerApp\/Front\/views\/assetsmanager.tpl\"  on line 33 \"<a class=\"btn-default btn publishallassets\"  attr-href=\"{route name='iumio_manager_assets_manager_publish' params=[\"env\" : 'dev'] } \">Publish all<\/a>\"  - Unexpected \" : \", expected one of: \"\",\"\" , \"]\""
+    },
+    "307": {
+        "time": "2017-06-04 03:06:56",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "308": {
+        "time": "2017-06-04 03:06:43",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_publish<\/em> route : Please check your parameters declaration"
+    },
+    "309": {
+        "time": "2017-06-04 03:06:43",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "310": {
+        "time": "2017-06-04 03:06:57",
+        "content": "[500 INTERNAL ERROR] : Parameters count does not matches for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_publish<\/em> route : Please check your parameters declaration"
+    },
+    "311": {
+        "time": "2017-06-04 03:06:57",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "312": {
+        "time": "2017-06-04 03:06:17",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_publish<\/em> route : Please check your parameters declaration"
+    },
+    "313": {
+        "time": "2017-06-04 03:06:17",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "314": {
+        "time": "2017-06-04 03:06:17",
+        "content": "[500 INTERNAL ERROR] : Parameters count does not matches for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_publish<\/em> route : Please check your parameters declaration"
+    },
+    "315": {
+        "time": "2017-06-04 03:06:17",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "316": {
+        "time": "2017-06-04 03:06:37",
+        "content": "[500 INTERNAL ERROR] : Parameters count does not matches for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_publish<\/em> route : Please check your parameters declaration"
+    },
+    "317": {
+        "time": "2017-06-04 03:06:37",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "318": {
+        "time": "2017-06-04 03:06:00",
+        "content": "[500 INTERNAL ERROR] : Parameters count does not matches for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_publish<\/em> route : Please check your parameters declaration"
+    },
+    "319": {
+        "time": "2017-06-04 03:06:00",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "320": {
+        "time": "2017-06-04 03:06:24",
+        "content": "[500 INTERNAL ERROR] : Parameters count does not matches for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_publish<\/em> route : Please check your parameters declaration"
+    },
+    "321": {
+        "time": "2017-06-04 03:06:24",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "322": {
+        "time": "2017-06-04 03:06:26",
+        "content": "[500 INTERNAL ERROR] : Parameters count does not matches for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_publish<\/em> route : Please check your parameters declaration"
+    },
+    "323": {
+        "time": "2017-06-04 03:06:26",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
     }
 }

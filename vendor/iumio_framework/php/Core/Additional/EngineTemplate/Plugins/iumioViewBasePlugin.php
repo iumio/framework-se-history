@@ -165,7 +165,7 @@ class iumioViewBasePlugin
     final static public function route(array $params)
     {
         $im = new \iumioFramework\Masters\iumioUltimaMaster();
-        $route = ($im->generateRoute(((isset($params['name']))? $params['name'] : ""), null, null, ((isset($params['component']) && $params['component'] == "yes")? true  : false)));
+        $route = ($im->generateRoute(((isset($params['name']))? $params['name'] : ""), ((isset($params['params']) && !empty($params['params']))? $params['params']  : null), null, ((isset($params['component']) && $params['component'] == "yes")? true  : false)));
         return ($route);
     }
 

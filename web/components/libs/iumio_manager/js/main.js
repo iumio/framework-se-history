@@ -724,6 +724,47 @@ var removeDb = function (url) {
     })
 };
 
+/**
+ * Publish assets
+ * @param url Url to publish
+ */
+var assetsPublishManager = function (url) {
+
+    $.ajax({
+        url : url,
+        type : 'GET',
+        dataType : 'json',
+        success : function(data){
+            // getDatabasesList();
+            if (data['code'] === 200)
+                operationSuccess();
+            else
+                operationError();
+        }
+    })
+};
+
+
+/**
+ * Clear assets
+ * @param url Url to clear
+ */
+var assetsClearManager = function (url) {
+
+    $.ajax({
+        url : url,
+        type : 'GET',
+        dataType : 'json',
+        success : function(data){
+            // getDatabasesList();
+            if (data['code'] === 200)
+                operationSuccess();
+            else
+                operationError();
+        }
+    })
+};
+
 
 $(document).ready(function () {
 
@@ -989,6 +1030,16 @@ $(document).ready(function () {
                 break;
             case "editsmartysave":
                 saveSmartyConfiguration(href);
+                break;
+            case "callprodassets":
+            case "calldevassets":
+            case "callassets":
+                assetsClearManager(href);
+                break;
+            case "pallprodassets":
+            case "palldevassets":
+            case "pallassets":
+                assetsPublishManager(href);
                 break;
 
         }
