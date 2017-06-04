@@ -769,6 +769,134 @@ $(document).ready(function () {
         modal("show");
     });
 
+
+    /**
+     * Event to publish all assets for all env
+     */
+    $(document).on('click', ".publishallassets", function () {
+        var selector = $(this);
+        var href = selector.attr("attr-href");
+
+        var selecttorModal = $("#modalManager");
+        selecttorModal.find(".modal-header").html("<strong class='text-center'>Publish all assets - all environments</strong>");
+        selecttorModal.find(".modal-body").html("<h4 class='text-center'>Are you sure to publish all assets for all environments ?</h4>");
+        selecttorModal.find(".btn-close").html("No");
+        selecttorModal.find(".btn-valid").html("Yes");
+
+        selecttorModal.find(".btn-valid").attr("attr-href", href);
+        selecttorModal.find(".btn-valid").attr("attr-event", "pallassets");
+        selecttorModal.find(".btn-close").show();
+        selecttorModal.find(".btn-valid").show();
+
+        modal("show");
+    });
+
+    /**
+     * Event to publish all assets for dev env
+     */
+    $(document).on('click', ".publishalldevassets", function () {
+        var selector = $(this);
+        var href = selector.attr("attr-href");
+
+        var selecttorModal = $("#modalManager");
+        selecttorModal.find(".modal-header").html("<strong class='text-center'>Publish all assets - dev environment</strong>");
+        selecttorModal.find(".modal-body").html("<h4 class='text-center'>Are you sure to publish all assets for dev environment ?</h4>");
+        selecttorModal.find(".btn-close").html("No");
+        selecttorModal.find(".btn-valid").html("Yes");
+
+        selecttorModal.find(".btn-valid").attr("attr-href", href);
+        selecttorModal.find(".btn-valid").attr("attr-event", "palldevassets");
+        selecttorModal.find(".btn-close").show();
+        selecttorModal.find(".btn-valid").show();
+
+        modal("show");
+    });
+
+    /**
+     * Event to publish all assets for prod env
+     */
+    $(document).on('click', ".publishallprodassets", function () {
+        var selector = $(this);
+        var href = selector.attr("attr-href");
+
+        var selecttorModal = $("#modalManager");
+        selecttorModal.find(".modal-header").html("<strong class='text-center'>Publish all assets - prod environment</strong>");
+        selecttorModal.find(".modal-body").html("<h4 class='text-center'>Are you sure to publish all assets for prod environment ?</h4>");
+        selecttorModal.find(".btn-close").html("No");
+        selecttorModal.find(".btn-valid").html("Yes");
+
+        selecttorModal.find(".btn-valid").attr("attr-href", href);
+        selecttorModal.find(".btn-valid").attr("attr-event", "pallprodassets");
+        selecttorModal.find(".btn-close").show();
+        selecttorModal.find(".btn-valid").show();
+
+        modal("show");
+    });
+
+
+    /**
+     * Event to clear all assets for all env
+     */
+    $(document).on('click', ".clearallassets", function () {
+        var selector = $(this);
+        var href = selector.attr("attr-href");
+
+        var selecttorModal = $("#modalManager");
+        selecttorModal.find(".modal-header").html("<strong class='text-center'>Clear all assets - all environments</strong>");
+        selecttorModal.find(".modal-body").html("<h4 class='text-center'>Are you sure to Clear all assets for all environments ?</h4>");
+        selecttorModal.find(".btn-close").html("No");
+        selecttorModal.find(".btn-valid").html("Yes");
+
+        selecttorModal.find(".btn-valid").attr("attr-href", href);
+        selecttorModal.find(".btn-valid").attr("attr-event", "callassets");
+        selecttorModal.find(".btn-close").show();
+        selecttorModal.find(".btn-valid").show();
+
+        modal("show");
+    });
+
+    /**
+     * Event to clear all assets for dev env
+     */
+    $(document).on('click', ".clearalldevassets", function () {
+        var selector = $(this);
+        var href = selector.attr("attr-href");
+
+        var selecttorModal = $("#modalManager");
+        selecttorModal.find(".modal-header").html("<strong class='text-center'>Clear all assets - dev environment</strong>");
+        selecttorModal.find(".modal-body").html("<h4 class='text-center'>Are you sure to Clear all assets for dev environment ?</h4>");
+        selecttorModal.find(".btn-close").html("No");
+        selecttorModal.find(".btn-valid").html("Yes");
+
+        selecttorModal.find(".btn-valid").attr("attr-href", href);
+        selecttorModal.find(".btn-valid").attr("attr-event", "calldevassets");
+        selecttorModal.find(".btn-close").show();
+        selecttorModal.find(".btn-valid").show();
+
+        modal("show");
+    });
+
+    /**
+     * Event to clear all assets for prod env
+     */
+    $(document).on('click', ".clearallprodassets", function () {
+        var selector = $(this);
+        var href = selector.attr("attr-href");
+
+        var selecttorModal = $("#modalManager");
+        selecttorModal.find(".modal-header").html("<strong class='text-center'>Clear all assets - prod environment</strong>");
+        selecttorModal.find(".modal-body").html("<h4 class='text-center'>Are you sure to Clear all assets for prod environment ?</h4>");
+        selecttorModal.find(".btn-close").html("No");
+        selecttorModal.find(".btn-valid").html("Yes");
+
+        selecttorModal.find(".btn-valid").attr("attr-href", href);
+        selecttorModal.find(".btn-valid").attr("attr-event", "callprodassets");
+        selecttorModal.find(".btn-close").show();
+        selecttorModal.find(".btn-valid").show();
+
+        modal("show");
+    });
+
     /**
      * Event to delete an app
      */

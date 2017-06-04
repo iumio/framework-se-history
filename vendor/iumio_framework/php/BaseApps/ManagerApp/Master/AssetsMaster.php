@@ -4,6 +4,7 @@ namespace ManagerApp\Master;
 use iumioFramework\Masters\iumioUltimaMaster as Master;
 use iumioFramework\Core\Base\Http\Response\Response;
 use iumioFramework\Core\Additionnal\Server\iumioServerManager as Server;
+use ManagerApp\Master\Libs\Diff;
 
 /**
  * Class AssetsMaster

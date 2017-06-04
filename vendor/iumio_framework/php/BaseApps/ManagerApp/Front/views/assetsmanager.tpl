@@ -13,6 +13,13 @@
                         <span class="icon-bar"></span>
                     </button>
                     <a class="navbar-brand" href="#">Assets Manager</a>
+                    <a class="btn-default btn publishallassets"  attr-href="{route name='iumio_manager_compile_manager_remove_all'}">Publish all</a>
+                    <a class="btn-default btn publishalldevassets"  attr-href="{route name='iumio_manager_compile_manager_remove_all'}">Publish all dev</a>
+                    <a class="btn-default btn publishallprodassets"  attr-href="{route name='iumio_manager_compile_manager_remove_all'}">Publish all prod</a>
+                    <a class="btn-default btn clearallassets"  attr-href="{route name='iumio_manager_compile_manager_remove_all'}">Clear all</a>
+                    <a class="btn-default btn clearalldevassets"  attr-href="{route name='iumio_manager_compile_manager_remove_all'}">Clear all dev</a>
+                    <a class="btn-default btn clearallprodassets"  attr-href="{route name='iumio_manager_compile_manager_remove_all'}">Clear all prod</a>
+
                 </div>
 
             </div>
