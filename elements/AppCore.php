@@ -26,13 +26,14 @@ class AppCore extends iumioUltimaCore
 
     /** Get all app register on apps.json
      * @return array Apps register
+     * @throws Server000
      */
 
     public function registerApps():array
     {
         $classes = $this->getClassFile();
 
-        if (count((array)$classes) == 0)  new Server000(new \ArrayObject(array()));
+        if (count((array)$classes) == 0) throw new Server000(new \ArrayObject(array()));
         $apps = array();
         foreach ($classes as $class => $val) {
             $val = (array)$val;

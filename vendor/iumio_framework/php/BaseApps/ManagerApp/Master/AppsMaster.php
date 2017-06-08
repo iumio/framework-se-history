@@ -102,6 +102,11 @@ class AppsMaster extends Master
         iumioServerManager::delete(ROOT."/apps/$appname", "directory");
         $assets = $this->getMaster("Assets");
         $assets->clear($appname, "all");
+        if (strlen($file) < 3)
+        {
+            JL::put(CONFIG_DIR."initial.json", "");
+            return ((new Response())->JSON_RENDER(array("code" => 200, "msg" => "RELOAD")));
+        }
         return ((new Response())->JSON_RENDER(array("code" => 200, "msg" => "OK")));
     }
 

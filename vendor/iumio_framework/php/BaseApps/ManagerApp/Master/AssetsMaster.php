@@ -123,7 +123,33 @@ class AssetsMaster extends Master
         }
         return (1);
 
+    }
 
+    public function assetsinfoAllActivity()
+    {
+        $diff = new Diff();
+        $cout = 0;
+        print_r($diff::compareFiles(ROOT . "/apps/" . "TellMeApp" . "/Front/Resources/" ."/public/css/index.css", ROOT . "/web/components/apps/dev/" . strtolower("tellmeapp")."/public/css/index.css"));
+
+        //$dirs = scandir(ROOT."/apps/TellMeApp/Resources/public/css/");
+        exit();
+        foreach ($dirs as $dir) {
+            if ($dir == ".") continue;
+            if ($dir == "..") continue;
+            print_r($diff::compareFiles(ROOT . "/apps/" . $dir . "/Front/Resources/" . strtolower($dir)."/public/css/index.css"));
+            if (!is_dir(ROOT . "/apps/" . $dir)) continue;
+            if (in_array(strtolower($env), array("dev", "prod", "all"))) {
+                if (strtolower($env) === "dev")
+                    Server::copy(ROOT . "/apps/" . $dir . "/Front/Resources/", ROOT . "/web/components/apps/dev/" . strtolower($dir), 'directory', true);
+                else if (strtolower($env) == "prod")
+                    Server::copy(ROOT . "/apps/" . $dir . "/Front/Resources/", ROOT . "/web/components/apps/prod/" . strtolower($dir), 'directory', false);
+                else {
+                    Server::copy(ROOT . "/apps/" . $dir . "/Front/Resources/", ROOT . "/web/components/apps/dev/" . strtolower($dir), 'directory', true);
+                    Server::copy(ROOT . "/apps/" . $dir . "/Front/Resources/", ROOT . "/web/components/apps/prod/" . strtolower($dir), 'directory', false);
+                }
+
+            }
+        }
 
     }
 

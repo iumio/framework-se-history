@@ -11,3 +11,7 @@ method : Assets%publish
 name : iumio_manager_assets_manager_clear
 path :  /_manager/assets/clear/{appname}/{env}
 method : Assets%clear
+
+name : iumio_manager_assets_manager_get_all
+path :  /_manager/assets/get/all
+method : Assets%assetsinfoAll

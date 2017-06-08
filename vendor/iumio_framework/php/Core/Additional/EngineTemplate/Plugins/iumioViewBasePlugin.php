@@ -103,6 +103,7 @@ class iumioViewBasePlugin
         return ("<script type='text/javascript' src='".WEB_COMPONENTS."libs/".((isset($params['name']))? $params['name']."." : "")."js'></script>");
     }
 
+
     /** Get css manager file
      * @param array $params Contains name param
      * @return string return css manager
@@ -137,6 +138,43 @@ class iumioViewBasePlugin
     final static public function css_iumio(array $params)
     {
         return ("<link href='".WEB_COMPONENTS."libs/iumio_framework/css/".((isset($params['name']))? $params['name'].".".((isset($params['min']) && $params['min'] == "yes")? "min"."." : "") : "")."css' rel='stylesheet' />");
+    }
+
+    /** Get font awesome font lib
+ * @param array $params Contains name param
+ * @return string return font awesome font lib path
+ */
+    final static public function font_awesome_fonts(array $params)
+    {
+        return (WEB_COMPONENTS."libs/font-awesome/fonts/".((isset($params['name']))? $params['name'] : ""));
+    }
+
+    /** Get font awesome css lib
+     * @param array $params Contains name param
+     * @return string return font awesome css lib
+     */
+    final static public function font_awesome_css(array $params)
+    {
+        return ("<link href='".WEB_COMPONENTS."libs/font-awesome/css/font-awesome.".((isset($params['min']) && $params['min'] == "yes")? "min"."." : "")."css' rel='stylesheet' />");
+    }
+
+    /** Get font awesome less lib
+     * @param array $params Contains name param
+     * @return string return font awesome less lib
+     */
+    final static public function font_awesome_less(array $params)
+    {
+        return ("<link href='".WEB_COMPONENTS."libs/font-awesome/less/".((isset($params['name']))? $params['name'].".".((isset($params['min']) && $params['min'] == "yes")? "min"."." : "") : "")."less' rel='stylesheet' />");
+    }
+
+
+    /** Get font awesome scss lib
+     * @param array $params Contains name param
+     * @return string return font awesome scss lib
+     */
+    final static public function font_awesome_scss(array $params)
+    {
+        return ("<link href='".WEB_COMPONENTS."libs/font-awesome/scss/.".((isset($params['name']))? $params['name'].".".((isset($params['min']) && $params['min'] == "yes")? "min"."." : "") : "")."less' rel='stylesheet' />");
     }
 
     /** Get js iumio lib file

@@ -115,7 +115,6 @@ var getUnlimitedLogs = function () {
  * get databases list
  */
 var getDatabasesList = function () {
-
     var selector = $('.databaseslist');
     if (typeof selector.attr("attr-href") === "undefined")
         return (1);
@@ -613,7 +612,24 @@ var removeApp = function (url) {
         success : function(data){
             getAppListSimple();
             if (data['code'] === 200)
-                operationSuccess();
+            {
+                if (data['msg'] === "RELOAD")
+                {
+                    operationSuccess();
+                    var selecttorModal = $("#modalManager");
+                    selecttorModal.find(".modal-body").html("<h4 class='text-center'>No app was registered</h4>");
+                    selecttorModal.attr({'data-backdrop' : "static", "data-keyword" : "false"});
+                    selecttorModal.find(".btn-close").hide();
+                    selecttorModal.find(".btn-valid").hide();
+                    setTimeout(function () {
+                        location.reload();
+                    }, 5000);
+
+                }
+                else
+                    operationSuccess();
+            }
+
             else
                 operationError();
         }

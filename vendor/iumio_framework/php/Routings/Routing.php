@@ -56,7 +56,7 @@ class Routing extends RtListener
      * @param array $routes Route array
      * @return array Array cleared
      */
-    final static private function removeEmptyData(array $routes):array
+    final static public function removeEmptyData(array $routes):array
     {
         $c = count($routes);
         for ($i = 0; $i < $c; $i++)
@@ -86,38 +86,58 @@ class Routing extends RtListener
         $aRE = explode('/', $appRoute);
         $wRE = explode('/', $webRoute);
 
-        $base = (isset($_SERVER['BASE']) && $_SERVER['BASE'] != "")? $_SERVER['BASE'] : "";
+        $base = (isset($_SERVER['SCRIPT_NAME']) && $_SERVER['SCRIPT_NAME'] != "")? $_SERVER['SCRIPT_NAME'] : "";
 
-
-        if (isset($_SERVER['BASE']) && $_SERVER['BASE'] != "")
+        $script = "";
+        if (strpos($webRoute, Env::getFileEnv(ENVIRONMENT)) !== false)
         {
-            $remove = explode('/', $_SERVER['BASE']);
+
+            $script = "/".Env::getFileEnv(ENVIRONMENT);
+            $key = array_search(Env::getFileEnv(ENVIRONMENT), $wRE);
+            unset($wRE[$key]);
+            $wRE = array_values($wRE);
+            $wRE = array_values(self::removeEmptyData($wRE));
+            $webRoute = implode("/", $wRE);
+            if (isset($webRoute[0]) && $webRoute[0] != "/")
+                $webRoute = "/".$webRoute;
+        }
+
+        if (isset($_SERVER['SCRIPT_NAME']) && $_SERVER['SCRIPT_NAME'] != "")
+        {
+            $remove = explode('/', $_SERVER['SCRIPT_NAME']);
             $remove = array_values(self::removeEmptyData($remove));
             $remove = array_values($remove);
+
             for ($z = 0; $z < count($remove); $z++)
             {
                 $key = array_search($remove[$z], $wRE);
                 unset($wRE[$key]);
             }
             $wRE = array_values($wRE);
-
+            $wRE = array_values(self::removeEmptyData($wRE));
         }
 
-        $script = "";
-        if (strpos($webRoute, Env::getFileEnv(ENVIRONMENT)) !== false)
+
+        if (strpos($base, Env::getFileEnv(ENVIRONMENT)) !== false)
         {
-            $script = "/".Env::getFileEnv(ENVIRONMENT);
-            $key = array_search(Env::getFileEnv(ENVIRONMENT), $wRE);
-            unset($wRE[$key]);
-            $wRE = array_values($wRE);
+            $rm = explode('/',$base);
+            $rm = array_values(self::removeEmptyData($rm));
+            $rm = array_values($rm);
+            $key = array_search(Env::getFileEnv(ENVIRONMENT), $rm);
+            unset($rm[$key]);
+            $rm = array_values($rm);
+            $base = implode("/", $rm);
+            if (isset($base[0]) && $base[0] != "/")
+                $base = "/".$base;
+
         }
 
-        if (($base.$script.$appRoute == $webRoute) || $base.$script.$appRoute."/" == $webRoute)
+        //echo ($base.$appRoute ." <==> ". $webRoute."<br><br>");
+        if (($base.$appRoute == $webRoute) || $base.$appRoute."/" == $webRoute)
             return (array("is" => "same", "similar" => 100));
 
-        $wRE = array_values(self::removeEmptyData($wRE));
-        $aRE = array_values(self::removeEmptyData($aRE));
-
+        $wRE = array_values(self::removeEmptyData(array_values($wRE)));
+        $aRE = array_values(self::removeEmptyData(array_values($aRE)));
 
         if ((count($aRE) == count($wRE)) && count($aRE) > 0)
         {
@@ -126,7 +146,6 @@ class Routing extends RtListener
                     array_push($paramValues, $wRE[$i]);
             }
         }
-
 
         if (isset($route['params']))
         {
@@ -159,7 +178,7 @@ class Routing extends RtListener
         {
             if ($i == 0 && isset($web[0]) && isset($app[0]) && ($web[0] == $app[0]))
                 $first = 1;
-            else if ($first > 0 && $web[$i] == $app[$i])
+            if ($first > 0 && $web[$i] == $app[$i])
                 $score++;
         }
 

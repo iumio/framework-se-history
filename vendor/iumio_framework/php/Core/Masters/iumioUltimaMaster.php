@@ -4,6 +4,7 @@
 namespace iumioFramework\Masters;
 use iumioFramework\Core\Base\Http\ParameterRequest;
 use iumioFramework\Core\Additionnal\Template\iumioSmarty;
+use iumioFramework\Core\Base\iumioEnvironment;
 use iumioFramework\Core\Requirement\{iumioUltimaCore, Ultima\iumioUltima};
 use iumioFramework\Core\Base\Database\iumioDatabaseAccess as IDA;
 use iumioFramework\Exception\Server\{Server500, Server404};
@@ -142,7 +143,20 @@ class iumioUltimaMaster extends iumioUltima
 
                 $url = $env.$one['path'];
 
-                $base = (isset($_SERVER['BASE']) && $_SERVER['BASE'] != "")? $_SERVER['BASE'] : "";
+                $base = (isset($_SERVER['SCRIPT_NAME']) && $_SERVER['SCRIPT_NAME'] != "")? $_SERVER['SCRIPT_NAME'] : "";
+
+                if (strpos($_SERVER['REQUEST_URI'], iumioEnvironment::getFileEnv(ENVIRONMENT)) == false)
+                {
+                    $rm = explode('/',$base);
+                    $rm = array_values(Routing::removeEmptyData($rm));
+                    $rm = array_values($rm);
+                    $key = array_search(iumioEnvironment::getFileEnv(ENVIRONMENT), $rm);
+                    unset($rm[$key]);
+                    $rm = array_values($rm);
+                    $base = implode("/", $rm);
+                    if (isset($base[0]) && $base[0] != "/")
+                        $base = "/".$base;
+                }
 
                 return ($base.$url);
             }

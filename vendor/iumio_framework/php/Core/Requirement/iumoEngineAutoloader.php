@@ -19,7 +19,7 @@ class iumoEngineAutoloader {
     {
         self::checkPermission();
         // $date = new DateTime();
-        if (self::$env != "DEV")
+        /*if (self::$env != "DEV")
         {
             self::buildClassMap(self::$env);
             $map = self::getMapClass();
@@ -45,7 +45,7 @@ class iumoEngineAutoloader {
             }
         }
         else
-        {
+        {*/
             self::buildClassMap(self::$env);
             $map = self::getMapClass();
             if (isset($map[$class]))
@@ -91,7 +91,7 @@ class iumoEngineAutoloader {
                     }
                 }
             }
-        }
+        //}
 
         // $dateend = new DateTime();
         // self::$diff =  self::$diff  + ($dateend->getTimestamp() - $date->getTimestamp());

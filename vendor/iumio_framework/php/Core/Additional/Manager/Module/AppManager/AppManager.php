@@ -417,6 +417,10 @@ class AppManager implements ModuleManager
 
         Server::delete(ROOT_PROJECT."/apps/$appname", "directory");
         new AM(array("core/manager", "assets-manager", "--clear", "--appname=". $this->params['appname'], "--noexit", "--quiet"));
+
+        if (strlen($f) < 3)
+            file_put_contents(ROOT_PROJECT."/elements/config_files/initial.json", "");
+
         Output::outputAsNormal("The application has been deleted. To create a new application, use [app create] .", "none");
     }
 

@@ -3,6 +3,7 @@
 namespace iumioFramework\Core\Base;
 use iumioFramework\Exception\Server\Server403;
 use ArrayObject;
+use iumioFramework\Exception\Server\Server500;
 
 /**
  * Class iumioEnvironment
@@ -34,6 +35,7 @@ class iumioEnvironment
         define('ROOT_VENDOR', $base."vendor/iumio_framework/");
         define('ROOT_MANAGER', $base."vendor/iumio_framework/php/Core/Additional/Manager/");
         define('ADDITIONALS', $base."vendor/iumio_framework/php/Core/Additional/");
+        define('ROOT_HOST_FILES', $base."vendor/iumio_framework/php/Core/Base/Http/Host/");
         define('ROOT_VENDOR_LIBS', $base."vendor/libs/");
         define('ROOT_CACHE', $base."elements/cache/");
         define('ROOT_COMPILED', $base."elements/compiled/");
@@ -71,14 +73,13 @@ class iumioEnvironment
 
     /** Display an Error
      * @param array $options Error options
-     * @return int Is success
+     * @param array $options
+     * @throws Server403
      */
-    public static function displayError(array $options):int
+    public static function displayError(array $options)
     {
-        $server = new Server403(new ArrayObject($options));
-        $server->display("403", "FORBIDEEN");
-
-        return (1);
+        throw new Server403(new ArrayObject($options));
+        exit();
     }
 
     /** Get protocol
@@ -87,6 +88,45 @@ class iumioEnvironment
     static private function getProtocol()
     {
         return ((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off')? "https" : "http");
+    }
+
+    static public function hostAllowed():int
+    {
+        if (!in_array(ENVIRONMENT, array("DEV", "PROD")))
+            throw new Server500(new ArrayObject(array("explain" => "An error was detected on environment declaration", "solution" => "Please check the environement declaration.", "external" => "yes")));
+        $hosts = file_get_contents(ROOT_HOST_FILES.'host.'.strtolower(ENVIRONMENT).'.json');
+
+        if (empty(trim($hosts)))
+            self::displayError((array("explain" => "You are not allowed to access this file.", "solution" => 'Check '.basename(__FILE__).' for more information.', "external" => "yes")));
+        else
+        {
+            $hosts = json_decode($hosts);
+            if (isset($hosts->allowed) && isset($hosts->denied))
+            {
+                if (isset($_SERVER['HTTP_CLIENT_IP'])
+                    || isset($_SERVER['HTTP_X_FORWARDED_FOR'])
+                    || php_sapi_name() === 'cli-server')
+                    self::displayError((array("explain" => "You are not allowed to access this file.", "solution" => 'Check '.basename(__FILE__).' for more information.', "external" => "yes")));
+                else
+                {
+                   // print_r($hosts->allowed);
+                    $allowed = (array) $hosts->allowed;
+                    $denied = (array) $hosts->denied;
+
+                   if ((in_array("", array_map('trim', $allowed)) && in_array("", array_map('trim', $denied))) || (in_array("", array_map('trim', $allowed)) &&  in_array("*", $denied)))
+                       self::displayError((array("explain" => "You are not allowed to access this file.", "solution" => 'Check '.basename(__FILE__).' for more information.', "external" => "yes")));
+                   else if (in_array(@$_SERVER['REMOTE_ADDR'], $denied) || (in_array("*", $denied) && !in_array(@$_SERVER['REMOTE_ADDR'], $allowed)))
+                       self::displayError((array("explain" => "You are not allowed to access this file.", "solution" => 'Check '.basename(__FILE__).' for more information.', "external" => "yes")));
+                   else if ((!in_array(@$_SERVER['REMOTE_ADDR'], $allowed) && in_array(@$_SERVER['REMOTE_ADDR'], $denied)) || in_array(@$_SERVER['REMOTE_ADDR'], $allowed) && in_array(@$_SERVER['REMOTE_ADDR'], $denied))
+                       self::displayError((array("explain" => "You are not allowed to access this file.", "solution" => 'Check '.basename(__FILE__).' for more information.', "external" => "yes")));
+                   else
+                       return (1);
+                }
+            }
+            else
+                self::displayError((array("explain" => "You are not allowed to access this file.", "solution" => 'Check '.basename(__FILE__).' for more information.', "external" => "yes")));
+        }
+        return (0);
     }
 
 }

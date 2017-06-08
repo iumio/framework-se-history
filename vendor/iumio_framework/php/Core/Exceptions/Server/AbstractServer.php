@@ -13,11 +13,12 @@ use iumioFramework\Core\Base\Http\HttpResponse;
  */
 abstract class AbstractServer extends \Exception implements ServerInterface
 {
-    protected $code = NULL;
+    protected $code = 0;
     protected $codeTitle = NULL;
     protected $explain = NULL ;
     protected $solution = NULL;
     protected $env = NULL;
+    protected $external = false;
 
 
     /**
@@ -37,8 +38,13 @@ abstract class AbstractServer extends \Exception implements ServerInterface
                 $this->explain = $value;
             else if ($it->key() == "solution")
                 $this->solution = $value;
+            else if ($it->key() == "external")
+                $this->external = ($value == "yes")? $value : "no";
         }
 
+        //echo $this->code;
+
+        parent::__construct(HttpResponse::getPhrase($this->code), $this->code);
         Debug::output("[".$this->code." ".$this->codeTitle."] : ".$this->explain." : ".$this->solution);
         $this->display($this->code, $header_message);
     }
@@ -48,12 +54,19 @@ abstract class AbstractServer extends \Exception implements ServerInterface
      * @param string $code Header code
      * @param string $message Header message
      * @return mixed None
+     * @throws \Exception
      */
     public function display(string $code, string $message)
     {
-        if (ob_get_contents()) ob_end_clean();
-        header('HTTP/1.0 '.$code.' '.HttpResponse::getPhrase($code));
-        include_once  SERVER_VIEWS.'layout.iumio.php';
-        die();
+        if (ob_get_contents())
+            ob_end_clean();
+        //echo $_SERVER['SERVER_PROTOCOL'] .''.$code.' '.HttpResponse::getPhrase($code);
+        @header($_SERVER['SERVER_PROTOCOL'] .' '.(($code == 000)? 500 : $code).' '.HttpResponse::getPhrase($code), true, $code);
+        if ($this->external || ENVIRONMENT == "PROD")
+            include_once (SERVER_VIEWS.strtolower(ENVIRONMENT).'/'.$code.'.html');
+        else
+            require_once  SERVER_VIEWS.'layout.iumio.php';
+
+        exit();
     }
 }

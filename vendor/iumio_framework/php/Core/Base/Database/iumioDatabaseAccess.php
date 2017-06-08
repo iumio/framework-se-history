@@ -17,6 +17,7 @@ class iumioDatabaseAccess
     /**
      * iumioDatabaseAccess constructor.
      * @param string $databaseName
+     * @throws Server500
      */
     private function __construct(string $databaseName)
     {
@@ -42,7 +43,7 @@ class iumioDatabaseAccess
         }
         catch (\Exception $e)
         {
-            new Server500(new \ArrayObject(array("explain" => $e->getMessage(), "solution" => "Check your database configuration!")));
+            throw new Server500(new \ArrayObject(array("explain" => $e->getMessage(), "solution" => "Check your database configuration!")));
         }
 
     }

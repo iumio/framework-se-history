@@ -98,6 +98,12 @@ final class iumioSmarty
 
         self::$instance->registerPlugin(\Smarty::PLUGIN_FUNCTION, 'jquery', array("iumioFramework\Core\Additionnal\Template\iumioViewBasePlugin", "jquery"));
 
+        self::$instance->registerPlugin(\Smarty::PLUGIN_FUNCTION, 'fawesome_css', array("iumioFramework\Core\Additionnal\Template\iumioViewBasePlugin", "font_awesome_css"));
+        self::$instance->registerPlugin(\Smarty::PLUGIN_FUNCTION, 'fawesome_less', array("iumioFramework\Core\Additionnal\Template\iumioViewBasePlugin", "font_awesome_less"));
+        self::$instance->registerPlugin(\Smarty::PLUGIN_FUNCTION, 'fawesome_scss', array("iumioFramework\Core\Additionnal\Template\iumioViewBasePlugin", "font_awesome_scss"));
+        self::$instance->registerPlugin(\Smarty::PLUGIN_FUNCTION, 'fawesome_fonts', array("iumioFramework\Core\Additionnal\Template\iumioViewBasePlugin", "font_awesome_fonts"));
+
+
         self::$instance->registerPlugin(\Smarty::PLUGIN_FUNCTION, 'framework_info', array("iumioFramework\Core\Additionnal\Template\iumioViewBasePlugin", "f_info"));
         self::$instance->registerPlugin(\Smarty::PLUGIN_FUNCTION, 'system_info', array("iumioFramework\Core\Additionnal\Template\iumioViewBasePlugin", "s_info"));
 
@@ -113,6 +119,7 @@ final class iumioSmarty
         self::$instance->registerPlugin(\Smarty::PLUGIN_FUNCTION, 'css_manager', array("iumioFramework\Core\Additionnal\Template\iumioViewBasePlugin", "css_manager"));
         self::$instance->registerPlugin(\Smarty::PLUGIN_FUNCTION, 'js_manager', array("iumioFramework\Core\Additionnal\Template\iumioViewBasePlugin", "js_manager"));
         self::$instance->registerPlugin(\Smarty::PLUGIN_FUNCTION, 'img_manager', array("iumioFramework\Core\Additionnal\Template\iumioViewBasePlugin", "img_manager"));
+
 
         self::$instance->registerPlugin(\Smarty::PLUGIN_FUNCTION, 'css_iumio', array("iumioFramework\Core\Additionnal\Template\iumioViewBasePlugin", "css_iumio"));
         self::$instance->registerPlugin(\Smarty::PLUGIN_FUNCTION, 'js_iumio', array("iumioFramework\Core\Additionnal\Template\iumioViewBasePlugin", "js_iumio"));
