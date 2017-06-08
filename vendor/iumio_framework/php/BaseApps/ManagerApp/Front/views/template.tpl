@@ -46,7 +46,7 @@
 {js_manager name='bootstrap-notify'}
 <!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->
 {js_manager name='light-bootstrap-dashboard'}
-<!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
+
 {js_manager name='demo'}
 
 {js_manager name='main'}

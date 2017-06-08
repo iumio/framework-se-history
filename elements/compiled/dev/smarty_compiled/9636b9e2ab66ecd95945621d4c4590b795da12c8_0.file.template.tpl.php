@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32-dev-1, created on 2017-06-08 08:39:52
+/* Smarty version 3.1.32-dev-1, created on 2017-06-08 23:19:49
   from "/Applications/MAMP/htdocs/iumio-framework/vendor/iumio_framework/php/BaseApps/ManagerApp/Front/views/template.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32-dev-1',
-  'unifunc' => 'content_5938f138f0cd88_59177542',
+  'unifunc' => 'content_5939bf75f30a62_28964003',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '9636b9e2ab66ecd95945621d4c4590b795da12c8' => 
     array (
       0 => '/Applications/MAMP/htdocs/iumio-framework/vendor/iumio_framework/php/BaseApps/ManagerApp/Front/views/template.tpl',
-      1 => 1496903964,
+      1 => 1496956780,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:partials/modal.tpl' => 1,
   ),
 ),false)) {
-function content_5938f138f0cd88_59177542 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5939bf75f30a62_28964003 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, false);
 ?>
@@ -71,7 +71,7 @@ $_smarty_tpl->inheritance->init($_smarty_tpl, false);
 <body>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_9198021405938f137c0c763_23754008', "principal");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_10007000425939bf74c05924_26064151', "principal");
 ?>
 
 
@@ -95,7 +95,7 @@ $_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_9198021405938f137c
 <!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->
 <?php echo iumioFramework\Core\Additionnal\Template\iumioViewBasePlugin::js_manager(array('name'=>'light-bootstrap-dashboard'),$_smarty_tpl);?>
 
-<!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
+
 <?php echo iumioFramework\Core\Additionnal\Template\iumioViewBasePlugin::js_manager(array('name'=>'demo'),$_smarty_tpl);?>
 
 
@@ -105,12 +105,12 @@ $_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_9198021405938f137c
 </body>
 </html><?php }
 /* {block "principal"} */
-class Block_9198021405938f137c0c763_23754008 extends Smarty_Internal_Block
+class Block_10007000425939bf74c05924_26064151 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'principal' => 
   array (
-    0 => 'Block_9198021405938f137c0c763_23754008',
+    0 => 'Block_10007000425939bf74c05924_26064151',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {

@@ -10114,5 +10114,21 @@
     "2528": {
         "time": "2017-06-08 19:06:59",
         "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "2529": {
+        "time": "2017-06-08 23:06:57",
+        "content": "[404 NOT FOUND] : The ressource you try to access is not found. : Please check your URI"
+    },
+    "2530": {
+        "time": "2017-06-08 23:06:57",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "2531": {
+        "time": "2017-06-08 23:06:07",
+        "content": "[404 NOT FOUND] : The ressource you try to access is not found. : Please check your URI"
+    },
+    "2532": {
+        "time": "2017-06-08 23:06:07",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
     }
 }

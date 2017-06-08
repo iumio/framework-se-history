@@ -1,6 +1,0 @@
-{
-    "0": {
-        "time": "2017-06-03 19:06:40",
-        "content": "[500 INTERNAL ERROR] : iumioEngineAutoloader : Undefined class iumioFramework\\Manager\\Console\\Module\\App\\AppManager : Refer to your app configuration."
-    }
-}

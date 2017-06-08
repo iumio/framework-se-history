@@ -7,6 +7,45 @@ window.onload = function () {
     getSimpleApps();
 };
 
+var reduce = 0;
+var restore = 0;
+
+/*$(window).resize(function() {
+    console.log('window was resized');
+   var hs = window.screen.availHeight;
+   var ws = window.screen.availWidth;
+    if (ws <= 928)
+    {
+        //if (reduce === 1)
+          //  return (null);
+        reduce = 1;
+        eventFire(document.getElementById("iumioTaskBarReduce"), "click");
+    }
+    else
+    {
+        if (restore === 1)
+            return (null);
+        reduce = 0;
+        restore = 1;
+        eventFire(document.getElementById("iumioTaskBarRestore"), "click");
+    }
+});*/
+
+/**
+ * Simulate an event
+ * @param el event selector
+ * @param etype event type
+ */
+function eventFire(el, etype){
+    if (el.fireEvent) {
+        el.fireEvent('on' + etype);
+    } else {
+        var evObj = document.createEvent('Events');
+        evObj.initEvent(etype, true, false);
+        el.dispatchEvent(evObj);
+    }
+}
+
 var refreshId = setInterval(function() {
     var e = document.getElementsByClassName("iumioTaskBarAllAppRemove")[0];
     if (typeof e !== "undefined")
@@ -14,20 +53,19 @@ var refreshId = setInterval(function() {
     getSimpleApps();
 }, 5000);
 
+
 document.getElementById("iumioTaskBarReduce").addEventListener("click", function () {
     document.getElementsByClassName("iumioTaskBar")[0].style.display = "none";
     document.getElementById("iumioTaskBarBlank").style.display = "none";
     document.getElementsByClassName("iumioTaskBarVSmall")[0].style.display = "block";
-
 });
 
 
 document.getElementById("iumioTaskBarRestore").addEventListener("click", function () {
+
     document.getElementsByClassName("iumioTaskBarVSmall")[0].style.display = "none";
     document.getElementsByClassName("iumioTaskBar")[0].style.display = "block";
     document.getElementById("iumioTaskBarBlank").style.display = "block";
-
-
 });
 
 
