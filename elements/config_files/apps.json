@@ -1,7 +1,7 @@
 {
     "0": {
         "name": "WApp",
-        "isdefault": "yes",
+        "isdefault": "no",
         "class": "\\WApp\\WApp",
         "creation": {
             "date": "2017-06-07 18:56:58.745569",
@@ -9,14 +9,14 @@
             "timezone": "UTC"
         },
         "update": {
-            "date": "2017-06-07 23:45:11.448806",
+            "date": "2017-06-08 10:51:56.139495",
             "timezone_type": 3,
-            "timezone": "Europe\/Paris"
+            "timezone": "UTC"
         }
     },
     "1": {
         "name": "QApp",
-        "isdefault": "no",
+        "isdefault": "yes",
         "class": "\\QApp\\QApp",
         "creation": {
             "date": "2017-06-07 21:41:18.130457",
@@ -24,7 +24,22 @@
             "timezone": "UTC"
         },
         "update": {
-            "date": "2017-06-07 21:45:11.448821",
+            "date": "2017-06-08 12:51:56.139526",
+            "timezone_type": 3,
+            "timezone": "Europe\/Paris"
+        }
+    },
+    "2": {
+        "name": "taApp",
+        "isdefault": "no",
+        "class": "\\taApp\\taApp",
+        "creation": {
+            "date": "2017-06-08 10:50:20.787831",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "update": {
+            "date": "2017-06-08 10:50:20.787831",
             "timezone_type": 3,
             "timezone": "UTC"
         }

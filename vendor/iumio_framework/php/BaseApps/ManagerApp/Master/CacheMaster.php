@@ -91,7 +91,7 @@ class CacheMaster extends Master
      * @param string $folderName Directory name
      * @return bool empty or not
      */
-    private function checkFolderIsEmptyOrNot(string $folderName):bool
+    public function checkFolderIsEmptyOrNot(string $folderName):bool
     {
         $files = array ();
         if ($handle = opendir ($folderName)) {
@@ -110,7 +110,7 @@ class CacheMaster extends Master
      * @param string $dir Dir path
      * @return int folder size
      */
-    private function folderSize(string $dir):int
+    public function folderSize(string $dir):int
     {
         $size = 0;
         foreach (glob(rtrim($dir, '/').'/*', GLOB_NOSORT) as $each) {
@@ -126,7 +126,7 @@ class CacheMaster extends Master
      * @return string human readable file size (2,87 МB)
 
      */
-    private function fileSizeConvert(int $bytes)
+    public function fileSizeConvert(int $bytes)
     {
         $bytes = floatval($bytes);
         $result = "0 B";

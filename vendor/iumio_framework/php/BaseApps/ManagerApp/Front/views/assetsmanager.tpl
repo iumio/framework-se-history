@@ -59,15 +59,17 @@
                                 </div>
                                 <div class="content table-responsive table-full-width">
                                     <table class="table table-hover table-striped">
-                                        <thead>
+                                        <thead >
                                         <th>ID</th>
-                                        <th>Name</th>
-                                        <th>Is default</th>
-                                        <th>Namespace</th>
-                                        <th>Edit</th>
-                                        <th>Delete</th>
+                                        <th>App name</th>
+                                        <th>Have assets</th>
+                                        <th>Permission dev</th>
+                                        <th>Permission prod</th>
+                                        <th>Status dev</th>
+                                        <th>Status prod</th>
+                                        <th>Action</th>
                                         </thead>
-                                        <tbody class="getAllAssets" attr-href="{route name='iumio_manager_compile_manager_get_all'}">
+                                        <tbody class="getAllAssets" attr-href="{route name='iumio_manager_assets_manager_get_all'}">
 
                                         </tbody>
                                     </table>

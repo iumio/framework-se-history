@@ -29,6 +29,11 @@
     transition-duration: 250ms;
     opacity: 1;
 }
+
+.table, .table thead th
+{
+    text-align: center;
+}
 .container-new .check label {
     min-width: 100px;
     display: -webkit-box;

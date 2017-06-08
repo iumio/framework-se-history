@@ -158,6 +158,7 @@ class AssetsManager implements ModuleManager
             }
         }
         Output::displayAsSuccess("Hey, I'll copy ".(($appname != '#none')? $appname." assets (" : 'all assets (').(($env != null && $env !== "all")? strtoupper($env)." environment)" : "all environments)")." in web folder".(($symlink == true)? ' with symlink option' : ''), "none");
+        $this->callDelCreaServer($appname, $env);
         $this->copy($symlink, $appname, $env);
         if (isset($options[5]) && $options[5] == "--noexit")
             Output::displayAsNormal("The copy of the assets".(($appname == '#none')? '' : ' for '.$appname)." has been done.", "none");

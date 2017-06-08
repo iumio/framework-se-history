@@ -10002,5 +10002,117 @@
     "2500": {
         "time": "2017-06-08 08:06:28",
         "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "2501": {
+        "time": "2017-06-08 10:06:22",
+        "content": "[500 INTERNAL ERROR] : iumio Core Error : Class \\ManagerApp\\Master\\AssetsMaster or method \\ManagerApp\\Master\\AssetsMaster::assetsinfoAllActivity doesn't exist : iumio Reflexion Method Error : Class \\ManagerApp\\Master\\AssetsMaster does not exist"
+    },
+    "2502": {
+        "time": "2017-06-08 10:06:22",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "2503": {
+        "time": "2017-06-08 10:06:07",
+        "content": "[500 INTERNAL ERROR] : iumio Core Error : Class \\ManagerApp\\Master\\AssetsMaster or method \\ManagerApp\\Master\\AssetsMaster::assetsinfoAllActivity doesn't exist : iumio Reflexion Invoke Error : DirectoryIterator::__construct(\/Applications\/MAMP\/htdocs\/iumio-framework\/vendor\/iumio_framework\/php\/Core\/Requirement\/..\/..\/..\/..\/..\/\/web\/components\/apps\/prod\/qapp): failed to open dir: No such file or directory"
+    },
+    "2504": {
+        "time": "2017-06-08 10:06:07",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "2505": {
+        "time": "2017-06-08 12:06:03",
+        "content": "[500 INTERNAL ERROR] : iumio Core Error : Class \\ManagerApp\\Master\\AssetsMaster or method \\ManagerApp\\Master\\AssetsMaster::assetsinfoAllActivity doesn't exist : iumio Reflexion Invoke Error : DirectoryIterator::__construct(\/Applications\/MAMP\/htdocs\/iumio-framework\/vendor\/iumio_framework\/php\/Core\/Requirement\/..\/..\/..\/..\/..\/\/web\/components\/apps\/prod\/qapp): failed to open dir: No such file or directory"
+    },
+    "2506": {
+        "time": "2017-06-08 12:06:03",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "2507": {
+        "time": "2017-06-08 14:06:12",
+        "content": "[500 INTERNAL ERROR] : iumio Core Error : Class \\ManagerApp\\Master\\AssetsMaster or method \\ManagerApp\\Master\\AssetsMaster::assetsinfoAllActivity doesn't exist : iumio Reflexion Invoke Error : DirectoryIterator::__construct(\/Applications\/MAMP\/htdocs\/iumio-framework\/vendor\/iumio_framework\/php\/Core\/Requirement\/..\/..\/..\/..\/..\/\/web\/components\/apps\/prod\/taapp): failed to open dir: No such file or directory"
+    },
+    "2508": {
+        "time": "2017-06-08 14:06:12",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "2509": {
+        "time": "2017-06-08 14:06:13",
+        "content": "[500 INTERNAL ERROR] : iumio Core Error : Class \\ManagerApp\\Master\\AssetsMaster or method \\ManagerApp\\Master\\AssetsMaster::assetsinfoAllActivity doesn't exist : iumio Reflexion Invoke Error : DirectoryIterator::__construct(\/Applications\/MAMP\/htdocs\/iumio-framework\/vendor\/iumio_framework\/php\/Core\/Requirement\/..\/..\/..\/..\/..\/\/web\/components\/apps\/prod\/taapp): failed to open dir: No such file or directory"
+    },
+    "2510": {
+        "time": "2017-06-08 14:06:13",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "2511": {
+        "time": "2017-06-08 14:06:31",
+        "content": "[500 INTERNAL ERROR] : iumio Core Error : Class \\ManagerApp\\Master\\AssetsMaster or method \\ManagerApp\\Master\\AssetsMaster::assetsinfoAllActivity doesn't exist : iumio Reflexion Invoke Error : DirectoryIterator::__construct(\/Applications\/MAMP\/htdocs\/iumio-framework\/vendor\/iumio_framework\/php\/Core\/Requirement\/..\/..\/..\/..\/..\/\/web\/components\/apps\/prod\/taapp): failed to open dir: No such file or directory"
+    },
+    "2512": {
+        "time": "2017-06-08 14:06:31",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "2513": {
+        "time": "2017-06-08 14:06:36",
+        "content": "[500 INTERNAL ERROR] : iumio Core Error : Class \\ManagerApp\\Master\\AssetsMaster or method \\ManagerApp\\Master\\AssetsMaster::assetsinfoAllActivity doesn't exist : iumio Reflexion Invoke Error : DirectoryIterator::__construct(\/Applications\/MAMP\/htdocs\/iumio-framework\/vendor\/iumio_framework\/php\/Core\/Requirement\/..\/..\/..\/..\/..\/\/web\/components\/apps\/prod\/taapp): failed to open dir: No such file or directory"
+    },
+    "2514": {
+        "time": "2017-06-08 14:06:36",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "2515": {
+        "time": "2017-06-08 14:06:54",
+        "content": "[500 INTERNAL ERROR] : iumio Core Error : Class \\ManagerApp\\Master\\AssetsMaster or method \\ManagerApp\\Master\\AssetsMaster::assetsinfoAllActivity doesn't exist : iumio Reflexion Invoke Error : DirectoryIterator::__construct(\/Applications\/MAMP\/htdocs\/iumio-framework\/vendor\/iumio_framework\/php\/Core\/Requirement\/..\/..\/..\/..\/..\/\/web\/components\/apps\/prod\/taapp): failed to open dir: No such file or directory"
+    },
+    "2516": {
+        "time": "2017-06-08 14:06:54",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "2517": {
+        "time": "2017-06-08 14:06:44",
+        "content": "[500 INTERNAL ERROR] : iumio Core Error : Class \\ManagerApp\\Master\\AssetsMaster or method \\ManagerApp\\Master\\AssetsMaster::assetsinfoAllActivity doesn't exist : iumio Reflexion Method Error : Class \\ManagerApp\\Master\\AssetsMaster does not exist"
+    },
+    "2518": {
+        "time": "2017-06-08 14:06:44",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "2519": {
+        "time": "2017-06-08 14:06:45",
+        "content": "[500 INTERNAL ERROR] : iumio Core Error : Class \\ManagerApp\\Master\\AssetsMaster or method \\ManagerApp\\Master\\AssetsMaster::assetsinfoAllActivity doesn't exist : iumio Reflexion Method Error : Class \\ManagerApp\\Master\\AssetsMaster does not exist"
+    },
+    "2520": {
+        "time": "2017-06-08 14:06:45",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "2521": {
+        "time": "2017-06-08 14:06:46",
+        "content": "[500 INTERNAL ERROR] : iumio Core Error : Class \\ManagerApp\\Master\\AssetsMaster or method \\ManagerApp\\Master\\AssetsMaster::assetsinfoAllActivity doesn't exist : iumio Reflexion Method Error : Class \\ManagerApp\\Master\\AssetsMaster does not exist"
+    },
+    "2522": {
+        "time": "2017-06-08 14:06:46",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "2523": {
+        "time": "2017-06-08 14:06:58",
+        "content": "[500 INTERNAL ERROR] : iumio Core Error : Class \\ManagerApp\\Master\\AssetsMaster or method \\ManagerApp\\Master\\AssetsMaster::assetsinfoAllActivity doesn't exist : iumio Reflexion Invoke Error : DirectoryIterator::__construct(\/Applications\/MAMP\/htdocs\/iumio-framework\/vendor\/iumio_framework\/php\/Core\/Requirement\/..\/..\/..\/..\/..\/\/web\/components\/apps\/prod\/taapp): failed to open dir: No such file or directory"
+    },
+    "2524": {
+        "time": "2017-06-08 14:06:58",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "2525": {
+        "time": "2017-06-08 14:06:43",
+        "content": "[500 INTERNAL ERROR] : iumio Core Error : Class \\ManagerApp\\Master\\AssetsMaster or method \\ManagerApp\\Master\\AssetsMaster::assetsinfoAllActivity doesn't exist : iumio Reflexion Invoke Error : DirectoryIterator::__construct(\/Applications\/MAMP\/htdocs\/iumio-framework\/vendor\/iumio_framework\/php\/Core\/Requirement\/..\/..\/..\/..\/..\/\/web\/components\/apps\/prod\/taapp): failed to open dir: No such file or directory"
+    },
+    "2526": {
+        "time": "2017-06-08 14:06:43",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
+    },
+    "2527": {
+        "time": "2017-06-08 19:06:58",
+        "content": "[500 INTERNAL ERROR] : iumio Core Error : Class \\ManagerApp\\Master\\AssetsMaster or method \\ManagerApp\\Master\\AssetsMaster::assetsinfoAllActivity doesn't exist : iumio Reflexion Method Error : Class \\ManagerApp\\Master\\AssetsMaster does not exist"
+    },
+    "2528": {
+        "time": "2017-06-08 19:06:59",
+        "content": "[500 INTERNAL ERROR] : Parameter missing for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_assets_manager_clear<\/em> route : Please check your parameters declaration"
     }
 }

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32-dev-1, created on 2017-06-08 08:17:00
+/* Smarty version 3.1.32-dev-1, created on 2017-06-08 20:33:20
   from "/Applications/MAMP/htdocs/iumio-framework/vendor/iumio_framework/php/BaseApps/ManagerApp/Front/views/assetsmanager.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32-dev-1',
-  'unifunc' => 'content_5938ebdc65a2a1_43439987',
+  'unifunc' => 'content_59399870865f63_63416928',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '7fe7e7930e1626181c81f8d3d0d3091f25092d65' => 
     array (
       0 => '/Applications/MAMP/htdocs/iumio-framework/vendor/iumio_framework/php/BaseApps/ManagerApp/Front/views/assetsmanager.tpl',
-      1 => 1496541268,
+      1 => 1496946797,
       2 => 'file',
     ),
   ),
@@ -22,25 +22,25 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:partials/footer.tpl' => 1,
   ),
 ),false)) {
-function content_5938ebdc65a2a1_43439987 (Smarty_Internal_Template $_smarty_tpl) {
+function content_59399870865f63_63416928 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_11563974265938ebdbef1867_55247093', "principal");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_753431115939987025b569_72536227', "principal");
 ?>
 
 
 <?php $_smarty_tpl->inheritance->endChild($_smarty_tpl, 'template.tpl');
 }
 /* {block "principal"} */
-class Block_11563974265938ebdbef1867_55247093 extends Smarty_Internal_Block
+class Block_753431115939987025b569_72536227 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'principal' => 
   array (
-    0 => 'Block_11563974265938ebdbef1867_55247093',
+    0 => 'Block_753431115939987025b569_72536227',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -113,15 +113,17 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
                                 </div>
                                 <div class="content table-responsive table-full-width">
                                     <table class="table table-hover table-striped">
-                                        <thead>
+                                        <thead >
                                         <th>ID</th>
-                                        <th>Name</th>
-                                        <th>Is default</th>
-                                        <th>Namespace</th>
-                                        <th>Edit</th>
-                                        <th>Delete</th>
+                                        <th>App name</th>
+                                        <th>Have assets</th>
+                                        <th>Permission dev</th>
+                                        <th>Permission prod</th>
+                                        <th>Status dev</th>
+                                        <th>Status prod</th>
+                                        <th>Action</th>
                                         </thead>
-                                        <tbody class="getAllAssets" attr-href="<?php echo iumioFramework\Core\Additionnal\Template\iumioViewBasePlugin::route(array('name'=>'iumio_manager_compile_manager_get_all'),$_smarty_tpl);?>
+                                        <tbody class="getAllAssets" attr-href="<?php echo iumioFramework\Core\Additionnal\Template\iumioViewBasePlugin::route(array('name'=>'iumio_manager_assets_manager_get_all'),$_smarty_tpl);?>
 ">
 
                                         </tbody>

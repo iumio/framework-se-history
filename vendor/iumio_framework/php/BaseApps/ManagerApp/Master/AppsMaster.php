@@ -33,9 +33,10 @@ class AppsMaster extends Master
 
 
     /**
-     * Get all simple app
+     * Get all apps
+     * @return \stdClass $file Apps
      */
-    public function getSimpleAppsActivity()
+    public function getAllApps():\stdClass
     {
         $file = JL::open(CONFIG_DIR."apps.json");
         foreach ($file as $one)
@@ -43,7 +44,16 @@ class AppsMaster extends Master
             $one->link = $this->generateRoute("iumio_manager_app_manager_switch_default_app", array("appname" => $one->name), null, true);
             $one->link_remove = $this->generateRoute("iumio_manager_app_manager_remove_app", array("appname" => $one->name), null, true);
         }
-        return ((new Response())->JSON_RENDER(array("code" => 200, "msg" => "OK", "results" => $file)));
+        return ($file);
+    }
+
+
+    /**
+     * Get all simple app
+     */
+    public function getSimpleAppsActivity()
+    {
+        return ((new Response())->JSON_RENDER(array("code" => 200, "msg" => "OK", "results" => $this->getAllApps())));
     }
 
 
