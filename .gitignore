@@ -9,5 +9,5 @@ out
 gen
 .DS_Store
 elements/config_files/initial.json
-apps/
-elements/config_files/
+#apps/
+#elements/config_files/
