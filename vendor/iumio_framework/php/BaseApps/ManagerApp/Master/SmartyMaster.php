@@ -1,5 +1,16 @@
 <?php
 
+/*
+ * This is an iumio Framework component
+ *
+ * (c) RAFINA DANY <danyrafina@gmail.com>
+ *
+ * iumio Framework - iumio Components
+ *
+ * To get more information about licence, please check the licence file
+ */
+
+
 namespace ManagerApp\Master;
 use iumioFramework\Masters\iumioUltimaMaster as Master;
 use iumioFramework\Core\Base\Json\JsonListener as JL;

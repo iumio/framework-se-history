@@ -1,7 +1,7 @@
 
 var core = {
     init : function () {
-        console.log("TEST IN IUM JS");
+        console.log("TEST IN IUMIO JS");
         // Adding the script tag to the head as suggested before
         var head = document.getElementsByTagName('head')[0];
         var script = document.createElement('script');
