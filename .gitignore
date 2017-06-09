@@ -8,7 +8,7 @@
 out
 gen
 .DS_Store
-apps/
-elements/
-web/components/apps/
-web/components/baseapps/
+#apps/*
+#elements/*
+#web/components/apps/*
+#web/components/baseapps/*
