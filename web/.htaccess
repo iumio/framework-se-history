@@ -1,9 +1,17 @@
-#####################################################
-### IUMIO FRAMEWORK .htaccess for web directory - ###
-### IUMIO FRAMEWORK VERSION 0.1.9.2 ------------- ###
-### CREATED BY RAFINA DANY ---------------------- ###
-### <danyrafina@gmail.com> ---------------------- ###
-#####################################################
+#
+# This is an iumio Framework component
+#
+# (c) RAFINA DANY <danyrafina@gmail.com>
+#
+# iumio Framework - iumio Components
+#
+# To get more information about licence, please check the licence file
+#
+
+###############################################
+# iumio Framework .htaccess for web app       #
+# @author  Dany Rafina <danyrafina@gmail.com> #
+###############################################
 
 DirectoryIndex Dev.php
 
