@@ -29,7 +29,6 @@ use iumioFramework\Core\Base\Json\JsonListener as JL;
  * @author Dany Rafina <danyrafina@gmail.com>
  */
 
-
 abstract class iumioUltimaCore extends iumioUltima
 {
 
@@ -38,11 +37,11 @@ abstract class iumioUltimaCore extends iumioUltima
     protected $environment;
     private static $runtime_parameters = null;
 
-    public const VERSION = '0.1.9.2';
+    public const VERSION = '0.2.0';
     public const VERSION_EDITION = 'iumio Framework Standard Edition';
     public const VERSION_EDITION_SHORT = 'SE';
-    public const VERSION_STAGE = 'PRE-BETA VALIDATION';
-    public const VERSION_BUILD = 201719.2;
+    public const VERSION_STAGE = 'BETA';
+    public const VERSION_BUILD = 201720;
 
 
 
