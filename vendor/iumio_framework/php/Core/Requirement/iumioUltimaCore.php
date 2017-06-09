@@ -1,5 +1,15 @@
 <?php
 
+/*
+ * This is an iumio Framework component
+ *
+ * (c) RAFINA DANY <danyrafina@gmail.com>
+ *
+ * iumio Framework - iumio Components
+ *
+ * To get more information about licence, please check the licence file
+ */
+
 namespace iumioFramework\Core\Requirement;
 use iumioFramework\Core\Additionnal\Server\iumioServerManager;
 use iumioFramework\Core\Base\Http\HttpListener;
@@ -14,7 +24,7 @@ use iumioFramework\Core\Base\Json\JsonListener as JL;
  *
  * The Core is the heart of the iumio system.
  *
- * It manages an environment made of ap.
+ * It manages an environment made of app.
  *
  * @author Dany Rafina <danyrafina@gmail.com>
  */
@@ -24,47 +34,29 @@ abstract class iumioUltimaCore extends iumioUltima
 {
 
     protected $apps = array();
-
-
-    protected $container;
-    protected $rootDir;
-    protected $env;
     protected $debug;
-    protected $booted = false;
-    protected $name;
-    protected $startTime;
-    protected $loadClassCache;
     protected $environment;
-
-    const VERSION = '0.1.9.1';
-    const VERSION_EDITION = 'iumio Framework Standard Edition';
-    const VERSION_EDITION_SHORT = 'SE';
-    const VERSION_STAGE = 'PRE-BETA VALIDATION';
-    const VERSION_ID = 201719.1;
-    const MAJOR_VERSION = 1;
-    const MINOR_VERSION = 0;
-    const RELEASE_VERSION = 1;
-    const EXTRA_VERSION = '';
-
-    const END_OF_MAINTENANCE = 'END';
-    const END_OF_LIFE = 'END';
-
     private static $runtime_parameters = null;
+
+    public const VERSION = '0.1.9.1';
+    public const VERSION_EDITION = 'iumio Framework Standard Edition';
+    public const VERSION_EDITION_SHORT = 'SE';
+    public const VERSION_STAGE = 'PRE-BETA VALIDATION';
+    public const VERSION_BUILD = 201719.1;
+
+
 
     /**
      * Constructor.
      *
-     * @param string $environment The environment
-     * @param bool   $debug       Whether to enable debugging or not
+     * @param string $environment The app environment
+     * @param bool   $debug       Enable debug
      */
 
     public function __construct(string $environment, bool $debug)
     {
         $this->environment = $environment;
         $this->debug = (bool) $debug;
-        $this->rootDir = $this->getRootDir();
-        $this->name = $this->getName();
-
         self::detectFirstInstallation();
 
         if ($this->debug) {
@@ -75,29 +67,14 @@ abstract class iumioUltimaCore extends iumioUltima
         $defClass = $defClass->getDeclaringClass()->name;
     }
 
-    /**
-     * {@inheritdoc}
-     *
-     **/
-
+    /** Set debug mode
+     * @return bool
+     */
     public function isDebug()
     {
         return $this->debug;
     }
 
-    /**
-     * {@inheritdoc}
-     *
-     **/
-    public function getRootDir()
-    {
-        if (null === $this->rootDir) {
-            $r = new \ReflectionObject($this);
-            $this->rootDir = dirname($r->getFileName());
-        }
-
-        return $this->rootDir;
-    }
 
     /** Get runtime parameters request
      * @return null|array
@@ -107,30 +84,9 @@ abstract class iumioUltimaCore extends iumioUltima
         return self::$runtime_parameters;
     }
 
-    /**
-     * {@inheritdoc}
-     **/
-
-    public function getContainer()
-    {
-        return $this->container;
-    }
-
-    /**
-     * {@inheritdoc}
-     **/
-    public function getName()
-    {
-        if (null === $this->name) {
-            $this->name = preg_replace('/[^a-zA-Z0-9_]+/', '', basename($this->rootDir));
-        }
-
-        return $this->name;
-    }
-
-    /**
-     * {@inheritdoc}
-     **/
+    /** Get application environment
+     * @return string
+     */
     public function getEnvironment()
     {
         return $this->environment;
@@ -139,13 +95,21 @@ abstract class iumioUltimaCore extends iumioUltima
     /**
      * Check the correct permission in directory :
      * /elements
-     * /
+     * /apps
+     * @return int Correct permissions or not
+     * @throws Server500 Permissions are incorrect
      */
     public function checkPermission():int
     {
         if (!iumioServerManager::checkIsExecutable(ROOT."elements/") || !iumioServerManager::checkIsReadable(ROOT."elements/") || !iumioServerManager::checkIsWritable(ROOT."elements/"))
         {
-            throw new Server500(new \ArrayObject(array("explain" =>"iumio Ultima Core Error : Directory elements have not good permission", "solution" => "Must be read, write, executable permission")));
+            throw new Server500(new \ArrayObject(array("explain" =>"iumio Ultima Core Error : Folder /elements doest not have correct permission", "solution" => "Must be read, write, executable permission")));
+            return (0);
+        }
+
+        if (!iumioServerManager::checkIsExecutable(ROOT."apps/") || !iumioServerManager::checkIsReadable(ROOT."apps/") || !iumioServerManager::checkIsWritable(ROOT."apps/"))
+        {
+            throw new Server500(new \ArrayObject(array("explain" =>"iumio Ultima Core Error : Folder /apps doest not have correct permission", "solution" => "Must be read, write, executable permission")));
             return (0);
         }
         return (1);
@@ -153,10 +117,10 @@ abstract class iumioUltimaCore extends iumioUltima
     }
 
 
-    /**
-     * @param array $apps
-     * @return array
-     * @throws \Exception
+    /** Detect the default app
+     * @param array $apps App list
+     * @return array The default app
+     * @throws \Exception When does not have a default app
      */
     protected function detectDefaultApp(array $apps):array
     {
@@ -215,9 +179,9 @@ abstract class iumioUltimaCore extends iumioUltima
         return (@array_combine($keys, $values));
     }
 
-    /**
-     * @param string $fullAppName
-     * @return string
+    /** Get real app name
+     * @param string $fullAppName Full app name
+     * @return string the real app name
      */
     final protected function getRealAppName(string $fullAppName):string
     {
@@ -228,8 +192,8 @@ abstract class iumioUltimaCore extends iumioUltima
     /** Go to controller
      * @param HttpListener $request parameters
      * @return int Return as success
-     * @throws Server404
-     * @throws Server500
+     * @throws Server404 Url not found
+     * @throws Server500 Class or method does not exist or router failed
      */
     public function dispatching(HttpListener $request):int
     {
@@ -314,7 +278,6 @@ abstract class iumioUltimaCore extends iumioUltima
             }
             else
                 throw new Server500(new \ArrayObject(array("explain" => "Component doesn't exist ", "solution" => "Check apps.json file in base app")));
-            $this->booted;
         }
         return (true);
     }
@@ -390,7 +353,7 @@ abstract class iumioUltimaCore extends iumioUltima
                 $rs = self::VERSION_EDITION_SHORT;
                 break;
             case 'VERSION_ID':
-                $rs = self::VERSION_ID;
+                $rs = self::VERSION_BUILD;
                 break;
             case 'VERSION_STAGE':
                 $rs = self::VERSION_STAGE;
@@ -419,7 +382,7 @@ abstract class iumioUltimaCore extends iumioUltima
                 $rs = $_SERVER['SERVER_NAME'];
                 break;
             case 'VERSION_ID':
-                $rs = self::VERSION_ID;
+                $rs = self::VERSION_BUILD;
                 break;
             case 'VERSION_STAGE':
                 $rs = self::VERSION_STAGE;
@@ -442,7 +405,7 @@ abstract class iumioUltimaCore extends iumioUltima
 
     /** Detect if it is a first install
      * @return int The success or failure
-     * @throws Server500 File installer.php not existx
+     * @throws Server500 File installer.php not exists
      */
     final private function detectFirstInstallation():int
     {

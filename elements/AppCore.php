@@ -1,5 +1,15 @@
 <?php
 
+/*
+ * This is an iumio Framework component
+ *
+ * (c) RAFINA DANY <danyrafina@gmail.com>
+ *
+ * iumio Framework - iumio Components
+ *
+ * To get more information about licence, please check the licence file
+ */
+
 namespace iumioFramework\Apps;
 use iumioFramework\Core\Requirement\iumioUltimaCore;
 use iumioFramework\Core\Base\Http\HttpListener;
@@ -8,6 +18,7 @@ use iumioFramework\Exception\Server\Server000;
 /**
  * Class AppCore
  * @package iumioFramework\Apps
+ * @author Dany Rafina <danyrafina@gmail.com>
  */
 class AppCore extends iumioUltimaCore
 {

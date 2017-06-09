@@ -7,7 +7,8 @@ namespace iumioFramework\Core\Base\Http;
  *
  * Adds metadata to the session.
  *
- * @author Dany RAFINA <danyrafina@gmail.com>
+ * @author Fabien Potencier <fabien@symfony.com>
+ * @modifiedby Dany RAFINA <danyrafina@gmail.com>
  */
 class MetaBagRequest implements SessionBagRequest
 {

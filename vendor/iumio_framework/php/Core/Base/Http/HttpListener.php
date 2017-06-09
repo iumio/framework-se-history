@@ -14,7 +14,8 @@ namespace iumioFramework\Core\Base\Http;
  *   * getUri
  *   * getUriForPath
  *
- * @author RAFINA Dany <danyrafina@gmail.com>
+ * @author Fabien Potencier <fabien@symfony.com>
+ * @modifiedby RAFINA Dany <danyrafina@gmail.com>
  */
 class HttpListener
 {
@@ -716,10 +717,6 @@ class HttpListener
      */
     public function get($key, $default = null, $deep = false)
     {
-        if ($deep) {
-            @trigger_error('Using paths to find deeper items in '.__METHOD__.' is deprecated since version 2.8 and will be removed in 3.0. Filter the returned value in your own code instead.', E_USER_DEPRECATED);
-        }
-
         if ($this !== $result = $this->query->get($key, $this, $deep)) {
             return $result;
         }

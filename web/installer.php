@@ -1,5 +1,15 @@
 <?php
 
+/*
+ * This is an iumio Framework component
+ *
+ * (c) RAFINA DANY <danyrafina@gmail.com>
+ *
+ * iumio Framework - iumio Components
+ *
+ * To get more information about licence, please check the licence file
+ */
+
 if (isset($_REQUEST["appname"], $_REQUEST["default"] , $_REQUEST["template"]) && $_REQUEST["appname"] != "" && $_REQUEST["default"] != "" && $_REQUEST["template"] != "")
     createAppProcess($_REQUEST["appname"], $_REQUEST["default"] , $_REQUEST["template"]);
 

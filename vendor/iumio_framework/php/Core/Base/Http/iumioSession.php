@@ -12,7 +12,8 @@ use iumioFramework\Exception\Server\Server500;
  * iumioSession class.
  * Manage a session
  *
- * @author Dany Rafina <danyrafina@gmail.com>
+ * @author Fabien Potencier <fabien@symfony.com>
+ * @modifiedby Dany Rafina <danyrafina@gmail.com>
  */
 class iumioSession implements SessionInterfaceRequest
 {

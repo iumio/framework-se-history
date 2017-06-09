@@ -1,11 +1,13 @@
 <?php
 
+
 namespace iumioFramework\Core\Base\Http;
 
 /**
  * Headers manages header features.
  *
- * @author RAFINA Dany <danyrafina@gmail.com>
+ * @author Fabien Potencier <fabien@symfony.com>
+ * @modifiedby  RAFINA Dany <danyrafina@gmail.com>
  */
 class Headers implements \IteratorAggregate, \Countable
 {

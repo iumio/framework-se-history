@@ -6,7 +6,8 @@ namespace iumioFramework\Core\Base\Http;
 /**
  * ParameterRequest is a container for key/value pairs.
  *
- * @author RAFINA Dany <danyrafina@gmail.com>
+ * @author Fabien Potencier <fabien@symfony.com>
+ * @modifiedby RAFINA Dany <danyrafina@gmail.com>
  */
 class ParameterRequest implements \IteratorAggregate, \Countable
 {
@@ -256,7 +257,6 @@ class ParameterRequest implements \IteratorAggregate, \Countable
             }
         }
         if (is_bool($filter) || !isset($filters[$filter]) || is_array($deep)) {
-            @trigger_error('Passing the $deep boolean as 3rd argument to the '.__METHOD__.' method is deprecated since version 2.8 and will be removed in 3.0. Remove it altogether as the $deep argument will be removed in 3.0.', E_USER_DEPRECATED);
             $tmp = $deep;
             $deep = $filter;
             $filter = $options;

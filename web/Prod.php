@@ -1,5 +1,15 @@
 <?php
 
+/*
+ * This is an iumio Framework component
+ *
+ * (c) RAFINA DANY <danyrafina@gmail.com>
+ *
+ * iumio Framework - iumio Components
+ *
+ * To get more information about licence, please check the licence file
+ */
+
 $loader = require __DIR__.'/../vendor/iumio_framework/php/Core/Requirement/iumoEngineAutoloader.php';
 iumoEngineAutoloader::$env = "PROD";
 

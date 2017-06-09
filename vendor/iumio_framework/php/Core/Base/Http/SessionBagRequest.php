@@ -5,7 +5,8 @@ namespace iumioFramework\Core\Base\Http;
 /**
  * Session Bag store.
  *
- * @author Dany Rafina <danyrafina@gmail.com>
+ * @author Fabien Potencier <fabien@symfony.com>
+ * @modifiedby Dany Rafina <danyrafina@gmail.com>
  */
 
 interface SessionBagRequest

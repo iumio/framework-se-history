@@ -1,5 +1,15 @@
 <?php
 
+/*
+ * This is an iumio Framework component
+ *
+ * (c) RAFINA DANY <danyrafina@gmail.com>
+ *
+ * iumio Framework - iumio Components
+ *
+ * To get more information about licence, please check the licence file
+ */
+
 namespace iumioFramework\Core\Console;
 use iumioFramework\Core\Requirement\Relexion\iumioReflexion as Reflex;
 use iumioFramework\Core\Console\{ComManager as File, Display\OutputManager as Output};
