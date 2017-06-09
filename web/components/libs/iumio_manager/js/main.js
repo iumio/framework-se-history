@@ -128,7 +128,7 @@ var getDatabasesList = function () {
                 var results = data['results'];
                 selector.html("");
                 if (results.length === 0)
-                    return (selector.append("<tr><td colspan='4'>No database configuration</td></tr>"));
+                    return (selector.append("<tr><td colspan='6'>No database configuration</td></tr>"));
 
                 $.each(results, function (index, value) {
                     selector.append("<tr>" +

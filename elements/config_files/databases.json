@@ -1,18 +1,1 @@
-{
-    "default": {
-        "db_name": "bic12",
-        "db_host": "localhost",
-        "db_port": "",
-        "db_user": "root",
-        "db_password": "azerty",
-        "db_driver": "mysql"
-    },
-    "default2": {
-        "db_name": "test744",
-        "db_host": "localhost",
-        "db_port": "123",
-        "db_user": "root",
-        "db_password": "root",
-        "db_driver": "pg_sql"
-    }
-}
+{}
