@@ -1,9 +1,9 @@
-#########################################
-### IUMIO .htaccess for web directory ###
-### IUMIO VERSION 0.0.1 ------------- ###
-### CREATED BY RAFINA DANY ---------- ###
-### <danyrafina@gmail.com> ---------- ###
-#########################################
+#####################################################
+### IUMIO FRAMEWORK .htaccess for web directory - ###
+### IUMIO FRAMEWORK VERSION 0.1.9.2 ------------- ###
+### CREATED BY RAFINA DANY ---------------------- ###
+### <danyrafina@gmail.com> ---------------------- ###
+#####################################################
 
 DirectoryIndex Dev.php
 
