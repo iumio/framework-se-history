@@ -11,3 +11,5 @@ gen
 elements/config_files/initial.json
 #apps/
 #elements/config_files/
+#elements/cache/
+#elements/config_files/
