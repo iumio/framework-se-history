@@ -322,6 +322,10 @@ class AppManager implements ModuleManager
         // REGISTER TO APP CORE
         $f = json_decode(file_get_contents(ROOT_PROJECT."/elements/config_files/apps.json"));
         $lastapp = 0;
+
+        if (!is_object($f))
+            $f = new \stdClass();
+
         foreach ($f as $one => $val) $lastapp++;
         if ($this->params['isdefault'] == "yes")
         {
@@ -333,6 +337,8 @@ class AppManager implements ModuleManager
                 }
             }
         }
+        if ($f != "")
+            $f = new \stdClass();
         $f->$lastapp = new \stdClass();
         $f->$lastapp->name = $this->params['appname'];
         $f->$lastapp->isdefault = $this->params['isdefault'];

@@ -666,14 +666,16 @@ var removeApp = function (url) {
                     operationSuccess();
                     var selecttorModal = $("#modalManager");
                     selecttorModal.find(".modal-body").html("<h4 class='text-center'>No app was registered</h4>");
-                    selecttorModal.attr({'data-backdrop' : "static", "data-keyword" : "false"});
+                    selecttorModal.find(".modal-body").append("<h4 class='text-center'><em>Trying to redirect to iumio installer</em></h4>");
                     selecttorModal.find(".btn-close").hide();
                     selecttorModal.find(".btn-valid").hide();
+                    $("html").attr("style", "pointer-events:none;background-color:rgb(71, 98, 190);bottom: 0;left: 0;position: fixed;right: 0;top: 0;");
+                    $("body").attr("style", "pointer-events:none;background-color: rgb(71, 98, 190);bottom: 0;left: 0;position: fixed;right: 0;top: 0;");
                     setTimeout(function () {
                         location.reload();
                     }, 5000);
 
-                }
+               }
                 else
                     operationSuccess();
             }

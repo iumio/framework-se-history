@@ -54,7 +54,6 @@ class iumioTaskBar
      */
     static public function getTaskBar():string
     {
-
         if (self::getStatus() == "on")
             return (self::taskbarTemplate());
         return ("#none");
@@ -96,7 +95,7 @@ class iumioTaskBar
                         <li class="iumioTaskBarAssetsPublishProd" attr-href="'.$um->generateRoute("iumio_manager_assets_manager_publish", array("env" => "prod", "appname" => "_all"), "ManagerApp", true).'">Clear prod</li>
                         <li class="iumioTaskBarAssetsClearAll" attr-href="'.$um->generateRoute("iumio_manager_assets_manager_clear", array("env" => "all", "appname" => "_all"), "ManagerApp", true).'">Publish all</li>
                         <li class="iumioTaskBarAssetsPublishDev" attr-href="'.$um->generateRoute("iumio_manager_assets_manager_clear", array("env" => "dev", "appname" => "_all"), "ManagerApp", true).'">Clear dev</li>
-                        <li class="iumioTaskBarAssetsClearProd" attr-href="'.$um->generateRoute("iumio_manager_assets_manager_clear", array("prod" => "prod", "appname" => "_all"), "ManagerApp", true).'">Publish prod</li>
+                        <li class="iumioTaskBarAssetsClearProd" attr-href="'.$um->generateRoute("iumio_manager_assets_manager_clear", array("env" => "prod", "appname" => "_all"), "ManagerApp", true).'">Publish prod</li>
                     </ul>
                 </li>
                 <li><a href="#" id="iumioTaskBarSwitchApp" attr-href="'.$um->generateRoute("iumio_manager_app_manager_get_simple_apps", null, "ManagerApp", true).'">Switch to default</a></li>

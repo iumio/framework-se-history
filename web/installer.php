@@ -1,5 +1,4 @@
 <?php
-
 /*
  * This is an iumio Framework component
  *
@@ -46,7 +45,12 @@ function createAppProcess($appname, $default, $temp)
     // REGISTER TO APP CORE
     $f = json_decode(file_get_contents($base."/elements/config_files/apps.json"));
     $lastapp = 0;
+
+    if (!is_object($f))
+        $f = new \stdClass();
+
     foreach ($f as $one => $val) $lastapp++;
+
     if ($default == "1")
     {
         foreach ($f as $one => $val)
@@ -58,6 +62,7 @@ function createAppProcess($appname, $default, $temp)
             }
         }
     }
+
     $f->$lastapp = new \stdClass();
     $f->$lastapp->name = $appname;
     $f->$lastapp->isdefault = ($default == "1")? "yes" : "no";
@@ -795,10 +800,10 @@ function initialJSON()
             <div class=" block" id="step3" style="display: none;color: white;color: black">
                 <h3 style="font-size: 30px;text-decoration: underline">Informations : </h3>
                 <div style="padding-left: 10px">
-                    <h3>Framework version : 0.1.9.2 in Pre-Beta validation stage</h3>
+                    <h3>Framework version : 0.2.0 in Beta stage</h3>
                     <h3>Framework Edition : Standard Edition</h3>
                     <h3>Compatiblility : PHP 7 and later</h3>
-                    <h3><span style="font-size: 22px;color: darkred;font-weight: 800 ">Warning</span> : This version is in Pre-beta stage. Please don't use it for your production projects </h3>
+                    <h3><span style="font-size: 22px;color: darkred;font-weight: 800 ">Warning</span> : This version is in beta stage. Please don't use it for your production projects </h3>
                     <h3>More info : <a class="link" style="color: #1b6d85" onclick="window.open('https://framework.iumio.com', '_blank')">iumio Framework website</a></h3>
                 <h3 style="color: red">iumio Installer is a property of iumio Framework. Do not reproduce!</h3>
                 </div>
@@ -860,7 +865,7 @@ function initialJSON()
 
             <div class="block" id="step8" style="display: none;color: white;text-align: center;color:black">
                 <h3 style="font-size: 40px;">Your app was created.</h3>
-                <h3 style="font-size: 30px;text-align: center;">Your application is available at : <a href="//<?php echo $_SERVER['HTTP_HOST'].((isset($_SERVER['BASE']) && $_SERVER['BASE'] != "")? $_SERVER['BASE'] : "") ?>/Dev.php/index"><?php echo $_SERVER['HTTP_HOST'].((isset($_SERVER['BASE']) && $_SERVER['BASE'] != "")? $_SERVER['BASE'] : "")."/Dev.php/index" ?></a><br><em>Now you must to remove installer.php file</em><br> Redirect to /index in 10 seconds</h3>
+                <h3 style="font-size: 30px;text-align: center;">Your application is available at : <a id="furl"></a><br><em>Now you must to remove installer.php file</em><br> Redirect to /index in 5 seconds</h3>
             </div>
 
             <div class="block" id="step9" style="display: none;color: darkred!important;text-align: center;color:black">
@@ -874,6 +879,13 @@ function initialJSON()
 
 <script type="text/javascript">
 
+    window.onload = function () {
+        document.getElementById("furl").href = (getBaseUrl()[0])+"Dev.php/index";
+
+        document.getElementById("furl").innerHTML = (getBaseUrl()[0])+"Dev.php/index";
+
+    }
+
     function getBaseUrl() {
         var re = new RegExp(/^.*\//);
         return re.exec(window.location.href);
@@ -886,7 +898,7 @@ function initialJSON()
     function redirect() {
         setTimeout(function () {
          location.href= (getBaseUrl()[0])+"Dev.php/index";
-         }, 10000);
+         }, 5000);
     }
 
 

@@ -62,7 +62,7 @@ class Debug implements DebugInterface
     static public function input(string $message):bool
     {
         $now = new DateTime();
-        $now = $now->format('Y-m-d H:m:s');
+        $now = $now->format('Y-m-d H:i:s');
         $message = trim($message);
 
         self::$logformat = array("time" => $now, "msg" => $message);
