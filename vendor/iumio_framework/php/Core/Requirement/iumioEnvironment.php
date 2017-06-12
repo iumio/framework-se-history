@@ -45,7 +45,7 @@ class iumioEnvironment
         define('ROOT_VENDOR', $base."vendor/iumio_framework/");
         define('ROOT_MANAGER', $base."vendor/iumio_framework/php/Core/Additional/Manager/");
         define('ADDITIONALS', $base."vendor/iumio_framework/php/Core/Additional/");
-        define('ROOT_HOST_FILES', $base."vendor/iumio_framework/php/Core/Base/Http/Host/");
+        define('ROOT_HOST_FILES', $base."elements/hosts/");
         define('ROOT_VENDOR_LIBS', $base."vendor/libs/");
         define('ROOT_CACHE', $base."elements/cache/");
         define('ROOT_COMPILED', $base."elements/compiled/");
