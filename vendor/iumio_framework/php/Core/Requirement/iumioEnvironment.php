@@ -45,7 +45,7 @@ class iumioEnvironment
         define('ROOT_VENDOR', $base."vendor/iumio_framework/");
         define('ROOT_MANAGER', $base."vendor/iumio_framework/php/Core/Additional/Manager/");
         define('ADDITIONALS', $base."vendor/iumio_framework/php/Core/Additional/");
-        define('ROOT_HOST_FILES', $base."elements/hosts/");
+        define('ROOT_HOST_FILES', $base."elements/config_files/hosts/");
         define('ROOT_VENDOR_LIBS', $base."vendor/libs/");
         define('ROOT_CACHE', $base."elements/cache/");
         define('ROOT_COMPILED', $base."elements/compiled/");
@@ -104,7 +104,7 @@ class iumioEnvironment
     {
         if (!in_array(ENVIRONMENT, array("DEV", "PROD")))
             throw new Server500(new ArrayObject(array("explain" => "An error was detected on environment declaration", "solution" => "Please check the environement declaration.", "external" => "yes")));
-        $hosts = file_get_contents(ROOT_HOST_FILES.'host.'.strtolower(ENVIRONMENT).'.json');
+        $hosts = file_get_contents(ROOT_HOST_FILES.'hosts.'.strtolower(ENVIRONMENT).'.json');
 
         if (empty(trim($hosts)))
             self::displayError((array("explain" => "You are not allowed to access this file.", "solution" => 'Check '.basename(__FILE__).' for more information.', "external" => "yes")));
