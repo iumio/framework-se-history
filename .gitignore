@@ -9,6 +9,6 @@ out
 gen
 .DS_Store
 apps/*
-#elements/*
+elements/*
 web/components/apps/*
 web/components/baseapps/*
