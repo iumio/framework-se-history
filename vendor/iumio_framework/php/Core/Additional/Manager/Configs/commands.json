@@ -16,7 +16,7 @@
       },
       "app": {
         "class" : "\\iumioFramework\\Core\\Console\\Module\\App\\AppManager",
-        "desc"  : "Manage project \n        create : Create project  \n        switch : Change the default project \n        remove : Remove a project \n"
+        "desc"  : "Manage project \n        create : Create project  \n        enabled : Enabled an app \n         disabled : Disabled an app \n       remove : Remove a project \n"
       }
     }
 }

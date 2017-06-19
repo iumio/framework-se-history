@@ -130,7 +130,7 @@ class iumioUltimaMaster extends iumioUltima
     final public function generateRoute(string $routename,  array $parameters = null, string $app_called = null,  bool $component = false):string
     {
         $app = ($app_called != null)? $app_called : APP_CALL;
-        $rt = new Routing($app, 'iumio', (($component == true)? $component : IS_IUMIO_COMPONENT));
+        $rt = new Routing($app, null, (($component == true)? $component : IS_IUMIO_COMPONENT));
         if (!$rt->routingRegister())
             throw new Server500(new \ArrayObject(array("solution" => "Please check all RT file", "explain" => "Cannot open your RT file")));
 

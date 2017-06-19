@@ -179,36 +179,6 @@ var getAllSmartyConfigs = function () {
     });
 };
 
-/**
- * get the default app
- */
-var getDefaultApp = function () {
-
-    var selector = $('.defaultapp');
-    if (typeof selector.attr("attr-href") === "undefined")
-        return (1);
-    $.ajax({
-        url : selector.attr("attr-href"),
-        type : 'GET',
-        dataType : 'json',
-        success : function(data){
-            if (data['code'] === 200)
-            {
-                var results = data['results'];
-                selector.html("");
-                if (results.length === 0)
-                    return (selector.append("<li>No default app</li>"));
-
-                selector.append("<li>App name : "+results['name']+"</li>");
-                selector.append("<li>Creation date : "+results['creation']['date']+"</li>");
-                selector.append("<li>Update date : "+results['update']['date']+"</li>");
-                selector.append("<li>Class : "+results['class']+"</li>");
-
-            }
-        }
-    })
-};
-
 
 /**
  * get app list
@@ -235,9 +205,10 @@ var getAppListSimple = function () {
                     selector.append("<tr "+((value['isdefault'] === "yes")? "style='background-color:#4762be;color:white'": "")+">" +
                         "<td>"+index+"</td>" +
                         "<td>"+value['name']+"</td>" +
-                        "<td>"+value['isdefault']+"</td>" +
+                        "<td>"+value['enabled']+"</td>" +
+                        "<td>"+((value['prefix'] !== "")? "/"+value['prefix'] : "no prefix")+"</td>" +
                         "<td>"+value['class']+"</td>" +
-                        "<td><button class=' btn-info btn todefaultapp' attr-href='"+value['link']+"' attr-appname='"+value['name']+"'>SW</button></td>"+
+                        "<td><button class=' btn-info btn toeditapp' attr-href='"+value['link']+"' attr-appname='"+value['name']+"'>ED</button></td>"+
                         "<td><button class='btn-info btn deleteapp' attr-href='"+value['link_remove']+"' attr-appname='"+value['name']+"'>DE</button></td>"+
                         "</tr>");
                 });
@@ -379,7 +350,7 @@ var getAllCompileEnv = function () {
 var createOneApp = function (href) {
     var name           = $("input[type=text][name=appname]").val();
     var template       = $("input[type=checkbox][name=template]:checked" ).val();
-    var isdefault      = $( "input[type=checkbox][name=isdefault]:checked" ).val();
+    var enabled      = $( "input[type=checkbox][name=enabled]:checked" ).val();
     var selecttorModal = $("#modalManager");
 
     if (name === "")
@@ -411,10 +382,10 @@ var createOneApp = function (href) {
     else
         template = "no";
 
-    if (typeof isdefault !== "undefined")
-        isdefault = "yes";
+    if (typeof enabled !== "undefined")
+        enabled = "yes";
     else
-        isdefault = "no";
+        enabled = "no";
 
     selecttorModal.find(".onealert").hide();
 
@@ -422,7 +393,7 @@ var createOneApp = function (href) {
         url : href,
         type : 'POST',
         dataType : 'json',
-        data : {"name" : name, "template" : template, "default" : isdefault},
+        data : {"name" : name, "template" : template, "enabled" : enabled},
         success : function(data){
             if (data['code'] === 200)
             {
@@ -835,7 +806,6 @@ var assetsClearManager = function (url) {
 $(document).ready(function () {
 
     getLogs();
-    getDefaultApp();
     getAppListSimple();
     getUnlimitedLogs();
     getDatabasesList();
@@ -846,7 +816,6 @@ $(document).ready(function () {
 
     setInterval(function () {
         getLogs();
-        getDefaultApp();
         getAppListSimple();
         getUnlimitedLogs();
         getDatabasesList();
@@ -1131,9 +1100,11 @@ $(document).ready(function () {
 
         selecttorModal.find(".modal-body").append("<div class='form-group text-center'><label>Name</label><input type='text' name='appname' class='form-control'></div>");
         selecttorModal.find(".modal-body").append("</div></div>");
+        selecttorModal.find(".modal-body").append("<div class='form-group text-center'><label>Prefix</label><input type='text' name='prefix' class='form-control'></div>");
+        selecttorModal.find(".modal-body").append("</div></div>");
         selecttorModal.find(".modal-body").append('<div class="container-new">' +
             '<div class="form-group text-center"> <label>Default template</label> <div class="check"><input id="check" type="checkbox" name="template" style="display: none"/><label for="check"><div class="box"><i class="fa fa-check"></i></div> </label></div></div>' +
-            '<div class="form-group text-center"><label>Default app</label> <div class="check"><input id="check1" name="isdefault"  type="checkbox" style="display: none" /><label for="check1"><div class="box"><i class="fa fa-check"></i></div> </label></div></div>' +
+            '<div class="form-group text-center"><label>Enabled</label> <div class="check"><input id="check1" name="enabled"  type="checkbox" style="display: none" /><label for="check1"><div class="box"><i class="fa fa-check"></i></div> </label></div></div>' +
             '</div>');
 
         selecttorModal.find(".btn-close").html("Close");
@@ -1195,6 +1166,68 @@ $(document).ready(function () {
                     selecttorModal.find(".btn-valid").attr("attr-href", href2);
                     selecttorModal.find(".btn-valid").attr("attr-dbconfig", name);
                     selecttorModal.find(".btn-valid").attr("attr-event", "editdatabasesave");
+                    selecttorModal.find(".btn-close").show();
+                    selecttorModal.find(".btn-valid").show();
+
+                    modal("show");
+                }
+                else
+                {
+                    operationError();
+                    return (0);
+                }
+            }
+        });
+    });
+
+
+    /**
+     * Event to show edit app modal
+     */
+    $(document).on('click', ".toeditapp", function () {
+        var selector = $(this);
+        var href = selector.attr("attr-href");
+        var href2 = selector.attr("attr-href2");
+        var name = selector.attr("attr-appname");
+        var result = null;
+
+        $.ajax({
+            url : href,
+            type : 'GET',
+            dataType : 'json',
+            success : function(data){
+                if (data['code'] === 200)
+                {
+                    result = data['results'];
+                    var selecttorModal = $("#modalManager");
+
+                    selecttorModal.find(".modal-header").html("<strong class='text-center'>Edit "+name+" app configuration</strong>");
+                    selecttorModal.find(".modal-header").append("<p class='alert alert-danger onealert' style='display: none'></p>");
+                    selecttorModal.find(".modal-body").html("<h4 class='text-center'>Edit fields to update app configuration.</h4>");
+                    selecttorModal.find(".modal-body").append("<br>");
+                    selecttorModal.find(".modal-body").append("<div class='container'><div class='row'>");
+
+                    selecttorModal.find(".modal-body").append("<div class='form-group text-center'><label>Configuration name</label><input type='text' name='config' class='form-control text-center' value='"+name+"' disabled='disabled'></div>");
+                    selecttorModal.find(".modal-body").append("</div></div>");
+                    selecttorModal.find(".modal-body").append("<div class='form-group text-center'><label>Name</label><input type='text' name='name' class='form-control text-center' value='"+result['db_name']+"'></div>");
+                    selecttorModal.find(".modal-body").append("</div></div>");
+                    selecttorModal.find(".modal-body").append("<div class='form-group text-center'><label>Host</label><input type='text' name='host' class='form-control text-center' value='"+result['db_host']+"'></div>");
+                    selecttorModal.find(".modal-body").append("</div></div>");
+                    selecttorModal.find(".modal-body").append("<div class='form-group text-center'><label>User name</label><input type='text' name='user' class='form-control text-center' value='"+result['db_user']+"'></div>");
+                    selecttorModal.find(".modal-body").append("</div></div>");
+                    selecttorModal.find(".modal-body").append("<div class='form-group text-center'><label>User password</label><input type='text' name='password' class='form-control text-center' value='"+result['db_password']+"'></div>");
+                    selecttorModal.find(".modal-body").append("</div></div>");
+                    selecttorModal.find(".modal-body").append("<div class='form-group text-center'><label>Port</label><input type='number' name='port' class='form-control text-center' value='"+result['db_port']+"'></div>");
+                    selecttorModal.find(".modal-body").append("</div></div>");
+                    selecttorModal.find(".modal-body").append("<div class='form-group text-center'><label>Driver</label><input type='text' name='driver' class='form-control text-center' value='"+result['db_driver']+"'></div>");
+                    selecttorModal.find(".modal-body").append("</div></div>");
+
+                    selecttorModal.find(".btn-close").html("Close");
+                    selecttorModal.find(".btn-valid").html("Update");
+
+                    selecttorModal.find(".btn-valid").attr("attr-href", href2);
+                    selecttorModal.find(".btn-valid").attr("attr-appname", name);
+                    selecttorModal.find(".btn-valid").attr("attr-event", "editappsave");
                     selecttorModal.find(".btn-close").show();
                     selecttorModal.find(".btn-valid").show();
 

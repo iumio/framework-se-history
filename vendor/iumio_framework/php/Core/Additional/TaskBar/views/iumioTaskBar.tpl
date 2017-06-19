@@ -17,7 +17,7 @@
                 <li class="iumioTaskBarAssetsPublishProd" attr-href="{$iumiotaskbar['clear_assets_prod']}"   >Clear prod</li>
             </ul>
         </li>
-        <li><a href="#" id="iumioTaskBarSwitchApp" attr-href="{$iumiotaskbar['all_simple_apps']}">Switch to default</a></li>
+        <li><a href="#" id="iumioTaskBarEnaDisApp" attr-href="{$iumiotaskbar['all_simple_apps']}">Change status</a></li>
         <li><a href="{$iumiotaskbar['manager']}">Go to manager</a></li>
         <li id="iumioTaskBarCacheClear" class="iumioTaskBarDropdown"><a href="#" >Clear cache</a>
             <ul class="iumioTaskBarDropdownContent">

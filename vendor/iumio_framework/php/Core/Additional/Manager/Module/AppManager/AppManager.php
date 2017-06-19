@@ -29,12 +29,13 @@ class AppManager implements ModuleManager
     protected $stage = array(
         "App name (like DefaultApp --> end with App): ",
         "iumio purpose you a default template with your app. Would you like to have one ? (yes/no) - Tap Enter for yes: ",
-        "Yeah! Would you like to set this app as default ? (yes/no) -  Tap Enter for yes:",
+        "Yeah! Would you like to enabled your app ? (yes/no) -  Tap Enter for yes:",
         "Informations are correct ? (yes/no) - Tap Enter for yes:",
         "Delete your app means all file and directory in your app directory will be deleted. Are you sure to confirm this action ? (yes/no) - Tap Enter for yes:",
         "Ok. I process to deleting your app ...",
         "Delete action is aborted ",
-        "This is app list which registered to app declarator. To select one, please enter the app number"
+        "This is app list which registered to app declarator. To select one, please enter the app number",
+        "Enter your app prefix? (App prefix must be a string without special character exepted [ _ & numbers]) -  Tap Enter for no app prefix:"
     );
     protected $params = array("appname" => "", "template" => "", "isdefault" => "", "correct" => "", "applist" => array(), "capp" => "");
 
@@ -53,8 +54,10 @@ class AppManager implements ModuleManager
                 $this->stepNewProject();
             elseif ($opt == "remove")
                 $this->stepRemoveProject();
-            elseif ($opt == "switch")
-                $this->stepSwitchProject();
+            elseif ($opt == "enabled")
+                $this->stepEnabledProject();
+            elseif ($opt == "disabled")
+                $this->stepDisabledProject();
             else
                 Output::outputAsError("App Manager Error \n   This command doesn't exist. Referer to help comannd\n");
         }
@@ -78,7 +81,17 @@ class AppManager implements ModuleManager
      */
     final protected function checkBooleanResponse(string $res):int
     {
-        if ($res == "yes" || $res == "no" || $res == "") return (1);
+        if (trim($res) == "yes" || trim($res) == "no" || trim($res) == "") return (1);
+        return (-1);
+    }
+
+    /** Check prefix response
+     * @param string $res response
+     * @return int Is valid prefix response
+     */
+    final protected function checkPrefix(string $res):int
+    {
+        if (!preg_match('/[\'^£$%&*()}{@#~?><>,|=+¬-]/', $res)) return (1);
         return (-1);
     }
 
@@ -134,30 +147,41 @@ class AppManager implements ModuleManager
         }
         Output::outputAsNormal("Great! Your app name is ".$this->params['appname'], "none");
         Output::outputAsReadLine($this->stage[1], "none");
-        $this->params['template'] = ((!empty($this->listener()))?  $this->listener() : "yes");
+        $this->params['template'] = $this->listener();
         while ($this->checkBooleanResponse($this->params['template']) != 1)
         {
             Output::outputAsError("Invalid response. Please Retry (yes/no)", "none");
             Output::outputAsReadLine($this->stage[1], "none");
-            $this->params['template'] = ((!empty($this->listener()))?  $this->listener() : "yes");
+            $this->params['template'] = $this->listener();
         }
         Output::outputAsReadLine($this->stage[2], "none");
-        $this->params['isdefault'] = ((!empty($this->listener()))?  $this->listener() : "yes");
-        while ($this->checkBooleanResponse($this->params['isdefault']) != 1)
+        $this->params['enabled'] = $this->listener();
+        while ($this->checkBooleanResponse($this->params['enabled']) != 1)
         {
             Output::outputAsError("Invalid response. Please Retry (yes/no)", "none");
             Output::outputAsReadLine($this->stage[2], "none");
-            $this->params['isdefault'] = ((!empty($this->listener()))?  $this->listener() : "yes");
+            $this->params['enabled'] = $this->listener();
         }
 
-        $this->showRecap();
-        Output::outputAsReadLine($this->stage[3], "none");
-        $this->params['correct'] = ((!empty($this->listener()))?  $this->listener() : "yes");
-        while ($this->checkBooleanResponse($this->params['correct']) != 1)
+        Output::outputAsReadLine($this->stage[8], "none");
+        $this->params['prefix'] = strtolower($this->listener());
+        while ($this->checkPrefix($this->params['prefix']) != 1)
         {
             Output::outputAsError("Invalid response. Please Retry (yes/no)", "none");
+            Output::outputAsReadLine($this->stage[8], "none");
+            $this->params['prefix'] = strtolower($this->listener());
+        }
+
+        $this->params['template'] = (($this->params['template'] != "")? $this->params['template'] : "yes");
+        $this->params['enabled'] = (($this->params['enabled'] != "")? $this->params['enabled'] : "yes");
+        $this->showRecap();
+        Output::outputAsReadLine($this->stage[3], "none");
+        $this->params['correct'] = $this->listener();
+        while ($this->checkBooleanResponse($this->params['correct']) != 1)
+        {
+            Output::outputAsError("Invalid response. Please Retry", "none");
             Output::outputAsReadLine($this->stage[3], "none");
-            $this->params['correct'] = ((!empty($this->listener()))?  $this->listener() : "yes");
+            $this->params['correct'] = $this->listener();
         }
         if ($this->params['correct'] == "no")
             Output::outputAsError("Creation Aborted. Please re-run app and enter the correct informations");
@@ -216,27 +240,54 @@ class AppManager implements ModuleManager
     /**
      *
      */
-    final protected function stepSwitchProject()
+    final protected function stepEnabledProject()
     {
         Output::clear();
-        Output::outputAsSuccess("Welcome on App Manager. I'm assist you to change your default app. Many question will ask you.\n".$this->stage[7], "none");
+        Output::outputAsSuccess("Welcome on App Manager. I'm assist you to enabled your app. Many question will ask you.\n".$this->stage[7], "none");
         // Output::outputAsNormal($this->stage[7]."\n", "none");
-        $this->showAppsRegister();
+        if ($this->showDisabledAppsRegister() == false)
+            return ;
+        Output::outputAsReadLine("Which number ? : ", "none");
+        $this->params['capp'] = $this->listener();
+
+        while (!@isset($this->params['applist'][$this->params['capp'] - 1]))
+        {
+            Output::outputAsError("Your choose is incorrect. Please Retry", "none");
+            $this->showDisabledAppsRegister();
+            Output::outputAsReadLine("Which number ? : ", "none");
+            $this->params['capp'] = $this->listener();
+        }
+        $this->params['capp'] = $this->params['applist'][$this->params['capp'] - 1];
+
+        Output::outputAsSuccess("Ok ! You choose ".$this->params['capp']." to be enabled", "none");
+        $this->enabledAppProcess();
+    }
+
+
+    /**
+     *
+     */
+    final protected function stepDisabledProject()
+    {
+        Output::clear();
+        Output::outputAsSuccess("Welcome on App Manager. I'm assist you to disabled your app. Many question will ask you.\n".$this->stage[7], "none");
+        // Output::outputAsNormal($this->stage[7]."\n", "none");
+        if ($this->showEnabledAppsRegister() == false)
+            return ;
         Output::outputAsReadLine("Which number ? : ", "none");
         $this->params['capp'] = $this->listener();
 
         while (!isset($this->params['applist'][$this->params['capp'] - 1]))
         {
             Output::outputAsError("Your choose is incorrect. Please Retry", "none");
-            Output::outputAsSuccess($this->stage[7]."\n", "none");
-            $this->showAppsRegister();
-            Output::outputAsSuccess("Which number ? : ", "none");
+            $this->showEnabledAppsRegister();
+            Output::outputAsReadLine("Which number ? : ", "none");
             $this->params['capp'] = $this->listener();
         }
         $this->params['capp'] = $this->params['applist'][$this->params['capp'] - 1];
 
-        Output::outputAsSuccess("Ok ! You choose ".$this->params['capp']." to be default app", "none");
-        $this->switchAppProcess();
+        Output::outputAsSuccess("Ok ! You choose ".$this->params['capp']." to be disabled", "none");
+        $this->disabledAppProcess();
     }
 
     /**
@@ -248,7 +299,8 @@ class AppManager implements ModuleManager
         $strOutput .= "----------------------------\n";
         $strOutput .= "    - App name: ".$this->params['appname']." \n";
         $strOutput .= "    - Use default template : ".$this->params['template']." \n";
-        $strOutput .= "    - As default app : ".$this->params['isdefault'];
+        $strOutput .= "    - Enabled : ".$this->params['enabled']. "\n";
+        $strOutput .= "    - App prefix : ".(($this->params['prefix'] == "")? "no app prefix" : "/".$this->params['prefix']);
         Output::outputAsNormal($strOutput, "none");
 
     }
@@ -260,6 +312,8 @@ class AppManager implements ModuleManager
     final protected function checkAppRegister(string $appname):bool
     {
         $f = json_decode(file_get_contents(ROOT_PROJECT."/elements/config_files/apps.json"));
+        if (empty($f))
+            return (false);
         foreach ($f as $one => $val)
         {
             if ($val->name == $appname) return (true);
@@ -279,13 +333,80 @@ class AppManager implements ModuleManager
         $str = "";
         foreach ($f as $one => $val)
         {
-            $str .= $i.") ".$val->name.(($val->isdefault == "yes")? " : Is default" : "")."\n";
+            $str .= $i.") ".$val->name.(($val->enabled == "yes")? " : Enabled" : "Disabled")."\n";
             array_push($this->params['applist'], $val->name);
             $i++;
         }
 
         Output::outputAsNormal("Your apps \n------------\n".$str, "none");
         return (false);
+    }
+
+
+    /** Show enabled app in apps.json
+     * @return int
+     */
+    final protected function showEnabledAppsRegister():int
+    {
+        $this->params['applist'] = array();
+        $f = json_decode(file_get_contents(ROOT_PROJECT."/elements/config_files/apps.json"));
+        $i = 1;
+        if ((is_string($f) && strlen($f) < 3) || (count((array) $f) == 0))
+        {
+            Output::outputAsError("Oups! You do not have an enabled app.");
+            return (false);
+        }
+        $str = "";
+        foreach ($f as $one => $val)
+        {
+            if ($val->enabled == "yes") {
+                $str .= $i . ") " . $val->name . " : Enabled"  . "\n";
+                array_push($this->params['applist'], $val->name);
+                $i++;
+            }
+        }
+
+        if (count($this->params['applist']) == 0)
+        {
+            Output::outputAsError("Oups! You do not have an enabled app.");
+            return (false);
+        }
+        else
+            Output::outputAsNormal("Your apps \n------------\n".$str, "none");
+        return (true);
+    }
+
+
+    /** Show disabled app in apps.json
+     * @return int
+     */
+    final protected function showDisabledAppsRegister():int
+    {
+        $this->params['applist'] = array();
+        $f = json_decode(file_get_contents(ROOT_PROJECT."/elements/config_files/apps.json"));
+        $i = 1;
+        if ((is_string($f) && strlen($f) < 3) || (count((array)  $f) == 0))
+        {
+            Output::outputAsError("Oups! You do not have a disabled app.");
+            return (false);
+        }
+        $str = "";
+        foreach ($f as $one => $val)
+        {
+            if ($val->enabled == "no") {
+                $str .= $i . ") " . $val->name . " : Disabled" . "\n";
+                array_push($this->params['applist'], $val->name);
+                $i++;
+            }
+        }
+        if (count($this->params['applist']) == 0)
+        {
+            Output::outputAsError("Oups! You do not have a disabled app.");
+            return (false);
+        }
+        else
+            Output::outputAsNormal("Your apps \n------------\n".$str, "none");
+        return (true);
     }
 
     /**
@@ -326,22 +447,14 @@ class AppManager implements ModuleManager
         if (!is_object($f))
             $f = new \stdClass();
 
+
         foreach ($f as $one => $val) $lastapp++;
-        if ($this->params['isdefault'] == "yes")
-        {
-            foreach ($f as $one => $val)
-            {
-                if ($val->isdefault == "yes") {
-                    $val->isdefault = "no";
-                    break;
-                }
-            }
-        }
-        if ($f != "")
-            $f = new \stdClass();
+        error_log(count($f));
+
         $f->$lastapp = new \stdClass();
         $f->$lastapp->name = $this->params['appname'];
-        $f->$lastapp->isdefault = $this->params['isdefault'];
+        $f->$lastapp->enabled = (($this->params['enabled'] != "")? $this->params['enabled'] : "yes");
+        $f->$lastapp->prefix = $this->params['prefix'];
         $f->$lastapp->class = "\\".$this->params['appname']."\\".$this->params['appname'];
         $ndate = new \DateTime('UTC');
         $f->$lastapp->creation = $ndate;
@@ -351,7 +464,7 @@ class AppManager implements ModuleManager
         $this->initialJSON();
         if ($this->params['template'] == "yes")
             new AM(array("core/manager", "assets-manager", "--copy", "--appname=". $this->params['appname'], "--symlink", "--noexit"));
-        Output::outputAsEndSuccess("Your app is ready to use. To test your app, go to project location on your browser with parameter /index. Enjoy !", "none");
+        Output::outputAsEndSuccess("Your app is ready to use. To test your app, go to project location on your browser with parameter ".(($this->params['prefix'] != "")? "/".$this->params['prefix'] : "")."/index. Enjoy !", "none");
     }
 
 
@@ -376,32 +489,51 @@ class AppManager implements ModuleManager
     }
 
     /**
-     * Processing to switch default app
+     * Processing to enabled an app
      */
-    final protected function switchAppProcess()
+    final protected function enabledAppProcess()
     {
         $appname = $this->params['capp'];
-        Output::outputAsNormal("Processing to switch app : $appname  will be a default app\n", "none");
+        Output::outputAsNormal("Processing to enabled app : $appname  will be enabled \n", "none");
         sleep(1);
         $f = json_decode(file_get_contents(ROOT_PROJECT."/elements/config_files/apps.json"));
 
         foreach ($f as $one => $val)
         {
-            if ($val->isdefault == "yes")
-            {
-                $val->isdefault = "no";
-                $val->update = new \DateTime('UTC');
-            }
             if ($val->name == $this->params['capp'])
             {
                 $val->update = new \DateTime();
-                $val->isdefault = "yes";
+                $val->enabled = "yes";
             }
         }
 
         $f = json_encode($f, JSON_PRETTY_PRINT);
         file_put_contents(ROOT_PROJECT."/elements/config_files/apps.json", $f);
-        Output::outputAsEndSuccess("Now, the ".$this->params['capp']." is the default app", "none");
+        Output::outputAsEndSuccess("Now, the ".$this->params['capp']." is enabled", "none");
+    }
+
+    /**
+     * Processing to disabled an app
+     */
+    final protected function disabledAppProcess()
+    {
+        $appname = $this->params['capp'];
+        Output::outputAsNormal("Processing to enabled app : $appname  will be enabled \n", "none");
+        sleep(1);
+        $f = json_decode(file_get_contents(ROOT_PROJECT."/elements/config_files/apps.json"));
+
+        foreach ($f as $one => $val)
+        {
+            if ($val->name == $this->params['capp'])
+            {
+                $val->update = new \DateTime();
+                $val->enabled = "no";
+            }
+        }
+
+        $f = json_encode($f, JSON_PRETTY_PRINT);
+        file_put_contents(ROOT_PROJECT."/elements/config_files/apps.json", $f);
+        Output::outputAsEndSuccess("Now, the ".$this->params['capp']." is disabled", "none");
     }
 
 
@@ -417,20 +549,21 @@ class AppManager implements ModuleManager
         // DELETE TO APP CORE
 
         $f = json_decode(file_get_contents(ROOT_PROJECT."/elements/config_files/apps.json"));
-        foreach ($f as $one => $val)
-        {
-            if ($val->name == $appname)
-            {
-                unset($f->$one);
-                break;
+        if (!empty($f)) {
+            foreach ($f as $one => $val) {
+                if ($val->name == $appname) {
+                    unset($f->$one);
+                    break;
+                }
             }
+
+            $f = array_values((array)$f);
+            $f = json_encode((object) $f, JSON_PRETTY_PRINT);
+
+            file_put_contents(ROOT_PROJECT."/elements/config_files/apps.json", $f);
+            if (strlen($f) < 3)
+                file_put_contents(ROOT_PROJECT."/elements/config_files/apps.json", "");
         }
-
-        $f = array_values((array)$f);
-        $f = json_encode((object) $f, JSON_PRETTY_PRINT);
-
-        file_put_contents(ROOT_PROJECT."/elements/config_files/apps.json", $f);
-
         Server::delete(ROOT_PROJECT."/apps/$appname", "directory");
         new AM(array("core/manager", "assets-manager", "--clear", "--appname=". $this->params['appname'], "--noexit", "--quiet"));
 

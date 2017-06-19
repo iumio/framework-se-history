@@ -65,7 +65,8 @@ function createAppProcess($appname, $default, $temp)
 
     $f->$lastapp = new \stdClass();
     $f->$lastapp->name = $appname;
-    $f->$lastapp->isdefault = ($default == "1")? "yes" : "no";
+    $f->$lastapp->enabled = "yes";
+    $f->$lastapp->prefix = "";
     $f->$lastapp->class = "\\".$appname."\\".$appname;
     $ndate = new \DateTime('UTC');
     $f->$lastapp->creation = $ndate;

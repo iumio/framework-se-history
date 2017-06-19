@@ -1,0 +1,274 @@
+{
+    "0": {
+        "time": "2017-06-19 19:33:07",
+        "content": "[404 NOT FOUND] : The ressource you try to access is not found. : Please check your URI"
+    },
+    "1": {
+        "time": "2017-06-19 21:39:04",
+        "content": "[500 INTERNAL ERROR] : No Default app is detected : Please edit apps.json to set a default app"
+    },
+    "2": {
+        "time": "2017-06-19 22:16:26",
+        "content": "[500 INTERNAL ERROR] : No Default app is detected : Please edit apps.json to set a default app"
+    },
+    "3": {
+        "time": "2017-06-19 22:25:57",
+        "content": "[500 INTERNAL ERROR] : iumio Core Error : Class \\ManagerApp\\Master\\AppsMaster or method \\ManagerApp\\Master\\AppsMaster::disabledActivity doesn't exist : iumio Reflexion Method Error : Method ManagerApp\\Master\\AppsMaster::disabledActivity() does not exist"
+    },
+    "4": {
+        "time": "2017-06-19 22:26:14",
+        "content": "[500 INTERNAL ERROR] : iumio Core Error : Class \\ManagerApp\\Master\\AppsMaster or method \\ManagerApp\\Master\\AppsMaster::disabledActivity doesn't exist : iumio Reflexion Method Error : Method ManagerApp\\Master\\AppsMaster::disabledActivity() does not exist"
+    },
+    "5": {
+        "time": "2017-06-19 22:26:18",
+        "content": "[500 INTERNAL ERROR] : iumio Core Error : Class \\ManagerApp\\Master\\AppsMaster or method \\ManagerApp\\Master\\AppsMaster::disabledActivity doesn't exist : iumio Reflexion Method Error : Method ManagerApp\\Master\\AppsMaster::disabledActivity() does not exist"
+    },
+    "6": {
+        "time": "2017-06-19 22:27:24",
+        "content": "[500 INTERNAL ERROR] : iumio Core Error : Class \\ManagerApp\\Master\\AppsMaster or method \\ManagerApp\\Master\\AppsMaster::autoDisabledOrEnabledActivity doesn't exist : iumio Reflexion Method Error : Method ManagerApp\\Master\\AppsMaster::autoDisabledOrEnabledActivity() does not exist"
+    },
+    "7": {
+        "time": "2017-06-19 22:27:27",
+        "content": "[500 INTERNAL ERROR] : iumio Core Error : Class \\ManagerApp\\Master\\AppsMaster or method \\ManagerApp\\Master\\AppsMaster::autoDisabledOrEnabledActivity doesn't exist : iumio Reflexion Method Error : Method ManagerApp\\Master\\AppsMaster::autoDisabledOrEnabledActivity() does not exist"
+    },
+    "8": {
+        "time": "2017-06-19 22:45:09",
+        "content": "[500 INTERNAL ERROR] : No Default app is detected : Please edit apps.json to set a default app"
+    },
+    "9": {
+        "time": "2017-06-19 23:01:05",
+        "content": "[404 NOT FOUND] : The ressource you try to access is not found. : Please check your URI"
+    },
+    "10": {
+        "time": "2017-06-19 23:01:08",
+        "content": "[404 NOT FOUND] : The ressource you try to access is not found. : Please check your URI"
+    },
+    "11": {
+        "time": "2017-06-19 23:01:24",
+        "content": "[404 NOT FOUND] : The ressource you try to access is not found. : Please check your URI"
+    },
+    "12": {
+        "time": "2017-06-19 23:01:27",
+        "content": "[404 NOT FOUND] : The ressource you try to access is not found. : Please check your URI"
+    },
+    "13": {
+        "time": "2017-06-19 23:04:42",
+        "content": "[404 NOT FOUND] : The ressource you try to access is not found. : Please check your URI"
+    },
+    "14": {
+        "time": "2017-06-19 23:04:42",
+        "content": "[404 NOT FOUND] : The ressource you try to access is not found. : Please check your URI"
+    },
+    "15": {
+        "time": "2017-06-19 23:04:46",
+        "content": "[404 NOT FOUND] : The ressource you try to access is not found. : Please check your URI"
+    },
+    "16": {
+        "time": "2017-06-19 23:07:23",
+        "content": "[404 NOT FOUND] : The ressource you try to access is not found. : Please check your URI"
+    },
+    "17": {
+        "time": "2017-06-19 23:07:25",
+        "content": "[404 NOT FOUND] : The ressource you try to access is not found. : Please check your URI"
+    },
+    "18": {
+        "time": "2017-06-19 23:07:25",
+        "content": "[404 NOT FOUND] : The ressource you try to access is not found. : Please check your URI"
+    },
+    "19": {
+        "time": "2017-06-19 23:07:25",
+        "content": "[404 NOT FOUND] : The ressource you try to access is not found. : Please check your URI"
+    },
+    "20": {
+        "time": "2017-06-19 23:07:25",
+        "content": "[404 NOT FOUND] : The ressource you try to access is not found. : Please check your URI"
+    },
+    "21": {
+        "time": "2017-06-19 23:07:26",
+        "content": "[404 NOT FOUND] : The ressource you try to access is not found. : Please check your URI"
+    },
+    "22": {
+        "time": "2017-06-19 23:07:26",
+        "content": "[404 NOT FOUND] : The ressource you try to access is not found. : Please check your URI"
+    },
+    "23": {
+        "time": "2017-06-19 23:07:27",
+        "content": "[404 NOT FOUND] : The ressource you try to access is not found. : Please check your URI"
+    },
+    "24": {
+        "time": "2017-06-19 23:07:27",
+        "content": "[404 NOT FOUND] : The ressource you try to access is not found. : Please check your URI"
+    },
+    "25": {
+        "time": "2017-06-19 23:07:28",
+        "content": "[404 NOT FOUND] : The ressource you try to access is not found. : Please check your URI"
+    },
+    "26": {
+        "time": "2017-06-19 23:07:28",
+        "content": "[404 NOT FOUND] : The ressource you try to access is not found. : Please check your URI"
+    },
+    "27": {
+        "time": "2017-06-19 23:07:29",
+        "content": "[404 NOT FOUND] : The ressource you try to access is not found. : Please check your URI"
+    },
+    "28": {
+        "time": "2017-06-19 23:07:29",
+        "content": "[404 NOT FOUND] : The ressource you try to access is not found. : Please check your URI"
+    },
+    "29": {
+        "time": "2017-06-19 23:07:31",
+        "content": "[404 NOT FOUND] : The ressource you try to access is not found. : Please check your URI"
+    },
+    "30": {
+        "time": "2017-06-19 23:07:31",
+        "content": "[404 NOT FOUND] : The ressource you try to access is not found. : Please check your URI"
+    },
+    "31": {
+        "time": "2017-06-19 23:08:06",
+        "content": "[404 NOT FOUND] : The ressource you try to access is not found. : Please check your URI"
+    },
+    "32": {
+        "time": "2017-06-19 23:08:06",
+        "content": "[404 NOT FOUND] : The ressource you try to access is not found. : Please check your URI"
+    },
+    "33": {
+        "time": "2017-06-19 23:08:07",
+        "content": "[404 NOT FOUND] : The ressource you try to access is not found. : Please check your URI"
+    },
+    "34": {
+        "time": "2017-06-19 23:08:07",
+        "content": "[404 NOT FOUND] : The ressource you try to access is not found. : Please check your URI"
+    },
+    "35": {
+        "time": "2017-06-19 23:09:57",
+        "content": "[404 NOT FOUND] : The ressource you try to access is not found. : Please check your URI"
+    },
+    "36": {
+        "time": "2017-06-19 23:10:02",
+        "content": "[404 NOT FOUND] : The ressource you try to access is not found. : Please check your URI"
+    },
+    "37": {
+        "time": "2017-06-19 23:10:18",
+        "content": "[404 NOT FOUND] : The ressource you try to access is not found. : Please check your URI"
+    },
+    "38": {
+        "time": "2017-06-19 23:10:22",
+        "content": "[404 NOT FOUND] : The ressource you try to access is not found. : Please check your URI"
+    },
+    "39": {
+        "time": "2017-06-19 23:11:19",
+        "content": "[404 NOT FOUND] : The ressource you try to access is not found. : Please check your URI"
+    },
+    "40": {
+        "time": "2017-06-19 23:11:21",
+        "content": "[404 NOT FOUND] : The ressource you try to access is not found. : Please check your URI"
+    },
+    "41": {
+        "time": "2017-06-19 23:11:23",
+        "content": "[404 NOT FOUND] : The ressource you try to access is not found. : Please check your URI"
+    },
+    "42": {
+        "time": "2017-06-19 23:11:25",
+        "content": "[404 NOT FOUND] : The ressource you try to access is not found. : Please check your URI"
+    },
+    "43": {
+        "time": "2017-06-19 23:11:50",
+        "content": "[404 NOT FOUND] : The ressource you try to access is not found. : Please check your URI"
+    },
+    "44": {
+        "time": "2017-06-19 23:12:08",
+        "content": "[404 NOT FOUND] : The ressource you try to access is not found. : Please check your URI"
+    },
+    "45": {
+        "time": "2017-06-19 23:12:11",
+        "content": "[404 NOT FOUND] : The ressource you try to access is not found. : Please check your URI"
+    },
+    "46": {
+        "time": "2017-06-19 23:15:04",
+        "content": "[404 NOT FOUND] : The ressource you try to access is not found. : Please check your URI"
+    },
+    "47": {
+        "time": "2017-06-19 23:16:57",
+        "content": "[404 NOT FOUND] : The ressource you try to access is not found. : Please check your URI"
+    },
+    "48": {
+        "time": "2017-06-19 23:17:40",
+        "content": "[404 NOT FOUND] : The ressource you try to access is not found. : Please check your URI"
+    },
+    "49": {
+        "time": "2017-06-19 23:28:04",
+        "content": "[404 NOT FOUND] : The ressource you try to access is not found. : Please check your URI"
+    },
+    "50": {
+        "time": "2017-06-19 23:32:18",
+        "content": "[404 NOT FOUND] : The ressource you try to access is not found. : Please check your URI"
+    },
+    "51": {
+        "time": "2017-06-19 23:33:02",
+        "content": "[404 NOT FOUND] : The ressource you try to access is not found. : Please check your URI"
+    },
+    "52": {
+        "time": "2017-06-19 23:33:03",
+        "content": "[404 NOT FOUND] : The ressource you try to access is not found. : Please check your URI"
+    },
+    "53": {
+        "time": "2017-06-19 23:33:09",
+        "content": "[404 NOT FOUND] : The ressource you try to access is not found. : Please check your URId"
+    },
+    "54": {
+        "time": "2017-06-19 23:33:11",
+        "content": "[404 NOT FOUND] : The ressource you try to access is not found. : Please check your URId"
+    },
+    "55": {
+        "time": "2017-06-19 23:34:07",
+        "content": "[404 NOT FOUND] : The ressource you try to access is not found. : Please check your URI"
+    },
+    "56": {
+        "time": "2017-06-19 23:34:08",
+        "content": "[404 NOT FOUND] : The ressource you try to access is not found. : Please check your URI"
+    },
+    "57": {
+        "time": "2017-06-19 23:35:27",
+        "content": "[404 NOT FOUND] : The ressource you try to access is not found. : Please check your URI"
+    },
+    "58": {
+        "time": "2017-06-19 23:35:36",
+        "content": "[404 NOT FOUND] : The ressource you try to access is not found. : Please check your URId"
+    },
+    "59": {
+        "time": "2017-06-19 23:35:53",
+        "content": "[404 NOT FOUND] : The ressource you try to access is not found. : Please check your URI"
+    },
+    "60": {
+        "time": "2017-06-19 23:36:16",
+        "content": "[404 NOT FOUND] : The ressource you try to access is not found. : Please check your URI"
+    },
+    "61": {
+        "time": "2017-06-19 23:36:18",
+        "content": "[404 NOT FOUND] : The ressource you try to access is not found. : Please check your URI"
+    },
+    "62": {
+        "time": "2017-06-19 23:36:20",
+        "content": "[404 NOT FOUND] : The ressource you try to access is not found. : Please check your URI"
+    },
+    "63": {
+        "time": "2017-06-19 23:36:35",
+        "content": "[404 NOT FOUND] : The ressource you try to access is not found. : Please check your URI"
+    },
+    "64": {
+        "time": "2017-06-19 23:37:19",
+        "content": "[404 NOT FOUND] : The ressource you try to access is not found. : Please check your URI"
+    },
+    "65": {
+        "time": "2017-06-19 23:37:31",
+        "content": "[404 NOT FOUND] : The ressource you try to access is not found. : Please check your URI"
+    },
+    "66": {
+        "time": "2017-06-19 23:37:35",
+        "content": "[404 NOT FOUND] : The ressource you try to access is not found. : Please check your URI"
+    },
+    "67": {
+        "time": "2017-06-19 23:38:22",
+        "content": "[404 NOT FOUND] : The ressource you try to access is not found. : Please check your URIa"
+    }
+}

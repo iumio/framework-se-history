@@ -24,7 +24,7 @@ use iumioFramework\Core\Base\iumioEnvironment as Env;
 class Routing extends RtListener
 {
     private $app;
-    private $framework;
+    private $prefix;
     private $isbase;
 
     /**
@@ -34,15 +34,15 @@ class Routing extends RtListener
     /**
      * Routing constructor.
      * @param string $app App name
-     * @param string $framework framework name
+     * @param string|null $prefix app prefix name
      * @param bool $isbase Check is a base app
      */
-    public function __construct(string $app, string $framework, bool $isbase = false)
+    public function __construct(string $app, $prefix, bool $isbase = false)
     {
         $this->app =  $app;
-        $this->framework = $framework;
+        $this->prefix = $prefix;
         $this->isbase = $isbase;
-        parent::__construct($app);
+        parent::__construct($app, $prefix);
     }
 
     /** Register a router

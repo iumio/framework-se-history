@@ -53,6 +53,10 @@ class AppsMaster extends Master
         foreach ($file as $one)
         {
             $one->link = $this->generateRoute("iumio_manager_app_manager_switch_default_app", array("appname" => $one->name), null, true);
+            $one->link_enabled = $this->generateRoute("iumio_manager_app_manager_enabled_app", array("appname" => $one->name), null, true);
+            $one->link_disabled = $this->generateRoute("iumio_manager_app_manager_disabled_app", array("appname" => $one->name), null, true);
+            $one->link_auto_dis_ena = $this->generateRoute("iumio_manager_app_manager_auto_dis_ena_app", array("appname" => $one->name), null, true);
+
             $one->link_remove = $this->generateRoute("iumio_manager_app_manager_remove_app", array("appname" => $one->name), null, true);
         }
         return ($file);
@@ -94,6 +98,29 @@ class AppsMaster extends Master
         return ((new Response())->JSON_RENDER(array("code" => 200, "msg" => "OK")));
     }
 
+    /** auto change enabled or disabled app
+     * @param string $appname App name
+     * @return int
+     */
+    public function autoDisabledOrEnabledActivity(string $appname):int
+    {
+        $file = JL::open(CONFIG_DIR."apps.json");
+        foreach ($file as $one => $val)
+        {
+            if ($val->name == $appname)
+            {
+                if ($val->enabled == "yes")
+                    $val->enabled = "no";
+                else if ($val->enabled == "no")
+                    $val->enabled = "yes";
+                $val->update = new \DateTime();
+            }
+        }
+
+        $file = json_encode($file, JSON_PRETTY_PRINT);
+        JL::put(CONFIG_DIR."apps.json", $file);
+        return ((new Response())->JSON_RENDER(array("code" => 200, "msg" => "OK")));
+    }
 
     /** remove one app
      * @param string $appname App name

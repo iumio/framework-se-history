@@ -25,14 +25,17 @@ class RtListener implements Listener
     protected $appName;
     protected $router = array();
     protected $partNameApp;
+    private $prefix;
 
     /**
      * RtListener constructor.
-     * @param string $appName
+     * @param string
+     * @param string $prefix
      */
-    public function __construct(string $appName)
+    public function __construct(string $appName, $prefix)
     {
         $this->appName = $appName;
+        $this->prefix = $prefix;
     }
 
     /** Open a file
@@ -74,7 +77,7 @@ class RtListener implements Listener
                         else if (isset($routingArray[$i][0]) && $routingArray[$i][0] == "method")
                             $method = $routingArray[$i][1];
                         else if (isset($routingArray[$i][0]) && $routingArray[$i][0] == "path")
-                            $path = $routingArray[$i][1];
+                            $path = (($this->prefix == null || $this->prefix == "")? "" : $this->prefix).$routingArray[$i][1];
                     }
                     else
                     {

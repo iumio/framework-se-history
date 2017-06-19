@@ -173,7 +173,7 @@ function getSimpleApps() {
     if (inload === true)
         return ;
     inload = true;
-    var elem = document.getElementById("iumioTaskBarSwitchApp");
+    var elem = document.getElementById("iumioTaskBarEnaDisApp");
     var content = elem.parentElement.cloneNode(true);
     var href = elem.getAttribute("attr-href");
     var xhr = new XMLHttpRequest();
@@ -190,7 +190,7 @@ function getSimpleApps() {
                 var str = '';
                 for(var i = 0; i < ObjectLength(result); i++)
                 {
-                    var e =   '<li class="iumioTaskBarOneApp" '+((result[i]['isdefault'] === "yes")? "  style='background-color:green;' " : "")+'  attr-href="'+result[i]['link']+'">'+result[i]['name'] +" "+((result[i]['isdefault'] === "yes")? "(default)" : "") +'</li>';
+                    var e =   '<li class="iumioTaskBarOneApp" '+((result[i]['enabled'] === "yes")? "  style='background-color:green;' " : "   style='background-color:red;' ")+'  attr-href="'+result[i]['link_auto_dis_ena']+'">'+result[i]['name'] +" "+((result[i]['enabled'] === "yes")? "(Enabled)" : "(Disabled)") +'</li>';
                     str += e;
                 }
                 str += '';
@@ -210,7 +210,7 @@ function getSimpleApps() {
 
 
 function switchApp(elem) {
-    var pElem = document.querySelector("#iumioTaskBarSwitchApp");
+    var pElem = document.querySelector("#iumioTaskBarEnaDisApp");
     var href = elem.getAttribute("attr-href");
     var xhr = new XMLHttpRequest();
     xhr.open('GET', href);
@@ -222,12 +222,9 @@ function switchApp(elem) {
             pElem.style.backgroundColor = 'green';
             var content = pElem.cloneNode(true);
             pElem.innerHTML  = 'Successful';
-            inload = true;
             setTimeout(function () {
-               pElem.style.backgroundColor = '';
-               pElem.innerHTML = content.innerHTML;
-               inload = false;
-               location.reload();
+                pElem.style.backgroundColor = '#2b4e9e';
+                pElem.innerHTML = content.innerHTML;
             }, 5000);
         }
     });

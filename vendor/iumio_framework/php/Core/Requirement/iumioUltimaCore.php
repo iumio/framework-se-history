@@ -178,6 +178,21 @@ abstract class iumioUltimaCore extends iumioUltima
         return (@array_combine($keys, $values));
     }
 
+
+    /** getSimpleAppFormat
+     * @param array $apps App list
+     * @return array getSimpleAppFormat
+     */
+    protected function getSimpleAppFormat(array $apps):array
+    {
+        $narray = array();
+        foreach ($apps as $oneapp => $val)
+            array_push($narray, array("name" => $oneapp, "value" => $val));
+        return ($narray);
+
+    }
+
+
     /** Get real app name
      * @param string $fullAppName Full app name
      * @return string the real app name
@@ -199,41 +214,45 @@ abstract class iumioUltimaCore extends iumioUltima
         self::$runtime_parameters = $request;
         $apps = $this->registerApps();
         $bapps = $this->registerBaseApps();
+        $great = false;
 
         if ($this->isComponentCall($bapps, $request)) return (1);
-        $def = $this->detectDefaultApp($apps);
 
-        $rt = new Routing($def['name'], 'iumio');
-        if ($rt->routingRegister() == true)
-        {
-            $callback = $this->manage($request, $rt->routes());
+        //$def = $this->detectDefaultApp($apps);
+        $values = $this->getSimpleAppFormat($apps);
 
-            if ($callback == NULL)
-                throw new Server404(new \ArrayObject(array("solution" => "Please check your URI")));
+        foreach ($values as $one => $def) {
+            if ($great)
+                return (1);
 
-            $method = $callback['method'];
-            $controller = $callback['controller'];
+            $rt = new Routing($def['name'], $def['value']['prefix']);
+            if ($rt->routingRegister() == true) {
+                $callback = $this->manage($request, $rt->routes());
+                if ($callback != NULL) {
+                    $method = $callback['method'];
+                    $controller = $callback['controller'];
 
-            $defname = $def['name'];
-            $master = "\\$defname\\Master\\{$controller}Master";
-            try
-            {
-                $call = new iumioReflexion();
-                define("APP_CALL", $def['name']);
-                define("IS_IUMIO_COMPONENT", false);
-                if (isset($callback['pval']))
-                    $call->__named($master, $method, $callback['pval']);
-                else
-                    $call->__named($master, $method);
-            }
-            catch (\Exception $exception)
-            {
-                throw new Server500(new \ArrayObject(array("explain" =>"iumio Core Error : Class $master or method $master::$method doesn't exist", "solution" => $exception->getMessage())));
-            }
-
+                    $defname = $def['name'];
+                    $master = "\\$defname\\Master\\{$controller}Master";
+                    try {
+                        $call = new iumioReflexion();
+                        define("APP_CALL", $def['name']);
+                        define("IS_IUMIO_COMPONENT", false);
+                        if (isset($callback['pval']))
+                            $call->__named($master, $method, $callback['pval']);
+                        else
+                            $call->__named($master, $method);
+                        $great = true;
+                    } catch (\Exception $exception) {
+                        throw new Server500(new \ArrayObject(array("explain" => "iumio Core Error : Class $master or method $master::$method doesn't exist", "solution" => $exception->getMessage())));
+                    }
+                }
+            } else
+                throw new Server500(new \ArrayObject(array("explain" => "iumio router register fail  ", "solution" => "Please check your app configuration")));
         }
-        else
-            throw new Server500(new \ArrayObject(array("explain" =>"iumio router register fail  ", "solution" => "Please check your app configuration")));
+        if ($great == false)
+            throw new Server404(new \ArrayObject(array("solution" => "Please check your URI")));
+
         return (1);
     }
 
@@ -250,7 +269,7 @@ abstract class iumioUltimaCore extends iumioUltima
             if (isset($def['appclass'])) {
                 if (method_exists($def['appclass'], 'off') == true) {
                     if (($def['appclass'])::baseStatus() == 0) return (false);
-                    $rt = new Routing($def['name'], 'iumio', true);
+                    $rt = new Routing($def['name'], null, true);
                     if ($rt->routingRegister() == true) {
                         $callback = $this->manage($request, $rt->routes());
                         if ($callback == NULL) return (false);

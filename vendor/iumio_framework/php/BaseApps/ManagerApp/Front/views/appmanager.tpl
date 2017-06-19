@@ -32,9 +32,10 @@
                                     <thead>
                                     <th>ID</th>
                                     <th>Name</th>
-                                    <th>Is default</th>
+                                    <th>Enabled</th>
+                                    <th>Prefix</th>
                                     <th>Namespace</th>
-                                    <th>Swich to default</th>
+                                    <th>Edit</th>
                                     <th>Delete</th>
                                     </thead>
                                     <tbody class="applist" attr-href="{route name='iumio_manager_app_manager_get_simple_apps'}">

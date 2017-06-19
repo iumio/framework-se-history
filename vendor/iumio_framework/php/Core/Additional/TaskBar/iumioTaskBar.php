@@ -98,7 +98,7 @@ class iumioTaskBar
                         <li class="iumioTaskBarAssetsClearProd" attr-href="'.$um->generateRoute("iumio_manager_assets_manager_clear", array("env" => "prod", "appname" => "_all"), "ManagerApp", true).'">Publish prod</li>
                     </ul>
                 </li>
-                <li><a href="#" id="iumioTaskBarSwitchApp" attr-href="'.$um->generateRoute("iumio_manager_app_manager_get_simple_apps", null, "ManagerApp", true).'">Switch to default</a></li>
+                <li><a href="#" id="iumioTaskBarEnaDisApp" attr-href="'.$um->generateRoute("iumio_manager_app_manager_get_simple_apps", null, "ManagerApp", true).'">Change status</a></li>
                 <li><a href="'. $um->generateRoute("iumio_manager_index", null, "ManagerApp", true) .'">Go to manager</a></li>
                 <li id="iumioTaskBarCacheClear" class="iumioTaskBarDropdown"><a href="#" >Clear cache</a>
                 <ul class="iumioTaskBarDropdownContent">
