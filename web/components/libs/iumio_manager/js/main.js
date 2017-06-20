@@ -44,6 +44,7 @@ var operationError = function (data) {
 };
 
 
+var noapp = false;
 
 /**
  * get debug log (limited to 10 values)
@@ -720,11 +721,12 @@ var removeApp = function (url) {
         type : 'GET',
         dataType : 'json',
         success : function(data){
-            getAppListSimple();
-            if (data['code'] === 200)
+            var d = data;
+            if (d['code'] === 200)
             {
-                if (data['msg'] === "RELOAD")
+                if (d['msg'] === "RELOAD")
                 {
+                    noapp = true;
                     operationSuccess();
                     var selecttorModal = $("#modalManager");
                     selecttorModal.find(".modal-body").html("<h4 class='text-center'>No app was registered</h4>");
@@ -739,7 +741,10 @@ var removeApp = function (url) {
 
                 }
                 else
+                {
+                    getAppListSimple();
                     operationSuccess();
+                }
             }
 
             else
@@ -930,14 +935,17 @@ $(document).ready(function () {
     getAllAssets();
 
     setInterval(function () {
-        getLogs();
-        getAppListSimple();
-        getUnlimitedLogs();
-        getDatabasesList();
-        getAllCacheEnv();
-        getAllCompileEnv();
-        getAllSmartyConfigs();
-        getAllAssets();
+        if (noapp === false)
+        {
+            getLogs();
+            getAppListSimple();
+            getUnlimitedLogs();
+            getDatabasesList();
+            getAllCacheEnv();
+            getAllCompileEnv();
+            getAllSmartyConfigs();
+            getAllAssets();
+        }
     }, 7000);
 
     /**

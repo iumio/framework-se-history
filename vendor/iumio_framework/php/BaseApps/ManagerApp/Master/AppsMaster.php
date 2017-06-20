@@ -213,7 +213,7 @@ class AppsMaster extends Master
         $f->$lastapp = new \stdClass();
         $f->$lastapp->name = $name;
         $f->$lastapp->enabled = $enable;
-        $f->$lastapp->prefix = $prefix;
+        $f->$lastapp->prefix = trim(stripslashes($prefix));
         $f->$lastapp->class = "\\".$name."\\".$name;
         $ndate = new \DateTime('UTC');
         $f->$lastapp->creation = $ndate;
@@ -236,7 +236,7 @@ class AppsMaster extends Master
      */
     final private function checkPrefix(string $res):int
     {
-        if (!preg_match('/[\'^£$%&*()}{@#~?><>,|=+¬-]/', $res)) return (1);
+        if (!preg_match('/[\/\'^£$%&*()}{@#~?><>,|=+¬-]/', $res)) return (1);
         return (-1);
     }
 
@@ -259,7 +259,7 @@ class AppsMaster extends Master
         foreach ($f as $one => $val)
             {
                 if ($val->name == $appname) {
-                    $val->prefix = trim($prefix);
+                    $val->prefix = trim(stripslashes($prefix));
                     $val->enabled = trim($enable);
                     $val->update = new \DateTime('UTC');
                     break;

@@ -225,6 +225,8 @@ abstract class iumioUltimaCore extends iumioUltima
             if ($great)
                 return (1);
 
+           if ($def["value"]["enabled"] == "no")
+               continue;
             $rt = new Routing($def['name'], $def['value']['prefix']);
             if ($rt->routingRegister() == true) {
                 $callback = $this->manage($request, $rt->routes());

@@ -61,59 +61,54 @@ class RtListener implements Listener
             $this->close($router);
         }
 
-        if (isset($routingArray[0][0]) && $routingArray[0][0] === "routingRegister")
+        $routename = NULL;
+        $path = NULL;
+        $method = NULL;
+
+        for($i = 0; $i < count($routingArray); $i++)
         {
-            if ($this->appName == $routingArray[0][1])
+            if (isset($routingArray[$i][1]) && $routingArray[$i][1] != NULL) {
+                if (isset($routingArray[$i][0]) && $routingArray[$i][0] == "name")
+                    $routename = $routingArray[$i][1];
+                else if (isset($routingArray[$i][0]) && $routingArray[$i][0] == "method")
+                    $method = $routingArray[$i][1];
+                else if (isset($routingArray[$i][0]) && $routingArray[$i][0] == "path")
+                    $path = (($this->prefix == null || $this->prefix == "")? "" : $this->prefix).$routingArray[$i][1];
+            }
+            else
             {
+                if ($method != '' || $method == NULL) {
+                    $method = explode('%', $method);
+                    if (count($method) == 2) {
+                        $controller = $method[0];
+                        $function = $method[1];
+                        $params = $this->detectParameters($path);
+                        if (!empty($params))
+                            array_push($this->router, array("routename" => $routename, "path" => $path, "controller" => $controller, "method" => $function . "Activity", "params" => $params));
+                        else
+                            array_push($this->router, array("routename" => $routename, "path" => $path, "controller" => $controller, "method" => $function . "Activity"));
+                    }
+                }
                 $routename = NULL;
-                $path = NULL;
                 $method = NULL;
+            }
 
-                for($i = 2; $i < count($routingArray); $i++)
-                {
-                    if (isset($routingArray[$i][1]) && $routingArray[$i][1] != NULL) {
-                        if (isset($routingArray[$i][0]) && $routingArray[$i][0] == "name")
-                            $routename = $routingArray[$i][1];
-                        else if (isset($routingArray[$i][0]) && $routingArray[$i][0] == "method")
-                            $method = $routingArray[$i][1];
-                        else if (isset($routingArray[$i][0]) && $routingArray[$i][0] == "path")
-                            $path = (($this->prefix == null || $this->prefix == "")? "" : $this->prefix).$routingArray[$i][1];
-                    }
+            if (($i + 1) === count($routingArray) && ($method != '' || $method == NULL)) {
+                $method = explode('%', $method);
+                if (count($method) == 2) {
+                    $controller = $method[0];
+                    $function = $method[1];
+                    $params = $this->detectParameters($path);
+                    if (!empty($params))
+                        array_push($this->router, array("routename" => $routename, "path" => $path, "controller" => $controller, "method" => $function . "Activity", "params" => $params));
                     else
-                    {
-                        if ($method != '' || $method == NULL) {
-                            $method = explode('%', $method);
-                            if (count($method) == 2) {
-                                $controller = $method[0];
-                                $function = $method[1];
-                                $params = $this->detectParameters($path);
-                                if (!empty($params))
-                                    array_push($this->router, array("routename" => $routename, "path" => $path, "controller" => $controller, "method" => $function . "Activity", "params" => $params));
-                                else
-                                    array_push($this->router, array("routename" => $routename, "path" => $path, "controller" => $controller, "method" => $function . "Activity"));
-                            }
-                        }
-                        $routename = NULL;
-                        $method = NULL;
-                    }
-
-                    if (($i + 1) === count($routingArray) && ($method != '' || $method == NULL)) {
-                        $method = explode('%', $method);
-                        if (count($method) == 2) {
-                            $controller = $method[0];
-                            $function = $method[1];
-                            $params = $this->detectParameters($path);
-                            if (!empty($params))
-                                array_push($this->router, array("routename" => $routename, "path" => $path, "controller" => $controller, "method" => $function . "Activity", "params" => $params));
-                            else
-                                array_push($this->router, array("routename" => $routename, "path" => $path, "controller" => $controller, "method" => $function . "Activity"));
-                            $routename = NULL;
-                            $method = NULL;
-                        }
-                    }
-
+                        array_push($this->router, array("routename" => $routename, "path" => $path, "controller" => $controller, "method" => $function . "Activity"));
+                    $routename = NULL;
+                    $method = NULL;
                 }
             }
+
+
         }
         return (1);
 

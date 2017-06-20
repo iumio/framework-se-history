@@ -91,7 +91,7 @@ class AppManager implements ModuleManager
      */
     final protected function checkPrefix(string $res):int
     {
-        if (!preg_match('/[\'^£$%&*()}{@#~?><>,|=+¬-]/', $res)) return (1);
+        if (!preg_match('/[\/\'^£$%&*()}{@#~?><>,|=+¬-]/', $res)  && strpos($res, "\\") == FALSE) return (1);
         return (-1);
     }
 
@@ -300,7 +300,7 @@ class AppManager implements ModuleManager
         $strOutput .= "    - App name: ".$this->params['appname']." \n";
         $strOutput .= "    - Use default template : ".$this->params['template']." \n";
         $strOutput .= "    - Enabled : ".$this->params['enabled']. "\n";
-        $strOutput .= "    - App prefix : ".(($this->params['prefix'] == "")? "no app prefix" : "/".$this->params['prefix']);
+        $strOutput .= "    - App prefix : ".(($this->params['prefix'] == "")? "no app prefix" : "/".trim(stripslashes($this->params['prefix'])));
         Output::outputAsNormal($strOutput, "none");
 
     }
@@ -454,7 +454,7 @@ class AppManager implements ModuleManager
         $f->$lastapp = new \stdClass();
         $f->$lastapp->name = $this->params['appname'];
         $f->$lastapp->enabled = (($this->params['enabled'] != "")? $this->params['enabled'] : "yes");
-        $f->$lastapp->prefix = $this->params['prefix'];
+        $f->$lastapp->prefix = trim(stripslashes($this->params['prefix']));
         $f->$lastapp->class = "\\".$this->params['appname']."\\".$this->params['appname'];
         $ndate = new \DateTime('UTC');
         $f->$lastapp->creation = $ndate;
@@ -464,7 +464,7 @@ class AppManager implements ModuleManager
         $this->initialJSON();
         if ($this->params['template'] == "yes")
             new AM(array("core/manager", "assets-manager", "--copy", "--appname=". $this->params['appname'], "--symlink", "--noexit"));
-        Output::outputAsEndSuccess("Your app is ready to use. To test your app, go to project location on your browser with parameter ".(($this->params['prefix'] != "")? "/".$this->params['prefix'] : "")."/index. Enjoy !", "none");
+        Output::outputAsEndSuccess("Your app is ready to use. To test your app, go to project location on your browser with parameter ".(($this->params['prefix'] != "")? "/".trim(stripslashes($this->params['prefix'])) : "")."/index. Enjoy !", "none");
     }
 
 

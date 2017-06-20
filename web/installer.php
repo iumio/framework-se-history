@@ -51,18 +51,6 @@ function createAppProcess($appname, $default, $temp)
 
     foreach ($f as $one => $val) $lastapp++;
 
-    if ($default == "1")
-    {
-        foreach ($f as $one => $val)
-        {
-            if ($val->isdefault == "yes") {
-                $val->update = new \DateTime('UTC');
-                $val->isdefault = "no";
-                break;
-            }
-        }
-    }
-
     $f->$lastapp = new \stdClass();
     $f->$lastapp->name = $appname;
     $f->$lastapp->enabled = "yes";

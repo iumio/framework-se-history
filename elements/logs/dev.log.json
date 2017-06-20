@@ -334,5 +334,33 @@
     "83": {
         "time": "2017-06-20 09:00:39",
         "content": "[500 INTERNAL ERROR] : Parameters count does not matches for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_app_manager_edit_save_app<\/em> route : Please check your parameters declaration"
+    },
+    "84": {
+        "time": "2017-06-20 20:30:28",
+        "content": "[404 NOT FOUND] : The ressource you try to access is not found. : Please check your URI"
+    },
+    "85": {
+        "time": "2017-06-20 20:36:42",
+        "content": "[404 NOT FOUND] : The ressource you try to access is not found. : Please check your URI"
+    },
+    "86": {
+        "time": "2017-06-20 20:36:59",
+        "content": "[404 NOT FOUND] : The ressource you try to access is not found. : Please check your URI"
+    },
+    "87": {
+        "time": "2017-06-20 20:47:44",
+        "content": "[404 NOT FOUND] : The ressource you try to access is not found. : Please check your URI"
+    },
+    "88": {
+        "time": "2017-06-20 20:47:50",
+        "content": "[404 NOT FOUND] : The ressource you try to access is not found. : Please check your URI"
+    },
+    "89": {
+        "time": "2017-06-20 21:37:59",
+        "content": "[404 NOT FOUND] : The ressource you try to access is not found. : Please check your URI"
+    },
+    "90": {
+        "time": "2017-06-20 21:38:25",
+        "content": "[000 No app registered] : No app was registered in apps.json : Please create an app with app manager"
     }
 }
