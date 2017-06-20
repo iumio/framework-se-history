@@ -270,5 +270,69 @@
     "67": {
         "time": "2017-06-19 23:38:22",
         "content": "[404 NOT FOUND] : The ressource you try to access is not found. : Please check your URIa"
+    },
+    "68": {
+        "time": "2017-06-20 08:19:20",
+        "content": "[404 NOT FOUND] : The ressource you try to access is not found. : Please check your URI"
+    },
+    "69": {
+        "time": "2017-06-20 08:47:01",
+        "content": "[404 NOT FOUND] : No route for <span style='color: red;text-decoration: none'>  iumio_manager_app_manager_edit_save_app<\/span> : Please check all RT file"
+    },
+    "70": {
+        "time": "2017-06-20 08:47:03",
+        "content": "[404 NOT FOUND] : No route for <span style='color: red;text-decoration: none'>  iumio_manager_app_manager_edit_save_app<\/span> : Please check all RT file"
+    },
+    "71": {
+        "time": "2017-06-20 08:47:05",
+        "content": "[404 NOT FOUND] : No route for <span style='color: red;text-decoration: none'>  iumio_manager_app_manager_edit_save_app<\/span> : Please check all RT file"
+    },
+    "72": {
+        "time": "2017-06-20 08:47:05",
+        "content": "[404 NOT FOUND] : No route for <span style='color: red;text-decoration: none'>  iumio_manager_app_manager_edit_save_app<\/span> : Please check all RT file"
+    },
+    "73": {
+        "time": "2017-06-20 08:47:12",
+        "content": "[404 NOT FOUND] : No route for <span style='color: red;text-decoration: none'>  iumio_manager_app_manager_edit_save_app<\/span> : Please check all RT file"
+    },
+    "74": {
+        "time": "2017-06-20 08:47:19",
+        "content": "[404 NOT FOUND] : No route for <span style='color: red;text-decoration: none'>  iumio_manager_app_manager_edit_save_app<\/span> : Please check all RT file"
+    },
+    "75": {
+        "time": "2017-06-20 08:47:26",
+        "content": "[404 NOT FOUND] : No route for <span style='color: red;text-decoration: none'>  iumio_manager_app_manager_edit_save_app<\/span> : Please check all RT file"
+    },
+    "76": {
+        "time": "2017-06-20 08:47:33",
+        "content": "[404 NOT FOUND] : No route for <span style='color: red;text-decoration: none'>  iumio_manager_app_manager_edit_save_app<\/span> : Please check all RT file"
+    },
+    "77": {
+        "time": "2017-06-20 08:47:40",
+        "content": "[404 NOT FOUND] : No route for <span style='color: red;text-decoration: none'>  iumio_manager_app_manager_edit_save_app<\/span> : Please check all RT file"
+    },
+    "78": {
+        "time": "2017-06-20 08:47:47",
+        "content": "[404 NOT FOUND] : No route for <span style='color: red;text-decoration: none'>  iumio_manager_app_manager_edit_save_app<\/span> : Please check all RT file"
+    },
+    "79": {
+        "time": "2017-06-20 08:47:54",
+        "content": "[404 NOT FOUND] : No route for <span style='color: red;text-decoration: none'>  iumio_manager_app_manager_edit_save_app<\/span> : Please check all RT file"
+    },
+    "80": {
+        "time": "2017-06-20 08:48:01",
+        "content": "[404 NOT FOUND] : No route for <span style='color: red;text-decoration: none'>  iumio_manager_app_manager_edit_save_app<\/span> : Please check all RT file"
+    },
+    "81": {
+        "time": "2017-06-20 09:00:31",
+        "content": "[500 INTERNAL ERROR] : Parameters count does not matches for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_app_manager_edit_save_app<\/em> route : Please check your parameters declaration"
+    },
+    "82": {
+        "time": "2017-06-20 09:00:32",
+        "content": "[500 INTERNAL ERROR] : Parameters count does not matches for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_app_manager_edit_save_app<\/em> route : Please check your parameters declaration"
+    },
+    "83": {
+        "time": "2017-06-20 09:00:39",
+        "content": "[500 INTERNAL ERROR] : Parameters count does not matches for  <em style='font-size: 16px;font-family: Arial'>iumio_manager_app_manager_edit_save_app<\/em> route : Please check your parameters declaration"
     }
 }

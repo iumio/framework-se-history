@@ -16,13 +16,6 @@ name : iumio_manager_app_manager_switch_default_app
 path :  /_manager/apps/setstatus/{appname}
 method : Apps%switchDefault
 
-name : iumio_manager_app_manager_enabled_app
-path :  /_manager/apps/enabled/{appname}
-method : Apps%enabled
-
-name : iumio_manager_app_manager_disabled_app
-path :  /_manager/apps/disabled/{appname}
-method : Apps%disabled
 
 name : iumio_manager_app_manager_auto_dis_ena_app
 path :  /_manager/apps/auto_dis_ena/{appname}
@@ -35,3 +28,7 @@ method : Apps%remove
 name : iumio_manager_app_manager_create_app
 path :  /_manager/apps/create
 method : Apps%create
+
+name : iumio_manager_app_manager_edit_save_app
+path :  /_manager/apps/editsave/{appname}
+method : Apps%edit

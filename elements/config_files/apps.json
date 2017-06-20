@@ -1,35 +1,18 @@
 {
     "0": {
-        "name": "HekApp",
-        "enabled": "yes",
-        "prefix": "",
-        "class": "\\HekApp\\HekApp",
-        "creation": {
-            "date": "2017-06-19 18:50:50.325892",
-            "timezone_type": 3,
-            "timezone": "UTC"
-        },
-        "update": {
-            "date": "2017-06-19 23:11:59.043595",
-            "timezone_type": 3,
-            "timezone": "Europe\/Paris"
-        }
-    },
-    "1": {
-        "name": "KsApp",
+        "name": "DfApp",
         "enabled": "yes",
         "prefix": "hello",
-        "class": "\\KsApp\\KsApp",
+        "class": "\\DfApp\\DfApp",
         "creation": {
-            "date": "2017-06-19 18:51:15.523567",
+            "date": "2017-06-20 06:35:59.688480",
             "timezone_type": 3,
             "timezone": "UTC"
         },
         "update": {
-            "date": "2017-06-19 23:43:09.045738",
+            "date": "2017-06-20 08:13:52.382117",
             "timezone_type": 3,
-            "timezone": "Europe\/Paris"
-        },
-        "isdefault": "yes"
+            "timezone": "UTC"
+        }
     }
 }

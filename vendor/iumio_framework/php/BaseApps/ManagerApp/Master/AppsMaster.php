@@ -52,15 +52,16 @@ class AppsMaster extends Master
         $file = JL::open(CONFIG_DIR."apps.json");
         foreach ($file as $one)
         {
-            $one->link = $this->generateRoute("iumio_manager_app_manager_switch_default_app", array("appname" => $one->name), null, true);
-            $one->link_enabled = $this->generateRoute("iumio_manager_app_manager_enabled_app", array("appname" => $one->name), null, true);
-            $one->link_disabled = $this->generateRoute("iumio_manager_app_manager_disabled_app", array("appname" => $one->name), null, true);
+            $one->link_edit_save = $this->generateRoute("iumio_manager_app_manager_edit_save_app", array("appname" => $one->name), null, true);
+
             $one->link_auto_dis_ena = $this->generateRoute("iumio_manager_app_manager_auto_dis_ena_app", array("appname" => $one->name), null, true);
 
             $one->link_remove = $this->generateRoute("iumio_manager_app_manager_remove_app", array("appname" => $one->name), null, true);
         }
         return ($file);
     }
+
+
 
 
     /**
@@ -164,8 +165,15 @@ class AppsMaster extends Master
     public function createActivity():int
     {
         $name = $this->get("request")->get("name");
-        $default = $this->get("request")->get("default");
+        $enable = $this->get("request")->get("enabled");
+        $prefix = $this->get("request")->get("prefix");
         $template = $this->get("request")->get("template");
+
+        if ($prefix != "" && $this->checkPrefix($prefix) == -1)
+            return ((new Response())->JSON_RENDER(array("code" => 500, "msg" => "Error on app prefix. (App prefix must be a string without special character exepted [ _ & numbers])")));
+
+        if (!in_array($enable, array("yes", "no")))
+            return ((new Response())->JSON_RENDER(array("code" => 500, "msg" => "App name already exist")));
 
         if (trim($name) == "")
             return ((new Response())->JSON_RENDER(array("code" => 500, "msg" => "Error on app parameters")));
@@ -201,19 +209,11 @@ class AppsMaster extends Master
         $f = json_decode(file_get_contents(ROOT."/elements/config_files/apps.json"));
         $lastapp = 0;
         foreach ($f as $one => $val) $lastapp++;
-        if ($default == "yes")
-        {
-            foreach ($f as $one => $val)
-            {
-                if ($val->isdefault == "yes") {
-                    $val->isdefault = "no";
-                    break;
-                }
-            }
-        }
+
         $f->$lastapp = new \stdClass();
         $f->$lastapp->name = $name;
-        $f->$lastapp->isdefault = $default;
+        $f->$lastapp->enabled = $enable;
+        $f->$lastapp->prefix = $prefix;
         $f->$lastapp->class = "\\".$name."\\".$name;
         $ndate = new \DateTime('UTC');
         $f->$lastapp->creation = $ndate;
@@ -225,6 +225,48 @@ class AppsMaster extends Master
             $assets = $this->getMaster("Assets");
             $assets->publish($name, "dev");
         }
+
+        return ((new Response())->JSON_RENDER(array("code" => 200, "msg" => "OK")));
+
+    }
+
+    /** Check prefix response
+     * @param string $res response
+     * @return int Is valid prefix response
+     */
+    final private function checkPrefix(string $res):int
+    {
+        if (!preg_match('/[\'^£$%&*()}{@#~?><>,|=+¬-]/', $res)) return (1);
+        return (-1);
+    }
+
+    /** edit one app
+     * @return int JSON render
+     */
+    public function editActivity(string $appname):int
+    {
+        $prefix = $this->get("request")->get("prefix");
+        $enable = $this->get("request")->get("enabled");
+
+        if ($prefix != "" && $this->checkPrefix($prefix) == -1)
+            return ((new Response())->JSON_RENDER(array("code" => 500, "msg" => "Error on app prefix. (App prefix must be a string without special character exepted [ _ & numbers])")));
+
+        if (!in_array($enable, array("yes", "no")))
+            return ((new Response())->JSON_RENDER(array("code" => 500, "msg" => "App name already exist")));
+
+        $f = json_decode(file_get_contents(ROOT."/elements/config_files/apps.json"));
+
+        foreach ($f as $one => $val)
+            {
+                if ($val->name == $appname) {
+                    $val->prefix = trim($prefix);
+                    $val->enabled = trim($enable);
+                    $val->update = new \DateTime('UTC');
+                    break;
+                }
+        }
+        $f = json_encode($f, JSON_PRETTY_PRINT);
+        file_put_contents(ROOT."/elements/config_files/apps.json", $f);
 
         return ((new Response())->JSON_RENDER(array("code" => 200, "msg" => "OK")));
 
