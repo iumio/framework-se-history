@@ -79,7 +79,7 @@ function initialJSON()
     {
         $std = new \stdClass();
         $std->installation = new \DateTime();
-        $std->version = "0.2.3";
+        $std->version = "0.0.3";
         $std->user = get_current_user();
         $std->location = realpath($base);
         $std->os = PHP_OS;
