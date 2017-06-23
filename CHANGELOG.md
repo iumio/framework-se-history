@@ -8,6 +8,10 @@ iumio Framework
 
 ## [BETA RELEASE]
 
+## [0.3.1] - 2017-06-23
+### Added
+- Minor fixes.
+
 ## [0.3.0] - 2017-06-22
 ### Added
 - Enable and disable one app.
@@ -26,3 +30,4 @@ iumio Framework
 
 [BETA RELEASE]: https://github.com/iumio-team/iumio-framework/
 [0.3.0]: https://github.com/iumio-team/iumio-framework/releases
+[0.3.1]: https://github.com/iumio-team/iumio-framework/releases
