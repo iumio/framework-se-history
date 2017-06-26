@@ -1,17 +1,17 @@
 route:
   name : iumio_manager_logs_manager
   path : /_manager/logs
-  method : Logs%logs
+  activity : Logs%logs
 endroute
 
 route:
   name : iumio_manager_logs_manager_get_all
   path :  /_manager/logs/get/logs
-  method : Logs%getlog
+  activity : Logs%getlog
 endroute
 
 route:
   name : iumio_manager_logs_manager_clear
   path :  /_manager/logs/clear
-  method : Logs%clear
+  activity : Logs%clear
 endroute

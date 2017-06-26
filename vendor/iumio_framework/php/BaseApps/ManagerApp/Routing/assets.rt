@@ -1,23 +1,23 @@
 route:
   name : iumio_manager_assets_manager
   path :  /_manager/assets
-  method : Assets%assets
+  activity : Assets%assets
 endroute
 
 route:
   name : iumio_manager_assets_manager_publish
   path :  /_manager/assets/publish/{appname}/{env}
-  method : Assets%publish
+  activity : Assets%publish
 endroute
 
 route:
   name : iumio_manager_assets_manager_clear
   path :  /_manager/assets/clear/{appname}/{env}
-  method : Assets%clear
+  activity : Assets%clear
 endroute
 
 route:
   name : iumio_manager_assets_manager_get_all
   path :  /_manager/assets/get/all
-  method : Assets%assetsinfoAll
+  activity : Assets%assetsinfoAll
 endroute

@@ -50,10 +50,10 @@
                 <p>Smarty Manager</p>
             </a>
         </li>
-        <li class="{if $selected == "routingmanager"}active{/if}" style="background-color: silver">
-            <a href="{*route name='iumio_manager_routing_manager' component='yes'*}">
+        <li class="{if $selected == "routingmanager"}active{/if}">
+            <a href="{route name='iumio_manager_routing_manager' component='yes'}">
                 <i class="pe-7s-diamond"></i>
-                <p>Routing Manager (Later)</p>
+                <p>Routing Manager</p>
             </a>
         </li>
         <li class="{if $selected == "logsmanager"}active{/if}">

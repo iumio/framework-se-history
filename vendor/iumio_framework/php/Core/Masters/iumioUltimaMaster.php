@@ -11,6 +11,7 @@
  */
 
 namespace iumioFramework\Masters;
+use iumioFramework\HttpRoutes\Routing;
 use iumioFramework\Core\Base\Http\ParameterRequest;
 use iumioFramework\Core\Additionnal\Template\iumioSmarty;
 use iumioFramework\Core\Base\iumioEnvironment;

@@ -57,7 +57,7 @@ class RtListener implements Listener
             if (($router = fopen(((!$isbase) ? ROOT . "/apps/" : BASE_APPS) . $this->appName . "/Routing/" . $file, "r"))) {
                 if ($this->analyseRT($router, $file, $this->appName) == 0) exit();
                 rewind($router);
-                $rtarray = array("method" => "", "path" => "", "name" => "");
+                $rtarray = array("activity" => "", "path" => "", "name" => "");
                 $start = 0;
                 $end = 0;
                 while ($listen = fgets($router, 1024)) {
@@ -72,7 +72,7 @@ class RtListener implements Listener
                     } else if ($listen === "endroute" && $start === 1 & $end === 0) {
                         $end = 1;
                         array_push($routingArray, $rtarray);
-                    } else if ($this->strlike_in_array($listen, array("method", "path", "name")) !== false) {
+                    } else if ($this->strlike_in_array($listen, array("activity", "path", "name")) !== false) {
 
                         $listen = explode(':', $listen);
                         $rtarray[$listen[0]] = $listen[1];
@@ -93,7 +93,7 @@ class RtListener implements Listener
 
             $routingArray[$i]['path'] = (($this->prefix == null || $this->prefix == "") ? "" : $this->prefix) . $routingArray[$i]['path'];
 
-            $method = explode('%', $routingArray[$i]['method']);
+            $method = explode('%', $routingArray[$i]['activity']);
             if (count($method) == 2) {
                 $controller = $method[0];
                 $function = $method[1];
@@ -119,17 +119,17 @@ class RtListener implements Listener
 
     private function checkIfKeyExist(array $resource, string $filename, string $appname):int
     {
-        if (!isset($resource["method"]))
-            throw new  Server500(new \ArrayObject(array("explain" => "Missing Tag 'method' in ".strtoupper($filename)." routing file : ".$appname, "solution" => "Please add this tag")));
+        if (!isset($resource["activity"]))
+            throw new  Server500(new \ArrayObject(array("explain" => "Missing Tag 'activity' in ".strtoupper($filename)." routing file : ".$appname, "solution" => "Please add this tag")));
         if (!isset($resource["name"]))
             throw new  Server500(new \ArrayObject(array("explain" => "Missing Tag 'name' in ".strtoupper($filename)." routing file : ".$appname, "solution" => "Please add this tag")));
         if (!isset($resource["path"]))
             throw new  Server500(new \ArrayObject(array("explain" => "Missing Tag 'path' in ".strtoupper($filename)." routing file : ".$appname, "solution" => "Please add this tag")));
 
-        if ($resource["method"] == "")
-            throw new  Server500(new \ArrayObject(array("explain" => "Empty Tag 'method' in ".strtoupper($filename)." routing file : ".$appname, "solution" => "Check contain of this tag")));
-        if ($resource["method"] == "")
+        if ($resource["name"] == "")
             throw new  Server500(new \ArrayObject(array("explain" => "Empty Tag 'name' in ".strtoupper($filename)." routing file : ".$appname, "solution" => "Check contain of this tag")));
+        if ($resource["activity"] == "")
+            throw new  Server500(new \ArrayObject(array("explain" => "Empty Tag 'activity' in ".strtoupper($filename)." routing file : ".$appname, "solution" => "Check contain of this tag")));
         if ($resource["path"] == "")
             throw new  Server500(new \ArrayObject(array("explain" => "Empty Tag 'path' in ".strtoupper($filename)." routing file : ".$appname, "solution" => "Check contain of this tag")));
         return (1);

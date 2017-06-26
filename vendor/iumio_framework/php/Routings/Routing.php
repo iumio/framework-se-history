@@ -10,7 +10,7 @@
  * To get more information about licence, please check the licence file
  */
 
-namespace iumioFramework\Masters;
+namespace iumioFramework\HttpRoutes;
 use iumioFramework\Core\Base\Debug\Debug;
 use iumioFramework\Core\Base\RtListener;
 use iumioFramework\Core\Base\iumioEnvironment as Env;

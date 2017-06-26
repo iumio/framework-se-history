@@ -1,23 +1,23 @@
 route:
   name : iumio_manager_cache_manager
   path :  /_manager/cache
-  method : Cache%cache
+  activity : Cache%cache
 endroute
 
 route:
   name : iumio_manager_cache_manager_remove_all
   path :  /_manager/cache/clear/all
-  method : Cache%cacheClearAll
+  activity : Cache%cacheClearAll
 endroute
 
 route:
   name : iumio_manager_cache_manager_remove
   path :  /_manager/cache/clear/{env}
-  method : Cache%cacheClear
+  activity : Cache%cacheClear
 endroute
 
 route:
   name : iumio_manager_cache_manager_get_all
   path :  /_manager/cache/get/all
-  method : Cache%getAllEnv
+  activity : Cache%getAllEnv
 endroute

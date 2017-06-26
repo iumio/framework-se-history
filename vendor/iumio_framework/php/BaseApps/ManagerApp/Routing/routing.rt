@@ -1,6 +1,11 @@
 route:
   name: iumio_manager_routing_manager
   path: /_manager/routing
-  method: Routing%routing
+  activity : Routing%routing
 endroute
 
+route:
+  name : iumio_manager_routing_manager_get_all
+  path :  /_manager/routing/get/all
+  activity : Routing%getall
+endroute

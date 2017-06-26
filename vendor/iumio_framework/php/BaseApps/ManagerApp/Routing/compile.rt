@@ -1,23 +1,23 @@
 route:
   name : iumio_manager_compile_manager
   path :  /_manager/compile
-  method : Compile%compile
+  activity : Compile%compile
 endroute
 
 route:
   name : iumio_manager_compile_manager_remove_all
   path :  /_manager/compile/clear/all
-  method : Compile%compileClearAll
+  activity : Compile%compileClearAll
 endroute
 
 route:
   name : iumio_manager_compile_manager_remove
   path :  /_manager/compile/clear/{env}
-  method : Compile%compileClear
+  activity : Compile%compileClear
 endroute
 
 route:
   name : iumio_manager_compile_manager_get_all
   path :  /_manager/compile/get/all
-  method : Compile%getAllEnv
+  activity : Compile%getAllEnv
 endroute

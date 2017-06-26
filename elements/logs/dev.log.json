@@ -1,0 +1,138 @@
+{
+    "0": {
+        "time": "2017-06-26 13:11:18",
+        "content": "[404 NOT FOUND] : The ressource you try to access is not found. : Please check your URI"
+    },
+    "1": {
+        "time": "2017-06-26 13:32:37",
+        "content": "[500 INTERNAL ERROR] : Activity is not callable : 'Routing:getallActivity' : ManagerApp : Please check your controller activity"
+    },
+    "2": {
+        "time": "2017-06-26 13:32:37",
+        "content": "[500 INTERNAL ERROR] : Activity is not callable : 'Routing:getallActivity' : ManagerApp : Please check your controller activity"
+    },
+    "3": {
+        "time": "2017-06-26 13:32:37",
+        "content": "[500 INTERNAL ERROR] : Activity is not callable : 'Routing:getallActivity' : ManagerApp : Please check your controller activity"
+    },
+    "4": {
+        "time": "2017-06-26 13:32:37",
+        "content": "[500 INTERNAL ERROR] : Activity is not callable : 'Routing:getallActivity' : ManagerApp : Please check your controller activity"
+    },
+    "5": {
+        "time": "2017-06-26 13:32:38",
+        "content": "[500 INTERNAL ERROR] : Activity is not callable : 'Routing:getallActivity' : ManagerApp : Please check your controller activity"
+    },
+    "6": {
+        "time": "2017-06-26 13:32:38",
+        "content": "[500 INTERNAL ERROR] : Activity is not callable : 'Routing:getallActivity' : ManagerApp : Please check your controller activity"
+    },
+    "7": {
+        "time": "2017-06-26 13:32:47",
+        "content": "[500 INTERNAL ERROR] : Activity is not callable : 'Routing:getallActivity' : ManagerApp : Please check your controller activity"
+    },
+    "8": {
+        "time": "2017-06-26 13:32:47",
+        "content": "[500 INTERNAL ERROR] : Activity is not callable : 'Routing:getallActivity' : ManagerApp : Please check your controller activity"
+    },
+    "9": {
+        "time": "2017-06-26 13:32:59",
+        "content": "[500 INTERNAL ERROR] : Activity is not callable : 'Routing:getallActivity' : ManagerApp : Please check your controller activity"
+    },
+    "10": {
+        "time": "2017-06-26 13:32:59",
+        "content": "[500 INTERNAL ERROR] : Activity is not callable : 'Routing:getallActivity' : ManagerApp : Please check your controller activity"
+    },
+    "11": {
+        "time": "2017-06-26 13:32:59",
+        "content": "[500 INTERNAL ERROR] : Activity is not callable : 'Routing:getallActivity' : ManagerApp : Please check your controller activity"
+    },
+    "12": {
+        "time": "2017-06-26 13:32:59",
+        "content": "[500 INTERNAL ERROR] : Activity is not callable : 'Routing:getallActivity' : ManagerApp : Please check your controller activity"
+    },
+    "13": {
+        "time": "2017-06-26 13:38:24",
+        "content": "[500 INTERNAL ERROR] : Empty Tag 'name' in APPS.RT routing file : ManagerApp : Check contain of this tag"
+    },
+    "14": {
+        "time": "2017-06-26 13:38:24",
+        "content": "[500 INTERNAL ERROR] : Empty Tag 'name' in APPS.RT routing file : ManagerApp : Check contain of this tag"
+    },
+    "15": {
+        "time": "2017-06-26 13:38:24",
+        "content": "[500 INTERNAL ERROR] : Empty Tag 'name' in APPS.RT routing file : ManagerApp : Check contain of this tag"
+    },
+    "16": {
+        "time": "2017-06-26 13:38:24",
+        "content": "[500 INTERNAL ERROR] : Empty Tag 'name' in APPS.RT routing file : ManagerApp : Check contain of this tag"
+    },
+    "17": {
+        "time": "2017-06-26 13:38:25",
+        "content": "[500 INTERNAL ERROR] : Empty Tag 'name' in APPS.RT routing file : ManagerApp : Check contain of this tag"
+    },
+    "18": {
+        "time": "2017-06-26 13:38:25",
+        "content": "[500 INTERNAL ERROR] : Empty Tag 'name' in APPS.RT routing file : ManagerApp : Check contain of this tag"
+    },
+    "19": {
+        "time": "2017-06-26 13:38:26",
+        "content": "[500 INTERNAL ERROR] : Empty Tag 'name' in APPS.RT routing file : ManagerApp : Check contain of this tag"
+    },
+    "20": {
+        "time": "2017-06-26 13:38:26",
+        "content": "[500 INTERNAL ERROR] : Empty Tag 'name' in APPS.RT routing file : ManagerApp : Check contain of this tag"
+    },
+    "21": {
+        "time": "2017-06-26 13:38:31",
+        "content": "[500 INTERNAL ERROR] : Empty Tag 'name' in APPS.RT routing file : ManagerApp : Check contain of this tag"
+    },
+    "22": {
+        "time": "2017-06-26 13:38:31",
+        "content": "[500 INTERNAL ERROR] : Empty Tag 'name' in APPS.RT routing file : ManagerApp : Check contain of this tag"
+    },
+    "23": {
+        "time": "2017-06-26 13:38:50",
+        "content": "[500 INTERNAL ERROR] : Empty Tag 'name' in APPS.RT routing file : ManagerApp : Check contain of this tag"
+    },
+    "24": {
+        "time": "2017-06-26 13:38:50",
+        "content": "[500 INTERNAL ERROR] : Empty Tag 'name' in APPS.RT routing file : ManagerApp : Check contain of this tag"
+    },
+    "25": {
+        "time": "2017-06-26 13:38:51",
+        "content": "[500 INTERNAL ERROR] : Empty Tag 'name' in APPS.RT routing file : ManagerApp : Check contain of this tag"
+    },
+    "26": {
+        "time": "2017-06-26 13:38:51",
+        "content": "[500 INTERNAL ERROR] : Empty Tag 'name' in APPS.RT routing file : ManagerApp : Check contain of this tag"
+    },
+    "27": {
+        "time": "2017-06-26 13:38:55",
+        "content": "[500 INTERNAL ERROR] : Empty Tag 'name' in APPS.RT routing file : ManagerApp : Check contain of this tag"
+    },
+    "28": {
+        "time": "2017-06-26 13:38:55",
+        "content": "[500 INTERNAL ERROR] : Empty Tag 'name' in APPS.RT routing file : ManagerApp : Check contain of this tag"
+    },
+    "29": {
+        "time": "2017-06-26 13:43:24",
+        "content": "[404 NOT FOUND] : The ressource you try to access is not found. : Please check your URI"
+    },
+    "30": {
+        "time": "2017-06-26 13:48:10",
+        "content": "[404 NOT FOUND] : The ressource you try to access is not found. : Please check your URI"
+    },
+    "31": {
+        "time": "2017-06-26 13:51:31",
+        "content": "[500 INTERNAL ERROR] : iumioEngineAutoloader : Undefined class \\Master\\DefaultMaster : Refer to your app configuration."
+    },
+    "32": {
+        "time": "2017-06-26 13:51:46",
+        "content": "[500 INTERNAL ERROR] : iumioEngineAutoloader : Undefined class \\Master\\DefaultMaster : Refer to your app configuration."
+    },
+    "33": {
+        "time": "2017-06-26 13:52:31",
+        "content": "[404 NOT FOUND] : The ressource you try to access is not found. : Please check your URI"
+    }
+}

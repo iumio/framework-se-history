@@ -1,0 +1,18 @@
+{
+    "0": {
+        "name": "JApp",
+        "enabled": "yes",
+        "prefix": "",
+        "class": "\\JApp\\JApp",
+        "creation": {
+            "date": "2017-06-26 11:11:13.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "update": {
+            "date": "2017-06-26 11:11:13.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        }
+    }
+}

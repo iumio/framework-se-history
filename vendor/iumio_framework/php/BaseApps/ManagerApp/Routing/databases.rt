@@ -1,35 +1,35 @@
 route:
   name : iumio_manager_databases_manager
   path :  /_manager/databases
-  method : Databases%databases
+  activity : Databases%databases
 endroute
 
 route:
   name : iumio_manager_databases_manager_get_all
   path :  /_manager/databases/get/all
-  method : Databases%getAlldatabases
+  activity : Databases%getAlldatabases
 endroute
 
 route:
   name : iumio_manager_databases_manager_remove
   path :  /_manager/databases/remove/{dbconfiguration}
-  method : Databases%remove
+  activity : Databases%remove
 endroute
 
 route:
   name : iumio_manager_databases_manager_edit
   path :  /_manager/databases/edit/{dbconfiguration}
-  method : Databases%getonedb
+  activity : Databases%getonedb
 endroute
 
 route:
   name : iumio_manager_databases_manager_edit_save
   path :  /_manager/databases/edit_save/{dbconfiguration}
-  method : Databases%update
+  activity : Databases%update
 endroute
 
 route:
   name : iumio_manager_databases_manager_create
   path :  /_manager/databases/create
-  method : Databases%create
+  activity : Databases%create
 endroute

@@ -1,47 +1,47 @@
 route:
   name : iumio_manager_app_manager
   path :  /_manager/apps
-  method : Apps%apps
+  activity : Apps%apps
 endroute
 
 route:
-  name:iumio_manager_base_app_manager
+  name: iumio_manager_base_app_manager
   path :  /_manager/base-apps
-  method : Apps%baseApps
+  activity : Apps%baseApps
 endroute
 
 route:
   name: iumio_manager_app_manager_get_simple_apps
   path :  /_manager/apps/simple_apps
-  method : Apps%getSimpleApps
+  activity : Apps%getSimpleApps
 endroute
 
 route:
   name : iumio_manager_app_manager_switch_default_app
   path :  /_manager/apps/setstatus/{appname}
-  method : Apps%switchDefault
+  activity : Apps%switchDefault
 endroute
 
 route:
   name : iumio_manager_app_manager_auto_dis_ena_app
   path :  /_manager/apps/auto_dis_ena/{appname}
-  method : Apps%autoDisabledOrEnabled
+  activity : Apps%autoDisabledOrEnabled
 endroute
 
 route:
   name : iumio_manager_app_manager_remove_app
   path :  /_manager/apps/remove/{appname}
-  method : Apps%remove
+  activity : Apps%remove
 endroute
 
 route:
   name : iumio_manager_app_manager_create_app
   path :  /_manager/apps/create
-  method : Apps%create
+  activity : Apps%create
 endroute
 
 route:
   name : iumio_manager_app_manager_edit_save_app
   path :  /_manager/apps/editsave/{appname}
-  method : Apps%edit
+  activity : Apps%edit
 endroute

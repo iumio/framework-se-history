@@ -55,28 +55,26 @@ class iumoEngineAutoloader {
         }
         else
         {*/
+
             self::buildClassMap(self::$env);
             $map = self::getMapClass();
             if (isset($map[$class]))
             {
                     if (!@include_once $map[$class])
                     {
-
                         // FIX FUNCTION SMARTY PLUGIN
                         if (strpos($class, "Smarty_Internal_Compile_") !== false)
                             return (true);
                         try
                         {
                             include_once  __DIR__."/../Exceptions/Server/Server500.php";
-                            $e = new \iumioFramework\Exception\Server\Server500(new ArrayObject(array("explain" => "iumioEngineAutoloader : Undefined class ".$class, "solution" => "Refer to your app configuration.")));
-                            $e->display("500", "FATAL ERROR");
+                            throw new \iumioFramework\Exception\Server\Server500(new ArrayObject(array("explain" => "iumioEngineAutoloader : Undefined class ".$class, "solution" => "Refer to your app configuration.")));
                         }
                         catch (Exception $e)
                         {
                             die("iumioEngineAutoloader : Undefined class ".$class);
                         }
                     }
-
             }
             else {
                 self::buildClassMap(self::$env, true);
@@ -87,11 +85,11 @@ class iumoEngineAutoloader {
                         // FIX FUNCTION SMARTY PLUGIN
                         if (strpos($class, "Smarty_Internal_Compile_") !== false)
                             return true;
+                        echo "LEL";
                         try
                         {
                             include_once  __DIR__."/../Exceptions/Server/Server500.php";
-                            $e = new \iumioFramework\Exception\Server\Server500(new ArrayObject(array("explain" => "iumioEngineAutoloader : Undefined class ".$class, "solution" => "Refer to your app configuration.")));
-                            $e->display("500", "FATAL ERROR");
+                            throw new  \iumioFramework\Exception\Server\Server500(new ArrayObject(array("explain" => "iumioEngineAutoloader : Undefined class ".$class, "solution" => "Refer to your app configuration.")));
                         }
                         catch (Exception $e)
                         {

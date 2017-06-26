@@ -12,8 +12,8 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">Routing Manager</a>
-                    <a class="btn-default btn createapp"  >Create a routing file</a>
+                    <a class="navbar-brand" href="#">Routing Manager (Later)</a>
+                    <a class="btn-default btn"  >Create a routing file</a>
                 </div>
 
             </div>
@@ -30,11 +30,9 @@
                             <div class="content table-responsive table-full-width">
                                 <table class="table table-hover table-striped">
                                     <thead>
-                                    <th>ID</th>
-                                    <th>Name</th>
-                                    <th>Enabled</th>
-                                    <th>Prefix</th>
-                                    <th>Namespace</th>
+                                    <th>File</th>
+                                    <th>App</th>
+                                    <th>Route number</th>
                                     <th>Edit</th>
                                     <th>Delete</th>
                                     </thead>
