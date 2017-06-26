@@ -1,26 +1,35 @@
-routingRegister : ManagerApp
+route:
+  name : iumio_manager_databases_manager
+  path :  /_manager/databases
+  method : Databases%databases
+endroute
 
-name : iumio_manager_databases_manager
-path :  /_manager/databases
-method : Databases%databases
+route:
+  name : iumio_manager_databases_manager_get_all
+  path :  /_manager/databases/get/all
+  method : Databases%getAlldatabases
+endroute
 
-name : iumio_manager_databases_manager_get_all
-path :  /_manager/databases/get/all
-method : Databases%getAlldatabases
+route:
+  name : iumio_manager_databases_manager_remove
+  path :  /_manager/databases/remove/{dbconfiguration}
+  method : Databases%remove
+endroute
 
+route:
+  name : iumio_manager_databases_manager_edit
+  path :  /_manager/databases/edit/{dbconfiguration}
+  method : Databases%getonedb
+endroute
 
-name : iumio_manager_databases_manager_remove
-path :  /_manager/databases/remove/{dbconfiguration}
-method : Databases%remove
+route:
+  name : iumio_manager_databases_manager_edit_save
+  path :  /_manager/databases/edit_save/{dbconfiguration}
+  method : Databases%update
+endroute
 
-name : iumio_manager_databases_manager_edit
-path :  /_manager/databases/edit/{dbconfiguration}
-method : Databases%getonedb
-
-name : iumio_manager_databases_manager_edit_save
-path :  /_manager/databases/edit_save/{dbconfiguration}
-method : Databases%update
-
-name : iumio_manager_databases_manager_create
-path :  /_manager/databases/create
-method : Databases%create
+route:
+  name : iumio_manager_databases_manager_create
+  path :  /_manager/databases/create
+  method : Databases%create
+endroute

@@ -1,17 +1,23 @@
-routingRegister : ManagerApp
+route:
+  name : iumio_manager_assets_manager
+  path :  /_manager/assets
+  method : Assets%assets
+endroute
 
-name : iumio_manager_assets_manager
-path :  /_manager/assets
-method : Assets%assets
+route:
+  name : iumio_manager_assets_manager_publish
+  path :  /_manager/assets/publish/{appname}/{env}
+  method : Assets%publish
+endroute
 
-name : iumio_manager_assets_manager_publish
-path :  /_manager/assets/publish/{appname}/{env}
-method : Assets%publish
+route:
+  name : iumio_manager_assets_manager_clear
+  path :  /_manager/assets/clear/{appname}/{env}
+  method : Assets%clear
+endroute
 
-name : iumio_manager_assets_manager_clear
-path :  /_manager/assets/clear/{appname}/{env}
-method : Assets%clear
-
-name : iumio_manager_assets_manager_get_all
-path :  /_manager/assets/get/all
-method : Assets%assetsinfoAll
+route:
+  name : iumio_manager_assets_manager_get_all
+  path :  /_manager/assets/get/all
+  method : Assets%assetsinfoAll
+endroute

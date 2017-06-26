@@ -1,3 +1,5 @@
-name : default_index
-path : /index
-method : Default%index
+route:
+  name : default_index
+  path : /index
+  method : Default%index
+endroute

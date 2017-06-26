@@ -1,0 +1,6 @@
+route:
+  name: iumio_manager_routing_manager
+  path: /_manager/routing
+  method: Routing%routing
+endroute
+

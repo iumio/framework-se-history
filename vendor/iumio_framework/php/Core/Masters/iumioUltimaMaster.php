@@ -32,16 +32,6 @@ class iumioUltimaMaster extends iumioUltima
     protected $masterFirst = NULL;
     protected $appMastering = NULL;
 
-    /** Set a file to master
-     * @param mixed $himself
-     * @return int
-     */
-    final protected function mastering($himself):int
-    {
-        $this->appMastering = APP_CALL;
-        $this->masterFirst = $himself;
-        return (1);
-    }
 
     /** Get a service
      * @param string $service
@@ -172,7 +162,6 @@ class iumioUltimaMaster extends iumioUltima
         }
 
         throw new Server404(new \ArrayObject(array("solution" => "Please check all RT file", "explain" => "No route for <span style='color: red;text-decoration: none'>".$routename."</span>")));
-        return ("NRT");
     }
 
     /** Analyse path to change dynamic parameters with specific parameters array

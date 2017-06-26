@@ -1,15 +1,17 @@
-routingRegister : ManagerApp
+route:
+  name : iumio_manager_logs_manager
+  path : /_manager/logs
+  method : Logs%logs
+endroute
 
-name : iumio_manager_logs_manager
-path : /_manager/logs
-method : Logs%logs
+route:
+  name : iumio_manager_logs_manager_get_all
+  path :  /_manager/logs/get/logs
+  method : Logs%getlog
+endroute
 
-name : iumio_manager_logs_manager_get_all
-path :  /_manager/logs/get/logs
-method : Logs%getlog
-
-name : iumio_manager_logs_manager_clear
-path :  /_manager/logs/clear
-method : Logs%clear
-
-
+route:
+  name : iumio_manager_logs_manager_clear
+  path :  /_manager/logs/clear
+  method : Logs%clear
+endroute

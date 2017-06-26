@@ -12,13 +12,6 @@ use iumioFramework\Masters\iumioUltimaMaster as Master;
 class DefaultMaster extends Master
 {
 
-    /**
-     * DefaultMaster constructor.
-     */
-    public function __construct()
-    {
-        $this->mastering($this);
-    }
 
     /**
      * Go to index page

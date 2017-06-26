@@ -52,8 +52,6 @@ abstract class AbstractServer extends \Exception implements ServerInterface
                 $this->external = ($value == "yes")? $value : "no";
         }
 
-        //echo $this->code;
-
         parent::__construct(HttpResponse::getPhrase($this->code), $this->code);
         Debug::output("[".$this->code." ".$this->codeTitle."] : ".$this->explain." : ".$this->solution);
         $this->display($this->code, $header_message);
@@ -70,13 +68,13 @@ abstract class AbstractServer extends \Exception implements ServerInterface
     {
         if (ob_get_contents())
             ob_end_clean();
+        //ob_end_clean();r
         //echo $_SERVER['SERVER_PROTOCOL'] .''.$code.' '.HttpResponse::getPhrase($code);
         @header($_SERVER['SERVER_PROTOCOL'] .' '.(($code == 000)? 500 : $code).' '.HttpResponse::getPhrase($code), true, $code);
         if ($this->external || ENVIRONMENT == "PROD")
             include_once (SERVER_VIEWS.strtolower(ENVIRONMENT).'/'.$code.'.html');
         else
-            require_once  SERVER_VIEWS.'layout.iumio.php';
-
+             require_once  SERVER_VIEWS.'layout.iumio.php';
         exit();
     }
 }

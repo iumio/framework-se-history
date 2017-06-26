@@ -171,6 +171,5 @@
     <!--[if lte IE 8]><script src="<?= WEB_FRAMEWORK ?>theme/assets/js/ie/respond.min.js"></script><![endif]-->
     <script src="<?= WEB_FRAMEWORK ?>theme/assets/js/main.js"></script>
     <?php \iumioFramework\Core\Additionnal\TaskBar\iumioTaskBar::getJsTaskBar() ?>
-
 </body>
 </html>

@@ -1,34 +1,47 @@
-routingRegister : ManagerApp
+route:
+  name : iumio_manager_app_manager
+  path :  /_manager/apps
+  method : Apps%apps
+endroute
 
-name : iumio_manager_app_manager
-path :  /_manager/apps
-method : Apps%apps
+route:
+  name:iumio_manager_base_app_manager
+  path :  /_manager/base-apps
+  method : Apps%baseApps
+endroute
 
-name : iumio_manager_base_app_manager
-path :  /_manager/base-apps
-method : Apps%baseApps
+route:
+  name: iumio_manager_app_manager_get_simple_apps
+  path :  /_manager/apps/simple_apps
+  method : Apps%getSimpleApps
+endroute
 
-name : iumio_manager_app_manager_get_simple_apps
-path :  /_manager/apps/simple_apps
-method : Apps%getSimpleApps
+route:
+  name : iumio_manager_app_manager_switch_default_app
+  path :  /_manager/apps/setstatus/{appname}
+  method : Apps%switchDefault
+endroute
 
-name : iumio_manager_app_manager_switch_default_app
-path :  /_manager/apps/setstatus/{appname}
-method : Apps%switchDefault
+route:
+  name : iumio_manager_app_manager_auto_dis_ena_app
+  path :  /_manager/apps/auto_dis_ena/{appname}
+  method : Apps%autoDisabledOrEnabled
+endroute
 
+route:
+  name : iumio_manager_app_manager_remove_app
+  path :  /_manager/apps/remove/{appname}
+  method : Apps%remove
+endroute
 
-name : iumio_manager_app_manager_auto_dis_ena_app
-path :  /_manager/apps/auto_dis_ena/{appname}
-method : Apps%autoDisabledOrEnabled
+route:
+  name : iumio_manager_app_manager_create_app
+  path :  /_manager/apps/create
+  method : Apps%create
+endroute
 
-name : iumio_manager_app_manager_remove_app
-path :  /_manager/apps/remove/{appname}
-method : Apps%remove
-
-name : iumio_manager_app_manager_create_app
-path :  /_manager/apps/create
-method : Apps%create
-
-name : iumio_manager_app_manager_edit_save_app
-path :  /_manager/apps/editsave/{appname}
-method : Apps%edit
+route:
+  name : iumio_manager_app_manager_edit_save_app
+  path :  /_manager/apps/editsave/{appname}
+  method : Apps%edit
+endroute

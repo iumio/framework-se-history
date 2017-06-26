@@ -13,13 +13,6 @@ use iumioFramework\Core\Base\Http\Response\Response;
 class DefaultMaster extends Master
 {
 
-    /**
-     * DefaultMaster constructor.
-     */
-    public function __construct()
-    {
-        $this->mastering($this);
-    }
 
     /**
      * Go to index page

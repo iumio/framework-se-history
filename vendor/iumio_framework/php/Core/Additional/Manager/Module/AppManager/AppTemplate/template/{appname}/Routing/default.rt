@@ -1,7 +1,11 @@
-name : default_start
-path : /index
-method : Default%show_index
+route:
+  name : default_start
+  path : /index
+  method : Default%show_index
+endroute
 
-name : default_test_parameter
-path : /index/{hi}
-method : Default%index
+route:
+  name : default_test_parameter
+  path : /index/{hi}
+  method : Default%index
+endroute

@@ -1,17 +1,23 @@
-routingRegister : ManagerApp
+route:
+  name : iumio_manager_cache_manager
+  path :  /_manager/cache
+  method : Cache%cache
+endroute
 
-name : iumio_manager_cache_manager
-path :  /_manager/cache
-method : Cache%cache
+route:
+  name : iumio_manager_cache_manager_remove_all
+  path :  /_manager/cache/clear/all
+  method : Cache%cacheClearAll
+endroute
 
-name : iumio_manager_cache_manager_remove_all
-path :  /_manager/cache/clear/all
-method : Cache%cacheClearAll
+route:
+  name : iumio_manager_cache_manager_remove
+  path :  /_manager/cache/clear/{env}
+  method : Cache%cacheClear
+endroute
 
-name : iumio_manager_cache_manager_remove
-path :  /_manager/cache/clear/{env}
-method : Cache%cacheClear
-
-name : iumio_manager_cache_manager_get_all
-path :  /_manager/cache/get/all
-method : Cache%getAllEnv
+route:
+  name : iumio_manager_cache_manager_get_all
+  path :  /_manager/cache/get/all
+  method : Cache%getAllEnv
+endroute

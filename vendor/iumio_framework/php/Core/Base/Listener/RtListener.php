@@ -12,6 +12,7 @@
 
 namespace iumioFramework\Core\Base;
 use iumioFramework\Core\Base\Debug\Debug;
+use iumioFramework\Exception\Server\Server500;
 use Resource;
 /**
  * Class RtListener
@@ -48,70 +49,111 @@ class RtListener implements Listener
             return (0);
 
         $routingArray = array();
+        $pattern = '/\s*/m';
+        $replace = '';
 
-        foreach($this->routers as $file) {
-            if(($router = fopen(((!$isbase)? ROOT."/apps/" : BASE_APPS).$this->appName."/Routing/".$file, "r"))) {
-                while ($listen = fgets($router, 1024))
-                {
-                    $listen = preg_replace('/\s+/', '', $listen);
-                    $listen = explode(':', $listen);
-                    array_push($routingArray, $listen);
+        foreach ($this->routers as $file) {
+            $scope = NULL;
+            if (($router = fopen(((!$isbase) ? ROOT . "/apps/" : BASE_APPS) . $this->appName . "/Routing/" . $file, "r"))) {
+                if ($this->analyseRT($router, $file, $this->appName) == 0) exit();
+                rewind($router);
+                $rtarray = array("method" => "", "path" => "", "name" => "");
+                $start = 0;
+                $end = 0;
+                while ($listen = fgets($router, 1024)) {
+
+                    $listen = preg_replace($pattern, $replace, $listen);
+
+                    if ($listen === "")
+                        continue;
+                    if ($listen === "route:" && $start == 0 && $end === 0) {
+                        $start = 1;
+                        continue;
+                    } else if ($listen === "endroute" && $start === 1 & $end === 0) {
+                        $end = 1;
+                        array_push($routingArray, $rtarray);
+                    } else if ($this->strlike_in_array($listen, array("method", "path", "name")) !== false) {
+
+                        $listen = explode(':', $listen);
+                        $rtarray[$listen[0]] = $listen[1];
+                    }
+
+                    if ($start === 1 && $end === 1) {
+                        if ($this->checkIfKeyExist($rtarray, $file, $this->appName) != 1) exit();
+                        $rtarray = array("method" => "", "path" => "", "name" => "");
+                        $start = $end = 0;
+                    }
+
                 }
+                $this->close($router);
             }
-            $this->close($router);
         }
 
-        $routename = NULL;
-        $path = NULL;
-        $method = NULL;
+        for ($i = 0; $i < count($routingArray); $i++) {
 
-        for($i = 0; $i < count($routingArray); $i++)
-        {
-            if (isset($routingArray[$i][1]) && $routingArray[$i][1] != NULL) {
-                if (isset($routingArray[$i][0]) && $routingArray[$i][0] == "name")
-                    $routename = $routingArray[$i][1];
-                else if (isset($routingArray[$i][0]) && $routingArray[$i][0] == "method")
-                    $method = $routingArray[$i][1];
-                else if (isset($routingArray[$i][0]) && $routingArray[$i][0] == "path")
-                    $path = (($this->prefix == null || $this->prefix == "")? "" : $this->prefix).$routingArray[$i][1];
+            $routingArray[$i]['path'] = (($this->prefix == null || $this->prefix == "") ? "" : $this->prefix) . $routingArray[$i]['path'];
+
+            $method = explode('%', $routingArray[$i]['method']);
+            if (count($method) == 2) {
+                $controller = $method[0];
+                $function = $method[1];
+                $params = $this->detectParameters($routingArray[$i]['path']);
+                $reflect = new \ReflectionClass("\\".$this->appName."\\Master\\".$controller."Master");
+
+                if (!method_exists($reflect->newInstance(), $function."Activity") || !is_callable(array($reflect->newInstance(), $function."Activity")))
+                    throw new Server500(new \ArrayObject(array("explain" => "Activity is not callable : '".$controller.":".$function."Activity"."' : ".$this->appName, "solution" => "Please check your controller activity")));
+                if (!empty($params))
+                    array_push($this->router, array("routename" =>  $routingArray[$i]['name'], "path" => $routingArray[$i]['path'], "controller" => $controller, "method" => $function . "Activity", "params" => $params));
+                else
+                    array_push($this->router, array("routename" =>  $routingArray[$i]['name'], "path" =>  $routingArray[$i]['path'], "controller" => $controller, "method" => $function . "Activity"));
             }
             else
-            {
-                if ($method != '' || $method == NULL) {
-                    $method = explode('%', $method);
-                    if (count($method) == 2) {
-                        $controller = $method[0];
-                        $function = $method[1];
-                        $params = $this->detectParameters($path);
-                        if (!empty($params))
-                            array_push($this->router, array("routename" => $routename, "path" => $path, "controller" => $controller, "method" => $function . "Activity", "params" => $params));
-                        else
-                            array_push($this->router, array("routename" => $routename, "path" => $path, "controller" => $controller, "method" => $function . "Activity"));
-                    }
-                }
-                $routename = NULL;
-                $method = NULL;
-            }
-
-            if (($i + 1) === count($routingArray) && ($method != '' || $method == NULL)) {
-                $method = explode('%', $method);
-                if (count($method) == 2) {
-                    $controller = $method[0];
-                    $function = $method[1];
-                    $params = $this->detectParameters($path);
-                    if (!empty($params))
-                        array_push($this->router, array("routename" => $routename, "path" => $path, "controller" => $controller, "method" => $function . "Activity", "params" => $params));
-                    else
-                        array_push($this->router, array("routename" => $routename, "path" => $path, "controller" => $controller, "method" => $function . "Activity"));
-                    $routename = NULL;
-                    $method = NULL;
-                }
-            }
-
-
+                throw new  Server500(new \ArrayObject(array("explain" => "Missing delimiter '%' to detect Activity' for  ".strtoupper($routingArray[$i]['name'])." route : ".$this->appName, "solution" => "Please add the correct delimiter")));
         }
-        return (1);
 
+        return (1);
+    }
+
+
+
+
+    private function checkIfKeyExist(array $resource, string $filename, string $appname):int
+    {
+        if (!isset($resource["method"]))
+            throw new  Server500(new \ArrayObject(array("explain" => "Missing Tag 'method' in ".strtoupper($filename)." routing file : ".$appname, "solution" => "Please add this tag")));
+        if (!isset($resource["name"]))
+            throw new  Server500(new \ArrayObject(array("explain" => "Missing Tag 'name' in ".strtoupper($filename)." routing file : ".$appname, "solution" => "Please add this tag")));
+        if (!isset($resource["path"]))
+            throw new  Server500(new \ArrayObject(array("explain" => "Missing Tag 'path' in ".strtoupper($filename)." routing file : ".$appname, "solution" => "Please add this tag")));
+
+        if ($resource["method"] == "")
+            throw new  Server500(new \ArrayObject(array("explain" => "Empty Tag 'method' in ".strtoupper($filename)." routing file : ".$appname, "solution" => "Check contain of this tag")));
+        if ($resource["method"] == "")
+            throw new  Server500(new \ArrayObject(array("explain" => "Empty Tag 'name' in ".strtoupper($filename)." routing file : ".$appname, "solution" => "Check contain of this tag")));
+        if ($resource["path"] == "")
+            throw new  Server500(new \ArrayObject(array("explain" => "Empty Tag 'path' in ".strtoupper($filename)." routing file : ".$appname, "solution" => "Check contain of this tag")));
+        return (1);
+    }
+
+
+    /**
+     * A version of in_array() that does a sub string match on $needle
+     *
+     * @param  mixed   $needle    The searched value
+     * @param  array   $haystack  The array to search in
+     * @return mixed
+     */
+
+    private function strlike_in_array($needle, array $haystack)
+    {
+        foreach ($haystack as $one => $value)
+        {
+            if (strpos($value, $needle) !== false)
+            {
+                return ($value);
+            }
+        }
+        return (null);
     }
 
 
@@ -126,6 +168,33 @@ class RtListener implements Listener
             return (1);
         }
         return (0);
+    }
+
+    /** Analyse RT file to detect some errors
+     * @param resource $file File resource
+     * @param string $filename File name
+     * @param string $appname App name
+     * @return int If file have no error
+     * @throws Server500 If file resource have some errors
+     */
+    protected function analyseRT($file, string $filename, string $appname):int
+    {
+        $start = 0;
+        $end = 0;
+        while ($listen = trim(fgets($file, 1024)))
+        {
+            if ($listen == "route:" || $listen == "route :") $start++;
+            if ($listen == "endroute") $end++;
+        }
+        if ($start != $end)
+        {
+            if ($start < $end)
+                throw new Server500(new \ArrayObject(array("explain" => "Missing tag 'route' in ".$filename. " Routing file : ".$appname , "solution" => "Please check your RT file")));
+            if ($end < $start)
+                throw new Server500(new \ArrayObject(array("explain" => "Missing tag 'endroute' in ".$filename. " Routing file : ".$appname, "solution" => "Please check your RT file")));
+            return (0);
+        }
+        return (1);
     }
 
     /**
