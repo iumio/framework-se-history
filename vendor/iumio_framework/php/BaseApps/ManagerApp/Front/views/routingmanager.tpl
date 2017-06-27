@@ -12,8 +12,8 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">Routing Manager (Later)</a>
-                    <a class="btn-default btn"  >Create a routing file</a>
+                    <a class="navbar-brand" href="#">Routing Manager</a>
+                    <a class="btn-default btn"  >Create a routing file (Later)</a>
                 </div>
 
             </div>
@@ -33,10 +33,10 @@
                                     <th>File</th>
                                     <th>App</th>
                                     <th>Route number</th>
-                                    <th>Edit</th>
+                                    <th>View</th>
                                     <th>Delete</th>
                                     </thead>
-                                    <tbody class="routinglist" >
+                                    <tbody class="routinglist" attr-href="{route name='iumio_manager_routing_manager_get_all'}">
                                     <!--<tr>
                                         <td>0</td>
                                         <td>DakotaRice</td>

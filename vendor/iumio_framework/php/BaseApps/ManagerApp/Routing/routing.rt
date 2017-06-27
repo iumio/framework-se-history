@@ -9,3 +9,15 @@ route:
   path :  /_manager/routing/get/all
   activity : Routing%getall
 endroute
+
+route:
+  name : iumio_manager_routing_manager_get_one
+  path :  /_manager/routing/get/one/{filename}/{appname}
+  activity : Routing%getOne
+endroute
+
+route:
+  name : iumio_manager_routing_manager_remove_one
+  path :  /_manager/routing/remove/one/{filename}/{appname}
+  activity : Routing%remove
+endroute

@@ -8,6 +8,13 @@ iumio Framework
 
 ## [BETA RELEASE]
 
+
+## [0.3.3] - 2017-06-27
+### Added
+- Create routing manager
+- Show details of route
+- Remove a routing file
+
 ## [0.3.2] - 2017-06-26
 ### Added
 - Change routing checker with callable activity detection
@@ -37,3 +44,4 @@ iumio Framework
 [0.3.0]: https://github.com/iumio-team/iumio-framework/releases
 [0.3.1]: https://github.com/iumio-team/iumio-framework/releases
 [0.3.2]: https://github.com/iumio-team/iumio-framework/releases
+[0.3.3]: https://github.com/iumio-team/iumio-framework/releases

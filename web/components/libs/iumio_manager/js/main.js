@@ -78,6 +78,46 @@ var getLogs = function () {
     });
 };
 
+
+/**
+ * get routing file list
+ */
+var getRoutingList = function () {
+    var selector = $('.routinglist');
+    if (typeof selector.attr("attr-href") === "undefined")
+        return (1);
+
+    $.ajax({
+        url : selector.attr("attr-href"),
+        type : 'GET',
+        dataType : 'json',
+        success : function(data){
+            if (data['code'] === 200)
+            {
+                var results = data['results'];
+                selector.html("");
+                selector.html("");
+                if (results.length === 0)
+                    return (selector.append("<tr><td colspan='6'>No routing file</td></tr>"));
+
+                $.each(results, function (index, value) {
+                    selector.append("<tr>" +
+                        "<td>"+value['name']+"</td>" +
+                        "<td>"+value['app']+"</td>" +
+                        "<td>"+value['count_route']+"</td>" +
+                        "<td><button class=' btn-info btn showrouting' attr-href='"+value['view']+"' attr-appname='"+value["app"]+"' attr-filename='"+value["name"]+"'>VI</button></td>"+
+                        "<td><button class='btn-info btn todeleterouting' attr-href='"+value['remove']+"' attr-appname='"+value["app"]+"' attr-filename='"+value["name"]+"'>DE</button></td>"+
+                        "</tr>");
+                });
+
+            }
+        },
+        error : function (data) {
+            operationError(data);
+        }
+    });
+};
+
 /**
  * get debug log (unlimited)
  */
@@ -685,6 +725,34 @@ var getSwitchApp = function (url) {
 };
 
 
+
+/**
+ * remove a routing file
+ * @param url Url to remove routing file
+ */
+var removeRouting = function (url) {
+
+    $.ajax({
+        url : url,
+        type : 'GET',
+        dataType : 'json',
+        success : function(data){
+            if (data['code'] === 200)
+            {
+                getRoutingList();
+                operationSuccess();
+            }
+        },
+        error : function (data) {
+            operationError(data);
+        }
+    })
+};
+
+
+
+
+
 /**
  * Clear logs
  * @param url Url to clear logs
@@ -933,6 +1001,7 @@ $(document).ready(function () {
     getAllCompileEnv();
     getAllSmartyConfigs();
     getAllAssets();
+    getRoutingList();
 
     setInterval(function () {
         if (noapp === false)
@@ -945,6 +1014,7 @@ $(document).ready(function () {
             getAllCompileEnv();
             getAllSmartyConfigs();
             getAllAssets();
+            getRoutingList();
         }
     }, 7000);
 
@@ -1194,6 +1264,9 @@ $(document).ready(function () {
             case "editappsave":
                 saveApp(href);
                 break;
+            case "removearouting":
+                removeRouting(href);
+                break;
             case "callprodassets":
             case "calldevassets":
             case "callassets":
@@ -1406,6 +1479,89 @@ $(document).ready(function () {
         });
     });
 
+
+    /**
+     * Event to show routing
+     */
+    $(document).on('click', ".showrouting", function () {
+        var selector = $(this);
+        var href = selector.attr("attr-href");
+        var appname = selector.attr("attr-appname");
+        var filename = selector.attr("attr-filename");
+        var result = null;
+
+        $.ajax({
+            url : href,
+            type : 'GET',
+            dataType : 'json',
+            success : function(data){
+                if (data['code'] === 200)
+                {
+                    result = data['results'];
+                    var selecttorModal = $("#modalManager");
+
+                    selecttorModal.find(".modal-header").html("<strong class='text-center'>Content of  "+filename+" routing file :  "+appname+"</strong>");
+                    selecttorModal.find(".modal-body").html('');
+                    $.each(result, function (index, value) {
+                        console.log(value[appname]);
+                        var params = "";
+                        if (typeof  value[appname]['params'] !== "undefined") {
+                            $.each(value[appname]['params'], function (index2, value2) {
+                                params += "<tr><td>" + value2 + "</td><td>No requirement</td></tr>";
+                            })
+                        }
+                        else
+                            params = "<tr><td colspan='2'>No parameters</td></tr>";
+
+                        selecttorModal.find(".modal-body").append("<div class='container' style='width: 100%'><div class='row'><table class='table table-bordered table-responsive  table-wrapper'"
+                        + "<tr><th colspan='2' class='text-center'>Route name : "+value[appname]['routename']+"</th></tr>"+
+                        "<tr><td>Path</td> <td> "+value[appname]['path']+"</td></tr>" +
+                        "<tr><td>Related master</td> <td> "+value[appname]['controller']+"Master</td></tr>"
+                        +"<tr><td>Callable activity</td> <td> "+value[appname]['activity']+"Activity</td></tr>"
+                            +"<tr><td colspan='2' class='text-center text-info'><strong>Parameters</strong></td></tr>"+
+                           params +
+                            "</table></div></div><br><br>"
+                        );
+
+
+                        /*selecttorModal.find(".modal-body").append("<div class='form-group text-center'><label>Configuration name</label><input type='text' name='config' class='form-control text-center' value='"+name+"' disabled='disabled'></div>");
+                        selecttorModal.find(".modal-body").append("</div></div>");
+                        selecttorModal.find(".modal-body").append('<div class="container-new">' +
+                            '<div class="form-group text-center"> <label>Debug</label> <div class="check"><input id="check" type="checkbox" name="debug" '+((result['debug'] === true)? "checked='checked'" : "")+' style="display: none"/><label for="check"><div class="box"><i class="fa fa-check"></i></div> </label></div></div>' +
+                            '<div class="form-group text-center"><label>Cache</label> <div class="check"><input id="check1" name="cache" '+((result['cache'] === 1)? "checked='checked'" : "")+' type="checkbox" style="display: none" /><label for="check1"><div class="box"><i class="fa fa-check"></i></div> </label></div></div>' +
+                            '<div class="form-group text-center"><label>Compile Check</label> <div class="check"><input id="check2" name="compile" '+((result['compile_check'] === true)? "checked='checked'" : "")+' type="checkbox" style="display: none" /><label for="check2"><div class="box"><i class="fa fa-check"></i></div> </label></div></div>' +
+                            '<div class="form-group text-center"><label>Force to compile</label> <div class="check"><input id="check3" name="force" '+((result['force_compile'] === true)? "checked='checked'" : "")+' type="checkbox" style="display: none" /><label for="check3"><div class="box"><i class="fa fa-check"></i></div> </label></div></div>' +
+                            '<div class="form-group text-center"><label>Smarty Debug</label> <div class="check"><input id="check4" name="sdebug" '+((result['smarty_debug'] === true)? "checked='checked'" : "")+' type="checkbox" style="display: none" /><label for="check4"><div class="box"><i class="fa fa-check"></i></div> </label></div></div>' +
+                            '<div class="form-group text-center"><label>Console</label> <div class="check"><input id="check5" name="console" '+((result['console_debug'] === "on")? "checked='checked'" : "")+' type="checkbox" style="display: none" /><label for="check5"><div class="box"><i class="fa fa-check"></i></div> </label></div></div>' +
+                            '</div>');*/
+                    });
+
+                    selecttorModal.find(".btn-close").html("Close");
+                    selecttorModal.find(".btn-valid").html("Edit (Later)");
+
+                    selecttorModal.find(".btn-valid").attr("attr-href", href);
+                    selecttorModal.find(".btn-valid").attr("attr-appname", name);
+                    selecttorModal.find(".btn-valid").attr("attr-event", "editrouting");
+                    selecttorModal.find(".btn-close").show();
+                    selecttorModal.find(".btn-valid").show();
+
+                    modal("show");
+                }
+                else
+                {
+                    operationError();
+                    return (0);
+                }
+            },
+            error : function (data) {
+                operationError(data);
+            }
+        });
+    });
+
+
+
+
     /**
      * Event to show create database config modal
      */
@@ -1587,6 +1743,31 @@ $(document).ready(function () {
 
         modal("show");
     });
+
+    /**
+     * Event to remove a routing file
+     */
+    $(document).on('click', ".todeleterouting", function () {
+        var selector = $(this);
+        var href = selector.attr("attr-href");
+        var appname = selector.attr("attr-appname");
+        var filename = selector.attr("attr-filename");
+
+        var selecttorModal = $("#modalManager");
+
+        selecttorModal.find(".modal-header").html("<strong class='text-center'>Remove a routing file</strong>");
+        selecttorModal.find(".modal-body").html("<h4 class='text-center'>Would you like to remove "+filename+" routing file related with "+appname+" ?</h4>");
+        selecttorModal.find(".btn-close").html("No");
+        selecttorModal.find(".btn-valid").html("Yes");
+
+        selecttorModal.find(".btn-valid").attr("attr-href", href);
+        selecttorModal.find(".btn-valid").attr("attr-event", "removearouting");
+        selecttorModal.find(".btn-close").show();
+        selecttorModal.find(".btn-valid").show();
+
+        modal("show");
+    });
+
 
 
     /**
