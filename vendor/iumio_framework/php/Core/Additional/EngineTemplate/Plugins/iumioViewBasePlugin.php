@@ -35,7 +35,7 @@ class iumioViewBasePlugin
      * @param array $params Contains name params
      * @return string Return info
      */
-     static public function f_info(array $params):string
+    static public function f_info(array $params):string
     {
         return (\iumioFramework\Core\Requirement\iumioUltimaCore::getInfo($params['name']));
     }
@@ -82,7 +82,7 @@ class iumioViewBasePlugin
      */
     final static public function css(array $params)
     {
-        return ("<link href='".WEB_ASSETS.strtolower(APP_CALL)."/".((isset($params['path']))? $params['path']."." : "")."css' rel='stylesheet' />");
+        return ("<link href='".WEB_ASSETS.strtolower(ENVIRONMENT)."/".strtolower(APP_CALL)."/".((isset($params['path']))? $params['path']."." : "")."css' rel='stylesheet' />");
     }
 
     /** Get js file
@@ -91,7 +91,7 @@ class iumioViewBasePlugin
      */
     final static public function js(array $params)
     {
-        return ("<script type='text/javascript' src='".WEB_ASSETS.strtolower(APP_CALL)."/".((isset($params['path']))? $params['path']."." : "")."js'></script>");
+        return ("<script type='text/javascript' src='".WEB_ASSETS.strtolower(ENVIRONMENT)."/".strtolower(APP_CALL)."/".((isset($params['path']))? $params['path']."." : "")."js'></script>");
     }
 
     /** Get css libs file
@@ -150,9 +150,9 @@ class iumioViewBasePlugin
     }
 
     /** Get font awesome font lib
- * @param array $params Contains name param
- * @return string return font awesome font lib path
- */
+     * @param array $params Contains name param
+     * @return string return font awesome font lib path
+     */
     final static public function font_awesome_fonts(array $params)
     {
         return (WEB_COMPONENTS."libs/font-awesome/fonts/".((isset($params['name']))? $params['name'] : ""));

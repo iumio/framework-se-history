@@ -9,6 +9,12 @@ iumio Framework
 ## [BETA RELEASE]
 
 
+## [0.3.4] - 2017-07-01
+### Added
+- Fix missing environment for css, js, image web assets
+- Others minor fixes
+
+
 ## [0.3.3] - 2017-06-27
 ### Added
 - Create routing manager
@@ -45,3 +51,4 @@ iumio Framework
 [0.3.1]: https://github.com/iumio-team/iumio-framework/releases
 [0.3.2]: https://github.com/iumio-team/iumio-framework/releases
 [0.3.3]: https://github.com/iumio-team/iumio-framework/releases
+[0.3.4]: https://github.com/iumio-team/iumio-framework/releases
