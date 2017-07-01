@@ -9,6 +9,8 @@
  * To get more information about licence, please check the licence file
  */
 
+
+checkInitialJSON();
 if (isset($_REQUEST["appname"], $_REQUEST["default"] , $_REQUEST["template"]) && $_REQUEST["appname"] != "" && $_REQUEST["default"] != "" && $_REQUEST["template"] != "")
     createAppProcess($_REQUEST["appname"], $_REQUEST["default"] , $_REQUEST["template"]);
 
@@ -87,6 +89,15 @@ function initialJSON()
         $rs = json_encode($std, JSON_PRETTY_PRINT);
         file_put_contents($base."/elements/config_files/initial.json", $rs);
     }
+}
+
+
+function checkInitialJSON()
+{
+    $base = __DIR__."/../";
+    $f = json_decode(file_get_contents($base."/elements/config_files/initial.json"));
+    if (!empty($f))
+       exit("Cannot use iumio installer because you have already one app installed.");
 }
 
 ?>

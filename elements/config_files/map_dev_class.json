@@ -1,5 +1,8 @@
 {
     "iumioFramework\\Apps\\AppCore": "\/Applications\/MAMP\/htdocs\/iumio-framework\/apps\/AppCore.php",
+    "TestApp\\Master\\DefaultMaster": "\/Applications\/MAMP\/htdocs\/iumio-framework\/apps\/TestApp\/Master\/DefaultMaster.php",
+    "TestApp\\TestApp": "\/Applications\/MAMP\/htdocs\/iumio-framework\/apps\/TestApp\/TestApp.php",
+    "Block_13598851359575b25238125_48653698": "\/Applications\/MAMP\/htdocs\/iumio-framework\/elements\/compiled\/dev\/smarty_compiled\/6292899472e69d8f67c5e4695e96ad24726adad2_0.file.index.tpl.php",
     "ManagerApp\\ManagerApp": "\/Applications\/MAMP\/htdocs\/iumio-framework\/vendor\/iumio_framework\/php\/BaseApps\/ManagerApp\/ManagerApp.php",
     "ManagerApp\\Master\\AppsMaster": "\/Applications\/MAMP\/htdocs\/iumio-framework\/vendor\/iumio_framework\/php\/BaseApps\/ManagerApp\/Master\/AppsMaster.php",
     "ManagerApp\\Master\\AssetsMaster": "\/Applications\/MAMP\/htdocs\/iumio-framework\/vendor\/iumio_framework\/php\/BaseApps\/ManagerApp\/Master\/AssetsMaster.php",
