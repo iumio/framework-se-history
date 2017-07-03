@@ -75,12 +75,12 @@ class AssetsMaster extends Master
         {
             if (in_array(strtolower($env), array("dev", "prod", "all"))) {
                 if (strtolower($env) === "dev")
-                    Server::copy(ROOT . "/apps/" . ($appname) . "/Front/Resources/", ROOT . "/web/components/apps/dev/" . ($appname), 'directory', true);
+                    Server::copy(ROOT . "/apps/" . ($appname) . "/Front/Resources/", ROOT . "/web/components/apps/dev/" . strtolower($appname), 'directory', true);
                 else if (strtolower($env) == "prod")
-                    Server::copy(ROOT . "/apps/" . ($appname) . "/Front/Resources/", ROOT . "/web/components/apps/prod/" . ($appname), 'directory', false);
+                    Server::copy(ROOT . "/apps/" . ($appname) . "/Front/Resources/", ROOT . "/web/components/apps/prod/" . strtolower($appname), 'directory', false);
                 else {
-                    Server::copy(ROOT . "/apps/" . ($appname) . "/Front/Resources/", ROOT . "/web/components/apps/dev/" . ($appname), 'directory', true);
-                    Server::copy(ROOT . "/apps/" . ($appname) . "/Front/Resources/", ROOT . "/web/components/apps/prod/" . ($appname), 'directory', false);
+                    Server::copy(ROOT . "/apps/" . ($appname) . "/Front/Resources/", ROOT . "/web/components/apps/dev/" . strtolower($appname), 'directory', true);
+                    Server::copy(ROOT . "/apps/" . ($appname) . "/Front/Resources/", ROOT . "/web/components/apps/prod/" . strtolower($appname), 'directory', false);
                 }
 
             }

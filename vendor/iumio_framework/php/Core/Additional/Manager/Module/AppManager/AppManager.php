@@ -478,7 +478,7 @@ class AppManager implements ModuleManager
         {
             $std = new \stdClass();
             $std->installation = new \DateTime();
-            $std->version = "0.3.4";
+            $std->version = "0.3.5";
             $std->user = get_current_user();
             $std->location = realpath(ROOT_PROJECT);
             $std->os = PHP_OS;

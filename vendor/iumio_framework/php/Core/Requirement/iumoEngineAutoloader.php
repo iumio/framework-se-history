@@ -85,7 +85,6 @@ class iumoEngineAutoloader {
                         // FIX FUNCTION SMARTY PLUGIN
                         if (strpos($class, "Smarty_Internal_Compile_") !== false)
                             return true;
-                        echo "LEL";
                         try
                         {
                             include_once  __DIR__."/../Exceptions/Server/Server500.php";
