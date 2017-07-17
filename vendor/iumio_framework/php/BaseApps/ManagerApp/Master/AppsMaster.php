@@ -241,6 +241,7 @@ class AppsMaster extends Master
     }
 
     /** edit one app
+     * @param string $appname App name
      * @return int JSON render
      */
     public function editActivity(string $appname):int

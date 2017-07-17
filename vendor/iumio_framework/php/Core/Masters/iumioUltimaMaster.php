@@ -34,6 +34,14 @@ class iumioUltimaMaster extends iumioUltima
     protected $appMastering = NULL;
 
 
+    /**
+     * iumioUltimaMaster constructor.
+     */
+    public function __construct()
+    {
+        self::setAppMaster($this);
+    }
+
     /** Get a service
      * @param string $service
      * @return mixed
@@ -120,8 +128,25 @@ class iumioUltimaMaster extends iumioUltima
 
     final public function generateRoute(string $routename,  array $parameters = null, string $app_called = null,  bool $component = false):string
     {
-        $app = ($app_called != null)? $app_called : APP_CALL;
-        $rt = new Routing($app, null, (($component == true)? $component : IS_IUMIO_COMPONENT));
+        $app = (($app_called != null)? $app_called : APP_CALL);
+
+        $file = JL::open(CONFIG_DIR."apps.json");
+        $prefix = null;
+        foreach ($file as $one)
+        {
+            if ($one->name == $app && $one->prefix != "")
+                $prefix = $one->prefix;
+        }
+        JL::close(CONFIG_DIR."apps.json");
+
+        $iscomponent = (self::getCore())->detectAppType($app);
+
+        $component = false;
+        if ($iscomponent == 'base') $component = true;
+        else if ($iscomponent == 'none')
+            throw new Server500(new \ArrayObject(array("explain" => "Cannot determine app type of ".$app,
+                "solution" => "Please check if your app exist")));
+        $rt = new Routing($app, $prefix, $component);
         if (!$rt->routingRegister())
             throw new Server500(new \ArrayObject(array("solution" => "Please check all RT file", "explain" => "Cannot open your RT file")));
 

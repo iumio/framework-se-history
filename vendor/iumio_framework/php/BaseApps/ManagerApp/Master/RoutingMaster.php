@@ -88,63 +88,73 @@ class RoutingMaster extends Master
      */
     public function getRtContent(string $filename, string $appname):array
     {
-
-                $scope = NULL;
+        $scope = NULL;
         $routingArray = array();
         $pattern = '/\s*/m';
         $replace = '';
         $rt = array();
-                if (($router = fopen((ROOT . "/apps/") . $appname . "/Routing/" . $filename, "r"))) {
-                    //if ($this->analyseRT($router, $file, $one->name) == 0) exit();
-                    //rewind($router);
-                    $rtarray = array("activity" => "", "path" => "", "name" => "");
-                    $start = 0;
-                    $end = 0;
-                    $croute = 0;
-                    while ($listen = fgets($router, 1024)) {
+        $prefix = "";
 
-                        $listen = preg_replace($pattern, $replace, $listen);
+        if (($router = fopen((ROOT . "/apps/") . $appname . "/Routing/" . $filename, "r"))) {
+            $appc = $this->getMaster("Apps");
+            $apps = $appc->getAllApps();
+            foreach ($apps as $o)
+            {
+                if ($o->name === $appname)
+                    $prefix = $o->prefix;
+            }
 
-                        if ($listen === "")
-                            continue;
-                        if ($listen === "route:" && $start == 0 && $end === 0) {
-                            $start = 1;
-                            continue;
-                        } else if ($listen === "endroute" && $start === 1 & $end === 0) {
-                            $end = 1;
-                            array_push($routingArray, $rtarray);
-                        } else if ($this->strlike_in_array($listen, array("activity", "path", "name")) !== false) {
+            $rtarray = array("activity" => "", "path" => "", "name" => "");
+            $start = 0;
+            $end = 0;
+            $croute = 0;
+            while ($listen = fgets($router, 1024)) {
 
-                            $listen = explode(':', $listen);
-                            $rtarray[$listen[0]] = $listen[1];
-                        }
+                $listen = preg_replace($pattern, $replace, $listen);
 
-                        if ($start === 1 && $end === 1) {
-                            $rtarray = array("method" => "", "path" => "", "name" => "");
-                            $start = $end = 0;
-                            $croute++;
-                        }
+                if ($listen === "")
+                    continue;
+                if ($listen === "route:" && $start == 0 && $end === 0) {
+                    $start = 1;
+                    continue;
+                } else if ($listen === "endroute" && $start === 1 & $end === 0) {
+                    $end = 1;
+                    array_push($routingArray, $rtarray);
+                } else if ($this->strlike_in_array($listen, array("activity", "path", "name")) !== false) {
 
-                    }
-
-
+                    $listen = explode(':', $listen);
+                    $rtarray[$listen[0]] = $listen[1];
                 }
 
-
-            for ($i = 0; $i < count($routingArray); $i++) {
-
-                $method = explode('%', $routingArray[$i]['activity']);
-                $controller = $method[0];
-                $function = $method[1];
-                $params = $this->detectParameters($routingArray[$i]['path']);
-
-                if (!empty($params))
-                    array_push($rt, array($appname => array("routename" => $routingArray[$i]['name'], "path" => $routingArray[$i]['path'], "controller" => $controller, "activity" => $function, "params" => $params)));
-                else
-                    array_push($rt, array($appname => array("routename" => $routingArray[$i]['name'], "path" => $routingArray[$i]['path'], "controller" => $controller, "activity" => $function)));
+                if ($start === 1 && $end === 1) {
+                    $rtarray = array("method" => "", "path" => "", "name" => "");
+                    $start = $end = 0;
+                    $croute++;
+                }
 
             }
-            return ($rt);
+        }
+
+
+        for ($i = 0; $i < count($routingArray); $i++) {
+
+            $method = explode('%', $routingArray[$i]['activity']);
+            $controller = $method[0];
+            $function = $method[1];
+            $params = $this->detectParameters($routingArray[$i]['path']);
+
+            $route_gen = "";
+
+           if (empty($params))
+               $route_gen = $this->generateRoute($routingArray[$i]['name'], null, $appname);
+
+            if (!empty($params))
+                array_push($rt, array($appname => array("routename" => $routingArray[$i]['name'], "path" => $routingArray[$i]['path'], "controller" => $controller, "activity" => $function, "params" => $params)));
+            else
+                array_push($rt, array($appname => array("routename" => $routingArray[$i]['name'], "path" => $routingArray[$i]['path'], "controller" => $controller, "activity" => $function, "route_gen" => $route_gen)));
+
+        }
+        return ($rt);
     }
 
 
@@ -172,8 +182,7 @@ class RoutingMaster extends Master
                 if ($file == "." || $file == "..")
                     continue;
                 if (($router = fopen((ROOT . "/apps/") . $one->name . "/Routing/" . $file, "r"))) {
-                    //if ($this->analyseRT($router, $file, $one->name) == 0) exit();
-                    //rewind($router);
+
                     $rtarray = array("activity" => "", "path" => "", "name" => "");
                     $start = 0;
                     $end = 0;
@@ -241,7 +250,6 @@ class RoutingMaster extends Master
      */
     public function getOneActivity(string $filename, string $appname)
     {
-
         return ((new Response())->JSON_RENDER(array("code" => 200, "msg" => "OK", "results" => $this->getRtContent($filename, $appname))));
     }
 

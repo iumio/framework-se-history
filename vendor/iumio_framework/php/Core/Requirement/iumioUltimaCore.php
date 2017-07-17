@@ -37,11 +37,11 @@ abstract class iumioUltimaCore extends iumioUltima
     protected $environment;
     private static $runtime_parameters = null;
 
-    const VERSION = '0.3.5';
+    const VERSION = '0.3.6';
     const VERSION_EDITION = 'iumio Framework Standard Edition';
     const VERSION_EDITION_SHORT = 'SE';
     const VERSION_STAGE = 'BETA';
-    const VERSION_BUILD = 201735;
+    const VERSION_BUILD = 201736;
 
 
 
@@ -62,7 +62,9 @@ abstract class iumioUltimaCore extends iumioUltima
             $this->startTime = microtime(true);
         }
 
+        self::setCore($this);
         $defClass = new \ReflectionMethod($this, '__construct');
+
         $defClass = $defClass->getDeclaringClass()->name;
     }
 
@@ -119,6 +121,7 @@ abstract class iumioUltimaCore extends iumioUltima
     /** Detect the default app
      * @param array $apps App list
      * @return array The default app
+     * @deprecated  Will remove next major release
      * @throws \Exception When does not have a default app
      */
     protected function detectDefaultApp(array $apps):array
@@ -128,6 +131,29 @@ abstract class iumioUltimaCore extends iumioUltima
 
         throw new Server500(new \ArrayObject(array("explain" => "No Default app is detected", "solution" => "Please edit apps.json to set a default app")));
 
+    }
+
+    /** Detect the app type
+     * @param string $appname App name
+     * @return string The type of app called. Possibility to return a << none >> app when appname not detected
+     */
+    final public function detectAppType(string $appname):string
+    {
+        $apptype = 'none';
+        $appsp = self::registerApps();
+        $appbs = self::registerBaseApps();
+
+        foreach ($appsp as $one => $val)
+        {
+            if ($one == $appname) return ('simple');
+        }
+
+        foreach ($appbs as $one => $val)
+        {
+            if ($val['name'] == $appname) return ('base');
+        }
+
+        return ($apptype);
     }
 
     /**
@@ -215,10 +241,10 @@ abstract class iumioUltimaCore extends iumioUltima
         $apps = $this->registerApps();
         $bapps = $this->registerBaseApps();
         $great = false;
-
         if ($this->isComponentCall($bapps, $request)) return (1);
 
         //$def = $this->detectDefaultApp($apps);
+
         $values = $this->getSimpleAppFormat($apps);
 
         foreach ($values as $one => $def) {
@@ -314,7 +340,7 @@ abstract class iumioUltimaCore extends iumioUltima
         $apps = array();
         foreach ($classes as $class => $val) {
             $val = (array)$val;
-            $apps[$val['name']] =  array("isdefault" =>$val['isdefault'],  "appclass" => new $val['class']());
+            $apps[$val['name']] =  array("appclass" => new $val['class']());
         }
         return $apps;
     }

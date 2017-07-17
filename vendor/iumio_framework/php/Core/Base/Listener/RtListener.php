@@ -11,9 +11,11 @@
  */
 
 namespace iumioFramework\Core\Base;
+
+error_reporting(E_ALL);
 use iumioFramework\Core\Base\Debug\Debug;
 use iumioFramework\Exception\Server\Server500;
-use Resource;
+
 /**
  * Class RtListener
  * @package iumioFramework\Core\Base
@@ -40,9 +42,11 @@ class RtListener implements Listener
     }
 
     /** Open a file
-     * @param bool $isbase Open routing for base app
+     * @param bool $isbase pen routing for base app
      * @return int Is success
+     * @throws Server500
      */
+
     public function open(bool $isbase = false):int
     {
         if ($this->listingRouters($isbase) == 0)
@@ -98,7 +102,14 @@ class RtListener implements Listener
                 $controller = $method[0];
                 $function = $method[1];
                 $params = $this->detectParameters($routingArray[$i]['path']);
-                $reflect = new \ReflectionClass("\\".$this->appName."\\Master\\".$controller."Master");
+                try
+                {
+                    $reflect = new \ReflectionClass("\\".$this->appName."\\Master\\".$controller."Master");
+                }
+                catch (\ReflectionException $e)
+                {
+                    throw new  Server500(new \ArrayObject(array("explain" => "Cannot instanciate "."\\".$this->appName."\\Master\\".$controller."Master", "solution" => "Please check your master configuration : ".$e->getMessage())));
+                }
 
                 if (!method_exists($reflect->newInstance(), $function."Activity") || !is_callable(array($reflect->newInstance(), $function."Activity")))
                     throw new Server500(new \ArrayObject(array("explain" => "Activity is not callable : '".$controller.":".$function."Activity"."' : ".$this->appName, "solution" => "Please check your controller activity")));
@@ -164,7 +175,7 @@ class RtListener implements Listener
     public function listingRouters(bool $isbase = false):int
     {
         if ($this->appWording() == 1) {
-            $this->routers = scandir(((!$isbase)? ROOT . "/apps/" : BASE_APPS) . $this->appName . "/Routing");
+            $this->routers = scandir((($isbase == false)? ROOT . "/apps/" : BASE_APPS) . $this->appName . "/Routing");
             return (1);
         }
         return (0);

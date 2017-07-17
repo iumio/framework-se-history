@@ -25,6 +25,11 @@
         #wrapper {
             padding-top: 0em;
         }
+        a
+        {
+            text-decoration: none;
+            border-bottom: none;
+        }
         #banner.major {
             height: 135vh;
         }
@@ -155,7 +160,7 @@
         <div class="inner">
             <ul class="copyright">
                 <?php  use iumioFramework\Core\Requirement\iumioUltimaCore; ?>
-                <li>&copy; <?= date('Y') ?> <a href="https://framework.iumio.com/">iumio Framework</a></li><li>The next generation of PHP frameworks</li><li><?= iumioUltimaCore::getInfo("VERSION_EDITION").' '.iumioUltimaCore::getInfo("VERSION") ?></li>
+                <li>&copy; <?= date('Y') ?> <a href="https://framework.iumio.com/">iumio Framework</a>, an <a href="https://iumio.com/">iumio Component</a></li>
             </ul>
         </div>
     </footer>

@@ -258,7 +258,7 @@ var getAppListSimple = function () {
                     return (selector.append("<tr><td colspan='6'>No apps</td></tr>"));
 
                 $.each(results, function (index, value) {
-                    selector.append("<tr "+((value['enabled'] === "yes")? "style='background-color:rgb(38, 160, 23);color:white'": "")+">" +
+                    selector.append("<tr>" +
                         "<td>"+index+"</td>" +
                         "<td>"+value['name']+"</td>" +
                         "<td>"+value['enabled']+"</td>" +
@@ -1505,6 +1505,7 @@ $(document).ready(function () {
                     $.each(result, function (index, value) {
                         console.log(value[appname]);
                         var params = "";
+                        var link_gen = "";
                         if (typeof  value[appname]['params'] !== "undefined") {
                             $.each(value[appname]['params'], function (index2, value2) {
                                 params += "<tr><td>" + value2 + "</td><td>No requirement</td></tr>";
@@ -1513,13 +1514,16 @@ $(document).ready(function () {
                         else
                             params = "<tr><td colspan='2'>No parameters</td></tr>";
 
+                        if (typeof  value[appname]['route_gen'] !== "undefined")
+                            link_gen = "<tr><td colspan='2'><a href='"+value[appname]['route_gen']+"'><strong>Go to link</strong></a></td></tr>";
+
                         selecttorModal.find(".modal-body").append("<div class='container' style='width: 100%'><div class='row'><table class='table table-bordered table-responsive  table-wrapper'"
                         + "<tr><th colspan='2' class='text-center'>Route name : "+value[appname]['routename']+"</th></tr>"+
                         "<tr><td>Path</td> <td> "+value[appname]['path']+"</td></tr>" +
                         "<tr><td>Related master</td> <td> "+value[appname]['controller']+"Master</td></tr>"
                         +"<tr><td>Callable activity</td> <td> "+value[appname]['activity']+"Activity</td></tr>"
                             +"<tr><td colspan='2' class='text-center text-info'><strong>Parameters</strong></td></tr>"+
-                           params +
+                           params + link_gen +
                             "</table></div></div><br><br>"
                         );
 
