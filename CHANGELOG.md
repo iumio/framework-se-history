@@ -8,6 +8,11 @@ iumio Framework
 
 ## [BETA RELEASE]
 
+## [0.3.7] - 2017-07-22
+### Fixed
+- Bug fixed : iumio Prod.php Route generate
+- Reduce CSS and JS source code 
+
 ## [0.3.6] - 2017-07-17
 ### Fixed
 - Bug fix for iumioUltimaMaster::generateRoute
@@ -66,3 +71,4 @@ iumio Framework
 [0.3.4]: https://github.com/iumio-team/iumio-framework/releases/tag/v0.3.4
 [0.3.5]: https://github.com/iumio-team/iumio-framework/releases/tag/v0.3.5
 [0.3.6]: https://github.com/iumio-team/iumio-framework/releases/tag/v0.3.6
+[0.3.7]: https://github.com/iumio-team/iumio-framework/releases/tag/v0.3.7

@@ -44,6 +44,8 @@
 {js_manager name='bootstrap-checkbox-radio-switch'}
 <!--  Notifications Plugin    -->
 {js_manager name='bootstrap-notify'}
+<!--  Selection Plugin    -->
+{js_manager name='bootstrap-select'}
 <!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->
 {js_manager name='light-bootstrap-dashboard'}
 

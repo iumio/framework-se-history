@@ -161,7 +161,7 @@ class iumioUltimaMaster extends iumioUltima
                 else if ($env == "PROD")
                     $env = "Prod.php";
 
-                if (strpos($_SERVER['REQUEST_URI'], $env) == false)
+                if (strpos($_SERVER['REQUEST_URI'], $env) != false)
                     $env = "";
                 else
                     $env = "/".$env;

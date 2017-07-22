@@ -13,7 +13,7 @@
 # @author  Dany Rafina <danyrafina@gmail.com> #
 ###############################################
 
-DirectoryIndex Dev.php
+DirectoryIndex Prod.php
 
 <IfModule mod_negotiation.c>
     Options -MultiViews
@@ -32,20 +32,20 @@ DirectoryIndex Dev.php
 
 
     RewriteCond %{ENV:REDIRECT_STATUS} ^$
-    RewriteRule ^Dev\.php(/(.*)|$) %{ENV:BASE}/$2 [R=301,L]
+    RewriteRule ^Prod\.php(/(.*)|$) %{ENV:BASE}/$2 [R=301,L]
 
 
     RewriteCond %{REQUEST_FILENAME} -f
     RewriteRule .? - [L]
 
     # Rewrite all other queries to the front controller.
-    RewriteRule .? %{ENV:BASE}/Dev.php [L]
+    RewriteRule .? %{ENV:BASE}/Prod.php [L]
 </IfModule>
 
 <IfModule !mod_rewrite.c>
     <IfModule mod_alias.c>
 
-        RedirectMatch 302 ^/$ /Dev.php/
+        RedirectMatch 302 ^/$ /Prod.php/
 
     </IfModule>
 </IfModule>

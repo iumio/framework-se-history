@@ -98,6 +98,7 @@ class Routing extends RtListener
         $base = (isset($_SERVER['SCRIPT_NAME']) && $_SERVER['SCRIPT_NAME'] != "")? $_SERVER['SCRIPT_NAME'] : "";
 
         $script = "";
+
         if (strpos($webRoute, Env::getFileEnv(ENVIRONMENT)) !== false)
         {
 
@@ -120,12 +121,13 @@ class Routing extends RtListener
             for ($z = 0; $z < count($remove); $z++)
             {
                 $key = array_search($remove[$z], $wRE);
-                unset($wRE[$key]);
+                if ($key !== false)
+                    unset($wRE[$key]);
             }
+
             $wRE = array_values($wRE);
             $wRE = array_values(self::removeEmptyData($wRE));
         }
-
 
         if (strpos($base, Env::getFileEnv(ENVIRONMENT)) !== false)
         {
@@ -141,7 +143,6 @@ class Routing extends RtListener
 
         }
 
-        //echo ($base.$appRoute ." <==> ". $webRoute."<br><br>");
         if (($base.$appRoute == $webRoute) || $base.$appRoute."/" == $webRoute)
             return (array("is" => "same", "similar" => 100));
 
@@ -163,13 +164,14 @@ class Routing extends RtListener
                 similar_text($base.$script.$appRoute, $webRoute, $pe1);
                 similar_text($base.$script.$appRoute."/", $webRoute, $pe2);
 
-                $simi = self::checkArrayRoute($aRE, $wRE);
+                $simi = self::checkArrayRoute($wRE, $aRE);
                 $pe = ($pe1 > $pe2)? $pe1 : $pe2;
+
                 if ($simi == 0)
                     $pe = 0;
+
                 return (array("is" => "partial", "result" => $paramValues, "similar" => $pe));
             }
-
         }
         return (array("is" => "nomatch", "similar" => 0));
     }
@@ -188,6 +190,9 @@ class Routing extends RtListener
             if ($i == 0 && isset($web[0]) && isset($app[0]) && ($web[0] == $app[0]))
                 $first = 1;
             if ($first > 0 && $web[$i] == $app[$i])
+                $score++;
+            if ($first > 0 && strpos($app[$i], "{") != false &&
+                strpos($app[$i], "}") != false && $web[$i] != "")
                 $score++;
         }
 
