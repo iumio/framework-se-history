@@ -8,6 +8,10 @@ iumio Framework
 
 ## [BETA RELEASE]
 
+## [0.3.8] - 2017-07-22
+### Fixed
+- Bug fixed : Copy Assets to Prod
+ 
 ## [0.3.7] - 2017-07-22
 ### Fixed
 - Bug fixed : iumio Prod.php Route generate
@@ -72,3 +76,4 @@ iumio Framework
 [0.3.5]: https://github.com/iumio-team/iumio-framework/releases/tag/v0.3.5
 [0.3.6]: https://github.com/iumio-team/iumio-framework/releases/tag/v0.3.6
 [0.3.7]: https://github.com/iumio-team/iumio-framework/releases/tag/v0.3.7
+[0.3.8]: https://github.com/iumio-team/iumio-framework/releases/tag/v0.3.8

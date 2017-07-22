@@ -37,11 +37,11 @@ abstract class iumioUltimaCore extends iumioUltima
     protected $environment;
     private static $runtime_parameters = null;
 
-    const VERSION = '0.3.7';
+    const VERSION = '0.3.8';
     const VERSION_EDITION = 'iumio Framework Standard Edition';
     const VERSION_EDITION_SHORT = 'SE';
     const VERSION_STAGE = 'BETA';
-    const VERSION_BUILD = 201737;
+    const VERSION_BUILD = 201738;
 
 
 

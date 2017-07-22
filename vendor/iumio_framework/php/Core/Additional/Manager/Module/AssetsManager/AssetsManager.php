@@ -200,7 +200,10 @@ class AssetsManager implements ModuleManager
                 Server::create(ROOT_PROJECT."/web/components/apps/prod/", 'directory');
             }
             else
+            {
                 Server::delete(ROOT_PROJECT."/web/components/apps/".strtolower($env)."/", 'directory');
+                Server::create(ROOT_PROJECT."/web/components/apps/".strtolower($env)."/", 'directory');
+            }
 
         }
         else if ($appname !== '#none' && in_array($env, array("dev", "prod", "all")))
