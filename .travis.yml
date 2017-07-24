@@ -3,4 +3,4 @@ php:
   - '7.0'
   - '7.1'
 
-script: web/Dev.php
+script: php web/Dev.php
