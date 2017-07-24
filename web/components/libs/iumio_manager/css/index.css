@@ -8,6 +8,36 @@
     padding-bottom: 20px!important;
 }
 
+.iumio-color
+{
+    color: #1DC7EA;
+}
+
+.w100
+{
+    width: 100%!important;
+}
+
+.fw900
+{
+    font-weight: 900!important;
+}
+
+.fs20
+{
+    font-size: 20px!important;
+}
+
+.break-word
+{
+    word-wrap: break-word!important;
+}
+
+.errorlastlog li
+{
+    word-wrap: break-word!important;
+}
+
 .manager-options div a
 {
     width: 150px!important;
@@ -28,6 +58,17 @@
     -webkit-transition-duration: 250ms;
     transition-duration: 250ms;
     opacity: 1;
+}
+
+.card-content-new
+{
+    padding: 5px 15px 0px 15px!important;
+}
+
+@media (min-width: 992px){
+    .typo-line {
+        margin-bottom: 10px!important;
+    }
 }
 
 .table, .table thead th

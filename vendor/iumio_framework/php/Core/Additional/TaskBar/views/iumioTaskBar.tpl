@@ -1,12 +1,11 @@
 {if isset($iumiotaskbar) && !empty($iumiotaskbar)}
     <!-- iumioTaskBar component -->
     <link rel="stylesheet" href="{$iumiotaskbar['css']}" />
-    <div id="iumioTaskBarBlank" style="clear: both; height: 70px; display: block;"></div>
+    <div id="iumioTaskBarBlank"></div>
     <ul class="iumioTaskBar">
         <li class="flogo"><img src="{$iumiotaskbar['logo']}"/> </li>
-        <li><a class="active" href="#"><strong>{$iumiotaskbar['ve']}</strong></a></li>
-        <li><a href="#" class="active">{$iumiotaskbar['env']}</a></li>
-        <li><a href="#" class="active"><strong>{$iumiotaskbar['call_app']}</strong></a></li>
+        <li><a class="active" href="#"><strong>{$iumiotaskbar['ve']} - {$iumiotaskbar['env']}</strong></a></li>
+        <li><a href="#" class="active" style="border-right: 1px solid white;"><strong>{$iumiotaskbar['call_app']}</strong></a></li>
         <li id="iumioTaskBarAssets" class="iumioTaskBarDropdown"><a href="#">Assets</a>
             <ul class="iumioTaskBarDropdownContent">
                 <li class="iumioTaskBarAssetsClearAll"    attr-href="{$iumiotaskbar['publish_assets_all']}"  >Publish all</li>
@@ -25,11 +24,11 @@
                 <li class="iumioTaskBarCacheClearDev" attr-href="{$iumiotaskbar['cache_clear_dev']}">Clear dev</li>
                 <li class="iumioTaskBarCacheClearProd" attr-href="{$iumiotaskbar['cache_clear_prod']}">Clear prod</li>
             </ul></li>
-        <li style="float: right; list-style: none" class="active" id="iumioTaskBarReduce"><a><strong>></strong></a></li>
+        <li style="float: right; list-style: none" class="active" id="iumioTaskBarReduce"><a class="pe-7s-right-arrow" style="font-size: 16px"></a></li>
     </ul>
-    <ul class="iumioTaskBar iumioTaskBarVSmall" style="display: none; width: 110px; padding: 0px 0px 0 0;">
+    <ul class="iumioTaskBar iumioTaskBarVSmall" style="display: none; width: 114px; padding: 0px 0px 0 0;">
         <li class="flogo"><img src="{$iumiotaskbar['logo']}"/> </li>
-        <li id="iumioTaskBarRestore" style="color: black;list-style: none; "><a><strong style="color: red">></strong></a></li>
+        <li id="iumioTaskBarRestore" style="color: black;list-style: none; "><a class="pe-7s-left-arrow" style="font-size: 16px"></a></li>
     </ul>
     <script type='text/javascript' src="{$iumiotaskbar['js']}"></script>
     <!-- END iumioTaskBar component -->

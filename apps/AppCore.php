@@ -44,7 +44,7 @@ class AppCore extends iumioUltimaCore
     {
         $classes = $this->getClassFile();
 
-        if (count((array)$classes) == 0) throw new Server000(new \ArrayObject(array()));
+        if (count((array)$classes) == 0) throw new Server000(new \ArrayObject(array("explain" => "No app is registered","solution" => "Create an app")));
         $apps = array();
         foreach ($classes as $class => $val) {
             $val = (array)$val;

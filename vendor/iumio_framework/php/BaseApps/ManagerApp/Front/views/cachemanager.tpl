@@ -15,7 +15,10 @@
                         <a class="navbar-brand" href="#">Cache Manager</a>
                         <a class="btn-default btn clearcache"  attr-href="{route name='iumio_manager_cache_manager_remove_all'}">Clear all cache</a>
                     </div>
-
+                    <div class="collapse navbar-collapse">
+                        <ul class="nav navbar-nav navbar-left">
+                        </ul>
+                    </div>
                 </div>
             </nav>
             <div class="content">

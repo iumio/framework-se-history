@@ -29,6 +29,10 @@ abstract class AbstractServer extends \Exception implements ServerInterface
     protected $solution = NULL;
     protected $env = NULL;
     protected $external = false;
+    protected $time = false;
+    protected $color_class = array(500 => "navbar-ct-red", "default" => "navbar-ct-orange");
+    protected $color_class_checked = "navbar-ct-orange";
+
 
 
     /**
@@ -38,6 +42,9 @@ abstract class AbstractServer extends \Exception implements ServerInterface
      */
     public function __construct(ArrayObject $component, string $header_message)
     {
+        if (isset($this->color_class[$this->code]))
+            $this->color_class_checked = $this->color_class[$this->code];
+        $this->time = new \DateTime();
         $this->env = ENVIRONMENT;
         $it = $component->getIterator();
         foreach ($it as $one => $value)
@@ -50,6 +57,8 @@ abstract class AbstractServer extends \Exception implements ServerInterface
                 $this->solution = $value;
             else if ($it->key() == "external")
                 $this->external = ($value == "yes")? $value : "no";
+            if ($this->solution == NULL)
+                $this->solution = "Please check your app configuration";
         }
 
         parent::__construct(HttpResponse::getPhrase($this->code), $this->code);

@@ -82,12 +82,11 @@ class iumioTaskBar
         {
             $um =  new iumioUltimaMaster();
             $str =  self::getCssTaskBar().'<!-- iumioTaskBar component -->
-                <div id="iumioTaskBarBlank" style="clear: both; height: 70px; display: block;"></div>
+                <div id="iumioTaskBarBlank"></div>
                 <ul class="iumioTaskBar">
-                <li class="flogo"><img src="'. WEB_FRAMEWORK.'../iumio_framework/img/icon-iumio-single.png"/> </li>
-                <li><a class="active" href="#"><strong>'. \iumioFramework\Core\Requirement\iumioUltimaCore::getInfo('VERSION')." ".\iumioFramework\Core\Requirement\iumioUltimaCore::getInfo('VERSION_EDITION_SHORT').'</strong></a></li>
-                <li><a href="#" class="active">'. ENVIRONMENT.'</a></li>
-                <li><a href="#" class="active"><strong>'. ((!defined('APP_CALL'))? "NO APP CALLED" : APP_CALL) .'</strong></a></li>
+                <li class="flogo"><img src="'. WEB_FRAMEWORK.'/img/logo_white_small.png"/> </li>
+                <li><a class="active" href="#"><strong>'. \iumioFramework\Core\Requirement\iumioUltimaCore::getInfo('VERSION')." ".\iumioFramework\Core\Requirement\iumioUltimaCore::getInfo('VERSION_EDITION_SHORT').' - '. ENVIRONMENT.'</strong></a></li>
+                <li><a href="#" class="active" style="border-right: 1px solid white;"><strong>'. ((!defined('APP_CALL'))? "NO APP CALLED" : APP_CALL) .'</strong></a></li>
                 <li id="iumioTaskBarAssets" class="iumioTaskBarDropdown"><a href="#">Assets</a>
                     <ul class="iumioTaskBarDropdownContent">
                         <li class="iumioTaskBarAssetsPublishAll" attr-href="'.$um->generateRoute("iumio_manager_assets_manager_publish", array("env" => "all", "appname" => "_all"), "ManagerApp", true).'">Clear all</li>
@@ -106,11 +105,11 @@ class iumioTaskBar
                 <li class="iumioTaskBarCacheClearDev" attr-href="'.$um->generateRoute("iumio_manager_cache_manager_remove", array("env" => "dev"), "ManagerApp", true).'">Clear dev</li>
                <li class="iumioTaskBarCacheClearProd" attr-href="'.$um->generateRoute("iumio_manager_cache_manager_remove", array("env" => "prod"), "ManagerApp", true).'">Clear prod</li>
                 </ul></li>
-                <li style="float: right; list-style: none" class="active" id="iumioTaskBarReduce"><a><strong>></strong></a></li>
+                <li style="float: right; list-style: none" class="" id="iumioTaskBarReduce"><a class="pe-7s-left-arrow" style="font-size: 16px"></a></li>
                 </ul>
-                <ul class="iumioTaskBar iumioTaskBarVSmall" style="display: none; width: 110px; padding: 0px 0px 0 0;">
-                <li class="flogo"><img src="'. WEB_FRAMEWORK.'../iumio_framework/img/icon-iumio-single.png"/> </li>
-                <li id="iumioTaskBarRestore" style="color: black;list-style: none; "><a><strong style="color: red">></strong></a></li>
+                <ul class="iumioTaskBar iumioTaskBarVSmall" style="display: none; width: 114px; padding: 0px 0px 0 0;">
+                <li class="flogo"><img src="'. WEB_FRAMEWORK.'/img/logo_white_small.png"/>  </li>
+                <li id="iumioTaskBarRestore" style="color: black;list-style: none; "><a class="pe-7s-right-arrow" style="font-size: 16px"></a></li>
                 </ul>'.self::getJsTaskBar();
             return ($str);
         }
@@ -132,9 +131,9 @@ class iumioTaskBar
         {
 
             $um =  new iumioUltimaMaster();
-            $options['css']                 =  WEB_FRAMEWORK."theme/assets/css/iumioTaskBar.css";
-            $options['js']                  =  WEB_FRAMEWORK."theme/assets/js/iumioTaskBar.js";
-            $options['logo']                =  WEB_FRAMEWORK."../iumio_framework/img/icon-iumio-single.png";
+            $options['css']                 =  WEB_FRAMEWORK."assets/css/iumioTaskBar.css";
+            $options['js']                  =  WEB_FRAMEWORK."assets/js/iumioTaskBar.js";
+            $options['logo']                =  WEB_FRAMEWORK."img/logo_white_small.png";
             $options['ve']                  =  \iumioFramework\Core\Requirement\iumioUltimaCore::getInfo('VERSION')." ".\iumioFramework\Core\Requirement\iumioUltimaCore::getInfo('VERSION_EDITION_SHORT');
             $options['env']                 =  ENVIRONMENT;
             $options['call_app']            =  ((!defined('APP_CALL'))? "NO APP CALLED" : APP_CALL);
@@ -165,7 +164,7 @@ class iumioTaskBar
     static public function getCssTaskBar():string
     {
         if (self::getStatus() == "on")
-            return ("<link rel=\"stylesheet\" href=\"".WEB_FRAMEWORK."theme/assets/css/iumioTaskBar.css\" />");
+            return ("<link rel=\"stylesheet\" href=\"".WEB_FRAMEWORK."assets/css/iumioTaskBar.css\" />");
         return ("");
     }
 
@@ -176,7 +175,7 @@ class iumioTaskBar
     static public function getJsTaskBar():string
     {
         if (self::getStatus() == "on")
-            return ("<script type='text/javascript' src=\"".WEB_FRAMEWORK."theme/assets/js/iumioTaskBar.js\"></script>");
+            return ("<script type='text/javascript' src=\"".WEB_FRAMEWORK."assets/js/iumioTaskBar.js\"></script>");
         return ("");
     }
 

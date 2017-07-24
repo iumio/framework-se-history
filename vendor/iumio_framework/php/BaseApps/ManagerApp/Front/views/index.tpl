@@ -15,6 +15,10 @@
                         </button>
                         <a class="navbar-brand" href="#">Dashboard</a>
                     </div>
+                    <div class="collapse navbar-collapse">
+                        <ul class="nav navbar-nav navbar-left">
+                        </ul>
+                    </div>
 
                 </div>
             </nav>
@@ -65,8 +69,7 @@
                                         <li>Protocol : {system_info name='SERVER_PROTOCOL'}</li>
                                         <li>Port : {system_info name='SERVER_PORT'}</li>
                                         <li>Use SSL : {if $https} Yes {else} No {/if} </li>
-                                    </ul>
-
+                                     </ul>
                                 </div>
                             </div>
                         </div>

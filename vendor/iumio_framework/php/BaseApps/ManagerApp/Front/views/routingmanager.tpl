@@ -15,6 +15,10 @@
                     <a class="navbar-brand" href="#">Routing Manager</a>
                     <a class="btn-default btn"  >Create a routing file (Later)</a>
                 </div>
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav navbar-left">
+                    </ul>
+                </div>
 
             </div>
         </nav>

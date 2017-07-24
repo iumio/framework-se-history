@@ -37,7 +37,7 @@ class iumioReflexion
         }
         catch (\Exception $ex)
         {
-            throw new \Exception("iumio Reflexion Method Error : ".$ex->getMessage());
+            throw new \Exception($ex->getMessage());
         }
         $pass = array();
         foreach($reflection->getParameters() as $param)
@@ -49,7 +49,7 @@ class iumioReflexion
         }
         catch (\Exception $ex)
         {
-            throw new \Exception("iumio Reflexion Invoke Error : ".$ex->getMessage());
+            throw new \Exception($ex->getMessage());
         }
 
         return ($rs);
@@ -72,7 +72,7 @@ class iumioReflexion
         }
         catch (\Exception $ex)
         {
-            throw new \Exception("iumio Reflexion Class Error : ".$ex->getMessage());
+            throw new \Exception($ex->getMessage());
         }
     }
 }

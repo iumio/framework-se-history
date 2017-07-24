@@ -1,180 +1,220 @@
-<!DOCTYPE HTML>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-    <title><?= $this->code.' '.strtolower(ucfirst($this->codeTitle)).' - iumio '.(strtolower($this->env)) ?></title>
     <meta charset="utf-8" />
-    <link rel="apple-touch-icon" sizes="180x180" href="<?= WEB_FRAMEWORK ?>theme/assets/images/favicon.ico/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="<?= WEB_FRAMEWORK ?>theme/assets/images/favicon.ico/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="<?= WEB_FRAMEWORK ?>theme/assets/images/favicon.ico/favicon-16x16.png">
-    <link rel="manifest" href="<?= WEB_FRAMEWORK ?>theme/assets/images/favicon.ico/manifest.json">
-    <link rel="mask-icon" href="<?= WEB_FRAMEWORK ?>theme/assets/images/favicon.ico/safari-pinned-tab.svg" color="#5bbad5">
+    <meta charset="utf-8" />
+    <link rel="apple-touch-icon" sizes="180x180" href="<?= WEB_FRAMEWORK ?>assets/images/favicon.ico/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="<?= WEB_FRAMEWORK ?>assets/images/favicon.ico/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="<?= WEB_FRAMEWORK ?>assets/images/favicon.ico/favicon-16x16.png">
+    <link rel="manifest" href="<?= WEB_FRAMEWORK ?>assets/images/favicon.ico/manifest.json">
+    <link rel="mask-icon" href="<?= WEB_FRAMEWORK ?>assets/images/favicon.ico/safari-pinned-tab.svg" color="#5bbad5">
     <meta name="theme-color" content="#ffffff">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    <title><?= $this->code.' '.strtolower(ucfirst($this->codeTitle)).' - iumio '.(strtolower($this->env)) ?></title>
+
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <meta name="viewport" content="width=device-width" />
 
 
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <!--[if lte IE 8]><script src="<?= WEB_FRAMEWORK ?>theme/assets/js/ie/html5shiv.js"></script><![endif]-->
-    <link rel="stylesheet" href="<?= WEB_FRAMEWORK ?>theme/assets/css/main.css" />
-    <?= \iumioFramework\Core\Additionnal\TaskBar\iumioTaskBar::getCssTaskBar() ?>
-    <!--[if lte IE 9]><link rel="stylesheet" href="<?= WEB_FRAMEWORK ?>theme/assets/css/ie9.css" /><![endif]-->
-    <!--[if lte IE 8]><link rel="stylesheet" href="<?= WEB_FRAMEWORK ?>theme/assets/css/ie8.css" /><![endif]-->
-    <style type="text/css">
-        body, html
-        {
-            font-family: "Roboto Slab", "Times New Roman", serif;
-        }
-        #wrapper {
-            padding-top: 0em;
-        }
-        a
-        {
-            text-decoration: none;
-            border-bottom: none;
-        }
-        #banner.major {
-            height: 135vh;
-        }
-        .timeline {
-            list-style-type: none;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+    <!-- Bootstrap core CSS     -->
+    <link href="<?= WEB_LIBS.'bootstrap/' ?>css/bootstrap.min.css" rel="stylesheet" />
 
-        .li {
-            transition: all 200ms ease-in;
-        }
+    <!-- Animation library for notifications   -->
+    <link href="<?= WEB_LIBS.'iumio_manager/' ?>css/animate.min.css" rel="stylesheet"/>
 
-        .timestamp {
-            margin-bottom: 20px;
-            padding: 0px 40px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            font-weight: 100;
-        }
+    <!--  Light Bootstrap Table core CSS    -->
+    <link href="<?= WEB_LIBS.'iumio_manager/' ?>css/light-bootstrap-dashboard.css" rel="stylesheet"/>
 
-        .status {
-            padding: 15px 40px;
-            display: flex;
-            justify-content: center;
-            border-top: 2px solid #D6DCE0;
-            position: relative;
-            transition: all 200ms ease-in;
-        }
-        .status h4 {
-            font-weight: 600;
-        }
-        .status:before {
-            content: "";
-            width: 25px;
-            height: 25px;
-            background-color: white;
-            border-radius: 25px;
-            border: 1px solid #ddd;
-            position: absolute;
-            top: -15px;
-            left: 50%;
-            transition: all 200ms ease-in;
-        }
 
-        .li.complete .status {
-            border-top: 2px solid #66DC71;
-        }
-        .li.complete .status:before {
-            background-color: #66DC71;
-            border: none;
-            transition: all 200ms ease-in;
-        }
-        .li.complete .status h4 {
-            color: #66DC71;
-        }
+    <link href="<?= WEB_LIBS.'iumio_manager/' ?>css/index.css" rel="stylesheet" />
+    <!--  CSS for Demo Purpose, don't include it in your project     -->
+    <link href="<?= WEB_LIBS.'iumio_manager/' ?>css/demo.css" rel="stylesheet" />
 
-        @media (min-device-width: 320px) and (max-device-width: 700px) {
-            .timeline {
-                list-style-type: none;
-                display: block;
-            }
 
-            .li {
-                transition: all 200ms ease-in;
-                display: flex;
-                width: inherit;
-            }
+    <!--     Fonts and icons     -->
+    <link href="<?= WEB_LIBS.'font-awesome/' ?>css/font-awesome.min.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
+    <link href="<?= WEB_LIBS.'/iumio_manager/' ?>css/pe-icon-7-stroke.css" rel="stylesheet" />
 
-            .timestamp {
-                width: 100px;
-            }
-
-            .status:before {
-                left: -8%;
-                top: 30%;
-                transition: all 200ms ease-in;
-            }
-        }
-    </style>
 </head>
 <body>
 
-<!-- Wrapper -->
-<div id="wrapper">
-    <!-- Header -->
-    <header id="header" class="alt">
-        <a href="#" class="logo"> <img src="<?= WEB_FRAMEWORK ?>theme/assets/images/iumio-horizontal-white.png" style="width: 15%"><!--<strong>iumio </strong> <span>FRAMEWORK</span>--></a>
-        <nav>
-            <a href="#menu">Menu</a>
-        </nav>
-    </header>
+<div class="wrapper">
 
-    <!-- Menu -->
-    <nav id="menu">
-        <ul class="links">
-            <li><a href="<?= HOST_CURRENT ?>/Dev.php">Development</a></li>
-            <li><a href="<?= HOST_CURRENT ?>/Prod.php">Production</a></li>
-            <li><a href="<?= (new \iumioFramework\Masters\iumioUltimaMaster())->generateRoute("iumio_manager_index", null, "ManagerApp", true) ?>">Manager</a></li>
+            <div class="sidebar" data-color="blue" data-image="<?= WEB_FRAMEWORK.'img/' ?>iumio_img_theme.jpeg">
+                <div class="sidebar-wrapper">
+                    <div class="logo">
+                        <a href="https://framework.iumio.com" class="simple-text">
+                            <img class="img-responsive" src="<?= WEB_FRAMEWORK.'img/' ?>logo_white.png" />
+                            <h6>Error <?= $this->code ?></h6>
+                        </a>
+                    </div>
+            <ul class="nav">
+                <li class="">
+                    <a href="<?= HOST_CURRENT ?>">
+                        <i class="pe-7s-link"></i>
+                        <p>Development</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="<?= HOST_CURRENT ?>/Prod.php">
+                        <i class="pe-7s-play"></i>
+                        <p>Production</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="<?= (new \iumioFramework\Masters\iumioUltimaMaster())->generateRoute("iumio_manager_index", null, "ManagerApp", true) ?>">
+                        <i class="pe-7s-edit"></i>
+                        <p>Manager</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://framework.iumio.com/contact">
+                        <i class="pe-7s-phone"></i>
+                        <p>Contact</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://framework.iumio.com">
+                        <i class="pe-7s-world"></i>
+                        <p>Website</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://docs.framework.iumio.com/">
+                        <i class="pe-7s-news-paper"></i>
+                        <p>Documentation</p>
+                    </a>
+                </li>
 
-        </ul>
-        <ul class="actions vertical">
-            <li><a href="https://framework.iumio.com#contact" class="button special fit">Contact</a></li>
-            <li><a href="https://framework.iumio.com" class="button fit">iumio website</a></li>
-            <li><a href="https://docs.framework.iumio.com/" class="button fit">iumio documentation</a></li>
-        </ul>
-    </nav>
-
-    <!-- Banner -->
-    <section id="banner" class="major">
-        <div class="inner">
-            <header class="major">
-                <h2><?= $this->code.' '.$this->codeTitle ?> - <?= ucfirst(strtolower($this->env)) ?></h2>
-            </header>
-            <div class="content">
-                <p><?= $this->explain ?><br />
-                  <?= $this->solution ?></p>
-
-            </div>
-        </div>
-    </section>
-    <!-- Main -->
-    <!-- Footer -->
-
-    <footer id="footer">
-        <div class="inner">
-            <ul class="copyright">
-                <?php  use iumioFramework\Core\Requirement\iumioUltimaCore; ?>
-                <li>&copy; <?= date('Y') ?> <a href="https://framework.iumio.com/">iumio Framework</a>, an <a href="https://iumio.com/">iumio Component</a></li>
             </ul>
         </div>
-    </footer>
+    </div>
 
-    <?= (\iumioFramework\Core\Additionnal\TaskBar\iumioTaskBar::getTaskBar() != "#none")? \iumioFramework\Core\Additionnal\TaskBar\iumioTaskBar::getTaskBar() : "" ?>
+    <div class="main-panel">
+        <nav class="navbar navbar-default navbar-fixed <?= $this->color_class_checked ?>">
+            <div class="container-fluid">
+                <div class="navbar-header w100">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-example-2">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand text-center center-block w100 fw900" href="#"><?= $this->code.' '.$this->codeTitle ?> - <?= ucfirst(strtolower($this->env)) ?> - URL : <?= $_SERVER['REQUEST_URI'] ?>
 
-    <!-- Scripts -->
-    <script src="<?= WEB_FRAMEWORK ?>theme/assets/js/jquery.min.js"></script>
-    <script src="<?= WEB_FRAMEWORK ?>theme/assets/js/jquery.scrolly.min.js"></script>
-    <script src="<?= WEB_FRAMEWORK ?>theme/assets/js/jquery.scrollex.min.js"></script>
-    <script src="<?= WEB_FRAMEWORK ?>theme/assets/js/skel.min.js"></script>
-    <script src="<?= WEB_FRAMEWORK ?>theme/assets/js/util.js"></script>
-    <!--[if lte IE 8]><script src="<?= WEB_FRAMEWORK ?>theme/assets/js/ie/respond.min.js"></script><![endif]-->
-    <script src="<?= WEB_FRAMEWORK ?>theme/assets/js/main.js"></script>
-    <?php \iumioFramework\Core\Additionnal\TaskBar\iumioTaskBar::getJsTaskBar() ?>
+                    </a>
+                </div>
+                <div class="collapse navbar-collapse text-center ">
+                    <ul class="nav navbar-nav center-block text-center w100">
+                        <li class="text-center w100">  <h5>Generated : <?php echo $this->time->format("l, F d ").' at '.$this->time->format("H:i:s") ?></h5></li>
+                    </ul>
+
+                </div>
+            </div>
+        </nav>
+
+
+        <div class="content">
+            <div class="container-fluid">
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="header">
+                                <h4 class="title">An Error was generated</h4>
+                                <p class="category">Code : <?= $this->code ?> | Type : <?= $this->codeTitle ?></p>
+                                <p class="category">Generated : <?php echo $this->time->format("l, F d ").' at '.$this->time->format("H:i:s") ?></p>
+                                <p class="category">Method : <?php echo  $_SERVER['REQUEST_METHOD'] ?></p>
+                            </div>
+                            <div class="content text-center">
+                                <div class="typo-line">
+                                    <h5 class="break-word"><p class="category fs20 fw900">Explain</p><?= $this->explain ?></h5>
+                                </div>
+
+                                <div class="typo-line">
+                                    <h5 class="break-word"><p class="category fs20 fw900">Solution</p><?= $this->solution ?></h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="header">
+                                <h4 class="title">Trace</h4>
+                                <p class="category">For Code : <?= $this->code ?> | Type : <?= $this->codeTitle ?></p>
+                            </div>
+                            <div class="content text-center">
+                                <?php foreach ($this->getTrace() as $one) { ?>
+                                    <div class="content text-center card-content-new">
+                                        <div class="typo-line">
+                                            <span class="break-word"><p class="category">File</p><?= $one['file'] ?></span>
+                                        </div>
+                                        <div class="typo-line">
+                                            <span class="break-word"><p class="category">Function & Line</p><?= $one['class']."::". $one['function'] ?> on line <?= $one['line'] ?></span>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                <?php } ?>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="header">
+                                <h4 class="title">Error Logs</h4>
+                                <p class="category">Last logs error</p>
+                            </div>
+                            <div class="content">
+                                <ul class="errorlastlog" attr-href="<?php $master = new \iumioFramework\Masters\iumioUltimaMaster(); echo $master->generateRoute("iumio_manager_logs_get", null, "ManagerApp") ?>">
+
+                                </ul>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class="container-fluid">
+                <p class="copyright pull-right">
+                    &copy; <?= date('Y') ?> <a href="https://framework.iumio.com">iumio Framework</a>, an <a href="https://iumio.com/">iumio Component</a>
+                </p>
+            </div>
+        </footer>
+        <?= (\iumioFramework\Core\Additionnal\TaskBar\iumioTaskBar::getTaskBar() != "#none")? \iumioFramework\Core\Additionnal\TaskBar\iumioTaskBar::getTaskBar() : "" ?>
+    </div>
+</div>
+
+
 </body>
+
+<!--   Core JS Files   -->
+<script src="<?= WEB_LIBS.'/jquery/' ?>jquery.js" type="text/javascript"></script>
+<script src="<?= WEB_LIBS.'/bootstrap/' ?>js/bootstrap.min.js" type="text/javascript"></script>
+
+<!--  Checkbox, Radio & Switch Plugins -->
+<script src="<?= WEB_LIBS.'/iumio_manager/' ?>js/bootstrap-checkbox-radio-switch.js"></script>
+
+<!--  Notifications Plugin    -->
+<script src="<?= WEB_LIBS.'/iumio_manager/' ?>js/bootstrap-notify.js"></script>
+
+<!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->
+<script src="<?= WEB_LIBS.'/iumio_manager/' ?>js/light-bootstrap-dashboard.js"></script>
+
+<!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
+<script src="<?= WEB_LIBS.'/iumio_manager/' ?>js/demo.js"></script>
+
+<!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
+<script src="<?= WEB_LIBS.'/iumio_manager/' ?>js/main.js"></script>
+
+<?php \iumioFramework\Core\Additionnal\TaskBar\iumioTaskBar::getJsTaskBar() ?>
+
 </html>

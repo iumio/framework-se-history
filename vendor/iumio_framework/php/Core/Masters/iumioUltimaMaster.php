@@ -187,7 +187,7 @@ class iumioUltimaMaster extends iumioUltima
             }
         }
 
-        throw new Server404(new \ArrayObject(array("solution" => "Please check all RT file", "explain" => "No route for <span style='color: red;text-decoration: none'>".$routename."</span>")));
+        throw new Server404(new \ArrayObject(array("solution" => "Please check all RT file", "explain" => "No route for $routename")));
     }
 
     /** Analyse path to change dynamic parameters with specific parameters array
@@ -214,7 +214,7 @@ class iumioUltimaMaster extends iumioUltima
 
         $countchange = 0;
         if (count($parameters) != count($arrayElem))
-            throw new Server500(new \ArrayObject(array("explain" => "Parameters count does not matches for  <em style='font-size: 16px;font-family: Arial'>".$routename."</em>"." route", "solution" => "Please check your parameters declaration")));
+            throw new Server500(new \ArrayObject(array("explain" => "Parameters count does not matches for $routename route", "solution" => "Please check your parameters declaration")));
 
 
         foreach ($arrayElem as $uno)
@@ -227,7 +227,7 @@ class iumioUltimaMaster extends iumioUltima
         }
 
         if (count($parameters) != $countchange)
-            throw new Server500(new \ArrayObject(array("explain" => "Parameter missing for  <em style='font-size: 16px;font-family: Arial'>".$routename."</em>"." route", "solution" => "Please check your parameters declaration")));
+            throw new Server500(new \ArrayObject(array("explain" => "Parameter missing for $routename route", "solution" => "Please check your parameters declaration")));
 
 
        for ($i = 0; $i < count($arraypath); $i++)
@@ -270,10 +270,10 @@ class iumioUltimaMaster extends iumioUltima
             if (class_exists ($class))
                 return (new $class);
             else
-                throw new Server500(new \ArrayObject(array("explain" => "Master <em style='font-size: 16px;font-family: Arial'>".$mastername."</em> doest not exist", "solution" => "Please check masters declaration")));
+                throw new Server500(new \ArrayObject(array("explain" => "Master $mastername doest not exist", "solution" => "Please check masters declaration")));
         }
         else
-            throw new Server500(new \ArrayObject(array("explain" => ((IS_IUMIO_COMPONENT == 1)? "BaseApp" : "App" )." <em style='font-size: 16px;font-family: Arial'>".APP_CALL."</em> doest not exist in apps.json", "solution" => "Please check app declaration")));
+            throw new Server500(new \ArrayObject(array("explain" => ((IS_IUMIO_COMPONENT == 1)? "BaseApp" : "App" )." ".APP_CALL." doest not exist in apps.json", "solution" => "Please check app declaration")));
     }
 
 }

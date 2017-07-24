@@ -35,7 +35,6 @@ var operationSuccess = function () {
  */
 var operationError = function (data) {
     var selecttorModal = $("#modalManager");
-    console.log(data)
     selecttorModal.find(".modal-body").html("<h4 class='text-center'>An error was detected</h4>");
     if (typeof data["responseJSON"]["msg"] !== "undefined")
         selecttorModal.find(".modal-body").append("<h5 class='text-center' style='color: red'><em>"+data["responseJSON"]["msg"]+"</em></h5>");
@@ -50,7 +49,7 @@ var noapp = false;
  * get debug log (limited to 10 values)
  */
 var getLogs = function () {
-    var selector = $('.lastlog');
+    var selector = $('.lastlog, .errorlastlog');
     if (typeof selector.attr("attr-href") === "undefined")
         return (1);
 
@@ -1473,9 +1472,9 @@ $(document).ready(function () {
                     return (0);
                 }
             },
-           error : function (data) {
-            operationError(data);
-        }
+            error : function (data) {
+                operationError(data);
+            }
         });
     });
 
@@ -1518,26 +1517,26 @@ $(document).ready(function () {
                             link_gen = "<tr><td colspan='2'><a href='"+value[appname]['route_gen']+"'><strong>Go to link</strong></a></td></tr>";
 
                         selecttorModal.find(".modal-body").append("<div class='container' style='width: 100%'><div class='row'><table class='table table-bordered table-responsive  table-wrapper'"
-                        + "<tr><th colspan='2' class='text-center'>Route name : "+value[appname]['routename']+"</th></tr>"+
-                        "<tr><td>Path</td> <td> "+value[appname]['path']+"</td></tr>" +
-                        "<tr><td>Related master</td> <td> "+value[appname]['controller']+"Master</td></tr>"
-                        +"<tr><td>Callable activity</td> <td> "+value[appname]['activity']+"Activity</td></tr>"
+                            + "<tr><th colspan='2' class='text-center'>Route name : "+value[appname]['routename']+"</th></tr>"+
+                            "<tr><td>Path</td> <td> "+value[appname]['path']+"</td></tr>" +
+                            "<tr><td>Related master</td> <td> "+value[appname]['controller']+"Master</td></tr>"
+                            +"<tr><td>Callable activity</td> <td> "+value[appname]['activity']+"Activity</td></tr>"
                             +"<tr><td colspan='2' class='text-center text-info'><strong>Parameters</strong></td></tr>"+
-                           params + link_gen +
+                            params + link_gen +
                             "</table></div></div><br><br>"
                         );
 
 
                         /*selecttorModal.find(".modal-body").append("<div class='form-group text-center'><label>Configuration name</label><input type='text' name='config' class='form-control text-center' value='"+name+"' disabled='disabled'></div>");
-                        selecttorModal.find(".modal-body").append("</div></div>");
-                        selecttorModal.find(".modal-body").append('<div class="container-new">' +
-                            '<div class="form-group text-center"> <label>Debug</label> <div class="check"><input id="check" type="checkbox" name="debug" '+((result['debug'] === true)? "checked='checked'" : "")+' style="display: none"/><label for="check"><div class="box"><i class="fa fa-check"></i></div> </label></div></div>' +
-                            '<div class="form-group text-center"><label>Cache</label> <div class="check"><input id="check1" name="cache" '+((result['cache'] === 1)? "checked='checked'" : "")+' type="checkbox" style="display: none" /><label for="check1"><div class="box"><i class="fa fa-check"></i></div> </label></div></div>' +
-                            '<div class="form-group text-center"><label>Compile Check</label> <div class="check"><input id="check2" name="compile" '+((result['compile_check'] === true)? "checked='checked'" : "")+' type="checkbox" style="display: none" /><label for="check2"><div class="box"><i class="fa fa-check"></i></div> </label></div></div>' +
-                            '<div class="form-group text-center"><label>Force to compile</label> <div class="check"><input id="check3" name="force" '+((result['force_compile'] === true)? "checked='checked'" : "")+' type="checkbox" style="display: none" /><label for="check3"><div class="box"><i class="fa fa-check"></i></div> </label></div></div>' +
-                            '<div class="form-group text-center"><label>Smarty Debug</label> <div class="check"><input id="check4" name="sdebug" '+((result['smarty_debug'] === true)? "checked='checked'" : "")+' type="checkbox" style="display: none" /><label for="check4"><div class="box"><i class="fa fa-check"></i></div> </label></div></div>' +
-                            '<div class="form-group text-center"><label>Console</label> <div class="check"><input id="check5" name="console" '+((result['console_debug'] === "on")? "checked='checked'" : "")+' type="checkbox" style="display: none" /><label for="check5"><div class="box"><i class="fa fa-check"></i></div> </label></div></div>' +
-                            '</div>');*/
+                         selecttorModal.find(".modal-body").append("</div></div>");
+                         selecttorModal.find(".modal-body").append('<div class="container-new">' +
+                         '<div class="form-group text-center"> <label>Debug</label> <div class="check"><input id="check" type="checkbox" name="debug" '+((result['debug'] === true)? "checked='checked'" : "")+' style="display: none"/><label for="check"><div class="box"><i class="fa fa-check"></i></div> </label></div></div>' +
+                         '<div class="form-group text-center"><label>Cache</label> <div class="check"><input id="check1" name="cache" '+((result['cache'] === 1)? "checked='checked'" : "")+' type="checkbox" style="display: none" /><label for="check1"><div class="box"><i class="fa fa-check"></i></div> </label></div></div>' +
+                         '<div class="form-group text-center"><label>Compile Check</label> <div class="check"><input id="check2" name="compile" '+((result['compile_check'] === true)? "checked='checked'" : "")+' type="checkbox" style="display: none" /><label for="check2"><div class="box"><i class="fa fa-check"></i></div> </label></div></div>' +
+                         '<div class="form-group text-center"><label>Force to compile</label> <div class="check"><input id="check3" name="force" '+((result['force_compile'] === true)? "checked='checked'" : "")+' type="checkbox" style="display: none" /><label for="check3"><div class="box"><i class="fa fa-check"></i></div> </label></div></div>' +
+                         '<div class="form-group text-center"><label>Smarty Debug</label> <div class="check"><input id="check4" name="sdebug" '+((result['smarty_debug'] === true)? "checked='checked'" : "")+' type="checkbox" style="display: none" /><label for="check4"><div class="box"><i class="fa fa-check"></i></div> </label></div></div>' +
+                         '<div class="form-group text-center"><label>Console</label> <div class="check"><input id="check5" name="console" '+((result['console_debug'] === "on")? "checked='checked'" : "")+' type="checkbox" style="display: none" /><label for="check5"><div class="box"><i class="fa fa-check"></i></div> </label></div></div>' +
+                         '</div>');*/
                     });
 
                     selecttorModal.find(".btn-close").html("Close");
@@ -1816,11 +1815,10 @@ $(document).ready(function () {
                 else
                     operationError();
             },
-           error : function (data) {
-            operationError(data);
-        }
+            error : function (data) {
+                operationError(data);
+            }
         });
 
     });
 });
-

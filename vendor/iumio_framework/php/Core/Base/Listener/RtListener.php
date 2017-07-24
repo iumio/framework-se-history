@@ -12,7 +12,6 @@
 
 namespace iumioFramework\Core\Base;
 
-error_reporting(E_ALL);
 use iumioFramework\Core\Base\Debug\Debug;
 use iumioFramework\Exception\Server\Server500;
 
@@ -95,7 +94,7 @@ class RtListener implements Listener
 
         for ($i = 0; $i < count($routingArray); $i++) {
 
-            $routingArray[$i]['path'] = (($this->prefix == null || $this->prefix == "") ? "" : $this->prefix) . $routingArray[$i]['path'];
+            $routingArray[$i]['path'] = (($this->prefix == null || $this->prefix == "") ? "" : "/".$this->prefix) . $routingArray[$i]['path'];
 
             $method = explode('%', $routingArray[$i]['activity']);
             if (count($method) == 2) {
@@ -108,7 +107,7 @@ class RtListener implements Listener
                 }
                 catch (\ReflectionException $e)
                 {
-                    throw new  Server500(new \ArrayObject(array("explain" => "Cannot instanciate "."\\".$this->appName."\\Master\\".$controller."Master", "solution" => "Please check your master configuration : ".$e->getMessage())));
+                    throw new  Server500(new \ArrayObject(array("explain" => "Cannot instanciate "."\\".$this->appName."\\Master\\".$controller."Master => ".$e->getMessage(), "solution" => "Please check your master configuration : ")));
                 }
 
                 if (!method_exists($reflect->newInstance(), $function."Activity") || !is_callable(array($reflect->newInstance(), $function."Activity")))

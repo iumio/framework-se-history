@@ -20,12 +20,6 @@
                 <p>App</p>
             </a>
         </li>
-        <li class="{if $selected == "basemanager"}active{/if}" style="background-color: silver">
-            <a href="#{*route name='iumio_manager_base_app_manager'*}">
-                <i class="pe-7s-user"></i>
-                <p>Base App (Later)</p>
-            </a>
-        </li>
         <li class="{if $selected == "cachemanager"}active{/if}">
             <a href="{route name='iumio_manager_cache_manager' component='yes'}">
                 <i class="pe-7s-light"></i>

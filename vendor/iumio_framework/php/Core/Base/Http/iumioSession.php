@@ -131,7 +131,7 @@ class iumioSession implements SessionInterfaceRequest
             return (true);
         }
         else
-            throw new Server500(new \ArrayObject(array("explain" => "iumio Session Error : Your session name is not a string value", "solution" => "Please check your value type")));
+            throw new Server500(new \ArrayObject(array("explain" => "Session Error : Your session name is not a string value", "solution" => "Please check your value type")));
         return (false);
     }
 

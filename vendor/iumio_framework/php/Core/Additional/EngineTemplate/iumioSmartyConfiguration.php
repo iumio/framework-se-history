@@ -50,14 +50,14 @@ class iumioSmartyConfiguration
                 $file = (array) (JL::open(CONFIG_DIR."smarty_config/smarty.json"));
                 break;
             default:
-                throw new Server500(new \ArrayObject(array("explain" => "iumio Smarty Configuration Error : Unknow $env environment", "solution" => "Environment must be [dev, prod]")));
+                throw new Server500(new \ArrayObject(array("explain" => "Smarty Error : Unknow $env environment", "solution" => "Environment must be [dev, prod]")));
                 break;
         }
         if (empty($file))
-            throw new Server500(new \ArrayObject(array("explain" => "iumio Smarty Configuration Error : Smarty config file is empty", "solution" => "Please check your configuration")));
+            throw new Server500(new \ArrayObject(array("explain" => "Smarty Error : Smarty config file is empty", "solution" => "Please check your configuration")));
 
         if (!isset($file[strtolower($env)]) || empty($file[strtolower($env)]))
-            throw new Server500(new \ArrayObject(array("explain" => "iumio Smarty Configuration Error : Smarty configuration does not exist for $env environment", "solution" => "Please check your configuration")));
+            throw new Server500(new \ArrayObject(array("explain" => "Smarty Error : Smarty configuration does not exist for $env environment", "solution" => "Please check your configuration")));
 
         $this->cache_directory    = $file[strtolower($env)]->cache_directory;
         $this->compiled_directory = $file[strtolower($env)]->compiled_directory;

@@ -15,6 +15,10 @@
                     <a class="navbar-brand" href="#">Logs Manager</a>
                     <a class="btn-default btn clearlogs"  attr-href="{route name='iumio_manager_logs_manager_clear'}" attr-env="{$env}">Clear logs</a>
                 </div>
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav navbar-left">
+                    </ul>
+                </div>
 
             </div>
         </nav>

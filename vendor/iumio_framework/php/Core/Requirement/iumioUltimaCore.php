@@ -272,11 +272,11 @@ abstract class iumioUltimaCore extends iumioUltima
                             $call->__named($master, $method);
                         $great = true;
                     } catch (\Exception $exception) {
-                        throw new Server500(new \ArrayObject(array("explain" => "iumio Core Error : Class $master or method $master::$method doesn't exist", "solution" => $exception->getMessage())));
+                        throw new Server500(new \ArrayObject(array("explain" => $exception->getMessage())));
                     }
                 }
             } else
-                throw new Server500(new \ArrayObject(array("explain" => "iumio router register fail  ", "solution" => "Please check your app configuration")));
+                throw new Server500(new \ArrayObject(array("explain" => ">Router register failed  ", "solution" => "Please check your app configuration")));
         }
         if ($great == false)
             throw new Server404(new \ArrayObject(array("solution" => "Please check your URI")));
@@ -315,7 +315,7 @@ abstract class iumioUltimaCore extends iumioUltima
                             else
                                 $call->__named($master, $method);
                         } catch (\Exception $exception) {
-                            throw new Server500(new \ArrayObject(array("explain" => "iumio Core Error : Class $master or method $master::$method doesn't exist", "solution" => $exception->getMessage())));
+                            throw new Server500(new \ArrayObject(array("explain" => $exception->getMessage())));
                         }
                     } else
                         throw new Server500(new \ArrayObject(array("explain" => $def['name'] . " component not contain a related router", "solution" => "Please check the if 'routingRegister' is present in your router")));
@@ -440,7 +440,7 @@ abstract class iumioUltimaCore extends iumioUltima
                 }
                 catch (\Exception $e)
                 {
-                    throw new Server500(new \ArrayObject(array("explain" => "iumio Ultima Core Error: The server info $infoname does not exist", "solution" => "Check your keyword")));
+                    throw new Server500(new \ArrayObject(array("explain" => "Core Error: The server info $infoname does not exist", "solution" => "Check your keyword")));
                 }
 
                 break;
@@ -465,7 +465,7 @@ abstract class iumioUltimaCore extends iumioUltima
                 return (1);
             }
             else
-                throw new Server500(new \ArrayObject(array("explain" => "iumio Ultima Core Error : installer.php does not exist in web directory", "solution" => "Please download installer.php in iumio Framework Website to fix this error and put him in web directory")));
+                throw new Server500(new \ArrayObject(array("explain" => "Core Error : installer.php does not exist in web directory", "solution" => "Please download installer.php in iumio Framework Website to fix this error and put him in web directory")));
 
         }
         return (0);
