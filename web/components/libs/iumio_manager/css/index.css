@@ -28,6 +28,11 @@
     font-size: 20px!important;
 }
 
+.fs16
+{
+    font-size: 16px!important;
+}
+
 .break-word
 {
     word-wrap: break-word!important;

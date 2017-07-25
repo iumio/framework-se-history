@@ -42,11 +42,11 @@ class Debug implements DebugInterface
                 $debug = array();
                 $debug['time'] = self::$logformat['time'];
                 $debug['content'] = self::$logformat['msg'];
-                $log = (array) JL::open(ROOT_LOGS.strtolower(ENVIRONMENT).".log.json");
+                $log = (array) JL::open(ROOT_LOGS.'debug'.strtolower(ENVIRONMENT).".log.json");
                 $c = count($log);
                 $log[$c] = $debug;
                 $log = (object) $log;
-                JL::put(ROOT_LOGS.strtolower(ENVIRONMENT).".log.json", json_encode($log, JSON_PRETTY_PRINT));
+                JL::put(ROOT_LOGS.'debug'.strtolower(ENVIRONMENT).".log.json", json_encode($log, JSON_PRETTY_PRINT));
             }
             else if ($interface == 'display')
                 echo "<br> Time : " . self::$logformat['time'] . " ### Content : " . self::$logformat['msg'] . "<br>";
@@ -71,6 +71,7 @@ class Debug implements DebugInterface
 
     }
 
+
     /** Enable Logs
      * @return bool Is enabled result
      */
@@ -89,12 +90,12 @@ class Debug implements DebugInterface
        return true;
    }
 
-    /** Get Logs list for specific environment
+    /** Get debug Logs list for specific environment
      * @return array Logs list
      */
    static public function getLogs():array
    {
-       return ((array) JL::open(ROOT_LOGS.strtolower(ENVIRONMENT).".log.json"));
+       return ((array) JL::open(ROOT_LOGS.'debug'.strtolower(ENVIRONMENT).".log.json"));
    }
 
 

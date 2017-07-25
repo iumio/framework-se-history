@@ -124,9 +124,11 @@
                         <div class="card">
                             <div class="header">
                                 <h4 class="title">An Error was generated</h4>
-                                <p class="category">Code : <?= $this->code ?> | Type : <?= $this->codeTitle ?></p>
-                                <p class="category">Generated : <?php echo $this->time->format("l, F d ").' at '.$this->time->format("H:i:s") ?></p>
-                                <p class="category">Method : <?php echo  $_SERVER['REQUEST_METHOD'] ?></p>
+                                <p class="category fs16">UIDIE : <strong><?= $this->uidie ?></strong></p>
+                                <p class="category fs16">Code : <?= $this->code ?> | Type : <?= $this->codeTitle ?></p>
+                                <p class="category fs16">Generated : <?php echo $this->time->format("l, F d ").' at '.$this->time->format("H:i:s") ?></p>
+                                <p class="category fs16">Method : <?php echo  $_SERVER['REQUEST_METHOD'] ?></p>
+                                <p class="category fs16">Referer IP : [ <?php echo  $this->client_ip ?>]</p>
                             </div>
                             <div class="content text-center">
                                 <div class="typo-line">

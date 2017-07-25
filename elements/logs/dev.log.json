@@ -1,0 +1,374 @@
+{
+    "0": {
+        "uidie": "yvNAKKQLxSs2",
+        "time": {
+            "date": "2017-07-25 13:51:18.000000",
+            "timezone_type": 3,
+            "timezone": "Europe\/Paris"
+        },
+        "client_ip": "::1",
+        "content": "[404 NOT FOUND] : The ressource you try to access is not found. : Please check your URI",
+        "trace": [
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/apps\/AppCore.php",
+                "line": 64,
+                "function": "dispatching",
+                "class": "iumioFramework\\Core\\Requirement\\iumioUltimaCore",
+                "type": "->",
+                "args": [
+                    {
+                        "attributes": {},
+                        "request": {},
+                        "query": {},
+                        "server": {},
+                        "cookies": {},
+                        "headers": {}
+                    }
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/web\/Dev.php",
+                "line": 42,
+                "function": "dispatch",
+                "class": "iumioFramework\\Apps\\AppCore",
+                "type": "->",
+                "args": [
+                    {
+                        "attributes": {},
+                        "request": {},
+                        "query": {},
+                        "server": {},
+                        "cookies": {},
+                        "headers": {}
+                    }
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/web\/Dev.php",
+                "line": 50,
+                "function": "start",
+                "class": "Dev",
+                "type": "::",
+                "args": []
+            }
+        ]
+    },
+    "1": {
+        "uidie": "4TTXv3OpRzeI",
+        "time": {
+            "date": "2017-07-25 18:34:27.000000",
+            "timezone_type": 3,
+            "timezone": "Europe\/Paris"
+        },
+        "client_ip": "172.16.32.16",
+        "content": "[403 FORBIDEEN] : You are not allowed to access this file. : Check iumioEnvironment.php for more information.",
+        "trace": [
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/vendor\/iumio_framework\/php\/Core\/Requirement\/iumioEnvironment.php",
+                "line": 129,
+                "function": "displayError",
+                "class": "iumioFramework\\Core\\Base\\iumioEnvironment",
+                "type": "::",
+                "args": [
+                    {
+                        "explain": "You are not allowed to access this file.",
+                        "solution": "Check iumioEnvironment.php for more information.",
+                        "external": "yes"
+                    }
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/web\/Dev.php",
+                "line": 36,
+                "function": "hostAllowed",
+                "class": "iumioFramework\\Core\\Base\\iumioEnvironment",
+                "type": "::",
+                "args": []
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/web\/Dev.php",
+                "line": 50,
+                "function": "start",
+                "class": "Dev",
+                "type": "::",
+                "args": []
+            }
+        ]
+    },
+    "2": {
+        "uidie": "dUMcbtooAncC",
+        "time": {
+            "date": "2017-07-25 18:34:43.000000",
+            "timezone_type": 3,
+            "timezone": "Europe\/Paris"
+        },
+        "client_ip": "172.16.32.20",
+        "content": "[403 FORBIDEEN] : You are not allowed to access this file. : Check iumioEnvironment.php for more information.",
+        "trace": [
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/vendor\/iumio_framework\/php\/Core\/Requirement\/iumioEnvironment.php",
+                "line": 129,
+                "function": "displayError",
+                "class": "iumioFramework\\Core\\Base\\iumioEnvironment",
+                "type": "::",
+                "args": [
+                    {
+                        "explain": "You are not allowed to access this file.",
+                        "solution": "Check iumioEnvironment.php for more information.",
+                        "external": "yes"
+                    }
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/web\/Dev.php",
+                "line": 36,
+                "function": "hostAllowed",
+                "class": "iumioFramework\\Core\\Base\\iumioEnvironment",
+                "type": "::",
+                "args": []
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/web\/Dev.php",
+                "line": 50,
+                "function": "start",
+                "class": "Dev",
+                "type": "::",
+                "args": []
+            }
+        ]
+    },
+    "3": {
+        "uidie": "YXThTLoeWrbB",
+        "time": {
+            "date": "2017-07-25 18:34:55.000000",
+            "timezone_type": 3,
+            "timezone": "Europe\/Paris"
+        },
+        "client_ip": "172.16.32.20",
+        "content": "[403 FORBIDEEN] : You are not allowed to access this file. : Check iumioEnvironment.php for more information.",
+        "trace": [
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/vendor\/iumio_framework\/php\/Core\/Requirement\/iumioEnvironment.php",
+                "line": 129,
+                "function": "displayError",
+                "class": "iumioFramework\\Core\\Base\\iumioEnvironment",
+                "type": "::",
+                "args": [
+                    {
+                        "explain": "You are not allowed to access this file.",
+                        "solution": "Check iumioEnvironment.php for more information.",
+                        "external": "yes"
+                    }
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/web\/Dev.php",
+                "line": 36,
+                "function": "hostAllowed",
+                "class": "iumioFramework\\Core\\Base\\iumioEnvironment",
+                "type": "::",
+                "args": []
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/web\/Dev.php",
+                "line": 50,
+                "function": "start",
+                "class": "Dev",
+                "type": "::",
+                "args": []
+            }
+        ]
+    },
+    "4": {
+        "uidie": "Lz41NxlTQD72",
+        "time": {
+            "date": "2017-07-25 18:34:55.000000",
+            "timezone_type": 3,
+            "timezone": "Europe\/Paris"
+        },
+        "client_ip": "172.16.32.16",
+        "content": "[403 FORBIDEEN] : You are not allowed to access this file. : Check iumioEnvironment.php for more information.",
+        "trace": [
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/vendor\/iumio_framework\/php\/Core\/Requirement\/iumioEnvironment.php",
+                "line": 129,
+                "function": "displayError",
+                "class": "iumioFramework\\Core\\Base\\iumioEnvironment",
+                "type": "::",
+                "args": [
+                    {
+                        "explain": "You are not allowed to access this file.",
+                        "solution": "Check iumioEnvironment.php for more information.",
+                        "external": "yes"
+                    }
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/web\/Dev.php",
+                "line": 36,
+                "function": "hostAllowed",
+                "class": "iumioFramework\\Core\\Base\\iumioEnvironment",
+                "type": "::",
+                "args": []
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/web\/Dev.php",
+                "line": 50,
+                "function": "start",
+                "class": "Dev",
+                "type": "::",
+                "args": []
+            }
+        ]
+    },
+    "5": {
+        "uidie": "bVqK4SxA7yPS",
+        "time": {
+            "date": "2017-07-25 18:35:04.000000",
+            "timezone_type": 3,
+            "timezone": "Europe\/Paris"
+        },
+        "client_ip": "172.16.32.20",
+        "content": "[403 FORBIDEEN] : You are not allowed to access this file. : Check iumioEnvironment.php for more information.",
+        "trace": [
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/vendor\/iumio_framework\/php\/Core\/Requirement\/iumioEnvironment.php",
+                "line": 129,
+                "function": "displayError",
+                "class": "iumioFramework\\Core\\Base\\iumioEnvironment",
+                "type": "::",
+                "args": [
+                    {
+                        "explain": "You are not allowed to access this file.",
+                        "solution": "Check iumioEnvironment.php for more information.",
+                        "external": "yes"
+                    }
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/web\/Dev.php",
+                "line": 36,
+                "function": "hostAllowed",
+                "class": "iumioFramework\\Core\\Base\\iumioEnvironment",
+                "type": "::",
+                "args": []
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/web\/Dev.php",
+                "line": 50,
+                "function": "start",
+                "class": "Dev",
+                "type": "::",
+                "args": []
+            }
+        ]
+    },
+    "6": {
+        "uidie": "3XNpS08N7RlX",
+        "time": {
+            "date": "2017-07-25 18:35:49.000000",
+            "timezone_type": 3,
+            "timezone": "Europe\/Paris"
+        },
+        "client_ip": "172.16.32.16",
+        "content": "[404 NOT FOUND] : The ressource you try to access is not found. : Please check your URI",
+        "trace": [
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/apps\/AppCore.php",
+                "line": 64,
+                "function": "dispatching",
+                "class": "iumioFramework\\Core\\Requirement\\iumioUltimaCore",
+                "type": "->",
+                "args": [
+                    {
+                        "attributes": {},
+                        "request": {},
+                        "query": {},
+                        "server": {},
+                        "cookies": {},
+                        "headers": {}
+                    }
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/web\/Dev.php",
+                "line": 42,
+                "function": "dispatch",
+                "class": "iumioFramework\\Apps\\AppCore",
+                "type": "->",
+                "args": [
+                    {
+                        "attributes": {},
+                        "request": {},
+                        "query": {},
+                        "server": {},
+                        "cookies": {},
+                        "headers": {}
+                    }
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/web\/Dev.php",
+                "line": 50,
+                "function": "start",
+                "class": "Dev",
+                "type": "::",
+                "args": []
+            }
+        ]
+    },
+    "7": {
+        "uidie": "zehgfnluj6U3",
+        "time": {
+            "date": "2017-07-25 18:37:07.000000",
+            "timezone_type": 3,
+            "timezone": "Europe\/Paris"
+        },
+        "client_ip": "172.16.32.16",
+        "content": "[404 NOT FOUND] : The ressource you try to access is not found. : Please check your URI",
+        "trace": [
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/apps\/AppCore.php",
+                "line": 64,
+                "function": "dispatching",
+                "class": "iumioFramework\\Core\\Requirement\\iumioUltimaCore",
+                "type": "->",
+                "args": [
+                    {
+                        "attributes": {},
+                        "request": {},
+                        "query": {},
+                        "server": {},
+                        "cookies": {},
+                        "headers": {}
+                    }
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/web\/Dev.php",
+                "line": 42,
+                "function": "dispatch",
+                "class": "iumioFramework\\Apps\\AppCore",
+                "type": "->",
+                "args": [
+                    {
+                        "attributes": {},
+                        "request": {},
+                        "query": {},
+                        "server": {},
+                        "cookies": {},
+                        "headers": {}
+                    }
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/web\/Dev.php",
+                "line": 50,
+                "function": "start",
+                "class": "Dev",
+                "type": "::",
+                "args": []
+            }
+        ]
+    }
+}

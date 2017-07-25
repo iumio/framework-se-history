@@ -44,11 +44,13 @@ class AppCore extends iumioUltimaCore
     {
         $classes = $this->getClassFile();
 
-        if (count((array)$classes) == 0) throw new Server000(new \ArrayObject(array("explain" => "No app is registered","solution" => "Create an app")));
+        if (count((array)$classes) == 0) throw new Server000(
+            new \ArrayObject(array("explain" => "No app is registered", "solution" => "Create an app")));
         $apps = array();
         foreach ($classes as $class => $val) {
             $val = (array)$val;
-            $apps[$val['name']] =  array("enabled" =>$val['enabled'], "prefix" => (($val["prefix"] != "")? "/".$val["prefix"] : ""),  "appclass" => new $val['class']());
+            $apps[$val['name']] =  array("enabled" =>$val['enabled'],
+                "prefix" => (($val["prefix"] != "")? "/".$val["prefix"] : ""),  "appclass" => new $val['class']());
         }
         return $apps;
     }

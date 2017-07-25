@@ -14,6 +14,7 @@
 namespace ManagerApp\Master;
 use iumioFramework\Core\Base\Debug\Debug;
 use iumioFramework\Core\Base\Http\Response\Response;
+use iumioFramework\Exception\Server\AbstractServer;
 use iumioFramework\Masters\iumioUltimaMaster as Master;
 use iumioFramework\Core\Base\Json\JsonListener as JL;
 
@@ -42,7 +43,7 @@ class DashboardMaster extends Master
      */
     public function getlastlogActivity():int
     {
-        $last = array_values(array_reverse(Debug::getLogs()));
+        $last = array_values(array_reverse(AbstractServer::getLogs()));
         $lastn = array();
         for($i = 0; $i < count($last); $i++)
         {

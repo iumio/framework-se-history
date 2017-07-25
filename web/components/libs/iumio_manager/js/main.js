@@ -13,6 +13,22 @@ var isValidStr = function (str) {
 };
 
 /**
+ * Format a date
+ * @param date Date to format
+ * @returns {string} Date formatted
+ */
+var formatDate = function(date) {
+    var hours = date.getHours();
+    var minutes = date.getMinutes();
+    var ampm = hours >= 12 ? 'PM' : 'AM';
+    hours = hours % 12;
+    hours = hours ? hours : 12; // the hour '0' should be '12'
+    minutes = minutes < 10 ? '0'+minutes : minutes;
+    var strTime = hours + ':' + minutes + ' ' + ampm;
+    return date.getMonth()+1 + "/" + date.getDate() + "/" + date.getFullYear() + "  " + strTime;
+}
+
+/**
  * Open or close a modal
  * @param instruction To close or open
  */
@@ -66,7 +82,8 @@ var getLogs = function () {
                     return (selector.append("<li>No logs</li>"));
 
                 $.each(results, function (index, value) {
-                    selector.append("<li>"+value['time']+" : "+value['content']+"</li>");
+                    var datelog = formatDate(new Date(value['time']['date']));
+                    selector.append("<li>"+datelog+" - ["+value['client_ip']+"] : "+value['content']+"</li>");
                 })
 
             }
@@ -134,7 +151,7 @@ var getUnlimitedLogs = function () {
                 var results = data['results'];
                 selector.html("");
                 if (results.length === 0)
-                    return (selector.append("<tr><td colspan='4'>No logs</td></tr>"));
+                    return (selector.append("<tr><td colspan='5'>No logs</td></tr>"));
 
                 $.each(results, function (index, value) {
                     var error = value['content'];
@@ -143,10 +160,12 @@ var getUnlimitedLogs = function () {
                     error[0] = error[0].replace("[", "");
                     error[0] = error[0].replace("]", "");
 
+                    var dateLog = formatDate(new Date(value['time']["date"]));
                     selector.append("<tr>" +
-                        "<td>"+index+"</td>" +
-                        "<td>"+value['time']+"</td>" +
+                        "<td>"+value['uidie']+"</td>" +
+                        "<td>"+dateLog+"</td>" +
                         "<td>"+error[0]+"</td>" +
+                        "<td>"+value['client_ip']+"</td>" +
                         "<td style='word-wrap: break-word;width: 75%'>"+value['content']+"</td>" +
                         "</tr>");
                 });
