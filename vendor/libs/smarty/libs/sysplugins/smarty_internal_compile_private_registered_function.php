@@ -36,7 +36,6 @@ class Smarty_Internal_Compile_Private_Registered_Function extends Smarty_Interna
      */
     public function compile($args, Smarty_Internal_TemplateCompilerBase $compiler, $parameter, $tag)
     {
-        error_log( $tag);
         // check and get attributes
         $_attr = $this->getAttributes($compiler, $args);
         unset($_attr[ 'nocache' ]);

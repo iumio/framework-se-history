@@ -132,6 +132,7 @@ class iumioTaskBar
 
             $um =  new iumioUltimaMaster();
             $options['css']                 =  WEB_FRAMEWORK."assets/css/iumioTaskBar.css";
+            $options['css_icon']            =  WEB_LIBS."iumio_manager/css/pe-icon-7-stroke.css";
             $options['js']                  =  WEB_FRAMEWORK."assets/js/iumioTaskBar.js";
             $options['logo']                =  WEB_FRAMEWORK."img/logo_white_small.png";
             $options['ve']                  =  \iumioFramework\Core\Requirement\iumioUltimaCore::getInfo('VERSION')." ".\iumioFramework\Core\Requirement\iumioUltimaCore::getInfo('VERSION_EDITION_SHORT');

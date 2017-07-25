@@ -166,6 +166,8 @@ class iumioUltimaMaster extends iumioUltima
                 else
                     $env = "/".$env;
 
+                if (isset($one['path'][0]) && $one['path'][0] != "/")
+                    $one['path'] = "/".$one['path'];
                 $url = $env.$one['path'];
 
                 $base = (isset($_SERVER['SCRIPT_NAME']) && $_SERVER['SCRIPT_NAME'] != "")? $_SERVER['SCRIPT_NAME'] : "";

@@ -94,7 +94,7 @@ class RtListener implements Listener
 
         for ($i = 0; $i < count($routingArray); $i++) {
 
-            $routingArray[$i]['path'] = (($this->prefix == null || $this->prefix == "") ? "" : "/".$this->prefix) . $routingArray[$i]['path'];
+            $routingArray[$i]['path'] = (($this->prefix == null || $this->prefix == "") ? "" : $this->prefix) . $routingArray[$i]['path'];
 
             $method = explode('%', $routingArray[$i]['activity']);
             if (count($method) == 2) {

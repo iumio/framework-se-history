@@ -11,7 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     {*webassets*}
     <link rel="stylesheet" href="{webassets path='public/css/index.css' }" />
-    <link rel="stylesheet" href="{webassets path='public/css/font-awesome.min.css' }" />
+    {fawesome_css min="yes"}
 </head>
 
 <body>

@@ -1,6 +1,7 @@
 {if isset($iumiotaskbar) && !empty($iumiotaskbar)}
     <!-- iumioTaskBar component -->
     <link rel="stylesheet" href="{$iumiotaskbar['css']}" />
+    <link rel="stylesheet" href="{$iumiotaskbar['css_icon']}" />
     <div id="iumioTaskBarBlank"></div>
     <ul class="iumioTaskBar">
         <li class="flogo"><img src="{$iumiotaskbar['logo']}"/> </li>

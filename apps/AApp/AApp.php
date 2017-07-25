@@ -1,15 +1,15 @@
 <?php
 
-namespace dsApp;
+namespace AApp;
 
 use iumioFramework\Core\Requirement\iumioAppModel as App;
 
 /**
- * Class dsApp
- * @package dsApp
+ * Class AApp
+ * @package AApp
  */
 
-class dsApp extends App
+class AApp extends App
 {
     /*** REGISTER TO APP ***/
 

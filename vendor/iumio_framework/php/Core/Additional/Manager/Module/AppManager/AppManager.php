@@ -447,9 +447,7 @@ class AppManager implements ModuleManager
         if (!is_object($f))
             $f = new \stdClass();
 
-
         foreach ($f as $one => $val) $lastapp++;
-        error_log(count($f));
 
         $f->$lastapp = new \stdClass();
         $f->$lastapp->name = $this->params['appname'];

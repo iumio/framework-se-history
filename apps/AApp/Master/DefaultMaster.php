@@ -1,12 +1,12 @@
 <?php
 
-namespace dsApp\Master;
+namespace AApp\Master;
 
 use iumioFramework\Masters\iumioUltimaMaster as Master;
 
 /**
  * Class DefaultMaster
- * @package dsApp\Master
+ * @package AApp\Master
  */
 
 class DefaultMaster extends Master

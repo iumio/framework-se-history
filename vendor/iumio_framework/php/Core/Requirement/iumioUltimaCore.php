@@ -104,13 +104,13 @@ abstract class iumioUltimaCore extends iumioUltima
     {
         if (!iumioServerManager::checkIsExecutable(ROOT."elements/") || !iumioServerManager::checkIsReadable(ROOT."elements/") || !iumioServerManager::checkIsWritable(ROOT."elements/"))
         {
-            throw new Server500(new \ArrayObject(array("explain" =>"iumio Ultima Core Error : Folder /elements doest not have correct permission", "solution" => "Must be read, write, executable permission")));
+            throw new Server500(new \ArrayObject(array("explain" =>"Core Error : Folder /elements doest not have correct permission", "solution" => "Must be read, write, executable permission")));
             return (0);
         }
 
         if (!iumioServerManager::checkIsExecutable(ROOT."apps/") || !iumioServerManager::checkIsReadable(ROOT."apps/") || !iumioServerManager::checkIsWritable(ROOT."apps/"))
         {
-            throw new Server500(new \ArrayObject(array("explain" =>"iumio Ultima Core Error : Folder /apps doest not have correct permission", "solution" => "Must be read, write, executable permission")));
+            throw new Server500(new \ArrayObject(array("explain" =>"Core Error : Folder /apps doest not have correct permission", "solution" => "Must be read, write, executable permission")));
             return (0);
         }
         return (1);
