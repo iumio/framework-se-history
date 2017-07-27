@@ -38,6 +38,7 @@
                                     <th>Date</th>
                                     <th>Type</th>
                                     <th>IP</th>
+                                    <th>Method</th>
                                     <th>Explain</th>
                                     </thead>
                                     <tbody class="logslist" attr-href="{route name='iumio_manager_logs_manager_get_all'}">

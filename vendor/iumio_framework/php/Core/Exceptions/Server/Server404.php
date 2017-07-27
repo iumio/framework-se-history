@@ -30,7 +30,7 @@ class Server404 extends AbstractServer
     {
         $this->code = '404';
         $this->codeTitle = 'NOT FOUND';
-        $this->explain =  'The ressource you try to access is not found.';
+        $this->explain =  'The resource you try to access is not found.';
         $this->solution = NULL;
         $this->env = NULL;
         parent::__construct($component, 'Not found');

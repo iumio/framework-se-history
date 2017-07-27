@@ -138,18 +138,22 @@ abstract class AbstractServer extends \Exception implements ServerInterface
     }
 
 
-    /**
-     * @param string $message Error Message
+    /** Write exception in .json file
      * @return int Success
      */
-    final private function writeJsonError(string $message):int
+    final private function writeJsonError():int
     {
             $debug = array();
             $debug["uidie"] = $this->uidie;
             $debug['time'] = $this->time;
             $debug['client_ip'] = $this->client_ip;
-            $debug['content'] = $message;
+            $debug['code'] = $this->code;
+            $debug['code_title'] = $this->codeTitle;
+            $debug['explain'] = $this->explain;
+            $debug['solution'] = $this->solution;
+            $debug['method'] = $_SERVER['REQUEST_METHOD'];
             $debug['trace'] = $this->getTrace();
+            $debug['referer'] = $_SERVER['REQUEST_URI'];
             $log = (array) JL::open(ROOT_LOGS.strtolower(ENVIRONMENT).".log.json");
             $c = count($log);
             $log[$c] = $debug;

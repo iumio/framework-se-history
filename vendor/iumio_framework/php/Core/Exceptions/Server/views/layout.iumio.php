@@ -151,11 +151,13 @@
                             <div class="content text-center">
                                 <?php foreach ($this->getTrace() as $one) { ?>
                                     <div class="content text-center card-content-new">
+                                        <?php if (isset($one['file'])) { ?>
                                         <div class="typo-line">
-                                            <span class="break-word"><p class="category">File</p><?= $one['file'] ?></span>
+                                            <span class="break-word"><p class="category">File</p><?= ((isset($one['file']))? $one['file'] : "*") ?></span>
                                         </div>
+                                        <?php } ?>
                                         <div class="typo-line">
-                                            <span class="break-word"><p class="category">Function & Line</p><?= $one['class']."::". $one['function'] ?> on line <?= $one['line'] ?></span>
+                                            <span class="break-word"><p class="category">Function <?= (isset($one['line']))? "& Line" : "" ?></p><?= $one['class'].$one['type']. $one['function'] ?> <?= (isset($one['line']))? "on line ".$one['line'] : "" ?></span>
                                         </div>
                                     </div>
                                     <hr>

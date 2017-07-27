@@ -83,7 +83,7 @@ var getLogs = function () {
 
                 $.each(results, function (index, value) {
                     var datelog = formatDate(new Date(value['time']['date']));
-                    selector.append("<li>"+datelog+" - ["+value['client_ip']+"] : "+value['content']+"</li>");
+                    selector.append("<li>"+datelog+" - ["+value['client_ip']+"] [<a href='"+value['log_url']+"'>"+value['uidie']+"</a>] : "+value['explain']+"</li>");
                 })
 
             }
@@ -154,19 +154,14 @@ var getUnlimitedLogs = function () {
                     return (selector.append("<tr><td colspan='5'>No logs</td></tr>"));
 
                 $.each(results, function (index, value) {
-                    var error = value['content'];
-                    error = error.split(":");
-                    value['content'] = (value['content']).replace((error[0])+": ", "");
-                    error[0] = error[0].replace("[", "");
-                    error[0] = error[0].replace("]", "");
-
                     var dateLog = formatDate(new Date(value['time']["date"]));
                     selector.append("<tr>" +
-                        "<td>"+value['uidie']+"</td>" +
+                        "<td><a href='"+value['log_url']+"'>"+value['uidie']+"</a></td>" +
                         "<td>"+dateLog+"</td>" +
-                        "<td>"+error[0]+"</td>" +
+                        "<td>"+value['code']+"</td>" +
                         "<td>"+value['client_ip']+"</td>" +
-                        "<td style='word-wrap: break-word;width: 75%'>"+value['content']+"</td>" +
+                        "<td>"+value['method']+"</td>" +
+                        "<td style='word-wrap: break-word;'>"+value['explain']+"</td>" +
                         "</tr>");
                 });
 

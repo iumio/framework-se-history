@@ -16,6 +16,7 @@ use iumioFramework\Core\Additionnal\Server\iumioServerManager;
 use iumioFramework\Core\Base\Debug\Debug;
 use iumioFramework\Core\Base\Http\Response\Response;
 use iumioFramework\Exception\Server\AbstractServer;
+use iumioFramework\Exception\Server\Server404;
 use iumioFramework\Masters\iumioUltimaMaster as Master;
 use iumioFramework\Core\Base\Json\JsonListener as JL;
 
@@ -39,6 +40,30 @@ class LogsMaster extends Master
         return($this->render("logs", array("selected" => "logsmanager", "env" => strtolower(ENVIRONMENT))));
     }
 
+    /** Get log details
+     * @param string $uidie Unique identifier of iumio Exception
+     * @throws Server404 If uidie does not exist
+     */
+    public function logsdetailsActivity(string $uidie)
+    {
+        $onelogs = null;
+        $logs = JL::open(ROOT_LOGS.strtolower(ENVIRONMENT).".log.json");
+        foreach ($logs as $one)
+        {
+            if ($uidie == $one->uidie)
+            {
+                $onelogs = $one;
+                break;
+            }
+        }
+       // print_r($onelogs);
+
+        if ($onelogs == null)
+            throw new Server404(new \ArrayObject(array("explain" => "The error with uidie [".$uidie."] does not exist", "solution" => "Check the UIDIE")));
+
+        return($this->render("logsdetails", array("details" => $onelogs, "selected" => "logsmanager", "env" => strtolower(ENVIRONMENT))));
+    }
+
     /** Get the last debug logs (unlimited)
      * @return int JSON response log list
      */
@@ -47,8 +72,11 @@ class LogsMaster extends Master
         $last = array_values(array_reverse(AbstractServer::getLogs()));
         $lastn = array();
         for($i = 0; $i < count($last); $i++)
-          array_push($lastn, $last[$i]);
-
+        {
+            $one = $last[$i];
+            $last[$i]->log_url = $this->generateRoute("iumio_manager_logs_manager_get_one", array("uidie" => $one->uidie));
+            array_push($lastn, $last[$i]);
+        }
         return ((new Response())->JSON_RENDER(array("code" => 200, "results" => $lastn)));
     }
 

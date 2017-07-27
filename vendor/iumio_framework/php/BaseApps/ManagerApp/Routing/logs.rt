@@ -15,3 +15,9 @@ route:
   path :  /_manager/logs/clear
   activity : Logs%clear
 endroute
+
+route:
+  name : iumio_manager_logs_manager_get_one
+  path :  /_manager/logs/get/one/{uidie}
+  activity : Logs%logsdetails
+endroute

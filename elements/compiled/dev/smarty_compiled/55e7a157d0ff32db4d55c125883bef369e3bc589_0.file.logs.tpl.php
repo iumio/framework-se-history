@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32-dev-1, created on 2017-07-25 13:46:43
+/* Smarty version 3.1.32-dev-1, created on 2017-07-27 13:48:25
   from "/Applications/MAMP/htdocs/iumio-framework/vendor/iumio_framework/php/BaseApps/ManagerApp/Front/views/logs.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32-dev-1',
-  'unifunc' => 'content_59772fa302c963_47990740',
+  'unifunc' => 'content_5979d309f0a893_46960899',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '55e7a157d0ff32db4d55c125883bef369e3bc589' => 
     array (
       0 => '/Applications/MAMP/htdocs/iumio-framework/vendor/iumio_framework/php/BaseApps/ManagerApp/Front/views/logs.tpl',
-      1 => 1500982735,
+      1 => 1501156065,
       2 => 'file',
     ),
   ),
@@ -22,22 +22,22 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:partials/footer.tpl' => 1,
   ),
 ),false)) {
-function content_59772fa302c963_47990740 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5979d309f0a893_46960899 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_212039628859772fa2753d48_58861363', "principal");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_21014394095979d30950fa45_63823203', "principal");
 $_smarty_tpl->inheritance->endChild($_smarty_tpl, 'template.tpl');
 }
 /* {block "principal"} */
-class Block_212039628859772fa2753d48_58861363 extends Smarty_Internal_Block
+class Block_21014394095979d30950fa45_63823203 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'principal' => 
   array (
-    0 => 'Block_212039628859772fa2753d48_58861363',
+    0 => 'Block_21014394095979d30950fa45_63823203',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -87,6 +87,7 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
                                     <th>Date</th>
                                     <th>Type</th>
                                     <th>IP</th>
+                                    <th>Method</th>
                                     <th>Explain</th>
                                     </thead>
                                     <tbody class="logslist" attr-href="<?php echo iumioFramework\Core\Additionnal\Template\iumioViewBasePlugin::route(array('name'=>'iumio_manager_logs_manager_get_all'),$_smarty_tpl);?>
