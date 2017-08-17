@@ -11,9 +11,9 @@
  */
 
 
-namespace ManagerApp\Master;
+namespace ManagerApp\Masters;
 use iumioFramework\Core\Additionnal\Server\iumioServerManager;
-use iumioFramework\Masters\iumioUltimaMaster as Master;
+use iumioFramework\Masters\MasterCore;
 use iumioFramework\Core\Base\Json\JsonListener as JL;
 use iumioFramework\Core\Base\Http\Response\Response;
 
@@ -23,7 +23,7 @@ use iumioFramework\Core\Base\Http\Response\Response;
  * @author RAFINA Dany <danyrafina@gmail.com>
  */
 
-class AppsMaster extends Master
+class AppsMaster extends MasterCore
 {
 
     /**
@@ -142,7 +142,7 @@ class AppsMaster extends Master
             }
 
         if ($removeapp == false)
-            return ((new Response())->JSON_RENDER(array("code" => 500, "msg" => "App doest not exist")));
+            return ((new Response())->JSON_RENDER(array("code" => 500, "msg" => "App does not exist")));
         $file = array_values((array)$file);
 
         $file = json_encode((object) $file, JSON_PRETTY_PRINT);

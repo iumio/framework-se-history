@@ -10,8 +10,8 @@
  * To get more information about licence, please check the licence file
  */
 
-$loader = require __DIR__.'/../vendor/iumio_framework/php/Core/Requirement/iumoEngineAutoloader.php';
-iumoEngineAutoloader::$env = "PROD";
+$loader = require __DIR__.'/../vendor/iumio_framework/php/Core/Requirement/EngineAutoloader.php';
+EngineAutoloader::$env = "PROD";
 
 use iumioFramework\Core\Base\{iumioEnvironment, Debug\Debug, Http\HttpListener};
 use iumioFramework\Apps\AppCore;

@@ -43,12 +43,12 @@ final class iumioSmarty
     {
         try
         {
-            if (ENVIRONMENT == "DEV")
+            if (IUMIO_ENV == "DEV")
             {
                 $envcache = CACHE_DEV;
                 $compiled = COMPILED_DEV;
             }
-            else if (ENVIRONMENT == "PROD")
+            else if (IUMIO_ENV == "PROD")
             {
                 $envcache = CACHE_PROD;
                 $compiled = COMPILED_PROD;
@@ -60,7 +60,7 @@ final class iumioSmarty
 
 
             self::$instance = new \Smarty();
-            $sconfig = new SmartyConfig(ENVIRONMENT);
+            $sconfig = new SmartyConfig(IUMIO_ENV);
 
             self::$instance->setTemplateDir($dirapp.self::$appCall.'/Front/views');
             self::$instance->setCompileDir($compiled.$sconfig->getCompiledDirectory());
@@ -91,7 +91,7 @@ final class iumioSmarty
      */
     final static public function enableSmartyDebug(bool $status)
     {
-        $sconfig = new SmartyConfig(ENVIRONMENT);
+        $sconfig = new SmartyConfig(IUMIO_ENV);
         if ($status == true)
             define ('DISPLAY_SMARTY_DEBUG', $sconfig->getConsoleDebug());
         else if ($status == false)

@@ -11,8 +11,8 @@
  */
 
 
-namespace ManagerApp\Master;
-use iumioFramework\Masters\iumioUltimaMaster as Master;
+namespace ManagerApp\Masters;
+use iumioFramework\Masters\MasterCore;
 use iumioFramework\Core\Base\Http\Response\Response;
 use iumioFramework\Core\Additionnal\Server\iumioServerManager as Server;
 use DirectoryIterator;
@@ -23,7 +23,7 @@ use DirectoryIterator;
  * @author RAFINA Dany <danyrafina@gmail.com>
  */
 
-class CompileMaster extends Master
+class CompileMaster extends MasterCore
 {
     /**
      * Going to compile manager

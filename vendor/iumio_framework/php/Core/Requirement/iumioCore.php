@@ -14,12 +14,12 @@ namespace iumioFramework\Core\Requirement;
 use iumioFramework\Core\Additionnal\Server\iumioServerManager;
 use iumioFramework\Core\Base\Http\HttpListener;
 use iumioFramework\HttpRoutes\Routing;
-use iumioFramework\Core\Requirement\{Relexion\iumioReflexion, Ultima\iumioUltima};
+use iumioFramework\Core\Requirement\{Relexion\iumioReflexion, FrameworkServices\GlobalCoreService};
 use iumioFramework\Exception\Server\{Server500, Server404, Server000};
 use iumioFramework\Core\Base\Json\JsonListener as JL;
 
 /**
- * Class iumioUltimaCore
+ * Class iumioCore
  * @package iumioFramework\Core\Requirement;
  *
  * The Core is the heart of the iumio system.
@@ -29,7 +29,7 @@ use iumioFramework\Core\Base\Json\JsonListener as JL;
  * @author Dany Rafina <danyrafina@gmail.com>
  */
 
-abstract class iumioUltimaCore extends iumioUltima
+abstract class iumioCore extends GlobalCoreService
 {
 
     protected $apps = array();
@@ -37,11 +37,11 @@ abstract class iumioUltimaCore extends iumioUltima
     protected $environment;
     private static $runtime_parameters = null;
 
-    const VERSION = '0.3.8';
+    const VERSION = '0.3.9';
     const VERSION_EDITION = 'iumio Framework Standard Edition';
     const VERSION_EDITION_SHORT = 'SE';
     const VERSION_STAGE = 'BETA';
-    const VERSION_BUILD = 201738;
+    const VERSION_BUILD = 201739;
 
 
 
@@ -104,13 +104,13 @@ abstract class iumioUltimaCore extends iumioUltima
     {
         if (!iumioServerManager::checkIsExecutable(ROOT."elements/") || !iumioServerManager::checkIsReadable(ROOT."elements/") || !iumioServerManager::checkIsWritable(ROOT."elements/"))
         {
-            throw new Server500(new \ArrayObject(array("explain" =>"Core Error : Folder /elements doest not have correct permission", "solution" => "Must be read, write, executable permission")));
+            throw new Server500(new \ArrayObject(array("explain" =>"Core Error : Folder /elements does not have correct permission", "solution" => "Must be read, write, executable permission")));
             return (0);
         }
 
         if (!iumioServerManager::checkIsExecutable(ROOT."apps/") || !iumioServerManager::checkIsReadable(ROOT."apps/") || !iumioServerManager::checkIsWritable(ROOT."apps/"))
         {
-            throw new Server500(new \ArrayObject(array("explain" =>"Core Error : Folder /apps doest not have correct permission", "solution" => "Must be read, write, executable permission")));
+            throw new Server500(new \ArrayObject(array("explain" =>"Core Error : Folder /apps does not have correct permission", "solution" => "Must be read, write, executable permission")));
             return (0);
         }
         return (1);
@@ -243,8 +243,6 @@ abstract class iumioUltimaCore extends iumioUltima
         $great = false;
         if ($this->isComponentCall($bapps, $request)) return (1);
 
-        //$def = $this->detectDefaultApp($apps);
-
         $values = $this->getSimpleAppFormat($apps);
 
         foreach ($values as $one => $def) {
@@ -261,7 +259,7 @@ abstract class iumioUltimaCore extends iumioUltima
                     $controller = $callback['controller'];
 
                     $defname = $def['name'];
-                    $master = "\\$defname\\Master\\{$controller}Master";
+                    $master = "\\$defname\\Masters\\{$controller}Master";
                     try {
                         $call = new iumioReflexion();
                         define("APP_CALL", $def['name']);
@@ -276,7 +274,7 @@ abstract class iumioUltimaCore extends iumioUltima
                     }
                 }
             } else
-                throw new Server500(new \ArrayObject(array("explain" => ">Router register failed  ", "solution" => "Please check your app configuration")));
+                throw new Server500(new \ArrayObject(array("explain" => "Router register failed  ", "solution" => "Please check your app configuration")));
         }
         if ($great == false)
             throw new Server404(new \ArrayObject(array("solution" => "Please check your URI")));
@@ -305,7 +303,7 @@ abstract class iumioUltimaCore extends iumioUltima
                         $controller = $callback['controller'];
 
                         $defname = $def['name'];
-                        $master = "\\$defname\\Master\\{$controller}Master";
+                        $master = "\\$defname\\Masters\\{$controller}Master";
                         try {
                             $call = new iumioReflexion();
                             define("APP_CALL", $def['name']);
@@ -458,14 +456,13 @@ abstract class iumioUltimaCore extends iumioUltima
         $file = JL::open(CONFIG_DIR.'initial.json');
         if (empty( (array) $file))
         {
-            if (file_exists(ROOT.'web/installer.php'))
+            if (file_exists(ROOT.'web/setup/setup.php'))
             {
-                header('Location: '.HOST_CURRENT.'/installer.php');
-                exit();
-                return (1);
+                header('Location: '.HOST_CURRENT.'/setup/setup.php');
+                exit(1);
             }
             else
-                throw new Server500(new \ArrayObject(array("explain" => "Core Error : installer.php does not exist in web directory", "solution" => "Please download installer.php in iumio Framework Website to fix this error and put him in web directory")));
+                throw new \RuntimeException("(Setup components does not exist in web directory => Please download the setup components on iumio Framework Website to fix this error and put him in web directory)");
 
         }
         return (0);

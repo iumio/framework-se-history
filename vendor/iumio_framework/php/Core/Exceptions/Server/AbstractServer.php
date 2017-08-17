@@ -49,7 +49,7 @@ abstract class AbstractServer extends \Exception implements ServerInterface
 
         $this->time = new \DateTime();
         $this->uidie = $this->generate_uidie();
-        $this->env = ENVIRONMENT;
+        $this->env = IUMIO_ENV;
         $this->client_ip = $this->getClientIp();
         $it = $component->getIterator();
         foreach ($it as $one => $value)
@@ -85,10 +85,10 @@ abstract class AbstractServer extends \Exception implements ServerInterface
         //ob_end_clean();r
         //echo $_SERVER['SERVER_PROTOCOL'] .''.$code.' '.HttpResponse::getPhrase($code);
         @header($_SERVER['SERVER_PROTOCOL'] .' '.(($code == 000)? 500 : $code).' '.HttpResponse::getPhrase($code), true, $code);
-        if ($this->external || ENVIRONMENT == "PROD")
-            include_once (SERVER_VIEWS.strtolower(ENVIRONMENT).'/'.$code.'.html');
+        if ($this->external || IUMIO_ENV == "PROD")
+            include_once (SERVER_VIEWS.strtolower(IUMIO_ENV).'/'.$code.'.html');
         else
-             require_once  SERVER_VIEWS.'layout.iumio.php';
+             require_once  SERVER_VIEWS.'layout.exception.php';
         exit();
     }
 
@@ -154,11 +154,11 @@ abstract class AbstractServer extends \Exception implements ServerInterface
             $debug['method'] = $_SERVER['REQUEST_METHOD'];
             $debug['trace'] = $this->getTrace();
             $debug['referer'] = $_SERVER['REQUEST_URI'];
-            $log = (array) JL::open(ROOT_LOGS.strtolower(ENVIRONMENT).".log.json");
+            $log = (array) JL::open(ROOT_LOGS.strtolower(IUMIO_ENV).".log.json");
             $c = count($log);
             $log[$c] = $debug;
             $log = (object) $log;
-            JL::put(ROOT_LOGS.strtolower(ENVIRONMENT).".log.json", json_encode($log, JSON_PRETTY_PRINT));
+            JL::put(ROOT_LOGS.strtolower(IUMIO_ENV).".log.json", json_encode($log, JSON_PRETTY_PRINT));
 
             return (1);
     }
@@ -179,6 +179,6 @@ abstract class AbstractServer extends \Exception implements ServerInterface
      */
     static public function getLogs():array
     {
-        return ((array) JL::open(ROOT_LOGS.strtolower(ENVIRONMENT).".log.json"));
+        return ((array) JL::open(ROOT_LOGS.strtolower(IUMIO_ENV).".log.json"));
     }
 }

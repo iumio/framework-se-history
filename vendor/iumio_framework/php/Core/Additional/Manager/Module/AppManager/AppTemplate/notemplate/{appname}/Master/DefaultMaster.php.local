@@ -1,16 +1,16 @@
 <?php
 
-namespace {appname}\Master;
+namespace {appname}\Masters;
 
-use iumioFramework\Masters\iumioUltimaMaster as Master;
+use iumioFramework\Masters\MasterCore;
 use iumioFramework\Core\Base\Http\Response\Response;
 
 /**
  * Class DefaultMaster
- * @package {appname}\Master
+ * @package {appname}\Masters
  */
 
-class DefaultMaster extends Master
+class DefaultMaster extends MasterCore
 {
 
 

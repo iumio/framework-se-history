@@ -1,15 +1,15 @@
 <?php
 
-namespace {appname}\Master;
+namespace {appname}\Masters;
 
-use iumioFramework\Masters\iumioUltimaMaster as Master;
+use iumioFramework\Masters\MasterCore;
 
 /**
  * Class DefaultMaster
- * @package {appname}\Master
+ * @package {appname}\Masters
  */
 
-class DefaultMaster extends Master
+class DefaultMaster extends MasterCore
 {
 
 

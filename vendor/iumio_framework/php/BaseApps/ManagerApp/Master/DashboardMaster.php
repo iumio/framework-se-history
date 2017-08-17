@@ -11,11 +11,11 @@
  */
 
 
-namespace ManagerApp\Master;
+namespace ManagerApp\Masters;
 use iumioFramework\Core\Base\Debug\Debug;
 use iumioFramework\Core\Base\Http\Response\Response;
 use iumioFramework\Exception\Server\AbstractServer;
-use iumioFramework\Masters\iumioUltimaMaster as Master;
+use iumioFramework\Masters\MasterCore;
 use iumioFramework\Core\Base\Json\JsonListener as JL;
 
 /**
@@ -24,7 +24,7 @@ use iumioFramework\Core\Base\Json\JsonListener as JL;
  * @author RAFINA Dany <danyrafina@gmail.com>
  */
 
-class DashboardMaster extends Master
+class DashboardMaster extends MasterCore
 {
     /**
      * Start FGM dashboard
@@ -48,6 +48,7 @@ class DashboardMaster extends Master
         for($i = 0; $i < count($last); $i++)
         {
           if ($i == 10) break;
+          $last[$i]->log_url = $this->generateRoute("iumio_manager_logs_manager_get_one", array("uidie" => $last[$i]->uidie));
           array_push($lastn, $last[$i]);
         }
 

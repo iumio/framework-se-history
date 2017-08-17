@@ -83,7 +83,7 @@ var getLogs = function () {
 
                 $.each(results, function (index, value) {
                     var datelog = formatDate(new Date(value['time']['date']));
-                    selector.append("<li>"+datelog+" - ["+value['client_ip']+"] [<a href='"+value['log_url']+"'>"+value['uidie']+"</a>] : "+value['explain']+"</li>");
+                    selector.append("<li style='padding-top: 10px;'><ul><li>Date : "+datelog+"</li><li>IP : "+value['client_ip']+"</li> <li>UIDIE : <a href='"+value['log_url']+"'>"+value['uidie']+"</a> </li> <li>Message :  "+value['explain']+"</li></ul></li>");
                 })
 
             }
@@ -151,7 +151,7 @@ var getUnlimitedLogs = function () {
                 var results = data['results'];
                 selector.html("");
                 if (results.length === 0)
-                    return (selector.append("<tr><td colspan='5'>No logs</td></tr>"));
+                    return (selector.append("<tr><td colspan='6'>No logs</td></tr>"));
 
                 $.each(results, function (index, value) {
                     var dateLog = formatDate(new Date(value['time']["date"]));

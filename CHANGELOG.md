@@ -8,6 +8,25 @@ iumio Framework
 
 ## [BETA RELEASE]
 
+## [0.3.9] - 2017-08-17
+### Fixed
+- .htaccess 301 Failed with POST data
+### Added
+- UIDIE (Unique Identifier of iumio Exception) for each exception
+- Add new item for each exception
+- Create new interface for Exception
+- Create a new interface to look with UIDIE, the exception details
+- New iumio Universal installer (Tools Class - installer.php changed to be setup.php)
+### Edited
+- Change name of [iumioUltimaCore, iumioUltimaMaster, iumioUltima, iumioEngineAutoloader] to [iumioCore, MasterCore, GlobalCoreService, EngineAutoloader]
+- Change name of constant "ENVIRONMENT" to "IUMIO_ENV"
+- Change layout exception name
+- Change disposition of 'LastLog'
+### Removed
+- Remove iumio installer SE
+- Remove composer.phar and composer.json
+
+
 ## [0.3.8] - 2017-07-22
 ### Fixed
 - Bug fixed : Copy Assets to Prod
@@ -33,7 +52,6 @@ iumio Framework
 ### Fixed
 - Fix missing environment for css, js, image web assets
 - Others minor fixes
-
 
 ## [0.3.3] - 2017-06-27
 ### Added

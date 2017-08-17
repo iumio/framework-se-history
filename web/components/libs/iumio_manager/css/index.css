@@ -38,7 +38,7 @@
     word-wrap: break-word!important;
 }
 
-.errorlastlog li
+.errorlastlog li, .lastlog li, .lastlog
 {
     word-wrap: break-word!important;
 }

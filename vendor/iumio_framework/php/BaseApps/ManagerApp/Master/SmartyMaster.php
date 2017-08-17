@@ -11,8 +11,8 @@
  */
 
 
-namespace ManagerApp\Master;
-use iumioFramework\Masters\iumioUltimaMaster as Master;
+namespace ManagerApp\Masters;
+use iumioFramework\Masters\MasterCore;
 use iumioFramework\Core\Base\Json\JsonListener as JL;
 use iumioFramework\Core\Base\Http\Response\Response;
 
@@ -22,7 +22,7 @@ use iumioFramework\Core\Base\Http\Response\Response;
  * @author RAFINA Dany <danyrafina@gmail.com>
  */
 
-class SmartyMaster extends Master
+class SmartyMaster extends MasterCore
 {
 
     /**

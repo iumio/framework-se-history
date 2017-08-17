@@ -11,11 +11,11 @@
  */
 
 
-namespace ManagerApp\Master;
-use iumioFramework\Masters\iumioUltimaMaster as Master;
+namespace ManagerApp\Masters;
+use iumioFramework\Masters\MasterCore;
 use iumioFramework\Core\Base\Http\Response\Response;
 use iumioFramework\Core\Additionnal\Server\iumioServerManager as Server;
-use ManagerApp\Master\Libs\Diff;
+use ManagerApp\Masters\Libs\Diff;
 
 /**
  * Class AssetsMaster
@@ -23,7 +23,7 @@ use ManagerApp\Master\Libs\Diff;
  * @author RAFINA Dany <danyrafina@gmail.com>
  */
 
-class AssetsMaster extends Master
+class AssetsMaster extends MasterCore
 {
     /**
      * Going to assets manager

@@ -13,11 +13,11 @@
 namespace iumioFramework\Core\Base\Database\ORM;
 
 /**
- * Trait UltimaORM
+ * Trait Power8Orm
  * @package iumioFramework\Core\Base\Database\ORM
  * @author RAFINA Dany <danyrafina@gmail.com>
  */
-trait UltimaORM
+trait Power8Orm
 {
     protected $em = null;
     protected $params = array(

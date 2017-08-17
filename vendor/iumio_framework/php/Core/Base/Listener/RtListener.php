@@ -103,11 +103,11 @@ class RtListener implements Listener
                 $params = $this->detectParameters($routingArray[$i]['path']);
                 try
                 {
-                    $reflect = new \ReflectionClass("\\".$this->appName."\\Master\\".$controller."Master");
+                    $reflect = new \ReflectionClass("\\".$this->appName."\\Masters\\".$controller."Master");
                 }
                 catch (\ReflectionException $e)
                 {
-                    throw new  Server500(new \ArrayObject(array("explain" => "Cannot instanciate "."\\".$this->appName."\\Master\\".$controller."Master => ".$e->getMessage(), "solution" => "Please check your master configuration : ")));
+                    throw new  Server500(new \ArrayObject(array("explain" => "Cannot instanciate "."\\".$this->appName."\\Masters\\".$controller."Master => ".$e->getMessage(), "solution" => "Please check your master configuration : ")));
                 }
 
                 if (!method_exists($reflect->newInstance(), $function."Activity") || !is_callable(array($reflect->newInstance(), $function."Activity")))

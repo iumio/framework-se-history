@@ -11,13 +11,13 @@
  */
 
 
-namespace ManagerApp\Master;
+namespace ManagerApp\Masters;
 use iumioFramework\Core\Additionnal\Server\iumioServerManager;
 use iumioFramework\Core\Base\Debug\Debug;
 use iumioFramework\Core\Base\Http\Response\Response;
 use iumioFramework\Exception\Server\AbstractServer;
 use iumioFramework\Exception\Server\Server404;
-use iumioFramework\Masters\iumioUltimaMaster as Master;
+use iumioFramework\Masters\MasterCore;
 use iumioFramework\Core\Base\Json\JsonListener as JL;
 
 /**
@@ -26,7 +26,7 @@ use iumioFramework\Core\Base\Json\JsonListener as JL;
  * @author RAFINA Dany <danyrafina@gmail.com>
  */
 
-class LogsMaster extends Master
+class LogsMaster extends MasterCore
 {
     /**
      * Start FGM dashboard
@@ -37,7 +37,7 @@ class LogsMaster extends Master
         $date =  new \DateTime($file->installation->date);
         $file->installation = $date->format('Y/m/d');
 
-        return($this->render("logs", array("selected" => "logsmanager", "env" => strtolower(ENVIRONMENT))));
+        return($this->render("logs", array("selected" => "logsmanager", "env" => strtolower(IUMIO_ENV))));
     }
 
     /** Get log details
@@ -47,7 +47,7 @@ class LogsMaster extends Master
     public function logsdetailsActivity(string $uidie)
     {
         $onelogs = null;
-        $logs = JL::open(ROOT_LOGS.strtolower(ENVIRONMENT).".log.json");
+        $logs = JL::open(ROOT_LOGS.strtolower(IUMIO_ENV).".log.json");
         foreach ($logs as $one)
         {
             if ($uidie == $one->uidie)
@@ -61,7 +61,7 @@ class LogsMaster extends Master
         if ($onelogs == null)
             throw new Server404(new \ArrayObject(array("explain" => "The error with uidie [".$uidie."] does not exist", "solution" => "Check the UIDIE")));
 
-        return($this->render("logsdetails", array("details" => $onelogs, "selected" => "logsmanager", "env" => strtolower(ENVIRONMENT))));
+        return($this->render("logsdetails", array("details" => $onelogs, "selected" => "logsmanager", "env" => strtolower(IUMIO_ENV))));
     }
 
     /** Get the last debug logs (unlimited)
@@ -85,8 +85,8 @@ class LogsMaster extends Master
      */
     public function clearActivity():int
     {
-        iumioServerManager::delete(ROOT_LOGS.strtolower(ENVIRONMENT).".log.json", 'file');
-        @iumioServerManager::create(ROOT_LOGS.strtolower(ENVIRONMENT).".log.json", 'file');
+        iumioServerManager::delete(ROOT_LOGS.strtolower(IUMIO_ENV).".log.json", 'file');
+        @iumioServerManager::create(ROOT_LOGS.strtolower(IUMIO_ENV).".log.json", 'file');
 
         return ((new Response())->JSON_RENDER(array("code" => 200, "msg" => "OK")));
     }

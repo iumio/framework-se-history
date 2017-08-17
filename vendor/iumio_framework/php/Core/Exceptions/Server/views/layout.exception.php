@@ -64,7 +64,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="<?= (new \iumioFramework\Masters\iumioUltimaMaster())->generateRoute("iumio_manager_index", null, "ManagerApp", true) ?>">
+                    <a href="<?= (new \iumioFramework\Masters\MasterCore())->generateRoute("iumio_manager_index", null, "ManagerApp", true) ?>">
                         <i class="pe-7s-edit"></i>
                         <p>Manager</p>
                     </a>
@@ -174,7 +174,7 @@
                                 <p class="category">Last logs error</p>
                             </div>
                             <div class="content">
-                                <ul class="errorlastlog" attr-href="<?php $master = new \iumioFramework\Masters\iumioUltimaMaster(); echo $master->generateRoute("iumio_manager_logs_get", null, "ManagerApp") ?>">
+                                <ul class="errorlastlog" attr-href="<?php $master = new \iumioFramework\Masters\MasterCore(); echo $master->generateRoute("iumio_manager_logs_get", null, "ManagerApp") ?>">
 
                                 </ul>
 

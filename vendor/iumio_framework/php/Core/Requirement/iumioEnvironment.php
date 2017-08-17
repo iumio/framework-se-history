@@ -31,7 +31,7 @@ class iumioEnvironment
     public static function definer(string $env):int
     {
         $base =  __DIR__."/../../../../../";
-        define('ENVIRONMENT', $env);
+        define('IUMIO_ENV', $env);
         define('HOST', self::getProtocol()."://".$_SERVER['HTTP_HOST']);
         $current = self::getProtocol()."://".$_SERVER['HTTP_HOST'].dirname($_SERVER['PHP_SELF']);
         $current_temp = substr($current, 0, strpos($current, self::getFileEnv($env)));
@@ -102,9 +102,9 @@ class iumioEnvironment
 
     static public function hostAllowed():int
     {
-        if (!in_array(ENVIRONMENT, array("DEV", "PROD")))
+        if (!in_array(IUMIO_ENV, array("DEV", "PROD")))
             throw new Server500(new ArrayObject(array("explain" => "An error was detected on environment declaration", "solution" => "Please check the environement declaration.", "external" => "yes")));
-        $hosts = file_get_contents(ROOT_HOST_FILES.'hosts.'.strtolower(ENVIRONMENT).'.json');
+        $hosts = file_get_contents(ROOT_HOST_FILES.'hosts.'.strtolower(IUMIO_ENV).'.json');
 
         if (empty(trim($hosts)))
             self::displayError((array("explain" => "You are not allowed to access this file.", "solution" => 'Check '.basename(__FILE__).' for more information.', "external" => "yes")));

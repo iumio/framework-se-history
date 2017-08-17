@@ -99,11 +99,11 @@ class Routing extends RtListener
 
         $script = "";
 
-        if (strpos($webRoute, Env::getFileEnv(ENVIRONMENT)) !== false)
+        if (strpos($webRoute, Env::getFileEnv(IUMIO_ENV)) !== false)
         {
 
-            $script = "/".Env::getFileEnv(ENVIRONMENT);
-            $key = array_search(Env::getFileEnv(ENVIRONMENT), $wRE);
+            $script = "/".Env::getFileEnv(IUMIO_ENV);
+            $key = array_search(Env::getFileEnv(IUMIO_ENV), $wRE);
             unset($wRE[$key]);
             $wRE = array_values($wRE);
             $wRE = array_values(self::removeEmptyData($wRE));
@@ -129,12 +129,12 @@ class Routing extends RtListener
             $wRE = array_values(self::removeEmptyData($wRE));
         }
 
-        if (strpos($base, Env::getFileEnv(ENVIRONMENT)) !== false)
+        if (strpos($base, Env::getFileEnv(IUMIO_ENV)) !== false)
         {
             $rm = explode('/',$base);
             $rm = array_values(self::removeEmptyData($rm));
             $rm = array_values($rm);
-            $key = array_search(Env::getFileEnv(ENVIRONMENT), $rm);
+            $key = array_search(Env::getFileEnv(IUMIO_ENV), $rm);
             unset($rm[$key]);
             $rm = array_values($rm);
             $base = implode("/", $rm);

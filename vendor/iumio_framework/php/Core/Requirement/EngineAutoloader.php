@@ -11,11 +11,11 @@
  */
 
 /**
- * Class iumioEngineAutoloader
+ * Class EngineAutoloader
  * This class loads a class when is calling
  * @author RAFINA Dany <danyrafina@gmail.com>
  */
-class iumoEngineAutoloader {
+class EngineAutoloader {
 
     static public $diff = 0;
     static public $env = "DEV";
@@ -242,4 +242,4 @@ class iumoEngineAutoloader {
     }
 }
 
-spl_autoload_register('iumoEngineAutoloader::register');
+spl_autoload_register('EngineAutoloader::register');

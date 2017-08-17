@@ -28,7 +28,7 @@ class iumioViewBasePlugin
      */
     static public function webassets(array $params):string
     {
-        return (WEB_ASSETS.strtolower(ENVIRONMENT)."/".strtolower(APP_CALL)."/".$params['path']);
+        return (WEB_ASSETS.strtolower(IUMIO_ENV)."/".strtolower(APP_CALL)."/".$params['path']);
     }
 
     /** Get framework infos
@@ -37,7 +37,7 @@ class iumioViewBasePlugin
      */
     static public function f_info(array $params):string
     {
-        return (\iumioFramework\Core\Requirement\iumioUltimaCore::getInfo($params['name']));
+        return (\iumioFramework\Core\Requirement\iumioCore::getInfo($params['name']));
     }
 
     /** Get system infos
@@ -46,7 +46,7 @@ class iumioViewBasePlugin
      */
     final static public function s_info(array $params):string
     {
-        return (\iumioFramework\Core\Requirement\iumioUltimaCore::getServerInfo($params['name']));
+        return (\iumioFramework\Core\Requirement\iumioCore::getServerInfo($params['name']));
     }
 
     /** Get bootstrap javascript
@@ -82,7 +82,7 @@ class iumioViewBasePlugin
      */
     final static public function css(array $params)
     {
-        return ("<link href='".WEB_ASSETS.strtolower(ENVIRONMENT)."/".strtolower(APP_CALL)."/".((isset($params['path']))? $params['path']."." : "")."css' rel='stylesheet' />");
+        return ("<link href='".WEB_ASSETS.strtolower(IUMIO_ENV)."/".strtolower(APP_CALL)."/".((isset($params['path']))? $params['path']."." : "")."css' rel='stylesheet' />");
     }
 
     /** Get js file
@@ -91,7 +91,7 @@ class iumioViewBasePlugin
      */
     final static public function js(array $params)
     {
-        return ("<script type='text/javascript' src='".WEB_ASSETS.strtolower(ENVIRONMENT)."/".strtolower(APP_CALL)."/".((isset($params['path']))? $params['path']."." : "")."js'></script>");
+        return ("<script type='text/javascript' src='".WEB_ASSETS.strtolower(IUMIO_ENV)."/".strtolower(APP_CALL)."/".((isset($params['path']))? $params['path']."." : "")."js'></script>");
     }
 
     /** Get css libs file
@@ -211,7 +211,7 @@ class iumioViewBasePlugin
      */
     final static public function route(array $params)
     {
-        $im = new \iumioFramework\Masters\iumioUltimaMaster();
+        $im = new \iumioFramework\Masters\MasterCore();
         $route = ($im->generateRoute(((isset($params['name']))? $params['name'] : ""), ((isset($params['params']) && !empty($params['params']))? $params['params']  : null), null, ((isset($params['component']) && $params['component'] == "yes")? true  : false)));
         return ($route);
     }

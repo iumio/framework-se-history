@@ -12,7 +12,7 @@
 
 namespace iumioFramework\Core\Additionnal\TaskBar;
 use iumioFramework\Exception\Server\Server500;
-use iumioFramework\Masters\iumioUltimaMaster;
+use iumioFramework\Masters\MasterCore;
 
 /**
  * Class iumioTaskBar
@@ -80,12 +80,12 @@ class iumioTaskBar
     {
         try
         {
-            $um =  new iumioUltimaMaster();
+            $um =  new MasterCore();
             $str =  self::getCssTaskBar().'<!-- iumioTaskBar component -->
                 <div id="iumioTaskBarBlank"></div>
                 <ul class="iumioTaskBar">
                 <li class="flogo"><img src="'. WEB_FRAMEWORK.'/img/logo_white_small.png"/> </li>
-                <li><a class="active" href="#"><strong>'. \iumioFramework\Core\Requirement\iumioUltimaCore::getInfo('VERSION')." ".\iumioFramework\Core\Requirement\iumioUltimaCore::getInfo('VERSION_EDITION_SHORT').' - '. ENVIRONMENT.'</strong></a></li>
+                <li><a class="active" href="#"><strong>'. \iumioFramework\Core\Requirement\iumioCore::getInfo('VERSION')." ".\iumioFramework\Core\Requirement\iumioCore::getInfo('VERSION_EDITION_SHORT').' - '. IUMIO_ENV.'</strong></a></li>
                 <li><a href="#" class="active" style="border-right: 1px solid white;"><strong>'. ((!defined('APP_CALL'))? "NO APP CALLED" : APP_CALL) .'</strong></a></li>
                 <li id="iumioTaskBarAssets" class="iumioTaskBarDropdown"><a href="#">Assets</a>
                     <ul class="iumioTaskBarDropdownContent">
@@ -130,13 +130,13 @@ class iumioTaskBar
         try
         {
 
-            $um =  new iumioUltimaMaster();
+            $um =  new MasterCore();
             $options['css']                 =  WEB_FRAMEWORK."assets/css/iumioTaskBar.css";
             $options['css_icon']            =  WEB_LIBS."iumio_manager/css/pe-icon-7-stroke.css";
             $options['js']                  =  WEB_FRAMEWORK."assets/js/iumioTaskBar.js";
             $options['logo']                =  WEB_FRAMEWORK."img/logo_white_small.png";
-            $options['ve']                  =  \iumioFramework\Core\Requirement\iumioUltimaCore::getInfo('VERSION')." ".\iumioFramework\Core\Requirement\iumioUltimaCore::getInfo('VERSION_EDITION_SHORT');
-            $options['env']                 =  ENVIRONMENT;
+            $options['ve']                  =  \iumioFramework\Core\Requirement\iumioCore::getInfo('VERSION')." ".\iumioFramework\Core\Requirement\iumioCore::getInfo('VERSION_EDITION_SHORT');
+            $options['env']                 =  IUMIO_ENV;
             $options['call_app']            =  ((!defined('APP_CALL'))? "NO APP CALLED" : APP_CALL);
             $options['manager']             =  $um->generateRoute("iumio_manager_index", null, "ManagerApp", true);
             $options['cache_clear_all']     =  $um->generateRoute("iumio_manager_cache_manager_remove_all", null, "ManagerApp", true);

@@ -10,16 +10,16 @@
  * To get more information about licence, please check the licence file
  */
 
-namespace iumioFramework\Core\Requirement\Ultima;
+namespace iumioFramework\Core\Requirement\FrameworkServices;
 
 /**
- * Class iumioUltima
- * @package iumioFramework\Core\Requirement\Ultima
+ * Class GlobalCoreService
+ * @package iumioFramework\Core\Requirement\FrameworkServices
  * @author DANY RAFINA <danyrafina@gmail.com>
  */
 
 
-abstract class iumioUltima
+abstract class GlobalCoreService
 {
     protected static $core;
     protected static $app_master;

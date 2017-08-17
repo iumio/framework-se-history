@@ -11,10 +11,10 @@
  */
 
 
-namespace ManagerApp\Master;
+namespace ManagerApp\Masters;
 use iumioFramework\Core\Base\Debug\Debug;
 use iumioFramework\Core\Base\Http\Response\Response;
-use iumioFramework\Masters\iumioUltimaMaster as Master;
+use iumioFramework\Masters\MasterCore;
 use iumioFramework\Core\Base\Json\JsonListener as JL;
 
 /**
@@ -23,7 +23,7 @@ use iumioFramework\Core\Base\Json\JsonListener as JL;
  * @author RAFINA Dany <danyrafina@gmail.com>
  */
 
-class DatabasesMaster extends Master
+class DatabasesMaster extends MasterCore
 {
     /**
      * Show database index
@@ -69,7 +69,7 @@ class DatabasesMaster extends Master
         }
 
         if ($remove == false)
-            return ((new Response())->JSON_RENDER(array("code" => 500, "msg" => "App doest not exist")));
+            return ((new Response())->JSON_RENDER(array("code" => 500, "msg" => "App does not exist")));
         $file = json_encode((object) $file, JSON_PRETTY_PRINT);
         JL::put(CONFIG_DIR."databases.json", $file);
 

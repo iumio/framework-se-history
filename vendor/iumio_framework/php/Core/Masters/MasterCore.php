@@ -15,27 +15,27 @@ use iumioFramework\HttpRoutes\Routing;
 use iumioFramework\Core\Base\Http\ParameterRequest;
 use iumioFramework\Core\Additionnal\Template\iumioSmarty;
 use iumioFramework\Core\Base\iumioEnvironment;
-use iumioFramework\Core\Requirement\{iumioUltimaCore, Ultima\iumioUltima};
+use iumioFramework\Core\Requirement\{iumioCore, FrameworkServices\GlobalCoreService};
 use iumioFramework\Core\Base\Database\iumioDatabaseAccess as IDA;
 use iumioFramework\Exception\Server\{Server500, Server404};
 use iumioFramework\Core\Base\Http\Session\iumioSession;
 use iumioFramework\Core\Base\Json\JsonListener as JL;
 
 /**
- * Class iumioUltimaMaster
+ * Class MasterCore
  * This is the parent master for all subclass
  * @package iumioFramework\Masters
  * @author RAFINA Dany <danyrafina@gmail.com>
  */
 
-class iumioUltimaMaster extends iumioUltima
+class MasterCore extends GlobalCoreService
 {
     protected $masterFirst = NULL;
     protected $appMastering = NULL;
 
 
     /**
-     * iumioUltimaMaster constructor.
+     * MasterCore constructor.
      */
     public function __construct()
     {
@@ -51,10 +51,10 @@ class iumioUltimaMaster extends iumioUltima
         switch ($service)
         {
             case 'request':
-                return (iumioUltimaCore::getRuntimeParameters())->request;
+                return (iumioCore::getRuntimeParameters())->request;
                 break;
             case 'query':
-                return (iumioUltimaCore::getRuntimeParameters())->query;
+                return (iumioCore::getRuntimeParameters())->query;
                 break;
             case 'session':
                 return (new iumioSession());
@@ -99,11 +99,13 @@ class iumioUltimaMaster extends iumioUltima
     {
         $si = iumioSmarty::getSmartyInstance($this->appMastering);
         if ($type !== "modifier" && $type != "function")
-            throw new Server500(new \ArrayObject(array("explain" => "Undefined plugin type $type.", "solution" => "Allowed to modifier or function")));
+            throw new Server500(new \ArrayObject(array("explain" => "Undefined plugin type $type.",
+                "solution" => "Allowed to modifier or function")));
         if (is_array($method) && count($method) == 2)
             $si->registerPlugin($type, $name, $method);
         else
-            throw new Server500(new \ArrayObject(array("explain" => "You must enter a valid class method in this array", "solution" => "array('Class with namespace', 'class method')")));
+            throw new Server500(new \ArrayObject(array("explain" => "You must enter a valid class method in this array",
+                "solution" => "array('Class with namespace', 'class method')")));
         return (1);
     }
 
@@ -126,7 +128,8 @@ class iumioUltimaMaster extends iumioUltima
      * @throws Server404|Server500
      */
 
-    final public function generateRoute(string $routename,  array $parameters = null, string $app_called = null,  bool $component = false):string
+    final public function generateRoute(string $routename,  array $parameters = null, string $app_called = null,
+                                        bool $component = false):string
     {
         $app = (($app_called != null)? $app_called : APP_CALL);
 
@@ -148,14 +151,16 @@ class iumioUltimaMaster extends iumioUltima
                 "solution" => "Please check if your app exist")));
         $rt = new Routing($app, $prefix, $component);
         if (!$rt->routingRegister())
-            throw new Server500(new \ArrayObject(array("solution" => "Please check all RT file", "explain" => "Cannot open your RT file")));
+            throw new Server500(new \ArrayObject(array("solution" => "Please check all RT file",
+                "explain" => "Cannot open your RT file")));
 
         foreach ($rt->routes() as $one)
         {
             if ($one['routename'] == $routename)
             {
-                $one['path'] = $this->analysePath($one['routename'], $one['path'], ((is_array($parameters))? $parameters : array()));
-                $env = ENVIRONMENT;
+                $one['path'] = $this->analysePath($one['routename'], $one['path'],
+                    ((is_array($parameters))? $parameters : array()));
+                $env = IUMIO_ENV;
                 if ($env == "DEV")
                     $env = "Dev.php";
                 else if ($env == "PROD")
@@ -172,12 +177,12 @@ class iumioUltimaMaster extends iumioUltima
 
                 $base = (isset($_SERVER['SCRIPT_NAME']) && $_SERVER['SCRIPT_NAME'] != "")? $_SERVER['SCRIPT_NAME'] : "";
 
-                if (strpos($_SERVER['REQUEST_URI'], iumioEnvironment::getFileEnv(ENVIRONMENT)) == false)
+                if (strpos($_SERVER['REQUEST_URI'], iumioEnvironment::getFileEnv(IUMIO_ENV)) == false)
                 {
                     $rm = explode('/',$base);
                     $rm = array_values(Routing::removeEmptyData($rm));
                     $rm = array_values($rm);
-                    $key = array_search(iumioEnvironment::getFileEnv(ENVIRONMENT), $rm);
+                    $key = array_search(iumioEnvironment::getFileEnv(IUMIO_ENV), $rm);
                     unset($rm[$key]);
                     $rm = array_values($rm);
                     $base = implode("/", $rm);
@@ -189,7 +194,8 @@ class iumioUltimaMaster extends iumioUltima
             }
         }
 
-        throw new Server404(new \ArrayObject(array("solution" => "Please check all RT file", "explain" => "No route for $routename")));
+        throw new Server404(new \ArrayObject(array("solution" => "Please check all RT file",
+            "explain" => "No route for $routename")));
     }
 
     /** Analyse path to change dynamic parameters with specific parameters array
@@ -216,7 +222,9 @@ class iumioUltimaMaster extends iumioUltima
 
         $countchange = 0;
         if (count($parameters) != count($arrayElem))
-            throw new Server500(new \ArrayObject(array("explain" => "Parameters count does not matches for $routename route", "solution" => "Please check your parameters declaration")));
+            throw new Server500(new \ArrayObject(array("explain" =>
+                "Parameters count does not matches for $routename route",
+                "solution" => "Please check your parameters declaration")));
 
 
         foreach ($arrayElem as $uno)
@@ -229,7 +237,8 @@ class iumioUltimaMaster extends iumioUltima
         }
 
         if (count($parameters) != $countchange)
-            throw new Server500(new \ArrayObject(array("explain" => "Parameter missing for $routename route", "solution" => "Please check your parameters declaration")));
+            throw new Server500(new \ArrayObject(array("explain" => "Parameter missing for $routename route",
+                "solution" => "Please check your parameters declaration")));
 
 
        for ($i = 0; $i < count($arraypath); $i++)
@@ -268,14 +277,17 @@ class iumioUltimaMaster extends iumioUltima
 
         if ($app != null)
         {
-            $class = APP_CALL."\Master\\".$mastername."Master";
+            $class = APP_CALL."\Masters\\".$mastername."Master";
             if (class_exists ($class))
                 return (new $class);
             else
-                throw new Server500(new \ArrayObject(array("explain" => "Master $mastername doest not exist", "solution" => "Please check masters declaration")));
+                throw new Server500(new \ArrayObject(array("explain" => "Master $mastername does not exist",
+                    "solution" => "Please check masters declaration")));
         }
         else
-            throw new Server500(new \ArrayObject(array("explain" => ((IS_IUMIO_COMPONENT == 1)? "BaseApp" : "App" )." ".APP_CALL." doest not exist in apps.json", "solution" => "Please check app declaration")));
+            throw new Server500(new \ArrayObject(array("explain" =>
+                ((IS_IUMIO_COMPONENT == 1)? "BaseApp" : "App" )." ".APP_CALL." does not exist in apps.json",
+                "solution" => "Please check app declaration")));
     }
 
 }
