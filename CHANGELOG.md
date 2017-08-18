@@ -8,6 +8,17 @@ iumio Framework
 
 ## [BETA RELEASE]
 
+## [0.4.0] - 2017-08-18
+### Fixed
+- Show url End of iumio framework installer
+### Edited
+- Readme
+### Removed
+- Smarty library -- via composer
+- Bootstrap library -- via composer
+- Font awesome library -- via composer
+- jQuery library -- via composer
+
 ## [0.3.9] - 2017-08-17
 ### Fixed
 - .htaccess 301 Failed with POST data
