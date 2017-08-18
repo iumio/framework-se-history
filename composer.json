@@ -1,0 +1,21 @@
+{
+    "name": "iumio/iumio-framework",
+    "license": "proprietary",
+    "type": "project",
+    "require": {
+        "php": ">=7.0.0",
+        "smarty/smarty": "~3.1",
+        "twbs/bootstrap": "3.3.7",
+        "components/font-awesome" : "~4.7.0",
+        "components/jquery" : "~3.2.1"
+    },
+    "config" :
+    {
+        "vendor-dir" : "vendor/libs/"
+    },
+    "scripts": {
+        "post-install-cmd": "cp vendor/libs/fixes/smarty_internal_debug.php.iumio vendor/libs/fixes/smarty_internal_debug.php && mv vendor/libs/fixes/smarty_internal_debug.php vendor/libs/smarty/smarty/libs/sysplugins/ && mv vendor/libs/twbs/bootstrap/dist web/components/libs/bootstrap && mv vendor/libs/components/font-awesome web/components/libs/font-awesome &&  mv vendor/libs/components/jquery web/components/libs/jquery && rm -rf vendor/libs/twbs/ vendor/libs/components/jquery vendor/libs/composer/ vendor/libs/autoload.php vendor/libs/components",
+        "post-update-cmd":  "cp vendor/libs/fixes/smarty_internal_debug.php.iumio vendor/libs/fixes/smarty_internal_debug.php && mv vendor/libs/fixes/smarty_internal_debug.php vendor/libs/smarty/smarty/libs/sysplugins/ && mv vendor/libs/twbs/bootstrap/dist web/components/libs/bootstrap && mv vendor/libs/components/font-awesome web/components/libs/font-awesome &&  mv vendor/libs/components/jquery web/components/libs/jquery && rm -rf vendor/libs/twbs/ vendor/libs/components/jquery vendor/libs/composer/ vendor/libs/autoload.php vendor/libs/components"
+    }
+}
+

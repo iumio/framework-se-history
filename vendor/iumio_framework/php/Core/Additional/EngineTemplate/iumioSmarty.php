@@ -16,7 +16,7 @@ use iumioFramework\Core\Additionnal\Template\iumioSmartyConfiguration as SmartyC
 
 try
 {
-    require_once ROOT_VENDOR_LIBS.'smarty/libs/Smarty.class.php';
+    require_once ROOT_VENDOR_LIBS.'smarty/smarty/libs/Smarty.class.php';
 }
 catch (\Exception $exception)
 {

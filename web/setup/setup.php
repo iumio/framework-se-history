@@ -1069,6 +1069,15 @@ if (!empty(json_decode(file_get_contents(__DIR__."/../../elements/config_files/i
 
     /**
      *
+     * Set url base
+     *
+     */
+    window.onload = function () {
+        document.getElementById("furl").href = (getBaseUrl()[0])+"Dev.php/index";
+        document.getElementById("furl").innerHTML = (getBaseUrl()[0])+"Dev.php/index";
+    }
+    /**
+     *
      * Set a splashscreen
      *
      */

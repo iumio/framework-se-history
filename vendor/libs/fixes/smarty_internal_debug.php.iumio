@@ -9,7 +9,6 @@
  * @modified   2017/05/17
  * @modifiedBy RAFINA DANY <danyrafina@gmail.com>
  */
-
 /**
  * Smarty Internal Plugin Debug Class
  *
@@ -24,28 +23,24 @@ class Smarty_Internal_Debug extends Smarty_Internal_Data
      * @var array
      */
     public $template_data = array();
-
     /**
      * List of uid's which shall be ignored
      *
      * @var array
      */
     public $ignore_uid = array();
-
     /**
      * Index of display() and fetch() calls
      *
      * @var int
      */
     public $index = 0;
-
     /**
      * Counter for window offset
      *
      * @var int
      */
     public $offset = 0;
-
     /**
      * Start logging template
      *
@@ -62,7 +57,6 @@ class Smarty_Internal_Debug extends Smarty_Internal_Data
         $key = $this->get_key($template);
         $this->template_data[ $this->index ][ $key ][ 'start_template_time' ] = microtime(true);
     }
-
     /**
      * End logging of cache time
      *
@@ -75,7 +69,6 @@ class Smarty_Internal_Debug extends Smarty_Internal_Data
             microtime(true) - $this->template_data[ $this->index ][ $key ][ 'start_template_time' ];
         //$this->template_data[$this->index][$key]['properties'] = $template->properties;
     }
-
     /**
      * Start logging of compile time
      *
@@ -105,7 +98,6 @@ class Smarty_Internal_Debug extends Smarty_Internal_Data
         }
         $this->template_data[ $this->index ][ $key ][ 'start_time' ] = microtime(true);
     }
-
     /**
      * End logging of compile time
      *
@@ -119,13 +111,11 @@ class Smarty_Internal_Debug extends Smarty_Internal_Data
             if (isset($this->ignore_uid[ $template->source->uid ])) {
                 return;
             }
-
             $key = $this->get_key($template);
         }
         $this->template_data[ $this->index ][ $key ][ 'compile_time' ] +=
             microtime(true) - $this->template_data[ $this->index ][ $key ][ 'start_time' ];
     }
-
     /**
      * Start logging of render time
      *
@@ -136,7 +126,6 @@ class Smarty_Internal_Debug extends Smarty_Internal_Data
         $key = $this->get_key($template);
         $this->template_data[ $this->index ][ $key ][ 'start_time' ] = microtime(true);
     }
-
     /**
      * End logging of compile time
      *
@@ -148,7 +137,6 @@ class Smarty_Internal_Debug extends Smarty_Internal_Data
         $this->template_data[ $this->index ][ $key ][ 'render_time' ] +=
             microtime(true) - $this->template_data[ $this->index ][ $key ][ 'start_time' ];
     }
-
     /**
      * Start logging of cache time
      *
@@ -159,7 +147,6 @@ class Smarty_Internal_Debug extends Smarty_Internal_Data
         $key = $this->get_key($template);
         $this->template_data[ $this->index ][ $key ][ 'start_time' ] = microtime(true);
     }
-
     /**
      * End logging of cache time
      *
@@ -171,7 +158,6 @@ class Smarty_Internal_Debug extends Smarty_Internal_Data
         $this->template_data[ $this->index ][ $key ][ 'cache_time' ] +=
             microtime(true) - $this->template_data[ $this->index ][ $key ][ 'start_time' ];
     }
-
     /**
      * Register template object
      *
@@ -180,7 +166,6 @@ class Smarty_Internal_Debug extends Smarty_Internal_Data
     public function register_template(Smarty_Internal_Template $template)
     {
     }
-
     /**
      * Register data object
      *
@@ -189,7 +174,6 @@ class Smarty_Internal_Debug extends Smarty_Internal_Data
     public static function register_data(Smarty_Data $data)
     {
     }
-
     /**
      * Opens a window for the Smarty Debugging Console and display the data
      *
@@ -236,7 +220,6 @@ class Smarty_Internal_Debug extends Smarty_Internal_Data
         $_config_vars = $ptr->config_vars;
         ksort($_config_vars);
         $debugging = $smarty->debugging;
-
         $_template = new Smarty_Internal_Template($debObj->debug_tpl, $debObj);
         if ($obj->_isTplObj()) {
             $_template->assign('template_name', $obj->source->type . ':' . $obj->source->name);
@@ -246,12 +229,10 @@ class Smarty_Internal_Debug extends Smarty_Internal_Data
         } else {
             $_template->assign('template_data', null);
         }
-
         // ADD iumioTaskBar
         $taskbar = \iumioFramework\Core\Additionnal\TaskBar\iumioTaskBar::getTaskBarOptions();
         $_template->assign('iumiotaskbar', $taskbar);
         // END iumioTaskBar
-
         // ADD display debug smarty check
         if (defined( 'DISPLAY_SMARTY_DEBUG'))
         {
@@ -263,7 +244,6 @@ class Smarty_Internal_Debug extends Smarty_Internal_Data
                 $_template->assign('debug_smarty_display', 'off');
         }
         // END display debug smarty check
-
         $_template->assign('assigned_vars', $_assigned_vars);
         $_template->assign('config_vars', $_config_vars);
         $_template->assign('execution_time', microtime(true) - $smarty->start_time);
@@ -277,7 +257,6 @@ class Smarty_Internal_Debug extends Smarty_Internal_Data
             $this->index = $savedIndex;
         }
     }
-
     /**
      * Recursively gets variables from all template/data scopes
      *
@@ -323,7 +302,6 @@ class Smarty_Internal_Debug extends Smarty_Internal_Data
                 $tpl_vars[ $key ][ 'scope' ] = 'Smarty object';
             }
         }
-
         if (isset($obj->parent)) {
             $parent = $this->get_debug_vars($obj->parent);
             foreach ($parent->tpl_vars as $name => $pvar) {
@@ -332,7 +310,6 @@ class Smarty_Internal_Debug extends Smarty_Internal_Data
                 }
             }
             $tpl_vars = array_merge($parent->tpl_vars, $tpl_vars);
-
             foreach ($parent->config_vars as $name => $pvar) {
                 if (isset($config_vars[ $name ]) && $config_vars[ $name ][ 'value' ] === $pvar[ 'value' ]) {
                     $config_vars[ $name ][ 'scope' ] = $pvar[ 'scope' ];
@@ -361,10 +338,8 @@ class Smarty_Internal_Debug extends Smarty_Internal_Data
                 }
             }
         }
-
         return (object) array('tpl_vars' => $tpl_vars, 'config_vars' => $config_vars);
     }
-
     /**
      * Return key into $template_data for template
      *
@@ -393,11 +368,9 @@ class Smarty_Internal_Debug extends Smarty_Internal_Data
             $this->template_data[ $this->index ][ $key ][ 'render_time' ] = 0;
             $this->template_data[ $this->index ][ $key ][ 'cache_time' ] = 0;
             $this->template_data[ $this->index ][ $key ][ 'total_time' ] = 0;
-
             return $key;
         }
     }
-
     /**
      * Ignore template
      *
@@ -411,7 +384,6 @@ class Smarty_Internal_Debug extends Smarty_Internal_Data
         }
         $this->ignore_uid[ $template->source->uid ] = true;
     }
-
     /**
      * handle 'URL' debugging mode
      *
