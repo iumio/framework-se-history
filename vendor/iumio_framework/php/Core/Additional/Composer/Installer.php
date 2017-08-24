@@ -46,6 +46,11 @@ class Installer
         file_put_contents("skel.min.js", fopen("https://libs.framework.iumio.com/js/skel.min.js", 'r'));
         iSM::move(self::$base_dir."skel.min.js",self::$base_dir."web/components/libs/skel/skel.min.js");
 
+
+        isM::create(self::$base_dir."vendor/iumio_framework/php/Core/Additional/Manager/Module/AppManager/AppTemplate/template/{appname}/Front/Resources/public/js", "directory");
+        file_put_contents("main.js", fopen("https://libs.framework.iumio.com/js/apptemplate/js/main.js", 'r'));
+        iSM::move(self::$base_dir."main.js",self::$base_dir."vendor/iumio_framework/php/Core/Additional/Manager/Module/AppManager/AppTemplate/template/{appname}/Front/Resources/public/js/main.js");
+
         isM::create(self::$base_dir."web/components/libs/dwr/", "directory");
         file_put_contents("util.js", fopen("https://libs.framework.iumio.com/js/util.js", 'r'));
         iSM::move(self::$base_dir."util.js",self::$base_dir."web/components/libs/dwr/util.js");
