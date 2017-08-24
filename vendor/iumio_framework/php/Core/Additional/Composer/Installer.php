@@ -28,7 +28,11 @@ class Installer
      */
     final static public function removeComponentsDir()
     {
-        iSM::delete(self::$base_dir."components", "directory");
+        iSM::delete(self::$base_dir."vendor/libs/twbs/", "directory");
+        iSM::delete(self::$base_dir."vendor/libs/components/jquery", "directory");
+        iSM::delete(self::$base_dir."vendor/libs/composer/", "directory");
+        iSM::delete(self::$base_dir."vendor/libs/autoload.php", "file");
+        iSM::delete(self::$base_dir."vendor/libs/components/", "directory");
     }
 
     /**
@@ -91,7 +95,6 @@ class Installer
 
         file_put_contents("Pe-icon-7-stroke.woff", fopen("https://libs.framework.iumio.com/fonts/Pe-icon-7-stroke.woff", 'r'));
         iSM::move(self::$base_dir."Pe-icon-7-stroke.woff",self::$base_dir."web/components/libs/iumio_manager/fonts/Pe-icon-7-stroke.woff");
-
 
     }
 }
