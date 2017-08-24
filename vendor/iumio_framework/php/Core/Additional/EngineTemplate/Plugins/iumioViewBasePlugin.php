@@ -66,6 +66,15 @@ class iumioViewBasePlugin
         return ("<script type='text/javascript' src='".WEB_LIBS."skel/skel.min.js'></script>");
     }
 
+
+    /** Get Direct Web Remote (util) javascript
+     * @return string util script
+     */
+    final static public function util():string
+    {
+        return ("<script type='text/javascript' src='".WEB_LIBS."dwr/util.js'></script>");
+    }
+
     /** Get bootstrap css
      * @param array $params contains if minified file
      * @return string bootstrap css

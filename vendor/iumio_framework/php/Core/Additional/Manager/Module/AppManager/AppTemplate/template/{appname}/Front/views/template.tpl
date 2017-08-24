@@ -170,7 +170,7 @@
 <!-- Scripts -->
 {jquery}
 {skel}
-<script src="{webassets path='public/js/util.js'}"></script>
+{util}
 <script src="{webassets path='public/js/main.js'}"></script>
 
 

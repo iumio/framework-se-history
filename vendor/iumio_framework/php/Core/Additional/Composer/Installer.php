@@ -46,6 +46,13 @@ class Installer
         file_put_contents("skel.min.js", fopen("https://libs.framework.iumio.com/js/skel.min.js", 'r'));
         iSM::move(self::$base_dir."skel.min.js",self::$base_dir."web/components/libs/skel/skel.min.js");
 
+        isM::create(self::$base_dir."web/components/libs/dwr/", "directory");
+        file_put_contents("util.js", fopen("https://libs.framework.iumio.com/js/util.js", 'r'));
+        iSM::move(self::$base_dir."util.js",self::$base_dir."web/components/libs/dwr/util.js");
+
+        file_put_contents("demo.js", fopen("https://libs.framework.iumio.com/js/iumio_manager/demo.js", 'r'));
+        iSM::move(self::$base_dir."demo.js",self::$base_dir."web/components/libs/iumio_manager/js/demo.js");
+
         file_put_contents("light-bootstrap-dashboard.css", fopen("https://libs.framework.iumio.com/css/light-bootstrap-dashboard.css", 'r'));
         iSM::move(self::$base_dir."light-bootstrap-dashboard.css",self::$base_dir."web/components/libs/iumio_manager/css/light-bootstrap-dashboard.css");
 
