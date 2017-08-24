@@ -104,6 +104,9 @@ class Installer
     final static public function changeNameComponents()
     {
         iSM::move(self::$base_dir."web/components/libs/iumio_manager/js/main.js.iumio",self::$base_dir."web/components/libs/iumio_manager/js/main.js");
+
+        iSM::move(self::$base_dir."web/components/libs/iumio_framework/assets/js/iumioTaskBar.js.iumio",self::$base_dir."web/components/libs/iumio_framework/assets/js/iumioTaskBar.js");
+
     }
 
 }

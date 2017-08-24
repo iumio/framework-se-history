@@ -10,27 +10,6 @@ window.onload = function () {
 var reduce = 0;
 var restore = 0;
 
-/*$(window).resize(function() {
-    console.log('window was resized');
-   var hs = window.screen.availHeight;
-   var ws = window.screen.availWidth;
-    if (ws <= 928)
-    {
-        //if (reduce === 1)
-          //  return (null);
-        reduce = 1;
-        eventFire(document.getElementById("iumioTaskBarReduce"), "click");
-    }
-    else
-    {
-        if (restore === 1)
-            return (null);
-        reduce = 0;
-        restore = 1;
-        eventFire(document.getElementById("iumioTaskBarRestore"), "click");
-    }
-});*/
-
 /**
  * Simulate an event
  * @param el event selector
