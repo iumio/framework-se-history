@@ -97,7 +97,17 @@ class Installer
         iSM::move(self::$base_dir."Pe-icon-7-stroke.woff",self::$base_dir."web/components/libs/iumio_manager/fonts/Pe-icon-7-stroke.woff");
 
     }
+
+    /**
+     * Change name of file
+     */
+    final static public function changeNameComponents()
+    {
+        iSM::move(self::$base_dir."web/components/libs/iumio_manager/js/main.js.iumio",self::$base_dir."web/components/libs/iumio_manager/js/main.js");
+    }
+
 }
 
 Installer::removeComponentsDir();
 Installer::downloadComponents();
+Installer::changeNameComponents();

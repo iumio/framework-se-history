@@ -65,6 +65,9 @@ class Uninstaller
         iSM::delete(self::$base_dir."web/components/libs/font-awesome","directory");
 
         iSM::delete(self::$base_dir."web/components/libs/jquery","directory");
+
+        iSM::move(self::$base_dir."web/components/libs/iumio_manager/js/main.js",self::$base_dir."web/components/libs/iumio_manager/js/main.js.iumio");
+
     }
 }
 
