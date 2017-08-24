@@ -34,8 +34,8 @@
                                 <p class="category fs16">Code : {$details->code} | Type : {$details->code_title}</p>
                                 <p class="category fs16">Generated : {$details->time->date|date_format:"%A, %B %e, %Y at %r"}</p>
                                 <p class="category fs16">Method : {$details->method}</p>
-                                <p class="category fs16">Referer IP : [ {$details->client_ip}]</p>
-                                <p class="category fs16">Referer URI :  {$details->referer}</p>
+                                <p class="category fs16 ">Referer IP : [ {$details->client_ip}]</p>
+                                <p class="category fs16 break-word">Referer URI :  {$details->referer}</p>
                             </div>
                             <div class="content text-center">
                                 <div class="typo-line">

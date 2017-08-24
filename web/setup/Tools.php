@@ -22,9 +22,15 @@ session_start();
 class Tools
 {
 
-    public static $php_accept = 7;
-    public static $framework_build_accept = 201738;
+    public static $php_accept               = 7;
+    public static $framework_build_accept   = 201738;
     public static $framework_version_accept = "0.3.8";
+    public static $libs                     = array(
+        "web/components/libs/jquery/"       => "jQuery libs not found : check if 'composer install' command had be done",
+        "web/components/libs/font-awesome/" => "Font-awesome libs not found : check if 'composer install' command had be done",
+        "web/components/libs/bootstrap/"    => "Bootstrap libs not found : check if 'composer install' command had be done",
+        "vendor/libs/smarty/"               => "Smarty libs not found : check if 'composer install' command had be done"
+    );
 
     /** Check the php version
      * @return string If php version is compatible
@@ -106,6 +112,34 @@ class Tools
 
         return (json_encode(array("code" => 200, "results" => "OK")));
 
+    }
+
+    /** Check if dir is empty or not
+     * @param $dir string Dir path
+     * @return bool|null If empty or not
+     */
+    final static public function is_dir_empty($dir) {
+        if (!is_readable($dir)) return (null);
+        $handle = opendir($dir);
+        while (false !== ($entry = readdir($handle))) {
+            if ($entry != "." && $entry != "..") return (false);
+        }
+        return (true);
+    }
+
+    /**
+     * Check if librairies required are installed
+     * @return int Are installed or not
+     */
+    final static public function checkLibrariesRequired()
+    {
+        $base =  __DIR__."/../../";
+        foreach (self::$libs as $lib => $val)
+        {
+            if (!is_dir($base.$lib) || !self::checkIsReadable($base.$lib) || !self::checkIsWritable($base.$lib) || self::is_dir_empty($base.$lib))
+                return (json_encode(array("code" => 500, "results" => "NOK", "libsr" => $lib, "msg" => $val)));
+        }
+        return (json_encode(array("code" => 200, "results" => "OK")));
     }
 
     /** Check if element is readable
@@ -231,6 +265,8 @@ if (isset($_REQUEST) && isset($_REQUEST["action"]))
         echo (\iumioFramework\Setup\Requirements\Tools::checkFrameworkBuildVersion());
     else if ($_REQUEST["action"] == "wr")
         echo (\iumioFramework\Setup\Requirements\Tools::checkPermission());
+    else if ($_REQUEST["action"] == "libsr")
+        echo (\iumioFramework\Setup\Requirements\Tools::checkLibrariesRequired());
     else if ($_REQUEST["action"] == "createapp")
     {
         if (isset($_REQUEST["appname"], $_REQUEST["template"], $_SESSION["version"]) && $_REQUEST["appname"] != "" && $_REQUEST["template"] != "" && $_SESSION["version"] != "")

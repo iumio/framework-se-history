@@ -15,7 +15,7 @@
     <meta name="viewport" content="width=device-width" />
 
     {bootstrap_css min='yes'}
-    {css_manager name='animate.min'}
+    {animate_css min='yes'}
     {css_manager name='light-bootstrap-dashboard'}
     {css_manager name='demo'}
     {css_manager name='index'}

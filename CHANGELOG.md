@@ -8,6 +8,12 @@ iumio Framework
 
 ## [BETA RELEASE]
 
+## [0.4.1] - 2017-08-18
+### Added
+- Check on iumio installer if required libs are installed
+### Fixed
+- iumio Manager Sidebar white
+
 ## [0.4.0] - 2017-08-18
 ### Fixed
 - Show url End of iumio framework installer
@@ -85,7 +91,6 @@ iumio Framework
 - Enable and disable one app.
 - Prefix on app url.
 - Prefix verification
-
 
 ### Changed
 - AppCore::registerApps()

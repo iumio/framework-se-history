@@ -67,6 +67,15 @@ class iumioViewBasePlugin
         return ("<link href='".WEB_LIBS."bootstrap/css/bootstrap.".((isset($params['min']) && $params['min'] == "yes")? "min"."." : "")."css' rel='stylesheet' />");
     }
 
+    /** Get animate.css
+     * @param array $params contains if minified file
+     * @return string animate.css
+     */
+    final static public function animate_css(array $params):string
+    {
+        return ("<link href='".WEB_LIBS."animate.css/css/animate.".((isset($params['min']) && $params['min'] == "yes")? "min"."." : "")."css' rel='stylesheet' />");
+    }
+
     /** Get Jquery script
      * @param array $params contains if minified file
      * @return string jquery script

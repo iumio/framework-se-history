@@ -72,7 +72,7 @@ class MasterCore extends GlobalCoreService
         $this->appMastering = APP_CALL;
         $si = iumioSmarty::getSmartyInstance($this->appMastering);
         $si->assign($options);
-        $si->display($view.iumioSmarty::$viewExtention);
+        $si->display($view . iumioSmarty::$viewExtention);
  }
 
 

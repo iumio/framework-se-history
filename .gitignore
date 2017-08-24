@@ -1,8 +1,13 @@
-# Created by .ignore support plugin (hsz.mobi)
-### Example user template template
-### Example user template
+#
+# This is an iumio Framework component
+#
+# (c) RAFINA DANY <danyrafina@gmail.com>
+#
+# iumio Framework - iumio Components
+#
+# To get more information about licence, please check the licence file
+#
 
-# IntelliJ project files
 .idea
 *.iml
 out
@@ -12,3 +17,4 @@ gen
 #elements/*
 #web/components/apps/*
 #web/components/baseapps/*
+

@@ -921,6 +921,7 @@ if (!empty(json_decode(file_get_contents(__DIR__."/../../elements/config_files/i
                             <li class="phpversion">PHP Version : <span class="phpversionnum">...</span> <span class="isok"></span><div class="error hidden-step"></div> </li>
                             <li class="fversion">Framework Version : <span class="fversionnum">...</span> <span class="isok"></span><div class="error hidden-step"></div></li>
                             <li class="wr">Writable and readable directory : <span class="isok">...</span><div class="error hidden-step"></div></li>
+                            <li class="libsr">Required librairies : <span class="isok">...</span><div class="error hidden-step"></div></li>
                             <li class="uidii">Getting UIDII from iumio Server (optionnal) : <span class="uidiishow">...</span> <span class="isok"></span><div class="error hidden-step"></div></li>
                         </ul>
 
@@ -1063,7 +1064,7 @@ if (!empty(json_decode(file_get_contents(__DIR__."/../../elements/config_files/i
 </div>
 <script type="application/javascript">
 
-    var rsp1, rsp2, rsp3 = -1;
+    var rsp1, rsp2, rsp3, rsp4 = -1;
     var appinfo = [];
     var framework = [];
 
@@ -1254,11 +1255,16 @@ if (!empty(json_decode(file_get_contents(__DIR__."/../../elements/config_files/i
 
         var parentwr = document.getElementsByClassName("wr")[0];
         parentwr.getElementsByClassName("error")[0].style.display = "none";
-        parentwr.getElementsByClassName("isok")[0].innerHTML = '';
+        parentwr.getElementsByClassName("isok")[0].innerHTML = ''
+
+        var parentlibsr = document.getElementsByClassName("libsr")[0];
+        parentlibsr.getElementsByClassName("error")[0].style.display = "none";
+        parentlibsr.getElementsByClassName("isok")[0].innerHTML = '';
 
         getPHPVersion();
         getFrameworkVersion();
         getWR();
+        getLibsRequired();
 
 
     }
@@ -1267,12 +1273,12 @@ if (!empty(json_decode(file_get_contents(__DIR__."/../../elements/config_files/i
      * Notifiy the end of requirements checked
      */
     function notify() {
-        if (rsp1 === 0 || rsp2 === 0 || rsp2 === 0)
+        if (rsp1 === 0 || rsp2 === 0 || rsp3 === 0 || rsp4 === 0)
         {
             document.getElementById("retrys3").style.display = "block";
             document.getElementById("continues3").style.display = "none";
         }
-        else if (rsp1 === 1 && rsp2 === 1 && rsp3 === 1)
+        else if (rsp1 === 1 && rsp2 === 1 && rsp3 === 1 && rsp4 === 1)
         {
             document.getElementById("continues3").style.display = "block";
             document.getElementById("retrys3").style.display = "none";
@@ -1316,6 +1322,45 @@ if (!empty(json_decode(file_get_contents(__DIR__."/../../elements/config_files/i
             }
             else
                 rsp1 = 0;
+            notify();
+        };
+        window.setTimeout(function () {
+            xhttp.send();
+        }, 2000);
+    }
+
+    /**
+     * Get the librairies required
+     */
+    function getLibsRequired() {
+        var parent = document.getElementsByClassName("libsr")[0];
+        parent.getElementsByClassName("error")[0].style.display = "none";
+        parent.getElementsByClassName("isok")[0].innerHTML = '';
+
+        var xhttp = new XMLHttpRequest();
+        xhttp.open("GET", "Tools.php?action=libsr", true);
+        xhttp.onreadystatechange = function() {
+            if (this.readyState === 4 && this.status === 200)
+            {
+                var rsp = JSON.parse(this.response);
+                if (rsp.results === "OK")
+                {
+                    parent.getElementsByClassName("isok")[0].innerHTML = ' - '+rsp.results;
+                    parent.getElementsByClassName("isok")[0].style.color = 'rgb(15, 232, 15)';
+                    rsp4 = 1;
+                }
+                else
+                {
+                    parent.getElementsByClassName("isok")[0].innerHTML = ' - '+rsp.results;
+                    parent.getElementsByClassName("isok")[0].style.color = 'red';
+                    parent.getElementsByClassName("error")[0].innerHTML = ' - '+rsp.msg;
+                    parent.getElementsByClassName("error")[0].style.display = "block";
+                    document.getElementById("retrys3").style.display = "block";
+                    rsp4 = 0;
+                }
+            }
+            else
+                rsp4 = 0;
             notify();
         };
         window.setTimeout(function () {

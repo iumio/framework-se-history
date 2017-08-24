@@ -10,17 +10,18 @@
  * To get more information about licence, please check the licence file
  */
 
+
 namespace iumioFramework\Core\Additionnal\Template;
 use iumioFramework\Core\Additionnal\Server\iumioServerManager;
 use iumioFramework\Core\Additionnal\Template\iumioSmartyConfiguration as SmartyConfig;
 
 try
 {
-    require_once ROOT_VENDOR_LIBS.'smarty/smarty/libs/Smarty.class.php';
+    include_once ROOT_VENDOR_LIBS.'smarty/smarty/libs/Smarty.class.php';
 }
 catch (\Exception $exception)
 {
-    throw new \Exception("iumioSmarty Error : Cannot load Engine Template. No such file or directory");
+    throw new \Exception("Cannot load Engine Template - Smarty. No such file or directory : Check if composer install was made");
 }
 
 /**
@@ -119,6 +120,8 @@ final class iumioSmarty
 
         self::$instance->registerPlugin(\Smarty::PLUGIN_FUNCTION, 'bootstrap_js', array("iumioFramework\Core\Additionnal\Template\iumioViewBasePlugin", "btsp_js"));
         self::$instance->registerPlugin(\Smarty::PLUGIN_FUNCTION, 'bootstrap_css', array("iumioFramework\Core\Additionnal\Template\iumioViewBasePlugin", "btsp_css"));
+
+        self::$instance->registerPlugin(\Smarty::PLUGIN_FUNCTION, 'animate_css', array("iumioFramework\Core\Additionnal\Template\iumioViewBasePlugin", "animate_css"));
 
         self::$instance->registerPlugin(\Smarty::PLUGIN_FUNCTION, 'css', array("iumioFramework\Core\Additionnal\Template\iumioViewBasePlugin", "css"));
         self::$instance->registerPlugin(\Smarty::PLUGIN_FUNCTION, 'js', array("iumioFramework\Core\Additionnal\Template\iumioViewBasePlugin", "js"));
