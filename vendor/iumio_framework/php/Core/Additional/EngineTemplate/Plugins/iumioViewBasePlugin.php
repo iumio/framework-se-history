@@ -90,7 +90,7 @@ class iumioViewBasePlugin
      */
     final static public function animate_css(array $params):string
     {
-        return ("<link href='".WEB_LIBS."animate.css/css/animate.".((isset($params['min']) && $params['min'] == "yes")? "min"."." : "")."css' rel='stylesheet' />");
+        return ("<link href='".WEB_LIBS."animate.css/animate.".((isset($params['min']) && $params['min'] == "yes")? "min"."." : "")."css' rel='stylesheet' />");
     }
 
     /** Get Jquery script

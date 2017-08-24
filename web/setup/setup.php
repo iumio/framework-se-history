@@ -1074,8 +1074,8 @@ if (!empty(json_decode(file_get_contents(__DIR__."/../../elements/config_files/i
      *
      */
     window.onload = function () {
-        document.getElementById("furl").href = (getBaseUrl()[0])+"Dev.php/index";
-        document.getElementById("furl").innerHTML = (getBaseUrl()[0])+"Dev.php/index";
+        document.getElementById("furl").href = (getBaseUrl())+"Dev.php/index";
+        document.getElementById("furl").innerHTML = (getBaseUrl())+"Dev.php/index";
     }
     /**
      *
@@ -1505,7 +1505,7 @@ if (!empty(json_decode(file_get_contents(__DIR__."/../../elements/config_files/i
      */
     function redirect() {
         setTimeout(function () {
-            location.href= (getBaseUrl()[0])+"../Dev.php/index";
+            location.href= (getBaseUrl())+"../Dev.php/index";
         }, 5000);
     }
 
@@ -1515,7 +1515,8 @@ if (!empty(json_decode(file_get_contents(__DIR__."/../../elements/config_files/i
      */
     function getBaseUrl() {
         var re = new RegExp(/^.*\//);
-        return re.exec(window.location.href);
+        var url = (re.exec(window.location.href))[0].replace('/setup/','/');
+        return (url);
     }
 
     /**

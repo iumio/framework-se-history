@@ -8,11 +8,16 @@ iumio Framework
 
 ## [BETA RELEASE]
 
-## [0.4.1] - 2017-08-18
+## [0.4.1] - 2017-08-24
 ### Added
 - Check on iumio installer if required libs are installed
+- Download all js components
+- Add uninstall script components
 ### Fixed
 - iumio Manager Sidebar white
+- iumio Installer (Bad url redirection)
+### Removed
+- Remove All js components
 
 ## [0.4.0] - 2017-08-18
 ### Fixed
