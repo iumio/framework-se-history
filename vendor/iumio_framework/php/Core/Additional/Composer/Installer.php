@@ -36,11 +36,46 @@ class Installer
      */
     final static public function downloadComponents()
     {
-        file_put_contents("animate.css", fopen("https://raw.githubusercontent.com/daneden/animate.css/master/animate.css", 'r'));
+        file_put_contents("animate.css", fopen("https://libs.framework.iumio.com/css/animate.css", 'r'));
         isM::create(self::$base_dir."web/components/libs/animate.css/", "directory");
-        file_put_contents("animate.min.css", fopen("https://raw.githubusercontent.com/daneden/animate.css/master/animate.min.css", 'r'));
+        file_put_contents("animate.min.css", fopen("https://libs.framework.iumio.com/css/animate.min.css", 'r'));
         iSM::move(self::$base_dir."animate.css",self::$base_dir."web/components/libs/animate.css/animate.css");
         iSM::move(self::$base_dir."animate.min.css",self::$base_dir."web/components/libs/animate.css/animate.min.css");
+
+        file_put_contents("light-bootstrap-dashboard.css", fopen("https://libs.framework.iumio.com/css/light-bootstrap-dashboard.css", 'r'));
+        iSM::move(self::$base_dir."light-bootstrap-dashboard.css",self::$base_dir."web/components/libs/iumio_manager/css/light-bootstrap-dashboard.css");
+
+        file_put_contents("pe-icon-7-stroke.css", fopen("https://libs.framework.iumio.com/css/pe-icon-7-stroke.css", 'r'));
+        iSM::move(self::$base_dir."pe-icon-7-stroke.css",self::$base_dir."web/components/libs/iumio_manager/css/pe-icon-7-stroke.css");
+
+        file_put_contents("bootstrap-checkbox-radio-switch.js", fopen("https://libs.framework.iumio.com/js/bootstrap-checkbox-radio-switch.js", 'r'));
+        iSM::move(self::$base_dir."bootstrap-checkbox-radio-switch.js",self::$base_dir."web/components/libs/iumio_manager/js/bootstrap-checkbox-radio-switch.js");
+
+        file_put_contents("bootstrap-notify.js", fopen("https://libs.framework.iumio.com/js/bootstrap-notify.js", 'r'));
+        iSM::move(self::$base_dir."bootstrap-notify.js",self::$base_dir."web/components/libs/iumio_manager/js/bootstrap-notify.js");
+
+        file_put_contents("bootstrap-select.js", fopen("https://libs.framework.iumio.com/js/bootstrap-select.js", 'r'));
+        iSM::move(self::$base_dir."bootstrap-select.js",self::$base_dir."web/components/libs/iumio_manager/js/bootstrap-select.js");
+
+        file_put_contents("light-bootstrap-dashboard.js", fopen("https://libs.framework.iumio.com/js/light-bootstrap-dashboard.js", 'r'));
+        iSM::move(self::$base_dir."light-bootstrap-dashboard.js",self::$base_dir."web/components/libs/iumio_manager/js/light-bootstrap-dashboard.js");
+
+
+        file_put_contents("Pe-icon-7-stroke.eot", fopen("https://libs.framework.iumio.com/fonts/Pe-icon-7-stroke.eot", 'r'));
+        iSM::move(self::$base_dir."Pe-icon-7-stroke.eot",self::$base_dir."web/components/libs/iumio_manager/fonts/Pe-icon-7-stroke.eot");
+
+
+        file_put_contents("Pe-icon-7-stroke.svg", fopen("https://libs.framework.iumio.com/fonts/Pe-icon-7-stroke.svg", 'r'));
+        iSM::move(self::$base_dir."Pe-icon-7-stroke.svg",self::$base_dir."web/components/libs/iumio_manager/fonts/Pe-icon-7-stroke.svg");
+
+
+        file_put_contents("Pe-icon-7-stroke.ttf", fopen("https://libs.framework.iumio.com/fonts/Pe-icon-7-stroke.ttf", 'r'));
+        iSM::move(self::$base_dir."Pe-icon-7-stroke.ttf",self::$base_dir."web/components/libs/iumio_manager/fonts/Pe-icon-7-stroke.ttf");
+
+
+        file_put_contents("Pe-icon-7-stroke.woff", fopen("https://libs.framework.iumio.com/fonts/Pe-icon-7-stroke.woff", 'r'));
+        iSM::move(self::$base_dir."Pe-icon-7-stroke.woff",self::$base_dir."web/components/libs/iumio_manager/fonts/Pe-icon-7-stroke.woff");
+
 
     }
 }
