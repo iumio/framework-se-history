@@ -58,6 +58,14 @@ class iumioViewBasePlugin
         return ("<script type='text/javascript' src='".WEB_LIBS."bootstrap/js/bootstrap.".((isset($params['min']) && $params['min'] == "yes")? "min"."." : "")."js'></script>");
     }
 
+    /** Get skel javascript
+     * @return string skel script
+     */
+    final static public function skel():string
+    {
+        return ("<script type='text/javascript' src='".WEB_LIBS."skel/skel.min.js'></script>");
+    }
+
     /** Get bootstrap css
      * @param array $params contains if minified file
      * @return string bootstrap css

@@ -42,6 +42,10 @@ class Installer
         iSM::move(self::$base_dir."animate.css",self::$base_dir."web/components/libs/animate.css/animate.css");
         iSM::move(self::$base_dir."animate.min.css",self::$base_dir."web/components/libs/animate.css/animate.min.css");
 
+        isM::create(self::$base_dir."web/components/libs/skel/", "directory");
+        file_put_contents("skel.min.js", fopen("https://libs.framework.iumio.com/js/skel.min.js", 'r'));
+        iSM::move(self::$base_dir."skel.min.js",self::$base_dir."web/components/libs/skel/skel.min.js");
+
         file_put_contents("light-bootstrap-dashboard.css", fopen("https://libs.framework.iumio.com/css/light-bootstrap-dashboard.css", 'r'));
         iSM::move(self::$base_dir."light-bootstrap-dashboard.css",self::$base_dir."web/components/libs/iumio_manager/css/light-bootstrap-dashboard.css");
 

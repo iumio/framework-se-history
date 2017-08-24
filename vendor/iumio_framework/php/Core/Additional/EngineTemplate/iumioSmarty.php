@@ -138,6 +138,8 @@ final class iumioSmarty
         self::$instance->registerPlugin(\Smarty::PLUGIN_FUNCTION, 'js_iumio', array("iumioFramework\Core\Additionnal\Template\iumioViewBasePlugin", "js_iumio"));
         self::$instance->registerPlugin(\Smarty::PLUGIN_FUNCTION, 'img_iumio', array("iumioFramework\Core\Additionnal\Template\iumioViewBasePlugin", "img_iumio"));
 
+        self::$instance->registerPlugin(\Smarty::PLUGIN_FUNCTION, 'skel', array("iumioFramework\Core\Additionnal\Template\iumioViewBasePlugin", "skel"));
+
         self::$instance->registerPlugin(\Smarty::PLUGIN_FUNCTION, 'route', array("iumioFramework\Core\Additionnal\Template\iumioViewBasePlugin", "route"));
         self::$instance->registerPlugin(\Smarty::PLUGIN_FUNCTION, 'taskbar', array("iumioFramework\Core\Additionnal\Template\iumioViewBasePlugin", "taskbar"));
 
