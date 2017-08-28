@@ -107,6 +107,7 @@ class Installer
 
         iSM::move(self::$base_dir."web/components/libs/iumio_framework/assets/js/iumioTaskBar.js.iumio",self::$base_dir."web/components/libs/iumio_framework/assets/js/iumioTaskBar.js");
 
+        iSM::move(self::$base_dir."web/components/rt/libs/js/Rt.js.iumio",self::$base_dir."web/components/rt/libs/js/Rt.js");
     }
 
 }

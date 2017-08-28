@@ -69,6 +69,12 @@ class Uninstaller
         iSM::move(self::$base_dir."web/components/libs/iumio_manager/js/main.js",self::$base_dir."web/components/libs/iumio_manager/js/main.js.iumio");
 
         iSM::move(self::$base_dir."web/components/libs/iumio_framework/assets/js/iumioTaskBar.js",self::$base_dir."web/components/libs/iumio_framework/assets/js/iumioTaskBar.js.iumio");
+
+        iSM::move(self::$base_dir."web/components/rt/libs/js/Rt.js",self::$base_dir."web/components/rt/libs/js/Rt.js.iumio");
+
+        @iSM::delete(self::$base_dir."web/components/rt/config_files/map.rt.js","file");
+
+        @iSM::delete(self::$base_dir."web/components/rt/config_files/map.rt.base.js","file");
     }
 }
 

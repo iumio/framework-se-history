@@ -8,12 +8,20 @@ iumio Framework
 
 ## [BETA RELEASE]
 
-## [0.4.2] - 2017-08-24
+## [0.4.2] - 2017-08-28
 ### Added
-
+- New Js Routing system
+- Rt Class in Rt.js
+- Add visibility in .rt file (public, private, disabled)
+- Create a json map for JS Routing 
+- iumio Routing Manager CLI added
+- Add base app - iumio Framework Service
+- add dev and prod visibility in apps.json (Base App)
 ### Fixed
-
+- iumio Taskbar List
+- iumio multiple Base App 
 ### Removed
+- Remove visibility in Dev.php and Prod.php
 
 
 ## [0.4.1] - 2017-08-24

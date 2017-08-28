@@ -37,11 +37,11 @@ abstract class iumioCore extends GlobalCoreService
     protected $environment;
     private static $runtime_parameters = null;
 
-    const VERSION = '0.4.1';
+    const VERSION = '0.4.2';
     const VERSION_EDITION = 'iumio Framework Standard Edition';
     const VERSION_EDITION_SHORT = 'SE';
     const VERSION_STAGE = 'BETA';
-    const VERSION_BUILD = 201741;
+    const VERSION_BUILD = 201742;
     const UIDIE = "NULL";
 
 
