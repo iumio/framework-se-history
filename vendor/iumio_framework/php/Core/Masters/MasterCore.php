@@ -133,14 +133,14 @@ class MasterCore extends GlobalCoreService
     {
         $app = (($app_called != null)? $app_called : APP_CALL);
 
-        $file = JL::open(CONFIG_DIR."apps.json");
+        $file = JL::open(CONFIG_DIR."core/apps.json");
         $prefix = null;
         foreach ($file as $one)
         {
             if ($one->name == $app && $one->prefix != "")
                 $prefix = $one->prefix;
         }
-        JL::close(CONFIG_DIR."apps.json");
+        JL::close(CONFIG_DIR."core/apps.json");
 
         $iscomponent = (self::getCore())->detectAppType($app);
 
@@ -166,7 +166,7 @@ class MasterCore extends GlobalCoreService
                 else if ($env == "PROD")
                     $env = "Prod.php";
 
-                if (strpos($_SERVER['REQUEST_URI'], $env) != false)
+                if (strpos($_SERVER['REQUEST_URI'], $env) == false)
                     $env = "";
                 else
                     $env = "/".$env;
@@ -262,7 +262,7 @@ class MasterCore extends GlobalCoreService
        if (IS_IUMIO_COMPONENT == 1)
            $file = JL::open(BASE_APPS."apps.json");
        else
-           $file = JL::open(CONFIG_DIR."apps.json");
+           $file = JL::open(CONFIG_DIR."core/apps.json");
 
        $app = null;
 

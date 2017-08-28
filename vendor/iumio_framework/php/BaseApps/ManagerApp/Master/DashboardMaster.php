@@ -31,7 +31,7 @@ class DashboardMaster extends MasterCore
      */
     public function indexActivity()
     {
-        $file = JL::open(CONFIG_DIR.'initial.json');
+        $file = JL::open(CONFIG_DIR.'core/initial.json');
         $date =  new \DateTime($file->installation->date);
         $file->installation = $date->format('Y/m/d');
 
@@ -62,7 +62,7 @@ class DashboardMaster extends MasterCore
     public function getDefaultAppActivity():int
     {
         $default = array();
-        $file = (array) JL::open(CONFIG_DIR.'apps.json');
+        $file = (array) JL::open(CONFIG_DIR.'core/apps.json');
         foreach ($file as $one)
         {
           if ($one->isdefault == "yes")

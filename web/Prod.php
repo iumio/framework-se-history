@@ -15,7 +15,6 @@ EngineAutoloader::$env = "PROD";
 
 use iumioFramework\Core\Base\{iumioEnvironment, Debug\Debug, Http\HttpListener};
 use iumioFramework\Apps\AppCore;
-use ManagerApp\ManagerApp as GManager;
 use iumioFramework\Core\Additionnal\TaskBar\iumioTaskBar as TB;
 
 /**
@@ -35,7 +34,6 @@ class Prod extends iumioEnvironment
         if (self::hostAllowed() == 1) {
             $core = new AppCore('PROD', true);
             Debug::enabled();
-            GManager::off();
             TB::switchStatus("off");
             $request = HttpListener::createFromGlobals();
             $core->dispatch($request);

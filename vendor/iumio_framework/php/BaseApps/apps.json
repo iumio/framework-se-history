@@ -1,1 +1,20 @@
-{"0":{"name":"ManagerApp","class":"\\ManagerApp\\ManagerApp","base_url":"_manager","status":"on"}}
+{
+  "0":
+  {
+    "name":"ManagerApp",
+    "class":"\\ManagerApp\\ManagerApp",
+    "base_url":"_manager",
+    "status":"on",
+    "status_dev":"on",
+    "status_prod":"off"
+  },
+  "1":
+  {
+    "name":"FServiceApp",
+    "class":"\\FServiceApp\\FServiceApp",
+    "base_url":"_fservice",
+    "status":"on",
+    "status_dev":"on",
+    "status_prod":"on"
+  }
+}

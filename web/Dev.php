@@ -15,7 +15,6 @@ EngineAutoloader::$env = "DEV";
 
 use iumioFramework\Core\Base\{iumioEnvironment, Debug\Debug, Http\HttpListener};
 use iumioFramework\Apps\AppCore;
-use ManagerApp\ManagerApp as GManager;
 use iumioFramework\Core\Additionnal\TaskBar\iumioTaskBar as TB;
 
 /**
@@ -36,7 +35,6 @@ class Dev extends iumioEnvironment
         if (self::hostAllowed() == 1) {
             $core = new AppCore('DEV', true);
             Debug::enabled();
-            GManager::on();
             TB::switchStatus("on");
             $request = HttpListener::createFromGlobals();
             $core->dispatch($request);

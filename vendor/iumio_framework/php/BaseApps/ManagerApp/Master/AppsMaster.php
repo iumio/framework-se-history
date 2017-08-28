@@ -49,7 +49,7 @@ class AppsMaster extends MasterCore
      */
     public function getAllApps():\stdClass
     {
-        $file = JL::open(CONFIG_DIR."apps.json");
+        $file = JL::open(CONFIG_DIR."core/apps.json");
         foreach ($file as $one)
         {
             $one->link_edit_save = $this->generateRoute("iumio_manager_app_manager_edit_save_app", array("appname" => $one->name), null, true);
@@ -79,7 +79,7 @@ class AppsMaster extends MasterCore
      */
     public function switchDefaultActivity(string $appname):int
     {
-        $file = JL::open(CONFIG_DIR."apps.json");
+        $file = JL::open(CONFIG_DIR."core/apps.json");
         foreach ($file as $one => $val)
         {
             if ($val->isdefault == "yes")
@@ -95,7 +95,7 @@ class AppsMaster extends MasterCore
         }
 
         $file = json_encode($file, JSON_PRETTY_PRINT);
-        JL::put(CONFIG_DIR."apps.json", $file);
+        JL::put(CONFIG_DIR."core/apps.json", $file);
         return ((new Response())->JSON_RENDER(array("code" => 200, "msg" => "OK")));
     }
 
@@ -105,7 +105,7 @@ class AppsMaster extends MasterCore
      */
     public function autoDisabledOrEnabledActivity(string $appname):int
     {
-        $file = JL::open(CONFIG_DIR."apps.json");
+        $file = JL::open(CONFIG_DIR."core/apps.json");
         foreach ($file as $one => $val)
         {
             if ($val->name == $appname)
@@ -119,7 +119,7 @@ class AppsMaster extends MasterCore
         }
 
         $file = json_encode($file, JSON_PRETTY_PRINT);
-        JL::put(CONFIG_DIR."apps.json", $file);
+        JL::put(CONFIG_DIR."core/apps.json", $file);
         return ((new Response())->JSON_RENDER(array("code" => 200, "msg" => "OK")));
     }
 
@@ -130,7 +130,7 @@ class AppsMaster extends MasterCore
     public function removeActivity(string $appname):int
     {
         $removeapp = false;
-        $file = JL::open(CONFIG_DIR."apps.json");
+        $file = JL::open(CONFIG_DIR."core/apps.json");
             foreach ($file as $one => $val)
             {
                 if ($val->name == $appname)
@@ -146,14 +146,14 @@ class AppsMaster extends MasterCore
         $file = array_values((array)$file);
 
         $file = json_encode((object) $file, JSON_PRETTY_PRINT);
-        JL::put(CONFIG_DIR."apps.json", $file);
+        JL::put(CONFIG_DIR."core/apps.json", $file);
 
         iumioServerManager::delete(ROOT."/apps/$appname", "directory");
         $assets = $this->getMaster("Assets");
         $assets->clear($appname, "all");
         if (strlen($file) < 3)
         {
-            JL::put(CONFIG_DIR."initial.json", "");
+            JL::put(CONFIG_DIR."core/initial.json", "");
             return ((new Response())->JSON_RENDER(array("code" => 200, "msg" => "RELOAD")));
         }
         return ((new Response())->JSON_RENDER(array("code" => 200, "msg" => "OK")));
@@ -206,7 +206,7 @@ class AppsMaster extends MasterCore
         rename($napp."/Master/DefaultMaster.php.local", $napp."/Master/DefaultMaster.php");
 
         // REGISTER TO APP CORE
-        $f = json_decode(file_get_contents(ROOT."/elements/config_files/apps.json"));
+        $f = json_decode(file_get_contents(ROOT."/elements/config_files/core/apps.json"));
         $lastapp = 0;
         foreach ($f as $one => $val) $lastapp++;
 
@@ -219,7 +219,7 @@ class AppsMaster extends MasterCore
         $f->$lastapp->creation = $ndate;
         $f->$lastapp->update = $ndate;
         $f = json_encode($f, JSON_PRETTY_PRINT);
-        file_put_contents(ROOT."/elements/config_files/apps.json", $f);
+        file_put_contents(ROOT."/elements/config_files/core/apps.json", $f);
         if ($template == "yes")
         {
             $assets = $this->getMaster("Assets");
@@ -255,7 +255,7 @@ class AppsMaster extends MasterCore
         if (!in_array($enable, array("yes", "no")))
             return ((new Response())->JSON_RENDER(array("code" => 500, "msg" => "App name already exist")));
 
-        $f = json_decode(file_get_contents(ROOT."/elements/config_files/apps.json"));
+        $f = json_decode(file_get_contents(ROOT."/elements/config_files/core/apps.json"));
 
         foreach ($f as $one => $val)
             {
@@ -267,7 +267,7 @@ class AppsMaster extends MasterCore
                 }
         }
         $f = json_encode($f, JSON_PRETTY_PRINT);
-        file_put_contents(ROOT."/elements/config_files/apps.json", $f);
+        file_put_contents(ROOT."/elements/config_files/core/apps.json", $f);
 
         return ((new Response())->JSON_RENDER(array("code" => 200, "msg" => "OK")));
 

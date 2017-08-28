@@ -14,7 +14,7 @@ namespace iumioFramework\Bin;
 
 try
 {
-    $loader = require_once __DIR__.'/../vendor/iumio_framework/php/Core/Requirement/iumoEngineAutoloader.php';
+    $loader = require_once __DIR__.'/../vendor/iumio_framework/php/Core/Requirement/EngineAutoloader.php';
 }
 catch (\Exception $e)
 {
@@ -48,13 +48,16 @@ class ConsoleManager
      */
     final private function define()
     {
-        \define('ROOT', __DIR__, true);
+        \define('ROOT', __DIR__.'/..', true);
         \define('ROOT_PROJECT', __DIR__.'/..', true);
         \define('ROOT_CACHE', __DIR__.'/../elements/cache/', true);
         \define('ROOT_APPS', __DIR__.'/../apps/', true);
         \define('ELEMS', __DIR__ . '/../elements/', true);
         \define('ROOT_VENDOR_LIBS',  __DIR__.'/../vendor/libs/', true);
         \define('ROOT_VENDOR_CLI_MODULES',  __DIR__.'/../vendor/iumio_framework/php/Core/Additional/Manager/Module/', true);
+        \define('ROOT_WEB_COMPONENTS',  __DIR__.'/../web/components/', true);
+        \define('CONFIG_DIR',  __DIR__.'/../elements/config_files/', true);
+        \define('BASE_APPS',  __DIR__.'/../vendor/iumio_framework/php/BaseApps/', true);
 
     }
 }

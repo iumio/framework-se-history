@@ -21,7 +21,7 @@
     <link href="<?= WEB_LIBS.'bootstrap/' ?>css/bootstrap.min.css" rel="stylesheet" />
 
     <!-- Animation library for notifications   -->
-    <link href="<?= WEB_LIBS.'iumio_manager/' ?>css/animate.min.css" rel="stylesheet"/>
+    <link href="<?= WEB_LIBS.'animate.css/' ?>animate.min.css" rel="stylesheet"/>
 
     <!--  Light Bootstrap Table core CSS    -->
     <link href="<?= WEB_LIBS.'iumio_manager/' ?>css/light-bootstrap-dashboard.css" rel="stylesheet"/>

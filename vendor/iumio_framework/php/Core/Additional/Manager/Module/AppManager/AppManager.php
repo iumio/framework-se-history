@@ -311,7 +311,7 @@ class AppManager implements ModuleManager
      */
     final protected function checkAppRegister(string $appname):bool
     {
-        $f = json_decode(file_get_contents(ROOT_PROJECT."/elements/config_files/apps.json"));
+        $f = json_decode(file_get_contents(ROOT_PROJECT."/elements/config_files/core/apps.json"));
         if (empty($f))
             return (false);
         foreach ($f as $one => $val)
@@ -326,7 +326,7 @@ class AppManager implements ModuleManager
      */
     final protected function showAppsRegister()
     {
-        $f = json_decode(file_get_contents(ROOT_PROJECT."/elements/config_files/apps.json"));
+        $f = json_decode(file_get_contents(ROOT_PROJECT."/elements/config_files/core/apps.json"));
         $i = 1;
         if (count($f) == 0)
             Output::outputAsError("Oups! You have no app registered. Please create an app with app");
@@ -349,7 +349,7 @@ class AppManager implements ModuleManager
     final protected function showEnabledAppsRegister():int
     {
         $this->params['applist'] = array();
-        $f = json_decode(file_get_contents(ROOT_PROJECT."/elements/config_files/apps.json"));
+        $f = json_decode(file_get_contents(ROOT_PROJECT."/elements/config_files/core/apps.json"));
         $i = 1;
         if ((is_string($f) && strlen($f) < 3) || (count((array) $f) == 0))
         {
@@ -383,7 +383,7 @@ class AppManager implements ModuleManager
     final protected function showDisabledAppsRegister():int
     {
         $this->params['applist'] = array();
-        $f = json_decode(file_get_contents(ROOT_PROJECT."/elements/config_files/apps.json"));
+        $f = json_decode(file_get_contents(ROOT_PROJECT."/elements/config_files/core/apps.json"));
         $i = 1;
         if ((is_string($f) && strlen($f) < 3) || (count((array)  $f) == 0))
         {
@@ -441,7 +441,7 @@ class AppManager implements ModuleManager
         rename($napp."/Master/DefaultMaster.php.local", $napp."/Master/DefaultMaster.php");
 
         // REGISTER TO APP CORE
-        $f = json_decode(file_get_contents(ROOT_PROJECT."/elements/config_files/apps.json"));
+        $f = json_decode(file_get_contents(ROOT_PROJECT."/elements/config_files/core/apps.json"));
         $lastapp = 0;
 
         if (!is_object($f))
@@ -458,7 +458,7 @@ class AppManager implements ModuleManager
         $f->$lastapp->creation = $ndate;
         $f->$lastapp->update = $ndate;
         $f = json_encode($f, JSON_PRETTY_PRINT);
-        file_put_contents(ROOT_PROJECT."/elements/config_files/apps.json", $f);
+        file_put_contents(ROOT_PROJECT."/elements/config_files/core/apps.json", $f);
         $this->initialJSON();
         if ($this->params['template'] == "yes")
             new AM(array("core/manager", "assets-manager", "--copy", "--appname=". $this->params['appname'], "--symlink", "--noexit"));
@@ -471,7 +471,7 @@ class AppManager implements ModuleManager
      */
     final protected function initialJSON()
     {
-        $f = json_decode(file_get_contents(ROOT_PROJECT."/elements/config_files/initial.json"));
+        $f = json_decode(file_get_contents(ROOT_PROJECT."/elements/config_files/core/initial.json"));
         if (empty($f))
         {
             $std = new \stdClass();
@@ -482,7 +482,7 @@ class AppManager implements ModuleManager
             $std->os = PHP_OS;
 
             $rs = json_encode($std, JSON_PRETTY_PRINT);
-            file_put_contents(ROOT_PROJECT."/elements/config_files/initial.json", $rs);
+            file_put_contents(ROOT_PROJECT."/elements/config_files/core/initial.json", $rs);
         }
     }
 
@@ -494,7 +494,7 @@ class AppManager implements ModuleManager
         $appname = $this->params['capp'];
         Output::outputAsNormal("Processing to enabled app : $appname  will be enabled \n", "none");
         sleep(1);
-        $f = json_decode(file_get_contents(ROOT_PROJECT."/elements/config_files/apps.json"));
+        $f = json_decode(file_get_contents(ROOT_PROJECT."/elements/config_files/core/apps.json"));
 
         foreach ($f as $one => $val)
         {
@@ -506,7 +506,7 @@ class AppManager implements ModuleManager
         }
 
         $f = json_encode($f, JSON_PRETTY_PRINT);
-        file_put_contents(ROOT_PROJECT."/elements/config_files/apps.json", $f);
+        file_put_contents(ROOT_PROJECT."/elements/config_files/core/apps.json", $f);
         Output::outputAsEndSuccess("Now, the ".$this->params['capp']." is enabled", "none");
     }
 
@@ -518,7 +518,7 @@ class AppManager implements ModuleManager
         $appname = $this->params['capp'];
         Output::outputAsNormal("Processing to enabled app : $appname  will be enabled \n", "none");
         sleep(1);
-        $f = json_decode(file_get_contents(ROOT_PROJECT."/elements/config_files/apps.json"));
+        $f = json_decode(file_get_contents(ROOT_PROJECT."/elements/config_files/core/apps.json"));
 
         foreach ($f as $one => $val)
         {
@@ -530,7 +530,7 @@ class AppManager implements ModuleManager
         }
 
         $f = json_encode($f, JSON_PRETTY_PRINT);
-        file_put_contents(ROOT_PROJECT."/elements/config_files/apps.json", $f);
+        file_put_contents(ROOT_PROJECT."/elements/config_files/core/apps.json", $f);
         Output::outputAsEndSuccess("Now, the ".$this->params['capp']." is disabled", "none");
     }
 
@@ -546,7 +546,7 @@ class AppManager implements ModuleManager
 
         // DELETE TO APP CORE
 
-        $f = json_decode(file_get_contents(ROOT_PROJECT."/elements/config_files/apps.json"));
+        $f = json_decode(file_get_contents(ROOT_PROJECT."/elements/config_files/core/apps.json"));
         if (!empty($f)) {
             foreach ($f as $one => $val) {
                 if ($val->name == $appname) {
@@ -558,15 +558,15 @@ class AppManager implements ModuleManager
             $f = array_values((array)$f);
             $f = json_encode((object) $f, JSON_PRETTY_PRINT);
 
-            file_put_contents(ROOT_PROJECT."/elements/config_files/apps.json", $f);
+            file_put_contents(ROOT_PROJECT."/elements/config_files/core/apps.json", $f);
             if (strlen($f) < 3)
-                file_put_contents(ROOT_PROJECT."/elements/config_files/apps.json", "");
+                file_put_contents(ROOT_PROJECT."/elements/config_files/core/apps.json", "");
         }
         Server::delete(ROOT_PROJECT."/apps/$appname", "directory");
         new AM(array("core/manager", "assets-manager", "--clear", "--appname=". $this->params['appname'], "--noexit", "--quiet"));
 
         if (strlen($f) < 3)
-            file_put_contents(ROOT_PROJECT."/elements/config_files/initial.json", "");
+            file_put_contents(ROOT_PROJECT."/elements/config_files/core/initial.json", "");
 
         Output::outputAsNormal("The application has been deleted. To create a new application, use [app create] .", "none");
     }

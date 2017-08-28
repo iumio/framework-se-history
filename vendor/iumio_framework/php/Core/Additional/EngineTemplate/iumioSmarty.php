@@ -14,6 +14,7 @@
 namespace iumioFramework\Core\Additionnal\Template;
 use iumioFramework\Core\Additionnal\Server\iumioServerManager;
 use iumioFramework\Core\Additionnal\Template\iumioSmartyConfiguration as SmartyConfig;
+use iumioFramework\Exception\Server\Server500;
 
 try
 {
@@ -54,11 +55,14 @@ final class iumioSmarty
                 $envcache = CACHE_PROD;
                 $compiled = COMPILED_PROD;
             }
+            else
+                throw new Server500(new \ArrayObject(array("explain" => "Undefined environment ".IUMIO_ENV,
+                    "solution" => "Please check iumio Environment")));
+
 
             $dirapp = ((IS_IUMIO_COMPONENT)? BASE_APPS :  ROOT_APPS);
 
             iumioServerManager::create($dirapp . self::$appCall . '/Front/views', "directory");
-
 
             self::$instance = new \Smarty();
             $sconfig = new SmartyConfig(IUMIO_ENV);
@@ -82,7 +86,8 @@ final class iumioSmarty
         {
             self::$appCall = NULL;
             self::$instance = NULL;
-            throw new \Exception("iumioTemplate Error : Cannot loading Smarty Engine Template => ".$exception->getMessage());
+            throw new Server500(new \ArrayObject(array("explain" => "Cannot loading Smarty Engine Template => ".$exception->getMessage(),
+                "solution" => "Please check Smarty Configuration")));
         }
 
     }
@@ -102,7 +107,7 @@ final class iumioSmarty
     /**
      * Register base plugin for smarty views
      */
-    final protected function registerBasePlugins()
+    final protected function registerBasePlugins():int
     {
 
         self::$instance->registerPlugin(\Smarty::PLUGIN_FUNCTION, 'webassets', array("iumioFramework\Core\Additionnal\Template\iumioViewBasePlugin", "webassets"));
@@ -145,6 +150,9 @@ final class iumioSmarty
         self::$instance->registerPlugin(\Smarty::PLUGIN_FUNCTION, 'route', array("iumioFramework\Core\Additionnal\Template\iumioViewBasePlugin", "route"));
         self::$instance->registerPlugin(\Smarty::PLUGIN_FUNCTION, 'taskbar', array("iumioFramework\Core\Additionnal\Template\iumioViewBasePlugin", "taskbar"));
 
+        self::$instance->registerPlugin(\Smarty::PLUGIN_FUNCTION, 'rt', array("iumioFramework\Core\Additionnal\Template\iumioViewBasePlugin", "rt_file"));
+
+        return (1);
     }
 
     /** Return an instance of iumioSmarty
@@ -161,7 +169,6 @@ final class iumioSmarty
                 new iumioSmarty();
             }
         }
-
         return (self::$instance);
     }
 

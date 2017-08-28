@@ -8,6 +8,14 @@ iumio Framework
 
 ## [BETA RELEASE]
 
+## [0.4.2] - 2017-08-24
+### Added
+
+### Fixed
+
+### Removed
+
+
 ## [0.4.1] - 2017-08-24
 ### Added
 - Check on iumio installer if required libs are installed

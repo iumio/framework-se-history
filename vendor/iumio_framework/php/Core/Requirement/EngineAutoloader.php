@@ -115,7 +115,7 @@ class EngineAutoloader {
 
         try
         {
-            $map = file_get_contents($path."/elements/config_files/map_".(($env == "DEV")? "dev_" : "")."class.json");
+            $map = file_get_contents($path."/elements/config_files/engine_autoloader/map_".(($env == "DEV")? "dev_" : "")."class.json");
         }
         catch (Exception $e)
         {
@@ -123,7 +123,7 @@ class EngineAutoloader {
         }
 
         if (empty($map) || $rebuild == true) {
-            $myfile = fopen($path."/elements/config_files/map_".(($env == "DEV")? "dev_" : "")."class.json", "w") or die("Unable to open file!");
+            $myfile = fopen($path."/elements/config_files/engine_autoloader/map_".(($env == "DEV")? "dev_" : "")."class.json", "w") or die("Unable to open file!");
             fwrite($myfile, "", strlen(""));
             fclose($myfile);
             $json = array();
@@ -138,7 +138,7 @@ class EngineAutoloader {
 
                 }
             }
-            file_put_contents($path . "/elements/config_files/map_".(($env == "DEV")? "dev_" : "")."class.json", json_encode($json, JSON_PRETTY_PRINT));
+            file_put_contents($path . "/elements/config_files/engine_autoloader/map_".(($env == "DEV")? "dev_" : "")."class.json", json_encode($json, JSON_PRETTY_PRINT));
             return (true);
         }
         return (false);
@@ -152,7 +152,7 @@ class EngineAutoloader {
     static private function getMapClass():array
     {
         $path = realpath(__DIR__."/../../../../..");
-        $map = file_get_contents($path."/elements/config_files/map_".((self::$env == "DEV")? "dev_" : "")."class.json");
+        $map = file_get_contents($path."/elements/config_files/engine_autoloader/map_".((self::$env == "DEV")? "dev_" : "")."class.json");
         return ((array)json_decode($map));
     }
 

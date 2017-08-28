@@ -12,6 +12,8 @@
 
 namespace iumioFramework\Core\Additionnal\Template;
 use iumioFramework\Core\Base\Debug\Debug;
+use iumioFramework\Core\Base\iumioEnvironment;
+use iumioFramework\HttpRoutes\Routing;
 
 /**
  * Class iumioViewBasePlugin
@@ -146,6 +148,43 @@ class iumioViewBasePlugin
     final static public function css_manager(array $params)
     {
         return ("<link href='".WEB_COMPONENTS."libs/iumio_manager/css/".((isset($params['name']))? $params['name'].".".((isset($params['min']) && $params['min'] == "yes")? "min"."." : "") : "")."css' rel='stylesheet' />");
+    }
+
+    /** Get js routing file
+     * @return string return js routing file
+     */
+    final static public function rt_file()
+    {
+        $env = IUMIO_ENV;
+        if ($env == "DEV")
+            $env = "Dev.php";
+        else if ($env == "PROD")
+            $env = "Prod.php";
+
+        if (strpos($_SERVER['REQUEST_URI'], $env) == false)
+            $env = "";
+        else
+            $env = "/".$env;
+
+        $url = $env;
+
+        $base = (isset($_SERVER['SCRIPT_NAME']) && $_SERVER['SCRIPT_NAME'] != "")? $_SERVER['SCRIPT_NAME'] : "";
+
+        if (strpos($_SERVER['REQUEST_URI'], iumioEnvironment::getFileEnv(IUMIO_ENV)) == false)
+        {
+            $rm = explode('/',$base);
+            $rm = array_values(Routing::removeEmptyData($rm));
+            $rm = array_values($rm);
+            $key = array_search(iumioEnvironment::getFileEnv(IUMIO_ENV), $rm);
+            unset($rm[$key]);
+            $rm = array_values($rm);
+            $base = implode("/", $rm);
+            if (isset($base[0]) && $base[0] != "/")
+                $base = "/".$base;
+        }
+
+        return ("<script type='text/javascript' src='".WEB_COMPONENTS."rt/config_files/".((IS_IUMIO_COMPONENT)? "map.rt.babse.js" : "map.rt.js")."'></script>\n".
+                "<script type='text/javascript' src='".WEB_COMPONENTS."rt/libs/js/Rt.js' id='rt_app_referer' referer-app='".APP_CALL."' base-url='".$base.$url."'></script>");
     }
 
     /** Get js manager file

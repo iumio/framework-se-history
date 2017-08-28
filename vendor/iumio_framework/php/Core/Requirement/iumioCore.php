@@ -174,6 +174,7 @@ abstract class iumioCore extends GlobalCoreService
 
         foreach ($routes as $route)
         {
+            if ($route['visibility'] === "disabled") continue;
             $mat = Routing::matches($baseurl.$route['path'], $path, $route);
             if (($mat['similar'] > $baseSimilar))
             {
@@ -241,8 +242,8 @@ abstract class iumioCore extends GlobalCoreService
         $apps = $this->registerApps();
         $bapps = $this->registerBaseApps();
         $great = false;
-        if ($this->isComponentCall($bapps, $request)) return (1);
 
+        if ($this->isComponentCall($bapps, $request)) return (1);
         $values = $this->getSimpleAppFormat($apps);
 
         foreach ($values as $one => $def) {
@@ -257,7 +258,6 @@ abstract class iumioCore extends GlobalCoreService
                 if ($callback != NULL) {
                     $method = $callback['method'];
                     $controller = $callback['controller'];
-
                     $defname = $def['name'];
                     $master = "\\$defname\\Masters\\{$controller}Master";
                     try {
@@ -276,6 +276,7 @@ abstract class iumioCore extends GlobalCoreService
             } else
                 throw new Server500(new \ArrayObject(array("explain" => "Router register failed  ", "solution" => "Please check your app configuration")));
         }
+
         if ($great == false)
             throw new Server404(new \ArrayObject(array("solution" => "Please check your URI")));
 
@@ -292,29 +293,33 @@ abstract class iumioCore extends GlobalCoreService
     public function isComponentCall(array $bases, HttpListener $request): bool
     {
         foreach ($bases as $def) {
+            if (((IUMIO_ENV == "DEV") && ($def['status_dev'] == "off")) ||
+                ((IUMIO_ENV == "PROD") && ($def['status_prod'] == "off")))
+              continue;
             if (isset($def['appclass'])) {
                 if (method_exists($def['appclass'], 'off') == true) {
-                    if (($def['appclass'])::baseStatus() == 0) return (false);
                     $rt = new Routing($def['name'], null, true);
                     if ($rt->routingRegister() == true) {
                         $callback = $this->manage($request, $rt->routes());
-                        if ($callback == NULL) return (false);
-                        $method = $callback['method'];
-                        $controller = $callback['controller'];
-
-                        $defname = $def['name'];
-                        $master = "\\$defname\\Masters\\{$controller}Master";
-                        try {
-                            $call = new iumioReflexion();
-                            define("APP_CALL", $def['name']);
-                            define("IS_IUMIO_COMPONENT", true);
-                            if (isset($callback['pval']))
-                                $call->__named($master, $method, $callback['pval']);
-                            else
-                                $call->__named($master, $method);
-                        } catch (\Exception $exception) {
-                            throw new Server500(new \ArrayObject(array("explain" => $exception->getMessage())));
+                        if ($callback != NULL) {
+                            $method = $callback['method'];
+                            $controller = $callback['controller'];
+                            $defname = $def['name'];
+                            $master = "\\$defname\\Masters\\{$controller}Master";
+                            try {
+                                $call = new iumioReflexion();
+                                define("APP_CALL", $def['name']);
+                                define("IS_IUMIO_COMPONENT", true);
+                                if (isset($callback['pval']))
+                                    $call->__named($master, $method, $callback['pval']);
+                                else
+                                    $call->__named($master, $method);
+                                return (true);
+                            } catch (\Exception $exception) {
+                                throw new Server500(new \ArrayObject(array("explain" => $exception->getMessage())));
+                            }
                         }
+
                     } else
                         throw new Server500(new \ArrayObject(array("explain" => $def['name'] . " component not contain a related router", "solution" => "Please check the if 'routingRegister' is present in your router")));
                 } else
@@ -323,7 +328,7 @@ abstract class iumioCore extends GlobalCoreService
             else
                 throw new Server500(new \ArrayObject(array("explain" => "Component doesn't exist ", "solution" => "Check apps.json file in base app")));
         }
-        return (true);
+        return (false);
     }
 
     /** Get all app register on apps.json
@@ -354,8 +359,11 @@ abstract class iumioCore extends GlobalCoreService
         $apps = array();
         foreach ($classes as $class => $val) {
             $val = (array)$val;
-            $apps[$val['name']] =  array("name" => $val['name'], "appclass" => new $val['class'](), "base_url" =>$val['base_url']);
-        }
+            $apps[$val['name']] =  array("name" => $val['name'], "appclass" => new $val['class'](),
+                "base_url" =>$val['base_url'], "status_dev" => $val['status_dev'],
+                "status_prod" => $val['status_prod']);
+        };
+
         return $apps;
     }
 
@@ -364,7 +372,7 @@ abstract class iumioCore extends GlobalCoreService
      */
     final protected function getClassFile():\stdClass
     {
-        $a = json_decode(file_get_contents(ELEMS.'config_files/apps.json'));
+        $a = json_decode(file_get_contents(ELEMS.'config_files/core/apps.json'));
         return ($a == NULL ? new \stdClass() : $a);
     }
 
@@ -453,7 +461,7 @@ abstract class iumioCore extends GlobalCoreService
      */
     final private function detectFirstInstallation():int
     {
-        $file = JL::open(CONFIG_DIR.'initial.json');
+        $file = JL::open(CONFIG_DIR.'core/initial.json');
         if (empty( (array) $file))
         {
             if (file_exists(ROOT.'web/setup/setup.php'))

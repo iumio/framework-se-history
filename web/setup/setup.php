@@ -1,7 +1,7 @@
 
 <?php
 // EXIT IF DOES NOT HAVE ONE APP
-if (!empty(json_decode(file_get_contents(__DIR__."/../../elements/config_files/initial.json"))))
+if (!empty(json_decode(file_get_contents(__DIR__."/../../elements/config_files/core/initial.json"))))
     exit("iumio Installer - Cannot use iumio installer because you have already one app installed.");
 ?>
 <!DOCTYPE html>

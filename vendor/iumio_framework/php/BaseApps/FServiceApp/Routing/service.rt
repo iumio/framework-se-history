@@ -1,0 +1,5 @@
+route:
+  name : iumio_service_app_manager
+  path :  /_fservice/app/current/get
+  activity : Service%getCApp
+endroute

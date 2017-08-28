@@ -13,6 +13,7 @@
 
 namespace ManagerApp\Masters;
 use iumioFramework\Core\Additionnal\Server\iumioServerManager;
+use iumioFramework\HttpRoutes\JsRouting;
 use iumioFramework\Masters\MasterCore;
 use iumioFramework\Core\Base\Json\JsonListener as JL;
 use iumioFramework\Core\Base\Http\Response\Response;
@@ -104,7 +105,7 @@ class RoutingMaster extends MasterCore
                     $prefix = $o->prefix;
             }
 
-            $rtarray = array("activity" => "", "path" => "", "name" => "");
+            $rtarray = array("activity" => "", "path" => "", "name" => "", "visibility" => "private");
             $start = 0;
             $end = 0;
             $croute = 0;
@@ -120,14 +121,15 @@ class RoutingMaster extends MasterCore
                 } else if ($listen === "endroute" && $start === 1 & $end === 0) {
                     $end = 1;
                     array_push($routingArray, $rtarray);
-                } else if ($this->strlike_in_array($listen, array("activity", "path", "name")) !== false) {
+                } else if (($this->strlike_in_array($listen, array("activity", "path", "name", "visibility")) !== false) ||
+                    ($this->strlike_in_array($listen, array("activity", "path", "name", "visibility")) !== false)) {
 
                     $listen = explode(':', $listen);
                     $rtarray[$listen[0]] = $listen[1];
                 }
 
                 if ($start === 1 && $end === 1) {
-                    $rtarray = array("method" => "", "path" => "", "name" => "");
+                    $rtarray = array("method" => "", "path" => "", "name" => "", "visibility" => "private");
                     $start = $end = 0;
                     $croute++;
                 }
@@ -149,9 +151,9 @@ class RoutingMaster extends MasterCore
                $route_gen = $this->generateRoute($routingArray[$i]['name'], null, $appname);
 
             if (!empty($params))
-                array_push($rt, array($appname => array("routename" => $routingArray[$i]['name'], "path" => $routingArray[$i]['path'], "controller" => $controller, "activity" => $function, "params" => $params)));
+                array_push($rt, array($appname => array("routename" => $routingArray[$i]['name'], "path" => $routingArray[$i]['path'], "controller" => $controller, "activity" => $function, "params" => $params, "visibility" => $routingArray[$i]['visibility'])));
             else
-                array_push($rt, array($appname => array("routename" => $routingArray[$i]['name'], "path" => $routingArray[$i]['path'], "controller" => $controller, "activity" => $function, "route_gen" => $route_gen)));
+                array_push($rt, array($appname => array("routename" => $routingArray[$i]['name'], "path" => $routingArray[$i]['path'], "controller" => $controller, "activity" => $function, "route_gen" => $route_gen, "visibility" => $routingArray[$i]['visibility'])));
 
         }
         return ($rt);
@@ -199,14 +201,15 @@ class RoutingMaster extends MasterCore
                         } else if ($listen === "endroute" && $start === 1 & $end === 0) {
                             $end = 1;
                             array_push($routingArray, $rtarray);
-                        } else if ($this->strlike_in_array($listen, array("activity", "path", "name")) !== false) {
+                        } else if (($this->strlike_in_array($listen, array("activity", "path", "name")) !== false) ||
+                            ($this->strlike_in_array($listen, array("activity", "path", "name", "visibility")) !== false)) {
 
                             $listen = explode(':', $listen);
                             $rtarray[$listen[0]] = $listen[1];
                         }
 
                         if ($start === 1 && $end === 1) {
-                            $rtarray = array("method" => "", "path" => "", "name" => "");
+                            $rtarray = array("method" => "", "path" => "", "name" => "", "visibility" => "private");
                             $start = $end = 0;
                             $croute++;
                         }
@@ -240,6 +243,16 @@ class RoutingMaster extends MasterCore
     public function removeActivity(string $filename, string $appname)
     {
         iumioServerManager::delete(ROOT."/apps/$appname/Routing/$filename", "file");
+        return ((new Response())->JSON_RENDER(array("code" => 200, "msg" => "OK")));
+    }
+
+    /** Rebuild Js routing file
+     * @return int
+     */
+    public function rebuildjsActivity()
+    {
+        $rt = new JsRouting();
+        $rt->build();
         return ((new Response())->JSON_RENDER(array("code" => 200, "msg" => "OK")));
     }
 

@@ -14,6 +14,7 @@
                     </button>
                     <a class="navbar-brand" href="#">Routing Manager</a>
                     <a class="btn-default btn"  >Create a routing file (Later)</a>
+                    <a class="btn-default btn rebuildjs" attr-href="{route name='iumio_manager_routing_manager_rebuild_js'}">Rebuild JS Routing</a>
                 </div>
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-left">

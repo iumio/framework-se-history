@@ -21,3 +21,9 @@ route:
   path :  /_manager/routing/remove/one/{filename}/{appname}
   activity : Routing%remove
 endroute
+
+route:
+  name : iumio_manager_routing_manager_rebuild_js
+  path :  /_manager/routing/rebuild/js
+  activity : Routing%rebuildjs
+endroute

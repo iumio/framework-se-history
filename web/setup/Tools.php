@@ -204,7 +204,7 @@ class Tools
         rename($napp."/Master/DefaultMaster.php.local", $napp."/Master/DefaultMaster.php");
 
         // REGISTER TO APP CORE
-        $f = json_decode(file_get_contents($base."/elements/config_files/apps.json"));
+        $f = json_decode(file_get_contents($base."/elements/config_files/core/apps.json"));
         $lastapp = 0;
 
         if (!is_object($f))
@@ -221,7 +221,7 @@ class Tools
         $f->$lastapp->creation = $ndate;
         $f->$lastapp->update = $ndate;
         $f = json_encode($f, JSON_PRETTY_PRINT);
-        file_put_contents($base."/elements/config_files/apps.json", $f);
+        file_put_contents($base."/elements/config_files/core/apps.json", $f);
         if ($temp == "1")
             \iumioFramework\Core\Additionnal\Server\iumioServerManager::copy($base."/apps/".$appname."/Front/Resources/", $base."/web/components/apps/dev/".strtolower($appname), 'directory', true);
 
@@ -237,7 +237,7 @@ class Tools
     final static protected function initialJSON($version)
     {
         $base = __DIR__."/../../";
-        $f = json_decode(file_get_contents($base."/elements/config_files/initial.json"));
+        $f = json_decode(file_get_contents($base."/elements/config_files/core/initial.json"));
         if (empty($f))
         {
             $std = new \stdClass();
@@ -248,7 +248,7 @@ class Tools
             $std->os = PHP_OS;
 
             $rs = json_encode($std, JSON_PRETTY_PRINT);
-            file_put_contents($base."/elements/config_files/initial.json", $rs);
+            file_put_contents($base."/elements/config_files/core/initial.json", $rs);
         }
     }
 }

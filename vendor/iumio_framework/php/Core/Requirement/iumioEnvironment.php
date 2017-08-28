@@ -59,6 +59,8 @@ class iumioEnvironment
         define('WEB_ASSETS', $current."/components/apps/");
         define('ROOT_WEB_ASSETS', $base."web/components/apps/");
         define('WEB_LIBS', $current."/components/libs/");
+        define('ROOT_WEB_LIBS', $base."web/components/libs/");
+        define('ROOT_WEB_COMPONENTS', $base."web/components/");
         define('WEB_FRAMEWORK', $current."/components/libs/iumio_framework/");
         define('WEB_COMPONENTS', $current."/components/");
         define('ROOT_APPS', $base."apps/");
