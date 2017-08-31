@@ -21,3 +21,10 @@ route:
   path :  /_manager/get/app/default
   activity : Dashboard%getDefaultApp
 endroute
+
+route:
+  name : iumio_manager_dashboard_get_statistics
+  path :  /_manager/get/framework/statistics
+  activity : Dashboard%getFrameworkStatistics
+  m_allow : POST
+endroute

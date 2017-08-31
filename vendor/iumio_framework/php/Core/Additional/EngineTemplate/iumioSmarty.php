@@ -60,14 +60,19 @@ final class iumioSmarty
                     "solution" => "Please check iumio Environment")));
 
 
-            $dirapp = ((IS_IUMIO_COMPONENT)? BASE_APPS :  ROOT_APPS);
-
-            iumioServerManager::create($dirapp . self::$appCall . '/Front/views', "directory");
+            if (self::$appCall != "iumio")
+            {
+                $dirapp = ((IS_IUMIO_COMPONENT) ? BASE_APPS : ROOT_APPS);
+                iumioServerManager::create($dirapp . self::$appCall . '/Front/views', "directory");
+            }
 
             self::$instance = new \Smarty();
             $sconfig = new SmartyConfig(IUMIO_ENV);
 
-            self::$instance->setTemplateDir($dirapp.self::$appCall.'/Front/views');
+            if (self::$appCall != "iumio")
+                self::$instance->setTemplateDir($dirapp.self::$appCall.'/Front/views');
+            else
+                self::$instance->setTemplateDir(OVERRIDES.'/Exceptions/views');
             self::$instance->setCompileDir($compiled.$sconfig->getCompiledDirectory());
             self::$instance->setCacheDir($envcache.$sconfig->getCacheDirectory());
             self::$instance->setConfigDir(CONFIG_DIR.$sconfig->getConfigDirectory());
@@ -159,7 +164,7 @@ final class iumioSmarty
      * @param string $appFullName
      * @return \Smarty Instance of Smarty
      */
-    static public function getSmartyInstance(string $appFullName):\Smarty
+    static public function getSmartyInstance(string $appFullName = NULL):\Smarty
     {
         if (self::$instance == NULL)
         {

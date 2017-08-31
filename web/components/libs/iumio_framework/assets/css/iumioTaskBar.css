@@ -20,6 +20,43 @@
     -moz-osx-font-smoothing: auto;
 }
 
+.iumioTaskBarOneLog a
+{
+    display: inline-block!important;
+    padding: 15px!important;
+    padding-right: 5px!important;
+    padding-left: 0px!important;
+    font-size: 10px!important;
+}
+
+.iumioTaskBarGetOneLog
+{
+    width: 400px!important;
+}
+.iumioTaskBarOneLog a:hover
+{
+    background: inherit!important;
+    text-decoration: underline!important;
+}
+
+.iumioTaskBarOneLog
+{
+    font-size: 12px!important;
+    padding: 0px!important;
+
+}
+
+.iumioTaskbarCodeError
+{
+    font-size: 12px!important;
+}
+.iumioTaskBarGetOneLog
+{
+    /*height: 300px!important;*/
+    overflow: auto!important;
+}
+
+
 /*****/
 .iumioTaskBar li {
     float: left;

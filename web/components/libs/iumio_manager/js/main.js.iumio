@@ -1,3 +1,14 @@
+
+/*
+ * This is an iumio Framework component
+ *
+ * (c) RAFINA DANY <danyrafina@gmail.com>
+ *
+ * iumio Framework - iumio Components
+ *
+ * To get more information about licence, please check the licence file
+ */
+
 /**
  * iumio Framework Manager main JS
  **/
@@ -52,7 +63,7 @@ var operationSuccess = function () {
 var operationError = function (data) {
     var selecttorModal = $("#modalManager");
     selecttorModal.find(".modal-body").html("<h4 class='text-center'>An error was detected</h4>");
-    if (typeof data["responseJSON"] !== "undefined" && typeof data["responseJSON"]["msg"] !== "undefined")
+    if (typeof data["responseJSON"] !== "undefined" && typeof data["msg"] !== "undefined")
         selecttorModal.find(".modal-body").append("<h5 class='text-center' style='color: red'><em>"+data["responseJSON"]["msg"]+"</em></h5>");
     selecttorModal.find(".btn-close").html("Close");
     selecttorModal.find(".btn-valid").hide();
@@ -279,6 +290,7 @@ var getAppListSimple = function () {
                         "<td>"+value['class']+"</td>" +
                         "<td><button class=' btn-info btn toeditapp' attr-href2='"+value['link_edit_save']+"' attr-appname='"+value['name']+"' attr-prefix='"+value['prefix']+"' attr-enabled='"+value['enabled']+"'>ED</button></td>"+
                         "<td><button class='btn-info btn deleteapp' attr-href='"+value['link_remove']+"' attr-appname='"+value['name']+"'>DE</button></td>"+
+                        "<td><button class='btn-info btn exportapp' attr-href='"+value['link_export']+"' attr-appname='"+value['name']+"'>EXP</button></td>"+
                         "</tr>");
                 });
                 simpleapps = results;
@@ -316,7 +328,7 @@ var getAllCacheEnv = function () {
                         "<td>"+value['name']+"</td>" +
                         "<td>"+value['path']+"</td>" +
                         "<td>"+value['size']+"</td>" +
-                        "<td "+((value['perms'] === true)? 'style="background-color:green;color:white;text-align:center"' : 'style="background-color:rgba(193, 9, 9, 0.5);color:white;text-align:center"')+">"+value['nperms']+"</td>" +
+                        "<td "+((value['perms'] === true)? 'style="background-color:#2ECC40;color:white;text-align:center"' : 'style="background-color:rgba(193, 9, 9, 0.5);color:white;text-align:center"')+">"+value['nperms']+"</td>" +
                         "<td>"+value['status']+"</td>" +
                         "<td><button class='btn-info btn clearcachespec' attr-href='"+value['clear']+"' attr-env='"+value['env']+"'>CL</button></td>"+
                         "</tr>");
@@ -366,9 +378,9 @@ var getAllAssets = function () {
                         "<td>"+((value['haveassets'] === 1)? "Yes" : ((value['haveassets'] === 2)? "Empty" : "No"))+"</td>" +
                         "<td>"+value['dev_perms']+"</td>" +
                         "<td>"+value['prod_perms']+"</td>" +
-                        //"<td "+((value['perms'] === true)? 'style="background-color:green;color:white;text-align:center"' : 'style="background-color:red;color:white;text-align:center"')+">"+value['nperms']+"</td>" +
-                        "<td "+((value['status_dev'] === 1)? 'style="background-color:green;color:white;"' : 'style="background-color:rgba(193, 9, 9, 0.5);color:white;text-align:center"')+">"+((value['status_dev'] === 1)? 'OK' : 'Need to publish')+"</td>" +
-                        "<td "+((value['status_prod'] === 1)? 'style="background-color:green;color:white;"' : 'style="background-color:rgba(193, 9, 9, 0.5);color:white;text-align:center"')+">"+((value['status_prod'] === 1)? 'OK' : 'Need to publish')+"</td>" +
+                        //"<td "+((value['perms'] === true)? 'style="background-color:#2ECC40;color:white;text-align:center"' : 'style="background-color:red;color:white;text-align:center"')+">"+value['nperms']+"</td>" +
+                        "<td "+((value['status_dev'] === 1)? 'style="background-color:#2ECC40;color:white;"' : 'style="background-color:rgba(193, 9, 9, 0.5);color:white;text-align:center"')+">"+((value['status_dev'] === 1)? 'OK' : 'Need to publish')+"</td>" +
+                        "<td "+((value['status_prod'] === 1)? 'style="background-color:#2ECC40;color:white;"' : 'style="background-color:rgba(193, 9, 9, 0.5);color:white;text-align:center"')+">"+((value['status_prod'] === 1)? 'OK' : 'Need to publish')+"</td>" +
                         ((value['haveassets'] === 1)? "<td><button class='btn-info btn showoptionsassets' attr-href-clear-dev='"+value['clear']['dev']+"' attr-href-clear-prod='"+value['clear']['prod']+"' attr-href-publish-dev='"+value['publish']['dev']+"'  attr-href-publish-prod='"+value['publish']['prod']+"'  attr-href-clear-all='"+value['clear']['all']+"' attr-href-publish-all='"+value['publish']['all']+"' attr-appname='"+value['name']+"' >AC</button></td>" : "")+
                         "</tr>");
                 });
@@ -407,7 +419,7 @@ var getAllCompileEnv = function () {
                         "<td>"+value['name']+"</td>" +
                         "<td>"+value['path']+"</td>" +
                         "<td>"+value['size']+"</td>" +
-                        "<td "+((value['perms'] === true)? 'style="background-color:green;color:white;text-align:center"' : 'style="background-color:rgba(193, 9, 9, 0.5);color:white;text-align:center"')+">"+value['nperms']+"</td>" +
+                        "<td "+((value['perms'] === true)? 'style="background-color:#2ECC40;color:white;text-align:center"' : 'style="background-color:rgba(193, 9, 9, 0.5);color:white;text-align:center"')+">"+value['nperms']+"</td>" +
                         "<td>"+value['status']+"</td>" +
                         "<td><button class='btn-info btn clearcompilespec' attr-href='"+value['clear']+"' attr-env='"+value['env']+"'>CL</button></td>"+
                         "</tr>");
@@ -762,6 +774,105 @@ var removeRouting = function (url) {
     })
 };
 
+/**
+ * Dashboard Statistics
+ * @param url Url to have dashboard stats
+ */
+var dashboardStatistics = function () {
+
+    var selector = $('.dashboardStats');
+    if (typeof selector.attr("attr-href") === "undefined")
+        return (1);
+    $.ajax({
+        url : selector.attr("attr-href"),
+        type : 'POST',
+        dataType : 'json',
+        success : function(data){
+            if (data['code'] === 200)
+            {
+                var rs = data['results'];
+                $('.dashb-app').html(rs['apps']['number']);
+                $('.dashb-appena').html(rs['apps']['prefixed']);
+                $('.dashb-apppre').html(rs['apps']['enabled']);
+
+                $('.dashb-dbco').html(rs['dbs']['number']);
+
+                $('.dashb-route').html(rs['routes']['number']);
+                $('.dashb-routedisa').html(rs['routes']['disabled']);
+                $('.dashb-routevisi').html(rs['routes']['public']);
+
+                $('.dashb-reqsuc').html(rs['logs']['success']);
+                $('.dashb-err').html(rs['logs']['errors']);
+                $('.dashb-errcri').html(rs['logs']['critical']);
+                $('.dashb-erroth').html(rs['logs']['others']);
+            }
+        },
+        error : function (data) {
+            operationError(data);
+        }
+    })
+};
+
+/**
+ * export an app
+ * @param url Url to export app
+ */
+var exportApp = function (url) {
+
+    $.ajax({
+        url : url,
+        type : 'GET',
+        dataType : 'json',
+        success : function(data){
+            if (data['code'] === 200)
+            {
+                getAppListSimple();
+                operationSuccess();
+            }
+        },
+        error : function (data) {
+            operationError(data);
+        }
+    })
+};
+
+
+/**
+ * install an app
+ * @param url Url to install app
+ */
+var installApp = function (url) {
+
+    var file_data = $('#apppackage').prop('files')[0];
+    var form_data = new FormData();
+    form_data.append('file', file_data);
+    $.ajax({
+        url : url,
+        type : 'POST',
+        data: form_data,
+        contentType: false,
+        cache: false,
+        processData:false,
+
+        success : function(data){
+            var ndata = JSON.parse(data);
+            if (ndata['code'] === 200)
+            {
+                getAppListSimple();
+                operationSuccess();
+                $("#modalManager").find(".modal-body").append("<h5 class='text-center' style='color: limegreen'><em>"+ndata["ext"]+"</em></h5>");
+            }
+        },
+        error : function (data) {
+            operationError(data);
+            var d = JSON.parse(data["responseText"]);
+            $("#modalManager").find(".modal-body").append("<h5 class='text-center' style='color: red'><em>"+d["msg"]+"</em></h5>");
+        }
+    })
+};
+
+
+
 
 /**
  * rebuild js routing file
@@ -1037,6 +1148,8 @@ $(document).ready(function () {
     getAllSmartyConfigs();
     getAllAssets();
     getRoutingList();
+    dashboardStatistics();
+
 
     setInterval(function () {
         if (noapp === false)
@@ -1050,6 +1163,7 @@ $(document).ready(function () {
             getAllSmartyConfigs();
             getAllAssets();
             getRoutingList();
+            dashboardStatistics();
         }
     }, 7000);
 
@@ -1326,6 +1440,13 @@ $(document).ready(function () {
             case "removearouting":
                 removeRouting(href);
                 break;
+            case "processtoexportapp":
+                exportApp(href);
+                break;
+            case "installapp":
+                installApp(href);
+                break;
+
             case "callprodassets":
             case "calldevassets":
             case "callassets":
@@ -1436,6 +1557,43 @@ $(document).ready(function () {
                 }
             }
         });
+    });
+
+    /**
+     * Event to import an app
+     */
+    $(document).on('click', ".importapp", function () {
+        var selector = $(this);
+        var href = selector.attr("attr-href");
+
+        var selecttorModal = $("#modalManager");
+
+        selecttorModal.find(".modal-header").html("<strong class='text-center'>Import an app</strong>");
+        selecttorModal.find(".modal-header").append("<p class='alert alert-danger onealert' style='display: none'></p>");
+        selecttorModal.find(".modal-body").html("<h4 class='text-center'>Select the app package in your computer</h4>");
+        selecttorModal.find(".modal-body").append("<br>");
+        selecttorModal.find(".modal-body").append("<div class='container'><div class='row'>");
+
+        selecttorModal.find(".modal-body").append("<div class='form-group text-center'><label>Package</label><input type='file' id='apppackage' name='apppackage' class='form-control text-center'></div>");
+        selecttorModal.find(".modal-body").append("</div></div>");
+       selecttorModal.find(".modal-body").append("</div></div>");
+
+        selecttorModal.find(".btn-close").html("Close");
+
+        selecttorModal.find(".btn-valid").attr("attr-href", href);
+        selecttorModal.find(".btn-valid").attr("attr-event", "installapp");
+        selecttorModal.find(".btn-close").show();
+        selecttorModal.find(".btn-valid").hide();
+
+
+        modal("show");
+    });
+
+    $(document).on("change", "#apppackage", function (e) {
+        e.preventDefault();
+        var selecttorModal = $("#modalManager");
+        selecttorModal.find(".btn-valid").html("Install");
+        selecttorModal.find(".btn-valid").show();
     });
 
 
@@ -1558,30 +1716,29 @@ $(document).ready(function () {
                 {
                     result = data['results'];
                     var selecttorModal = $("#modalManager");
-
                     selecttorModal.find(".modal-header").html("<strong class='text-center'>Content of  "+filename+" routing file :  "+appname+"</strong>");
                     selecttorModal.find(".modal-body").html('');
                     $.each(result, function (index, value) {
-                        console.log(value[appname]);
                         var params = "";
                         var link_gen = "";
-                        if (typeof  value[appname]['params'] !== "undefined") {
-                            $.each(value[appname]['params'], function (index2, value2) {
+                        if (typeof  value['params'] !== "undefined") {
+                            $.each(value['params'], function (index2, value2) {
                                 params += "<tr><td>" + value2 + "</td><td>No requirement</td></tr>";
                             })
                         }
                         else
                             params = "<tr><td colspan='2'>No parameters</td></tr>";
 
-                        if ((typeof  value[appname]['route_gen'] !== "undefined") && value[appname]['visibility'] !== "disabled")
-                            link_gen = "<tr><td colspan='2'><a href='"+value[appname]['route_gen']+"'><strong>Go to link</strong></a></td></tr>";
+                        if ((typeof  value['route_gen'] !== "undefined") && value['visibility'] !== "disabled")
+                            link_gen = "<tr><td colspan='2'><a href='"+value['route_gen']+"'><strong>Go to link</strong></a></td></tr>";
 
                         selecttorModal.find(".modal-body").append("<div class='container' style='width: 100%'><div class='row'><table class='table table-bordered table-responsive  table-wrapper'"
-                            + "<tr><th colspan='2' class='text-center'>Route name : "+value[appname]['routename']+"</th></tr>"+
-                            "<tr><td>Path</td> <td> "+value[appname]['path']+"</td></tr>" +
-                            "<tr><td>Related master</td> <td> "+value[appname]['controller']+"Master</td></tr>"
-                            +"<tr><td>Visibility</td> <td> "+value[appname]['visibility']+"</td></tr>"
-                            +"<tr><td>Callable activity</td> <td> "+value[appname]['activity']+"Activity</td></tr>"
+                            + "<tr><th colspan='2' class='text-center'>Route name : "+value['routename']+"</th></tr>"+
+                            "<tr><td>Path</td> <td> "+value['path']+"</td></tr>" +
+                            "<tr><td>Related master</td> <td> "+value['controller']+"Master</td></tr>"
+                            +"<tr><td>Visibility</td> <td> "+value['visibility']+"</td></tr>"
+                            +"<tr><td>Callable activity</td> <td> "+value['method']+"</td></tr>"
+                            +"<tr><td>Method(s) allowed</td> <td> "+value['m_allow']+"</td></tr>"
                             +"<tr><td colspan='2' class='text-center text-info'><strong>Parameters</strong></td></tr>"+
                             params + link_gen +
                             "</table></div></div><br><br>"
@@ -1815,6 +1972,29 @@ $(document).ready(function () {
 
         selecttorModal.find(".btn-valid").attr("attr-href", href);
         selecttorModal.find(".btn-valid").attr("attr-event", "removearouting");
+        selecttorModal.find(".btn-close").show();
+        selecttorModal.find(".btn-valid").show();
+
+        modal("show");
+    });
+
+    /**
+     * Event to export an application
+     */
+    $(document).on('click', ".exportapp", function () {
+        var selector = $(this);
+        var href = selector.attr("attr-href");
+        var appname = selector.attr("attr-appname");
+
+        var selecttorModal = $("#modalManager");
+
+        selecttorModal.find(".modal-header").html("<strong class='text-center'>Export an app</strong>");
+        selecttorModal.find(".modal-body").html("<h4 class='text-center'>Would you like to export "+appname+" ?</h4>");
+        selecttorModal.find(".btn-close").html("No");
+        selecttorModal.find(".btn-valid").html("Yes");
+
+        selecttorModal.find(".btn-valid").attr("attr-href", href);
+        selecttorModal.find(".btn-valid").attr("attr-event", "processtoexportapp");
         selecttorModal.find(".btn-close").show();
         selecttorModal.find(".btn-valid").show();
 

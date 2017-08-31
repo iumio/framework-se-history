@@ -7,7 +7,7 @@ namespace iumioFramework\Core\Base\Http;
  * ServerRequest is a container for HTTP headers from the $_SERVER variable.
  *
  * @author Fabien Potencier <fabien@symfony.com>
- * @modifiedbyRAFINA Dany <danyrafina@gmail.com>
+ * @modifiedby RAFINA Dany <danyrafina@gmail.com>
  */
 class ServerRequest extends ParameterRequest
 {

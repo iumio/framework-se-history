@@ -28,6 +28,9 @@ class RtListener implements Listener
     protected $router = array();
     protected $partNameApp;
     private $prefix;
+    private $methodsReq = array("GET", "PUT", "DELETE", "POST",
+        "PATH", "ALL", "OPTIONS", "TRACE", "HEAD", "CONNECT");
+    private $keywords = array("name", "path", "activity", "m_allow", "route", "endroute", "visibility");
 
     /**
      * RtListener constructor.
@@ -60,7 +63,7 @@ class RtListener implements Listener
             if (($router = fopen(((!$isbase) ? ROOT . "/apps/" : BASE_APPS) . $this->appName . "/Routing/" . $file, "r"))) {
                 if ($this->analyseRT($router, $file, $this->appName) == 0) exit();
                 rewind($router);
-                $rtarray = array("activity" => "", "path" => "", "name" => "", "visibility" => "private");
+                $rtarray = array("activity" => "", "path" => "", "name" => "", "visibility" => "private", "m_allow" => "ALL");
                 $start = 0;
                 $end = 0;
                 while ($listen = fgets($router, 1024)) {
@@ -69,22 +72,27 @@ class RtListener implements Listener
 
                     if ($listen === "")
                         continue;
-                    if ($listen === "route:" && $start == 0 && $end === 0) {
+                    if ($listen === "route:" && $start == 0 && $end === 0)
+                    {
                         $start = 1;
                         continue;
-                    } else if ($listen === "endroute" && $start === 1 & $end === 0) {
+                    }
+                    else if ($listen === "endroute" && $start === 1 & $end === 0) {
                         $end = 1;
                         array_push($routingArray, $rtarray);
-                    } else if (($this->strlike_in_array($listen, array("activity", "path", "name")) !== false) ||
-                        ($this->strlike_in_array($listen, array("activity", "path", "name", "visibility")) !== false)) {
-
+                    }
+                    else if ($this->strlike_in_array(trim($listen), $this->keywords))
+                    {
                         $listen = explode(':', $listen);
+                        if (!in_array($listen[0], $this->keywords))
+                            throw new Server500(new \ArrayObject(array("explain" =>
+                                "Unknown keyword '$listen[0]' in $file : ".$this->appName,
+                                "solution" => "Please add the correct keyword : ".json_encode($this->keywords))));
                         $rtarray[$listen[0]] = $listen[1];
                     }
-
                     if ($start === 1 && $end === 1) {
                         if ($this->checkIfKeyExist($rtarray, $file, $this->appName) != 1) exit();
-                        $rtarray = array("method" => "", "path" => "", "name" => "", "visibility" => "private");
+                        $rtarray = array("method" => "", "path" => "", "name" => "", "visibility" => "private", "m_allow" => "ALL");
                         $start = $end = 0;
                     }
 
@@ -114,17 +122,106 @@ class RtListener implements Listener
                 if (!method_exists($reflect->newInstance(), $function."Activity") || !is_callable(array($reflect->newInstance(), $function."Activity")))
                     throw new Server500(new \ArrayObject(array("explain" => "Activity is not callable : '".$controller.":".$function."Activity"."' : ".$this->appName, "solution" => "Please check your controller activity")));
                 if (!empty($params))
-                    array_push($this->router, array("routename" =>  $routingArray[$i]['name'], "path" => $routingArray[$i]['path'], "controller" => $controller, "method" => $function . "Activity", "visibility" => $routingArray[$i]['visibility'], "params" => $params));
+                    array_push($this->router, array("routename" =>  $routingArray[$i]['name'], "path" => $routingArray[$i]['path'], "controller" => $controller, "method" => $function . "Activity", "visibility" => $routingArray[$i]['visibility'], "params" => $params, "m_allow" => $this->methodAllowedTransform($routingArray[$i]['m_allow'])));
                 else
-                    array_push($this->router, array("routename" =>  $routingArray[$i]['name'], "path" =>  $routingArray[$i]['path'], "controller" => $controller, "method" => $function . "Activity", "visibility" => $routingArray[$i]['visibility'],));
+                    array_push($this->router, array("routename" =>  $routingArray[$i]['name'], "path" =>  $routingArray[$i]['path'], "controller" => $controller, "method" => $function . "Activity", "visibility" => $routingArray[$i]['visibility'], "m_allow" => $this->methodAllowedTransform($routingArray[$i]['m_allow'])));
             }
             else
-                throw new  Server500(new \ArrayObject(array("explain" => "Missing delimiter '%' to detect Activity' for  ".strtoupper($routingArray[$i]['name'])." route : ".$this->appName, "solution" => "Please add the correct delimiter")));
+                throw new Server500(new \ArrayObject(array("explain" => "Missing delimiter '%' to detect Activity' for  ".strtoupper($routingArray[$i]['name'])." route : ".$this->appName, "solution" => "Please add the correct delimiter")));
         }
 
         return (1);
     }
 
+
+    /**
+     * Transform method allowed argument to array
+     * @param string $methods Method allowed
+     * @return array Method allowed array format
+     * @throws Server500
+     */
+    private function methodAllowedTransform(string $methods):array
+    {
+        if (is_string($methods) || $this->IS_JSON_RT_FORMAT($methods))
+        {
+            switch ($methods)
+            {
+                case $this->IS_JSON_RT_FORMAT($methods) == 1:
+                    $r = $this->TRS_JSON_RT_TO_ARRAY($methods);
+                    foreach ($r as $one) {
+                        if ($this->checkMethodExist($one)) continue;
+                    }
+                    return ($r);
+                    break;
+                case is_string($methods):
+                    if ($this->checkMethodExist($methods))
+                        return (array($methods));
+                    break;
+                default :
+                    throw new Server500(new \ArrayObject(
+                        array("explain" => "Invalid format for Allowed methods request (m_allow)",
+                            "solution" => "Please check the 'm_allow' tag format")));
+            }
+        }
+        else
+            throw new Server500(new \ArrayObject(
+                array("explain" => "Invalid format for Allowed methods request (m_allow)",
+                    "solution" => "Please check the 'm_allow' tag format")));
+        return (array());
+    }
+
+
+
+    /**
+     * Check if request method exist
+     * @param string $method Method request
+     * @return int If method exist
+     * @throws Server500
+     */
+    private function checkMethodExist(string $method):int
+    {
+        if (in_array($method, $this->methodsReq)) return (1);
+        else
+            throw new Server500(new \ArrayObject(array("explain" => "Unknown method $method for Allowed method request",
+                "solution" => "Allowed methods request must be ".json_encode($this->methodsReq))));
+    }
+
+    /** Check if string is a JSON RT
+     * @param string $string string methods request
+     * @return int If it's a json rt or not
+     */
+    private function IS_JSON_RT_FORMAT(string $string):int
+    {
+        $len =  strlen($string);
+
+        if ($len > 3 && ($string[0] == "{" && $string[$len - 1] == "}"))
+        {
+            $string = str_replace("{", "", $string);
+            $string = str_replace("}", "", $string);
+            $r = explode(',', $string);
+            return (!in_array(" ", $r))? 1 : 0;
+        }
+       return (0);
+    }
+
+
+    /** Transform JSON RT Format to array
+     * @param string $string string methods request
+     * @return array Array contains allowed methods
+     */
+    private function TRS_JSON_RT_TO_ARRAY(string $string):array
+    {
+        $len =  strlen($string);
+
+        if ($len > 3 && ($string[0] == "{" && $string[$len - 1] == "}"))
+        {
+            $string = str_replace("{", "", $string);
+            $string = str_replace("}", "", $string);
+            $r = explode(',', $string);
+            return (!in_array(" ", $r))? $r : array();
+        }
+        return (array());
+    }
 
     /** Check if key exist
      * @param array $resource Resource array
@@ -162,19 +259,17 @@ class RtListener implements Listener
      *
      * @param  mixed   $needle    The searched value
      * @param  array   $haystack  The array to search in
-     * @return mixed
+     * @return bool False for unknown value or the value is founded
      */
 
-    private function strlike_in_array($needle, array $haystack)
+    private function strlike_in_array($needle, array $haystack):bool
     {
         foreach ($haystack as $one => $value)
         {
-            if (strpos($value, $needle) !== false)
-            {
-                return ($value);
-            }
+            if (preg_match("/$value/", $needle) === 1)
+                return (true);
         }
-        return (null);
+        return (false);
     }
 
 

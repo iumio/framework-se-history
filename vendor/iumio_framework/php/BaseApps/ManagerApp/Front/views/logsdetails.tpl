@@ -3,7 +3,7 @@
     <div class="wrapper">
         {include file='partials/sidebar.tpl'}
     <div class="main-panel">
-        <nav class="navbar navbar-default navbar-fixed {if $details->code == 500}navbar-ct-red{else}navbar-ct-orange{/if}">
+        <nav class="navbar navbar-default navbar-fixed {if $details->code == 500}navbar-ct-red{elseif $details->code == 200}navbar-ct-green{else}navbar-ct-orange{/if}">
             <div class="container-fluid">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-example-2">
@@ -28,7 +28,7 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="header">
-                                <h4 class="title">Error details</h4>
+                                <h4 class="title">{if $details->code == 200}Success details{else}Error details{/if}</h4>
                                 <p class="category fs16">UIDIE : <strong>{$details->uidie}</p>
                                 <p class="category fs16">Environment : <strong>{$env}</p>
                                 <p class="category fs16">Code : {$details->code} | Type : {$details->code_title}</p>
@@ -37,6 +37,7 @@
                                 <p class="category fs16 ">Referer IP : [ {$details->client_ip}]</p>
                                 <p class="category fs16 break-word">Referer URI :  {$details->referer}</p>
                             </div>
+                            {if $details->code != 200}
                             <div class="content text-center">
                                 <div class="typo-line">
                                     <h5 class="break-word"><p class="category fs20 fw900">Explain</p>{$details->explain}</h5>
@@ -46,6 +47,10 @@
                                     <h5 class="break-word"><p class="category fs20 fw900">Solution</p>{$details->solution}</h5>
                                 </div>
                             </div>
+                            {else}
+                                <div class="content text-center">
+                                </div>
+                            {/if}
                         </div>
                     </div>
 

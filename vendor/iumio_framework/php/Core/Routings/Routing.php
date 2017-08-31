@@ -14,6 +14,7 @@ namespace iumioFramework\HttpRoutes;
 use iumioFramework\Core\Base\Debug\Debug;
 use iumioFramework\Core\Base\RtListener;
 use iumioFramework\Core\Base\iumioEnvironment as Env;
+use iumioFramework\Exception\Server\Server405;
 
 /**
  * Class Routing
@@ -76,6 +77,24 @@ class Routing extends RtListener
         return ($routes);
     }
 
+
+    /** Check match of Method request and method request route
+     * @param  mixed $ctr Controller parameters
+     * @param string $met_call Method request called
+     * @return int Is a success
+     * @throws Server405
+     */
+    static public function checkRouteMatchesMethod($ctr, string $met_call):int
+    {
+        if (isset($ctr["m_allow"]) && in_array("ALL", $ctr["m_allow"]))
+            return (1);
+        else if (isset($ctr["m_allow"]) && is_string($ctr["m_allow"]) && $ctr["m_allow"] === $met_call)
+            return (1);
+        else if (isset($ctr["m_allow"]) && is_array($ctr["m_allow"]) && in_array($met_call, $ctr["m_allow"]))
+            return (1);
+        else
+            throw new Server405(new \ArrayObject(array("explain" => "Method request $met_call is not allowed for this route", "solution" => "Route required methods : ".json_encode($ctr["m_allow"]))));
+    }
 
     /** Get similarity routes
      * @param $appRoute string the app route
@@ -157,8 +176,6 @@ class Routing extends RtListener
                     array_push($paramValues, $wRE[$i]);
             }
         }
-
-
 
         if (isset($route['params']))
         {

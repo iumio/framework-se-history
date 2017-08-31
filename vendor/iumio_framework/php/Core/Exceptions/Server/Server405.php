@@ -1,0 +1,40 @@
+<?php
+
+/*
+ * This is an iumio Framework component
+ *
+ * (c) RAFINA DANY <danyrafina@gmail.com>
+ *
+ * iumio Framework - iumio Components
+ *
+ * To get more information about licence, please check the licence file
+ */
+
+namespace iumioFramework\Exception\Server;
+use ArrayObject;
+
+/**
+ * Class Server405
+ * @package iumioFramework\Exception\Server
+ * @author RAFINA Dany <danyrafina@gmail.com>
+ */
+
+class Server405 extends AbstractServer
+{
+    /**
+     * Server405 constructor.
+     * @param ArrayObject $component
+     * @param $none string parameter not used. it's for the interface
+     */
+    public function __construct(ArrayObject $component, string $none = null)
+    {
+        $this->code = '405';
+        $this->codeTitle = 'Method Not Allowed';
+        $this->explain =  'The request method is not allowed.';
+        $this->solution = NULL;
+        $this->env = NULL;
+        parent::__construct($component, 'Method Not Allowed');
+    }
+}
+
+

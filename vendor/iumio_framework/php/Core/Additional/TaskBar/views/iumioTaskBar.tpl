@@ -7,6 +7,9 @@
         <li class="flogo"><img src="{$iumiotaskbar['logo']}"/> </li>
         <li><a class="active" href="#"><strong>{$iumiotaskbar['ve']} - {$iumiotaskbar['env']}</strong></a></li>
         <li><a href="#" class="active" style="border-right: 1px solid white;"><strong>{$iumiotaskbar['call_app']}</strong></a></li>
+        <li>
+            <a href="#" id="iumioTaskBarRequests" attr-href="{$iumiotaskbar['get_logs']}">No request</a>
+        </li>
         <li id="iumioTaskBarAssets" class="iumioTaskBarDropdown"><a href="#">Assets</a>
             <ul class="iumioTaskBarDropdownContent">
                 <li class="iumioTaskBarAssetsClearAll"    attr-href="{$iumiotaskbar['publish_assets_all']}"  >Publish all</li>

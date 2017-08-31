@@ -149,6 +149,7 @@ class iumioTaskBar
             $options['clear_assets_dev']    =  $um->generateRoute("iumio_manager_assets_manager_clear", array("env" => "dev", "appname" => "_all"), "ManagerApp", true);
             $options['clear_assets_prod']   =  $um->generateRoute("iumio_manager_assets_manager_clear", array("env" => "prod", "appname" => "_all"), "ManagerApp", true);
             $options['all_simple_apps']     =  $um->generateRoute("iumio_manager_app_manager_get_simple_apps", null, "ManagerApp", true);
+            $options['get_logs']            =  $um->generateRoute("iumio_manager_logs_get", null, "ManagerApp", true);
 
         }
         catch (\Exception $e)

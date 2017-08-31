@@ -13,9 +13,12 @@
 namespace iumioFramework\Core\Requirement;
 use iumioFramework\Core\Additionnal\Server\iumioServerManager;
 use iumioFramework\Core\Base\Http\HttpListener;
+use iumioFramework\Exception\Access\Access200;
 use iumioFramework\HttpRoutes\Routing;
 use iumioFramework\Core\Requirement\{Relexion\iumioReflexion, FrameworkServices\GlobalCoreService};
-use iumioFramework\Exception\Server\{Server500, Server404, Server000};
+use iumioFramework\Exception\Server\{
+    Server200, Server500, Server404, Server000
+};
 use iumioFramework\Core\Base\Json\JsonListener as JL;
 
 /**
@@ -102,15 +105,23 @@ abstract class iumioCore extends GlobalCoreService
      */
     public function checkPermission():int
     {
-        if (!iumioServerManager::checkIsExecutable(ROOT."elements/") || !iumioServerManager::checkIsReadable(ROOT."elements/") || !iumioServerManager::checkIsWritable(ROOT."elements/"))
+        if (!iumioServerManager::checkIsExecutable(ROOT."elements/") ||
+            !iumioServerManager::checkIsReadable(ROOT."elements/") ||
+            !iumioServerManager::checkIsWritable(ROOT."elements/"))
         {
-            throw new Server500(new \ArrayObject(array("explain" =>"Core Error : Folder /elements does not have correct permission", "solution" => "Must be read, write, executable permission")));
+            throw new Server500(new \ArrayObject(array("explain" =>
+                "Core Error : Folder /elements does not have correct permission",
+                "solution" => "Must be read, write, executable permission")));
             return (0);
         }
 
-        if (!iumioServerManager::checkIsExecutable(ROOT."apps/") || !iumioServerManager::checkIsReadable(ROOT."apps/") || !iumioServerManager::checkIsWritable(ROOT."apps/"))
+        if (!iumioServerManager::checkIsExecutable(ROOT."apps/") ||
+            !iumioServerManager::checkIsReadable(ROOT."apps/") ||
+            !iumioServerManager::checkIsWritable(ROOT."apps/"))
         {
-            throw new Server500(new \ArrayObject(array("explain" =>"Core Error : Folder /apps does not have correct permission", "solution" => "Must be read, write, executable permission")));
+            throw new Server500(new \ArrayObject(array("explain" =>
+                "Core Error : Folder /apps does not have correct permission",
+                "solution" => "Must be read, write, executable permission")));
             return (0);
         }
         return (1);
@@ -129,7 +140,8 @@ abstract class iumioCore extends GlobalCoreService
         foreach ($apps as $oneapp => $val)
             if ($val['isdefault'] == "yes") return (array("name" => $oneapp, "value" => $val));
 
-        throw new Server500(new \ArrayObject(array("explain" => "No Default app is detected", "solution" => "Please edit apps.json to set a default app")));
+        throw new Server500(new \ArrayObject(array("explain" => "No Default app is detected", "solution" =>
+            "Please edit apps.json to set a default app")));
 
     }
 
@@ -256,6 +268,7 @@ abstract class iumioCore extends GlobalCoreService
             if ($rt->routingRegister() == true) {
                 $callback = $this->manage($request, $rt->routes());
                 if ($callback != NULL) {
+                    Routing::checkRouteMatchesMethod($callback, strtoupper($request->getMethod()));
                     $method = $callback['method'];
                     $controller = $callback['controller'];
                     $defname = $def['name'];
@@ -269,12 +282,14 @@ abstract class iumioCore extends GlobalCoreService
                         else
                             $call->__named($master, $method);
                         $great = true;
+                        new Access200();
                     } catch (\Exception $exception) {
                         throw new Server500(new \ArrayObject(array("explain" => $exception->getMessage())));
                     }
                 }
             } else
-                throw new Server500(new \ArrayObject(array("explain" => "Router register failed  ", "solution" => "Please check your app configuration")));
+                throw new Server500(new \ArrayObject(array("explain" => "Router register failed  ", "solution" =>
+                    "Please check your app configuration")));
         }
 
         if ($great == false)
@@ -302,6 +317,7 @@ abstract class iumioCore extends GlobalCoreService
                     if ($rt->routingRegister() == true) {
                         $callback = $this->manage($request, $rt->routes());
                         if ($callback != NULL) {
+                            Routing::checkRouteMatchesMethod($callback, strtoupper($request->getMethod()));
                             $method = $callback['method'];
                             $controller = $callback['controller'];
                             $defname = $def['name'];
@@ -321,12 +337,17 @@ abstract class iumioCore extends GlobalCoreService
                         }
 
                     } else
-                        throw new Server500(new \ArrayObject(array("explain" => $def['name'] . " component not contain a related router", "solution" => "Please check the if 'routingRegister' is present in your router")));
+                        throw new Server500(new \ArrayObject(array("explain" => $def['name'] .
+                            " component not contain a related router", "solution" =>
+                            "Please check the if 'routingRegister' is present in your router")));
                 } else
-                    throw new Server500(new \ArrayObject(array("explain" => $def['name'] . " component doesn't contain 'off' method ", "solution" => "Please add off method to your component")));
+                    throw new Server500(new \ArrayObject(array("explain" => $def['name'] .
+                        " component doesn't contain 'off' method ", "solution" =>
+                        "Please add off method to your component")));
             }
             else
-                throw new Server500(new \ArrayObject(array("explain" => "Component doesn't exist ", "solution" => "Check apps.json file in base app")));
+                throw new Server500(new \ArrayObject(array("explain" => "Component doesn't exist ", "solution" =>
+                    "Check apps.json file in base app")));
         }
         return (false);
     }
@@ -446,7 +467,8 @@ abstract class iumioCore extends GlobalCoreService
                 }
                 catch (\Exception $e)
                 {
-                    throw new Server500(new \ArrayObject(array("explain" => "Core Error: The server info $infoname does not exist", "solution" => "Check your keyword")));
+                    throw new Server500(new \ArrayObject(array("explain" =>
+                        "Core Error: The server info $infoname does not exist", "solution" => "Check your keyword")));
                 }
 
                 break;
@@ -470,7 +492,8 @@ abstract class iumioCore extends GlobalCoreService
                 exit(1);
             }
             else
-                throw new \RuntimeException("(Setup components does not exist in web directory => Please download the setup components on iumio Framework Website to fix this error and put him in web directory)");
+                throw new \RuntimeException("(Setup components does not exist in web directory => Please download".
+                 "the setup components on iumio Framework Website to fix this error and put him in web directory)");
 
         }
         return (0);

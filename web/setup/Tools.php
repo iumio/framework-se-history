@@ -32,6 +32,14 @@ class Tools
         "vendor/libs/smarty/"               => "Smarty libs not found : check if 'composer install' command had be done"
     );
 
+    public static $php_extensions           = array(
+        "zip"                               => "libzip is not loaded or not installed : check your extension installation"
+    );
+
+    public static $apache_extensions        = array(
+        "mod_rewrite"                       => "mod_rewrite is not found in your server: Please install this extension"
+    );
+
     /** Check the php version
      * @return string If php version is compatible
      */
@@ -139,6 +147,13 @@ class Tools
             if (!is_dir($base.$lib) || !self::checkIsReadable($base.$lib) || !self::checkIsWritable($base.$lib) || self::is_dir_empty($base.$lib))
                 return (json_encode(array("code" => 500, "results" => "NOK", "libsr" => $lib, "msg" => $val)));
         }
+
+        foreach (self::$php_extensions as $lib => $val)
+        {
+            if (!extension_loaded($lib))
+                return (json_encode(array("code" => 500, "results" => "NOK", "libsr" => $lib, "msg" => $val)));
+        }
+
         return (json_encode(array("code" => 200, "results" => "OK")));
     }
 

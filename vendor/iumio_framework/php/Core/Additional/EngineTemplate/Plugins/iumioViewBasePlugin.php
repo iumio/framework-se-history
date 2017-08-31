@@ -30,7 +30,7 @@ class iumioViewBasePlugin
      */
     static public function webassets(array $params):string
     {
-        return (WEB_ASSETS.strtolower(IUMIO_ENV)."/".strtolower(APP_CALL)."/".$params['path']);
+        return (WEB_ASSETS.strtolower(IUMIO_ENV)."/".((isset($params['app']) && $params['app'] != "")? "min"."." : strtolower(APP_CALL))."/".$params['path']);
     }
 
     /** Get framework infos

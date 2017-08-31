@@ -45,3 +45,16 @@ route:
   path :  /_manager/apps/editsave/{appname}
   activity : Apps%edit
 endroute
+
+route:
+  name : iumio_manager_app_manager_export_app
+  path :  /_manager/apps/export/{appname}
+  activity : Apps%export
+endroute
+
+route:
+  name : iumio_manager_app_manager_import_app
+  path :  /_manager/apps/import
+  activity : Apps%import
+  m_allow : {POST}
+endroute

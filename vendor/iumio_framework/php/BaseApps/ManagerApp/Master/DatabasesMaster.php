@@ -33,6 +33,17 @@ class DatabasesMaster extends MasterCore
         return($this->render("databases", array("selected" => "databasesmanager")));
     }
 
+    /** Get databases statistics
+     * @return array Databases statistics
+     */
+    public function getStatisticsDatabases():array
+    {
+
+        $file = (array) JL::open(CONFIG_DIR.'db/databases.json');
+        JL::close(CONFIG_DIR.'db/databases.json');
+        return (array("number" => count($file)));
+    }
+
 
     /**
      * Get Databases list
@@ -69,7 +80,7 @@ class DatabasesMaster extends MasterCore
         }
 
         if ($remove == false)
-            return ((new Response())->JSON_RENDER(array("code" => 500, "msg" => "App does not exist")));
+            return ((new Response())->JSON_RENDER(array("code" => 500, "msg" => "Database configuration does not exist")));
         $file = json_encode((object) $file, JSON_PRETTY_PRINT);
         JL::put(CONFIG_DIR."db/databases.json", $file);
 

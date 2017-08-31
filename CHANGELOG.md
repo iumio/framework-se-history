@@ -8,6 +8,19 @@ iumio Framework
 
 ## [BETA RELEASE]
 
+## [0.4.6] - 2017-08-31
+### Added
+- Export and import an iumio App
+- Add methods request allowed in RT language
+- Add new php extension required (zip)
+- Add new item on iumio TaskBar : Request in realtime 
+### Fixed
+- some bugs
+
+## [0.4.5] - NO BUILD
+## [0.4.4] - NO BUILD
+## [0.4.3] - NO BUILD
+
 ## [0.4.2] - 2017-08-28
 ### Added
 - New Js Routing system

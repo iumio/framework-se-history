@@ -28,13 +28,13 @@
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-md-6">
-                            <div class="card">
+                            <div class="card h350">
                                 <div class="header">
                                     <h4 class="title">iumio Framework</h4>
                                     <p class="category">Characteristics</p>
                                 </div>
                                 <div class="content">
-                                    <ul>
+                                    <ul class="break-word">
                                         <li>Framework edition : {framework_info name='VERSION_EDITION'} </li>
 
                                         <li>Actual version : {framework_info name='VERSION_STAGE'} {framework_info name='VERSION'} </li>
@@ -47,15 +47,13 @@
 
                                         <li>Base OS install : {$fi->os}</li>
 
-
-
                                     </ul>
 
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="card">
+                            <div class="card h350">
                                 <div class="header">
                                     <h4 class="title">Server</h4>
                                     <p class="category">Informations</p>
@@ -74,16 +72,39 @@
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="card">
+                            <div class="card h350">
                                 <div class="header">
                                     <h4 class="title">Logs</h4>
-                                    <p class="category">Last logs error</p>
+                                    <p class="category">Last logs error (10)</p>
                                 </div>
                                 <div class="content">
                                     <ul class="lastlog" attr-href="{route name='iumio_manager_logs_get'}">
 
                                     </ul>
 
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card h350">
+                                <div class="header">
+                                    <h4 class="title">iumio Framework</h4>
+                                    <p class="category">Statistics</p>
+                                </div>
+                                <div class="content dashboardStats" attr-href="{route name='iumio_manager_dashboard_get_statistics'}">
+                                    <ul>
+                                        <li>Apps  : <span class="dashb-app">0</span> </li>
+                                        <li>Apps enabled : <span class="dashb-appena">0</span></li>
+                                        <li>App prefixed  : <span class="dashb-apppre">0</span></li>
+                                        <li>Routes  : <span class="dashb-route">0</span></li>
+                                        <li>Routes disabled : <span class="dashb-routedisa">0</span></li>
+                                        <li>Routes with public visibility : <span class="dashb-routevisi">0</span></li>
+                                        <li>Requests successful : <span class="dashb-reqsuc">0</span></li>
+                                        <li>Errors : <span class="dashb-err">0</span></li>
+                                        <li>Critical Errors (Error 500) : <span class="dashb-errcri">0</span></li>
+                                        <li>Others Errors : <span class="dashb-erroth">0</span></li>
+                                        <li>Databases connected : <span class="dashb-dbco">0</span></li>
+                                    </ul>
                                 </div>
                             </div>
                         </div>

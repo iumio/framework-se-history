@@ -110,7 +110,8 @@ class HttpResponse
         if (isset(self::$response[$code]))
             return (self::$response[$code]);
         else
-            throw new Server500(new \ArrayObject(array("explain" => "Http code does not exist", "solution" => "Please check your http code")));
+            throw new Server500(new \ArrayObject(array("explain" => "Http code does not exist",
+                "solution" => "Please check your http code")));
     }
 
 

@@ -18,6 +18,12 @@
     width: 100%!important;
 }
 
+.h350
+{
+    height: 350px!important;
+    overflow-y: auto;
+}
+
 .fw900
 {
     font-weight: 900!important;
@@ -33,6 +39,11 @@
     font-size: 16px!important;
 }
 
+#apppackage
+{
+    width: 220px;
+    margin: 0 auto;
+}
 .break-word
 {
     word-wrap: break-word!important;

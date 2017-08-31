@@ -13,6 +13,7 @@
 
 namespace ManagerApp\Masters;
 use iumioFramework\Core\Additionnal\Server\iumioServerManager;
+use iumioFramework\Exception\Server\Server500;
 use iumioFramework\HttpRoutes\JsRouting;
 use iumioFramework\Masters\MasterCore;
 use iumioFramework\Core\Base\Json\JsonListener as JL;
@@ -27,6 +28,9 @@ use iumioFramework\Core\Base\Http\Response\Response;
 class RoutingMaster extends MasterCore
 {
 
+    private $methodsReq = array("GET", "PUT", "DELETE", "POST",
+        "PATH", "ALL", "OPTIONS", "TRACE", "HEAD", "CONNECT");
+    private $keywords = array("name", "path", "activity", "m_allow", "route", "endroute", "visibility");
     /**
      * Going to app manager
      */
@@ -40,19 +44,17 @@ class RoutingMaster extends MasterCore
      *
      * @param  mixed   $needle    The searched value
      * @param  array   $haystack  The array to search in
-     * @return mixed
+     * @return bool False for unknown value or the value is founded
      */
 
-    private function strlike_in_array($needle, array $haystack)
+    private function strlike_in_array($needle, array $haystack):bool
     {
         foreach ($haystack as $one => $value)
         {
-            if (strpos($value, $needle) !== false)
-            {
-                return ($value);
-            }
+            if (preg_match("/$value/", $needle) === 1)
+                return (true);
         }
-        return (null);
+        return (false);
     }
 
     /** Detect any parameters in path
@@ -82,6 +84,33 @@ class RoutingMaster extends MasterCore
         return ($params);
     }
 
+    /** Get routing statistics
+     * @return array Routing statistics
+     */
+    public function getStatisticsRouting():array
+    {
+
+        $f = $this->getallRouting();
+        $fc = 0;
+        $fdisabled = 0;
+        $fpublic = 0;
+
+        foreach ($f as $one)
+        {
+            $fc += $one['count_route'];
+            $z = $this-> getRtContent($one['name'], $one['app']);
+            foreach ($z as $two)
+            {
+                if ($two['visibility'] == "disabled")
+                    $fdisabled++;
+                else if ($two['visibility'] == "public")
+                    $fpublic++;
+            }
+        }
+
+        return (array("number" => $fc, "disabled" => $fdisabled, "public" => $fpublic));
+    }
+
     /**
      * @param string $filename
      * @param string $appname
@@ -105,12 +134,11 @@ class RoutingMaster extends MasterCore
                     $prefix = $o->prefix;
             }
 
-            $rtarray = array("activity" => "", "path" => "", "name" => "", "visibility" => "private");
+            $rtarray = array("activity" => "", "path" => "", "name" => "", "visibility" => "private", "m_allow" => "ALL");
             $start = 0;
             $end = 0;
             $croute = 0;
             while ($listen = fgets($router, 1024)) {
-
                 $listen = preg_replace($pattern, $replace, $listen);
 
                 if ($listen === "")
@@ -121,22 +149,25 @@ class RoutingMaster extends MasterCore
                 } else if ($listen === "endroute" && $start === 1 & $end === 0) {
                     $end = 1;
                     array_push($routingArray, $rtarray);
-                } else if (($this->strlike_in_array($listen, array("activity", "path", "name", "visibility")) !== false) ||
-                    ($this->strlike_in_array($listen, array("activity", "path", "name", "visibility")) !== false)) {
-
-                    $listen = explode(':', $listen);
-                    $rtarray[$listen[0]] = $listen[1];
                 }
 
+                else if ($this->strlike_in_array(trim($listen), $this->keywords))
+                {
+                    $listen = explode(':', $listen);
+                    if (!in_array($listen[0], $this->keywords))
+                        new Server500(new \ArrayObject(array("explain" =>
+                            "Unknown keyword '$listen[0]' in $filename : ".$appname,
+                            "solution" => "Please add the correct keyword : ".json_encode($this->keywords))));
+                    $rtarray[$listen[0]] = $listen[1];
+                }
                 if ($start === 1 && $end === 1) {
-                    $rtarray = array("method" => "", "path" => "", "name" => "", "visibility" => "private");
+                    $rtarray = array("activity" => "", "path" => "", "name" => "", "visibility" => "private", "m_allow" => "ALL");
                     $start = $end = 0;
                     $croute++;
                 }
 
             }
         }
-
 
         for ($i = 0; $i < count($routingArray); $i++) {
 
@@ -148,18 +179,107 @@ class RoutingMaster extends MasterCore
             $route_gen = "";
 
            if (empty($params))
-               $route_gen = $this->generateRoute($routingArray[$i]['name'], null, $appname);
+             $route_gen = $this->generateRoute($routingArray[$i]['name'], null, $appname);
 
             if (!empty($params))
-                array_push($rt, array($appname => array("routename" => $routingArray[$i]['name'], "path" => $routingArray[$i]['path'], "controller" => $controller, "activity" => $function, "params" => $params, "visibility" => $routingArray[$i]['visibility'])));
+                array_push($rt, array("routename" =>  $routingArray[$i]['name'], "path" => $routingArray[$i]['path'], "controller" => $controller, "method" => $function . "Activity", "visibility" => $routingArray[$i]['visibility'], "params" => $params, "m_allow" => $this->methodAllowedTransform($routingArray[$i]['m_allow'])));
             else
-                array_push($rt, array($appname => array("routename" => $routingArray[$i]['name'], "path" => $routingArray[$i]['path'], "controller" => $controller, "activity" => $function, "route_gen" => $route_gen, "visibility" => $routingArray[$i]['visibility'])));
+                array_push($rt, array("routename" =>  $routingArray[$i]['name'], "path" =>  $routingArray[$i]['path'], "controller" => $controller, "method" => $function . "Activity", "route_gen" => $route_gen, "visibility" => $routingArray[$i]['visibility'], "m_allow" => $this->methodAllowedTransform($routingArray[$i]['m_allow'])));
+
 
         }
         return ($rt);
     }
 
 
+    /**
+     * Transform method allowed argument to array
+     * @param string $methods Method allowed
+     * @return array Method allowed array format
+     * @throws Server500
+     */
+    private function methodAllowedTransform(string $methods):array
+    {
+        if (is_string($methods) || $this->IS_JSON_RT_FORMAT($methods))
+        {
+            switch ($methods)
+            {
+                case $this->IS_JSON_RT_FORMAT($methods) == 1:
+                    $r = $this->TRS_JSON_RT_TO_ARRAY($methods);
+                    foreach ($r as $one) {
+                        if ($this->checkMethodExist($one)) continue;
+                    }
+                    return ($r);
+                    break;
+                case is_string($methods):
+                    if ($this->checkMethodExist($methods))
+                        return (array($methods));
+                    break;
+                default :
+                     new Server500(new \ArrayObject(
+                        array("explain" => "Invalid format for Allowed methods request (m_allow)",
+                            "solution" => "Please check the 'm_allow' tag format")));
+            }
+        }
+        else
+             new Server500(new \ArrayObject(
+                array("explain" => "Invalid format for Allowed methods request (m_allow)",
+                    "solution" => "Please check the 'm_allow' tag format")));
+        return (array());
+    }
+
+
+
+    /**
+     * Check if request method exist
+     * @param string $method Method request
+     * @return int If method exist
+     * @throws Server500
+     */
+    private function checkMethodExist(string $method):int
+    {
+        if (in_array($method, $this->methodsReq)) return (1);
+        else
+             new Server500(new \ArrayObject(array("explain" => "Unknown method $method for Allowed method request",
+                "solution" => "Allowed methods request must be ".json_encode($this->methodsReq))));
+    }
+
+    /** Check if string is a JSON RT
+     * @param string $string string methods request
+     * @return int If it's a json rt or not
+     */
+    private function IS_JSON_RT_FORMAT(string $string):int
+    {
+        $len =  strlen($string);
+
+        if ($len > 3 && ($string[0] == "{" && $string[$len - 1] == "}"))
+        {
+            $string = str_replace("{", "", $string);
+            $string = str_replace("}", "", $string);
+            $r = explode(',', $string);
+            return (!in_array(" ", $r))? 1 : 0;
+        }
+        return (0);
+    }
+
+
+    /** Transform JSON RT Format to array
+     * @param string $string string methods request
+     * @return array Array contains allowed methods
+     */
+    private function TRS_JSON_RT_TO_ARRAY(string $string):array
+    {
+        $len =  strlen($string);
+
+        if ($len > 3 && ($string[0] == "{" && $string[$len - 1] == "}"))
+        {
+            $string = str_replace("{", "", $string);
+            $string = str_replace("}", "", $string);
+            $r = explode(',', $string);
+            return (!in_array(" ", $r))? $r : array();
+        }
+        return (array());
+    }
 
 
     /**

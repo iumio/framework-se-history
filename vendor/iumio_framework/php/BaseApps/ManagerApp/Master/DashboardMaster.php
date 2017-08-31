@@ -75,4 +75,26 @@ class DashboardMaster extends MasterCore
         return ((new Response())->JSON_RENDER(array("code" => 200, "results" => $default)));
     }
 
+    /**
+     * Get the framework statistics
+     */
+    public function getFrameworkStatisticsActivity()
+    {
+
+        $appmaster = $this->getMaster('Apps');
+        $appstats = $appmaster->getStatisticsApp();
+
+        $routiningmaster = $this->getMaster('Routing');
+        $routingstats = $routiningmaster->getStatisticsRouting();
+
+        $dbmaster = $this->getMaster('Databases');
+        $dbstats = $dbmaster->getStatisticsDatabases();
+
+        $logsmaster = $this->getMaster('Logs');
+        $logsstats = $logsmaster->getStatisticsLogs();
+
+        return ((new Response())->JSON_RENDER(array("code" => 200, "results" => array("apps" => $appstats,
+            "routes" => $routingstats, "dbs" => $dbstats, "logs" => $logsstats))));
+    }
+
 }

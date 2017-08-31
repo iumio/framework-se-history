@@ -40,6 +40,7 @@ class iumioEnvironment
         define('HOST_CURRENT', $current);
         define('ROOT', $base);
         define('ELEMS', $base."elements/");
+        define('BIN', $base."bin/");
         define('CONFIG_DIR', $base."elements/config_files/");
         define('BASE_APPS', $base."vendor/iumio_framework/php/BaseApps/");
         define('ROOT_VENDOR', $base."vendor/iumio_framework/");
@@ -64,6 +65,7 @@ class iumioEnvironment
         define('WEB_FRAMEWORK', $current."/components/libs/iumio_framework/");
         define('WEB_COMPONENTS', $current."/components/");
         define('ROOT_APPS', $base."apps/");
+        define('OVERRIDES', ELEMS."overrides/");
 
         return (1);
     }
@@ -121,7 +123,6 @@ class iumioEnvironment
                     self::displayError((array("explain" => "You are not allowed to access this file.", "solution" => 'Check '.basename(__FILE__).' for more information.', "external" => "yes")));
                 else
                 {
-                   // print_r($hosts->allowed);
                     $allowed = (array) $hosts->allowed;
                     $denied = (array) $hosts->denied;
 

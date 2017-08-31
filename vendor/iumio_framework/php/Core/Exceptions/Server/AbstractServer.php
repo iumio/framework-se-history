@@ -12,8 +12,11 @@
 
 namespace iumioFramework\Exception\Server;
 use ArrayObject;
+use iumioFramework\Core\Additionnal\Template\iumioSmarty;
 use iumioFramework\Core\Base\Http\HttpResponse;
 use iumioFramework\Core\Base\Json\JsonListener as JL;
+use iumioFramework\Exception\Tools\ToolsExceptions;
+use iumioFramework\Masters\MasterCore;
 
 
 /**
@@ -30,7 +33,7 @@ abstract class AbstractServer extends \Exception implements ServerInterface
     protected $env = NULL;
     protected $external = false;
     protected $time = false;
-    protected $color_class = array(500 => "navbar-ct-red", "default" => "navbar-ct-orange");
+    protected $color_class = array(500 => "navbar-ct-red", "default" => "navbar-ct-orange", 200 => "navvar-ct-green");
     protected $color_class_checked = "navbar-ct-orange";
     protected $uidie = NULL;
     protected $client_ip = NULL;
@@ -48,9 +51,9 @@ abstract class AbstractServer extends \Exception implements ServerInterface
             $this->color_class_checked = $this->color_class[$this->code];
 
         $this->time = new \DateTime();
-        $this->uidie = $this->generate_uidie();
+        $this->uidie = ToolsExceptions::generate_uidie();
         $this->env = IUMIO_ENV;
-        $this->client_ip = $this->getClientIp();
+        $this->client_ip = ToolsExceptions::getClientIp();
         $it = $component->getIterator();
         foreach ($it as $one => $value)
         {
@@ -66,8 +69,8 @@ abstract class AbstractServer extends \Exception implements ServerInterface
                 $this->solution = "Please check your app configuration";
         }
 
-        parent::__construct(HttpResponse::getPhrase($this->code), $this->code);
-        $this->writeJsonError("[".$this->code." ".$this->codeTitle."] : ".$this->explain." : ".$this->solution);
+        //parent::__construct(HttpResponse::getPhrase($this->code), $this->code);
+        $this->writeJsonError();
         $this->display($this->code, $header_message);
     }
 
@@ -82,66 +85,37 @@ abstract class AbstractServer extends \Exception implements ServerInterface
     {
         if (ob_get_contents())
             ob_end_clean();
-        //ob_end_clean();r
+        //ob_end_clean();
         //echo $_SERVER['SERVER_PROTOCOL'] .''.$code.' '.HttpResponse::getPhrase($code);
         @header($_SERVER['SERVER_PROTOCOL'] .' '.(($code == 000)? 500 : $code).' '.HttpResponse::getPhrase($code), true, $code);
-        if ($this->external || IUMIO_ENV == "PROD")
-            include_once (SERVER_VIEWS.strtolower(IUMIO_ENV).'/'.$code.'.html');
+        if ($this->checkExceptionOverride($code))
+            $this->displayOverride($code, $message);
+        else if ($this->external || IUMIO_ENV == "PROD")
+            include_once (SERVER_VIEWS.'html/'.$code.'.html');
         else
-             require_once  SERVER_VIEWS.'layout.exception.php';
+            include_once  SERVER_VIEWS.'layout.exception.php';
+        //return (false);
         exit();
     }
 
-    /** Check if UIDIE exist in logs files
-     * @param string $uidie The unique identifier of iumio Exeception
-     * @return bool If exists or not
+
+    /** Display exception error override
+     * @param string $code Error code
+     * @param string $message Error message
      */
-    public function checkUidieExist(string $uidie):bool
+    public function displayOverride(string $code, string $message)
     {
-        $logs_dev = (array) JL::open(ROOT_LOGS."dev.log.json");
-        $logs_prod = (array) JL::open(ROOT_LOGS."prod.log.json");
+        $sm = iumioSmarty::getSmartyInstance("iumio");
+        $sm->assign(array("code" => $code, "message" => $message, "er_object" => $this));
 
-        foreach ($logs_dev as $one)
-        {
-            if ($one->uidie == $uidie) return (true);
-        }
-
-        foreach ($logs_prod as $one)
-        {
-            if ($one->uidie == $uidie) return (true);
-        }
-
-        return (false);
-    }
-
-    /** Generate an unique identifier of iumio Exeception
-     * @return string The UIDIE
-     */
-    public function generate_uidie():string
-    {
-        $uidie_nok = true;
-        $length = 12;
-        $str = "";
-
-        while ($uidie_nok == true) {
-
-            $characters = array_merge(range('A', 'Z'), range('a', 'z'), range('0', '9'));
-            $max = count($characters) - 1;
-            for ($i = 0; $i < $length; $i++) {
-                $rand = mt_rand(0, $max);
-                $str .= $characters[$rand];
-            }
-            $uidie_nok = self::checkUidieExist($str);
-        }
-
-        return ($str);
+        $sm->display($code.iumioSmarty::$viewExtention);
     }
 
 
     /** Write exception in .json file
      * @return int Success
      */
-    final private function writeJsonError():int
+    final protected function writeJsonError():int
     {
             $debug = array();
             $debug["uidie"] = $this->uidie;
@@ -159,26 +133,181 @@ abstract class AbstractServer extends \Exception implements ServerInterface
             $log[$c] = $debug;
             $log = (object) $log;
             JL::put(ROOT_LOGS.strtolower(IUMIO_ENV).".log.json", json_encode($log, JSON_PRETTY_PRINT));
-
             return (1);
     }
 
-
-    /** Get ip client
-     * @return string the client ip
+    /**
+     * @param int $code
      */
-    final public function getClientIp():string
+    final public function setCode(int $code)
     {
-        if (isset($_SERVER['HTTP_CLIENT_IP'])) return $_SERVER['HTTP_CLIENT_IP'];
-        else if (isset($_SERVER['HTTP_X_FORWARDED_FOR'])) return $_SERVER['HTTP_X_FORWARDED_FOR'];
-        else return (isset($_SERVER['REMOTE_ADDR']) ? $_SERVER['REMOTE_ADDR'] : '');
+        $this->code = $code;
     }
+
+    /**
+     * @return mixed|null
+     */
+     public function getCodeTitle()
+    {
+        return $this->codeTitle;
+    }
+
+    /**
+     * @param mixed|null $codeTitle
+     */
+    public function setCodeTitle($codeTitle)
+    {
+        $this->codeTitle = $codeTitle;
+    }
+
+    /**
+     * @return mixed|null
+     */
+    public function getExplain()
+    {
+        return $this->explain;
+    }
+
+    /**
+     * @param mixed|null $explain
+     */
+    public function setExplain($explain)
+    {
+        $this->explain = $explain;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getSolution()
+    {
+        return $this->solution;
+    }
+
+    /**
+     * @param null|string $solution
+     */
+    public function setSolution($solution)
+    {
+        $this->solution = $solution;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getEnv()
+    {
+        return $this->env;
+    }
+
+    /**
+     * @param null|string $env
+     */
+    public function setEnv($env)
+    {
+        $this->env = $env;
+    }
+
+    /**
+     * @return bool|mixed|string
+     */
+    public function getExternal()
+    {
+        return $this->external;
+    }
+
+    /**
+     * @param bool|mixed|string $external
+     */
+    public function setExternal($external)
+    {
+        $this->external = $external;
+    }
+
+    /**
+     * @return bool|\DateTime
+     */
+    public function getTime()
+    {
+        return $this->time;
+    }
+
+    /**
+     * @param bool|\DateTime $time
+     */
+    public function setTime($time)
+    {
+        $this->time = $time;
+    }
+
+    /**
+     * @return array
+     */
+    public function getColorClass(): array
+    {
+        return $this->color_class;
+    }
+
+    /**
+     * @param array $color_class
+     */
+    public function setColorClass(array $color_class)
+    {
+        $this->color_class = $color_class;
+    }
+
+    /**
+     * @return mixed|string
+     */
+    public function getColorClassChecked()
+    {
+        return $this->color_class_checked;
+    }
+
+    /**
+     * @param mixed|string $color_class_checked
+     */
+    public function setColorClassChecked($color_class_checked)
+    {
+        $this->color_class_checked = $color_class_checked;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getUidie()
+    {
+        return $this->uidie;
+    }
+
+    /**
+     * @param null|string $uidie
+     */
+    public function setUidie($uidie)
+    {
+        $this->uidie = $uidie;
+    }
+
+
+    /** Check if Exception template is override
+     * @param int $code Code for template exception
+     * @return int If is override or not
+     */
+    final private function checkExceptionOverride(int $code):int
+    {
+        if (file_exists(OVERRIDES."Exceptions/views/$code".iumioSmarty::$viewExtention) && IUMIO_ENV == "PROD")
+            return (1);
+        return (0);
+    }
+
 
     /** Get Logs list for specific environment
      * @return array Logs list
      */
     static public function getLogs():array
     {
-        return ((array) JL::open(ROOT_LOGS.strtolower(IUMIO_ENV).".log.json"));
+        return (ToolsExceptions::getLogs());
     }
+
+
 }

@@ -14,6 +14,7 @@
                         </button>
                         <a class="navbar-brand" href="#">App Manager</a>
                         <a class="btn-default btn createapp"  attr-href="{route name='iumio_manager_app_manager_create_app'}">Create a new app</a>
+                        <a class="btn-default btn importapp"  attr-href="{route name='iumio_manager_app_manager_import_app'}">Import an app</a>
                     </div>
                     <div class="collapse navbar-collapse">
                         <ul class="nav navbar-nav navbar-left">
@@ -40,24 +41,9 @@
                                         <th>Namespace</th>
                                         <th>Edit</th>
                                         <th>Delete</th>
+                                        <th>Export</th>
                                         </thead>
                                         <tbody class="applist" attr-href="{route name='iumio_manager_app_manager_get_simple_apps'}">
-                                        <!--<tr>
-                                            <td>0</td>
-                                            <td>DakotaRice</td>
-                                            <td>Yes</td>
-                                            <td>A/A</td>
-                                            <td><button>E</button></td>
-                                            <td><button>D</button></td>
-                                        </tr>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>MinervaHooper</td>
-                                            <td>No</td>
-                                            <td>B/B</td>
-                                            <td><button>E</button></td>
-                                            <td><button>D</button></td>
-                                        </tr>-->
                                         </tbody>
                                     </table>
 

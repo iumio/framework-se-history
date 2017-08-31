@@ -207,13 +207,6 @@ class HttpListener
         $this->initialize($query, $request, $attributes, $cookies, $files, $server, $content);
     }
 
-    static public function listen($mode = 'request')
-    {
-        //if ($mode == 'request')
-          //  self::$params = $_GET;
-        //print_r(self::$params);
-    }
-
 
     /**
      * Sets the parameters for this request.
