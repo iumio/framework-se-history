@@ -8,6 +8,14 @@ iumio Framework
 
 ## [BETA RELEASE]
 
+## [0.4.7] - 2017-09-01
+### Fixed
+- Project with no .htaccess
+- iumio Taskbar : missing logs feature 
+
+## [0.4.6-f1] - 2017-08-31
+### Modified version 
+
 ## [0.4.6] - 2017-08-31
 ### Added
 - Export and import an iumio App

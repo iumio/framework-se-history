@@ -118,6 +118,12 @@ class Tools
         if (!self::checkIsExecutable($base."apps/") || !self::checkIsReadable($base."apps/") || !self::checkIsWritable($base."apps/"))
             return (json_encode(array("code" => 500, "results" => "NOK", "wr" => "apps/", "msg" => "Folder apps/ does not have correct permission. Must be read, write, executable permission")));
 
+        if (!self::checkIsExecutable($base."vendor/") || !self::checkIsReadable($base."vendor/") || !self::checkIsWritable($base."vendor/"))
+            return (json_encode(array("code" => 500, "results" => "NOK", "wr" => "elements", "msg" => "Folder vendor/ does not have correct permission. Must be read, write, executable permission")));
+
+        if (!self::checkIsExecutable($base."web/components/libs") || !self::checkIsReadable($base."web/components/libs") || !self::checkIsWritable($base."web/components/libs"))
+            return (json_encode(array("code" => 500, "results" => "NOK", "wr" => "apps/", "msg" => "Folder web/components/libs/ does not have correct permission. Must be read, write, executable permission")));
+
         return (json_encode(array("code" => 200, "results" => "OK")));
 
     }

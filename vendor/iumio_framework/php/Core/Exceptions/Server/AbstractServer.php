@@ -85,8 +85,7 @@ abstract class AbstractServer extends \Exception implements ServerInterface
     {
         if (ob_get_contents())
             ob_end_clean();
-        //ob_end_clean();
-        //echo $_SERVER['SERVER_PROTOCOL'] .''.$code.' '.HttpResponse::getPhrase($code);
+
         @header($_SERVER['SERVER_PROTOCOL'] .' '.(($code == 000)? 500 : $code).' '.HttpResponse::getPhrase($code), true, $code);
         if ($this->checkExceptionOverride($code))
             $this->displayOverride($code, $message);

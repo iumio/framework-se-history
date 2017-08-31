@@ -80,7 +80,6 @@ class CompileMaster extends MasterCore
         $iterator = new DirectoryIterator(ROOT_COMPILED);
         foreach ($iterator as $dir_info) {
             if ($dir_info->isDir() && !$dir_info->isDot()) {
-                //echo $dir_info->getSize()."<br>";
                 $octal_perms = substr(sprintf('%o', $dir_info->getPerms()), -4);
                 $perms = false;
 

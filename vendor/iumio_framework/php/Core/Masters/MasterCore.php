@@ -160,20 +160,10 @@ class MasterCore extends GlobalCoreService
             {
                 $one['path'] = $this->analysePath($one['routename'], $one['path'],
                     ((is_array($parameters))? $parameters : array()));
-                $env = IUMIO_ENV;
-                if ($env == "DEV")
-                    $env = "Dev.php";
-                else if ($env == "PROD")
-                    $env = "Prod.php";
-
-                if (strpos($_SERVER['REQUEST_URI'], $env) == false)
-                    $env = "";
-                else
-                    $env = "/".$env;
 
                 if (isset($one['path'][0]) && $one['path'][0] != "/")
                     $one['path'] = "/".$one['path'];
-                $url = $env.$one['path'];
+                $url = $one['path'];
 
                 $base = (isset($_SERVER['SCRIPT_NAME']) && $_SERVER['SCRIPT_NAME'] != "")? $_SERVER['SCRIPT_NAME'] : "";
 

@@ -87,6 +87,7 @@ class iumioTaskBar
                 <li class="flogo"><img src="'. WEB_FRAMEWORK.'/img/logo_white_small.png"/> </li>
                 <li><a class="active" href="#"><strong>'. \iumioFramework\Core\Requirement\iumioCore::getInfo('VERSION')." ".\iumioFramework\Core\Requirement\iumioCore::getInfo('VERSION_EDITION_SHORT').' - '. IUMIO_ENV.'</strong></a></li>
                 <li><a href="#" class="active" style="border-right: 1px solid white;"><strong>'. ((!defined('APP_CALL'))? "NO APP CALLED" : APP_CALL) .'</strong></a></li>
+                <li> <a href="#" id="iumioTaskBarRequests" attr-href="'.$um->generateRoute("iumio_manager_logs_get", null, "ManagerApp", true).'">No request</a></li>
                 <li id="iumioTaskBarAssets" class="iumioTaskBarDropdown"><a href="#">Assets</a>
                     <ul class="iumioTaskBarDropdownContent">
                         <li class="iumioTaskBarAssetsPublishAll" attr-href="'.$um->generateRoute("iumio_manager_assets_manager_publish", array("env" => "all", "appname" => "_all"), "ManagerApp", true).'">Clear all</li>
