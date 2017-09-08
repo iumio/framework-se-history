@@ -1,0 +1,6 @@
+{
+  "services":
+  {
+    "mailer" : "PHPMailer\\PHPMailer\\PHPMailer"
+  }
+}

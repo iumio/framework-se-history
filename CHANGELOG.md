@@ -8,6 +8,19 @@ iumio Framework
 
 ## [BETA RELEASE]
 
+## [0.4.8] - 2017-09-08
+### Added
+- New service system with services.json
+- Add php mailer library
+- Add infinite scroll on get Unlimited logs
+### Fixed
+- Color of iumio TaskBar Logs
+- iumio TaskBar Logs in current session
+- Bug with logs json created with EngineAutoloader
+### Removed
+- Google fonts for iumio Manager
+
+
 ## [0.4.7] - 2017-09-01
 ### Fixed
 - Project with no .htaccess

@@ -60,6 +60,8 @@ class Uninstaller
 
         iSM::delete(self::$base_dir."vendor/libs/smarty","directory");
 
+        iSM::delete(self::$base_dir."vendor/libs/phpmailer","directory");
+
         iSM::delete(self::$base_dir."web/components/libs/bootstrap","directory");
 
         iSM::delete(self::$base_dir."web/components/libs/font-awesome","directory");

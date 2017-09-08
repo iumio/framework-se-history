@@ -15,7 +15,9 @@ use iumioFramework\HttpRoutes\Routing;
 use iumioFramework\Core\Base\Http\ParameterRequest;
 use iumioFramework\Core\Additionnal\Template\iumioSmarty;
 use iumioFramework\Core\Base\iumioEnvironment;
-use iumioFramework\Core\Requirement\{iumioCore, FrameworkServices\GlobalCoreService};
+use iumioFramework\Core\Requirement\{
+    FrameworkServices\Services, iumioCore, FrameworkServices\GlobalCoreService
+};
 use iumioFramework\Core\Base\Database\iumioDatabaseAccess as IDA;
 use iumioFramework\Exception\Server\{Server500, Server404};
 use iumioFramework\Core\Base\Http\Session\iumioSession;
@@ -59,8 +61,11 @@ class MasterCore extends GlobalCoreService
             case 'session':
                 return (new iumioSession());
                 break;
+            default:
+                $s = Services::getInstance();
+                return ($s->getService($service));
+                break;
         }
-        return (NULL);
     }
 
     /** Show a view

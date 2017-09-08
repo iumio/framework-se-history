@@ -35,7 +35,8 @@ class iumioDatabaseAccess
         {
             $file = JL::open(ELEMS."/config_files/db/databases.json");
             if (count( (array) $file) == 0)
-                throw new Server500(new \ArrayObject(array("explain" => "Database file is empty", "solution" => "Add database informations in databases.json")));
+                throw new Server500(new \ArrayObject(array("explain" => "Database file is empty", "solution" =>
+                    "Add database informations in databases.json")));
             if ($databaseName == "#none")
             {
                 $dns = $file->default->db_driver.":dbname=".$file->default->db_name.";host=".$file->default->db_host;
@@ -45,7 +46,8 @@ class iumioDatabaseAccess
             }
             else
             {
-                $dns = $file->$databaseName->db_driver.":dbname=".$file->$databaseName->db_name.";host=".$file->$databaseName->db_host;
+                $dns = $file->$databaseName->db_driver.
+                    ":dbname=".$file->$databaseName->db_name.";host=".$file->$databaseName->db_host;
                 $user = $file->$databaseName->db_user;
                 $passwd = $file->$databaseName->db_password;
                 self::$co_instance = new \PDO($dns, $user, $passwd);
@@ -53,7 +55,8 @@ class iumioDatabaseAccess
         }
         catch (\Exception $e)
         {
-            throw new Server500(new \ArrayObject(array("explain" => $e->getMessage(), "solution" => "Check your database configuration!")));
+            throw new Server500(new \ArrayObject(array("explain" => $e->getMessage(),
+                "solution" => "Check your database configuration!")));
         }
 
     }

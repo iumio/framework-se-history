@@ -15,7 +15,7 @@ namespace iumioFramework\Core\Base\Database\ORM;
 /**
  * Trait Power8Orm
  * @package iumioFramework\Core\Base\Database\ORM
- * @author RAFINA Dany <danyrafina@gmail.com>
+ * @author Huron Kevin <vlakevin@hotmail.com>
  */
 trait Power8Orm
 {
