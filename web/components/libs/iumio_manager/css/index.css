@@ -13,6 +13,12 @@
     color: #1DC7EA;
 }
 
+.iumio-unlimited-log-display
+{
+    height: 500px;
+    overflow-y: auto!important;
+}
+
 .w100
 {
     width: 100%!important;
@@ -21,7 +27,6 @@
 .h350
 {
     height: 350px!important;
-    overflow-y: auto;
 }
 
 .fw900
@@ -44,6 +49,18 @@
     width: 220px;
     margin: 0 auto;
 }
+
+.iumiohidden
+{
+    display: none!important;
+}
+
+.elemcard
+{
+    overflow: auto;
+    height: 230px;
+}
+
 .break-word
 {
     word-wrap: break-word!important;

@@ -12,6 +12,7 @@
 namespace iumioFramework\Exception\Tools;
 
 use iumioFramework\Core\Base\Json\JsonListener;
+use iumioFramework\Exception\Server\Server500;
 
 /**
  * Class ToolsExceptions
@@ -76,10 +77,20 @@ class ToolsExceptions
     }
 
     /** Get Logs list for specific environment
+     * @param $env string Current Environement of iumio Framework
      * @return array Logs list
+     * @throws Server500
      */
-    static public function getLogs():array
+    static public function getLogs(string $env = ''):array
     {
-        return ((array) JsonListener::open(ROOT_LOGS.strtolower(IUMIO_ENV).".log.json"));
+        if ($env != "")
+        {
+            if (!in_array(strtolower($env), array('dev', 'prod')))
+                throw new Server500(new \ArrayObject(array("explain" => "Invalid environement name : $env",
+                    "solution" => "Set the correct environment name (dev or prod)")));
+        }
+        else
+            $env = IUMIO_ENV;
+        return ((array) JsonListener::open(ROOT_LOGS.strtolower($env).".log.json"));
     }
 }

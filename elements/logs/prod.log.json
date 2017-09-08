@@ -1,0 +1,238 @@
+{
+    "0": {
+        "uidie": "PAUGBSpjPBcn",
+        "time": {
+            "date": "2017-09-03 19:15:44.368579",
+            "timezone_type": 3,
+            "timezone": "Europe\/Paris"
+        },
+        "client_ip": "::1",
+        "code": 200,
+        "code_title": "OK",
+        "explain": "OK",
+        "solution": "OK",
+        "method": "GET",
+        "trace": [
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/apps\/AppCore.php",
+                "line": 64,
+                "function": "dispatching",
+                "class": "iumioFramework\\Core\\Requirement\\iumioCore",
+                "type": "->",
+                "args": [
+                    {
+                        "attributes": {},
+                        "request": {},
+                        "query": {},
+                        "server": {},
+                        "cookies": {},
+                        "headers": {}
+                    }
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/web\/Prod.php",
+                "line": 39,
+                "function": "dispatch",
+                "class": "iumioFramework\\Apps\\AppCore",
+                "type": "->",
+                "args": [
+                    {
+                        "attributes": {},
+                        "request": {},
+                        "query": {},
+                        "server": {},
+                        "cookies": {},
+                        "headers": {}
+                    }
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/web\/Prod.php",
+                "line": 46,
+                "function": "start",
+                "class": "Prod",
+                "type": "::",
+                "args": []
+            }
+        ],
+        "referer": "\/Prod.php\/index"
+    },
+    "1": {
+        "uidie": "cRoD7ZXrV4Ev",
+        "time": {
+            "date": "2017-09-04 09:55:40.479754",
+            "timezone_type": 3,
+            "timezone": "Europe\/Paris"
+        },
+        "client_ip": "::1",
+        "code": "404",
+        "code_title": "NOT FOUND",
+        "explain": "The resource you try to access is not found.",
+        "solution": "Please check your URI",
+        "method": "GET",
+        "trace": [
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/apps\/AppCore.php",
+                "line": 64,
+                "function": "dispatching",
+                "class": "iumioFramework\\Core\\Requirement\\iumioCore",
+                "type": "->",
+                "args": [
+                    {
+                        "attributes": {},
+                        "request": {},
+                        "query": {},
+                        "server": {},
+                        "cookies": {},
+                        "headers": {}
+                    }
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/web\/Prod.php",
+                "line": 39,
+                "function": "dispatch",
+                "class": "iumioFramework\\Apps\\AppCore",
+                "type": "->",
+                "args": [
+                    {
+                        "attributes": {},
+                        "request": {},
+                        "query": {},
+                        "server": {},
+                        "cookies": {},
+                        "headers": {}
+                    }
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/web\/Prod.php",
+                "line": 46,
+                "function": "start",
+                "class": "Prod",
+                "type": "::",
+                "args": []
+            }
+        ],
+        "referer": "\/Prod.php\/_manager\/logs"
+    },
+    "2": {
+        "uidie": "aZc1UKVlblKo",
+        "time": {
+            "date": "2017-09-04 19:16:42.398181",
+            "timezone_type": 3,
+            "timezone": "Europe\/Paris"
+        },
+        "client_ip": "::1",
+        "code": 200,
+        "code_title": "OK",
+        "explain": "OK",
+        "solution": "OK",
+        "method": "GET",
+        "trace": [
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/apps\/AppCore.php",
+                "line": 64,
+                "function": "dispatching",
+                "class": "iumioFramework\\Core\\Requirement\\iumioCore",
+                "type": "->",
+                "args": [
+                    {
+                        "attributes": {},
+                        "request": {},
+                        "query": {},
+                        "server": {},
+                        "cookies": {},
+                        "headers": {}
+                    }
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/web\/Prod.php",
+                "line": 39,
+                "function": "dispatch",
+                "class": "iumioFramework\\Apps\\AppCore",
+                "type": "->",
+                "args": [
+                    {
+                        "attributes": {},
+                        "request": {},
+                        "query": {},
+                        "server": {},
+                        "cookies": {},
+                        "headers": {}
+                    }
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/web\/Prod.php",
+                "line": 46,
+                "function": "start",
+                "class": "Prod",
+                "type": "::",
+                "args": []
+            }
+        ],
+        "referer": "\/Prod.php\/index"
+    },
+    "3": {
+        "uidie": "nfR6Woav7iIM",
+        "time": {
+            "date": "2017-09-04 20:14:38.512600",
+            "timezone_type": 3,
+            "timezone": "Europe\/Paris"
+        },
+        "client_ip": "::1",
+        "code": 200,
+        "code_title": "OK",
+        "explain": "OK",
+        "solution": "OK",
+        "method": "GET",
+        "trace": [
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/apps\/AppCore.php",
+                "line": 64,
+                "function": "dispatching",
+                "class": "iumioFramework\\Core\\Requirement\\iumioCore",
+                "type": "->",
+                "args": [
+                    {
+                        "attributes": {},
+                        "request": {},
+                        "query": {},
+                        "server": {},
+                        "cookies": {},
+                        "headers": {}
+                    }
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/web\/Prod.php",
+                "line": 39,
+                "function": "dispatch",
+                "class": "iumioFramework\\Apps\\AppCore",
+                "type": "->",
+                "args": [
+                    {
+                        "attributes": {},
+                        "request": {},
+                        "query": {},
+                        "server": {},
+                        "cookies": {},
+                        "headers": {}
+                    }
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/web\/Prod.php",
+                "line": 46,
+                "function": "start",
+                "class": "Prod",
+                "type": "::",
+                "args": []
+            }
+        ],
+        "referer": "\/Prod.php\/index"
+    }
+}

@@ -28,7 +28,30 @@
                         <div class="col-md-12">
                             <div class="card">
                                 <div class="header">
-                                    <h4 class="title">List of your app</h4>
+                                    <h4 class="title">Apps statistics</h4>
+                                    <p class="category">Statistics</p>
+                                </div>
+                                <div class="content dashboardStats" attr-href="{route name='iumio_manager_dashboard_get_statistics'}">
+                                    <ul>
+                                        <li>Apps  : <span class="dashb-app">0</span> </li>
+                                        <li>Apps enabled : <span class="dashb-appena">0</span></li>
+                                        <li>App prefixed  : <span class="dashb-apppre">0</span></li>
+                                        <li class="iumiohidden">Routes  : <span class="dashb-route">0</span></li>
+                                        <li class="iumiohidden">Routes disabled : <span class="dashb-routedisa">0</span></li>
+                                        <li class="iumiohidden">Routes with public visibility : <span class="dashb-routevisi">0</span></li>
+                                        <li class="iumiohidden">Requests successful : <span class="dashb-reqsuc">0</span></li>
+                                        <li class="iumiohidden">Errors : <span class="dashb-err">0</span></li>
+                                        <li class="iumiohidden">Critical Errors (Error 500) : <span class="dashb-errcri">0</span></li>
+                                        <li class="iumiohidden">Others Errors : <span class="dashb-erroth">0</span></li>
+                                        <li class="iumiohidden">Databases connected : <span class="dashb-dbco">0</span></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="card">
+                                <div class="header">
+                                    <h4 class="title">List of your apps</h4>
                                     <p class="category">Referer to apps.json</p>
                                 </div>
                                 <div class="content table-responsive table-full-width">

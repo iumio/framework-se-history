@@ -6,7 +6,7 @@ endroute
 
 route:
   name : iumio_manager_logs_manager_get_all
-  path :  /_manager/logs/get/logs
+  path :  /_manager/logs/get/logs/{env}
   activity : Logs%getlog
 endroute
 

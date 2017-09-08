@@ -49,6 +49,7 @@ class DashboardMaster extends MasterCore
         {
           if ($i == 10) break;
           $last[$i]->log_url = $this->generateRoute("iumio_manager_logs_manager_get_one", array("uidie" => $last[$i]->uidie));
+          $last[$i]->time =  strtotime($last[$i]->time->date);
           array_push($lastn, $last[$i]);
         }
 

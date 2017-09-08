@@ -28,10 +28,33 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="header">
-                                <h4 class="title">Logs list for {$env} enviromnment </h4>
+                                <h4 class="title">Logs statistics</h4>
+                                <p class="category">Statistics</p>
+                            </div>
+                            <div class="content dashboardStats" attr-href="{route name='iumio_manager_dashboard_get_statistics'}">
+                                <ul>
+                                    <li class="iumiohidden">Apps  : <span class="dashb-app">0</span> </li>
+                                    <li class="iumiohidden">Apps enabled : <span class="dashb-appena">0</span></li>
+                                    <li class="iumiohidden">App prefixed  : <span class="dashb-apppre">0</span></li>
+                                    <li class="iumiohidden">Routes  : <span class="dashb-route">0</span></li>
+                                    <li class="iumiohidden">Routes disabled : <span class="dashb-routedisa">0</span></li>
+                                    <li class="iumiohidden">Routes with public visibility : <span class="dashb-routevisi">0</span></li>
+                                    <li>Requests successful : <span class="dashb-reqsuc">0</span></li>
+                                    <li>Errors : <span class="dashb-err">0</span></li>
+                                    <li>Critical Errors (Error 500) : <span class="dashb-errcri">0</span></li>
+                                    <li>Others Errors : <span class="dashb-erroth">0</span></li>
+                                    <li class="iumiohidden">Databases connected : <span class="dashb-dbco">0</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="header">
+                                <h4 class="title">Logs list for {$env} enviromnment (<span class="iumiocountlog">0</span>)</h4>
                                 <p class="category">Referer to {$env}.log.json</p>
                             </div>
-                            <div class="content table-responsive table-full-width">
+                            <div class="content table-responsive table-full-width iumio-unlimited-log-display">
                                 <table class="table table-hover table-striped">
                                     <thead>
                                     <th>UIDIE</th>
@@ -41,7 +64,7 @@
                                     <th>Method</th>
                                     <th>Explain</th>
                                     </thead>
-                                    <tbody class="logslist" attr-href="{route name='iumio_manager_logs_manager_get_all'}">
+                                    <tbody class="logslist" attr-href="{route name='iumio_manager_logs_manager_get_all' params=['env' => "{$env}"]}">
                                     <!--<tr>
                                         <td>0</td>
                                         <td>DakotaRice</td>
@@ -60,6 +83,10 @@
                                     </tr>-->
                                     </tbody>
                                 </table>
+                                <div class="col-md-12 text-center loader-iumio-m pulse animated" style="display: none">
+                                    <i class="fa fa-search fa-3x center-block text-center"></i>
+                                </div>
+
 
                             </div>
                         </div>

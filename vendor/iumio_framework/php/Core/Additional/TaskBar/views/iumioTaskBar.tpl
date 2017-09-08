@@ -9,6 +9,7 @@
         <li><a href="#" class="active" style="border-right: 1px solid white;"><strong>{$iumiotaskbar['call_app']}</strong></a></li>
         <li>
             <a href="#" id="iumioTaskBarRequests" attr-href="{$iumiotaskbar['get_logs']}">No request</a>
+
         </li>
         <li id="iumioTaskBarAssets" class="iumioTaskBarDropdown"><a href="#">Assets</a>
             <ul class="iumioTaskBarDropdownContent">

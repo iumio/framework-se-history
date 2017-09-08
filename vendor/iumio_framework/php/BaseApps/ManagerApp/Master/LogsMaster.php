@@ -91,16 +91,27 @@ class LogsMaster extends MasterCore
             "success" => $success, "others" => $others));
     }
 
-    /** Get the last debug logs (unlimited)
+    /** Get the last debug logs (unlimited) with min and max position
+     * @param $env string environment name
      * @return int JSON response log list
      */
-    public function getlogActivity():int
+    public function getlogActivity(string $env):int
     {
-        $last = array_values(array_reverse(AbstractServer::getLogs()));
+        $last = array_values(array_reverse(AbstractServer::getLogs($env)));
         $lastn = array();
-        for($i = 0; $i < count($last); $i++)
+        $request = $this->get('request');
+        $loglastpos =  $request->get('pos');
+        $orderby = 29;
+        if ($loglastpos == NULL)
+            return ((new Response())->JSON_RENDER(array("code" => 500, "results" => "Cannot get the last position")));
+        $loglastpos = (int)$loglastpos;
+        $max = $loglastpos + $orderby;
+        for($i = $loglastpos; $i <= $max; $i++)
         {
+            if (!isset($last[$i]))
+                continue;
             $one = $last[$i];
+            $last[$i]->time = strtotime($last[$i]->time->date);
             $last[$i]->log_url = $this->generateRoute("iumio_manager_logs_manager_get_one", array("uidie" => $one->uidie));
             array_push($lastn, $last[$i]);
         }

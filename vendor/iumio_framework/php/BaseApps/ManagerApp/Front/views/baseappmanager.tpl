@@ -27,7 +27,7 @@
                         <div class="col-md-12">
                             <div class="card">
                                 <div class="header">
-                                    <h4 class="title">List of base app</h4>
+                                    <h4 class="title">List of base apps</h4>
                                     <p class="category">Referer to apps.json in base app directory</p>
                                 </div>
                                 <div class="content table-responsive table-full-width">

@@ -1,0 +1,34 @@
+<?php
+/* Smarty version 3.1.31, created on 2017-09-03 19:15:11
+  from "/Applications/MAMP/htdocs/iumio-framework/vendor/iumio_framework/php/BaseApps/ManagerApp/Front/views/partials/footer.tpl" */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '3.1.31',
+  'unifunc' => 'content_59ac389f5ddd75_74547299',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    'a5da643199f93f99cf8e3ae6d0c04bfae146dc8f' => 
+    array (
+      0 => '/Applications/MAMP/htdocs/iumio-framework/vendor/iumio_framework/php/BaseApps/ManagerApp/Front/views/partials/footer.tpl',
+      1 => 1500930134,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+  ),
+),false)) {
+function content_59ac389f5ddd75_74547299 (Smarty_Internal_Template $_smarty_tpl) {
+$_smarty_tpl->compiled->nocache_hash = '110466956059ac389f5db9f3_56695616';
+?>
+<footer class="footer">
+    <div class="container-fluid">
+        <p class="copyright pull-right">
+            &copy; <?php echo date('Y');?>
+ <a href="https://framework.iumio.com">iumio Framework</a>, The next generation of PHP frameworks
+        </p>
+    </div>
+</footer><?php }
+}

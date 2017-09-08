@@ -25,7 +25,8 @@
         "smarty/smarty": "~3.1",
         "twbs/bootstrap": "3.3.7",
         "components/font-awesome" : "~4.7.0",
-        "components/jquery" : "~3.2.1"
+        "components/jquery" : "~3.2.1",
+        "phpmailer/phpmailer": "~6.0"
     },
     "scripts": {
         "post-install-cmd": "cp ./vendor/libs/fixes/smarty_internal_debug.php.iumio ./vendor/libs/fixes/smarty_internal_debug.php && mv ./vendor/libs/fixes/smarty_internal_debug.php ./vendor/libs/smarty/smarty/libs/sysplugins/ && mv ./vendor/libs/twbs/bootstrap/dist/ ./web/components/libs/bootstrap && mv ./vendor/libs/components/font-awesome/ ./web/components/libs/font-awesome/ &&  mv ./vendor/libs/components/jquery/ ./web/components/libs/jquery/ &&  php ./vendor/iumio_framework/php/Core/Additional/Composer/Installer.php",

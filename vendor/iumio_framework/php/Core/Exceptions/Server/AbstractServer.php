@@ -37,6 +37,7 @@ abstract class AbstractServer extends \Exception implements ServerInterface
     protected $color_class_checked = "navbar-ct-orange";
     protected $uidie = NULL;
     protected $client_ip = NULL;
+    protected $inlog = true;
 
 
 
@@ -63,6 +64,8 @@ abstract class AbstractServer extends \Exception implements ServerInterface
                 $this->explain = $value;
             else if ($it->key() == "solution")
                 $this->solution = $value;
+            else if ($it->key() == "inlog")
+                $this->inlog = $value;
             else if ($it->key() == "external")
                 $this->external = ($value == "yes")? $value : "no";
             if ($this->solution == NULL)
@@ -70,7 +73,8 @@ abstract class AbstractServer extends \Exception implements ServerInterface
         }
 
         //parent::__construct(HttpResponse::getPhrase($this->code), $this->code);
-        $this->writeJsonError();
+        if ($this->inlog)
+            $this->writeJsonError();
         $this->display($this->code, $header_message);
     }
 

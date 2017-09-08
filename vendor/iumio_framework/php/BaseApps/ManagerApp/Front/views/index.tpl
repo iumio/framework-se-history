@@ -41,11 +41,11 @@
 
                                         <li>Installation date : {$fi->installation}</li>
 
-                                        <li>User install : {$fi->user}</li>
+                                        <li>User installed : {$fi->user}</li>
 
-                                        <li>Base location install : {$fi->location}</li>
+                                        <li>Main location installed : {$fi->location}</li>
 
-                                        <li>Base OS install : {$fi->os}</li>
+                                        <li>Main OS installed : {$fi->os}</li>
 
                                     </ul>
 
@@ -75,10 +75,10 @@
                             <div class="card h350">
                                 <div class="header">
                                     <h4 class="title">Logs</h4>
-                                    <p class="category">Last logs error (10)</p>
+                                    <p class="category">Last logs errors (10)</p>
                                 </div>
-                                <div class="content">
-                                    <ul class="lastlog" attr-href="{route name='iumio_manager_logs_get'}">
+                                <div class="content" style="overflow: auto">
+                                    <ul class="lastlog elemcard" attr-href="{route name='iumio_manager_logs_get'}">
 
                                     </ul>
 

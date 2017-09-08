@@ -25,19 +25,19 @@ class Tools
     public static $php_accept               = 7;
     public static $framework_build_accept   = 201738;
     public static $framework_version_accept = "0.3.8";
-    public static $libs                     = array(
-        "web/components/libs/jquery/"       => "jQuery libs not found : check if 'composer install' command had be done",
-        "web/components/libs/font-awesome/" => "Font-awesome libs not found : check if 'composer install' command had be done",
-        "web/components/libs/bootstrap/"    => "Bootstrap libs not found : check if 'composer install' command had be done",
-        "vendor/libs/smarty/"               => "Smarty libs not found : check if 'composer install' command had be done"
+    public static $libs                     =   array(
+        "web/components/libs/jquery/"       =>  array("jQuery libs not found or have the wrong permissions : check if 'composer install' command has be done or set the READ + WRITE + EXECUTION permissions"),
+        "web/components/libs/font-awesome/" =>  array("Font-awesome libs not found or have the wrong permissions : check if 'composer install' command has be done or set the READ + WRITE + EXECUTION permissions"),
+        "web/components/libs/bootstrap/"    =>  array("Bootstrap libs not found or have the wrong permissions : check if 'composer install' command has be done or set the READ + WRITE + EXECUTION permissions"),
+        "vendor/libs/smarty/"               =>  array("Smarty libs not found or have the wrong permissions : check if 'composer install' command has be done or set the READ + WRITE + EXECUTION permissions"),
     );
 
-    public static $php_extensions           = array(
-        "zip"                               => "libzip is not loaded or not installed : check your extension installation"
+    public static $php_extensions           =   array(
+        "zip"                               =>       "libzip is not loaded or not installed : check your extension installation"
     );
 
-    public static $apache_extensions        = array(
-        "mod_rewrite"                       => "mod_rewrite is not found in your server: Please install this extension"
+    public static $apache_extensions        =   array(
+        "mod_rewrite"                       =>       "mod_rewrite is not found in your server: Please install this extension"
     );
 
     /** Check the php version
@@ -119,10 +119,10 @@ class Tools
             return (json_encode(array("code" => 500, "results" => "NOK", "wr" => "apps/", "msg" => "Folder apps/ does not have correct permission. Must be read, write, executable permission")));
 
         if (!self::checkIsExecutable($base."vendor/") || !self::checkIsReadable($base."vendor/") || !self::checkIsWritable($base."vendor/"))
-            return (json_encode(array("code" => 500, "results" => "NOK", "wr" => "elements", "msg" => "Folder vendor/ does not have correct permission. Must be read, write, executable permission")));
+            return (json_encode(array("code" => 500, "results" => "NOK", "wr" => "vendor/", "msg" => "Folder vendor/ does not have correct permission. Must be read, write, executable permission")));
 
         if (!self::checkIsExecutable($base."web/components/libs") || !self::checkIsReadable($base."web/components/libs") || !self::checkIsWritable($base."web/components/libs"))
-            return (json_encode(array("code" => 500, "results" => "NOK", "wr" => "apps/", "msg" => "Folder web/components/libs/ does not have correct permission. Must be read, write, executable permission")));
+            return (json_encode(array("code" => 500, "results" => "NOK", "wr" => "web/components/libs/", "msg" => "Folder web/components/libs/ does not have correct permission. Must be read, write, executable permission")));
 
         return (json_encode(array("code" => 200, "results" => "OK")));
 

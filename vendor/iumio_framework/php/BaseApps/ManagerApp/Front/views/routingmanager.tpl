@@ -13,7 +13,6 @@
                         <span class="icon-bar"></span>
                     </button>
                     <a class="navbar-brand" href="#">Routing Manager</a>
-                    <a class="btn-default btn"  >Create a routing file (Later)</a>
                     <a class="btn-default btn rebuildjs" attr-href="{route name='iumio_manager_routing_manager_rebuild_js'}">Rebuild JS Routing</a>
                 </div>
                 <div class="collapse navbar-collapse">
@@ -29,6 +28,29 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="header">
+                                <h4 class="title">Routing statistics</h4>
+                                <p class="category">Statistics</p>
+                            </div>
+                            <div class="content dashboardStats" attr-href="{route name='iumio_manager_dashboard_get_statistics'}">
+                                <ul>
+                                    <li class="iumiohidden">Apps  : <span class="dashb-app">0</span> </li>
+                                    <li class="iumiohidden">Apps enabled : <span class="dashb-appena">0</span></li>
+                                    <li class="iumiohidden">App prefixed  : <span class="dashb-apppre">0</span></li>
+                                    <li>Routes  : <span class="dashb-route">0</span></li>
+                                    <li>Routes disabled : <span class="dashb-routedisa">0</span></li>
+                                    <li>Routes with public visibility : <span class="dashb-routevisi">0</span></li>
+                                    <li class="iumiohidden">Requests successful : <span class="dashb-reqsuc">0</span></li>
+                                    <li class="iumiohidden">Errors : <span class="dashb-err">0</span></li>
+                                    <li class="iumiohidden">Critical Errors (Error 500) : <span class="dashb-errcri">0</span></li>
+                                    <li class="iumiohidden">Others Errors : <span class="dashb-erroth">0</span></li>
+                                    <li class="iumiohidden">Databases connected : <span class="dashb-dbco">0</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="header">
                                 <h4 class="title">List of your routing files</h4>
                                 <p class="category">Referer to *.rt</p>
                             </div>
@@ -37,7 +59,7 @@
                                     <thead>
                                     <th>File</th>
                                     <th>App</th>
-                                    <th>Route number</th>
+                                    <th>Routes</th>
                                     <th>View</th>
                                     <th>Delete</th>
                                     </thead>

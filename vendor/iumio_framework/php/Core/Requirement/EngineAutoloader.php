@@ -68,7 +68,9 @@ class EngineAutoloader {
                         try
                         {
                             include_once  __DIR__."/../Exceptions/Server/Server500.php";
-                            throw new \iumioFramework\Exception\Server\Server500(new ArrayObject(array("explain" => "iumioEngineAutoloader : Undefined class ".$class, "solution" => "Refer to your app configuration.")));
+                            throw new \iumioFramework\Exception\Server\Server500(new ArrayObject(array("explain" =>
+                                "iumioEngineAutoloader : Undefined class ".$class,
+                                "solution" => "Refer to your app configuration.", "inlog" => false)));
                         }
                         catch (Exception $e)
                         {
@@ -88,7 +90,9 @@ class EngineAutoloader {
                         try
                         {
                             include_once  __DIR__."/../Exceptions/Server/Server500.php";
-                            throw new  \iumioFramework\Exception\Server\Server500(new ArrayObject(array("explain" => "iumioEngineAutoloader : Undefined class ".$class, "solution" => "Refer to your app configuration.")));
+                            throw new  \iumioFramework\Exception\Server\Server500(new ArrayObject(
+                                array("explain" => "iumioEngineAutoloader : Undefined class ".$class,
+                                    "solution" => "Refer to your app configuration.", "inlog" => false)));
                         }
                         catch (Exception $e)
                         {

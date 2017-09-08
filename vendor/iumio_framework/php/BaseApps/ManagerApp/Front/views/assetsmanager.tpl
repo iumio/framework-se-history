@@ -59,19 +59,19 @@
                             <div class="card">
                                 <div class="header">
                                     <h4 class="title">List of your app assets</h4>
-                                    <p class="category">Referer to web assets components</p>
+                                    <p class="category">Referer to the web assets components</p>
                                 </div>
                                 <div class="content table-responsive table-full-width">
                                     <table class="table table-hover table-striped">
                                         <thead >
                                         <th>ID</th>
                                         <th>App name</th>
-                                        <th>Have assets</th>
-                                        <th>Permission dev</th>
-                                        <th>Permission prod</th>
-                                        <th>Status dev</th>
-                                        <th>Status prod</th>
-                                        <th>Action</th>
+                                        <th>Assets directory</th>
+                                        <th>Permissions Dev</th>
+                                        <th>Permissions Prod</th>
+                                        <th>Status Dev</th>
+                                        <th>Status Prod</th>
+                                        <th>Actions</th>
                                         </thead>
                                         <tbody class="getAllAssets" attr-href="{route name='iumio_manager_assets_manager_get_all'}">
 

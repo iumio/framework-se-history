@@ -18,7 +18,7 @@ if (!empty(json_decode(file_get_contents(__DIR__."/../../elements/config_files/c
     * To get more information about licence, please check the licence file
     *
     -->
-    <title>iumio Installer BETA</title>
+    <title>iumio Installer</title>
     <link rel="apple-touch-icon" sizes="180x180" href="//<?= $_SERVER['HTTP_HOST'] ?>/components/libs/iumio_framework/assets/images/favicon.ico/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="//<?= $_SERVER['HTTP_HOST'] ?>/components/libs/iumio_framework/assets/images/favicon.ico/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="//<?= $_SERVER['HTTP_HOST'] ?>/components/libs/iumio_framework/assets/images/favicon.ico/favicon-16x16.png">
@@ -922,7 +922,6 @@ if (!empty(json_decode(file_get_contents(__DIR__."/../../elements/config_files/c
                             <li class="fversion">Framework Version : <span class="fversionnum">...</span> <span class="isok"></span><div class="error hidden-step"></div></li>
                             <li class="wr">Writable and readable directory : <span class="isok">...</span><div class="error hidden-step"></div></li>
                             <li class="libsr">Required librairies : <span class="isok">...</span><div class="error hidden-step"></div></li>
-                            <li class="uidii">Getting UIDII from iumio Server (optionnal) : <span class="uidiishow">...</span> <span class="isok"></span><div class="error hidden-step"></div></li>
                         </ul>
 
                         <br>
