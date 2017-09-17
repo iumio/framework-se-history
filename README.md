@@ -16,6 +16,12 @@ Description
 ------------
 
 [iumio Framework][1] is a **PHP framework** for web applications. 
+✔ Namespaced  
+✔ Pluggable  
+✔ [Composer](https://getcomposer.org)  
+✔ [PSR-4](http://www.php-fig.org/psr/psr-4)  
+✔ PHP7  
+✔ MVC  
 
 Installation
 ------------
@@ -25,13 +31,6 @@ Installation
 
 Documentation
 -------------
-
-✔ Namespaced  
-✔ Pluggable  
-✔ [Composer](https://getcomposer.org)  
-✔ [PSR-4](http://www.php-fig.org/psr/psr-4)  
-✔ PHP7  
-✔ MVC  
 
 * Read the [Documentation][4] if you are new iumio Framework user.
 
