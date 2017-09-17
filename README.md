@@ -15,7 +15,7 @@ iumio Framework
 Description
 ------------
 
-[iumio Framework][1] is a **PHP framework** for web applications. 
+[iumio Framework][1] is a **PHP framework** for web applications.  
 ✔ Namespaced  
 ✔ Pluggable  
 ✔ [Composer](https://getcomposer.org)  
