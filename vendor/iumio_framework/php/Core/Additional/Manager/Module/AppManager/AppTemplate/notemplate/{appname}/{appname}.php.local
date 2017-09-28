@@ -12,5 +12,4 @@ use iumioFramework\Core\Requirement\iumioAppModel as App;
 class {appname} extends App
 {
     /*** REGISTER TO APP ***/
-
 }

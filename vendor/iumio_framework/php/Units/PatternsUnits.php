@@ -17,7 +17,10 @@ namespace iumioFramework\Core\Units;
 /**
  * Class PatternsUnits
  * @package iumioFramework\Core\Units
- * @author RAFINA Dany <danyrafina@gmail.com>
+ * @category Framework
+ * @licence  MIT License
+ * @link https://framework.iumio.com
+ * @author   RAFINA Dany <danyrafina@gmail.com>
  */
 class PatternsUnits
 {

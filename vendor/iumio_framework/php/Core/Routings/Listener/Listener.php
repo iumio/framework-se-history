@@ -15,7 +15,10 @@ namespace iumioFramework\Core\Base;
 /**
  * Interface Listener
  * @package iumioFramework\Core\Base
- * @author RAFINA Dany <danyrafina@gmail.com>
+ * @category Framework
+ * @licence  MIT License
+ * @link https://framework.iumio.com
+ * @author   RAFINA Dany <danyrafina@gmail.com>
  */
 
 interface Listener
@@ -41,5 +44,4 @@ interface Listener
      * @return int
      */
     public function listingRouters():int;
-
 }

@@ -11,7 +11,7 @@
  */
 
 namespace iumioFramework\Core\Requirement;
-use iumioFramework\Core\Additionnal\Server\iumioServerManager;
+use iumioFramework\Core\Additionnal\Server\ServerManager;
 use iumioFramework\Core\Base\Http\HttpListener;
 use iumioFramework\Exception\Access\Access200;
 use iumioFramework\HttpRoutes\Routing;
@@ -106,9 +106,9 @@ abstract class iumioCore extends GlobalCoreService
      */
     public function checkPermission():int
     {
-        if (!iumioServerManager::checkIsExecutable(ROOT."elements/") ||
-            !iumioServerManager::checkIsReadable(ROOT."elements/") ||
-            !iumioServerManager::checkIsWritable(ROOT."elements/"))
+        if (!ServerManager::checkIsExecutable(ROOT."elements/") ||
+            !ServerManager::checkIsReadable(ROOT."elements/") ||
+            !ServerManager::checkIsWritable(ROOT."elements/"))
         {
             throw new Server500(new \ArrayObject(array("explain" =>
                 "Core Error : Folder /elements does not have correct permission",
@@ -116,9 +116,9 @@ abstract class iumioCore extends GlobalCoreService
             return (0);
         }
 
-        if (!iumioServerManager::checkIsExecutable(ROOT."apps/") ||
-            !iumioServerManager::checkIsReadable(ROOT."apps/") ||
-            !iumioServerManager::checkIsWritable(ROOT."apps/"))
+        if (!ServerManager::checkIsExecutable(ROOT."apps/") ||
+            !ServerManager::checkIsReadable(ROOT."apps/") ||
+            !ServerManager::checkIsWritable(ROOT."apps/"))
         {
             throw new Server500(new \ArrayObject(array("explain" =>
                 "Core Error : Folder /apps does not have correct permission",

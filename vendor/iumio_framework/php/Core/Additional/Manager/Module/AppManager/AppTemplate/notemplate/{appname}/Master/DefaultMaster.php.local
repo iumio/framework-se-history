@@ -13,12 +13,12 @@ use iumioFramework\Core\Base\Http\Response\Response;
 class DefaultMaster extends MasterCore
 {
 
-
     /**
      * Go to index page
      */
     public function indexActivity()
     {
-        return ((new Response())->JSON_RENDER(array("code" => 200, ""name" => "First App")));
+        return ((new Response())->JSON_RENDER(array("code" => 200, "name" => "First App")));
     }
+
 }

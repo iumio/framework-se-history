@@ -12,12 +12,17 @@
 
 namespace iumioFramework\HttpRoutes;
 
-use iumioFramework\Core\Base\{Listener, Json\JsonListener as JL};
+use iumioFramework\Core\Base\Listener;
+use iumioFramework\Core\Base\Json\JsonListener as JL;
 use iumioFramework\Exception\Server\Server500;
 
 /**
  * Class JsRouting
  * @package iumioFramework\HttpRoutes
+ * @category Framework
+ * @licence  MIT License
+ * @link https://framework.iumio.com
+ * @author   RAFINA Dany <danyrafina@gmail.com>
  */
 class JsRouting implements Listener
 {
@@ -26,7 +31,7 @@ class JsRouting implements Listener
     protected $apps_path = CONFIG_DIR."core/apps.json";
     protected $baseapps_path = BASE_APPS."apps.json";
     protected $is_base;
-    protected $resource = NULL;
+    protected $resource = null;
 
 
     /**
@@ -51,8 +56,9 @@ class JsRouting implements Listener
      */
     public function open():int
     {
-        if ($this->resource == NULL)
+        if ($this->resource == null) {
             $this->resource = ($this->is_base)? JL::open($this->rt_path_base) : JL::open($this->rt_path);
+        }
         return (1);
     }
 
@@ -91,16 +97,16 @@ class JsRouting implements Listener
     {
         $rt = $this->analysis();
         $rtfinal = array();
-        if ($this->clear() != 1)
+        if ($this->clear() != 1) {
             throw new Server500(new \ArrayObject(array("explain" => "Cannot clear Routing JS File",
                 "solution" => "Please check the Routing JS file")));
-       while ($rt->valid())
-       {
-           array_push($rtfinal, $rt->current());
-           $rt->next();
-       }
+        }
+        while ($rt->valid()) {
+            array_push($rtfinal, $rt->current());
+            $rt->next();
+        }
 
-       return ($this->write(json_encode((object)$rtfinal,JSON_PRETTY_PRINT)));
+        return ($this->write(json_encode((object)$rtfinal, JSON_PRETTY_PRINT)));
     }
 
 
@@ -131,21 +137,20 @@ class JsRouting implements Listener
     {
         $apps = $this->getApplist();
         $routing = new \ArrayIterator();
-        foreach ($apps as $one => $values)
-        {
+        foreach ($apps as $one => $values) {
             $rt = new Routing($values->name, (isset($values->prefix)? $values->prefix : ""), $this->is_base);
             $rt->routingRegister();
             $apprt = $rt->routes();
             $apppublic = array();
-            foreach ($apprt as $rt => $valk)
-            {
-                if ($valk['visibility'] == "public")
+            foreach ($apprt as $rt => $valk) {
+                if ($valk['visibility'] == "public") {
                     array_push($apppublic, array("name" => $valk['routename'],
                         "path" => $valk['path'], "params" => $valk['params']?? ""));
+                }
             }
             $routing->append(array($values->name => $apppublic));
         }
-       return ($routing);
+        return ($routing);
     }
 
     /** Close the router ressource
@@ -154,8 +159,9 @@ class JsRouting implements Listener
      */
     public function close($oneRouter): int
     {
-        if ($this->resource != NULL)
+        if ($this->resource != null) {
             JL::close($this->rt_path);
+        }
         return (1);
     }
 
@@ -166,6 +172,4 @@ class JsRouting implements Listener
     {
         return (1);
     }
-
-
 }

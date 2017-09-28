@@ -11,7 +11,7 @@
  */
 
 namespace iumioFramework\Core\Console\Module\Assets;
-use iumioFramework\Core\Additionnal\Server\iumioServerManager as Server;
+use iumioFramework\Core\Additionnal\Server\ServerManager as Server;
 use iumioFramework\Core\Console\{
     CoreManager, Module\ModuleManager, Display\OutputManager as Output
 };
@@ -49,9 +49,9 @@ class AssetsManager implements ModuleManager
     private function clearAssets(array $options)
     {
         $appname = NULL;
-        if ($this->strlike_in_array("--appname", $options) != null)
+        if ($this->strlikeInArray("--appname", $options) != null)
         {
-            $ch = $this->strlike_in_array("--appname", $options);
+            $ch = $this->strlikeInArray("--appname", $options);
             $e = explode("=", $ch);
             $appname = $e[1];
             if (strpos($appname, "App") == false)
@@ -67,7 +67,7 @@ class AssetsManager implements ModuleManager
 
         if ($appname != NULL)
         {
-            $env = ($this->strlike_in_array("--env=", $options));
+            $env = ($this->strlikeInArray("--env=", $options));
             if ($env != null)
             {
                 $nenv = explode("=", $env);
@@ -88,7 +88,7 @@ class AssetsManager implements ModuleManager
             return (null);
         }
 
-        $env = ($this->strlike_in_array("--env=", $options));
+        $env = ($this->strlikeInArray("--env=", $options));
         if ($env != null)
         {
             $nenv = explode("=", $env);
@@ -104,7 +104,7 @@ class AssetsManager implements ModuleManager
 
         Output::displayAsSuccess("Hey, I'll clean all assets in web folder for ".(($env != null && $env !== "all")? strtoupper($env)." environment" : "all environments"), "none");
         $this->callDelCreaServer('#none', $env);
-        if ($this->strlike_in_array("--noexit", $options) != null)
+        if ($this->strlikeInArray("--noexit", $options) != null)
             Output::displayAsEndSuccess("All assets for ".(($env != null && $env !== "all")? strtoupper($env)." environment" : "all environments")." have been deleted.", "none");
         else
             Output::displayAsNormal("All assets for ".(($env != null && $env !== "all")? strtoupper($env)." environment" : "all environments")." have been deleted.");
@@ -118,7 +118,7 @@ class AssetsManager implements ModuleManager
      * @param  array   $haystack  The array to search in
      * @return mixed
      */
-    private function strlike_in_array($needle, array $haystack)
+    private function strlikeInArray($needle, array $haystack)
     {
         foreach ($haystack as $one => $value)
         {
@@ -140,11 +140,11 @@ class AssetsManager implements ModuleManager
         $appname = '#none';
         $symlink = false;
 
-        if ($this->strlike_in_array("--symlink", $options) != null)
+        if ($this->strlikeInArray("--symlink", $options) != null)
             $symlink = true;
-        if ($this->strlike_in_array("--appname", $options) != null)
+        if ($this->strlikeInArray("--appname", $options) != null)
         {
-            $ch = $this->strlike_in_array("--appname", $options);
+            $ch = $this->strlikeInArray("--appname", $options);
             $e = explode("=", $ch);
             $appname = $e[1];
             if (strpos($appname, "App") == false)
@@ -154,7 +154,7 @@ class AssetsManager implements ModuleManager
                 Output::displayAsError("Assets Manager Error: App $appname doesn't exist.");
         }
 
-        $env = ($this->strlike_in_array("--env=", $options));
+        $env = ($this->strlikeInArray("--env=", $options));
         if ($env != null)
         {
             $nenv = explode("=", $env);

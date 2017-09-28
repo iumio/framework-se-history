@@ -11,15 +11,17 @@
  */
 
 namespace iumioFramework\Masters;
+
 use iumioFramework\HttpRoutes\Routing;
 use iumioFramework\Core\Base\Http\ParameterRequest;
 use iumioFramework\Core\Additionnal\Template\iumioSmarty;
 use iumioFramework\Core\Base\iumioEnvironment;
-use iumioFramework\Core\Requirement\{
-    FrameworkServices\Services, iumioCore, FrameworkServices\GlobalCoreService
-};
+use iumioFramework\Core\Requirement\FrameworkServices\Services;
+use iumioFramework\Core\Requirement\iumioCore;
+use iumioFramework\Core\Requirement\FrameworkServices\GlobalCoreService;
 use iumioFramework\Core\Base\Database\iumioDatabaseAccess as IDA;
-use iumioFramework\Exception\Server\{Server500, Server404};
+use iumioFramework\Exception\Server\Server500;
+use iumioFramework\Exception\Server\Server404;
 use iumioFramework\Core\Base\Http\Session\iumioSession;
 use iumioFramework\Core\Base\Json\JsonListener as JL;
 
@@ -27,13 +29,16 @@ use iumioFramework\Core\Base\Json\JsonListener as JL;
  * Class MasterCore
  * This is the parent master for all subclass
  * @package iumioFramework\Masters
- * @author RAFINA Dany <danyrafina@gmail.com>
+ * @category Framework
+ * @licence  MIT License
+ * @link https://framework.iumio.com
+ * @author   RAFINA Dany <danyrafina@gmail.com>
  */
 
 class MasterCore extends GlobalCoreService
 {
-    protected $masterFirst = NULL;
-    protected $appMastering = NULL;
+    protected $masterFirst = null;
+    protected $appMastering = null;
 
 
     /**
@@ -50,8 +55,7 @@ class MasterCore extends GlobalCoreService
      */
     protected function get(string $service)
     {
-        switch ($service)
-        {
+        switch ($service) {
             case 'request':
                 return (iumioCore::getRuntimeParameters())->request;
                 break;
@@ -96,21 +100,24 @@ class MasterCore extends GlobalCoreService
      * This plugin allow to use in your smarty view
      * @param string $type Method type (function or modifier)
      * @param string $name Method name
-     * @param array $method This array contain class with namespace and class method array('Class with namespace', 'class method')
+     * @param array $method This array contain class with namespace and class method
+     * array('Class with namespace', 'class method')
      * @return int Return the register success
      * @throws Server500
      */
     final public function registerViewPlugin(string $type, string $name, array $method):int
     {
         $si = iumioSmarty::getSmartyInstance($this->appMastering);
-        if ($type !== "modifier" && $type != "function")
+        if ($type !== "modifier" && $type != "function") {
             throw new Server500(new \ArrayObject(array("explain" => "Undefined plugin type $type.",
                 "solution" => "Allowed to modifier or function")));
-        if (is_array($method) && count($method) == 2)
+        }
+        if (is_array($method) && count($method) == 2) {
             $si->registerPlugin($type, $name, $method);
-        else
+        } else {
             throw new Server500(new \ArrayObject(array("explain" => "You must enter a valid class method in this array",
                 "solution" => "array('Class with namespace', 'class method')")));
+        }
         return (1);
     }
 
@@ -133,56 +140,64 @@ class MasterCore extends GlobalCoreService
      * @throws Server404|Server500
      */
 
-    final public function generateRoute(string $routename,  array $parameters = null, string $app_called = null,
-                                        bool $component = false):string
-    {
+    final public function generateRoute(
+        string $routename,
+        array $parameters = null,
+        string $app_called = null,
+        bool $component = false
+    ):string {
         $app = (($app_called != null)? $app_called : APP_CALL);
 
         $file = JL::open(CONFIG_DIR."core/apps.json");
         $prefix = null;
-        foreach ($file as $one)
-        {
-            if ($one->name == $app && $one->prefix != "")
+        foreach ($file as $one) {
+            if ($one->name == $app && $one->prefix != "") {
                 $prefix = $one->prefix;
+            }
         }
         JL::close(CONFIG_DIR."core/apps.json");
 
         $iscomponent = (self::getCore())->detectAppType($app);
 
         $component = false;
-        if ($iscomponent == 'base') $component = true;
-        else if ($iscomponent == 'none')
+        if ($iscomponent == 'base') {
+            $component = true;
+        } elseif ($iscomponent == 'none') {
             throw new Server500(new \ArrayObject(array("explain" => "Cannot determine app type of ".$app,
                 "solution" => "Please check if your app exist")));
+        }
         $rt = new Routing($app, $prefix, $component);
-        if (!$rt->routingRegister())
+        if (!$rt->routingRegister()) {
             throw new Server500(new \ArrayObject(array("solution" => "Please check all RT file",
                 "explain" => "Cannot open your RT file")));
+        }
 
-        foreach ($rt->routes() as $one)
-        {
-            if ($one['routename'] == $routename)
-            {
-                $one['path'] = $this->analysePath($one['routename'], $one['path'],
-                    ((is_array($parameters))? $parameters : array()));
+        foreach ($rt->routes() as $one) {
+            if ($one['routename'] == $routename) {
+                $one['path'] = $this->analysePath(
+                    $one['routename'],
+                    $one['path'],
+                    ((is_array($parameters))? $parameters : array())
+                );
 
-                if (isset($one['path'][0]) && $one['path'][0] != "/")
+                if (isset($one['path'][0]) && $one['path'][0] != "/") {
                     $one['path'] = "/".$one['path'];
+                }
                 $url = $one['path'];
 
                 $base = (isset($_SERVER['SCRIPT_NAME']) && $_SERVER['SCRIPT_NAME'] != "")? $_SERVER['SCRIPT_NAME'] : "";
 
-                if (strpos($_SERVER['REQUEST_URI'], iumioEnvironment::getFileEnv(IUMIO_ENV)) == false)
-                {
-                    $rm = explode('/',$base);
+                if (strpos($_SERVER['REQUEST_URI'], iumioEnvironment::getFileEnv(IUMIO_ENV)) == false) {
+                    $rm = explode('/', $base);
                     $rm = array_values(Routing::removeEmptyData($rm));
                     $rm = array_values($rm);
                     $key = array_search(iumioEnvironment::getFileEnv(IUMIO_ENV), $rm);
                     unset($rm[$key]);
                     $rm = array_values($rm);
                     $base = implode("/", $rm);
-                    if (isset($base[0]) && $base[0] != "/")
+                    if (isset($base[0]) && $base[0] != "/") {
                         $base = "/".$base;
+                    }
                 }
 
                 return ($base.$url);
@@ -205,10 +220,8 @@ class MasterCore extends GlobalCoreService
         $arraypath = explode("/", $path);
         $arrayElem = array();
         $narray = array();
-        foreach ($arraypath as $one)
-        {
-            if (preg_match("/{(.*?)}/", $one))
-            {
+        foreach ($arraypath as $one) {
+            if (preg_match("/{(.*?)}/", $one)) {
                 $nstr = str_replace("{", "", $one);
                 $nstr = str_replace("}", "", $nstr);
                 array_push($arrayElem, $nstr);
@@ -216,33 +229,33 @@ class MasterCore extends GlobalCoreService
         }
 
         $countchange = 0;
-        if (count($parameters) != count($arrayElem))
+        if (count($parameters) != count($arrayElem)) {
             throw new Server500(new \ArrayObject(array("explain" =>
                 "Parameters count does not matches for $routename route",
                 "solution" => "Please check your parameters declaration")));
+        }
 
 
-        foreach ($arrayElem as $uno)
-        {
-            if (isset($parameters[$uno]) && $parameters[$uno] != "")
-            {
+        foreach ($arrayElem as $uno) {
+            if (isset($parameters[$uno]) && $parameters[$uno] != "") {
                 $narray["{".$uno."}"] = $parameters[$uno];
                 $countchange++;
             }
         }
 
-        if (count($parameters) != $countchange)
+        if (count($parameters) != $countchange) {
             throw new Server500(new \ArrayObject(array("explain" => "Parameter missing for $routename route",
                 "solution" => "Please check your parameters declaration")));
+        }
 
 
-       for ($i = 0; $i < count($arraypath); $i++)
-       {
-            if (isset($narray[$arraypath[$i]]))
+        for ($i = 0; $i < count($arraypath); $i++) {
+            if (isset($narray[$arraypath[$i]])) {
                 $arraypath[$i] = $narray[$arraypath[$i]];
-       }
+            }
+        }
 
-       $path = implode("/", $arraypath);
+        $path = implode("/", $arraypath);
 
         return ($path);
     }
@@ -254,35 +267,33 @@ class MasterCore extends GlobalCoreService
      */
     final protected function getMaster(string $mastername)
     {
-       if (IS_IUMIO_COMPONENT == 1)
-           $file = JL::open(BASE_APPS."apps.json");
-       else
-           $file = JL::open(CONFIG_DIR."core/apps.json");
+        if (IS_IUMIO_COMPONENT == 1) {
+            $file = JL::open(BASE_APPS."apps.json");
+        } else {
+            $file = JL::open(CONFIG_DIR."core/apps.json");
+        }
 
-       $app = null;
+        $app = null;
 
-       foreach ($file as $one => $val)
-       {
-           if (isset($val->name) && APP_CALL == $val->name)
-           {
-               $app = $val;
-               break;
-           }
-       }
+        foreach ($file as $one => $val) {
+            if (isset($val->name) && APP_CALL == $val->name) {
+                $app = $val;
+                break;
+            }
+        }
 
-        if ($app != null)
-        {
+        if ($app != null) {
             $class = APP_CALL."\Masters\\".$mastername."Master";
-            if (class_exists ($class))
+            if (class_exists($class)) {
                 return (new $class);
-            else
+            } else {
                 throw new Server500(new \ArrayObject(array("explain" => "Master $mastername does not exist",
                     "solution" => "Please check masters declaration")));
-        }
-        else
+            }
+        } else {
             throw new Server500(new \ArrayObject(array("explain" =>
                 ((IS_IUMIO_COMPONENT == 1)? "BaseApp" : "App" )." ".APP_CALL." does not exist in apps.json",
                 "solution" => "Please check app declaration")));
+        }
     }
-
 }

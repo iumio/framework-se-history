@@ -24,7 +24,7 @@ class DefaultMaster extends MasterCore
 
     /** show hello
      */
-    public function show_indexActivity()
+    public function showIndexActivity()
     {
         return ($this->render("index"));
     }

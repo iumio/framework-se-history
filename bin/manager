@@ -12,21 +12,22 @@
 
 namespace iumioFramework\Bin;
 
-try
-{
+try {
     $loader = require_once __DIR__.'/../vendor/iumio_framework/php/Core/Requirement/EngineAutoloader.php';
-}
-catch (\Exception $e)
-{
+} catch (\Exception $e) {
     throw new \Exception("Console Manager error : cannot get autoloader => ".$e->getMessage());
 }
 
-use iumioFramework\Core\{Base\Debug\Debug, Console\CoreManager};
+use iumioFramework\Core\Base\Debug\Debug;
+use iumioFramework\Core\Console\CoreManager;
 
 /**
  * Class ConsoleManager
  * @package iumioFramework\Bin
- * @author RAFINA Dany <danyrafina@gmail.com>
+ * @category Framework
+ * @licence  MIT License
+ * @link https://framework.iumio.com
+ * @author   RAFINA Dany <danyrafina@gmail.com>
  */
 
 class ConsoleManager
@@ -53,13 +54,17 @@ class ConsoleManager
         \define('ROOT_CACHE', __DIR__.'/../elements/cache/', true);
         \define('ROOT_APPS', __DIR__.'/../apps/', true);
         \define('ELEMS', __DIR__ . '/../elements/', true);
-        \define('ROOT_VENDOR_LIBS',  __DIR__.'/../vendor/libs/', true);
-        \define('ROOT_VENDOR_CLI_MODULES',  __DIR__.'/../vendor/iumio_framework/php/Core/Additional/Manager/Module/', true);
-        \define('ROOT_WEB_COMPONENTS',  __DIR__.'/../web/components/', true);
-        \define('CONFIG_DIR',  __DIR__.'/../elements/config_files/', true);
-        \define('BASE_APPS',  __DIR__.'/../vendor/iumio_framework/php/BaseApps/', true);
-
+        \define('ROOT_VENDOR_LIBS', __DIR__.'/../vendor/libs/', true);
+        \define(
+            'ROOT_VENDOR_CLI_MODULES',
+            __DIR__.'/../vendor/iumio_framework/php/Core/Additional/Manager/Module/',
+            true
+        );
+        \define('ROOT_WEB_COMPONENTS', __DIR__.'/../web/components/', true);
+        \define('CONFIG_DIR', __DIR__.'/../elements/config_files/', true);
+        \define('BASE_APPS', __DIR__.'/../vendor/iumio_framework/php/BaseApps/', true);
     }
 }
 
-(new ConsoleManager())->main($argc, $argv);
+$e = new ConsoleManager();
+$e->main($argc, $argv);

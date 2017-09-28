@@ -11,6 +11,7 @@
  */
 
 namespace iumioFramework\Apps;
+
 use iumioFramework\Core\Requirement\iumioCore;
 use iumioFramework\Core\Base\Http\HttpListener;
 use iumioFramework\Exception\Server\Server000;
@@ -18,7 +19,10 @@ use iumioFramework\Exception\Server\Server000;
 /**
  * Class AppCore
  * @package iumioFramework\Apps
- * @author Dany Rafina <danyrafina@gmail.com>
+ * @category Framework
+ * @licence  MIT License
+ * @link https://framework.iumio.com
+ * @author   RAFINA Dany <danyrafina@gmail.com>
  */
 class AppCore extends iumioCore
 {
@@ -44,8 +48,11 @@ class AppCore extends iumioCore
     {
         $classes = $this->getClassFile();
 
-        if (count((array)$classes) == 0) throw new Server000(
-            new \ArrayObject(array("explain" => "No app is registered", "solution" => "Create an app")));
+        if (count((array)$classes) == 0) {
+            throw new Server000(
+                new \ArrayObject(array("explain" => "No app is registered", "solution" => "Create an app"))
+            );
+        }
         $apps = array();
         foreach ($classes as $class => $val) {
             $val = (array)$val;

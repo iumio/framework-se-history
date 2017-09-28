@@ -12,6 +12,7 @@
 
 
 namespace ManagerApp\Masters;
+
 use iumioFramework\Masters\MasterCore;
 use iumioFramework\Core\Base\Json\JsonListener as JL;
 use iumioFramework\Core\Base\Http\Response\Response;
@@ -19,7 +20,10 @@ use iumioFramework\Core\Base\Http\Response\Response;
 /**
  * Class SmartyMaster
  * @package iumioFramework\Core\Manager
- * @author RAFINA Dany <danyrafina@gmail.com>
+ * @category Framework
+ * @licence  MIT License
+ * @link https://framework.iumio.com
+ * @author   RAFINA Dany <danyrafina@gmail.com>
  */
 
 class SmartyMaster extends MasterCore
@@ -39,11 +43,19 @@ class SmartyMaster extends MasterCore
     public function getAllActivity()
     {
         $file = JL::open(CONFIG_DIR."smarty_config/smarty.json");
-        foreach ($file as $one => $value)
-        {
-            $value->edit = $this->generateRoute("iumio_manager_smarty_manager_edit", array("config" => $one), null, true);
-            $value->save = $this->generateRoute("iumio_manager_smarty_manager_save", array("config" => $one), null, true);
-
+        foreach ($file as $one => $value) {
+            $value->edit = $this->generateRoute(
+                "iumio_manager_smarty_manager_edit",
+                array("config" => $one),
+                null,
+                true
+            );
+            $value->save = $this->generateRoute(
+                "iumio_manager_smarty_manager_save",
+                array("config" => $one),
+                null,
+                true
+            );
         }
         return ((new Response())->JSON_RENDER(array("code" => 200, "msg" => "OK", "results" => $file)));
     }
@@ -55,10 +67,10 @@ class SmartyMaster extends MasterCore
     public function editActivity(string $config)
     {
         $file = (array) JL::open(CONFIG_DIR.'smarty_config/smarty.json');
-        foreach ($file as $one => $val)
-        {
-            if ($one == $config)
+        foreach ($file as $one => $val) {
+            if ($one == $config) {
                 return ((new Response())->JSON_RENDER(array("code" => 200, "results" => $val)));
+            }
         }
 
         return ((new Response())->JSON_RENDER(array("code" => 200, "results" => array())));
@@ -79,13 +91,15 @@ class SmartyMaster extends MasterCore
 
         if (!in_array($debug, array('true', 'false')) || !in_array($cache, array('0', '1')) ||
             !in_array($compile, array('true', 'false')) || !in_array($force, array('true', 'false')) ||
-            !in_array($sdebug, array('true', 'false')) || !in_array($console, array("on", "off")))
+            !in_array($sdebug, array('true', 'false')) || !in_array($console, array("on", "off"))) {
             return ((new Response())->JSON_RENDER(array("code" => 500, "msg" => "Error on smarty parameters")));
+        }
 
 
         $file = JL::open(CONFIG_DIR.'smarty_config/smarty.json');
-        if (!isset($file->$config))
+        if (!isset($file->$config)) {
             return ((new Response())->JSON_RENDER(array("code" => 500, "msg" => "Error on smarty parameters")));
+        }
 
         $file->$config->debug         = $this->setRealBoolean($debug);
         $file->$config->cache         = (int)$cache;
@@ -105,12 +119,11 @@ class SmartyMaster extends MasterCore
      */
     private function setRealBoolean(string $val):bool
     {
-        if ($val === "true")
+        if ($val === "true") {
             $val = true;
-        else
+        } else {
             $val = false;
+        }
         return ($val);
     }
-
-
 }

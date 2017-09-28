@@ -19,7 +19,10 @@ use iumioFramework\Core\Requirement\Patterns\SingletonPattern;
 /**
  * Class SingletonPatternUnits
  * @package iumioFramework\Core\Units
- * @author RAFINA Dany <danyrafina@gmail.com>
+ * @category Framework
+ * @licence  MIT License
+ * @link https://framework.iumio.com
+ * @author   RAFINA Dany <danyrafina@gmail.com>
  */
 class SingletonPatternUnits extends SingletonPattern
 {
@@ -32,5 +35,4 @@ class SingletonPatternUnits extends SingletonPattern
     {
         echo "TEST1";
     }
-
 }

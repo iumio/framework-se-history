@@ -12,13 +12,17 @@
 
 
 namespace FServiceApp\Masters;
+
 use iumioFramework\Masters\MasterCore;
 use iumioFramework\Core\Base\Http\Response\Response;
 
 /**
  * Class ServiceMaster
  * @package FServiceApp\Masters
- * @author RAFINA Dany <danyrafina@gmail.com>
+ * @category Framework
+ * @licence  MIT License
+ * @link https://framework.iumio.com
+ * @author   RAFINA Dany <danyrafina@gmail.com>
  */
 
 class ServiceMaster extends MasterCore
@@ -30,5 +34,4 @@ class ServiceMaster extends MasterCore
     {
         return ((new Response())->JSON_RENDER(array("code" => 200, "app" => APP_CALL)));
     }
-
 }

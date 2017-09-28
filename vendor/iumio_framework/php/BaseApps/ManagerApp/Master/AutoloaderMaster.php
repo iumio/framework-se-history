@@ -12,7 +12,8 @@
 
 
 namespace ManagerApp\Masters;
-use iumioFramework\Core\Additionnal\Server\iumioServerManager;
+
+use iumioFramework\Core\Additionnal\Server\ServerManager;
 use iumioFramework\Core\Base\Debug\Debug;
 use iumioFramework\Core\Base\Http\Response\Response;
 use iumioFramework\Exception\Server\AbstractServer;
@@ -24,7 +25,10 @@ use iumioFramework\Core\Base\Json\JsonListener as JL;
 /**
  * Class AutoloaderMaster
  * @package iumioFramework\Core\Manager
- * @author RAFINA Dany <danyrafina@gmail.com>
+ * @category Framework
+ * @licence  MIT License
+ * @link https://framework.iumio.com
+ * @author   RAFINA Dany <danyrafina@gmail.com>
  */
 
 class AutoloaderMaster extends MasterCore
@@ -49,18 +53,23 @@ class AutoloaderMaster extends MasterCore
         $ccdev  = 0;
         $ccprod = 0;
         $appsclass = 0;
-        $lastfile = NULL;
+        $lastfile = null;
         $appsmaster = 0;
         $masterregex = '/\/apps\/\w*App\/Master\//';
 
-        foreach ($dev as $one => $value)
-        {
-            if (strpos($value, "/apps/") !== false) $appsclass++;
+        foreach ($dev as $one => $value) {
+            if (strpos($value, "/apps/") !== false) {
+                $appsclass++;
+            }
             preg_match($masterregex, $value, $matches);
-            if (!empty($matches)) $appsmaster++;
+            if (!empty($matches)) {
+                $appsmaster++;
+            }
             $ccdev++;
         }
-        foreach ($prod as $one) $ccprod++;
+        foreach ($prod as $one) {
+            $ccprod++;
+        }
 
         $ndev = (array)$dev;
         $ndev = array_values($ndev);
@@ -86,11 +95,12 @@ class AutoloaderMaster extends MasterCore
     public function clearActivity(string $env):int
     {
         // DEV is not allowed for clearing the classmap beacause the GraphicManager will be broken
-        if (in_array($env, array("prod")))
+        if (in_array($env, array("prod"))) {
             $this->clearClassMap($env);
-        else
+        } else {
             throw new Server500(new \ArrayObject(array("explain" => "Undefined environement $env", "solution" =>
                 "Environement must be only [prod]. Dev is not allowed")));
+        }
 
         return ((new Response())->JSON_RENDER(array("code" => 200, "msg" => "OK")));
     }
@@ -101,18 +111,21 @@ class AutoloaderMaster extends MasterCore
      * @return int If action is a success
      * @throws Server500 If environement name does not exist
      */
-    public final function clearClassMap(string $env):int
+    final public function clearClassMap(string $env):int
     {
-        if (in_array($env, array("dev", "prod")))
-        {
-            iumioServerManager::delete
-            (CONFIG_DIR.'engine_autoloader/map'.(($env == "dev")? "_dev" : "")."_class.json", 'file');
-            @iumioServerManager::create
-            (CONFIG_DIR.'engine_autoloader/map'.(($env == "dev")? "_dev" : "")."_class.json", 'file');
-        }
-        else
+        if (in_array($env, array("dev", "prod"))) {
+            ServerManager::delete(
+                CONFIG_DIR.'engine_autoloader/map'.(($env == "dev")? "_dev" : "")."_class.json",
+                'file'
+            );
+            @ServerManager::create(
+                CONFIG_DIR.'engine_autoloader/map'.(($env == "dev")? "_dev" : "")."_class.json",
+                'file'
+            );
+        } else {
             throw new Server500(new \ArrayObject(array("explain" => "Undefined environement $env", "solution" =>
             "Environement must be [dev] or [prod]")));
+        }
         return (0);
     }
 
@@ -123,16 +136,15 @@ class AutoloaderMaster extends MasterCore
      */
     public function buildActivity(string $env):int
     {
-        if (in_array($env, array("dev", "prod")))
+        if (in_array($env, array("dev", "prod"))) {
             $this->buildClassMapp($env);
-        else if ($env == "all")
-        {
+        } elseif ($env == "all") {
             $this->buildClassMapp("dev");
             $this->buildClassMapp("prod");
-        }
-        else
+        } else {
             throw new Server500(new \ArrayObject(array("explain" => "Undefined environement $env", "solution" =>
                 "Environement must be [dev] or [prod] and [all] for all enviroment")));
+        }
 
         return ((new Response())->JSON_RENDER(array("code" => 200, "msg" => "OK")));
     }
@@ -146,18 +158,14 @@ class AutoloaderMaster extends MasterCore
      * @return int If action is a success
      * @throws Server500 If environement name does not exist
      */
-    public final function buildClassMapp(string $env):int
+    final public function buildClassMapp(string $env):int
     {
-        if (in_array($env, array("dev", "prod")))
-        {
+        if (in_array($env, array("dev", "prod"))) {
             \EngineAutoloader::buildClassMap($env);
-        }
-        else
+        } else {
             throw new Server500(new \ArrayObject(array("explain" => "Undefined environement $env", "solution" =>
                 "Environement must be [dev] or [prod]")));
+        }
         return (0);
     }
-
-
-
 }

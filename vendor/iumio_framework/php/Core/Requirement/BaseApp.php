@@ -11,7 +11,7 @@
  */
 
 namespace iumioFramework\Core\Requirement;
-use iumioFramework\Core\Additionnal\Server\iumioServerManager as ServerManager;
+use iumioFramework\Core\Additionnal\Server\ServerManager as ServerManager;
 
 /**
  *

@@ -12,6 +12,7 @@
 
 
 namespace ManagerApp\Masters;
+
 use iumioFramework\Core\Base\Debug\Debug;
 use iumioFramework\Core\Base\Http\Response\Response;
 use iumioFramework\Exception\Server\AbstractServer;
@@ -21,7 +22,10 @@ use iumioFramework\Core\Base\Json\JsonListener as JL;
 /**
  * Class DashboardMaster
  * @package iumioFramework\Core\Manager
- * @author RAFINA Dany <danyrafina@gmail.com>
+ * @category Framework
+ * @licence  MIT License
+ * @link https://framework.iumio.com
+ * @author   RAFINA Dany <danyrafina@gmail.com>
  */
 
 class DashboardMaster extends MasterCore
@@ -46,13 +50,16 @@ class DashboardMaster extends MasterCore
     {
         $last = array_values(array_reverse(AbstractServer::getLogs()));
         $lastn = array();
-        for($i = 0; $i < count($last); $i++)
-        {
-          if ($i == 10) break;
-          $last[$i]->log_url = $this->generateRoute("iumio_manager_logs_manager_get_one",
-              array("uidie" => $last[$i]->uidie, "env" => strtolower(IUMIO_ENV)));
-          $last[$i]->time =  strtotime($last[$i]->time->date);
-          array_push($lastn, $last[$i]);
+        for ($i = 0; $i < count($last); $i++) {
+            if ($i == 10) {
+                break;
+            }
+            $last[$i]->log_url = $this->generateRoute(
+                "iumio_manager_logs_manager_get_one",
+                array("uidie" => $last[$i]->uidie, "env" => strtolower(IUMIO_ENV))
+            );
+            $last[$i]->time =  strtotime($last[$i]->time->date);
+            array_push($lastn, $last[$i]);
         }
 
         return ((new Response())->JSON_RENDER(array("code" => 200, "results" => $lastn)));
@@ -66,14 +73,11 @@ class DashboardMaster extends MasterCore
     {
         $default = array();
         $file = (array) JL::open(CONFIG_DIR.'core/apps.json');
-        foreach ($file as $one)
-        {
-          if ($one->isdefault == "yes")
-          {
-              $default = $one;
-              break;
-          }
-
+        foreach ($file as $one) {
+            if ($one->isdefault == "yes") {
+                $default = $one;
+                break;
+            }
         }
         return ((new Response())->JSON_RENDER(array("code" => 200, "results" => $default)));
     }
@@ -99,5 +103,4 @@ class DashboardMaster extends MasterCore
         return ((new Response())->JSON_RENDER(array("code" => 200, "results" => array("apps" => $appstats,
             "routes" => $routingstats, "dbs" => $dbstats, "logs" => $logsstats))));
     }
-
 }

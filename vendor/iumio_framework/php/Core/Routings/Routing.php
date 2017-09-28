@@ -11,6 +11,7 @@
  */
 
 namespace iumioFramework\HttpRoutes;
+
 use iumioFramework\Core\Base\Debug\Debug;
 use iumioFramework\Core\Base\RtListener;
 use iumioFramework\Core\Base\iumioEnvironment as Env;
@@ -21,7 +22,10 @@ use iumioFramework\Exception\Server\Server500;
 /**
  * Class Routing
  * @package iumioFramework\Masters
- * @author RAFINA Dany <danyrafina@gmail.com>
+ * @category Framework
+ * @licence  MIT License
+ * @link https://framework.iumio.com
+ * @author   RAFINA Dany <danyrafina@gmail.com>
  */
 
 class Routing extends RtListener
@@ -68,13 +72,13 @@ class Routing extends RtListener
      * @param array $routes Route array
      * @return array Array cleared
      */
-    final static public function removeEmptyData(array $routes):array
+    final public static function removeEmptyData(array $routes):array
     {
         $c = count($routes);
-        for ($i = 0; $i < $c; $i++)
-        {
-            if (trim($routes[$i]) == "" || $routes[$i] == NULL || empty($routes[$i]))
+        for ($i = 0; $i < $c; $i++) {
+            if (trim($routes[$i]) == "" || $routes[$i] == null || empty($routes[$i])) {
                 unset($routes[$i]);
+            }
         }
         return ($routes);
     }
@@ -86,16 +90,19 @@ class Routing extends RtListener
      * @return int Is a success
      * @throws Server405
      */
-    static public function checkRouteMatchesMethod($ctr, string $met_call):int
+    public static function checkRouteMatchesMethod($ctr, string $met_call):int
     {
-        if (isset($ctr["m_allow"]) && in_array("ALL", $ctr["m_allow"]))
+        if (isset($ctr["m_allow"]) && in_array("ALL", $ctr["m_allow"])) {
             return (1);
-        else if (isset($ctr["m_allow"]) && is_string($ctr["m_allow"]) && $ctr["m_allow"] === $met_call)
+        } elseif (isset($ctr["m_allow"]) && is_string($ctr["m_allow"]) && $ctr["m_allow"] === $met_call) {
             return (1);
-        else if (isset($ctr["m_allow"]) && is_array($ctr["m_allow"]) && in_array($met_call, $ctr["m_allow"]))
+        } elseif (isset($ctr["m_allow"]) && is_array($ctr["m_allow"]) && in_array($met_call, $ctr["m_allow"])) {
             return (1);
-        else
-            throw new Server405(new \ArrayObject(array("explain" => "Method request $met_call is not allowed for this route", "solution" => "Route required methods : ".json_encode($ctr["m_allow"]))));
+        } else {
+            throw new Server405(new \ArrayObject(array("explain" =>
+                "Method request $met_call is not allowed for this route", "solution" =>
+                "Route required methods : ".json_encode($ctr["m_allow"]))));
+        }
     }
 
     /** Get similarity routes
@@ -104,14 +111,16 @@ class Routing extends RtListener
      * @param $route array Params app name
      * @return array Similarity and match
      */
-    static public function matches(string $appRoute, string $webRoute, array $route):array
+    public static function matches(string $appRoute, string $webRoute, array $route):array
     {
         $paramValues = array();
 
-        if ($pos = strpos($webRoute,"/?"))
+        if ($pos = strpos($webRoute, "/?")) {
             return (array("is" => "nomatch", "similar" => 0));
-        if ($pos = strpos($webRoute,"?"))
+        }
+        if ($pos = strpos($webRoute, "?")) {
             $webRoute = substr_replace($webRoute, '', $pos, (strlen($webRoute) - 1));
+        }
 
         $aRE = explode('/', $appRoute);
         $wRE = explode('/', $webRoute);
@@ -120,77 +129,74 @@ class Routing extends RtListener
 
         $script = "";
 
-        if (strpos($webRoute, Env::getFileEnv(IUMIO_ENV)) !== false)
-        {
-
+        if (strpos($webRoute, Env::getFileEnv(IUMIO_ENV)) !== false) {
             $script = "/".Env::getFileEnv(IUMIO_ENV);
             $key = array_search(Env::getFileEnv(IUMIO_ENV), $wRE);
             unset($wRE[$key]);
             $wRE = array_values($wRE);
             $wRE = array_values(self::removeEmptyData($wRE));
             $webRoute = implode("/", $wRE);
-            if (isset($webRoute[0]) && $webRoute[0] != "/")
+            if (isset($webRoute[0]) && $webRoute[0] != "/") {
                 $webRoute = "/".$webRoute;
+            }
         }
 
-        if (isset($_SERVER['SCRIPT_NAME']) && $_SERVER['SCRIPT_NAME'] != "")
-        {
+        if (isset($_SERVER['SCRIPT_NAME']) && $_SERVER['SCRIPT_NAME'] != "") {
             $remove = explode('/', $_SERVER['SCRIPT_NAME']);
             $remove = array_values(self::removeEmptyData($remove));
             $remove = array_values($remove);
 
-            for ($z = 0; $z < count($remove); $z++)
-            {
+            for ($z = 0; $z < count($remove); $z++) {
                 $key = array_search($remove[$z], $wRE);
-                if ($key !== false)
+                if ($key !== false) {
                     unset($wRE[$key]);
+                }
             }
 
             $wRE = array_values($wRE);
             $wRE = array_values(self::removeEmptyData($wRE));
         }
 
-        if (strpos($base, Env::getFileEnv(IUMIO_ENV)) !== false)
-        {
-            $rm = explode('/',$base);
+        if (strpos($base, Env::getFileEnv(IUMIO_ENV)) !== false) {
+            $rm = explode('/', $base);
             $rm = array_values(self::removeEmptyData($rm));
             $rm = array_values($rm);
             $key = array_search(Env::getFileEnv(IUMIO_ENV), $rm);
             unset($rm[$key]);
             $rm = array_values($rm);
             $base = implode("/", $rm);
-            if (isset($base[0]) && $base[0] != "/")
+            if (isset($base[0]) && $base[0] != "/") {
                 $base = "/".$base;
-
+            }
         }
 
 
-        if (($base.$appRoute == $webRoute) || $base.$appRoute."/" == $webRoute)
+        if (($base.$appRoute == $webRoute) || $base.$appRoute."/" == $webRoute) {
             return (array("is" => "same", "similar" => 100));
+        }
 
         $wRE = array_values(self::removeEmptyData(array_values($wRE)));
         $aRE = array_values(self::removeEmptyData(array_values($aRE)));
 
-        if ((count($aRE) == count($wRE)) && count($aRE) > 0)
-        {
-            for($i = 0; $i < count($aRE); $i++) {
-                if ($aRE[$i] != $wRE[$i])
+        if ((count($aRE) == count($wRE)) && count($aRE) > 0) {
+            for ($i = 0; $i < count($aRE); $i++) {
+                if ($aRE[$i] != $wRE[$i]) {
                     array_push($paramValues, $wRE[$i]);
+                }
             }
         }
 
-        if (isset($route['params']))
-        {
-            if (count($aRE) == count($wRE))
-            {
+        if (isset($route['params'])) {
+            if (count($aRE) == count($wRE)) {
                 similar_text($base.$script.$appRoute, $webRoute, $pe1);
                 similar_text($base.$script.$appRoute."/", $webRoute, $pe2);
 
                 $simi = self::checkArrayRoute($wRE, $aRE);
                 $pe = ($pe1 > $pe2)? $pe1 : $pe2;
 
-                if ($simi == 0)
+                if ($simi == 0) {
                     $pe = 0;
+                }
 
                 return (array("is" => "partial", "result" => $paramValues, "similar" => $pe));
             }
@@ -203,19 +209,21 @@ class Routing extends RtListener
      * @param array $app Array app route
      * @return int Similarity point
      */
-    final static private function checkArrayRoute(array $web, array $app):int
+    final private static function checkArrayRoute(array $web, array $app):int
     {
         $score = 0;
         $first = 0;
-        for($i = 0; $i < count($web); $i++)
-        {
-            if ($i == 0 && isset($web[0]) && isset($app[0]) && ($web[0] == $app[0]))
+        for ($i = 0; $i < count($web); $i++) {
+            if ($i == 0 && isset($web[0]) && isset($app[0]) && ($web[0] == $app[0])) {
                 $first = 1;
-            if ($first > 0 && $web[$i] == $app[$i])
+            }
+            if ($first > 0 && $web[$i] == $app[$i]) {
                 $score++;
+            }
             if ($first > 0 && strpos($app[$i], "{") != false &&
-                strpos($app[$i], "}") != false && $web[$i] != "")
+                strpos($app[$i], "}") != false && $web[$i] != "") {
                 $score++;
+            }
         }
 
         return ($score);
@@ -237,28 +245,29 @@ class Routing extends RtListener
         $keys2 = array();
         $values1 = array_values($a);
         $return = array();
-        foreach ($b as $one)
+        foreach ($b as $one) {
             $keysaf2[$one[0]] = $one[1];
+        }
         $keys2 = array_map('trim', array_keys($keysaf2));
 
-        if ($keys1 != $keys2)
+        if ($keys1 != $keys2) {
             throw new Server500(new \ArrayObject(array("explain" =>
                 "Parameters type declaration does not matches with required parameters (".
                 json_encode($keys2)." vs ".json_encode($keys1).")",
                 "solution" => "Please check RT file")));
+        }
 
         $values2 = array_map('trim', array_values($keysaf2));
 
-        for ($i = 0; $i < count($values1); $i++)
-        {
+        for ($i = 0; $i < count($values1); $i++) {
             $rs = $this->scalarTest(trim($values1[$i]), $values2[$i]);
-            if (!$rs)
+            if (!$rs) {
                 throw new Server404(new \ArrayObject(array("explain" =>
                     "Parameter [".$keys1[$i]."] scalar type cannot be convert to ".$values2[$i],
                     "solution" => "Please check RT file")));
+            }
             $return[$keys1[$i]] = $this->scalarConvert(trim($values1[$i]), $values2[$i]);
         }
         return ($return);
     }
-
 }

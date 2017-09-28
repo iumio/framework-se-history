@@ -13,7 +13,7 @@
 namespace iumioFramework\Core\Console\Module\App;
 
 use iumioFramework\Bin\ConsoleManager;
-use iumioFramework\Core\Additionnal\Server\iumioServerManager as Server;
+use iumioFramework\Core\Additionnal\Server\ServerManager as Server;
 use iumioFramework\Core\Console\CoreManager;
 use iumioFramework\Core\Console\Module\{ModuleManager, Help\HelpManager, App\OutputManagerOverride as Output, Assets\AssetsManager as AM};
 

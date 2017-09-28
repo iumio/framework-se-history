@@ -17,7 +17,11 @@ use iumioFramework\Core\Requirement\iumioAppBaseModel as BaseApp;
 
 /**
  * Class FServiceApp
- * @package FServiceApp
+ * @package FServiceAp
+ * @category Framework
+ * @licence  MIT License
+ * @link https://framework.iumio.com
+ * @author   RAFINA Dany <danyrafina@gmail.com>
  */
 
 class FServiceApp extends BaseApp
@@ -26,25 +30,29 @@ class FServiceApp extends BaseApp
     /** Enable iumio Service Manager
      * @return int Manager status
      */
-    static public final function on():int
+    final public static function on():int
     {
-        if (self::$start == 0) self::$start = 1;
+        if (self::$start == 0) {
+            self::$start = 1;
+        }
         return (self::$start);
     }
 
     /** Disable iumio Service Manager
      * @return int Manager status
      */
-    static public final function off():int
+    final public static function off():int
     {
-        if (self::$start == 1) self::$start = 0;
+        if (self::$start == 1) {
+            self::$start = 0;
+        }
         return (self::$start);
     }
 
     /** Return if base app is started
      * @return int Status
      */
-    static public final function baseStatus():int
+    final public static function baseStatus():int
     {
         return (self::$start);
     }
@@ -53,5 +61,4 @@ class FServiceApp extends BaseApp
     {
         $this->setBaseApp(1);
     }
-
 }

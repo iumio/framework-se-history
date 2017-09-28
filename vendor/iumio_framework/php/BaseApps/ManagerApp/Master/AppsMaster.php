@@ -12,7 +12,8 @@
 
 
 namespace ManagerApp\Masters;
-use iumioFramework\Core\Additionnal\Server\iumioServerManager;
+
+use iumioFramework\Core\Additionnal\Server\ServerManager;
 use iumioFramework\Core\Additionnal\Zip\ZipEngine;
 use iumioFramework\Exception\Server\Server500;
 use iumioFramework\Masters\MasterCore;
@@ -22,7 +23,10 @@ use iumioFramework\Core\Base\Http\Response\Response;
 /**
  * Class AppsMaster
  * @package iumioFramework\Core\Manager
- * @author RAFINA Dany <danyrafina@gmail.com>
+ * @category Framework
+ * @licence  MIT License
+ * @link https://framework.iumio.com
+ * @author   RAFINA Dany <danyrafina@gmail.com>
  */
 
 class AppsMaster extends MasterCore
@@ -52,16 +56,34 @@ class AppsMaster extends MasterCore
     public function getAllApps():\stdClass
     {
         $file = JL::open(CONFIG_DIR."core/apps.json");
-        foreach ($file as $one)
-        {
-            $one->link_edit_save = $this->generateRoute("iumio_manager_app_manager_edit_save_app", array("appname" => $one->name), null, true);
+        foreach ($file as $one) {
+            $one->link_edit_save = $this->generateRoute(
+                "iumio_manager_app_manager_edit_save_app",
+                array("appname" => $one->name),
+                null,
+                true
+            );
 
-            $one->link_auto_dis_ena = $this->generateRoute("iumio_manager_app_manager_auto_dis_ena_app", array("appname" => $one->name), null, true);
+            $one->link_auto_dis_ena = $this->generateRoute(
+                "iumio_manager_app_manager_auto_dis_ena_app",
+                array("appname" => $one->name),
+                null,
+                true
+            );
 
-            $one->link_remove = $this->generateRoute("iumio_manager_app_manager_remove_app", array("appname" => $one->name), null, true);
+            $one->link_remove = $this->generateRoute(
+                "iumio_manager_app_manager_remove_app",
+                array("appname" => $one->name),
+                null,
+                true
+            );
 
-            $one->link_export = $this->generateRoute("iumio_manager_app_manager_export_app", array("appname" => $one->name), null, true);
-
+            $one->link_export = $this->generateRoute(
+                "iumio_manager_app_manager_export_app",
+                array("appname" => $one->name),
+                null,
+                true
+            );
         }
         return ($file);
     }
@@ -77,10 +99,13 @@ class AppsMaster extends MasterCore
         $fenable = 0;
         $fprefix = 0;
 
-        foreach ($f as $one)
-        {
-            if ($one->enabled == "yes") $fenable++;
-            if ($one->prefix != "") $fprefix++;
+        foreach ($f as $one) {
+            if ($one->enabled == "yes") {
+                $fenable++;
+            }
+            if ($one->prefix != "") {
+                $fprefix++;
+            }
             $fc++;
         }
 
@@ -103,15 +128,12 @@ class AppsMaster extends MasterCore
     public function switchDefaultActivity(string $appname):int
     {
         $file = JL::open(CONFIG_DIR."core/apps.json");
-        foreach ($file as $one => $val)
-        {
-            if ($val->isdefault == "yes")
-            {
+        foreach ($file as $one => $val) {
+            if ($val->isdefault == "yes") {
                 $val->isdefault = "no";
                 $val->update = new \DateTime('UTC');
             }
-            if ($val->name == $appname)
-            {
+            if ($val->name == $appname) {
                 $val->update = new \DateTime();
                 $val->isdefault = "yes";
             }
@@ -129,14 +151,13 @@ class AppsMaster extends MasterCore
     public function autoDisabledOrEnabledActivity(string $appname):int
     {
         $file = JL::open(CONFIG_DIR."core/apps.json");
-        foreach ($file as $one => $val)
-        {
-            if ($val->name == $appname)
-            {
-                if ($val->enabled == "yes")
+        foreach ($file as $one => $val) {
+            if ($val->name == $appname) {
+                if ($val->enabled == "yes") {
                     $val->enabled = "no";
-                else if ($val->enabled == "no")
+                } elseif ($val->enabled == "no") {
                     $val->enabled = "yes";
+                }
                 $val->update = new \DateTime();
             }
         }
@@ -154,28 +175,26 @@ class AppsMaster extends MasterCore
     {
         $removeapp = false;
         $file = JL::open(CONFIG_DIR."core/apps.json");
-        foreach ($file as $one => $val)
-        {
-            if ($val->name == $appname)
-            {
+        foreach ($file as $one => $val) {
+            if ($val->name == $appname) {
                 unset($file->$one);
                 $removeapp = true;
                 break;
             }
         }
 
-        if ($removeapp == false)
+        if ($removeapp == false) {
             return ((new Response())->JSON_RENDER(array("code" => 500, "msg" => "App does not exist")));
+        }
         $file = array_values((array)$file);
 
         $file = json_encode((object) $file, JSON_PRETTY_PRINT);
         JL::put(CONFIG_DIR."core/apps.json", $file);
 
-        iumioServerManager::delete(ROOT."/apps/$appname", "directory");
+        ServerManager::delete(ROOT."/apps/$appname", "directory");
         $assets = $this->getMaster("Assets");
         $assets->clear($appname, "all");
-        if (strlen($file) < 3)
-        {
+        if (strlen($file) < 3) {
             JL::put(CONFIG_DIR."core/initial.json", "");
             return ((new Response())->JSON_RENDER(array("code" => 200, "msg" => "RELOAD")));
         }
@@ -193,49 +212,45 @@ class AppsMaster extends MasterCore
     {
         $appconfig = null;
         $file = JL::open(CONFIG_DIR."core/apps.json");
-        foreach ($file as $one => $val)
-        {
-            if ($val->name == $appname)
-            {
+        foreach ($file as $one => $val) {
+            if ($val->name == $appname) {
                 $appconfig = $val;
                 break;
             }
         }
-        if ($appconfig == null)
+        if ($appconfig == null) {
             throw new Server500(new \ArrayObject(array("The application $appname does not exist.",
                 "Please check your app configuration")));
+        }
         unset($appconfig->enabled);
 
-        try
-        {
+        try {
             $date = new \DateTime();
             $datefull = $date;
             $date = $date->format('YmdHi');
             $dirbase = BIN.'exports/';
             $dirapp = $dirbase.($appname).'/';
             $dirappexp  = $dirapp.($appname)."_".$date.'/';
-            iumioServerManager::create($dirbase, 'directory');
-            iumioServerManager::create($dirapp, 'directory');
-            iumioServerManager::create($dirappexp, 'directory');
-            JL::put($dirappexp."/config.json", json_encode($appconfig,
-                JSON_PRETTY_PRINT));
+            ServerManager::create($dirbase, 'directory');
+            ServerManager::create($dirapp, 'directory');
+            ServerManager::create($dirappexp, 'directory');
+            JL::put($dirappexp."/config.json", json_encode(
+                $appconfig,
+                JSON_PRETTY_PRINT
+            ));
             $zip = new ZipEngine($dirapp.($appname)."_".$date.".zip");
             $zip->setSource(ROOT_APPS.$appname);
             $zip->addFile($dirappexp."config.json", "config.json");
             $zip->setArchiveComment("$appname - Export date :".$datefull->format('g:ia \o\n l jS F Y'));
             $zip->recursiveCompress();
-            if ($zip->close())
-            {
-                iumioServerManager::delete($dirappexp, 'directory');
+            if ($zip->close()) {
+                ServerManager::delete($dirappexp, 'directory');
                 return ((new Response())->JSON_RENDER(array("code" => 200, "msg" => "OK")));
-            }
-            else
+            } else {
                 return ((new Response())->JSON_RENDER(array("code" => 500,
                     "msg" => "Error on archive creation process")));
-        }
-
-        catch (\Exception $e)
-        {
+            }
+        } catch (\Exception $e) {
             return ((new Response())->JSON_RENDER(array("code" => 500,
                 "msg" => "Error on archive creation process : ".$e->getMessage())));
         }
@@ -251,28 +266,27 @@ class AppsMaster extends MasterCore
     {
         $sourcePath = $_FILES['file']['tmp_name'];       // Storing source path of the file in a variable
         $date = new \DateTime();
-        $datex = $date->format('ymdhis').rand(0,34);
-        @iumioServerManager::create(BIN.'import/', 'directory');
+        $datex = $date->format('ymdhis').rand(0, 34);
+        @ServerManager::create(BIN.'import/', 'directory');
         $fileex = BIN.'import/'.$datex.'.zip';
         move_uploaded_file($sourcePath, BIN.'import/'.$datex.'.zip');
         $inf = pathinfo($fileex);
-        if (isset($inf['extension']) && $inf['extension'] == "zip")
-        {
-            try
-            {
+        if (isset($inf['extension']) && $inf['extension'] == "zip") {
+            try {
                 $zip = new ZipEngine($fileex);
                 $zip->extractTo(BIN.'import/'.$datex);
                 $f =  JL::open(BIN.'import/'.$datex.'/config.json');
-                if (empty($f))
+                if (empty($f)) {
                     return ((new Response())->JSON_RENDER(array("code" => 500, "msg" => "Missing file config.json")));
+                }
                 $appname = $f->name;
 
                 $fa = json_decode(file_get_contents(ROOT."/elements/config_files/core/apps.json"));
                 $lastapp = 0;
-                foreach ($fa as $one => $val)
-                {
-                    if ($val->name == $appname)
+                foreach ($fa as $one => $val) {
+                    if ($val->name == $appname) {
                         return ((new Response())->JSON_RENDER(array("code" => 500, "msg" => "App already exist")));
+                    }
                     $lastapp++;
                 }
 
@@ -287,73 +301,22 @@ class AppsMaster extends MasterCore
                 $fa = json_encode($fa, JSON_PRETTY_PRINT);
                 file_put_contents(ROOT."/elements/config_files/core/apps.json", $fa);
 
-                iumioServerManager::create(ROOT_APPS.$appname, 'directory');
-                iumioServerManager::copy(BIN.'import/'.$datex, ROOT_APPS.$appname, 'directory');
-                iumioServerManager::delete(ROOT_APPS.$appname.'/config.json', 'file');
-                iumioServerManager::delete(BIN.'import/'.$datex, 'directory');
+                ServerManager::create(ROOT_APPS.$appname, 'directory');
+                ServerManager::copy(BIN.'import/'.$datex, ROOT_APPS.$appname, 'directory');
+                ServerManager::delete(ROOT_APPS.$appname.'/config.json', 'file');
+                ServerManager::delete(BIN.'import/'.$datex, 'directory');
                 $zip->close();
-                iumioServerManager::delete(BIN.'import/'.$datex.'.zip', 'file');
+                ServerManager::delete(BIN.'import/'.$datex.'.zip', 'file');
 
-                return ((new Response())->JSON_RENDER(array("code" => 200, "msg" => "OK", "ext" => "The application ".$appname. " is installed.")));
+                return ((new Response())->JSON_RENDER(array("code" => 200, "msg" => "OK", "ext" =>
+                    "The application ".$appname. " is installed.")));
+            } catch (\Exception $e) {
+                return ((new Response())->JSON_RENDER(array("code" => 500, "msg" =>
+                    "Your package is not a valid iumio app package")));
             }
-            catch (\Exception $e)
-            {
-                return ((new Response())->JSON_RENDER(array("code" => 500, "msg" => "Your package is not a valid iumio app package")));
-            }
-
-        }
-        else
+        } else {
             return ((new Response())->JSON_RENDER(array("code" => 500, "msg" => "Your package must be a zip package")));
-        //$targetPath = "upload/".$_FILES['file']['name']; // Target path where file is to be stored
-        //move_uploaded_file($sourcePath,$targetPath) ;    // Moving Uploaded file
-       /* $appconfig = null;
-        $file = JL::open(CONFIG_DIR."core/apps.json");
-        foreach ($file as $one => $val)
-        {
-            if ($val->name == $appname)
-            {
-                $appconfig = $val;
-                break;
-            }
         }
-        if ($appconfig == null)
-            throw new Server500(new \ArrayObject(array("The application $appname does not exist.",
-                "Please check your app configuration")));
-        unset($appconfig->enabled);
-
-        try
-        {
-            $date = new \DateTime();
-            $datefull = $date;
-            $date = $date->format('YmdHi');
-            $dirbase = BIN.'exports/';
-            $dirapp = $dirbase.($appname).'/';
-            $dirappexp  = $dirapp.($appname)."_".$date.'/';
-            iumioServerManager::create($dirbase, 'directory');
-            iumioServerManager::create($dirapp, 'directory');
-            iumioServerManager::create($dirappexp, 'directory');
-            JL::put($dirappexp."/config.json", json_encode($appconfig,
-                JSON_PRETTY_PRINT));
-            $zip = new ZipEngine($dirapp.($appname)."_".$date.".zip");
-            $zip->setSource(ROOT_APPS.$appname);
-            $zip->addFile($dirappexp."config.json", "config.json");
-            $zip->setArchiveComment("$appname - Export date :".$datefull->format('g:ia \o\n l jS F Y'));
-            $zip->recursiveCompress();
-            if ($zip->close())
-            {
-                iumioServerManager::delete($dirappexp, 'directory');
-                return ((new Response())->JSON_RENDER(array("code" => 200, "msg" => "OK")));
-            }
-            else
-                return ((new Response())->JSON_RENDER(array("code" => 500,
-                    "msg" => "Error on archive creation process")));
-        }
-
-        catch (\Exception $e)
-        {
-            return ((new Response())->JSON_RENDER(array("code" => 500,
-                "msg" => "Error on archive creation process : ".$e->getMessage())));
-        }*/
         return ((new Response())->JSON_RENDER(array("code" => 200, "msg" => "OK")));
     }
 
@@ -367,23 +330,29 @@ class AppsMaster extends MasterCore
         $prefix = $this->get("request")->get("prefix");
         $template = $this->get("request")->get("template");
 
-        if ($prefix != "" && $this->checkPrefix($prefix) == -1)
-            return ((new Response())->JSON_RENDER(array("code" => 500, "msg" => "Error on app prefix. (App prefix must be a string without special character exepted [ _ & numbers])")));
+        if ($prefix != "" && $this->checkPrefix($prefix) == -1) {
+            return ((new Response())->JSON_RENDER(array("code" => 500, "msg" =>
+                "Error on app prefix. (App prefix must be a string without special character exepted [ _ & numbers])"))
+            );
+        }
 
-        if (!in_array($enable, array("yes", "no")))
+        if (!in_array($enable, array("yes", "no"))) {
             return ((new Response())->JSON_RENDER(array("code" => 500, "msg" => "App name already exist")));
+        }
 
-        if (trim($name) == "")
+        if (trim($name) == "") {
             return ((new Response())->JSON_RENDER(array("code" => 500, "msg" => "Error on app parameters")));
+        }
 
-        if (file_exists(ROOT_APPS.$name))
+        if (file_exists(ROOT_APPS.$name)) {
             return ((new Response())->JSON_RENDER(array("code" => 500, "msg" => "App name already exist")));
+        }
 
 
         $temdirbase = ADDITIONALS."Manager/Module/AppManager/AppTemplate";
 
         $tempdir = ($template == "no")? $temdirbase.'/notemplate/{appname}/' : $temdirbase.'/template/{appname}/';
-        iumioServerManager::copy($tempdir, ROOT_APPS.$name, 'directory');
+        ServerManager::copy($tempdir, ROOT_APPS.$name, 'directory');
         $napp = ROOT_APPS.$name;
 
         // APP
@@ -406,7 +375,9 @@ class AppsMaster extends MasterCore
         // REGISTER TO APP CORE
         $f = json_decode(file_get_contents(ROOT."/elements/config_files/core/apps.json"));
         $lastapp = 0;
-        foreach ($f as $one => $val) $lastapp++;
+        foreach ($f as $one => $val) {
+            $lastapp++;
+        }
 
         $f->$lastapp = new \stdClass();
         $f->$lastapp->name = $name;
@@ -418,14 +389,12 @@ class AppsMaster extends MasterCore
         $f->$lastapp->update = $ndate;
         $f = json_encode($f, JSON_PRETTY_PRINT);
         file_put_contents(ROOT."/elements/config_files/core/apps.json", $f);
-        if ($template == "yes")
-        {
+        if ($template == "yes") {
             $assets = $this->getMaster("Assets");
             $assets->publish($name, "dev");
         }
 
         return ((new Response())->JSON_RENDER(array("code" => 200, "msg" => "OK")));
-
     }
 
     /** Check prefix response
@@ -434,7 +403,9 @@ class AppsMaster extends MasterCore
      */
     final private function checkPrefix(string $res):int
     {
-        if (!preg_match('/[\/\'^£$%&*()}{@#~?><>,|=+¬-]/', $res)) return (1);
+        if (!preg_match('/[\/\'^£$%&*()}{@#~?><>,|=+¬-]/', $res)) {
+            return (1);
+        }
         return (-1);
     }
 
@@ -447,16 +418,19 @@ class AppsMaster extends MasterCore
         $prefix = $this->get("request")->get("prefix");
         $enable = $this->get("request")->get("enabled");
 
-        if ($prefix != "" && $this->checkPrefix($prefix) == -1)
-            return ((new Response())->JSON_RENDER(array("code" => 500, "msg" => "Error on app prefix. (App prefix must be a string without special character exepted [ _ & numbers])")));
+        if ($prefix != "" && $this->checkPrefix($prefix) == -1) {
+            return ((new Response())->JSON_RENDER(array("code" => 500, "msg" =>
+                "Error on app prefix. (App prefix must be a string without special character exepted [ _ & numbers])"))
+            );
+        }
 
-        if (!in_array($enable, array("yes", "no")))
+        if (!in_array($enable, array("yes", "no"))) {
             return ((new Response())->JSON_RENDER(array("code" => 500, "msg" => "App name already exist")));
+        }
 
         $f = json_decode(file_get_contents(ROOT."/elements/config_files/core/apps.json"));
 
-        foreach ($f as $one => $val)
-        {
+        foreach ($f as $one => $val) {
             if ($val->name == $appname) {
                 $val->prefix = trim(stripslashes($prefix));
                 $val->enabled = trim($enable);
@@ -468,6 +442,5 @@ class AppsMaster extends MasterCore
         file_put_contents(ROOT."/elements/config_files/core/apps.json", $f);
 
         return ((new Response())->JSON_RENDER(array("code" => 200, "msg" => "OK")));
-
     }
 }

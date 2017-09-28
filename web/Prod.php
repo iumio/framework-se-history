@@ -10,17 +10,26 @@
  * To get more information about licence, please check the licence file
  */
 
-$loader = require __DIR__.'/../vendor/iumio_framework/php/Core/Requirement/EngineAutoloader.php';
-EngineAutoloader::$env = "PROD";
+namespace iumioFramework\Core\Base;
 
-use iumioFramework\Core\Base\{iumioEnvironment, Debug\Debug, Http\HttpListener};
+$loader = require __DIR__.'/../vendor/iumio_framework/php/Core/Requirement/EngineAutoloader.php';
+\EngineAutoloader::$env = "PROD";
+
+use iumioFramework\Core\Base\iumioEnvironment;
+use iumioFramework\Core\Base\Debug\Debug;
+use iumioFramework\Core\Base\Http\HttpListener;
 use iumioFramework\Apps\AppCore;
 use iumioFramework\Core\Additionnal\TaskBar\iumioTaskBar as TB;
 
 /**
  * Class Prod
  * iumio Class for production environment
- * @author RAFINA Dany <danyrafina@gmail.com>
+ *
+ * @package  Prod
+ * @category Framework
+ * @licence  MIT License
+ * @link https://framework.iumio.com
+ * @author   RAFINA Dany <danyrafina@gmail.com>
  */
 class Prod extends iumioEnvironment
 {
@@ -28,7 +37,7 @@ class Prod extends iumioEnvironment
     /** Start Application
      * @return int Is Ready
      */
-    static public function start():int
+    public static function start():int
     {
         parent::definer('PROD');
         if (self::hostAllowed() == 1) {
@@ -44,4 +53,3 @@ class Prod extends iumioEnvironment
 }
 // Enable the application
 Prod::start();
-

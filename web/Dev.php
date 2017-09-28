@@ -1,6 +1,7 @@
 <?php
 
 /*
+ *
  * This is an iumio Framework component
  *
  * (c) RAFINA DANY <danyrafina@gmail.com>
@@ -8,28 +9,41 @@
  * iumio Framework - iumio Components
  *
  * To get more information about licence, please check the licence file
+ *
  */
 
-$loader = require __DIR__.'/../vendor/iumio_framework/php/Core/Requirement/EngineAutoloader.php';
-EngineAutoloader::$env = "DEV";
+namespace iumioFramework\Core\Base;
 
-use iumioFramework\Core\Base\{iumioEnvironment, Debug\Debug, Http\HttpListener};
+$loader = include __DIR__.
+    '/../vendor/iumio_framework/php/Core/Requirement/EngineAutoloader.php';
+\EngineAutoloader::$env = "DEV";
+
+
+use iumioFramework\Core\Base\Debug\Debug;
+use iumioFramework\Core\Base\Http\HttpListener;
 use iumioFramework\Apps\AppCore;
 use iumioFramework\Core\Additionnal\TaskBar\iumioTaskBar as TB;
 
 /**
  * Class Dev
  * iumio Class for development environment
- * @author RAFINA Dany <danyrafina@gmail.com>
+ *
+ * @package  Dev
+ * @category Framework
+ * @licence  MIT License
+ * @link https://framework.iumio.com
+ * @author   RAFINA Dany <danyrafina@gmail.com>
  */
 
 class Dev extends iumioEnvironment
 {
 
-    /** Start Application
+    /**
+     * Start Application
+     *
      * @return int Is Ready
      */
-    static public function start():int
+    public static function start():int
     {
         parent::definer('DEV');
         if (self::hostAllowed() == 1) {

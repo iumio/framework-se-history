@@ -11,9 +11,9 @@
  */
 
 namespace iumioFramework\Composer;
-include_once __DIR__.'/../../ServerManager/iumioServerManager.php';
+include_once __DIR__.'/../../ServerManager/ServerManager.php';
 
-use iumioFramework\Core\Additionnal\Server\iumioServerManager as iSM;
+use iumioFramework\Core\Additionnal\Server\ServerManager as iSM;
 
 /**
  * Class Installer

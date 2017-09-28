@@ -12,7 +12,7 @@
 
 
 namespace iumioFramework\Core\Additionnal\Template;
-use iumioFramework\Core\Additionnal\Server\iumioServerManager;
+use iumioFramework\Core\Additionnal\Server\ServerManager;
 use iumioFramework\Core\Additionnal\Template\iumioSmartyConfiguration as SmartyConfig;
 use iumioFramework\Exception\Server\Server500;
 
@@ -63,7 +63,7 @@ final class iumioSmarty
             if (self::$appCall != "iumio")
             {
                 $dirapp = ((IS_IUMIO_COMPONENT) ? BASE_APPS : ROOT_APPS);
-                iumioServerManager::create($dirapp . self::$appCall . '/Front/views', "directory");
+                ServerManager::create($dirapp . self::$appCall . '/Front/views', "directory");
             }
 
             self::$instance = new \Smarty();

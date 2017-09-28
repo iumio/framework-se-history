@@ -12,15 +12,19 @@
 
 
 namespace ManagerApp\Masters;
+
 use iumioFramework\Masters\MasterCore;
 use iumioFramework\Core\Base\Http\Response\Response;
-use iumioFramework\Core\Additionnal\Server\iumioServerManager as Server;
+use iumioFramework\Core\Additionnal\Server\ServerManager as Server;
 use DirectoryIterator;
 
 /**
  * Class CacheMaster
  * @package iumioFramework\Core\Manager
- * @author RAFINA Dany <danyrafina@gmail.com>
+ * @category Framework
+ * @licence  MIT License
+ * @link https://framework.iumio.com
+ * @author   RAFINA Dany <danyrafina@gmail.com>
  */
 
 class CacheMaster extends MasterCore
@@ -58,8 +62,9 @@ class CacheMaster extends MasterCore
     private function deleteAllCache()
     {
         $a = array("dev", "prod");
-        for ($i = 0; $i < count($a); $i++)
+        for ($i = 0; $i < count($a); $i++) {
             $this->callDelCreaServer($a[$i]);
+        }
     }
 
 
@@ -83,13 +88,22 @@ class CacheMaster extends MasterCore
                 $octal_perms = substr(sprintf('%o', $dir_info->getPerms()), -4);
                 $perms = false;
 
-                if ($octal_perms == "0777" || $octal_perms == "0775"  || $octal_perms == "0755" || $octal_perms == "7775" || $octal_perms == "7777" || $octal_perms == "7755")
+                if ($octal_perms == "0777" || $octal_perms == "0775"  || $octal_perms == "0755" ||
+                    $octal_perms == "7775" || $octal_perms == "7777" || $octal_perms == "7755") {
                     $perms = true;
+                }
                 array_push($directory, array("path" => $dir_info->getRealPath(), "name" => $dir_info->getFilename(),
-                    "size" => ($this->fileSizeConvert($this->folderSize($dir_info->getRealPath()))), "nperms" => $octal_perms,
-                    "perms" => $perms, "status" => (($this->checkFolderIsEmptyOrNot(ROOT_CACHE.$dir_info->getFilename()) == true)? "Empty" : "Is not empty"),
+                    "size" => ($this->fileSizeConvert($this->folderSize($dir_info->getRealPath()))),
+                    "nperms" => $octal_perms,
+                    "perms" => $perms, "status" => (($this->checkFolderIsEmptyOrNot(ROOT_CACHE.
+                            $dir_info->getFilename()) == true)? "Empty" : "Is not empty"),
                     "env" => $dir_info->getFilename(),
-                    "clear" => $this->generateRoute("iumio_manager_cache_manager_remove", array("env" => $dir_info->getFilename()), null, true)));
+                    "clear" => $this->generateRoute(
+                        "iumio_manager_cache_manager_remove",
+                        array("env" => $dir_info->getFilename()),
+                        null,
+                        true
+                    )));
             }
         }
 
@@ -104,15 +118,15 @@ class CacheMaster extends MasterCore
     public function checkFolderIsEmptyOrNot(string $folderName):bool
     {
         $files = array ();
-        if ($handle = opendir ($folderName)) {
-            while ( false !== ($file = readdir ($handle))) {
-                if ($file != "." && $file != ".." ) {
+        if ($handle = opendir($folderName)) {
+            while (false !== ($file = readdir($handle))) {
+                if ($file != "." && $file != "..") {
                     $files [] = $file;
                 }
             }
-            closedir ( $handle );
+            closedir($handle);
         }
-        return ((count ($files) === 0) ?  true : false);
+        return ((count($files) === 0) ?  true : false);
     }
 
 
@@ -163,17 +177,13 @@ class CacheMaster extends MasterCore
             ),
         );
 
-        foreach($arBytes as $arItem)
-        {
-            if($bytes >= $arItem["VALUE"])
-            {
+        foreach ($arBytes as $arItem) {
+            if ($bytes >= $arItem["VALUE"]) {
                 $result = $bytes / $arItem["VALUE"];
-                $result = str_replace(".", "," , strval(round($result, 2)))." ".$arItem["UNIT"];
+                $result = str_replace(".", ",", strval(round($result, 2)))." ".$arItem["UNIT"];
                 break;
             }
         }
         return $result;
     }
-
-
 }

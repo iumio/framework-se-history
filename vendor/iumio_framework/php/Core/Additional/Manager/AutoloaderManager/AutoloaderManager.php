@@ -11,7 +11,7 @@
  */
 
 namespace iumioFramework\Core\Console\Module\Autoloader;
-use iumioFramework\Core\Additionnal\Server\iumioServerManager as Server;
+use iumioFramework\Core\Additionnal\Server\ServerManager as Server;
 use iumioFramework\Core\Console\{
     CoreManager, Display\OutputManager as Output, Module\ModuleManager
 };

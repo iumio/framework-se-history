@@ -13,11 +13,14 @@
 namespace iumioFramework\Core\Additionnal\Server;
 
 /**
- * Class iumioServer
+ * Class ServerManager
  * @package iumioFramework\Core\Additionnal\Server
- * @author RAFINA Dany <danyrafina@gmail.com>
+ * @category Framework
+ * @licence  MIT License
+ * @link https://framework.iumio.com
+ * @author   RAFINA Dany <danyrafina@gmail.com>
  */
-class iumioServerManager
+class ServerManager
 {
     /** Create an element on the server
      * @param string $path Element Path
@@ -25,25 +28,22 @@ class iumioServerManager
      * @return int Result
      * @throws \Exception Generate Error
      */
-    static public function create(string $path, string $type):int
+    public static function create(string $path, string $type):int
     {
-        try
-        {
-            switch ($type)
-            {
+        try {
+            switch ($type) {
                 case "directory":
-                    if (!is_dir($path))
+                    if (!is_dir($path)) {
                         mkdir($path);
+                    }
                     break;
                 case "file":
-                    if (!file($path))
+                    if (!file($path)) {
                         touch($path);
+                    }
                     break;
             }
-
-        }
-        catch (\Exception $exception)
-        {
+        } catch (\Exception $exception) {
             throw new \Exception("iumio Server Error : Cannot create $type element => ".$exception);
         }
 
@@ -57,14 +57,15 @@ class iumioServerManager
      * @return int Result
      * @throws \Exception Generate Error
      */
-    static public function move(string $path, string $to, bool $symlink = false):int
+    public static function move(string $path, string $to, bool $symlink = false):int
     {
-        try
-        {
-            if ($symlink != false) symlink($path, $to); else rename($path, $to);
-        }
-        catch (\Exception $exception)
-        {
+        try {
+            if ($symlink != false) {
+                symlink($path, $to);
+            } else {
+                rename($path, $to);
+            }
+        } catch (\Exception $exception) {
             throw new \Exception("iumio Server Error : Cannot move $path to $to => ".$exception);
         }
 
@@ -80,17 +81,19 @@ class iumioServerManager
      * @return int Result
      * @throws \Exception Generate Error
      */
-    static public function copy(string $path, string $to, string $type, bool $symlink = false):int
+    public static function copy(string $path, string $to, string $type, bool $symlink = false):int
     {
-        try
-        {
-            if ($symlink != false) @symlink($path, $to);
-            else if ($symlink == false && $type == "directory") self::recursiveCopy($path, $to);
-            else if ($symlink == false && $type == "file") copy($path, $to);
-            else throw new \Exception("iumio Server Error on Copy: Element type is not regonized");
-        }
-        catch (\Exception $exception)
-        {
+        try {
+            if ($symlink != false) {
+                @symlink($path, $to);
+            } elseif ($symlink == false && $type == "directory") {
+                self::recursiveCopy($path, $to);
+            } elseif ($symlink == false && $type == "file") {
+                copy($path, $to);
+            } else {
+                throw new \Exception("iumio Server Error on Copy: Element type is not regonized");
+            }
+        } catch (\Exception $exception) {
             throw new \Exception("iumio Server Error : Cannot move $path to $to => ".$exception);
         }
 
@@ -104,15 +107,14 @@ class iumioServerManager
      * @return int Result
      * @throws \Exception Generate Error
      */
-    static public function delete(string $path, string $type):int
+    public static function delete(string $path, string $type):int
     {
-        try
-        {
-            switch ($type)
-            {
+        try {
+            switch ($type) {
                 case "directory":
-                    if (is_link($path)) unlink($path);
-                    else if (is_dir($path)) {
+                    if (is_link($path)) {
+                        unlink($path);
+                    } elseif (is_dir($path)) {
                         try {
                             self::recursiveRmdir($path);
                         } catch (\Exception $e) {
@@ -121,8 +123,9 @@ class iumioServerManager
                     }
                     break;
                 case "file":
-                    if (is_link($path)) unlink($path);
-                    else if (file($path)) {
+                    if (is_link($path)) {
+                        unlink($path);
+                    } elseif (file($path)) {
                         try {
                             unlink($path);
                         } catch (\Exception $e) {
@@ -131,10 +134,7 @@ class iumioServerManager
                     }
                     break;
             }
-
-        }
-        catch (\Exception $exception)
-        {
+        } catch (\Exception $exception) {
             throw new \Exception("iumio Server Error : Cannot delete $type element => ".$exception);
         }
 
@@ -144,12 +144,17 @@ class iumioServerManager
     /** Recursive remove directory
      * @param string $dir dir path
      */
-    static private function recursiveRmdir(string $dir) {
+    private static function recursiveRmdir(string $dir)
+    {
         if (is_dir($dir)) {
             $objects = scandir($dir);
             foreach ($objects as $object) {
                 if ($object != "." && $object != "..") {
-                    if (filetype($dir."/".$object) == "dir") self::recursiveRmdir($dir."/".$object); else unlink($dir."/".$object);
+                    if (filetype($dir."/".$object) == "dir") {
+                        self::recursiveRmdir($dir."/".$object);
+                    } else {
+                        unlink($dir."/".$object);
+                    }
                 }
             }
             reset($objects);
@@ -161,16 +166,16 @@ class iumioServerManager
      * @param string $src directory source
      * @param string $dst directory destination
      */
-    static private function recursiveCopy(string $src, string $dst) {
+    private static function recursiveCopy(string $src, string $dst)
+    {
         $dir = opendir($src);
         @mkdir($dst);
-        while(false !== ( $file = readdir($dir)) ) {
+        while (false !== ( $file = readdir($dir))) {
             if (( $file != '.' ) && ( $file != '..' )) {
-                if ( is_dir($src . '/' . $file) ) {
-                    static::recursiveCopy($src . '/' . $file,$dst . '/' . $file);
-                }
-                else {
-                    copy($src . '/' . $file,$dst . '/' . $file);
+                if (is_dir($src . '/' . $file)) {
+                    static::recursiveCopy($src . '/' . $file, $dst . '/' . $file);
+                } else {
+                    copy($src . '/' . $file, $dst . '/' . $file);
                 }
             }
         }
@@ -181,7 +186,7 @@ class iumioServerManager
      * @param string $path Element path
      * @return bool Is element is readable or not
      */
-    static public function checkIsReadable(string $path):bool
+    public static function checkIsReadable(string $path):bool
     {
         return (is_readable($path));
     }
@@ -191,7 +196,7 @@ class iumioServerManager
  * @param string $path Element path
  * @return bool Is element is executable or not
  */
-    static public function checkIsExecutable(string $path):bool
+    public static function checkIsExecutable(string $path):bool
     {
         return (is_executable($path));
     }
@@ -200,9 +205,8 @@ class iumioServerManager
      * @param string $path Element path
      * @return bool Is element is writable or not
      */
-    static public function checkIsWritable(string $path):bool
+    public static function checkIsWritable(string $path):bool
     {
         return (is_writable($path));
     }
-
 }
