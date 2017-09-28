@@ -8,6 +8,18 @@ iumio Framework
 
 ## [BETA RELEASE]
 
+## [0.4.9] - 2017-09-28
+### Added
+- New RT parameters scalar type (int, string, float, bool)
+- Add production log in iumio Manager
+- Add new iumio autoloader Manager to manage the autoloader generator
+- Add iumio Framework language installation in initial.json
+### Fixed
+- Minor bugs
+### Edited
+- Change structure of elements directory
+
+
 ## [0.4.8] - 2017-09-08
 ### Added
 - New service system with services.json

@@ -36,7 +36,6 @@
 
     <!--     Fonts and icons     -->
     <link href="<?= WEB_LIBS.'font-awesome/' ?>css/font-awesome.min.css" rel="stylesheet">
-    <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
     <link href="<?= WEB_LIBS.'/iumio_manager/' ?>css/pe-icon-7-stroke.css" rel="stylesheet" />
 
 </head>
