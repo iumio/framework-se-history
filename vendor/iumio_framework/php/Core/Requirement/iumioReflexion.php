@@ -12,11 +12,13 @@
 
 namespace iumioFramework\Core\Requirement\Relexion;
 
+
 /**
  * Class iumioReflexion
  * @package iumioFramework\Core\Requirement\Relexion
  * @author RAFINA Dany <danyrafina@gmail.com>
  */
+
 class iumioReflexion
 {
 
@@ -37,11 +39,12 @@ class iumioReflexion
         }
         catch (\Exception $ex)
         {
-            throw new \Exception($ex->getMessage());
+           throw new \Exception($ex->getMessage());
         }
         $pass = array();
         foreach($reflection->getParameters() as $param)
             $pass[] = $args[$param->getName()] ?? $param->getDefaultValue();
+
 
         try
         {
@@ -76,3 +79,4 @@ class iumioReflexion
         }
     }
 }
+

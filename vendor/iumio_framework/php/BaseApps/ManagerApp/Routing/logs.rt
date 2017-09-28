@@ -12,12 +12,12 @@ endroute
 
 route:
   name : iumio_manager_logs_manager_clear
-  path :  /_manager/logs/clear
+  path :  /_manager/logs/clear/{env}
   activity : Logs%clear
 endroute
 
 route:
   name : iumio_manager_logs_manager_get_one
-  path :  /_manager/logs/get/one/{uidie}
+  path :  /_manager/logs/get/one/{uidie}/{env}
   activity : Logs%logsdetails
 endroute

@@ -7,7 +7,7 @@
         </a>
     </div>
 
-    <ul class="nav">
+    <ul class="nav sidebar-list">
         <li class="{if $selected == "dashboard"}active{/if}">
             <a href="{route name='iumio_manager_index' component='yes'}">
                 <i class="pe-7s-graph"></i>
@@ -17,7 +17,7 @@
         <li class="{if $selected == "appmanager"}active{/if}">
             <a href="{route name='iumio_manager_app_manager' component='yes'}">
                 <i class="pe-7s-user"></i>
-                <p>App</p>
+                <p>Apps</p>
             </a>
         </li>
         <li class="{if $selected == "cachemanager"}active{/if}">
@@ -41,13 +41,13 @@
         <li class="{if $selected == "smartymanager"}active{/if}">
             <a href="{route name='iumio_manager_smarty_manager' component='yes'}">
                 <i class="pe-7s-note2"></i>
-                <p>Smarty Manager</p>
+                <p>Smarty</p>
             </a>
         </li>
         <li class="{if $selected == "routingmanager"}active{/if}">
             <a href="{route name='iumio_manager_routing_manager' component='yes'}">
                 <i class="pe-7s-diamond"></i>
-                <p>Routing Manager</p>
+                <p>Routing</p>
             </a>
         </li>
         <li class="{if $selected == "logsmanager"}active{/if}">
@@ -60,6 +60,12 @@
             <a href="{route name='iumio_manager_databases_manager' component='yes'}">
                 <i class="pe-7s-paperclip"></i>
                 <p>Databases</p>
+            </a>
+        </li>
+        <li class="{if $selected == "autoloadermanager"}active{/if}">
+            <a href="{route name='iumio_manager_autoloader_manager' component='yes'}">
+                <i class="pe-7s-magic-wand"></i>
+                <p>Engine Autoloader</p>
             </a>
         </li>
     </ul>

@@ -35,7 +35,8 @@ class DashboardMaster extends MasterCore
         $date =  new \DateTime($file->installation->date);
         $file->installation = $date->format('Y/m/d');
 
-        return($this->render("index", array("selected" => "dashboard", "fi" => $file, 'https' => isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on')));
+        return($this->render("index", array("env" => strtolower(IUMIO_ENV), "selected" => "dashboard",
+            "fi" => $file, 'https' => isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on')));
     }
 
     /** Get the last debug logs (limited by 10)
@@ -48,7 +49,8 @@ class DashboardMaster extends MasterCore
         for($i = 0; $i < count($last); $i++)
         {
           if ($i == 10) break;
-          $last[$i]->log_url = $this->generateRoute("iumio_manager_logs_manager_get_one", array("uidie" => $last[$i]->uidie));
+          $last[$i]->log_url = $this->generateRoute("iumio_manager_logs_manager_get_one",
+              array("uidie" => $last[$i]->uidie, "env" => strtolower(IUMIO_ENV)));
           $last[$i]->time =  strtotime($last[$i]->time->date);
           array_push($lastn, $last[$i]);
         }

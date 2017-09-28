@@ -93,4 +93,15 @@ class ToolsExceptions
             $env = IUMIO_ENV;
         return ((array) JsonListener::open(ROOT_LOGS.strtolower($env).".log.json"));
     }
+
+    /**
+     * @param string $err_no
+     * @param string $err_msg
+     * @throws Server500
+     */
+    final static public function errorHandler(string $err_no, string $err_msg)
+    {
+        throw new Server500(new \ArrayObject(array("explain" => $err_msg, "solution" => "Error level : $err_no")));
+    }
+
 }

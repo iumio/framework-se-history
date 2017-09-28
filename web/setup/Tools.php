@@ -267,6 +267,7 @@ class Tools
             $std->user = get_current_user();
             $std->location = realpath($base);
             $std->os = PHP_OS;
+            $std->lang = 'en_US';
 
             $rs = json_encode($std, JSON_PRETTY_PRINT);
             file_put_contents($base."/elements/config_files/core/initial.json", $rs);

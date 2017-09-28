@@ -47,6 +47,8 @@
 
                                         <li>Main OS installed : {$fi->os}</li>
 
+                                        <li>Language installed : {$fi->lang}</li>
+
                                     </ul>
 
                                 </div>
@@ -75,7 +77,7 @@
                             <div class="card h350">
                                 <div class="header">
                                     <h4 class="title">Logs</h4>
-                                    <p class="category">Last logs errors (10)</p>
+                                    <p class="category">Last logs errors for {$env} (10)</p>
                                 </div>
                                 <div class="content" style="overflow: auto">
                                     <ul class="lastlog elemcard" attr-href="{route name='iumio_manager_logs_get'}">
@@ -91,19 +93,38 @@
                                     <h4 class="title">iumio Framework</h4>
                                     <p class="category">Statistics</p>
                                 </div>
-                                <div class="content dashboardStats" attr-href="{route name='iumio_manager_dashboard_get_statistics'}">
-                                    <ul>
+                                <div class="content dashboardStats elemcard" style="overflow: auto;padding-left: 40px" attr-href="{route name='iumio_manager_dashboard_get_statistics'}">
+                                    <ul class="col-md-6">
                                         <li>Apps  : <span class="dashb-app">0</span> </li>
                                         <li>Apps enabled : <span class="dashb-appena">0</span></li>
                                         <li>App prefixed  : <span class="dashb-apppre">0</span></li>
                                         <li>Routes  : <span class="dashb-route">0</span></li>
                                         <li>Routes disabled : <span class="dashb-routedisa">0</span></li>
                                         <li>Routes with public visibility : <span class="dashb-routevisi">0</span></li>
-                                        <li>Requests successful : <span class="dashb-reqsuc">0</span></li>
-                                        <li>Errors : <span class="dashb-err">0</span></li>
-                                        <li>Critical Errors (Error 500) : <span class="dashb-errcri">0</span></li>
-                                        <li>Others Errors : <span class="dashb-erroth">0</span></li>
                                         <li>Databases connected : <span class="dashb-dbco">0</span></li>
+
+                                    </ul>
+                                    <ul class="col-md-6">
+                                        <li>
+                                            <strong>DEV</strong>
+                                            <ul>
+                                                <li>Requests successful : <span class="dashb-reqsuc-dev">0</span></li>
+                                                <li>Errors : <span class="dashb-err-dev">0</span></li>
+                                                <li>Critical Errors (500) : <span class="dashb-errcri-dev">0</span></li>
+                                                <li>Others Errors : <span class="dashb-erroth-dev">0</span></li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <strong>PROD</strong>
+                                            <ul>
+                                                <li>Requests successful : <span class="dashb-reqsuc-prod">0</span></li>
+                                                <li>Errors : <span class="dashb-err-prod">0</span></li>
+                                                <li>Critical Errors (500) : <span class="dashb-errcri-prod">0</span></li>
+                                                <li>Others Errors : <span class="dashb-erroth-prod">0</span></li>
+                                            </ul>
+                                        </li>
+
+
                                     </ul>
                                 </div>
                             </div>

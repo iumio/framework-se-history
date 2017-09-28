@@ -17,6 +17,7 @@ use iumioFramework\Core\Base\Debug\Debug;
 use iumioFramework\Core\Base\Http\Response\Response;
 use iumioFramework\Exception\Server\AbstractServer;
 use iumioFramework\Exception\Server\Server404;
+use iumioFramework\Exception\Server\Server500;
 use iumioFramework\Masters\MasterCore;
 use iumioFramework\Core\Base\Json\JsonListener as JL;
 
@@ -40,14 +41,20 @@ class LogsMaster extends MasterCore
         return($this->render("logs", array("selected" => "logsmanager", "env" => strtolower(IUMIO_ENV))));
     }
 
-    /** Get log details
+    /**
+     * Get log details
      * @param string $uidie Unique identifier of iumio Exception
+     * @param string $env Environment name
      * @throws Server404 If uidie does not exist
+     * @throws Server500 If environement does not exist
      */
-    public function logsdetailsActivity(string $uidie)
+    public function logsdetailsActivity(string $uidie, string $env)
     {
+        if (!in_array($env, array("dev", "prod")))
+            throw new Server500(new \ArrayObject(array("explain" => "Bad environment name $env",
+                "solution" => "Environment must be 'dev' or 'prod' ")));
         $onelogs = null;
-        $logs = JL::open(ROOT_LOGS.strtolower(IUMIO_ENV).".log.json");
+        $logs = JL::open(ROOT_LOGS.strtolower($env).".log.json");
         foreach ($logs as $one)
         {
             if ($uidie == $one->uidie)
@@ -58,17 +65,54 @@ class LogsMaster extends MasterCore
         }
 
         if ($onelogs == null)
-            throw new Server404(new \ArrayObject(array("explain" => "The error with uidie [".$uidie."] does not exist", "solution" => "Check the UIDIE")));
+            throw new Server404(new \ArrayObject(array("explain" => "The error with uidie [".$uidie."] does not exist",
+                "solution" => "Check the UIDIE")));
 
-        return($this->render("logsdetails", array("details" => $onelogs, "selected" => "logsmanager", "env" => strtolower(IUMIO_ENV))));
+        return($this->render("logsdetails", array("details" => $onelogs, "selected" => "logsmanager", "env" => strtolower($env))));
     }
 
-    /** Get logs statistics
+    /** Get logs statistics for all
      * @return array Logs statistics
      */
     public function getStatisticsLogs():array
     {
-        $last = array_values(array_reverse(AbstractServer::getLogs()));
+        return (array("dev" => $this->getStatisticsLogsDev(), "prod" => $this->getStatisticsLogsProd()));
+    }
+
+    /** Get logs statistics for dev
+     * @return array Logs dev statistics
+     */
+    public function getStatisticsLogsDev():array
+    {
+        $last = array_values(array_reverse(AbstractServer::getLogs("dev")));
+        $success = 0;
+        $critical = 0;
+        $others = 0;
+        $errors = 0;
+        for($i = 0; $i < count($last); $i++)
+        {
+            $one = $last[$i];
+            if ($one->code == 200)
+                $success++;
+            else
+            {
+                $errors++;
+                if ($one->code == 500)
+                    $critical++;
+                else
+                    $others++;
+            }
+        }
+        return (array("errors" => $errors, "critical" => $critical,
+            "success" => $success, "others" => $others));
+    }
+
+    /** Get logs statistics for prod
+     * @return array Logs prod statistics
+     */
+    public function getStatisticsLogsProd():array
+    {
+        $last = array_values(array_reverse(AbstractServer::getLogs("prod")));
         $success = 0;
         $critical = 0;
         $others = 0;
@@ -97,6 +141,9 @@ class LogsMaster extends MasterCore
      */
     public function getlogActivity(string $env):int
     {
+        if (!in_array($env, array("dev", "prod")))
+            throw new Server500(new \ArrayObject(array("explain" => "Bad environment name $env",
+                "solution" => "Environment must be 'dev' or 'prod' ")));
         $last = array_values(array_reverse(AbstractServer::getLogs($env)));
         $lastn = array();
         $request = $this->get('request');
@@ -112,19 +159,24 @@ class LogsMaster extends MasterCore
                 continue;
             $one = $last[$i];
             $last[$i]->time = strtotime($last[$i]->time->date);
-            $last[$i]->log_url = $this->generateRoute("iumio_manager_logs_manager_get_one", array("uidie" => $one->uidie));
+            $last[$i]->log_url = $this->generateRoute("iumio_manager_logs_manager_get_one",
+                array("uidie" => $one->uidie, "env" => $env));
             array_push($lastn, $last[$i]);
         }
         return ((new Response())->JSON_RENDER(array("code" => 200, "results" => $lastn)));
     }
 
-    /** clear log of current environment
+    /** clear log of dev or prod environment
+     * @param $env string Environment
      * @return int JSON response
      */
-    public function clearActivity():int
+    public function clearActivity(string $env):int
     {
-        iumioServerManager::delete(ROOT_LOGS.strtolower(IUMIO_ENV).".log.json", 'file');
-        @iumioServerManager::create(ROOT_LOGS.strtolower(IUMIO_ENV).".log.json", 'file');
+        if (!in_array($env, array("dev", "prod")))
+            throw new Server500(new \ArrayObject(array("explain" => "Bad environment name $env",
+                "solution" => "Environment must be 'dev' or 'prod' ")));
+        iumioServerManager::delete(ROOT_LOGS.strtolower($env).".log.json", 'file');
+        @iumioServerManager::create(ROOT_LOGS.strtolower($env).".log.json", 'file');
 
         return ((new Response())->JSON_RENDER(array("code" => 200, "msg" => "OK")));
     }

@@ -14,7 +14,9 @@ namespace iumioFramework\HttpRoutes;
 use iumioFramework\Core\Base\Debug\Debug;
 use iumioFramework\Core\Base\RtListener;
 use iumioFramework\Core\Base\iumioEnvironment as Env;
+use iumioFramework\Exception\Server\Server404;
 use iumioFramework\Exception\Server\Server405;
+use iumioFramework\Exception\Server\Server500;
 
 /**
  * Class Routing
@@ -219,5 +221,44 @@ class Routing extends RtListener
         return ($score);
     }
 
+    /**
+     * @param array $a
+     * @param array $b
+     * @return array
+     * @throws Server404
+     * @throws Server500
+     */
+    final public function checkParametersTypeURI(array $a, array $b):array
+    {
+        $u = array();
+        $keys1 = array_keys($a);
+        $keysaf2 = array();
+        $valuessaf2 = array();
+        $keys2 = array();
+        $values1 = array_values($a);
+        $return = array();
+        foreach ($b as $one)
+            $keysaf2[$one[0]] = $one[1];
+        $keys2 = array_map('trim', array_keys($keysaf2));
+
+        if ($keys1 != $keys2)
+            throw new Server500(new \ArrayObject(array("explain" =>
+                "Parameters type declaration does not matches with required parameters (".
+                json_encode($keys2)." vs ".json_encode($keys1).")",
+                "solution" => "Please check RT file")));
+
+        $values2 = array_map('trim', array_values($keysaf2));
+
+        for ($i = 0; $i < count($values1); $i++)
+        {
+            $rs = $this->scalarTest(trim($values1[$i]), $values2[$i]);
+            if (!$rs)
+                throw new Server404(new \ArrayObject(array("explain" =>
+                    "Parameter [".$keys1[$i]."] scalar type cannot be convert to ".$values2[$i],
+                    "solution" => "Please check RT file")));
+            $return[$keys1[$i]] = $this->scalarConvert(trim($values1[$i]), $values2[$i]);
+        }
+        return ($return);
+    }
 
 }

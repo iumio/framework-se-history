@@ -13,9 +13,9 @@
     color: #1DC7EA;
 }
 
-.iumio-unlimited-log-display
+.iumio-unlimited-log-display, .iumio-unlimited-log-display2
 {
-    height: 500px;
+    max-height: 500px;
     overflow-y: auto!important;
 }
 
@@ -42,6 +42,16 @@
 .fs16
 {
     font-size: 16px!important;
+}
+
+.sidebar-list li a p
+{
+    font-size: 11px!important;
+}
+
+.sidebar-list li a
+{
+    margin : 0px 15px!important;
 }
 
 #apppackage

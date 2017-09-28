@@ -27,84 +27,51 @@ class EngineAutoloader {
     static public function register(string $class)
     {
         self::checkPermission();
-        // $date = new DateTime();
-        /*if (self::$env != "DEV")
+        self::buildClassMap(self::$env);
+        $map = self::getMapClass();
+        if (isset($map[$class]))
         {
-            self::buildClassMap(self::$env);
+            if (!@include_once $map[$class])
+            {
+                // FIX FUNCTION SMARTY PLUGIN
+                if (strpos($class, "Smarty_Internal_Compile_") !== false)
+                    return (true);
+                try
+                {
+                    include_once  __DIR__."/../Exceptions/Server/Server500.php";
+                    throw new \iumioFramework\Exception\Server\Server500(new ArrayObject(array("explain" =>
+                        "EngineAutoloader : Undefined class ".$class,
+                        "solution" => "Refer to your app configuration.", "inlog" => false)));
+                }
+                catch (Exception $e)
+                {
+                    die("EngineAutoloader : Undefined class ".$class);
+                }
+            }
+        }
+        else {
+            self::buildClassMap(self::$env, true);
             $map = self::getMapClass();
             {
                 if (!@include_once $map[$class])
                 {
-
                     // FIX FUNCTION SMARTY PLUGIN
                     if (strpos($class, "Smarty_Internal_Compile_") !== false)
-                        return (true);
+                        return true;
                     try
                     {
-                        include_once __DIR__."/../Exceptions/Server/Server500.php";
-                        $e = new \iumioFramework\Exception\Server\Server500(new ArrayObject(array("explain" => "iumioEngineAutoloader : Undefined class ".$class, "solution" => "Refer to your app configuration.")));
-                        $e->display("500", "FATAL ERROR");
+                        include_once  __DIR__."/../Exceptions/Server/Server500.php";
+                        throw new  \iumioFramework\Exception\Server\Server500(new ArrayObject(
+                            array("explain" => "EngineAutoloader : Undefined class ".$class,
+                                "solution" => "Refer to your app configuration.", "inlog" => false)));
                     }
                     catch (Exception $e)
                     {
-                        die("iumioEngineAutoloader : Undefined class ".$class);
+                        die("EngineAutoloader : Undefined class ".$class);
                     }
-
                 }
             }
         }
-        else
-        {*/
-
-            self::buildClassMap(self::$env);
-            $map = self::getMapClass();
-            if (isset($map[$class]))
-            {
-                    if (!@include_once $map[$class])
-                    {
-                        // FIX FUNCTION SMARTY PLUGIN
-                        if (strpos($class, "Smarty_Internal_Compile_") !== false)
-                            return (true);
-                        try
-                        {
-                            include_once  __DIR__."/../Exceptions/Server/Server500.php";
-                            throw new \iumioFramework\Exception\Server\Server500(new ArrayObject(array("explain" =>
-                                "iumioEngineAutoloader : Undefined class ".$class,
-                                "solution" => "Refer to your app configuration.", "inlog" => false)));
-                        }
-                        catch (Exception $e)
-                        {
-                            die("iumioEngineAutoloader : Undefined class ".$class);
-                        }
-                    }
-            }
-            else {
-                self::buildClassMap(self::$env, true);
-                $map = self::getMapClass();
-                {
-                    if (!@include_once $map[$class])
-                    {
-                        // FIX FUNCTION SMARTY PLUGIN
-                        if (strpos($class, "Smarty_Internal_Compile_") !== false)
-                            return true;
-                        try
-                        {
-                            include_once  __DIR__."/../Exceptions/Server/Server500.php";
-                            throw new  \iumioFramework\Exception\Server\Server500(new ArrayObject(
-                                array("explain" => "iumioEngineAutoloader : Undefined class ".$class,
-                                    "solution" => "Refer to your app configuration.", "inlog" => false)));
-                        }
-                        catch (Exception $e)
-                        {
-                            die("iumioEngineAutoloader : Undefined class ".$class);
-                        }
-                    }
-                }
-            }
-        //}
-
-        // $dateend = new DateTime();
-        // self::$diff =  self::$diff  + ($dateend->getTimestamp() - $date->getTimestamp());
     }
 
     /**
@@ -113,13 +80,14 @@ class EngineAutoloader {
      * @param $rebuild bool Instruction to rebuild map file class
      * @return bool If map class was rewrite
      */
-    static private function buildClassMap(string $env, bool $rebuild = false):bool
+    static public function buildClassMap(string $env, bool $rebuild = false):bool
     {
         $path = realpath(__DIR__."/../../../../..");
 
         try
         {
-            $map = file_get_contents($path."/elements/config_files/engine_autoloader/map_".(($env == "DEV")? "dev_" : "")."class.json");
+            $map = file_get_contents($path."/elements/config_files/engine_autoloader/map_".
+                (($env == "DEV")? "dev_" : "")."class.json");
         }
         catch (Exception $e)
         {
@@ -127,7 +95,8 @@ class EngineAutoloader {
         }
 
         if (empty($map) || $rebuild == true) {
-            $myfile = fopen($path."/elements/config_files/engine_autoloader/map_".(($env == "DEV")? "dev_" : "")."class.json", "w") or die("Unable to open file!");
+            $myfile = fopen($path."/elements/config_files/engine_autoloader/map_".
+                (($env == "DEV")? "dev_" : "")."class.json", "w") or die("Unable to open file!");
             fwrite($myfile, "", strlen(""));
             fclose($myfile);
             $json = array();
@@ -136,13 +105,16 @@ class EngineAutoloader {
                     $classname2 = self::classes_in_file($filename->getPathname());
                     for ($u = 0; $u < count($classname2[0]); $u++)
                     {
-                        $json[((isset($classname2[0]['namespace']) && $classname2[0]['namespace'] != "" ?($classname2[0]['namespace'])."\\" : "")).
-                        ((isset($classname2[0]['classes']))? $classname2[0]['classes'][0]['name'] : $classname2[0][$u]['name'])] = $filename->getPathname();
+                        $json[((isset($classname2[0]['namespace']) && $classname2[0]['namespace']
+                        != "" ?($classname2[0]['namespace'])."\\" : "")).
+                        ((isset($classname2[0]['classes']))? $classname2[0]['classes'][0]['name']
+                            : $classname2[0][$u]['name'])] = $filename->getPathname();
                     }
 
                 }
             }
-            file_put_contents($path . "/elements/config_files/engine_autoloader/map_".(($env == "DEV")? "dev_" : "")."class.json", json_encode($json, JSON_PRETTY_PRINT));
+            file_put_contents($path . "/elements/config_files/engine_autoloader/map_".
+                (($env == "DEV")? "dev_" : "")."class.json", json_encode($json, JSON_PRETTY_PRINT));
             return (true);
         }
         return (false);
@@ -155,7 +127,8 @@ class EngineAutoloader {
     static private function getMapClass():array
     {
         $path = realpath(__DIR__."/../../../../..");
-        $map = file_get_contents($path."/elements/config_files/engine_autoloader/map_".((self::$env == "DEV")? "dev_" : "")."class.json");
+        $map = file_get_contents($path.
+            "/elements/config_files/engine_autoloader/map_".((self::$env == "DEV")? "dev_" : "")."class.json");
         return ((array)json_decode($map));
     }
 

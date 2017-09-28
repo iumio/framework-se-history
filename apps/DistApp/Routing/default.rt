@@ -1,0 +1,12 @@
+route:
+  name : default_start
+  path : /index
+  activity : Default%show_index
+endroute
+
+route:
+  name : default_test_parameter
+  path : /index/{hi}/{ho}
+  activity : Default%index
+  parameters: {hi : string, ho : int}
+endroute

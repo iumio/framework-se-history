@@ -30,7 +30,13 @@ class RoutingMaster extends MasterCore
 
     private $methodsReq = array("GET", "PUT", "DELETE", "POST",
         "PATH", "ALL", "OPTIONS", "TRACE", "HEAD", "CONNECT");
-    private $keywords = array("name", "path", "activity", "m_allow", "route", "endroute", "visibility");
+    private $keywords = array("name", "path", "activity", "m_allow", "route", "endroute", "visibility", "parameters");
+
+    /**
+     * @var array $scalar The scalar type for parameters
+     */
+    protected $scalar = array("string", "bool", "int", "float");
+
     /**
      * Going to app manager
      */
@@ -134,7 +140,7 @@ class RoutingMaster extends MasterCore
                     $prefix = $o->prefix;
             }
 
-            $rtarray = array("activity" => "", "path" => "", "name" => "", "visibility" => "private", "m_allow" => "ALL");
+            $rtarray = array("activity" => "", "path" => "", "name" => "", "visibility" => "private", "m_allow" => "ALL", "r_parameters" => array());
             $start = 0;
             $end = 0;
             $croute = 0;
@@ -153,15 +159,18 @@ class RoutingMaster extends MasterCore
 
                 else if ($this->strlike_in_array(trim($listen), $this->keywords))
                 {
+                    $exline = $listen;
                     $listen = explode(':', $listen);
                     if (!in_array($listen[0], $this->keywords))
                         new Server500(new \ArrayObject(array("explain" =>
                             "Unknown keyword '$listen[0]' in $filename : ".$appname,
                             "solution" => "Please add the correct keyword : ".json_encode($this->keywords))));
+                    if (count($listen) > 1)
+                           $rtarray['r_parameters'] = $this->detectParametersType($exline, $listen[0]);
                     $rtarray[$listen[0]] = $listen[1];
                 }
                 if ($start === 1 && $end === 1) {
-                    $rtarray = array("activity" => "", "path" => "", "name" => "", "visibility" => "private", "m_allow" => "ALL");
+                    $rtarray = array("activity" => "", "path" => "", "name" => "", "visibility" => "private", "m_allow" => "ALL", "r_parameters" => array());
                     $start = $end = 0;
                     $croute++;
                 }
@@ -182,9 +191,9 @@ class RoutingMaster extends MasterCore
              $route_gen = $this->generateRoute($routingArray[$i]['name'], null, $appname);
 
             if (!empty($params))
-                array_push($rt, array("routename" =>  $routingArray[$i]['name'], "path" => $routingArray[$i]['path'], "controller" => $controller, "method" => $function . "Activity", "visibility" => $routingArray[$i]['visibility'], "params" => $params, "m_allow" => $this->methodAllowedTransform($routingArray[$i]['m_allow'])));
+                array_push($rt, array("routename" =>  $routingArray[$i]['name'], "path" => $routingArray[$i]['path'], "controller" => $controller, "method" => $function . "Activity", "visibility" => $routingArray[$i]['visibility'], "params" => $params, "m_allow" => $this->methodAllowedTransform($routingArray[$i]['m_allow']), "r_parameters" => $routingArray[$i]['r_parameters']));
             else
-                array_push($rt, array("routename" =>  $routingArray[$i]['name'], "path" =>  $routingArray[$i]['path'], "controller" => $controller, "method" => $function . "Activity", "route_gen" => $route_gen, "visibility" => $routingArray[$i]['visibility'], "m_allow" => $this->methodAllowedTransform($routingArray[$i]['m_allow'])));
+                array_push($rt, array("routename" =>  $routingArray[$i]['name'], "path" =>  $routingArray[$i]['path'], "controller" => $controller, "method" => $function . "Activity", "route_gen" => $route_gen, "visibility" => $routingArray[$i]['visibility'], "m_allow" => $this->methodAllowedTransform($routingArray[$i]['m_allow']), "r_parameters" => $routingArray[$i]['r_parameters']));
 
 
         }
@@ -384,6 +393,80 @@ class RoutingMaster extends MasterCore
     public function getOneActivity(string $filename, string $appname)
     {
         return ((new Response())->JSON_RENDER(array("code" => 200, "msg" => "OK", "results" => $this->getRtContent($filename, $appname))));
+    }
+
+
+    /**
+     * Detect parameters type for a specific route
+     * @param string $parameters Line this parameters contains
+     * @param string $keyword_ft keyword for instruction : Check if parameters
+     * @return array Return the parameters formatted
+     * @throws Server500 If a delimiter is missing
+     */
+    private function detectParametersType(string $parameters, string $keyword_ft):array
+    {
+        if ($keyword_ft != "parameters")
+            return (array());
+        $parameters = str_replace("parameters:", "", $parameters);
+        if (!(isset($parameters[0]) && $parameters[0] == "{"))
+            throw new Server500(new \ArrayObject(array("explain" => "Delimiter '{' is missing for parameters keyword",
+                "solution" => "Please check RT file")));
+        if (!(isset($parameters[strlen($parameters) - 1 ]) && $parameters[strlen($parameters) - 1] == "}"))
+            throw new Server500(new \ArrayObject(array("explain" => "Delimiter '}' is missing for parameters keyword",
+                "solution" => "Please check RT file")));
+
+        $parameters[strlen($parameters) - 1] = $parameters[0] = "" ;
+        $e = explode(',', $parameters);
+
+        $param = $this->splitParameters($e);
+        if (count($param) == 0)
+            throw new Server500(new \ArrayObject(array("explain" => "Unknow error on parameters in RT file",
+                "solution" => "Please check RT file")));
+        return ($param);
+    }
+
+    /**
+     * Split required parameters to have the parameters name and parameters type in array
+     * array (paramName => paramType)
+     * @param array $params Parameters required
+     * @return array Parameters formatted
+     * @throws Server500 If delimiter ':' does not exist
+     */
+    private final function splitParameters(array $params):array
+    {
+        $a = array();
+        foreach ($params as $one)
+        {
+            if (strpos($one, ":") !== FALSE)
+            {
+                $u = explode(":", $one);
+                if (count ($u) < 2)
+                    throw new Server500(new \ArrayObject(array("explain" => "Delimiter ':' is missing ",
+                        "solution" => "Please check RT file")));
+                $this->checkScalarValue($u[1]);
+                array_push($a, $u);
+            }
+            else
+                throw new Server500(new \ArrayObject(array("explain" => "Delimiter ':' is missing ",
+                    "solution" => "Please check RT file")));
+        }
+        return ($a);
+    }
+
+    /**
+     * Check if the scalar type exist in RT
+     * @param string $scalar Scalar type
+     * @return bool The result of test
+     * @throws Server500 If the scalar does not exist
+     */
+    private final function checkScalarValue(string $scalar):bool
+    {
+        if ($this->strlike_in_array($scalar, $this->scalar) !== FALSE)
+            return (true);
+        else
+            throw new Server500(new \ArrayObject(array("explain" => "Unknow type $scalar in RT",
+                "solution" => "Type must be : ".json_encode($this->scalar))));
+        return (false);
     }
 
 }

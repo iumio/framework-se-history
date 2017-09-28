@@ -1,0 +1,24 @@
+route:
+  name : iumio_manager_autoloader_manager
+  path : /_manager/autoloader
+  activity : Autoloader%autoloader
+endroute
+
+route:
+  name : iumio_manager_autoloader_manager_build
+  path : /_manager/autoloader/build/{env}
+  activity : Autoloader%build
+endroute
+
+route:
+  name : iumio_manager_autoloader_manager_clear
+  path : /_manager/autoloader/clear/{env}
+  activity : Autoloader%clear
+endroute
+
+route:
+  name : iumio_manager_autoloader_get_statistics
+  path :  /_manager/autoloader/get/statistics
+  activity : Autoloader%getStatistics
+  m_allow : POST
+endroute

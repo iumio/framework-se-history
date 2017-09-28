@@ -59,12 +59,13 @@ abstract class iumioCore extends GlobalCoreService
     {
         $this->environment = $environment;
         $this->debug = (bool) $debug;
+
         self::detectFirstInstallation();
 
         if ($this->debug) {
             $this->startTime = microtime(true);
         }
-
+        $this->declareExceptionHandlers();
         self::setCore($this);
         $defClass = new \ReflectionMethod($this, '__construct');
 
@@ -278,7 +279,11 @@ abstract class iumioCore extends GlobalCoreService
                         define("APP_CALL", $def['name']);
                         define("IS_IUMIO_COMPONENT", false);
                         if (isset($callback['pval']))
+                        {
+                            if (count($callback['r_parameters']) > 0)
+                                $callback['pval'] = $rt->checkParametersTypeURI($callback['pval'], $callback['r_parameters']);
                             $call->__named($master, $method, $callback['pval']);
+                        }
                         else
                             $call->__named($master, $method);
                         $great = true;
@@ -326,8 +331,11 @@ abstract class iumioCore extends GlobalCoreService
                                 $call = new iumioReflexion();
                                 define("APP_CALL", $def['name']);
                                 define("IS_IUMIO_COMPONENT", true);
-                                if (isset($callback['pval']))
+                                if (isset($callback['pval'])) {
+                                    if (count($callback['r_parameters']) > 0)
+                                        $callback['pval'] = $rt->checkParametersTypeURI($callback['pval'], $callback['r_parameters']);
                                     $call->__named($master, $method, $callback['pval']);
+                                }
                                 else
                                     $call->__named($master, $method);
                                 return (true);
@@ -497,5 +505,14 @@ abstract class iumioCore extends GlobalCoreService
 
         }
         return (0);
+    }
+
+    /**
+     * Declare the new method dedicated to exception
+     */
+    final private function declareExceptionHandlers()
+    {
+        set_error_handler('iumioFramework\Exception\Tools\ToolsExceptions::errorHandler',
+            E_ERROR);
     }
 }

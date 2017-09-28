@@ -25,6 +25,7 @@ abstract class SingletonPattern
     private static $_instances = array();
 
     /** Get an instance of the class
+     *
      * @return SingletonPattern The new class instance
      */
     final static public function getInstance():self
@@ -33,5 +34,25 @@ abstract class SingletonPattern
         if (!isset(self::$_instances[$class]))
             self::$_instances[$class] = new $class();
         return (self::$_instances[$class]);
+    }
+
+    /**
+     * Clone method has private to prevent the cloning instance
+     * @return null
+     */
+    final private function __clone()
+    {
+        // UNUSED
+        return (null);
+    }
+    /**
+     * is declared as private to prevent unserializing
+     * of an instance of the class via the global function unserialize()
+     * @return null
+     */
+    final private function __wakeup()
+    {
+        // UNUSED
+        return (null);
     }
 }

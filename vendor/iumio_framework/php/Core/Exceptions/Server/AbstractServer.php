@@ -305,12 +305,12 @@ abstract class AbstractServer extends \Exception implements ServerInterface
 
 
     /** Get Logs list for specific environment
+     * @param $env string environment name
      * @return array Logs list
      */
-    static public function getLogs():array
+    static public function getLogs($env = ""):array
     {
-        return (ToolsExceptions::getLogs());
+        return (ToolsExceptions::getLogs($env));
     }
-
 
 }

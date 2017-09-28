@@ -58,7 +58,7 @@
                         <div class="col-md-12">
                             <div class="card">
                                 <div class="header">
-                                    <h4 class="title">List of your app assets</h4>
+                                    <h4 class="title">List of your apps assets</h4>
                                     <p class="category">Referer to the web assets components</p>
                                 </div>
                                 <div class="content table-responsive table-full-width">
