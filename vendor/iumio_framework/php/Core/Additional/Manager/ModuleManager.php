@@ -15,7 +15,10 @@ namespace iumioFramework\Core\Console\Module;
 /**
  * Interface ModuleManager
  * @package iumioFramework\Core\Console\Module
- * @author RAFINA Dany <danyrafina@gmail.com>
+ * @category Framework
+ * @licence  MIT License
+ * @link https://framework.iumio.com
+ * @author   RAFINA Dany <danyrafina@gmail.com>
  */
 
 interface ModuleManager

@@ -154,7 +154,7 @@ class LogsMaster extends MasterCore
         $loglastpos =  $request->get('pos');
         $orderby = 29;
         if ($loglastpos == null) {
-            return ((new Response())->JSON_RENDER(array("code" => 500, "results" => "Cannot get the last position")));
+            return ((new Response())->jsonRender(array("code" => 500, "results" => "Cannot get the last position")));
         }
         $loglastpos = (int)$loglastpos;
         $max = $loglastpos + $orderby;
@@ -170,7 +170,7 @@ class LogsMaster extends MasterCore
             );
             array_push($lastn, $last[$i]);
         }
-        return ((new Response())->JSON_RENDER(array("code" => 200, "results" => $lastn)));
+        return ((new Response())->jsonRender(array("code" => 200, "results" => $lastn)));
     }
 
     /** clear log of dev or prod environment
@@ -186,6 +186,6 @@ class LogsMaster extends MasterCore
         ServerManager::delete(ROOT_LOGS.strtolower($env).".log.json", 'file');
         @ServerManager::create(ROOT_LOGS.strtolower($env).".log.json", 'file');
 
-        return ((new Response())->JSON_RENDER(array("code" => 200, "msg" => "OK")));
+        return ((new Response())->jsonRender(array("code" => 200, "msg" => "OK")));
     }
 }

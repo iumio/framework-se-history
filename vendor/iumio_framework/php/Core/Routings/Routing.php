@@ -14,7 +14,7 @@ namespace iumioFramework\HttpRoutes;
 
 use iumioFramework\Core\Base\Debug\Debug;
 use iumioFramework\Core\Base\RtListener;
-use iumioFramework\Core\Base\iumioEnvironment as Env;
+use iumioFramework\Core\Base\FrameworkEnvironment as Env;
 use iumioFramework\Exception\Server\Server404;
 use iumioFramework\Exception\Server\Server405;
 use iumioFramework\Exception\Server\Server500;
@@ -35,7 +35,7 @@ class Routing extends RtListener
     private $isbase;
 
     /**
-     * Register a router to iumioCore
+     * Register a router to FrameworkCore
      */
 
     /**

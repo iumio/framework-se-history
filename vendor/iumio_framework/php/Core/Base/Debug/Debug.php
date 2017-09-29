@@ -11,15 +11,18 @@
  */
 
 namespace iumioFramework\Core\Base\Debug;
+
 use DateTime;
 use iumioFramework\Core\Base\Debug\DebugInterface;
 use iumioFramework\Core\Base\Json\JsonListener as JL;
 
-
 /**
  * Class Debug
  * @package iumioFramework\Core\Base\Debug
- * @author RAFINA Dany <danyrafina@gmail.com>
+ * @category Framework
+ * @licence  MIT License
+ * @link https://framework.iumio.com
+ * @author   RAFINA Dany <danyrafina@gmail.com>
  */
 
 class Debug implements DebugInterface
@@ -32,13 +35,12 @@ class Debug implements DebugInterface
      * @param string $interface Manner to display message
      * @return bool Result
      */
-    static public function output(string $message, string $interface = 'file'):bool
+    public static function output(string $message, string $interface = 'file'):bool
     {
         if (self::$logstatus == true) {
             self::input($message);
 
-            if ($interface == 'file')
-            {
+            if ($interface == 'file') {
                 $debug = array();
                 $debug['time'] = self::$logformat['time'];
                 $debug['content'] = self::$logformat['msg'];
@@ -46,10 +48,13 @@ class Debug implements DebugInterface
                 $c = count($log);
                 $log[$c] = $debug;
                 $log = (object) $log;
-                JL::put(ROOT_LOGS.'debug'.strtolower(IUMIO_ENV).".log.json", json_encode($log, JSON_PRETTY_PRINT));
-            }
-            else if ($interface == 'display')
+                JL::put(
+                    ROOT_LOGS.'debug'.strtolower(IUMIO_ENV).".log.json",
+                    json_encode($log, JSON_PRETTY_PRINT)
+                );
+            } elseif ($interface == 'display') {
                 echo "<br> Time : " . self::$logformat['time'] . " ### Content : " . self::$logformat['msg'] . "<br>";
+            }
         }
 
         return true;
@@ -59,7 +64,7 @@ class Debug implements DebugInterface
      * @param string $message Message to display
      * @return bool Result
      */
-    static public function input(string $message):bool
+    public static function input(string $message):bool
     {
         $now = new DateTime();
         $now = $now->format('Y-m-d H:i:s');
@@ -68,35 +73,32 @@ class Debug implements DebugInterface
         self::$logformat = array("time" => $now, "msg" => $message);
 
         return true;
-
     }
 
 
     /** Enable Logs
      * @return bool Is enabled result
      */
-   static public function enabled():bool
-   {
-       self::$logstatus = true;
-       return true;
-   }
+    public static function enabled():bool
+    {
+        self::$logstatus = true;
+        return true;
+    }
 
     /** Disable Logs
      * @return bool Is disabled result
      */
-   static public function disabled():bool
-   {
-       self::$logstatus = false;
-       return true;
-   }
+    public static function disabled():bool
+    {
+        self::$logstatus = false;
+        return true;
+    }
 
     /** Get debug Logs list for specific environment
      * @return array Logs list
      */
-   static public function getLogs():array
-   {
-       return ((array) JL::open(ROOT_LOGS.'debug'.strtolower(IUMIO_ENV).".log.json"));
-   }
-
-
+    public static function getLogs():array
+    {
+        return ((array) JL::open(ROOT_LOGS.'debug'.strtolower(IUMIO_ENV).".log.json"));
+    }
 }

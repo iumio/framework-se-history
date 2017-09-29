@@ -11,12 +11,16 @@
  */
 
 namespace iumioFramework\Exception\Server;
+
 use ArrayObject;
 
 /**
  * Class Server000
  * @package iumioFramework\Exception\Server
- * @author RAFINA Dany <danyrafina@gmail.com>
+ * @category Framework
+ * @licence  MIT License
+ * @link https://framework.iumio.com
+ * @author   RAFINA Dany <danyrafina@gmail.com>
  */
 class Server000 extends AbstractServer
 {
@@ -31,9 +35,7 @@ class Server000 extends AbstractServer
         $this->codeTitle = 'No app registered';
         $this->explain =  'No app was registered in apps.json';
         $this->solution = "Please create an app with app manager";
-        $this->env = NULL;
+        $this->env = null;
         parent::__construct($component, 'No app registered');
     }
 }
-
-

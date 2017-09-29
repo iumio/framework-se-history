@@ -11,12 +11,16 @@
  */
 
 namespace iumioFramework\Exception\Server;
+
 use ArrayObject;
 
 /**
  * Interface ServerInterface
  * @package iumioFramework\Exception\Server
- * @author RAFINA Dany <danyrafina@gmail.com>
+ * @category Framework
+ * @licence  MIT License
+ * @link https://framework.iumio.com
+ * @author   RAFINA Dany <danyrafina@gmail.com>
  */
 
 interface ServerInterface

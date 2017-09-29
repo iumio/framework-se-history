@@ -10,11 +10,16 @@
  */
 
 namespace iumioFramework\Core\Console\Display\Style;
+
 use iumioFramework\Core\Console\CoreManager;
+
 /**
  * Class ColorManager
  * @package iumioFramework\Core\Console\Display\Style
- * @author RAFINA Dany <danyrafina@gmail.com>
+ * @category Framework
+ * @licence  MIT License
+ * @link https://framework.iumio.com
+ * @author   RAFINA Dany <danyrafina@gmail.com>
  */
 
 class ColorManager
@@ -25,7 +30,8 @@ class ColorManager
     /**
      * ColorManager constructor.
      */
-    public function __construct() {
+    public function __construct()
+    {
         // Set up shell colors
         $this->foreground_colors['black'] = '0;30';
         $this->foreground_colors['dark_gray'] = '1;30';
@@ -62,15 +68,19 @@ class ColorManager
      * @param bool $header If header is present
      * @return string Colored string
      */
-    public function getColoredString(string $string, string $foreground_color = null, string $background_color = null, bool $header = true):string
-    {
+    public function getColoredString(
+        string $string,
+        string $foreground_color = null,
+        string $background_color = null,
+        bool $header = true
+    ):string {
         if ($header) {
             $title = "Console Manager - ".CoreManager::getCurrentModule();
             $titleSeparator = $this->copyContent("-", strlen($title) + 10);
             $string = "\n\n" . $title . "\n" . $titleSeparator . "\n\n" . $string . "\n\n";
-        }
-        else
+        } else {
             $string = "\n\n" . $string . "\n\n";
+        }
         $string = $this->resizeContent($string);
         $colored_string = "";
 
@@ -97,8 +107,11 @@ class ColorManager
      * @param string|null $background_color Background color
      * @return string Colored string
      */
-    public function getColoredStringReadLine(string $string, string $foreground_color = null, string $background_color = null):string
-    {
+    public function getColoredStringReadLine(
+        string $string,
+        string $foreground_color = null,
+        string $background_color = null
+    ):string {
         $string = $this->resizeContent($string, 0);
         $colored_string = "";
 
@@ -127,22 +140,24 @@ class ColorManager
     {
         $maxLine = 0;
         $newString = "";
-        foreach(preg_split("/((\r?\n)|(\r\n?))/", $content) as $line){
-            if ($maxLine < strlen($line))
+        foreach (preg_split("/((\r?\n)|(\r\n?))/", $content) as $line) {
+            if ($maxLine < strlen($line)) {
                 $maxLine = strlen($line);
+            }
         }
 
-        foreach(preg_split("/((\r?\n)|(\r\n?))/", $content) as $line){
+        foreach (preg_split("/((\r?\n)|(\r\n?))/", $content) as $line) {
             $slength = strlen($line);
             $diff = abs($maxLine - $slength);
 
 
             $tmpStr = $this->copyContent(" ", $diff);
             $spaceRs = $this->copyContent(" ", $space);
-            if ($space != 0)
+            if ($space != 0) {
                 $newString .= $spaceRs.$line.$tmpStr.$spaceRs."\n";
-            else
+            } else {
                 $newString .= "\n".$spaceRs.$line.$tmpStr.$spaceRs." ";
+            }
         }
         return ($newString);
     }
@@ -165,8 +180,9 @@ class ColorManager
     final private function copyContent(string $content, int $coef):string
     {
         $str = "";
-        for ($i = 0; $i < $coef; $i++)
+        for ($i = 0; $i < $coef; $i++) {
             $str = $str.$content;
+        }
         return ($str);
     }
 

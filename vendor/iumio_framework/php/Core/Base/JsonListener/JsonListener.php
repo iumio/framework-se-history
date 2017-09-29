@@ -15,13 +15,16 @@ namespace iumioFramework\Core\Base\Json;
 /**
  * Class iumioDatabaseAccess
  * @package iumioFramework\Core\Base\Json
- * @author RAFINA Dany <danyrafina@gmail.com>
+ * @category Framework
+ * @licence  MIT License
+ * @link https://framework.iumio.com
+ * @author   RAFINA Dany <danyrafina@gmail.com>
  */
 
 class JsonListener implements JsonInterface
 {
-    static private $file = NULL;
-    static private $filepath = NULL;
+    static private $file = null;
+    static private $filepath = null;
 
     /** Open file configuration
      * @param $filepath string Filepath
@@ -29,11 +32,12 @@ class JsonListener implements JsonInterface
      */
     public static function open(string $filepath):\stdClass
     {
-        if ($filepath == self::$filepath && self::$file != NULL)
+        if ($filepath == self::$filepath && self::$file != null) {
             return (self::$file);
+        }
         $a = json_decode(file_get_contents($filepath));
-        self::$file = ($a == NULL ? new \stdClass() : $a);
-        return ($a == NULL ? new \stdClass() : $a);
+        self::$file = ($a == null ? new \stdClass() : $a);
+        return ($a == null ? new \stdClass() : $a);
     }
 
     /** Put content in configuration file
@@ -54,11 +58,10 @@ class JsonListener implements JsonInterface
      */
     public static function close(string $filepath):int
     {
-        if (self::$file != NULL) {
-            $filepath = NULL;
-            $file = NULL;
+        if (self::$file != null) {
+            $filepath = null;
+            $file = null;
         }
         return (1);
     }
-
 }

@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.31, created on 2017-09-28 21:51:32
+/* Smarty version 3.1.31, created on 2017-09-29 11:04:27
   from "/Applications/MAMP/htdocs/iumio-framework/vendor/iumio_framework/php/BaseApps/ManagerApp/Front/views/appmanager.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.31',
-  'unifunc' => 'content_59cd52c4272083_57193676',
+  'unifunc' => 'content_59ce0c9b30e822_93349574',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -22,22 +22,22 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:partials/footer.tpl' => 1,
   ),
 ),false)) {
-function content_59cd52c4272083_57193676 (Smarty_Internal_Template $_smarty_tpl) {
+function content_59ce0c9b30e822_93349574 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_16286970659cd52c3a31323_76939933', "principal");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_158089379659ce0c9aa9cba4_66401199', "principal");
 $_smarty_tpl->inheritance->endChild($_smarty_tpl, 'template.tpl');
 }
 /* {block "principal"} */
-class Block_16286970659cd52c3a31323_76939933 extends Smarty_Internal_Block
+class Block_158089379659ce0c9aa9cba4_66401199 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'principal' => 
   array (
-    0 => 'Block_16286970659cd52c3a31323_76939933',
+    0 => 'Block_158089379659ce0c9aa9cba4_66401199',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -58,9 +58,9 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
                             <span class="icon-bar"></span>
                         </button>
                         <a class="navbar-brand" href="#">App Manager</a>
-                        <a class="btn-default btn createapp"  attr-href="<?php echo iumioFramework\Core\Additionnal\Template\iumioViewBasePlugin::route(array('name'=>'iumio_manager_app_manager_create_app'),$_smarty_tpl);?>
+                        <a class="btn-default btn createapp"  attr-href="<?php echo iumioFramework\Core\Additionnal\Template\ViewBasePlugin::route(array('name'=>'iumio_manager_app_manager_create_app'),$_smarty_tpl);?>
 ">Create a new app</a>
-                        <a class="btn-default btn importapp"  attr-href="<?php echo iumioFramework\Core\Additionnal\Template\iumioViewBasePlugin::route(array('name'=>'iumio_manager_app_manager_import_app'),$_smarty_tpl);?>
+                        <a class="btn-default btn importapp"  attr-href="<?php echo iumioFramework\Core\Additionnal\Template\ViewBasePlugin::route(array('name'=>'iumio_manager_app_manager_import_app'),$_smarty_tpl);?>
 ">Import an app</a>
                     </div>
                     <div class="collapse navbar-collapse">
@@ -78,7 +78,7 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
                                     <h4 class="title">Apps statistics</h4>
                                     <p class="category">Statistics</p>
                                 </div>
-                                <div class="content dashboardStats" attr-href="<?php echo iumioFramework\Core\Additionnal\Template\iumioViewBasePlugin::route(array('name'=>'iumio_manager_dashboard_get_statistics'),$_smarty_tpl);?>
+                                <div class="content dashboardStats" attr-href="<?php echo iumioFramework\Core\Additionnal\Template\ViewBasePlugin::route(array('name'=>'iumio_manager_dashboard_get_statistics'),$_smarty_tpl);?>
 ">
                                     <ul>
                                         <li>Apps  : <span class="dashb-app">0</span> </li>
@@ -114,7 +114,7 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
                                         <th>Delete</th>
                                         <th>Export</th>
                                         </thead>
-                                        <tbody class="applist" attr-href="<?php echo iumioFramework\Core\Additionnal\Template\iumioViewBasePlugin::route(array('name'=>'iumio_manager_app_manager_get_simple_apps'),$_smarty_tpl);?>
+                                        <tbody class="applist" attr-href="<?php echo iumioFramework\Core\Additionnal\Template\ViewBasePlugin::route(array('name'=>'iumio_manager_app_manager_get_simple_apps'),$_smarty_tpl);?>
 ">
                                         </tbody>
                                     </table>

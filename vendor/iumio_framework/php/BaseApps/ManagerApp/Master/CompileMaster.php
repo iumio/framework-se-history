@@ -44,7 +44,7 @@ class CompileMaster extends MasterCore
     public function compileClearActivity(string $env):int
     {
         $this->callDelCreaServer($env);
-        return ((new Response())->JSON_RENDER(array("code" => 200, "msg" => "OK")));
+        return ((new Response())->jsonRender(array("code" => 200, "msg" => "OK")));
     }
 
 
@@ -73,7 +73,7 @@ class CompileMaster extends MasterCore
     public function compileClearAllActivity()
     {
         $this->deleteAllCompile();
-        return ((new Response())->JSON_RENDER(array("code" => 200, "msg" => "OK")));
+        return ((new Response())->jsonRender(array("code" => 200, "msg" => "OK")));
     }
 
     /** Get all compile directory
@@ -107,7 +107,7 @@ class CompileMaster extends MasterCore
             }
         }
 
-        return ((new Response())->JSON_RENDER(array("code" => 200, "results" => $directory)));
+        return ((new Response())->jsonRender(array("code" => 200, "results" => $directory)));
     }
 
 

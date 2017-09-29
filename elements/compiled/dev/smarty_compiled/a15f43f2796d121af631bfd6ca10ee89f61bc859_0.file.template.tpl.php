@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.31, created on 2017-09-28 22:40:25
+/* Smarty version 3.1.31, created on 2017-09-29 11:05:09
   from "/Applications/MAMP/htdocs/iumio-framework/apps/sqApp/Front/views/template.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.31',
-  'unifunc' => 'content_59cd5e39cafb61_14060026',
+  'unifunc' => 'content_59ce0cc5a2b106_24850983',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_59cd5e39cafb61_14060026 (Smarty_Internal_Template $_smarty_tpl) {
+function content_59ce0cc5a2b106_24850983 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, false);
 ?>
@@ -36,9 +36,9 @@ $_smarty_tpl->inheritance->init($_smarty_tpl, false);
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     
-    <link rel="stylesheet" href="<?php echo iumioFramework\Core\Additionnal\Template\iumioViewBasePlugin::webassets(array('path'=>'public/css/index.css'),$_smarty_tpl);?>
+    <link rel="stylesheet" href="<?php echo iumioFramework\Core\Additionnal\Template\ViewBasePlugin::webassets(array('path'=>'public/css/index.css'),$_smarty_tpl);?>
 " />
-    <?php echo iumioFramework\Core\Additionnal\Template\iumioViewBasePlugin::font_awesome_css(array('min'=>"yes"),$_smarty_tpl);?>
+    <?php echo iumioFramework\Core\Additionnal\Template\ViewBasePlugin::fontawesomecss(array('min'=>"yes"),$_smarty_tpl);?>
 
 </head>
 
@@ -58,11 +58,11 @@ $_smarty_tpl->inheritance->init($_smarty_tpl, false);
 </header>
 
 <!-- Banner -->
-<section id="banner" style="background-image: url('<?php echo iumioFramework\Core\Additionnal\Template\iumioViewBasePlugin::webassets(array('path'=>'public/images/banner.jpg'),$_smarty_tpl);?>
+<section id="banner" style="background-image: url('<?php echo iumioFramework\Core\Additionnal\Template\ViewBasePlugin::webassets(array('path'=>'public/images/banner.jpg'),$_smarty_tpl);?>
 ');">
     <h1>Welcome to iumio Starter </h1>
     <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_95089059759cd5e386335e8_32853319', "parameters");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_109192761159ce0cc4215183_06808980', "parameters");
 ?>
 
 
@@ -113,7 +113,7 @@ $_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_95089059759cd5e386
         <div class="flex flex-4">
             <div class="box person">
                 <div class="image round">
-                    <img src="<?php echo iumioFramework\Core\Additionnal\Template\iumioViewBasePlugin::webassets(array('path'=>'public/images/pic03.jpg'),$_smarty_tpl);?>
+                    <img src="<?php echo iumioFramework\Core\Additionnal\Template\ViewBasePlugin::webassets(array('path'=>'public/images/pic03.jpg'),$_smarty_tpl);?>
 " alt="Person 1" />
                 </div>
                 <h3>Magna</h3>
@@ -121,7 +121,7 @@ $_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_95089059759cd5e386
             </div>
             <div class="box person">
                 <div class="image round">
-                    <img src="<?php echo iumioFramework\Core\Additionnal\Template\iumioViewBasePlugin::webassets(array('path'=>'public/images/pic04.jpg'),$_smarty_tpl);?>
+                    <img src="<?php echo iumioFramework\Core\Additionnal\Template\ViewBasePlugin::webassets(array('path'=>'public/images/pic04.jpg'),$_smarty_tpl);?>
 " alt="Person 2" />
                 </div>
                 <h3>Ipsum</h3>
@@ -129,7 +129,7 @@ $_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_95089059759cd5e386
             </div>
             <div class="box person">
                 <div class="image round">
-                    <img src="<?php echo iumioFramework\Core\Additionnal\Template\iumioViewBasePlugin::webassets(array('path'=>'public/images/pic05.jpg'),$_smarty_tpl);?>
+                    <img src="<?php echo iumioFramework\Core\Additionnal\Template\ViewBasePlugin::webassets(array('path'=>'public/images/pic05.jpg'),$_smarty_tpl);?>
 " alt="Person 3" />
                 </div>
                 <h3>Tempus</h3>
@@ -137,7 +137,7 @@ $_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_95089059759cd5e386
             </div>
             <div class="box person">
                 <div class="image round">
-                    <img src="<?php echo iumioFramework\Core\Additionnal\Template\iumioViewBasePlugin::webassets(array('path'=>'public/images/pic06.jpg'),$_smarty_tpl);?>
+                    <img src="<?php echo iumioFramework\Core\Additionnal\Template\ViewBasePlugin::webassets(array('path'=>'public/images/pic06.jpg'),$_smarty_tpl);?>
 " alt="Person 4" />
                 </div>
                 <h3>Dolore</h3>
@@ -157,7 +157,7 @@ $_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_95089059759cd5e386
         <div class="flex flex-2">
             <article>
                 <div class="image fit">
-                    <img src="<?php echo iumioFramework\Core\Additionnal\Template\iumioViewBasePlugin::webassets(array('path'=>'public/images/pic01.jpg'),$_smarty_tpl);?>
+                    <img src="<?php echo iumioFramework\Core\Additionnal\Template\ViewBasePlugin::webassets(array('path'=>'public/images/pic01.jpg'),$_smarty_tpl);?>
 " alt="Pic 01" />
                 </div>
                 <header>
@@ -170,7 +170,7 @@ $_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_95089059759cd5e386
             </article>
             <article>
                 <div class="image fit">
-                    <img src="<?php echo iumioFramework\Core\Additionnal\Template\iumioViewBasePlugin::webassets(array('path'=>'public/images/pic02.jpg'),$_smarty_tpl);?>
+                    <img src="<?php echo iumioFramework\Core\Additionnal\Template\ViewBasePlugin::webassets(array('path'=>'public/images/pic02.jpg'),$_smarty_tpl);?>
 " alt="Pic 02" />
                 </div>
                 <header>
@@ -204,14 +204,14 @@ $_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_95089059759cd5e386
 </footer>
 
 <!-- Scripts -->
-<?php echo iumioFramework\Core\Additionnal\Template\iumioViewBasePlugin::jquery(array(),$_smarty_tpl);?>
+<?php echo iumioFramework\Core\Additionnal\Template\ViewBasePlugin::jquery(array(),$_smarty_tpl);?>
 
-<?php echo iumioFramework\Core\Additionnal\Template\iumioViewBasePlugin::skel(array(),$_smarty_tpl);?>
+<?php echo iumioFramework\Core\Additionnal\Template\ViewBasePlugin::skel(array(),$_smarty_tpl);?>
 
-<?php echo iumioFramework\Core\Additionnal\Template\iumioViewBasePlugin::util(array(),$_smarty_tpl);?>
+<?php echo iumioFramework\Core\Additionnal\Template\ViewBasePlugin::util(array(),$_smarty_tpl);?>
 
 <?php echo '<script'; ?>
- src="<?php echo iumioFramework\Core\Additionnal\Template\iumioViewBasePlugin::webassets(array('path'=>'public/js/main.js'),$_smarty_tpl);?>
+ src="<?php echo iumioFramework\Core\Additionnal\Template\ViewBasePlugin::webassets(array('path'=>'public/js/main.js'),$_smarty_tpl);?>
 "><?php echo '</script'; ?>
 >
 
@@ -220,12 +220,12 @@ $_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_95089059759cd5e386
 </body>
 </html><?php }
 /* {block "parameters"} */
-class Block_95089059759cd5e386335e8_32853319 extends Smarty_Internal_Block
+class Block_109192761159ce0cc4215183_06808980 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'parameters' => 
   array (
-    0 => 'Block_95089059759cd5e386335e8_32853319',
+    0 => 'Block_109192761159ce0cc4215183_06808980',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {

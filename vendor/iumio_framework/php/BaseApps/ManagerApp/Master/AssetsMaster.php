@@ -45,7 +45,7 @@ class AssetsMaster extends MasterCore
     public function publishActivity(string $appname, string $env):int
     {
         $this->publish($appname, $env);
-        return ((new Response())->JSON_RENDER(array("code" => 200, "msg" => "OK")));
+        return ((new Response())->jsonRender(array("code" => 200, "msg" => "OK")));
     }
 
 
@@ -113,7 +113,7 @@ class AssetsMaster extends MasterCore
     public function clearActivity(string $appname, string $env):int
     {
         $this->clear($appname, $env);
-        return ((new Response())->JSON_RENDER(array("code" => 200, "msg" => "OK")));
+        return ((new Response())->jsonRender(array("code" => 200, "msg" => "OK")));
     }
 
     /** clear assets of all or one app
@@ -345,7 +345,7 @@ class AssetsMaster extends MasterCore
             );
         }
 
-        return ((new Response())->JSON_RENDER(array("code" => 200, "msg" => "OK", "results" => $assetsapp)));
+        return ((new Response())->jsonRender(array("code" => 200, "msg" => "OK", "results" => $assetsapp)));
     }
 
     /** Scan directory and subdirectory

@@ -62,7 +62,7 @@ class DashboardMaster extends MasterCore
             array_push($lastn, $last[$i]);
         }
 
-        return ((new Response())->JSON_RENDER(array("code" => 200, "results" => $lastn)));
+        return ((new Response())->jsonRender(array("code" => 200, "results" => $lastn)));
     }
 
 
@@ -79,7 +79,7 @@ class DashboardMaster extends MasterCore
                 break;
             }
         }
-        return ((new Response())->JSON_RENDER(array("code" => 200, "results" => $default)));
+        return ((new Response())->jsonRender(array("code" => 200, "results" => $default)));
     }
 
     /**
@@ -100,7 +100,7 @@ class DashboardMaster extends MasterCore
         $logsmaster = $this->getMaster('Logs');
         $logsstats = $logsmaster->getStatisticsLogs();
 
-        return ((new Response())->JSON_RENDER(array("code" => 200, "results" => array("apps" => $appstats,
+        return ((new Response())->jsonRender(array("code" => 200, "results" => array("apps" => $appstats,
             "routes" => $routingstats, "dbs" => $dbstats, "logs" => $logsstats))));
     }
 }

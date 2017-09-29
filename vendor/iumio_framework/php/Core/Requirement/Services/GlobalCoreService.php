@@ -15,7 +15,10 @@ namespace iumioFramework\Core\Requirement\FrameworkServices;
 /**
  * Class GlobalCoreService
  * @package iumioFramework\Core\Requirement\FrameworkServices
- * @author DANY RAFINA <danyrafina@gmail.com>
+ * @category Framework
+ * @licence  MIT License
+ * @link https://framework.iumio.com
+ * @author   RAFINA Dany <danyrafina@gmail.com>
  */
 
 
@@ -55,5 +58,4 @@ abstract class GlobalCoreService
     {
         self::$app_master = $app_master;
     }
-
 }

@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.31, created on 2017-09-28 22:28:05
+/* Smarty version 3.1.31, created on 2017-09-29 11:32:58
   from "/Applications/MAMP/htdocs/iumio-framework/vendor/iumio_framework/php/BaseApps/ManagerApp/Front/views/cachemanager.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.31',
-  'unifunc' => 'content_59cd5b551cc876_05185259',
+  'unifunc' => 'content_59ce134a39bba8_03212508',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -22,22 +22,22 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:partials/footer.tpl' => 1,
   ),
 ),false)) {
-function content_59cd5b551cc876_05185259 (Smarty_Internal_Template $_smarty_tpl) {
+function content_59ce134a39bba8_03212508 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_23022604059cd5b54980963_28778380', "principal");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_97029529659ce1349b341c4_01158340', "principal");
 $_smarty_tpl->inheritance->endChild($_smarty_tpl, 'template.tpl');
 }
 /* {block "principal"} */
-class Block_23022604059cd5b54980963_28778380 extends Smarty_Internal_Block
+class Block_97029529659ce1349b341c4_01158340 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'principal' => 
   array (
-    0 => 'Block_23022604059cd5b54980963_28778380',
+    0 => 'Block_97029529659ce1349b341c4_01158340',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -58,7 +58,7 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
                             <span class="icon-bar"></span>
                         </button>
                         <a class="navbar-brand" href="#">Cache Manager</a>
-                        <a class="btn-default btn clearcache"  attr-href="<?php echo iumioFramework\Core\Additionnal\Template\iumioViewBasePlugin::route(array('name'=>'iumio_manager_cache_manager_remove_all'),$_smarty_tpl);?>
+                        <a class="btn-default btn clearcache"  attr-href="<?php echo iumioFramework\Core\Additionnal\Template\ViewBasePlugin::route(array('name'=>'iumio_manager_cache_manager_remove_all'),$_smarty_tpl);?>
 ">Clear all cache</a>
                     </div>
                     <div class="collapse navbar-collapse">
@@ -86,7 +86,7 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
                                         <th>Status</th>
                                         <th>Clear</th>
                                         </thead>
-                                        <tbody class="getAllEnvCache" attr-href="<?php echo iumioFramework\Core\Additionnal\Template\iumioViewBasePlugin::route(array('name'=>'iumio_manager_cache_manager_get_all'),$_smarty_tpl);?>
+                                        <tbody class="getAllEnvCache" attr-href="<?php echo iumioFramework\Core\Additionnal\Template\ViewBasePlugin::route(array('name'=>'iumio_manager_cache_manager_get_all'),$_smarty_tpl);?>
 ">
                                         </tbody>
                                     </table>

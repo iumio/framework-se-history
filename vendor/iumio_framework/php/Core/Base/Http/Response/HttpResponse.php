@@ -11,12 +11,16 @@
  */
 
 namespace iumioFramework\Core\Base\Http;
+
 use iumioFramework\Exception\Server\Server500;
 
 /**
  * Class HttpResponse
  * @package iumioFramework\Core\Http
- * @author RAFINA Dany <danyrafina@gmail.com>
+ * @category Framework
+ * @licence  MIT License
+ * @link https://framework.iumio.com
+ * @author   RAFINA Dany <danyrafina@gmail.com>
  */
 
 class HttpResponse
@@ -105,14 +109,13 @@ class HttpResponse
      * @return string Http phrase
      * @throws Server500 Http code does not exist
      */
-    static public function getPhrase(int $code):string
+    public static function getPhrase(int $code):string
     {
-        if (isset(self::$response[$code]))
+        if (isset(self::$response[$code])) {
             return (self::$response[$code]);
-        else
+        } else {
             throw new Server500(new \ArrayObject(array("explain" => "Http code does not exist",
                 "solution" => "Please check your http code")));
+        }
     }
-
-
 }

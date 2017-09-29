@@ -18,7 +18,7 @@ class DefaultMaster extends MasterCore
      */
     public function indexActivity()
     {
-        return ((new Response())->JSON_RENDER(array("code" => 200, "name" => "First App")));
+        return ((new Response())->jsonRender(array("code" => 200, "name" => "First App")));
     }
 
 }

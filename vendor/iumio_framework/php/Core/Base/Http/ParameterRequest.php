@@ -2,12 +2,15 @@
 
 namespace iumioFramework\Core\Base\Http;
 
-
 /**
  * ParameterRequest is a container for key/value pairs.
  *
  * @author Fabien Potencier <fabien@symfony.com>
- * @modifiedby RAFINA Dany <danyrafina@gmail.com>
+ * @author RAFINA Dany <danyrafina@gmail.com>
+ * @category Framework
+ * @licence  MIT License
+ * @link https://framework.iumio.com
+ * @author   RAFINA Dany <danyrafina@gmail.com>
  */
 class ParameterRequest implements \IteratorAggregate, \Countable
 {
@@ -99,13 +102,17 @@ class ParameterRequest implements \IteratorAggregate, \Countable
 
             if ('[' === $char) {
                 if (null !== $currentKey) {
-                    throw new \InvalidArgumentException(sprintf('Malformed path. Unexpected "[" at position %d.', $i));
+                    throw new \InvalidArgumentException(
+                        sprintf('Malformed path. Unexpected "[" at position %d.', $i)
+                    );
                 }
 
                 $currentKey = '';
             } elseif (']' === $char) {
                 if (null === $currentKey) {
-                    throw new \InvalidArgumentException(sprintf('Malformed path. Unexpected "]" at position %d.', $i));
+                    throw new \InvalidArgumentException(
+                        sprintf('Malformed path. Unexpected "]" at position %d.', $i)
+                    );
                 }
 
                 if (!is_array($value) || !array_key_exists($currentKey, $value)) {
@@ -116,7 +123,9 @@ class ParameterRequest implements \IteratorAggregate, \Countable
                 $currentKey = null;
             } else {
                 if (null === $currentKey) {
-                    throw new \InvalidArgumentException(sprintf('Malformed path. Unexpected "%s" at position %d.', $char, $i));
+                    throw new \InvalidArgumentException(
+                        sprintf('Malformed path. Unexpected "%s" at position %d.', $char, $i)
+                    );
                 }
 
                 $currentKey .= $char;
@@ -203,7 +212,11 @@ class ParameterRequest implements \IteratorAggregate, \Countable
     public function getDigits($key, $default = '', $deep = false)
     {
         // we need to remove - and + because they're allowed in the filter
-        return str_replace(array('-', '+'), '', $this->filter($key, $default, FILTER_SANITIZE_NUMBER_INT, array(), $deep));
+        return str_replace(
+            array('-', '+'),
+            '',
+            $this->filter($key, $default, FILTER_SANITIZE_NUMBER_INT, array(), $deep)
+        );
     }
 
     /**

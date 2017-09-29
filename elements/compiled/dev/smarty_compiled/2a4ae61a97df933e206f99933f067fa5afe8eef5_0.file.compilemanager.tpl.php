@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.31, created on 2017-09-28 22:29:09
+/* Smarty version 3.1.31, created on 2017-09-29 11:33:04
   from "/Applications/MAMP/htdocs/iumio-framework/vendor/iumio_framework/php/BaseApps/ManagerApp/Front/views/compilemanager.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.31',
-  'unifunc' => 'content_59cd5b95505c85_14333275',
+  'unifunc' => 'content_59ce135049cf70_34439941',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -22,22 +22,22 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:partials/footer.tpl' => 1,
   ),
 ),false)) {
-function content_59cd5b95505c85_14333275 (Smarty_Internal_Template $_smarty_tpl) {
+function content_59ce135049cf70_34439941 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_188153238759cd5b94cd0937_97299101', "principal");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_211811789259ce134fc326c1_58792219', "principal");
 $_smarty_tpl->inheritance->endChild($_smarty_tpl, 'template.tpl');
 }
 /* {block "principal"} */
-class Block_188153238759cd5b94cd0937_97299101 extends Smarty_Internal_Block
+class Block_211811789259ce134fc326c1_58792219 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'principal' => 
   array (
-    0 => 'Block_188153238759cd5b94cd0937_97299101',
+    0 => 'Block_211811789259ce134fc326c1_58792219',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -58,7 +58,7 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
                             <span class="icon-bar"></span>
                         </button>
                         <a class="navbar-brand" href="#">Compiled Manager</a>
-                        <a class="btn-default btn clearcache"  attr-href="<?php echo iumioFramework\Core\Additionnal\Template\iumioViewBasePlugin::route(array('name'=>'iumio_manager_compile_manager_remove_all'),$_smarty_tpl);?>
+                        <a class="btn-default btn clearcache"  attr-href="<?php echo iumioFramework\Core\Additionnal\Template\ViewBasePlugin::route(array('name'=>'iumio_manager_compile_manager_remove_all'),$_smarty_tpl);?>
 ">Clear all compiled files</a>
                     </div>
                     <div class="collapse navbar-collapse">
@@ -87,7 +87,7 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
                                         <th>Status</th>
                                         <th>Clear</th>
                                         </thead>
-                                        <tbody class="getAllEnvCompile" attr-href="<?php echo iumioFramework\Core\Additionnal\Template\iumioViewBasePlugin::route(array('name'=>'iumio_manager_compile_manager_get_all'),$_smarty_tpl);?>
+                                        <tbody class="getAllEnvCompile" attr-href="<?php echo iumioFramework\Core\Additionnal\Template\ViewBasePlugin::route(array('name'=>'iumio_manager_compile_manager_get_all'),$_smarty_tpl);?>
 ">
                                         </tbody>
                                     </table>

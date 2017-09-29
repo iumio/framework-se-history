@@ -194,7 +194,7 @@
                 </p>
             </div>
         </footer>
-        <?= (\iumioFramework\Core\Additionnal\TaskBar\iumioTaskBar::getTaskBar() != "#none")? \iumioFramework\Core\Additionnal\TaskBar\iumioTaskBar::getTaskBar() : "" ?>
+        <?= (\iumioFramework\Core\Additionnal\TaskBar\TaskBar::getTaskBar() != "#none")? \iumioFramework\Core\Additionnal\TaskBar\TaskBar::getTaskBar() : "" ?>
     </div>
 </div>
 
@@ -220,6 +220,6 @@
 <!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
 <script src="<?= WEB_LIBS.'/iumio_manager/' ?>js/main.js"></script>
 
-<?php \iumioFramework\Core\Additionnal\TaskBar\iumioTaskBar::getJsTaskBar() ?>
+<?php \iumioFramework\Core\Additionnal\TaskBar\TaskBar::getJsTaskBar() ?>
 
 </html>

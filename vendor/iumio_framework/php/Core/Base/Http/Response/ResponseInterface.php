@@ -15,7 +15,10 @@ namespace iumioFramework\Core\Base\Http\Response;
 /**
  * Interface ResponseInterface
  * @package iumioFramework\Core\Base\Http\Response
- * @author RAFINA Dany <danyrafina@gmail.com>
+ * @category Framework
+ * @licence  MIT License
+ * @link https://framework.iumio.com
+ * @author   RAFINA Dany <danyrafina@gmail.com>
  */
 
 interface ResponseInterface
@@ -24,7 +27,7 @@ interface ResponseInterface
      * @param array $response
      * @return int
      */
-    public function JSON_RENDER(array $response):int;
+    public function jsonRender(array $response):int;
 
     /** Render to XML format
      * @param array $response Response array
@@ -32,13 +35,13 @@ interface ResponseInterface
      * @param string $name XML name
      * @return int
      */
-    public function XML_RENDER(array $response, string $firstelem, string $name = NULL):int;
+    public function xmlRender(array $response, string $firstelem, string $name = null):int;
 
     /** Render to XML format
      * @param array $response Response array
      * @return int
      */
-    public function TEXT_RENDER(array $response):int;
+    public function textRender(array $response):int;
 
 
     /** Detect is valid format for Response mode
@@ -46,6 +49,5 @@ interface ResponseInterface
      * @param string $mode Mode for verification
      * @return int Is Valid format
      */
-    public function IS_VALID_FORMAT($elem, string $mode):int;
-
+    public function isValidFormat($elem, string $mode):int;
 }

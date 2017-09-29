@@ -16,6 +16,7 @@ namespace ManagerApp\Masters;
 use iumioFramework\Core\Additionnal\Server\ServerManager;
 use iumioFramework\Core\Base\Debug\Debug;
 use iumioFramework\Core\Base\Http\Response\Response;
+use iumioFramework\Core\Requirement\EngineAutoloader;
 use iumioFramework\Exception\Server\AbstractServer;
 use iumioFramework\Exception\Server\Server404;
 use iumioFramework\Exception\Server\Server500;
@@ -85,7 +86,7 @@ class AutoloaderMaster extends MasterCore
      */
     public function getStatisticsActivity():int
     {
-        return ((new Response())->JSON_RENDER(array("code" => 200, "results" => $this->getStatisticsAutoloader())));
+        return ((new Response())->jsonRender(array("code" => 200, "results" => $this->getStatisticsAutoloader())));
     }
 
     /** clear autoloader classmap
@@ -102,7 +103,7 @@ class AutoloaderMaster extends MasterCore
                 "Environement must be only [prod]. Dev is not allowed")));
         }
 
-        return ((new Response())->JSON_RENDER(array("code" => 200, "msg" => "OK")));
+        return ((new Response())->jsonRender(array("code" => 200, "msg" => "OK")));
     }
 
 
@@ -146,7 +147,7 @@ class AutoloaderMaster extends MasterCore
                 "Environement must be [dev] or [prod] and [all] for all enviroment")));
         }
 
-        return ((new Response())->JSON_RENDER(array("code" => 200, "msg" => "OK")));
+        return ((new Response())->jsonRender(array("code" => 200, "msg" => "OK")));
     }
 
 
@@ -161,7 +162,7 @@ class AutoloaderMaster extends MasterCore
     final public function buildClassMapp(string $env):int
     {
         if (in_array($env, array("dev", "prod"))) {
-            \EngineAutoloader::buildClassMap($env);
+            EngineAutoloader::buildClassMap($env);
         } else {
             throw new Server500(new \ArrayObject(array("explain" => "Undefined environement $env", "solution" =>
                 "Environement must be [dev] or [prod]")));

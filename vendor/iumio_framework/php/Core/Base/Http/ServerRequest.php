@@ -7,7 +7,11 @@ namespace iumioFramework\Core\Base\Http;
  * ServerRequest is a container for HTTP headers from the $_SERVER variable.
  *
  * @author Fabien Potencier <fabien@symfony.com>
- * @modifiedby RAFINA Dany <danyrafina@gmail.com>
+ * @author RAFINA Dany <danyrafina@gmail.com>
+ * @category Framework
+ * @licence  MIT License
+ * @link https://framework.iumio.com
+ * @author   RAFINA Dany <danyrafina@gmail.com>
  */
 class ServerRequest extends ParameterRequest
 {
@@ -23,8 +27,7 @@ class ServerRequest extends ParameterRequest
         foreach ($this->parameters as $key => $value) {
             if (0 === strpos($key, 'HTTP_')) {
                 $headers[substr($key, 5)] = $value;
-            }
-            // CONTENT_* are not prefixed with HTTP_
+            } // CONTENT_* are not prefixed with HTTP_
             elseif (isset($contentHeaders[$key])) {
                 $headers[$key] = $value;
             }
@@ -62,7 +65,10 @@ class ServerRequest extends ParameterRequest
                     if (count($exploded) == 2) {
                         list($headers['PHP_AUTH_USER'], $headers['PHP_AUTH_PW']) = $exploded;
                     }
-                } elseif (empty($this->parameters['PHP_AUTH_DIGEST']) && (0 === stripos($authorizationHeader, 'digest '))) {
+                } elseif (empty($this->parameters['PHP_AUTH_DIGEST']) && (0 === stripos(
+                    $authorizationHeader,
+                    'digest '
+                ))) {
                     // In some circumstances PHP_AUTH_DIGEST needs to be set
                     $headers['PHP_AUTH_DIGEST'] = $authorizationHeader;
                     $this->parameters['PHP_AUTH_DIGEST'] = $authorizationHeader;
@@ -83,7 +89,8 @@ class ServerRequest extends ParameterRequest
 
         // PHP_AUTH_USER/PHP_AUTH_PW
         if (isset($headers['PHP_AUTH_USER'])) {
-            $headers['AUTHORIZATION'] = 'Basic '.base64_encode($headers['PHP_AUTH_USER'].':'.$headers['PHP_AUTH_PW']);
+            $headers['AUTHORIZATION'] = 'Basic '.
+                base64_encode($headers['PHP_AUTH_USER'].':'.$headers['PHP_AUTH_PW']);
         } elseif (isset($headers['PHP_AUTH_DIGEST'])) {
             $headers['AUTHORIZATION'] = $headers['PHP_AUTH_DIGEST'];
         }

@@ -11,16 +11,20 @@
  */
 
 namespace iumioFramework\Core\Requirement;
+
 use iumioFramework\Core\Additionnal\Server\ServerManager as ServerManager;
 
 /**
  *
  * Class BaseApp
  * @package iumioFramework\Core\Requirement
- * @author RAFINA Dany <danyrafina@gmail.com>
+ * @category Framework
+ * @licence  MIT License
+ * @link https://framework.iumio.com
+ * @author   RAFINA Dany <danyrafina@gmail.com>
  */
 
-class BaseApp extends iumioApp
+class BaseApp extends App
 {
     /** Save an App
      */
@@ -53,11 +57,11 @@ class BaseApp extends iumioApp
         // REGISTER TO APP CORE
         $f = json_decode(file_get_contents(ROOT."/elements/config_files/core/apps.json"));
         $lastapp = 0;
-        foreach ($f as $one => $val) $lastapp++;
-        if ($this->params['isdefault'] == "yes")
-        {
-            foreach ($f as $one => $val)
-            {
+        foreach ($f as $one => $val) {
+            $lastapp++;
+        }
+        if ($this->params['isdefault'] == "yes") {
+            foreach ($f as $one => $val) {
                 if ($val->isdefault == "yes") {
                     $val->isdefault = "no";
                     break;
@@ -70,10 +74,12 @@ class BaseApp extends iumioApp
         $f->$lastapp->class = "\\".$this->params['appname']."\\".$this->params['appname'];
         $f = json_encode($f, JSON_PRETTY_PRINT);
         file_put_contents(ROOT."/elements/config_files/core/apps.json", $f);
-        if ($this->params['template'] == "yes")
-            new AM(array("core/manager", "assets-manager", "--copy", "--appname=". $this->params['appname'], "--symlink", "--noexit"));
-        Output::outputAsSuccess("\n Your app is ready to use. To test your app go to project location on your browser with parameter /hello. Enjoy ! \n", "none");
-
+        if ($this->params['template'] == "yes") {
+            new AM(array("core/manager", "assets-manager", "--copy", "--appname=". $this->params['appname'],
+                "--symlink", "--noexit"));
+        }
+        Output::outputAsSuccess("\n Your app is ready to use. To test your app go to project location on your
+         browser with parameter /hello. Enjoy ! \n", "none");
     }
 
     /** Delete an app
@@ -81,10 +87,8 @@ class BaseApp extends iumioApp
     public function remove()
     {
         $f = json_decode(file_get_contents(ROOT."/elements/config_files/core/apps.json"));
-        foreach ($f as $one => $val)
-        {
-            if ($val->name == $this->name)
-            {
+        foreach ($f as $one => $val) {
+            if ($val->name == $this->name) {
                 unset($f->$one);
                 break;
             }
@@ -96,6 +100,4 @@ class BaseApp extends iumioApp
         ServerManager::delete(ROOT."/apps/".$this->name, "directory");
         ServerManager::delete(ROOT."/web/components/apps/".strtolower($this->name), 'directory');
     }
-
-
 }

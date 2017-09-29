@@ -11,12 +11,16 @@
  */
 
 namespace iumioFramework\Core\Base\Http\Response;
+
 use iumioFramework\Core\Base\Http\HttpResponse;
 
 /**
  * Class Response
  * @package iumioFramework\Core\Base\Http\Response
- * @author RAFINA Dany <danyrafina@gmail.com>
+ * @category Framework
+ * @licence  MIT License
+ * @link https://framework.iumio.com
+ * @author   RAFINA Dany <danyrafina@gmail.com>
  */
 
 final class Response implements ResponseInterface
@@ -26,9 +30,10 @@ final class Response implements ResponseInterface
      * @param array $response
      * @return int
      */
-    public function JSON_RENDER(array $response):int
+    public function jsonRender(array $response):int
     {
-        @header($_SERVER['SERVER_PROTOCOL'] .' '.(($response['code'] == 000)? 500 : $response['code']).' '.HttpResponse::getPhrase($response['code']), true, $response['code']);
+        @header($_SERVER['SERVER_PROTOCOL'] .' '.(($response['code'] == 000)? 500 :
+                $response['code']).' '.HttpResponse::getPhrase($response['code']), true, $response['code']);
         echo json_encode($response, JSON_PRETTY_PRINT);
         return (1);
     }
@@ -40,29 +45,31 @@ final class Response implements ResponseInterface
      * @return int
      * @throws \Exception
      */
-    public function XML_RENDER(array $response, string $firstelem, string $name = NULL):int
+    public function xmlRender(array $response, string $firstelem, string $name = null):int
     {
-        if (!$this->IS_VALID_FORMAT($response, "array"))
+        if (!$this->isValidFormat($response, "array")) {
             throw new \Exception('Response Error: Your response base is not an array');
+        }
 
         $xmlElem = new \SimpleXMLElement("<?xml version=\"1.0\"?><$firstelem></$firstelem>");
 
-        $this->XML_RENDER_EXTEND($response, $xmlElem);
+        $this->xmlRenderExtend($response, $xmlElem);
 
-        if ($name == NULL)
+        if ($name == null) {
             $xml_file = $xmlElem->asXML();
-        else
+        } else {
             $xml_file = $xmlElem->asXML("$name.xml");
-
-        if($xml_file)
-        {
-            header('Content-type: text/xml');
-            if ($name != NULL)
-                header('Content-Disposition: attachment; filename="'.$name.'.xml"');
-            echo ($xml_file);
         }
-        else
+
+        if ($xml_file) {
+            header('Content-type: text/xml');
+            if ($name != null) {
+                header('Content-Disposition: attachment; filename="'.$name.'.xml"');
+            }
+            echo ($xml_file);
+        } else {
             throw new \Exception('Response Error on XML RENDER : XML is invalid.');
+        }
 
         return (1);
     }
@@ -72,31 +79,33 @@ final class Response implements ResponseInterface
      * @param string $mode Mode for verification
      * @return int Is Valid format
      */
-    public function IS_VALID_FORMAT($elem, string $mode):int
+    public function isValidFormat($elem, string $mode):int
     {
-      if ($mode == "array")
-          return ((is_array($elem))? 1 : 0);
+        if ($mode == "array") {
+            return ((is_array($elem))? 1 : 0);
+        }
     }
 
 
     /**
-     * Extend function for XML_RENDER
+     * Extend function for xmlRender
      * @param array $array Array to convert
      * @param \SimpleXMLElement $xmlElem
      * @return mixed
      */
-    private function XML_RENDER_EXTEND(array $array, \SimpleXMLElement &$xmlElem) {
-        foreach($array as $key => $value) {
-            if(is_array($value)) {
-                if(!is_numeric($key)){
+    private function xmlRenderExtend(array $array, \SimpleXMLElement &$xmlElem)
+    {
+        foreach ($array as $key => $value) {
+            if (is_array($value)) {
+                if (!is_numeric($key)) {
                     $subnode = $xmlElem->addChild("$key");
-                    $this->XML_RENDER_EXTEND($value, $subnode);
-                }else{
+                    $this->xmlRenderExtend($value, $subnode);
+                } else {
                     $subnode = $xmlElem->addChild("item$key");
-                    $this->XML_RENDER_EXTEND($value, $subnode);
+                    $this->xmlRenderExtend($value, $subnode);
                 }
-            }else {
-                $xmlElem->addChild("$key",htmlspecialchars("$value"));
+            } else {
+                $xmlElem->addChild("$key", htmlspecialchars("$value"));
             }
         }
         return ($xmlElem);
@@ -106,11 +115,10 @@ final class Response implements ResponseInterface
      * @param array $response Response array
      * @return int
      */
-    public function TEXT_RENDER(array $response):int
+    public function textRender(array $response):int
     {
         header('HTTP/1.0 '.$response['code'].' '.HttpResponse::getPhrase($response['code']));
         echo implode(" ", $response);
         return (1);
     }
-
 }

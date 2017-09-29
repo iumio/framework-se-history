@@ -57,7 +57,7 @@ class SmartyMaster extends MasterCore
                 true
             );
         }
-        return ((new Response())->JSON_RENDER(array("code" => 200, "msg" => "OK", "results" => $file)));
+        return ((new Response())->jsonRender(array("code" => 200, "msg" => "OK", "results" => $file)));
     }
 
     /** Get one smarty config
@@ -69,11 +69,11 @@ class SmartyMaster extends MasterCore
         $file = (array) JL::open(CONFIG_DIR.'smarty_config/smarty.json');
         foreach ($file as $one => $val) {
             if ($one == $config) {
-                return ((new Response())->JSON_RENDER(array("code" => 200, "results" => $val)));
+                return ((new Response())->jsonRender(array("code" => 200, "results" => $val)));
             }
         }
 
-        return ((new Response())->JSON_RENDER(array("code" => 200, "results" => array())));
+        return ((new Response())->jsonRender(array("code" => 200, "results" => array())));
     }
 
     /** Save one smarty config
@@ -92,13 +92,13 @@ class SmartyMaster extends MasterCore
         if (!in_array($debug, array('true', 'false')) || !in_array($cache, array('0', '1')) ||
             !in_array($compile, array('true', 'false')) || !in_array($force, array('true', 'false')) ||
             !in_array($sdebug, array('true', 'false')) || !in_array($console, array("on", "off"))) {
-            return ((new Response())->JSON_RENDER(array("code" => 500, "msg" => "Error on smarty parameters")));
+            return ((new Response())->jsonRender(array("code" => 500, "msg" => "Error on smarty parameters")));
         }
 
 
         $file = JL::open(CONFIG_DIR.'smarty_config/smarty.json');
         if (!isset($file->$config)) {
-            return ((new Response())->JSON_RENDER(array("code" => 500, "msg" => "Error on smarty parameters")));
+            return ((new Response())->jsonRender(array("code" => 500, "msg" => "Error on smarty parameters")));
         }
 
         $file->$config->debug         = $this->setRealBoolean($debug);
@@ -110,7 +110,7 @@ class SmartyMaster extends MasterCore
 
         JL::put(CONFIG_DIR."smarty_config/smarty.json", json_encode($file, JSON_PRETTY_PRINT));
 
-        return ((new Response())->JSON_RENDER(array("code" => 200, "msg" => "OK")));
+        return ((new Response())->jsonRender(array("code" => 200, "msg" => "OK")));
     }
 
     /** Set real boolean type

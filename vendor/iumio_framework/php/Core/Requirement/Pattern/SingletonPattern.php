@@ -18,22 +18,27 @@ namespace iumioFramework\Core\Requirement\Patterns;
  * Class SingletonPattern
  * This class is a Singleton Pattern
  * @package iumioFramework\Core\Requirement\Patterns
+ * @category Framework
+ * @licence  MIT License
+ * @link https://framework.iumio.com
+ * @author   RAFINA Dany <danyrafina@gmail.com>
  */
 abstract class SingletonPattern
 {
     /** @var array List of Class instances */
-    private static $_instances = array();
+    private static $instances = array();
 
     /** Get an instance of the class
      *
      * @return SingletonPattern The new class instance
      */
-    final static public function getInstance():self
+    final public static function getInstance():self
     {
         $class = get_called_class();
-        if (!isset(self::$_instances[$class]))
-            self::$_instances[$class] = new $class();
-        return (self::$_instances[$class]);
+        if (!isset(self::$instances[$class])) {
+            self::$instances[$class] = new $class();
+        }
+        return (self::$instances[$class]);
     }
 
     /**

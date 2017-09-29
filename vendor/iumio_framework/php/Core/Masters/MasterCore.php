@@ -14,15 +14,15 @@ namespace iumioFramework\Masters;
 
 use iumioFramework\HttpRoutes\Routing;
 use iumioFramework\Core\Base\Http\ParameterRequest;
-use iumioFramework\Core\Additionnal\Template\iumioSmarty;
-use iumioFramework\Core\Base\iumioEnvironment;
+use iumioFramework\Core\Additionnal\Template\SmartyEngineTemplate;
+use iumioFramework\Core\Base\FrameworkEnvironment;
 use iumioFramework\Core\Requirement\FrameworkServices\Services;
-use iumioFramework\Core\Requirement\iumioCore;
+use iumioFramework\Core\Requirement\FrameworkCore;
 use iumioFramework\Core\Requirement\FrameworkServices\GlobalCoreService;
-use iumioFramework\Core\Base\Database\iumioDatabaseAccess as IDA;
+use iumioFramework\Core\Base\Database\DatabaseAccess as IDA;
 use iumioFramework\Exception\Server\Server500;
 use iumioFramework\Exception\Server\Server404;
-use iumioFramework\Core\Base\Http\Session\iumioSession;
+use iumioFramework\Core\Base\Http\Session\HttpSession;
 use iumioFramework\Core\Base\Json\JsonListener as JL;
 
 /**
@@ -57,13 +57,13 @@ class MasterCore extends GlobalCoreService
     {
         switch ($service) {
             case 'request':
-                return (iumioCore::getRuntimeParameters())->request;
+                return (FrameworkCore::getRuntimeParameters())->request;
                 break;
             case 'query':
-                return (iumioCore::getRuntimeParameters())->query;
+                return (FrameworkCore::getRuntimeParameters())->query;
                 break;
             case 'session':
-                return (new iumioSession());
+                return (new HttpSession());
                 break;
             default:
                 $s = Services::getInstance();
@@ -79,9 +79,9 @@ class MasterCore extends GlobalCoreService
     final protected function render(string $view, array $options = array())
     {
         $this->appMastering = APP_CALL;
-        $si = iumioSmarty::getSmartyInstance($this->appMastering);
+        $si = SmartyEngineTemplate::getSmartyInstance($this->appMastering);
         $si->assign($options);
-        $si->display($view . iumioSmarty::$viewExtention);
+        $si->display($view . SmartyEngineTemplate::$viewExtention);
     }
 
 
@@ -92,7 +92,7 @@ class MasterCore extends GlobalCoreService
      */
     final protected function changeRenderExtention(string $ext):bool
     {
-        iumioSmarty::$viewExtention = $ext;
+        SmartyEngineTemplate::$viewExtention = $ext;
         return (true);
     }
 
@@ -107,7 +107,7 @@ class MasterCore extends GlobalCoreService
      */
     final public function registerViewPlugin(string $type, string $name, array $method):int
     {
-        $si = iumioSmarty::getSmartyInstance($this->appMastering);
+        $si = SmartyEngineTemplate::getSmartyInstance($this->appMastering);
         if ($type !== "modifier" && $type != "function") {
             throw new Server500(new \ArrayObject(array("explain" => "Undefined plugin type $type.",
                 "solution" => "Allowed to modifier or function")));
@@ -187,11 +187,11 @@ class MasterCore extends GlobalCoreService
 
                 $base = (isset($_SERVER['SCRIPT_NAME']) && $_SERVER['SCRIPT_NAME'] != "")? $_SERVER['SCRIPT_NAME'] : "";
 
-                if (strpos($_SERVER['REQUEST_URI'], iumioEnvironment::getFileEnv(IUMIO_ENV)) == false) {
+                if (strpos($_SERVER['REQUEST_URI'], FrameworkEnvironment::getFileEnv(IUMIO_ENV)) == false) {
                     $rm = explode('/', $base);
                     $rm = array_values(Routing::removeEmptyData($rm));
                     $rm = array_values($rm);
-                    $key = array_search(iumioEnvironment::getFileEnv(IUMIO_ENV), $rm);
+                    $key = array_search(FrameworkEnvironment::getFileEnv(IUMIO_ENV), $rm);
                     unset($rm[$key]);
                     $rm = array_values($rm);
                     $base = implode("/", $rm);

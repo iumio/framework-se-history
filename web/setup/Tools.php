@@ -69,7 +69,7 @@ class Tools
      */
     final public static function checkFrameworkBuildVersion()
     {
-        $f = fopen('../../vendor/iumio_framework/php/Core/Requirement/iumioCore.php', 'r');
+        $f = fopen('../../vendor/iumio_framework/php/Core/Requirement/FrameworkCore.php', 'r');
         $v = 0;
         $build = 0;
         $e = 0;

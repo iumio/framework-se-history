@@ -1,32 +1,16 @@
 {
     "0": {
-        "name": "sqApp",
+        "name": "waApp",
         "enabled": "yes",
-        "prefix": "xa",
-        "class": "\\sqApp\\sqApp",
+        "prefix": "dd",
+        "class": "\\waApp\\waApp",
         "creation": {
-            "date": "2017-09-28 20:02:31.000000",
+            "date": "2017-09-29 09:33:45.000000",
             "timezone_type": 3,
             "timezone": "UTC"
         },
         "update": {
-            "date": "2017-09-28 20:26:47.000000",
-            "timezone_type": 3,
-            "timezone": "UTC"
-        }
-    },
-    "1": {
-        "name": "AsApp",
-        "enabled": "yes",
-        "prefix": "",
-        "class": "\\AsApp\\AsApp",
-        "creation": {
-            "date": "2017-09-28 20:06:02.000000",
-            "timezone_type": 3,
-            "timezone": "UTC"
-        },
-        "update": {
-            "date": "2017-09-28 20:06:02.000000",
+            "date": "2017-09-29 09:33:45.000000",
             "timezone_type": 3,
             "timezone": "UTC"
         }

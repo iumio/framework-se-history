@@ -44,7 +44,7 @@ class CacheMaster extends MasterCore
     public function cacheClearActivity(string $env):int
     {
         $this->callDelCreaServer($env);
-        return ((new Response())->JSON_RENDER(array("code" => 200, "msg" => "OK")));
+        return ((new Response())->jsonRender(array("code" => 200, "msg" => "OK")));
     }
 
 
@@ -73,7 +73,7 @@ class CacheMaster extends MasterCore
     public function cacheClearAllActivity()
     {
         $this->deleteAllCache();
-        return ((new Response())->JSON_RENDER(array("code" => 200, "msg" => "OK")));
+        return ((new Response())->jsonRender(array("code" => 200, "msg" => "OK")));
     }
 
     /** Get all cache directory
@@ -107,7 +107,7 @@ class CacheMaster extends MasterCore
             }
         }
 
-        return ((new Response())->JSON_RENDER(array("code" => 200, "results" => $directory)));
+        return ((new Response())->jsonRender(array("code" => 200, "results" => $directory)));
     }
 
 

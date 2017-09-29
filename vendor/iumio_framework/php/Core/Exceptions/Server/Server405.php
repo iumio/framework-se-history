@@ -11,12 +11,16 @@
  */
 
 namespace iumioFramework\Exception\Server;
+
 use ArrayObject;
 
 /**
  * Class Server405
  * @package iumioFramework\Exception\Server
- * @author RAFINA Dany <danyrafina@gmail.com>
+ * @category Framework
+ * @licence  MIT License
+ * @link https://framework.iumio.com
+ * @author   RAFINA Dany <danyrafina@gmail.com>
  */
 
 class Server405 extends AbstractServer
@@ -31,10 +35,8 @@ class Server405 extends AbstractServer
         $this->code = '405';
         $this->codeTitle = 'Method Not Allowed';
         $this->explain =  'The request method is not allowed.';
-        $this->solution = NULL;
-        $this->env = NULL;
+        $this->solution = null;
+        $this->env = null;
         parent::__construct($component, 'Method Not Allowed');
     }
 }
-
-

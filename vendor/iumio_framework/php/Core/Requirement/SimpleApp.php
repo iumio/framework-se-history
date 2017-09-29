@@ -15,10 +15,13 @@ namespace iumioFramework\Core\Requirement;
 /**
  * Class SimpleApp
  * @package iumioFramework\Core\Requirement
- * @author RAFINA Dany <danyrafina@gmail.com>
+ * @category Framework
+ * @licence  MIT License
+ * @link https://framework.iumio.com
+ * @author   RAFINA Dany <danyrafina@gmail.com>
  */
 
-class SimpleApp extends iumioApp
+class SimpleApp extends App
 {
 
     /**
@@ -27,9 +30,7 @@ class SimpleApp extends iumioApp
      */
     public function __construct(string $appname = null)
     {
-        if ($appname != null)
-        {
-
+        if ($appname != null) {
         }
     }
 
@@ -46,5 +47,4 @@ class SimpleApp extends iumioApp
     {
         // TODO: Implement remove() method.
     }
-
 }

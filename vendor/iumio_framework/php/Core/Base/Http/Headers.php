@@ -7,7 +7,11 @@ namespace iumioFramework\Core\Base\Http;
  * Headers manages header features.
  *
  * @author Fabien Potencier <fabien@symfony.com>
- * @modifiedby RAFINA Dany <danyrafina@gmail.com>
+ * @author RAFINA Dany <danyrafina@gmail.com>
+ * @category Framework
+ * @licence  MIT License
+ * @link https://framework.iumio.com
+ * @author   RAFINA Dany <danyrafina@gmail.com>
  */
 class Headers implements \IteratorAggregate, \Countable
 {
@@ -307,7 +311,12 @@ class Headers implements \IteratorAggregate, \Countable
     protected function parseCacheControl($header)
     {
         $cacheControl = array();
-        preg_match_all('#([a-zA-Z][a-zA-Z_-]*)\s*(?:=(?:"([^"]*)"|([^ \t",;]*)))?#', $header, $matches, PREG_SET_ORDER);
+        preg_match_all(
+            '#([a-zA-Z][a-zA-Z_-]*)\s*(?:=(?:"([^"]*)"|([^ \t",;]*)))?#',
+            $header,
+            $matches,
+            PREG_SET_ORDER
+        );
         foreach ($matches as $match) {
             $cacheControl[strtolower($match[1])] = isset($match[3]) ? $match[3] : (isset($match[2]) ? $match[2] : true);
         }

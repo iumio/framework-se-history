@@ -15,7 +15,10 @@ namespace iumioFramework\Core\Console;
 /**
  * Class CoreManager
  * @package iumioFramework\Core\Console
- * @author RAFINA Dany <danyrafina@gmail.com>
+ * @category Framework
+ * @licence  MIT License
+ * @link https://framework.iumio.com
+ * @author   RAFINA Dany <danyrafina@gmail.com>
  */
 class CoreManager
 {
@@ -34,7 +37,7 @@ class CoreManager
     /** Get current module
      * @return string Current module name
      */
-    static public function getCurrentModule():string
+    public static function getCurrentModule():string
     {
         return self::$currentModule;
     }
@@ -42,10 +45,8 @@ class CoreManager
     /** Set new current module
      * @param string $currentModule The current module
      */
-    static public function setCurrentModule(string $currentModule)
+    public static function setCurrentModule(string $currentModule)
     {
         self::$currentModule = $currentModule;
     }
-
-
 }

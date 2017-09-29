@@ -2,7 +2,7 @@
 
 namespace {appname};
 
-use iumioFramework\Core\Requirement\iumioAppModel as App;
+use iumioFramework\Core\Requirement\AppModel as App;
 
 /**
  * Class {appname}

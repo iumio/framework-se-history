@@ -12,7 +12,7 @@
 
 namespace iumioFramework\Apps;
 
-use iumioFramework\Core\Requirement\iumioCore;
+use iumioFramework\Core\Requirement\FrameworkCore;
 use iumioFramework\Core\Base\Http\HttpListener;
 use iumioFramework\Exception\Server\Server000;
 
@@ -24,7 +24,7 @@ use iumioFramework\Exception\Server\Server000;
  * @link https://framework.iumio.com
  * @author   RAFINA Dany <danyrafina@gmail.com>
  */
-class AppCore extends iumioCore
+class AppCore extends FrameworkCore
 {
     /**
      * AppCore constructor.

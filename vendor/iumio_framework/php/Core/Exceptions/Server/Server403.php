@@ -11,12 +11,16 @@
  */
 
 namespace iumioFramework\Exception\Server;
+
 use ArrayObject;
 
 /**
  * Class Server403
  * @package iumioFramework\Exception\Server
- * @author RAFINA Dany <danyrafina@gmail.com>
+ * @category Framework
+ * @licence  MIT License
+ * @link https://framework.iumio.com
+ * @author   RAFINA Dany <danyrafina@gmail.com>
  */
 class Server403 extends AbstractServer
 {
@@ -30,11 +34,8 @@ class Server403 extends AbstractServer
         $this->code = '403';
         $this->codeTitle = 'FORBIDEEN';
         $this->explain =  'You are not allowed to access this file.';
-        $this->solution = NULL;
-        $this->env = NULL;
+        $this->solution = null;
+        $this->env = null;
         parent::__construct($component, 'Forbideen');
     }
-
 }
-
-

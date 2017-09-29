@@ -377,7 +377,7 @@ class RoutingMaster extends MasterCore
      */
     public function getallActivity()
     {
-        return ((new Response())->JSON_RENDER(array("code" => 200, "msg" => "OK",
+        return ((new Response())->jsonRender(array("code" => 200, "msg" => "OK",
             "results" => $this->getallRouting())));
     }
 
@@ -389,7 +389,7 @@ class RoutingMaster extends MasterCore
     public function removeActivity(string $filename, string $appname)
     {
         ServerManager::delete(ROOT."/apps/$appname/Routing/$filename", "file");
-        return ((new Response())->JSON_RENDER(array("code" => 200, "msg" => "OK")));
+        return ((new Response())->jsonRender(array("code" => 200, "msg" => "OK")));
     }
 
     /** Rebuild Js routing file
@@ -399,7 +399,7 @@ class RoutingMaster extends MasterCore
     {
         $rt = new JsRouting();
         $rt->build();
-        return ((new Response())->JSON_RENDER(array("code" => 200, "msg" => "OK")));
+        return ((new Response())->jsonRender(array("code" => 200, "msg" => "OK")));
     }
 
     /**
@@ -409,7 +409,7 @@ class RoutingMaster extends MasterCore
      */
     public function getOneActivity(string $filename, string $appname)
     {
-        return ((new Response())->JSON_RENDER(array("code" => 200, "msg" => "OK", "results" =>
+        return ((new Response())->jsonRender(array("code" => 200, "msg" => "OK", "results" =>
             $this->getRtContent($filename, $appname))));
     }
 

@@ -2,7 +2,6 @@
 
 namespace iumioFramework\Core\Base\Http;
 
-
 /**
  * Request represents an HTTP request.
  *
@@ -15,7 +14,11 @@ namespace iumioFramework\Core\Base\Http;
  *   * getUriForPath
  *
  * @author Fabien Potencier <fabien@symfony.com>
- * @modifiedby RAFINA Dany <danyrafina@gmail.com>
+ * @author RAFINA Dany <danyrafina@gmail.com>
+ * @category Framework
+ * @licence  MIT License
+ * @link https://framework.iumio.com
+ * @author   RAFINA Dany <danyrafina@gmail.com>
  */
 class HttpListener
 {
@@ -202,8 +205,15 @@ class HttpListener
      * @param array           $server     The SERVER parameters
      * @param string|resource $content    The raw body data
      */
-    public function __construct(array $query = array(), array $request = array(), array $attributes = array(), array $cookies = array(), array $files = array(), array $server = array(), $content = null)
-    {
+    public function __construct(
+        array $query = array(),
+        array $request = array(),
+        array $attributes = array(),
+        array $cookies = array(),
+        array $files = array(),
+        array $server = array(),
+        $content = null
+    ) {
         $this->initialize($query, $request, $attributes, $cookies, $files, $server, $content);
     }
 
@@ -221,8 +231,15 @@ class HttpListener
      * @param array           $server     The SERVER parameters
      * @param string|resource $content    The raw body data
      */
-    public function initialize(array $query = array(), array $request = array(), array $attributes = array(), array $cookies = array(), array $files = array(), array $server = array(), $content = null)
-    {
+    public function initialize(
+        array $query = array(),
+        array $request = array(),
+        array $attributes = array(),
+        array $cookies = array(),
+        array $files = array(),
+        array $server = array(),
+        $content = null
+    ) {
         $this->request = new ParameterRequest($request);
         $this->query = new ParameterRequest($query);
         $this->attributes = new ParameterRequest($attributes);
@@ -266,7 +283,10 @@ class HttpListener
         $request = self::createRequestFromFactory($_GET, $_POST, array(), $_COOKIE, $_FILES, $server);
 
         if (0 === strpos($request->headers->get('CONTENT_TYPE'), 'application/x-www-form-urlencoded')
-            && in_array(strtoupper($request->server->get('REQUEST_METHOD', 'GET')), array('PUT', 'DELETE', 'PATCH'))
+            && in_array(
+                strtoupper($request->server->get('REQUEST_METHOD', 'GET')),
+                array('PUT', 'DELETE', 'PATCH')
+            )
         ) {
             parse_str($request->getContent(), $data);
             $request->request = new ParameterRequest($data);
@@ -291,8 +311,15 @@ class HttpListener
      *
      * @return HttpListener A Request instance
      */
-    public static function create(string $uri, string $method = 'GET', array $parameters = array(), array $cookies = array(), array $files = array(), array $server = array(), string $content = null):HttpListener
-    {
+    public static function create(
+        string $uri,
+        string $method = 'GET',
+        array $parameters = array(),
+        array $cookies = array(),
+        array $files = array(),
+        array $server = array(),
+        string $content = null
+    ):HttpListener {
         $server = array_replace(array(
             'SERVER_NAME' => 'localhost',
             'SERVER_PORT' => 80,
@@ -409,8 +436,14 @@ class HttpListener
      *
      * @return HttpListener The duplicated request
      */
-    public function duplicate(array $query = null, array $request = null, array $attributes = null, array $cookies = null, array $files = null, array $server = null)
-    {
+    public function duplicate(
+        array $query = null,
+        array $request = null,
+        array $attributes = null,
+        array $cookies = null,
+        array $files = null,
+        array $server = null
+    ) {
         $dup = clone $this;
         if ($query !== null) {
             $dup->query = new ParameterRequest($query);
@@ -484,7 +517,12 @@ class HttpListener
         }
 
         return
-            sprintf('%s %s %s', $this->getMethod(), $this->getRequestUri(), $this->server->get('SERVER_PROTOCOL'))."\r\n".
+            sprintf(
+                '%s %s %s',
+                $this->getMethod(),
+                $this->getRequestUri(),
+                $this->server->get('SERVER_PROTOCOL')
+            )."\r\n".
             $this->headers."\r\n".
             $content;
     }
@@ -497,7 +535,11 @@ class HttpListener
      */
     public function overrideGlobals()
     {
-        $this->server->set('QUERY_STRING', static::normalizeQueryString(http_build_query($this->query->all(), null, '&')));
+        $this->server->set('QUERY_STRING', static::normalizeQueryString(http_build_query(
+            $this->query->all(),
+            null,
+            '&'
+        )));
 
         $_GET = $this->query->all();
         $_POST = $this->request->all();
@@ -592,7 +634,9 @@ class HttpListener
     public static function setTrustedHeaderName($key, $value)
     {
         if (!array_key_exists($key, self::$trustedHeaders)) {
-            throw new \InvalidArgumentException(sprintf('Unable to set the trusted header name for key "%s".', $key));
+            throw new \InvalidArgumentException(
+                sprintf('Unable to set the trusted header name for key "%s".', $key)
+            );
         }
 
         self::$trustedHeaders[$key] = $value;
@@ -610,7 +654,9 @@ class HttpListener
     public static function getTrustedHeaderName($key)
     {
         if (!array_key_exists($key, self::$trustedHeaders)) {
-            throw new \InvalidArgumentException(sprintf('Unable to get the trusted header name for key "%s".', $key));
+            throw new \InvalidArgumentException(
+                sprintf('Unable to get the trusted header name for key "%s".', $key)
+            );
         }
 
         return self::$trustedHeaders[$key];
@@ -638,15 +684,18 @@ class HttpListener
         foreach (explode('&', $qs) as $param) {
             if ('' === $param || '=' === $param[0]) {
                 // Ignore useless delimiters, e.g. "x=y&".
-                // Also ignore pairs with empty key, even if there was a value, e.g. "=value", as such nameless values cannot be retrieved anyway.
+                // Also ignore pairs with empty key, even if there was a value, e.g.
+                // "=value", as such nameless values cannot be retrieved anyway.
                 // PHP also does not include them when building _GET.
                 continue;
             }
 
             $keyValuePair = explode('=', $param, 2);
 
-            // GET parameters, that are submitted from a HTML form, encode spaces as "+" by default (as defined in enctype application/x-www-form-urlencoded).
-            // PHP also converts "+" to spaces when filling the global _GET or when using the function parse_str. This is why we use urldecode and then normalize to
+            // GET parameters, that are submitted from a HTML form, encode spaces as "+"
+            // by default (as defined in enctype application/x-www-form-urlencoded).
+            // PHP also converts "+" to spaces when filling the global _GET or
+            // when using the function parse_str. This is why we use urldecode and then normalize to
             // RFC 3986 with rawurlencode.
             $parts[] = isset($keyValuePair[1]) ?
                 rawurlencode(urldecode($keyValuePair[0])).'='.rawurlencode(urldecode($keyValuePair[1])) :
@@ -793,8 +842,10 @@ class HttpListener
             return array($ip);
         }
 
-        $hasTrustedForwardedHeader = self::$trustedHeaders[self::HEADER_FORWARDED] && $this->headers->has(self::$trustedHeaders[self::HEADER_FORWARDED]);
-        $hasTrustedClientIpHeader = self::$trustedHeaders[self::HEADER_CLIENT_IP] && $this->headers->has(self::$trustedHeaders[self::HEADER_CLIENT_IP]);
+        $hasTrustedForwardedHeader = self::$trustedHeaders[self::HEADER_FORWARDED] &&
+            $this->headers->has(self::$trustedHeaders[self::HEADER_FORWARDED]);
+        $hasTrustedClientIpHeader = self::$trustedHeaders[self::HEADER_CLIENT_IP] &&
+            $this->headers->has(self::$trustedHeaders[self::HEADER_CLIENT_IP]);
 
         if ($hasTrustedForwardedHeader) {
             $forwardedHeader = $this->headers->get(self::$trustedHeaders[self::HEADER_FORWARDED]);
@@ -806,14 +857,21 @@ class HttpListener
         }
 
         if ($hasTrustedClientIpHeader) {
-            $xForwardedForClientIps = array_map('trim', explode(',', $this->headers->get(self::$trustedHeaders[self::HEADER_CLIENT_IP])));
+            $xForwardedForClientIps = array_map('trim', explode(
+                ',',
+                $this->headers->get(self::$trustedHeaders[self::HEADER_CLIENT_IP])
+            ));
 
             $xForwardedForClientIps = $this->normalizeAndFilterClientIps($xForwardedForClientIps, $ip);
             $clientIps = $xForwardedForClientIps;
         }
 
-        if ($hasTrustedForwardedHeader && $hasTrustedClientIpHeader && $forwardedClientIps !== $xForwardedForClientIps) {
-            throw new ConflictingHeadersException('The request has both a trusted Forwarded header and a trusted Client IP header, conflicting with each other with regards to the originating IP addresses of the request. This is the result of a misconfiguration. You should either configure your proxy only to send one of these headers, or configure iumio Framework to distrust one of them.');
+        if ($hasTrustedForwardedHeader && $hasTrustedClientIpHeader &&
+            $forwardedClientIps !== $xForwardedForClientIps) {
+            throw new ConflictingHeadersException('The request has both a trusted Forwarded header and a 
+            trusted Client IP header, conflicting with each other with regards to the originating IP addresses of 
+            the request. This is the result of a misconfiguration. You should either configure your proxy only 
+            to send one of these headers, or configure iumio Framework to distrust one of them.');
         }
 
         if (!$hasTrustedForwardedHeader && !$hasTrustedClientIpHeader) {
@@ -947,11 +1005,13 @@ class HttpListener
     public function getPort()
     {
         if ($this->isFromTrustedProxy()) {
-            if (self::$trustedHeaders[self::HEADER_CLIENT_PORT] && $port = $this->headers->get(self::$trustedHeaders[self::HEADER_CLIENT_PORT])) {
+            if (self::$trustedHeaders[self::HEADER_CLIENT_PORT] &&
+                $port = $this->headers->get(self::$trustedHeaders[self::HEADER_CLIENT_PORT])) {
                 return $port;
             }
 
-            if (self::$trustedHeaders[self::HEADER_CLIENT_PROTO] && 'https' === $this->headers->get(self::$trustedHeaders[self::HEADER_CLIENT_PROTO], 'http')) {
+            if (self::$trustedHeaders[self::HEADER_CLIENT_PROTO] &&
+                'https' === $this->headers->get(self::$trustedHeaders[self::HEADER_CLIENT_PROTO], 'http')) {
                 return 443;
             }
         }
@@ -996,7 +1056,8 @@ class HttpListener
     /**
      * Gets the user info.
      *
-     * @return string A user name and, optionally, scheme-specific information about how to gain authorization to access the server
+     * @return string A user name and, optionally, scheme-specific information about
+     * how to gain authorization to access the server
      */
     public function getUserInfo()
     {
@@ -1089,7 +1150,8 @@ class HttpListener
      *
      * Only the URIs path component (no schema, host etc.) is relevant and must be given.
      * Both paths must be absolute and not contain relative parts.
-     * Relative URLs from one resource to another are useful when generating self-contained downloadable document archives.
+     * Relative URLs from one resource to another are useful when generating
+     * self-contained downloadable document archives.
      * Furthermore, they can be used to reduce the link size in documents.
      *
      * Example target paths, given a base path of "/a/b/c/d":
@@ -1114,8 +1176,10 @@ class HttpListener
             return '';
         }
 
-        $sourceDirs = explode('/', isset($basePath[0]) && '/' === $basePath[0] ? substr($basePath, 1) : $basePath);
-        $targetDirs = explode('/', isset($path[0]) && '/' === $path[0] ? substr($path, 1) : $path);
+        $sourceDirs = explode('/', isset($basePath[0]) &&
+        '/' === $basePath[0] ? substr($basePath, 1) : $basePath);
+        $targetDirs = explode('/', isset($path[0]) &&
+        '/' === $path[0] ? substr($path, 1) : $path);
         array_pop($sourceDirs);
         $targetFile = array_pop($targetDirs);
 
@@ -1135,7 +1199,8 @@ class HttpListener
         // as the first segment of a relative-path reference, as it would be mistaken for a scheme name
         // (see http://tools.ietf.org/html/rfc3986#section-4.2).
         return !isset($path[0]) || '/' === $path[0]
-        || false !== ($colonPos = strpos($path, ':')) && ($colonPos < ($slashPos = strpos($path, '/')) || false === $slashPos)
+        || false !== ($colonPos = strpos($path, ':')) &&
+        ($colonPos < ($slashPos = strpos($path, '/')) || false === $slashPos)
             ? "./$path" : $path;
     }
 
@@ -1170,7 +1235,8 @@ class HttpListener
      */
     public function isSecure()
     {
-        if ($this->isFromTrustedProxy() && self::$trustedHeaders[self::HEADER_CLIENT_PROTO] && $proto = $this->headers->get(self::$trustedHeaders[self::HEADER_CLIENT_PROTO])) {
+        if ($this->isFromTrustedProxy() && self::$trustedHeaders[self::HEADER_CLIENT_PROTO] &&
+            $proto = $this->headers->get(self::$trustedHeaders[self::HEADER_CLIENT_PROTO])) {
             return in_array(strtolower(current(explode(',', $proto))), array('https', 'on', 'ssl', '1'));
         }
 
@@ -1196,7 +1262,8 @@ class HttpListener
      */
     public function getHost()
     {
-        if ($this->isFromTrustedProxy() && self::$trustedHeaders[self::HEADER_CLIENT_HOST] && $host = $this->headers->get(self::$trustedHeaders[self::HEADER_CLIENT_HOST])) {
+        if ($this->isFromTrustedProxy() && self::$trustedHeaders[self::HEADER_CLIENT_HOST] &&
+            $host = $this->headers->get(self::$trustedHeaders[self::HEADER_CLIENT_HOST])) {
             $elements = explode(',', $host);
 
             $host = $elements[count($elements) - 1];
@@ -1210,7 +1277,8 @@ class HttpListener
         // host is lowercase as per RFC 952/2181
         $host = strtolower(preg_replace('/:\d+$/', '', trim($host)));
 
-        // as the host can come from the user (HTTP_HOST and depending on the configuration, SERVER_NAME too can come from the user)
+        // as the host can come from the user (HTTP_HOST and depending on the configuration,
+        // SERVER_NAME too can come from the user)
         // check that it does not contain forbidden characters (see RFC 952 and RFC 2181)
         // use preg_replace() instead of preg_match() to prevent DoS attacks with long host names
         if ($host && '' !== preg_replace('/(?:^\[)?[a-zA-Z0-9-:\]_]+\.?/', '', $host)) {
@@ -1273,7 +1341,10 @@ class HttpListener
                 if ($method = $this->headers->get('X-HTTP-METHOD-OVERRIDE')) {
                     $this->method = strtoupper($method);
                 } elseif (self::$httpMethodParameterOverride) {
-                    $this->method = strtoupper($this->request->get('_method', $this->query->get('_method', 'POST')));
+                    $this->method = strtoupper($this->request->get(
+                        '_method',
+                        $this->query->get('_method', 'POST')
+                    ));
                 }
             }
         }
@@ -1341,7 +1412,8 @@ class HttpListener
      * Associates a format with mime types.
      *
      * @param string       $format    The format
-     * @param string|array $mimeTypes The associated mime types (the preferred one must be the first as it will be used as the content type)
+     * @param string|array $mimeTypes The associated mime types (the preferred one must be
+     * the first as it will be used as the content type)
      */
     public function setFormat($format, $mimeTypes)
     {
@@ -1473,7 +1545,8 @@ class HttpListener
     {
         $currentContentIsResource = is_resource($this->content);
         if (PHP_VERSION_ID < 50600 && false === $this->content) {
-            throw new \LogicException('getContent() can only be called once when using the resource return type and PHP below 5.6.');
+            throw new \LogicException('getContent() 
+            can only be called once when using the resource return type and PHP below 5.6.');
         }
 
         if (true === $asResource) {
@@ -1517,7 +1590,12 @@ class HttpListener
      */
     public function getETags()
     {
-        return preg_split('/\s*,\s*/', $this->headers->get('if_none_match'), null, PREG_SPLIT_NO_EMPTY);
+        return preg_split(
+            '/\s*,\s*/',
+            $this->headers->get('if_none_match'),
+            null,
+            PREG_SPLIT_NO_EMPTY
+        );
     }
 
     /**
@@ -1525,7 +1603,8 @@ class HttpListener
      */
     public function isNoCache()
     {
-        return $this->headers->hasCacheControlDirective('no-cache') || 'no-cache' == $this->headers->get('Pragma');
+        return $this->headers->hasCacheControlDirective('no-cache') ||
+            'no-cache' == $this->headers->get('Pragma');
     }
 
     /**
@@ -1614,7 +1693,8 @@ class HttpListener
             return $this->charsets;
         }
 
-        return $this->charsets = array_keys(AcceptHeader::fromString($this->headers->get('Accept-Charset'))->all());
+        return $this->charsets =
+            array_keys(AcceptHeader::fromString($this->headers->get('Accept-Charset'))->all());
     }
 
     /**
@@ -1628,7 +1708,8 @@ class HttpListener
             return $this->encodings;
         }
 
-        return $this->encodings = array_keys(AcceptHeader::fromString($this->headers->get('Accept-Encoding'))->all());
+        return $this->encodings =
+            array_keys(AcceptHeader::fromString($this->headers->get('Accept-Encoding'))->all());
     }
 
     /**
@@ -1642,7 +1723,8 @@ class HttpListener
             return $this->acceptableContentTypes;
         }
 
-        return $this->acceptableContentTypes = array_keys(AcceptHeader::fromString($this->headers->get('Accept'))->all());
+        return $this->acceptableContentTypes =
+            array_keys(AcceptHeader::fromString($this->headers->get('Accept'))->all());
     }
 
     /**
@@ -1683,7 +1765,8 @@ class HttpListener
             // IIS with ISAPI_Rewrite
             $requestUri = $this->headers->get('X_REWRITE_URL');
             $this->headers->remove('X_REWRITE_URL');
-        } elseif ($this->server->get('IIS_WasUrlRewritten') == '1' && $this->server->get('UNENCODED_URL') != '') {
+        } elseif ($this->server->get('IIS_WasUrlRewritten') == '1' &&
+            $this->server->get('UNENCODED_URL') != '') {
             // IIS7 with URL Rewrite: make sure we get the unencoded URL (double slash problem)
             $requestUri = $this->server->get('UNENCODED_URL');
             $this->server->remove('UNENCODED_URL');
@@ -1750,7 +1833,10 @@ class HttpListener
             return $prefix;
         }
 
-        if ($baseUrl && false !== $prefix = $this->getUrlencodedPrefix($requestUri, rtrim(dirname($baseUrl), '/'.DIRECTORY_SEPARATOR).'/')) {
+        if ($baseUrl && false !== $prefix = $this->getUrlencodedPrefix(
+            $requestUri,
+            rtrim(dirname($baseUrl), '/'.DIRECTORY_SEPARATOR).'/'
+        )) {
             // directory portion of $baseUrl matches
             return rtrim($prefix, '/'.DIRECTORY_SEPARATOR);
         }
@@ -1893,10 +1979,26 @@ class HttpListener
         return false;
     }
 
-    private static function createRequestFromFactory(array $query = array(), array $request = array(), array $attributes = array(), array $cookies = array(), array $files = array(), array $server = array(), $content = null)
-    {
+    private static function createRequestFromFactory(
+        array $query = array(),
+        array $request = array(),
+        array $attributes = array(),
+        array $cookies = array(),
+        array $files = array(),
+        array $server = array(),
+        $content = null
+    ) {
         if (self::$requestFactory) {
-            $request = call_user_func(self::$requestFactory, $query, $request, $attributes, $cookies, $files, $server, $content);
+            $request = call_user_func(
+                self::$requestFactory,
+                $query,
+                $request,
+                $attributes,
+                $cookies,
+                $files,
+                $server,
+                $content
+            );
 
             if (!$request instanceof self) {
                 throw new \LogicException('The Request factory must return an instance of .');

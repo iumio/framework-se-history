@@ -13,13 +13,13 @@
 namespace iumioFramework\Core\Base;
 
 $loader = require __DIR__.'/../vendor/iumio_framework/php/Core/Requirement/EngineAutoloader.php';
-\EngineAutoloader::$env = "PROD";
+\iumioFramework\Core\Requirement\EngineAutoloader::$env = "PROD";
 
-use iumioFramework\Core\Base\iumioEnvironment;
+use iumioFramework\Core\Base\FrameworkEnvironment;
 use iumioFramework\Core\Base\Debug\Debug;
 use iumioFramework\Core\Base\Http\HttpListener;
 use iumioFramework\Apps\AppCore;
-use iumioFramework\Core\Additionnal\TaskBar\iumioTaskBar as TB;
+use iumioFramework\Core\Additionnal\TaskBar\TaskBar as TB;
 
 /**
  * Class Prod
@@ -31,7 +31,7 @@ use iumioFramework\Core\Additionnal\TaskBar\iumioTaskBar as TB;
  * @link https://framework.iumio.com
  * @author   RAFINA Dany <danyrafina@gmail.com>
  */
-class Prod extends iumioEnvironment
+class Prod extends FrameworkEnvironment
 {
 
     /** Start Application

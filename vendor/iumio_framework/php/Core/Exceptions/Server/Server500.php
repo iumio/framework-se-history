@@ -11,12 +11,16 @@
  */
 
 namespace iumioFramework\Exception\Server;
+
 use ArrayObject;
 
 /**
  * Class Server500
  * @package iumioFramework\Exception\Server
- * @author RAFINA Dany <danyrafina@gmail.com>
+ * @category Framework
+ * @licence  MIT License
+ * @link https://framework.iumio.com
+ * @author   RAFINA Dany <danyrafina@gmail.com>
  */
 
 class Server500 extends AbstractServer
@@ -31,10 +35,8 @@ class Server500 extends AbstractServer
         $this->code = '500';
         $this->codeTitle = 'INTERNAL ERROR';
         $this->explain =  'An internal error was generated. Please referer to server log';
-        $this->solution = NULL;
-        $this->env = NULL;
+        $this->solution = null;
+        $this->env = null;
         parent::__construct($component, 'Internal Error');
     }
 }
-
-

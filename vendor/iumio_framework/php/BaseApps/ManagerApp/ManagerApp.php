@@ -13,7 +13,7 @@
 
 namespace ManagerApp;
 
-use iumioFramework\Core\Requirement\iumioAppBaseModel as BaseApp;
+use iumioFramework\Core\Requirement\AppBaseModel as BaseApp;
 
 /**
  * Class ManagerApp

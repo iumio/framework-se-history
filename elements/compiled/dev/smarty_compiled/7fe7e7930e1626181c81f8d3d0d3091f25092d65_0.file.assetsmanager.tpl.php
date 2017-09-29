@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.31, created on 2017-09-28 22:26:53
+/* Smarty version 3.1.31, created on 2017-09-29 11:04:40
   from "/Applications/MAMP/htdocs/iumio-framework/vendor/iumio_framework/php/BaseApps/ManagerApp/Front/views/assetsmanager.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.31',
-  'unifunc' => 'content_59cd5b0dc22450_88635007',
+  'unifunc' => 'content_59ce0ca8814678_78477123',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -22,25 +22,25 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:partials/footer.tpl' => 1,
   ),
 ),false)) {
-function content_59cd5b0dc22450_88635007 (Smarty_Internal_Template $_smarty_tpl) {
+function content_59ce0ca8814678_78477123 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_133632555559cd5b0d416292_59716085', "principal");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_31201147359ce0ca8066da2_42565816', "principal");
 ?>
 
 
 <?php $_smarty_tpl->inheritance->endChild($_smarty_tpl, 'template.tpl');
 }
 /* {block "principal"} */
-class Block_133632555559cd5b0d416292_59716085 extends Smarty_Internal_Block
+class Block_31201147359ce0ca8066da2_42565816 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'principal' => 
   array (
-    0 => 'Block_133632555559cd5b0d416292_59716085',
+    0 => 'Block_31201147359ce0ca8066da2_42565816',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -82,27 +82,27 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
                                 <div class="content">
                                     <div class="row center-block text-center manager-options">
                                         <div class="col-md-4">
-                                            <a class="btn-default btn publishallassets"  attr-href="<?php echo iumioFramework\Core\Additionnal\Template\iumioViewBasePlugin::route(array('name'=>'iumio_manager_assets_manager_publish','params'=>array("appname"=>"_all","env"=>"all")),$_smarty_tpl);?>
+                                            <a class="btn-default btn publishallassets"  attr-href="<?php echo iumioFramework\Core\Additionnal\Template\ViewBasePlugin::route(array('name'=>'iumio_manager_assets_manager_publish','params'=>array("appname"=>"_all","env"=>"all")),$_smarty_tpl);?>
  ">Publish all</a>
                                         </div>
                                         <div class="col-md-4">
-                                            <a class="btn-default btn publishalldevassets"  attr-href="<?php echo iumioFramework\Core\Additionnal\Template\iumioViewBasePlugin::route(array('name'=>'iumio_manager_assets_manager_publish','params'=>array("appname"=>"_all","env"=>"dev")),$_smarty_tpl);?>
+                                            <a class="btn-default btn publishalldevassets"  attr-href="<?php echo iumioFramework\Core\Additionnal\Template\ViewBasePlugin::route(array('name'=>'iumio_manager_assets_manager_publish','params'=>array("appname"=>"_all","env"=>"dev")),$_smarty_tpl);?>
 ">Publish all dev</a>
                                         </div>
                                         <div class="col-md-4">
-                                            <a class="btn-default btn publishallprodassets"  attr-href="<?php echo iumioFramework\Core\Additionnal\Template\iumioViewBasePlugin::route(array('name'=>'iumio_manager_assets_manager_publish','params'=>array("appname"=>"_all","env"=>"prod")),$_smarty_tpl);?>
+                                            <a class="btn-default btn publishallprodassets"  attr-href="<?php echo iumioFramework\Core\Additionnal\Template\ViewBasePlugin::route(array('name'=>'iumio_manager_assets_manager_publish','params'=>array("appname"=>"_all","env"=>"prod")),$_smarty_tpl);?>
 ">Publish all prod</a>
                                         </div>
                                         <div class="col-md-4">
-                                            <a class="btn-default btn clearallassets"  attr-href="<?php echo iumioFramework\Core\Additionnal\Template\iumioViewBasePlugin::route(array('name'=>'iumio_manager_assets_manager_clear','params'=>array("appname"=>"_all","env"=>"all")),$_smarty_tpl);?>
+                                            <a class="btn-default btn clearallassets"  attr-href="<?php echo iumioFramework\Core\Additionnal\Template\ViewBasePlugin::route(array('name'=>'iumio_manager_assets_manager_clear','params'=>array("appname"=>"_all","env"=>"all")),$_smarty_tpl);?>
 ">Clear all</a>
                                         </div>
                                         <div class="col-md-4">
-                                            <a class="btn-default btn clearalldevassets"  attr-href="<?php echo iumioFramework\Core\Additionnal\Template\iumioViewBasePlugin::route(array('name'=>'iumio_manager_assets_manager_clear','params'=>array("appname"=>"_all","env"=>"dev")),$_smarty_tpl);?>
+                                            <a class="btn-default btn clearalldevassets"  attr-href="<?php echo iumioFramework\Core\Additionnal\Template\ViewBasePlugin::route(array('name'=>'iumio_manager_assets_manager_clear','params'=>array("appname"=>"_all","env"=>"dev")),$_smarty_tpl);?>
 ">Clear all dev</a>
                                         </div>
                                         <div class="col-md-4">
-                                            <a class="btn-default btn clearallprodassets"  attr-href="<?php echo iumioFramework\Core\Additionnal\Template\iumioViewBasePlugin::route(array('name'=>'iumio_manager_assets_manager_clear','params'=>array("appname"=>"_all","env"=>"prod")),$_smarty_tpl);?>
+                                            <a class="btn-default btn clearallprodassets"  attr-href="<?php echo iumioFramework\Core\Additionnal\Template\ViewBasePlugin::route(array('name'=>'iumio_manager_assets_manager_clear','params'=>array("appname"=>"_all","env"=>"prod")),$_smarty_tpl);?>
 ">Clear all prod</a>
                                         </div>
                                     </div>
@@ -127,7 +127,7 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
                                         <th>Status Prod</th>
                                         <th>Actions</th>
                                         </thead>
-                                        <tbody class="getAllAssets" attr-href="<?php echo iumioFramework\Core\Additionnal\Template\iumioViewBasePlugin::route(array('name'=>'iumio_manager_assets_manager_get_all'),$_smarty_tpl);?>
+                                        <tbody class="getAllAssets" attr-href="<?php echo iumioFramework\Core\Additionnal\Template\ViewBasePlugin::route(array('name'=>'iumio_manager_assets_manager_get_all'),$_smarty_tpl);?>
 ">
 
                                         </tbody>

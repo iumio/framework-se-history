@@ -15,7 +15,10 @@ namespace iumioFramework\Core\Base\Debug;
 /**
  * Interface DebugInterface
  * @package iumioFramework\Core\Base\Debug
- * @author RAFINA Dany <danyrafina@gmail.com>
+ * @category Framework
+ * @licence  MIT License
+ * @link https://framework.iumio.com
+ * @author   RAFINA Dany <danyrafina@gmail.com>
  */
 
 interface DebugInterface
@@ -25,21 +28,21 @@ interface DebugInterface
      * @param string $interface Manner to output log
      * @return bool
      */
-    static public function output(string $message, string $interface = 'file'):bool;
+    public static function output(string $message, string $interface = 'file'):bool;
 
     /**
      * @param string $message Message for log
      * @return bool
      */
-    static public function input(string $message):bool;
+    public static function input(string $message):bool;
 
     /** Enable log feature
      * @return bool
      */
-    static function enabled():bool;
+    public static function enabled():bool;
 
     /** Disable log feature
      * @return bool
      */
-    static function disabled():bool;
+    public static function disabled():bool;
 }

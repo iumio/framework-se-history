@@ -11,15 +11,19 @@
  */
 
 namespace iumioFramework\Core\Console\Module\Cache;
+
 use iumioFramework\Core\Additionnal\Server\ServerManager as Server;
-use iumioFramework\Core\Console\{
-    CoreManager, Display\OutputManager as Output, Module\ModuleManager
-};
+use iumioFramework\Core\Console\CoreManager;
+use iumioFramework\Core\Console\Display\OutputManager as Output;
+use iumioFramework\Core\Console\Module\ModuleManager;
 
 /**
  * Class CacheManager
  * @package iumioFramework\Core\Console\Module\Cache
- * @author RAFINA Dany <danyrafina@gmail.com>
+ * @category Framework
+ * @licence  MIT License
+ * @link https://framework.iumio.com
+ * @author   RAFINA Dany <danyrafina@gmail.com>
  */
 
 class CacheManager implements ModuleManager
@@ -28,25 +32,27 @@ class CacheManager implements ModuleManager
 
     public function __render()
     {
-        if (empty($this->options))
+        if (empty($this->options)) {
             Output::displayAsError("Cache Manager Module Error : You must to specify an option\n");
-        $opt = $this->options[2] ?? null;
-        if ($opt == "--clear")
-        {
-            $opt = $this->options[3] ?? null;
-            if ($opt == null)
-                $this->deleteCache("dev");
-            else if ($opt == "--env=dev" || $opt == "--env=DEV")
-                $this->deleteCache("dev", "yes");
-            elseif ($opt == "--env=prod" || $opt == "--env=PROD")
-                $this->deleteCache("prod", "yes");
-            elseif ($opt == "--env=all" || $opt == "--env=ALL")
-                $this->deleteAllCache();
-            else
-                Output::displayAsError("Cache Manager Module Error : Bad option\n");
         }
-        else
-            Output::displayAsError("Cache Manager Module Error : Option is not exist. Referer to help command to get options list\n");
+        $opt = $this->options[2] ?? null;
+        if ($opt == "--clear") {
+            $opt = $this->options[3] ?? null;
+            if ($opt == null) {
+                $this->deleteCache("dev");
+            } elseif ($opt == "--env=dev" || $opt == "--env=DEV") {
+                $this->deleteCache("dev", "yes");
+            } elseif ($opt == "--env=prod" || $opt == "--env=PROD") {
+                $this->deleteCache("prod", "yes");
+            } elseif ($opt == "--env=all" || $opt == "--env=ALL") {
+                $this->deleteAllCache();
+            } else {
+                Output::displayAsError("Cache Manager Module Error : Bad option\n");
+            }
+        } else {
+            Output::displayAsError("Cache Manager Module Error : Option is not exist. 
+            Referer to help command to get options list\n");
+        }
     }
 
     /** Delete a cache from a specific environment
@@ -75,8 +81,9 @@ class CacheManager implements ModuleManager
     {
         $a = array("dev", "prod");
         Output::displayAsSuccess("Hey, I delete cache for all environment", "none");
-        for ($i = 0; $i < count($a); $i++)
+        for ($i = 0; $i < count($a); $i++) {
             $this->callDelCreaServer($a[$i]);
+        }
         Output::displayAsNormal("Cache was deleted for all environment.");
     }
 
@@ -88,13 +95,11 @@ class CacheManager implements ModuleManager
     public function __construct(array $options = array())
     {
         CoreManager::setCurrentModule("Cache Manager");
-        if (empty($options))
+        if (empty($options)) {
             $this->__render();
-        else
-        {
+        } else {
             $this->options = $options;
             $this->__render();
         }
     }
-
 }

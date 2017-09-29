@@ -14,13 +14,17 @@
 
 namespace iumioFramework\Core\Requirement\FrameworkServices;
 
-use iumioFramework\Core\{Base\Json\JsonListener, Requirement\Patterns\SingletonPattern};
+use iumioFramework\Core\Base\Json\JsonListener;
+use iumioFramework\Core\Requirement\Patterns\SingletonPattern;
 use iumioFramework\Exception\Server\Server500;
 
 /**
  * Class Services
  * @package iumioFramework\Core\Requirement\FrameworkServices
- * @author RAFINA Dany <danyrafina@gmail.com>
+ * @category Framework
+ * @licence  MIT License
+ * @link https://framework.iumio.com
+ * @author   RAFINA Dany <danyrafina@gmail.com>
  */
 
 class Services extends SingletonPattern
@@ -45,8 +49,9 @@ class Services extends SingletonPattern
     final private function loadServices()
     {
         $s = JsonListener::open(ELEMS.'config_files/core/services/services.json');
-        foreach ($s->services as $one => $value)
+        foreach ($s->services as $one => $value) {
             array_push($this->services, array("name" => $one, "class" => $value));
+        }
     }
 
     /** Get a service by name
@@ -57,10 +62,8 @@ class Services extends SingletonPattern
     final public function getService(string $name)
     {
         $service_selected = null;
-        foreach ($this->services as $one)
-        {
-            if ($one['name'] === $name)
-            {
+        foreach ($this->services as $one) {
+            if ($one['name'] === $name) {
                 $i = $one['class'];
                 return (new $i());
             }
@@ -68,6 +71,5 @@ class Services extends SingletonPattern
 
         throw new Server500(new \ArrayObject(array("explain" =>
             "Undefined service : $name", "solution" => "Please register the $name service")));
-
     }
 }

@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.31, created on 2017-09-28 21:59:05
+/* Smarty version 3.1.31, created on 2017-09-29 11:03:37
   from "/Applications/MAMP/htdocs/iumio-framework/vendor/iumio_framework/php/BaseApps/ManagerApp/Front/views/routingmanager.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.31',
-  'unifunc' => 'content_59cd5489011831_01534786',
+  'unifunc' => 'content_59ce0c6999bf16_24473927',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -22,22 +22,22 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:partials/footer.tpl' => 1,
   ),
 ),false)) {
-function content_59cd5489011831_01534786 (Smarty_Internal_Template $_smarty_tpl) {
+function content_59ce0c6999bf16_24473927 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_34872273859cd54888268a3_27143397', "principal");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_19347744159ce0c6922eaa8_93271079', "principal");
 $_smarty_tpl->inheritance->endChild($_smarty_tpl, 'template.tpl');
 }
 /* {block "principal"} */
-class Block_34872273859cd54888268a3_27143397 extends Smarty_Internal_Block
+class Block_19347744159ce0c6922eaa8_93271079 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'principal' => 
   array (
-    0 => 'Block_34872273859cd54888268a3_27143397',
+    0 => 'Block_19347744159ce0c6922eaa8_93271079',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -58,7 +58,7 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
                         <span class="icon-bar"></span>
                     </button>
                     <a class="navbar-brand" href="#">Routing Manager</a>
-                    <a class="btn-default btn rebuildjs" attr-href="<?php echo iumioFramework\Core\Additionnal\Template\iumioViewBasePlugin::route(array('name'=>'iumio_manager_routing_manager_rebuild_js'),$_smarty_tpl);?>
+                    <a class="btn-default btn rebuildjs" attr-href="<?php echo iumioFramework\Core\Additionnal\Template\ViewBasePlugin::route(array('name'=>'iumio_manager_routing_manager_rebuild_js'),$_smarty_tpl);?>
 ">Rebuild JS Routing</a>
                 </div>
                 <div class="collapse navbar-collapse">
@@ -77,7 +77,7 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
                                 <h4 class="title">Routing statistics</h4>
                                 <p class="category">Statistics</p>
                             </div>
-                            <div class="content dashboardStats" attr-href="<?php echo iumioFramework\Core\Additionnal\Template\iumioViewBasePlugin::route(array('name'=>'iumio_manager_dashboard_get_statistics'),$_smarty_tpl);?>
+                            <div class="content dashboardStats" attr-href="<?php echo iumioFramework\Core\Additionnal\Template\ViewBasePlugin::route(array('name'=>'iumio_manager_dashboard_get_statistics'),$_smarty_tpl);?>
 ">
                                 <ul>
                                     <li class="iumiohidden">Apps  : <span class="dashb-app">0</span> </li>
@@ -110,7 +110,7 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
                                     <th>View</th>
                                     <th>Delete</th>
                                     </thead>
-                                    <tbody class="routinglist" attr-href="<?php echo iumioFramework\Core\Additionnal\Template\iumioViewBasePlugin::route(array('name'=>'iumio_manager_routing_manager_get_all'),$_smarty_tpl);?>
+                                    <tbody class="routinglist" attr-href="<?php echo iumioFramework\Core\Additionnal\Template\ViewBasePlugin::route(array('name'=>'iumio_manager_routing_manager_get_all'),$_smarty_tpl);?>
 ">
                                     <!--<tr>
                                         <td>0</td>

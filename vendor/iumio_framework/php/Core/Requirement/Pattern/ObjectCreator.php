@@ -14,11 +14,14 @@
 
 namespace iumioFramework\Core\Requirement\Patterns;
 
-
 /**
  * Class ObjectCreator
  * This class is a Factory Pattern Implementation
  * @package iumioFramework\Core\Requirement\Patterns
+ * @category Framework
+ * @licence  MIT License
+ * @link https://framework.iumio.com
+ * @author   RAFINA Dany <danyrafina@gmail.com>
  */
 class ObjectCreator
 {
@@ -28,7 +31,7 @@ class ObjectCreator
      * @param mixed $options If constructor have somes parameters
      * @return mixed The class instance
      */
-    final static public function create(string $classname, $options)
+    final public static function create(string $classname, $options)
     {
         return (new $classname($options));
     }

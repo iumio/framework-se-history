@@ -11,32 +11,35 @@
  */
 
 namespace iumioFramework\Exception\Server;
+
 use ArrayObject;
-use iumioFramework\Core\Additionnal\Template\iumioSmarty;
+use iumioFramework\Core\Additionnal\Template\SmartyEngineTemplate;
 use iumioFramework\Core\Base\Http\HttpResponse;
 use iumioFramework\Core\Base\Json\JsonListener as JL;
 use iumioFramework\Exception\Tools\ToolsExceptions;
 use iumioFramework\Masters\MasterCore;
 
-
 /**
  * Class AbstractServer
  * @package iumioFramework\Exception\Server
- * @author RAFINA Dany <danyrafina@gmail.com>
+ * @category Framework
+ * @licence  MIT License
+ * @link https://framework.iumio.com
+ * @author   RAFINA Dany <danyrafina@gmail.com>
  */
 abstract class AbstractServer extends \Exception implements ServerInterface
 {
     protected $code = 0;
-    protected $codeTitle = NULL;
-    protected $explain = NULL ;
-    protected $solution = NULL;
-    protected $env = NULL;
+    protected $codeTitle = null;
+    protected $explain = null ;
+    protected $solution = null;
+    protected $env = null;
     protected $external = false;
     protected $time = false;
     protected $color_class = array(500 => "navbar-ct-red", "default" => "navbar-ct-orange", 200 => "navvar-ct-green");
     protected $color_class_checked = "navbar-ct-orange";
-    protected $uidie = NULL;
-    protected $client_ip = NULL;
+    protected $uidie = null;
+    protected $client_ip = null;
     protected $inlog = true;
 
 
@@ -48,33 +51,36 @@ abstract class AbstractServer extends \Exception implements ServerInterface
      */
     public function __construct(ArrayObject $component, string $header_message)
     {
-        if (isset($this->color_class[$this->code]))
+        if (isset($this->color_class[$this->code])) {
             $this->color_class_checked = $this->color_class[$this->code];
+        }
 
         $this->time = new \DateTime();
-        $this->uidie = ToolsExceptions::generate_uidie();
+        $this->uidie = ToolsExceptions::generateUidie();
         $this->env = IUMIO_ENV;
         $this->client_ip = ToolsExceptions::getClientIp();
         $it = $component->getIterator();
-        foreach ($it as $one => $value)
-        {
-            if ($it->key() == "codeTitle")
+        foreach ($it as $one => $value) {
+            if ($it->key() == "codeTitle") {
                 $this->codeTitle = $value;
-            else if ($it->key() == "explain")
+            } elseif ($it->key() == "explain") {
                 $this->explain = $value;
-            else if ($it->key() == "solution")
+            } elseif ($it->key() == "solution") {
                 $this->solution = $value;
-            else if ($it->key() == "inlog")
+            } elseif ($it->key() == "inlog") {
                 $this->inlog = $value;
-            else if ($it->key() == "external")
+            } elseif ($it->key() == "external") {
                 $this->external = ($value == "yes")? $value : "no";
-            if ($this->solution == NULL)
+            }
+            if ($this->solution == null) {
                 $this->solution = "Please check your app configuration";
+            }
         }
 
         //parent::__construct(HttpResponse::getPhrase($this->code), $this->code);
-        if ($this->inlog)
+        if ($this->inlog) {
             $this->writeJsonError();
+        }
         $this->display($this->code, $header_message);
     }
 
@@ -87,16 +93,19 @@ abstract class AbstractServer extends \Exception implements ServerInterface
      */
     public function display(string $code, string $message)
     {
-        if (ob_get_contents())
+        if (ob_get_contents()) {
             ob_end_clean();
+        }
 
-        @header($_SERVER['SERVER_PROTOCOL'] .' '.(($code == 000)? 500 : $code).' '.HttpResponse::getPhrase($code), true, $code);
-        if ($this->checkExceptionOverride($code))
+        @header($_SERVER['SERVER_PROTOCOL'] .' '.
+            (($code == 000)? 500 : $code).' '.HttpResponse::getPhrase($code), true, $code);
+        if ($this->checkExceptionOverride($code)) {
             $this->displayOverride($code, $message);
-        else if ($this->external || IUMIO_ENV == "PROD")
-            include_once (SERVER_VIEWS.'html/'.$code.'.html');
-        else
+        } elseif ($this->external || IUMIO_ENV == "PROD") {
+            include_once(SERVER_VIEWS.'html/'.$code.'.html');
+        } else {
             include_once  SERVER_VIEWS.'layout.exception.php';
+        }
         //return (false);
         exit();
     }
@@ -108,10 +117,10 @@ abstract class AbstractServer extends \Exception implements ServerInterface
      */
     public function displayOverride(string $code, string $message)
     {
-        $sm = iumioSmarty::getSmartyInstance("iumio");
+        $sm = SmartyEngineTemplate::getSmartyInstance("iumio");
         $sm->assign(array("code" => $code, "message" => $message, "er_object" => $this));
 
-        $sm->display($code.iumioSmarty::$viewExtention);
+        $sm->display($code.SmartyEngineTemplate::$viewExtention);
     }
 
 
@@ -135,7 +144,10 @@ abstract class AbstractServer extends \Exception implements ServerInterface
             $c = count($log);
             $log[$c] = $debug;
             $log = (object) $log;
-            JL::put(ROOT_LOGS.strtolower(IUMIO_ENV).".log.json", json_encode($log, JSON_PRETTY_PRINT));
+            JL::put(
+                ROOT_LOGS.strtolower(IUMIO_ENV).".log.json",
+                json_encode($log, JSON_PRETTY_PRINT)
+            );
             return (1);
     }
 
@@ -150,7 +162,7 @@ abstract class AbstractServer extends \Exception implements ServerInterface
     /**
      * @return mixed|null
      */
-     public function getCodeTitle()
+    public function getCodeTitle()
     {
         return $this->codeTitle;
     }
@@ -298,8 +310,10 @@ abstract class AbstractServer extends \Exception implements ServerInterface
      */
     final private function checkExceptionOverride(int $code):int
     {
-        if (file_exists(OVERRIDES."Exceptions/views/$code".iumioSmarty::$viewExtention) && IUMIO_ENV == "PROD")
+        if (file_exists(OVERRIDES."Exceptions/views/$code".SmartyEngineTemplate::$viewExtention) &&
+            IUMIO_ENV == "PROD") {
             return (1);
+        }
         return (0);
     }
 
@@ -308,9 +322,8 @@ abstract class AbstractServer extends \Exception implements ServerInterface
      * @param $env string environment name
      * @return array Logs list
      */
-    static public function getLogs($env = ""):array
+    public static function getLogs($env = ""):array
     {
         return (ToolsExceptions::getLogs($env));
     }
-
 }

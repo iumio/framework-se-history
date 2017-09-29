@@ -11,15 +11,19 @@
  */
 
 namespace iumioFramework\Core\Console\Module\Rt;
-use iumioFramework\Core\Console\{
-    CoreManager, Display\OutputManager as Output, Module\ModuleManager
-};
+
+use iumioFramework\Core\Console\CoreManager;
+use iumioFramework\Core\Console\Display\OutputManager as Output;
+use iumioFramework\Core\Console\Module\ModuleManager;
 use iumioFramework\HttpRoutes\JsRouting;
 
 /**
  * Class RtManager
  * @package iumioFramework\Core\Console\Module\Cache
- * @author RAFINA Dany <danyrafina@gmail.com>
+ * @category Framework
+ * @licence  MIT License
+ * @link https://framework.iumio.com
+ * @author   RAFINA Dany <danyrafina@gmail.com>
  */
 
 class RtManager implements ModuleManager
@@ -28,22 +32,24 @@ class RtManager implements ModuleManager
 
     public function __render()
     {
-        if (empty($this->options))
+        if (empty($this->options)) {
             Output::displayAsError("Rt Manager Module Error : You must to specify an option\n");
+        }
         $opt = $this->options[2] ?? null;
-        if ($opt == "build")
-        {
+        if ($opt == "build") {
             $opt = $this->options[3] ?? null;
             $opt4 = $this->options[4] ?? null;
-            if ($opt == "jsrouting" && $opt4 == null)
+            if ($opt == "jsrouting" && $opt4 == null) {
                 $this->buildJsRouting();
-            else if ($opt == "jsrouting" && $opt4 == "--baseapp")
+            } elseif ($opt == "jsrouting" && $opt4 == "--baseapp") {
                 $this->buildJsRouting(true);
-            else
+            } else {
                 Output::displayAsError("Rt Manager Module Error : Bad option\n");
+            }
+        } else {
+            Output::displayAsError("RT Manager Module Error : Option is not exist.
+             Referer to help command to get options list\n");
         }
-        else
-            Output::displayAsError("RT Manager Module Error : Option is not exist. Referer to help command to get options list\n");
     }
 
     /** Build the JS Routing file
@@ -65,13 +71,11 @@ class RtManager implements ModuleManager
     public function __construct(array $options = array())
     {
         CoreManager::setCurrentModule("Rt Manager");
-        if (empty($options))
+        if (empty($options)) {
             $this->__render();
-        else
-        {
+        } else {
             $this->options = $options;
             $this->__render();
         }
     }
-
 }

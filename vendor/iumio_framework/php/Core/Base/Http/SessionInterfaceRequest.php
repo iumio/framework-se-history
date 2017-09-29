@@ -6,7 +6,11 @@ namespace iumioFramework\Core\Base\Http;
  * Interface for the session.
  *
  * @author Fabien Potencier <fabien@symfony.com>
- * @modifiedby RAFINA Dany <danyrafina@gmail.com>
+ * @author RAFINA Dany <danyrafina@gmail.com>
+ * @category Framework
+ * @licence  MIT License
+ * @link https://framework.iumio.com
+ * @author   RAFINA Dany <danyrafina@gmail.com>
  */
 interface SessionInterfaceRequest
 {

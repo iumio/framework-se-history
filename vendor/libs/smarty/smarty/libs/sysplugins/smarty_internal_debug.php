@@ -230,7 +230,7 @@ class Smarty_Internal_Debug extends Smarty_Internal_Data
             $_template->assign('template_data', null);
         }
         // ADD iumioTaskBar
-        $taskbar = \iumioFramework\Core\Additionnal\TaskBar\iumioTaskBar::getTaskBarOptions();
+        $taskbar = \iumioFramework\Core\Additionnal\TaskBar\TaskBar::getTaskBarOptions();
         $_template->assign('iumiotaskbar', $taskbar);
         // END iumioTaskBar
         // ADD display debug smarty check

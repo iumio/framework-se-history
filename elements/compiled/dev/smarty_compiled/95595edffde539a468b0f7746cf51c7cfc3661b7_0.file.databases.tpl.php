@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.31, created on 2017-09-28 22:31:24
+/* Smarty version 3.1.31, created on 2017-09-29 11:04:31
   from "/Applications/MAMP/htdocs/iumio-framework/vendor/iumio_framework/php/BaseApps/ManagerApp/Front/views/databases.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.31',
-  'unifunc' => 'content_59cd5c1c4a74d5_32306439',
+  'unifunc' => 'content_59ce0c9fc3edb9_64633369',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -22,13 +22,13 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:partials/footer.tpl' => 1,
   ),
 ),false)) {
-function content_59cd5c1c4a74d5_32306439 (Smarty_Internal_Template $_smarty_tpl) {
+function content_59ce0c9fc3edb9_64633369 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_64267668559cd5c1bcb9a29_06142152', "principal");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_58042767259ce0c9f497fb7_36788157', "principal");
 ?>
 
 
@@ -38,12 +38,12 @@ $_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_64267668559cd5c1bc
 <?php $_smarty_tpl->inheritance->endChild($_smarty_tpl, 'template.tpl');
 }
 /* {block "principal"} */
-class Block_64267668559cd5c1bcb9a29_06142152 extends Smarty_Internal_Block
+class Block_58042767259ce0c9f497fb7_36788157 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'principal' => 
   array (
-    0 => 'Block_64267668559cd5c1bcb9a29_06142152',
+    0 => 'Block_58042767259ce0c9f497fb7_36788157',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -64,7 +64,7 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
                             <span class="icon-bar"></span>
                         </button>
                         <a class="navbar-brand" href="#">Database Manager</a>
-                        <a class="btn-default btn createdatabaseconfig"  attr-href="<?php echo iumioFramework\Core\Additionnal\Template\iumioViewBasePlugin::route(array('name'=>'iumio_manager_databases_manager_create'),$_smarty_tpl);?>
+                        <a class="btn-default btn createdatabaseconfig"  attr-href="<?php echo iumioFramework\Core\Additionnal\Template\ViewBasePlugin::route(array('name'=>'iumio_manager_databases_manager_create'),$_smarty_tpl);?>
 ">Add new database</a>
                     </div>
                     <div class="collapse navbar-collapse">
@@ -93,7 +93,7 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
                                     <th>Edit</th>
                                     <th>Delete</th>
                                     </thead>
-                                    <tbody class="databaseslist" attr-href="<?php echo iumioFramework\Core\Additionnal\Template\iumioViewBasePlugin::route(array('name'=>'iumio_manager_databases_manager_get_all'),$_smarty_tpl);?>
+                                    <tbody class="databaseslist" attr-href="<?php echo iumioFramework\Core\Additionnal\Template\ViewBasePlugin::route(array('name'=>'iumio_manager_databases_manager_get_all'),$_smarty_tpl);?>
 ">
 
                                     </tbody>

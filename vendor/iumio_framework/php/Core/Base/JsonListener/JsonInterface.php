@@ -15,7 +15,10 @@ namespace iumioFramework\Core\Base\Json;
 /**
  * Interface
  * @package iumioFramework\Core\Base\Json
- * @author RAFINA Dany <danyrafina@gmail.com>
+ * @category Framework
+ * @licence  MIT License
+ * @link https://framework.iumio.com
+ * @author   RAFINA Dany <danyrafina@gmail.com>
  */
 
 interface JsonInterface
@@ -39,6 +42,4 @@ interface JsonInterface
      * @return int success
      */
     public static function put(string $filepath, string $content):int;
-
-
 }

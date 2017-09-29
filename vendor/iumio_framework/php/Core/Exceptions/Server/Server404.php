@@ -11,12 +11,16 @@
  */
 
 namespace iumioFramework\Exception\Server;
+
 use ArrayObject;
 
 /**
  * Class Server404
  * @package iumioFramework\Exception\Server
- * @author RAFINA Dany <danyrafina@gmail.com>
+ * @category Framework
+ * @licence  MIT License
+ * @link https://framework.iumio.com
+ * @author   RAFINA Dany <danyrafina@gmail.com>
  */
 
 class Server404 extends AbstractServer
@@ -31,10 +35,8 @@ class Server404 extends AbstractServer
         $this->code = '404';
         $this->codeTitle = 'NOT FOUND';
         $this->explain =  'The resource you try to access is not found.';
-        $this->solution = NULL;
-        $this->env = NULL;
+        $this->solution = null;
+        $this->env = null;
         parent::__construct($component, 'Not found');
     }
 }
-
-
