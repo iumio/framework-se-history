@@ -1,23 +1,23 @@
 {
     "0": {
-        "uidie": "fk7QGlQcR8gH",
+        "uidie": "XakC6DtlY7iL",
         "time": {
-            "date": "2017-09-28 21:43:50.000000",
+            "date": "2017-09-29 15:12:58.000000",
             "timezone_type": 3,
             "timezone": "Europe\/Paris"
         },
         "client_ip": "::1",
-        "code": 200,
-        "code_title": "OK",
-        "explain": "OK",
-        "solution": "OK",
+        "code": "404",
+        "code_title": "NOT FOUND",
+        "explain": "The resource you try to access is not found.",
+        "solution": "Please check your URI",
         "method": "GET",
         "trace": [
             {
                 "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/apps\/AppCore.php",
-                "line": 64,
+                "line": 71,
                 "function": "dispatching",
-                "class": "iumioFramework\\Core\\Requirement\\iumioCore",
+                "class": "iumioFramework\\Core\\Requirement\\FrameworkCore",
                 "type": "->",
                 "args": [
                     {
@@ -56,27 +56,27 @@
                 "args": []
             }
         ],
-        "referer": "\/index"
+        "referer": "\/components\/apps\/dev\/docapp\/public\/css\/animate.css"
     },
     "1": {
-        "uidie": "yzIPTJXt6QgV",
+        "uidie": "ZXuhpOI47g2z",
         "time": {
-            "date": "2017-09-28 21:43:52.000000",
+            "date": "2017-09-29 15:12:58.000000",
             "timezone_type": 3,
             "timezone": "Europe\/Paris"
         },
         "client_ip": "::1",
-        "code": 200,
-        "code_title": "OK",
-        "explain": "OK",
-        "solution": "OK",
+        "code": "404",
+        "code_title": "NOT FOUND",
+        "explain": "The resource you try to access is not found.",
+        "solution": "Please check your URI",
         "method": "GET",
         "trace": [
             {
                 "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/apps\/AppCore.php",
-                "line": 64,
+                "line": 71,
                 "function": "dispatching",
-                "class": "iumioFramework\\Core\\Requirement\\iumioCore",
+                "class": "iumioFramework\\Core\\Requirement\\FrameworkCore",
                 "type": "->",
                 "args": [
                     {
@@ -115,12 +115,12 @@
                 "args": []
             }
         ],
-        "referer": "\/index"
+        "referer": "\/components\/apps\/dev\/docapp\/public\/css\/magnific-popup.css"
     },
     "2": {
-        "uidie": "glwhri2PmEQe",
+        "uidie": "1ydP2RiA5LTt",
         "time": {
-            "date": "2017-09-28 21:43:52.000000",
+            "date": "2017-09-29 15:12:58.000000",
             "timezone_type": 3,
             "timezone": "Europe\/Paris"
         },
@@ -133,9 +133,9 @@
         "trace": [
             {
                 "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/apps\/AppCore.php",
-                "line": 64,
+                "line": 71,
                 "function": "dispatching",
-                "class": "iumioFramework\\Core\\Requirement\\iumioCore",
+                "class": "iumioFramework\\Core\\Requirement\\FrameworkCore",
                 "type": "->",
                 "args": [
                     {
@@ -174,27 +174,27 @@
                 "args": []
             }
         ],
-        "referer": "\/favicon.ico"
+        "referer": "\/components\/apps\/dev\/docapp\/public\/css\/owl.carousel.min.css"
     },
     "3": {
-        "uidie": "lfs6yA1eq65B",
+        "uidie": "iP3eUwrlCARt",
         "time": {
-            "date": "2017-09-28 21:52:03.000000",
+            "date": "2017-09-29 15:12:58.000000",
             "timezone_type": 3,
             "timezone": "Europe\/Paris"
         },
         "client_ip": "::1",
-        "code": 200,
-        "code_title": "OK",
-        "explain": "OK",
-        "solution": "OK",
+        "code": "404",
+        "code_title": "NOT FOUND",
+        "explain": "The resource you try to access is not found.",
+        "solution": "Please check your URI",
         "method": "GET",
         "trace": [
             {
                 "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/apps\/AppCore.php",
-                "line": 64,
+                "line": 71,
                 "function": "dispatching",
-                "class": "iumioFramework\\Core\\Requirement\\iumioCore",
+                "class": "iumioFramework\\Core\\Requirement\\FrameworkCore",
                 "type": "->",
                 "args": [
                     {
@@ -233,27 +233,27 @@
                 "args": []
             }
         ],
-        "referer": "\/index"
+        "referer": "\/components\/apps\/dev\/docapp\/public\/css\/owl.theme.default.min.css"
     },
     "4": {
-        "uidie": "JUTqusDlhLse",
+        "uidie": "htIyXtyZaEM2",
         "time": {
-            "date": "2017-09-28 22:00:01.000000",
+            "date": "2017-09-29 15:12:58.000000",
             "timezone_type": 3,
             "timezone": "Europe\/Paris"
         },
         "client_ip": "::1",
-        "code": 200,
-        "code_title": "OK",
-        "explain": "OK",
-        "solution": "OK",
+        "code": "404",
+        "code_title": "NOT FOUND",
+        "explain": "The resource you try to access is not found.",
+        "solution": "Please check your URI",
         "method": "GET",
         "trace": [
             {
                 "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/apps\/AppCore.php",
                 "line": 71,
                 "function": "dispatching",
-                "class": "iumioFramework\\Core\\Requirement\\iumioCore",
+                "class": "iumioFramework\\Core\\Requirement\\FrameworkCore",
                 "type": "->",
                 "args": [
                     {
@@ -292,27 +292,27 @@
                 "args": []
             }
         ],
-        "referer": "\/s\/index"
+        "referer": "\/components\/apps\/dev\/docapp\/public\/css\/style.css"
     },
     "5": {
-        "uidie": "rikNnQz7iym1",
+        "uidie": "BYtMYdTgqgkJ",
         "time": {
-            "date": "2017-09-28 22:40:25.000000",
+            "date": "2017-09-29 15:12:58.000000",
             "timezone_type": 3,
             "timezone": "Europe\/Paris"
         },
         "client_ip": "::1",
-        "code": 200,
-        "code_title": "OK",
-        "explain": "OK",
-        "solution": "OK",
+        "code": "404",
+        "code_title": "NOT FOUND",
+        "explain": "The resource you try to access is not found.",
+        "solution": "Please check your URI",
         "method": "GET",
         "trace": [
             {
                 "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/apps\/AppCore.php",
                 "line": 71,
                 "function": "dispatching",
-                "class": "iumioFramework\\Core\\Requirement\\iumioCore",
+                "class": "iumioFramework\\Core\\Requirement\\FrameworkCore",
                 "type": "->",
                 "args": [
                     {
@@ -351,12 +351,12 @@
                 "args": []
             }
         ],
-        "referer": "\/xa\/index"
+        "referer": "\/components\/apps\/dev\/docapp\/public\/js\/modernizr-2.6.2.min.js"
     },
     "6": {
-        "uidie": "kDqno7VONiks",
+        "uidie": "eKGE3D45sDLf",
         "time": {
-            "date": "2017-09-29 07:03:34.000000",
+            "date": "2017-09-29 15:12:58.000000",
             "timezone_type": 3,
             "timezone": "Europe\/Paris"
         },
@@ -410,12 +410,12 @@
                 "args": []
             }
         ],
-        "referer": "\/"
+        "referer": "\/components\/apps\/dev\/docapp\/public\/js\/jquery.easing.1.3.js"
     },
     "7": {
-        "uidie": "m9oY9yUvECSA",
+        "uidie": "aZR7Euo4gJXM",
         "time": {
-            "date": "2017-09-29 08:41:42.000000",
+            "date": "2017-09-29 15:12:59.000000",
             "timezone_type": 3,
             "timezone": "Europe\/Paris"
         },
@@ -469,12 +469,12 @@
                 "args": []
             }
         ],
-        "referer": "\/"
+        "referer": "\/components\/apps\/dev\/docapp\/public\/js\/jquery.waypoints.min.js"
     },
     "8": {
-        "uidie": "gqxiILM7YC5p",
+        "uidie": "sstkM8hU5EQ4",
         "time": {
-            "date": "2017-09-29 08:45:25.000000",
+            "date": "2017-09-29 15:12:59.000000",
             "timezone_type": 3,
             "timezone": "Europe\/Paris"
         },
@@ -528,124 +528,22 @@
                 "args": []
             }
         ],
-        "referer": "\/dd\/index"
+        "referer": "\/components\/apps\/dev\/docapp\/public\/js\/main.js"
     },
     "9": {
-        "uidie": "3evCGZo2lFIf",
+        "uidie": "b27f4T8kjdDD",
         "time": {
-            "date": "2017-09-29 09:56:27.000000",
+            "date": "2017-09-29 15:12:59.000000",
             "timezone_type": 3,
             "timezone": "Europe\/Paris"
         },
         "client_ip": "::1",
-        "code": "500",
-        "code_title": "INTERNAL ERROR",
-        "explain": "Cannot loading Smarty Engine Template => Plugin \"js_libs\" not callable",
-        "solution": "Please check Smarty Configuration",
+        "code": "404",
+        "code_title": "NOT FOUND",
+        "explain": "The resource you try to access is not found.",
+        "solution": "Please check your URI",
         "method": "GET",
         "trace": [
-            {
-                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/vendor\/iumio_framework\/php\/Core\/Additional\/EngineTemplate\/SmartyEngineTemplate.php",
-                "line": 273,
-                "function": "__construct",
-                "class": "iumioFramework\\Core\\Additionnal\\Template\\SmartyEngineTemplate",
-                "type": "->",
-                "args": []
-            },
-            {
-                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/vendor\/iumio_framework\/php\/Core\/Masters\/MasterCore.php",
-                "line": 82,
-                "function": "getSmartyInstance",
-                "class": "iumioFramework\\Core\\Additionnal\\Template\\SmartyEngineTemplate",
-                "type": "::",
-                "args": [
-                    "ManagerApp"
-                ]
-            },
-            {
-                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/vendor\/iumio_framework\/php\/BaseApps\/ManagerApp\/Master\/DashboardMaster.php",
-                "line": 43,
-                "function": "render",
-                "class": "iumioFramework\\Masters\\MasterCore",
-                "type": "->",
-                "args": [
-                    "index",
-                    {
-                        "env": "dev",
-                        "selected": "dashboard",
-                        "fi": {
-                            "installation": "2017\/09\/28",
-                            "version": "0.4.9",
-                            "user": "danyrafina",
-                            "location": "\/Applications\/MAMP\/htdocs\/iumio-framework",
-                            "os": "Darwin",
-                            "lang": "en_US"
-                        },
-                        "https": false
-                    }
-                ]
-            },
-            {
-                "function": "indexActivity",
-                "class": "ManagerApp\\Masters\\DashboardMaster",
-                "type": "->",
-                "args": []
-            },
-            {
-                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/vendor\/iumio_framework\/php\/Core\/Requirement\/FrameworkReflexion.php",
-                "line": 50,
-                "function": "invokeArgs",
-                "class": "ReflectionMethod",
-                "type": "->",
-                "args": [
-                    {},
-                    []
-                ]
-            },
-            {
-                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/vendor\/iumio_framework\/php\/Core\/Requirement\/FrameworkCore.php",
-                "line": 357,
-                "function": "__named",
-                "class": "iumioFramework\\Core\\Requirement\\Relexion\\FrameworkReflexion",
-                "type": "->",
-                "args": [
-                    "\\ManagerApp\\Masters\\DashboardMaster",
-                    "indexActivity"
-                ]
-            },
-            {
-                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/vendor\/iumio_framework\/php\/Core\/Requirement\/FrameworkCore.php",
-                "line": 263,
-                "function": "isComponentCall",
-                "class": "iumioFramework\\Core\\Requirement\\FrameworkCore",
-                "type": "->",
-                "args": [
-                    {
-                        "ManagerApp": {
-                            "name": "ManagerApp",
-                            "appclass": {},
-                            "base_url": "_manager",
-                            "status_dev": "on",
-                            "status_prod": "off"
-                        },
-                        "FServiceApp": {
-                            "name": "FServiceApp",
-                            "appclass": {},
-                            "base_url": "_fservice",
-                            "status_dev": "on",
-                            "status_prod": "on"
-                        }
-                    },
-                    {
-                        "attributes": {},
-                        "request": {},
-                        "query": {},
-                        "server": {},
-                        "cookies": {},
-                        "headers": {}
-                    }
-                ]
-            },
             {
                 "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/apps\/AppCore.php",
                 "line": 71,
@@ -689,124 +587,22 @@
                 "args": []
             }
         ],
-        "referer": "\/_manager\/dashboard"
+        "referer": "\/components\/apps\/dev\/docapp\/public\/js\/jquery.countTo.js"
     },
     "10": {
-        "uidie": "mlFvq5IQWCh3",
+        "uidie": "ZBFXeP000be0",
         "time": {
-            "date": "2017-09-29 09:56:28.000000",
+            "date": "2017-09-29 15:12:59.000000",
             "timezone_type": 3,
             "timezone": "Europe\/Paris"
         },
         "client_ip": "::1",
-        "code": "500",
-        "code_title": "INTERNAL ERROR",
-        "explain": "Cannot loading Smarty Engine Template => Plugin \"js_libs\" not callable",
-        "solution": "Please check Smarty Configuration",
+        "code": "404",
+        "code_title": "NOT FOUND",
+        "explain": "The resource you try to access is not found.",
+        "solution": "Please check your URI",
         "method": "GET",
         "trace": [
-            {
-                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/vendor\/iumio_framework\/php\/Core\/Additional\/EngineTemplate\/SmartyEngineTemplate.php",
-                "line": 273,
-                "function": "__construct",
-                "class": "iumioFramework\\Core\\Additionnal\\Template\\SmartyEngineTemplate",
-                "type": "->",
-                "args": []
-            },
-            {
-                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/vendor\/iumio_framework\/php\/Core\/Masters\/MasterCore.php",
-                "line": 82,
-                "function": "getSmartyInstance",
-                "class": "iumioFramework\\Core\\Additionnal\\Template\\SmartyEngineTemplate",
-                "type": "::",
-                "args": [
-                    "ManagerApp"
-                ]
-            },
-            {
-                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/vendor\/iumio_framework\/php\/BaseApps\/ManagerApp\/Master\/DashboardMaster.php",
-                "line": 43,
-                "function": "render",
-                "class": "iumioFramework\\Masters\\MasterCore",
-                "type": "->",
-                "args": [
-                    "index",
-                    {
-                        "env": "dev",
-                        "selected": "dashboard",
-                        "fi": {
-                            "installation": "2017\/09\/28",
-                            "version": "0.4.9",
-                            "user": "danyrafina",
-                            "location": "\/Applications\/MAMP\/htdocs\/iumio-framework",
-                            "os": "Darwin",
-                            "lang": "en_US"
-                        },
-                        "https": false
-                    }
-                ]
-            },
-            {
-                "function": "indexActivity",
-                "class": "ManagerApp\\Masters\\DashboardMaster",
-                "type": "->",
-                "args": []
-            },
-            {
-                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/vendor\/iumio_framework\/php\/Core\/Requirement\/FrameworkReflexion.php",
-                "line": 50,
-                "function": "invokeArgs",
-                "class": "ReflectionMethod",
-                "type": "->",
-                "args": [
-                    {},
-                    []
-                ]
-            },
-            {
-                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/vendor\/iumio_framework\/php\/Core\/Requirement\/FrameworkCore.php",
-                "line": 357,
-                "function": "__named",
-                "class": "iumioFramework\\Core\\Requirement\\Relexion\\FrameworkReflexion",
-                "type": "->",
-                "args": [
-                    "\\ManagerApp\\Masters\\DashboardMaster",
-                    "indexActivity"
-                ]
-            },
-            {
-                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/vendor\/iumio_framework\/php\/Core\/Requirement\/FrameworkCore.php",
-                "line": 263,
-                "function": "isComponentCall",
-                "class": "iumioFramework\\Core\\Requirement\\FrameworkCore",
-                "type": "->",
-                "args": [
-                    {
-                        "ManagerApp": {
-                            "name": "ManagerApp",
-                            "appclass": {},
-                            "base_url": "_manager",
-                            "status_dev": "on",
-                            "status_prod": "off"
-                        },
-                        "FServiceApp": {
-                            "name": "FServiceApp",
-                            "appclass": {},
-                            "base_url": "_fservice",
-                            "status_dev": "on",
-                            "status_prod": "on"
-                        }
-                    },
-                    {
-                        "attributes": {},
-                        "request": {},
-                        "query": {},
-                        "server": {},
-                        "cookies": {},
-                        "headers": {}
-                    }
-                ]
-            },
             {
                 "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/apps\/AppCore.php",
                 "line": 71,
@@ -850,91 +646,435 @@
                 "args": []
             }
         ],
-        "referer": "\/_manager\/dashboard"
+        "referer": "\/components\/apps\/dev\/docapp\/public\/images\/landscape.jpg"
     },
     "11": {
-        "uidie": "eWDZvgSOlmGS",
+        "uidie": "KeKSaIVmpwKn",
         "time": {
-            "date": "2017-09-29 09:56:29.000000",
+            "date": "2017-09-29 15:12:59.000000",
+            "timezone_type": 3,
+            "timezone": "Europe\/Paris"
+        },
+        "client_ip": "::1",
+        "code": "404",
+        "code_title": "NOT FOUND",
+        "explain": "The resource you try to access is not found.",
+        "solution": "Please check your URI",
+        "method": "GET",
+        "trace": [
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/apps\/AppCore.php",
+                "line": 71,
+                "function": "dispatching",
+                "class": "iumioFramework\\Core\\Requirement\\FrameworkCore",
+                "type": "->",
+                "args": [
+                    {
+                        "attributes": {},
+                        "request": {},
+                        "query": {},
+                        "server": {},
+                        "cookies": {},
+                        "headers": {}
+                    }
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/web\/Dev.php",
+                "line": 54,
+                "function": "dispatch",
+                "class": "iumioFramework\\Apps\\AppCore",
+                "type": "->",
+                "args": [
+                    {
+                        "attributes": {},
+                        "request": {},
+                        "query": {},
+                        "server": {},
+                        "cookies": {},
+                        "headers": {}
+                    }
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/web\/Dev.php",
+                "line": 62,
+                "function": "start",
+                "class": "iumioFramework\\Core\\Base\\Dev",
+                "type": "::",
+                "args": []
+            }
+        ],
+        "referer": "\/components\/apps\/dev\/docapp\/public\/images\/dany.jpg"
+    },
+    "12": {
+        "uidie": "iIhPmCxlUz7u",
+        "time": {
+            "date": "2017-09-29 15:12:59.000000",
+            "timezone_type": 3,
+            "timezone": "Europe\/Paris"
+        },
+        "client_ip": "::1",
+        "code": "404",
+        "code_title": "NOT FOUND",
+        "explain": "The resource you try to access is not found.",
+        "solution": "Please check your URI",
+        "method": "GET",
+        "trace": [
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/apps\/AppCore.php",
+                "line": 71,
+                "function": "dispatching",
+                "class": "iumioFramework\\Core\\Requirement\\FrameworkCore",
+                "type": "->",
+                "args": [
+                    {
+                        "attributes": {},
+                        "request": {},
+                        "query": {},
+                        "server": {},
+                        "cookies": {},
+                        "headers": {}
+                    }
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/web\/Dev.php",
+                "line": 54,
+                "function": "dispatch",
+                "class": "iumioFramework\\Apps\\AppCore",
+                "type": "->",
+                "args": [
+                    {
+                        "attributes": {},
+                        "request": {},
+                        "query": {},
+                        "server": {},
+                        "cookies": {},
+                        "headers": {}
+                    }
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/web\/Dev.php",
+                "line": 62,
+                "function": "start",
+                "class": "iumioFramework\\Core\\Base\\Dev",
+                "type": "::",
+                "args": []
+            }
+        ],
+        "referer": "\/components\/apps\/dev\/docapp\/public\/js\/jquery.magnific-popup.min.js"
+    },
+    "13": {
+        "uidie": "3zcvAP1ayYl4",
+        "time": {
+            "date": "2017-09-29 15:12:59.000000",
+            "timezone_type": 3,
+            "timezone": "Europe\/Paris"
+        },
+        "client_ip": "::1",
+        "code": "404",
+        "code_title": "NOT FOUND",
+        "explain": "The resource you try to access is not found.",
+        "solution": "Please check your URI",
+        "method": "GET",
+        "trace": [
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/apps\/AppCore.php",
+                "line": 71,
+                "function": "dispatching",
+                "class": "iumioFramework\\Core\\Requirement\\FrameworkCore",
+                "type": "->",
+                "args": [
+                    {
+                        "attributes": {},
+                        "request": {},
+                        "query": {},
+                        "server": {},
+                        "cookies": {},
+                        "headers": {}
+                    }
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/web\/Dev.php",
+                "line": 54,
+                "function": "dispatch",
+                "class": "iumioFramework\\Apps\\AppCore",
+                "type": "->",
+                "args": [
+                    {
+                        "attributes": {},
+                        "request": {},
+                        "query": {},
+                        "server": {},
+                        "cookies": {},
+                        "headers": {}
+                    }
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/web\/Dev.php",
+                "line": 62,
+                "function": "start",
+                "class": "iumioFramework\\Core\\Base\\Dev",
+                "type": "::",
+                "args": []
+            }
+        ],
+        "referer": "\/components\/apps\/dev\/docapp\/public\/images\/kevin.jpg"
+    },
+    "14": {
+        "uidie": "ONaewmkKCRON",
+        "time": {
+            "date": "2017-09-29 15:12:59.000000",
+            "timezone_type": 3,
+            "timezone": "Europe\/Paris"
+        },
+        "client_ip": "::1",
+        "code": "404",
+        "code_title": "NOT FOUND",
+        "explain": "The resource you try to access is not found.",
+        "solution": "Please check your URI",
+        "method": "GET",
+        "trace": [
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/apps\/AppCore.php",
+                "line": 71,
+                "function": "dispatching",
+                "class": "iumioFramework\\Core\\Requirement\\FrameworkCore",
+                "type": "->",
+                "args": [
+                    {
+                        "attributes": {},
+                        "request": {},
+                        "query": {},
+                        "server": {},
+                        "cookies": {},
+                        "headers": {}
+                    }
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/web\/Dev.php",
+                "line": 54,
+                "function": "dispatch",
+                "class": "iumioFramework\\Apps\\AppCore",
+                "type": "->",
+                "args": [
+                    {
+                        "attributes": {},
+                        "request": {},
+                        "query": {},
+                        "server": {},
+                        "cookies": {},
+                        "headers": {}
+                    }
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/web\/Dev.php",
+                "line": 62,
+                "function": "start",
+                "class": "iumioFramework\\Core\\Base\\Dev",
+                "type": "::",
+                "args": []
+            }
+        ],
+        "referer": "\/components\/apps\/dev\/docapp\/public\/images\/user_2.jpg"
+    },
+    "15": {
+        "uidie": "1LwEqAeJ6JLB",
+        "time": {
+            "date": "2017-09-29 15:12:59.000000",
+            "timezone_type": 3,
+            "timezone": "Europe\/Paris"
+        },
+        "client_ip": "::1",
+        "code": "404",
+        "code_title": "NOT FOUND",
+        "explain": "The resource you try to access is not found.",
+        "solution": "Please check your URI",
+        "method": "GET",
+        "trace": [
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/apps\/AppCore.php",
+                "line": 71,
+                "function": "dispatching",
+                "class": "iumioFramework\\Core\\Requirement\\FrameworkCore",
+                "type": "->",
+                "args": [
+                    {
+                        "attributes": {},
+                        "request": {},
+                        "query": {},
+                        "server": {},
+                        "cookies": {},
+                        "headers": {}
+                    }
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/web\/Dev.php",
+                "line": 54,
+                "function": "dispatch",
+                "class": "iumioFramework\\Apps\\AppCore",
+                "type": "->",
+                "args": [
+                    {
+                        "attributes": {},
+                        "request": {},
+                        "query": {},
+                        "server": {},
+                        "cookies": {},
+                        "headers": {}
+                    }
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/web\/Dev.php",
+                "line": 62,
+                "function": "start",
+                "class": "iumioFramework\\Core\\Base\\Dev",
+                "type": "::",
+                "args": []
+            }
+        ],
+        "referer": "\/components\/apps\/dev\/docapp\/public\/js\/owl.carousel.min.js"
+    },
+    "16": {
+        "uidie": "2z3PmOW91iVE",
+        "time": {
+            "date": "2017-09-29 15:12:59.000000",
+            "timezone_type": 3,
+            "timezone": "Europe\/Paris"
+        },
+        "client_ip": "::1",
+        "code": "404",
+        "code_title": "NOT FOUND",
+        "explain": "The resource you try to access is not found.",
+        "solution": "Please check your URI",
+        "method": "GET",
+        "trace": [
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/apps\/AppCore.php",
+                "line": 71,
+                "function": "dispatching",
+                "class": "iumioFramework\\Core\\Requirement\\FrameworkCore",
+                "type": "->",
+                "args": [
+                    {
+                        "attributes": {},
+                        "request": {},
+                        "query": {},
+                        "server": {},
+                        "cookies": {},
+                        "headers": {}
+                    }
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/web\/Dev.php",
+                "line": 54,
+                "function": "dispatch",
+                "class": "iumioFramework\\Apps\\AppCore",
+                "type": "->",
+                "args": [
+                    {
+                        "attributes": {},
+                        "request": {},
+                        "query": {},
+                        "server": {},
+                        "cookies": {},
+                        "headers": {}
+                    }
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/web\/Dev.php",
+                "line": 62,
+                "function": "start",
+                "class": "iumioFramework\\Core\\Base\\Dev",
+                "type": "::",
+                "args": []
+            }
+        ],
+        "referer": "\/components\/apps\/dev\/docapp\/public\/js\/jquery.countTo.js"
+    },
+    "17": {
+        "uidie": "MdQbTpXJONYi",
+        "time": {
+            "date": "2017-09-29 15:13:00.000000",
+            "timezone_type": 3,
+            "timezone": "Europe\/Paris"
+        },
+        "client_ip": "::1",
+        "code": "404",
+        "code_title": "NOT FOUND",
+        "explain": "The resource you try to access is not found.",
+        "solution": "Please check your URI",
+        "method": "GET",
+        "trace": [
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/apps\/AppCore.php",
+                "line": 71,
+                "function": "dispatching",
+                "class": "iumioFramework\\Core\\Requirement\\FrameworkCore",
+                "type": "->",
+                "args": [
+                    {
+                        "attributes": {},
+                        "request": {},
+                        "query": {},
+                        "server": {},
+                        "cookies": {},
+                        "headers": {}
+                    }
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/web\/Dev.php",
+                "line": 54,
+                "function": "dispatch",
+                "class": "iumioFramework\\Apps\\AppCore",
+                "type": "->",
+                "args": [
+                    {
+                        "attributes": {},
+                        "request": {},
+                        "query": {},
+                        "server": {},
+                        "cookies": {},
+                        "headers": {}
+                    }
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/web\/Dev.php",
+                "line": 62,
+                "function": "start",
+                "class": "iumioFramework\\Core\\Base\\Dev",
+                "type": "::",
+                "args": []
+            }
+        ],
+        "referer": "\/components\/apps\/dev\/docapp\/public\/js\/main.js"
+    },
+    "18": {
+        "uidie": "ZiIlUGFOFHFH",
+        "time": {
+            "date": "2017-09-29 15:14:43.000000",
             "timezone_type": 3,
             "timezone": "Europe\/Paris"
         },
         "client_ip": "::1",
         "code": "500",
         "code_title": "INTERNAL ERROR",
-        "explain": "Cannot loading Smarty Engine Template => Plugin \"js_libs\" not callable",
-        "solution": "Please check Smarty Configuration",
+        "explain": "DirectoryIterator::__construct(\/Applications\/MAMP\/htdocs\/iumio-framework\/vendor\/iumio_framework\/php\/Core\/Requirement\/..\/..\/..\/..\/..\/elements\/cache\/): failed to open dir: Permission denied",
+        "solution": "Please check your app configuration",
         "method": "GET",
         "trace": [
-            {
-                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/vendor\/iumio_framework\/php\/Core\/Additional\/EngineTemplate\/SmartyEngineTemplate.php",
-                "line": 273,
-                "function": "__construct",
-                "class": "iumioFramework\\Core\\Additionnal\\Template\\SmartyEngineTemplate",
-                "type": "->",
-                "args": []
-            },
-            {
-                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/vendor\/iumio_framework\/php\/Core\/Masters\/MasterCore.php",
-                "line": 82,
-                "function": "getSmartyInstance",
-                "class": "iumioFramework\\Core\\Additionnal\\Template\\SmartyEngineTemplate",
-                "type": "::",
-                "args": [
-                    "ManagerApp"
-                ]
-            },
-            {
-                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/vendor\/iumio_framework\/php\/BaseApps\/ManagerApp\/Master\/DashboardMaster.php",
-                "line": 43,
-                "function": "render",
-                "class": "iumioFramework\\Masters\\MasterCore",
-                "type": "->",
-                "args": [
-                    "index",
-                    {
-                        "env": "dev",
-                        "selected": "dashboard",
-                        "fi": {
-                            "installation": "2017\/09\/28",
-                            "version": "0.4.9",
-                            "user": "danyrafina",
-                            "location": "\/Applications\/MAMP\/htdocs\/iumio-framework",
-                            "os": "Darwin",
-                            "lang": "en_US"
-                        },
-                        "https": false
-                    }
-                ]
-            },
-            {
-                "function": "indexActivity",
-                "class": "ManagerApp\\Masters\\DashboardMaster",
-                "type": "->",
-                "args": []
-            },
-            {
-                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/vendor\/iumio_framework\/php\/Core\/Requirement\/FrameworkReflexion.php",
-                "line": 50,
-                "function": "invokeArgs",
-                "class": "ReflectionMethod",
-                "type": "->",
-                "args": [
-                    {},
-                    []
-                ]
-            },
-            {
-                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/vendor\/iumio_framework\/php\/Core\/Requirement\/FrameworkCore.php",
-                "line": 357,
-                "function": "__named",
-                "class": "iumioFramework\\Core\\Requirement\\Relexion\\FrameworkReflexion",
-                "type": "->",
-                "args": [
-                    "\\ManagerApp\\Masters\\DashboardMaster",
-                    "indexActivity"
-                ]
-            },
             {
                 "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/vendor\/iumio_framework\/php\/Core\/Requirement\/FrameworkCore.php",
                 "line": 263,
@@ -1011,435 +1151,55 @@
                 "args": []
             }
         ],
-        "referer": "\/_manager\/dashboard"
-    },
-    "12": {
-        "uidie": "BvjUp4z4NfPm",
-        "time": {
-            "date": "2017-09-29 10:22:27.000000",
-            "timezone_type": 3,
-            "timezone": "Europe\/Paris"
-        },
-        "client_ip": "::1",
-        "code": "404",
-        "code_title": "NOT FOUND",
-        "explain": "The resource you try to access is not found.",
-        "solution": "Please check your URI",
-        "method": "GET",
-        "trace": [
-            {
-                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/apps\/AppCore.php",
-                "line": 71,
-                "function": "dispatching",
-                "class": "iumioFramework\\Core\\Requirement\\FrameworkCore",
-                "type": "->",
-                "args": [
-                    {
-                        "attributes": {},
-                        "request": {},
-                        "query": {},
-                        "server": {},
-                        "cookies": {},
-                        "headers": {}
-                    }
-                ]
-            },
-            {
-                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/web\/Dev.php",
-                "line": 54,
-                "function": "dispatch",
-                "class": "iumioFramework\\Apps\\AppCore",
-                "type": "->",
-                "args": [
-                    {
-                        "attributes": {},
-                        "request": {},
-                        "query": {},
-                        "server": {},
-                        "cookies": {},
-                        "headers": {}
-                    }
-                ]
-            },
-            {
-                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/web\/Dev.php",
-                "line": 62,
-                "function": "start",
-                "class": "iumioFramework\\Core\\Base\\Dev",
-                "type": "::",
-                "args": []
-            }
-        ],
-        "referer": "\/favicon.ico"
-    },
-    "13": {
-        "uidie": "hY2DZQQLW6b1",
-        "time": {
-            "date": "2017-09-29 10:43:00.000000",
-            "timezone_type": 3,
-            "timezone": "Europe\/Paris"
-        },
-        "client_ip": "::1",
-        "code": "404",
-        "code_title": "NOT FOUND",
-        "explain": "The resource you try to access is not found.",
-        "solution": "Please check your URI",
-        "method": "GET",
-        "trace": [
-            {
-                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/apps\/AppCore.php",
-                "line": 71,
-                "function": "dispatching",
-                "class": "iumioFramework\\Core\\Requirement\\FrameworkCore",
-                "type": "->",
-                "args": [
-                    {
-                        "attributes": {},
-                        "request": {},
-                        "query": {},
-                        "server": {},
-                        "cookies": {},
-                        "headers": {}
-                    }
-                ]
-            },
-            {
-                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/web\/Dev.php",
-                "line": 54,
-                "function": "dispatch",
-                "class": "iumioFramework\\Apps\\AppCore",
-                "type": "->",
-                "args": [
-                    {
-                        "attributes": {},
-                        "request": {},
-                        "query": {},
-                        "server": {},
-                        "cookies": {},
-                        "headers": {}
-                    }
-                ]
-            },
-            {
-                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/web\/Dev.php",
-                "line": 62,
-                "function": "start",
-                "class": "iumioFramework\\Core\\Base\\Dev",
-                "type": "::",
-                "args": []
-            }
-        ],
-        "referer": "\/"
-    },
-    "14": {
-        "uidie": "CXjrSwweTCil",
-        "time": {
-            "date": "2017-09-29 11:05:09.000000",
-            "timezone_type": 3,
-            "timezone": "Europe\/Paris"
-        },
-        "client_ip": "::1",
-        "code": 200,
-        "code_title": "OK",
-        "explain": "OK",
-        "solution": "OK",
-        "method": "GET",
-        "trace": [
-            {
-                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/apps\/AppCore.php",
-                "line": 71,
-                "function": "dispatching",
-                "class": "iumioFramework\\Core\\Requirement\\FrameworkCore",
-                "type": "->",
-                "args": [
-                    {
-                        "attributes": {},
-                        "request": {},
-                        "query": {},
-                        "server": {},
-                        "cookies": {},
-                        "headers": {}
-                    }
-                ]
-            },
-            {
-                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/web\/Dev.php",
-                "line": 54,
-                "function": "dispatch",
-                "class": "iumioFramework\\Apps\\AppCore",
-                "type": "->",
-                "args": [
-                    {
-                        "attributes": {},
-                        "request": {},
-                        "query": {},
-                        "server": {},
-                        "cookies": {},
-                        "headers": {}
-                    }
-                ]
-            },
-            {
-                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/web\/Dev.php",
-                "line": 62,
-                "function": "start",
-                "class": "iumioFramework\\Core\\Base\\Dev",
-                "type": "::",
-                "args": []
-            }
-        ],
-        "referer": "\/xaa\/index"
-    },
-    "15": {
-        "uidie": "czdOQl7ogXZr",
-        "time": {
-            "date": "2017-09-29 11:05:09.000000",
-            "timezone_type": 3,
-            "timezone": "Europe\/Paris"
-        },
-        "client_ip": "::1",
-        "code": "404",
-        "code_title": "NOT FOUND",
-        "explain": "The resource you try to access is not found.",
-        "solution": "Please check your URI",
-        "method": "GET",
-        "trace": [
-            {
-                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/apps\/AppCore.php",
-                "line": 71,
-                "function": "dispatching",
-                "class": "iumioFramework\\Core\\Requirement\\FrameworkCore",
-                "type": "->",
-                "args": [
-                    {
-                        "attributes": {},
-                        "request": {},
-                        "query": {},
-                        "server": {},
-                        "cookies": {},
-                        "headers": {}
-                    }
-                ]
-            },
-            {
-                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/web\/Dev.php",
-                "line": 54,
-                "function": "dispatch",
-                "class": "iumioFramework\\Apps\\AppCore",
-                "type": "->",
-                "args": [
-                    {
-                        "attributes": {},
-                        "request": {},
-                        "query": {},
-                        "server": {},
-                        "cookies": {},
-                        "headers": {}
-                    }
-                ]
-            },
-            {
-                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/web\/Dev.php",
-                "line": 62,
-                "function": "start",
-                "class": "iumioFramework\\Core\\Base\\Dev",
-                "type": "::",
-                "args": []
-            }
-        ],
-        "referer": "\/favicon.ico"
-    },
-    "16": {
-        "uidie": "UywnkbZQtbt8",
-        "time": {
-            "date": "2017-09-29 11:05:13.000000",
-            "timezone_type": 3,
-            "timezone": "Europe\/Paris"
-        },
-        "client_ip": "::1",
-        "code": 200,
-        "code_title": "OK",
-        "explain": "OK",
-        "solution": "OK",
-        "method": "GET",
-        "trace": [
-            {
-                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/apps\/AppCore.php",
-                "line": 71,
-                "function": "dispatching",
-                "class": "iumioFramework\\Core\\Requirement\\FrameworkCore",
-                "type": "->",
-                "args": [
-                    {
-                        "attributes": {},
-                        "request": {},
-                        "query": {},
-                        "server": {},
-                        "cookies": {},
-                        "headers": {}
-                    }
-                ]
-            },
-            {
-                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/web\/Dev.php",
-                "line": 54,
-                "function": "dispatch",
-                "class": "iumioFramework\\Apps\\AppCore",
-                "type": "->",
-                "args": [
-                    {
-                        "attributes": {},
-                        "request": {},
-                        "query": {},
-                        "server": {},
-                        "cookies": {},
-                        "headers": {}
-                    }
-                ]
-            },
-            {
-                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/web\/Dev.php",
-                "line": 62,
-                "function": "start",
-                "class": "iumioFramework\\Core\\Base\\Dev",
-                "type": "::",
-                "args": []
-            }
-        ],
-        "referer": "\/xaa\/index"
-    },
-    "17": {
-        "uidie": "vNTO5GyS8Mzr",
-        "time": {
-            "date": "2017-09-29 11:05:14.000000",
-            "timezone_type": 3,
-            "timezone": "Europe\/Paris"
-        },
-        "client_ip": "::1",
-        "code": 200,
-        "code_title": "OK",
-        "explain": "OK",
-        "solution": "OK",
-        "method": "GET",
-        "trace": [
-            {
-                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/apps\/AppCore.php",
-                "line": 71,
-                "function": "dispatching",
-                "class": "iumioFramework\\Core\\Requirement\\FrameworkCore",
-                "type": "->",
-                "args": [
-                    {
-                        "attributes": {},
-                        "request": {},
-                        "query": {},
-                        "server": {},
-                        "cookies": {},
-                        "headers": {}
-                    }
-                ]
-            },
-            {
-                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/web\/Dev.php",
-                "line": 54,
-                "function": "dispatch",
-                "class": "iumioFramework\\Apps\\AppCore",
-                "type": "->",
-                "args": [
-                    {
-                        "attributes": {},
-                        "request": {},
-                        "query": {},
-                        "server": {},
-                        "cookies": {},
-                        "headers": {}
-                    }
-                ]
-            },
-            {
-                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/web\/Dev.php",
-                "line": 62,
-                "function": "start",
-                "class": "iumioFramework\\Core\\Base\\Dev",
-                "type": "::",
-                "args": []
-            }
-        ],
-        "referer": "\/xaa\/index"
-    },
-    "18": {
-        "uidie": "d9zTBZCxSype",
-        "time": {
-            "date": "2017-09-29 11:33:21.000000",
-            "timezone_type": 3,
-            "timezone": "Europe\/Paris"
-        },
-        "client_ip": "::1",
-        "code": 200,
-        "code_title": "OK",
-        "explain": "OK",
-        "solution": "OK",
-        "method": "GET",
-        "trace": [
-            {
-                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/apps\/AppCore.php",
-                "line": 71,
-                "function": "dispatching",
-                "class": "iumioFramework\\Core\\Requirement\\FrameworkCore",
-                "type": "->",
-                "args": [
-                    {
-                        "attributes": {},
-                        "request": {},
-                        "query": {},
-                        "server": {},
-                        "cookies": {},
-                        "headers": {}
-                    }
-                ]
-            },
-            {
-                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/web\/Dev.php",
-                "line": 54,
-                "function": "dispatch",
-                "class": "iumioFramework\\Apps\\AppCore",
-                "type": "->",
-                "args": [
-                    {
-                        "attributes": {},
-                        "request": {},
-                        "query": {},
-                        "server": {},
-                        "cookies": {},
-                        "headers": {}
-                    }
-                ]
-            },
-            {
-                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/web\/Dev.php",
-                "line": 62,
-                "function": "start",
-                "class": "iumioFramework\\Core\\Base\\Dev",
-                "type": "::",
-                "args": []
-            }
-        ],
-        "referer": "\/dz\/index"
+        "referer": "\/_manager\/cache\/get\/all"
     },
     "19": {
-        "uidie": "2XBmEPqRawCn",
+        "uidie": "szDpJ8yWTTy0",
         "time": {
-            "date": "2017-09-29 11:33:53.000000",
+            "date": "2017-09-29 15:14:50.000000",
             "timezone_type": 3,
             "timezone": "Europe\/Paris"
         },
         "client_ip": "::1",
-        "code": 200,
-        "code_title": "OK",
-        "explain": "OK",
-        "solution": "OK",
+        "code": "500",
+        "code_title": "INTERNAL ERROR",
+        "explain": "DirectoryIterator::__construct(\/Applications\/MAMP\/htdocs\/iumio-framework\/vendor\/iumio_framework\/php\/Core\/Requirement\/..\/..\/..\/..\/..\/elements\/cache\/): failed to open dir: Permission denied",
+        "solution": "Please check your app configuration",
         "method": "GET",
         "trace": [
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/vendor\/iumio_framework\/php\/Core\/Requirement\/FrameworkCore.php",
+                "line": 263,
+                "function": "isComponentCall",
+                "class": "iumioFramework\\Core\\Requirement\\FrameworkCore",
+                "type": "->",
+                "args": [
+                    {
+                        "ManagerApp": {
+                            "name": "ManagerApp",
+                            "appclass": {},
+                            "base_url": "_manager",
+                            "status_dev": "on",
+                            "status_prod": "off"
+                        },
+                        "FServiceApp": {
+                            "name": "FServiceApp",
+                            "appclass": {},
+                            "base_url": "_fservice",
+                            "status_dev": "on",
+                            "status_prod": "on"
+                        }
+                    },
+                    {
+                        "attributes": {},
+                        "request": {},
+                        "query": {},
+                        "server": {},
+                        "cookies": {},
+                        "headers": {}
+                    }
+                ]
+            },
             {
                 "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/apps\/AppCore.php",
                 "line": 71,
@@ -1483,6 +1243,374 @@
                 "args": []
             }
         ],
-        "referer": "\/dd\/index"
+        "referer": "\/_manager\/cache\/get\/all"
+    },
+    "20": {
+        "uidie": "Wrk7I7KNRmhB",
+        "time": {
+            "date": "2017-09-29 15:14:57.000000",
+            "timezone_type": 3,
+            "timezone": "Europe\/Paris"
+        },
+        "client_ip": "::1",
+        "code": "500",
+        "code_title": "INTERNAL ERROR",
+        "explain": "DirectoryIterator::__construct(\/Applications\/MAMP\/htdocs\/iumio-framework\/vendor\/iumio_framework\/php\/Core\/Requirement\/..\/..\/..\/..\/..\/elements\/cache\/): failed to open dir: Permission denied",
+        "solution": "Please check your app configuration",
+        "method": "GET",
+        "trace": [
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/vendor\/iumio_framework\/php\/Core\/Requirement\/FrameworkCore.php",
+                "line": 263,
+                "function": "isComponentCall",
+                "class": "iumioFramework\\Core\\Requirement\\FrameworkCore",
+                "type": "->",
+                "args": [
+                    {
+                        "ManagerApp": {
+                            "name": "ManagerApp",
+                            "appclass": {},
+                            "base_url": "_manager",
+                            "status_dev": "on",
+                            "status_prod": "off"
+                        },
+                        "FServiceApp": {
+                            "name": "FServiceApp",
+                            "appclass": {},
+                            "base_url": "_fservice",
+                            "status_dev": "on",
+                            "status_prod": "on"
+                        }
+                    },
+                    {
+                        "attributes": {},
+                        "request": {},
+                        "query": {},
+                        "server": {},
+                        "cookies": {},
+                        "headers": {}
+                    }
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/apps\/AppCore.php",
+                "line": 71,
+                "function": "dispatching",
+                "class": "iumioFramework\\Core\\Requirement\\FrameworkCore",
+                "type": "->",
+                "args": [
+                    {
+                        "attributes": {},
+                        "request": {},
+                        "query": {},
+                        "server": {},
+                        "cookies": {},
+                        "headers": {}
+                    }
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/web\/Dev.php",
+                "line": 54,
+                "function": "dispatch",
+                "class": "iumioFramework\\Apps\\AppCore",
+                "type": "->",
+                "args": [
+                    {
+                        "attributes": {},
+                        "request": {},
+                        "query": {},
+                        "server": {},
+                        "cookies": {},
+                        "headers": {}
+                    }
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/web\/Dev.php",
+                "line": 62,
+                "function": "start",
+                "class": "iumioFramework\\Core\\Base\\Dev",
+                "type": "::",
+                "args": []
+            }
+        ],
+        "referer": "\/_manager\/cache\/get\/all"
+    },
+    "21": {
+        "uidie": "wAg2BrLMAbyK",
+        "time": {
+            "date": "2017-09-29 15:15:03.000000",
+            "timezone_type": 3,
+            "timezone": "Europe\/Paris"
+        },
+        "client_ip": "::1",
+        "code": "500",
+        "code_title": "INTERNAL ERROR",
+        "explain": "DirectoryIterator::__construct(\/Applications\/MAMP\/htdocs\/iumio-framework\/vendor\/iumio_framework\/php\/Core\/Requirement\/..\/..\/..\/..\/..\/elements\/cache\/): failed to open dir: Permission denied",
+        "solution": "Please check your app configuration",
+        "method": "GET",
+        "trace": [
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/vendor\/iumio_framework\/php\/Core\/Requirement\/FrameworkCore.php",
+                "line": 263,
+                "function": "isComponentCall",
+                "class": "iumioFramework\\Core\\Requirement\\FrameworkCore",
+                "type": "->",
+                "args": [
+                    {
+                        "ManagerApp": {
+                            "name": "ManagerApp",
+                            "appclass": {},
+                            "base_url": "_manager",
+                            "status_dev": "on",
+                            "status_prod": "off"
+                        },
+                        "FServiceApp": {
+                            "name": "FServiceApp",
+                            "appclass": {},
+                            "base_url": "_fservice",
+                            "status_dev": "on",
+                            "status_prod": "on"
+                        }
+                    },
+                    {
+                        "attributes": {},
+                        "request": {},
+                        "query": {},
+                        "server": {},
+                        "cookies": {},
+                        "headers": {}
+                    }
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/apps\/AppCore.php",
+                "line": 71,
+                "function": "dispatching",
+                "class": "iumioFramework\\Core\\Requirement\\FrameworkCore",
+                "type": "->",
+                "args": [
+                    {
+                        "attributes": {},
+                        "request": {},
+                        "query": {},
+                        "server": {},
+                        "cookies": {},
+                        "headers": {}
+                    }
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/web\/Dev.php",
+                "line": 54,
+                "function": "dispatch",
+                "class": "iumioFramework\\Apps\\AppCore",
+                "type": "->",
+                "args": [
+                    {
+                        "attributes": {},
+                        "request": {},
+                        "query": {},
+                        "server": {},
+                        "cookies": {},
+                        "headers": {}
+                    }
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/web\/Dev.php",
+                "line": 62,
+                "function": "start",
+                "class": "iumioFramework\\Core\\Base\\Dev",
+                "type": "::",
+                "args": []
+            }
+        ],
+        "referer": "\/_manager\/cache\/get\/all"
+    },
+    "22": {
+        "uidie": "szi0lo1Jqxgp",
+        "time": {
+            "date": "2017-09-29 15:15:09.000000",
+            "timezone_type": 3,
+            "timezone": "Europe\/Paris"
+        },
+        "client_ip": "::1",
+        "code": "500",
+        "code_title": "INTERNAL ERROR",
+        "explain": "DirectoryIterator::__construct(\/Applications\/MAMP\/htdocs\/iumio-framework\/vendor\/iumio_framework\/php\/Core\/Requirement\/..\/..\/..\/..\/..\/elements\/cache\/): failed to open dir: Permission denied",
+        "solution": "Please check your app configuration",
+        "method": "GET",
+        "trace": [
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/vendor\/iumio_framework\/php\/Core\/Requirement\/FrameworkCore.php",
+                "line": 263,
+                "function": "isComponentCall",
+                "class": "iumioFramework\\Core\\Requirement\\FrameworkCore",
+                "type": "->",
+                "args": [
+                    {
+                        "ManagerApp": {
+                            "name": "ManagerApp",
+                            "appclass": {},
+                            "base_url": "_manager",
+                            "status_dev": "on",
+                            "status_prod": "off"
+                        },
+                        "FServiceApp": {
+                            "name": "FServiceApp",
+                            "appclass": {},
+                            "base_url": "_fservice",
+                            "status_dev": "on",
+                            "status_prod": "on"
+                        }
+                    },
+                    {
+                        "attributes": {},
+                        "request": {},
+                        "query": {},
+                        "server": {},
+                        "cookies": {},
+                        "headers": {}
+                    }
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/apps\/AppCore.php",
+                "line": 71,
+                "function": "dispatching",
+                "class": "iumioFramework\\Core\\Requirement\\FrameworkCore",
+                "type": "->",
+                "args": [
+                    {
+                        "attributes": {},
+                        "request": {},
+                        "query": {},
+                        "server": {},
+                        "cookies": {},
+                        "headers": {}
+                    }
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/web\/Dev.php",
+                "line": 54,
+                "function": "dispatch",
+                "class": "iumioFramework\\Apps\\AppCore",
+                "type": "->",
+                "args": [
+                    {
+                        "attributes": {},
+                        "request": {},
+                        "query": {},
+                        "server": {},
+                        "cookies": {},
+                        "headers": {}
+                    }
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/web\/Dev.php",
+                "line": 62,
+                "function": "start",
+                "class": "iumioFramework\\Core\\Base\\Dev",
+                "type": "::",
+                "args": []
+            }
+        ],
+        "referer": "\/_manager\/cache\/get\/all"
+    },
+    "23": {
+        "uidie": "35NFI7f6RroC",
+        "time": {
+            "date": "2017-09-29 15:15:16.000000",
+            "timezone_type": 3,
+            "timezone": "Europe\/Paris"
+        },
+        "client_ip": "::1",
+        "code": "500",
+        "code_title": "INTERNAL ERROR",
+        "explain": "DirectoryIterator::__construct(\/Applications\/MAMP\/htdocs\/iumio-framework\/vendor\/iumio_framework\/php\/Core\/Requirement\/..\/..\/..\/..\/..\/elements\/cache\/): failed to open dir: Permission denied",
+        "solution": "Please check your app configuration",
+        "method": "GET",
+        "trace": [
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/vendor\/iumio_framework\/php\/Core\/Requirement\/FrameworkCore.php",
+                "line": 263,
+                "function": "isComponentCall",
+                "class": "iumioFramework\\Core\\Requirement\\FrameworkCore",
+                "type": "->",
+                "args": [
+                    {
+                        "ManagerApp": {
+                            "name": "ManagerApp",
+                            "appclass": {},
+                            "base_url": "_manager",
+                            "status_dev": "on",
+                            "status_prod": "off"
+                        },
+                        "FServiceApp": {
+                            "name": "FServiceApp",
+                            "appclass": {},
+                            "base_url": "_fservice",
+                            "status_dev": "on",
+                            "status_prod": "on"
+                        }
+                    },
+                    {
+                        "attributes": {},
+                        "request": {},
+                        "query": {},
+                        "server": {},
+                        "cookies": {},
+                        "headers": {}
+                    }
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/apps\/AppCore.php",
+                "line": 71,
+                "function": "dispatching",
+                "class": "iumioFramework\\Core\\Requirement\\FrameworkCore",
+                "type": "->",
+                "args": [
+                    {
+                        "attributes": {},
+                        "request": {},
+                        "query": {},
+                        "server": {},
+                        "cookies": {},
+                        "headers": {}
+                    }
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/web\/Dev.php",
+                "line": 54,
+                "function": "dispatch",
+                "class": "iumioFramework\\Apps\\AppCore",
+                "type": "->",
+                "args": [
+                    {
+                        "attributes": {},
+                        "request": {},
+                        "query": {},
+                        "server": {},
+                        "cookies": {},
+                        "headers": {}
+                    }
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/web\/Dev.php",
+                "line": 62,
+                "function": "start",
+                "class": "iumioFramework\\Core\\Base\\Dev",
+                "type": "::",
+                "args": []
+            }
+        ],
+        "referer": "\/_manager\/cache\/get\/all"
     }
 }

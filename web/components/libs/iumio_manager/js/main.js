@@ -456,17 +456,19 @@ var getAllAssets = function () {
                      * 6 : Status prod (0==> "Need to publish (redColor)", 1==> "OK (Green Color)")
                      * 7 : Action (Modal with url clear prod and dev , url publish prod and dev)
                      */
-                    selector.append("<tr>" +
-                        "<td>"+index+"</td>" +
-                        "<td>"+value['name']+"</td>" +
-                        "<td>"+((value['haveassets'] === 1)? "Yes" : ((value['haveassets'] === 2)? "Empty" : "No"))+"</td>" +
-                        "<td>"+value['dev_perms']+"</td>" +
-                        "<td>"+value['prod_perms']+"</td>" +
-                        //"<td "+((value['perms'] === true)? 'style="background-color:#2ECC40;color:white;text-align:center"' : 'style="background-color:red;color:white;text-align:center"')+">"+value['nperms']+"</td>" +
-                        "<td "+((value['status_dev'] === 1)? 'style="background-color:#2ECC40;color:white;"' : 'style="background-color:rgb(255, 65, 65);color:white;text-align:center"')+">"+((value['status_dev'] === 1)? 'OK' : 'Need to publish')+"</td>" +
-                        "<td "+((value['status_prod'] === 1)? 'style="background-color:#2ECC40;color:white;"' : 'style="background-color:rgb(255, 65, 65);color:white;text-align:center"')+">"+((value['status_prod'] === 1)? 'OK' : 'Need to publish')+"</td>" +
-                        ((value['haveassets'] === 1)? "<td><button class='btn-info btn showoptionsassets' attr-href-clear-dev='"+value['clear']['dev']+"' attr-href-clear-prod='"+value['clear']['prod']+"' attr-href-publish-dev='"+value['publish']['dev']+"'  attr-href-publish-prod='"+value['publish']['prod']+"'  attr-href-clear-all='"+value['clear']['all']+"' attr-href-publish-all='"+value['publish']['all']+"' attr-appname='"+value['name']+"' >AC</button></td>" : "")+
-                        "</tr>");
+                    if (value['haveassets'] === 1) {
+                        selector.append("<tr>" +
+                            "<td>" + index + "</td>" +
+                            "<td>" + value['name'] + "</td>" +
+                            "<td>" + ((value['haveassets'] === 1) ? "Yes" : ((value['haveassets'] === 2) ? "Empty" : "No")) + "</td>" +
+                            "<td>" + value['dev_perms'] + "</td>" +
+                            "<td>" + value['prod_perms'] + "</td>" +
+                            //"<td "+((value['perms'] === true)? 'style="background-color:#2ECC40;color:white;text-align:center"' : 'style="background-color:red;color:white;text-align:center"')+">"+value['nperms']+"</td>" +
+                            "<td " + ((value['haveassets'] === 1) ? (((value['status_dev'] === 1) ? 'style="background-color:#2ECC40;color:white;"' : 'style="background-color:rgb(255, 65, 65);color:white;text-align:center"') + ">" + ((value['status_dev'] === 1) ? 'OK' : 'Need to publish')) : "Unavailable") + "</td>" +
+                            "<td " + ((value['haveassets'] === 1) ? ((value['status_prod'] === 1) ? 'style="background-color:#2ECC40;color:white;"' : 'style="background-color:rgb(255, 65, 65);color:white;text-align:center"') + ">" + ((value['status_prod'] === 1) ? 'OK' : 'Need to publish') : "") + "</td>" +
+                            ((value['haveassets'] === 1) ? "<td><button class='btn-info btn showoptionsassets' attr-href-clear-dev='" + value['clear']['dev'] + "' attr-href-clear-prod='" + value['clear']['prod'] + "' attr-href-publish-dev='" + value['publish']['dev'] + "'  attr-href-publish-prod='" + value['publish']['prod'] + "'  attr-href-clear-all='" + value['clear']['all'] + "' attr-href-publish-all='" + value['publish']['all'] + "' attr-appname='" + value['name'] + "' >AC</button></td>" : "<td>Unavailable</td>") +
+                            "</tr>");
+                    }
                 });
 
             }

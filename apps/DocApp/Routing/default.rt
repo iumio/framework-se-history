@@ -1,0 +1,30 @@
+route:
+  name : website_index
+  path : /
+  activity : Default%index
+endroute
+
+route:
+  name : website_download
+  path : /download/{edition}
+  activity : Default%download
+endroute
+
+route:
+  name : website_contact
+  path : /contact
+  activity : Default%contact
+endroute
+
+route:
+  name : website_submit_contact
+  path : /submit-contact/
+  activity : Default%submitContactForm
+endroute
+
+route:
+  name : website_user_contributor
+  path : /iumio-contributor/{fullname}
+  activity : Default%contributor
+endroute
+

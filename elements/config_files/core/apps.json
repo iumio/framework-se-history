@@ -14,5 +14,21 @@
             "timezone_type": 3,
             "timezone": "UTC"
         }
+    },
+    "1": {
+        "name": "DocApp",
+        "enabled": "yes",
+        "prefix": "doc",
+        "class": "\\DocApp\\DocApp",
+        "creation": {
+            "date": "2017-09-29 12:59:55.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "update": {
+            "date": "2017-09-29 13:09:18.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        }
     }
 }
