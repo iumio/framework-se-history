@@ -56,12 +56,10 @@ class DefaultMaster extends MasterCore
         return ($this->render("contact_validation"));
     }
 
-    /** show contributor view
-     * @param string $fullname Contributor full name
-     */
-    public function contributorActivity(string $fullname)
+
+    public function installActivity()
     {
-        return ($this->render("contributor-".$fullname));
+        return ($this->render("install"));
     }
 
 }

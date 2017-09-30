@@ -190,7 +190,7 @@
         <footer class="footer">
             <div class="container-fluid">
                 <p class="copyright pull-right">
-                    &copy; <?= date('Y') ?> <a href="https://framework.iumio.com">iumio Framework</a>, an <a href="https://iumio.com/">iumio Component</a>
+                    &copy; <?= date('Y') ?> <a href="https://framework.iumio.com">iumio Framework</a>, an <a href="https://components.iumio.com/">iumio Component</a>
                 </p>
             </div>
         </footer>

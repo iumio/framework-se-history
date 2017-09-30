@@ -8,6 +8,15 @@ iumio Framework
 
 ## [BETA RELEASE]
 
+## [0.4.9] - 2017-XX-XX
+### Added
+- Store the iumio TaskBar position in localStorage(Open, Close)
+- Apply PSR2
+### Fixed
+- Minor bugs
+### Edited
+
+
 ## [0.4.9] - 2017-09-28
 ### Added
 - New RT parameters scalar type (int, string, float, bool)

@@ -7643,7 +7643,7 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 #fh5co-hero .fh5co-intro .fh5co-text {
-  bottom: -15em;
+  bottom: -7em;
 }
 @media screen and (max-width: 992px) {
   #fh5co-hero .fh5co-intro .fh5co-text {
@@ -8149,7 +8149,14 @@ h1, h2, h3, h4, h5, h6 {
 
 .fh5co-section-heading {
   margin-bottom: 4em;
+  padding-top: 50px;
 }
+
+.requirements li
+{
+    padding-top: 10px;
+}
+
 .fh5co-section-heading .fh5co-lead {
   font-size: 45px;
   line-height: 60px;

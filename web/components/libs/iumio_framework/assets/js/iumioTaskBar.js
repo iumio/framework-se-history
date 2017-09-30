@@ -18,6 +18,7 @@ var inload = false;
 window.onload = function () {
     getSimpleApps();
     getTaskbarLogs();
+    detectTaskBarPosition();
 };
 
 var reduce = 0;
@@ -39,6 +40,25 @@ function eventFire(el, etype){
 }
 
 /**
+ * Detect the taskbar position (open or close)
+ */
+function detectTaskBarPosition() {
+    var pos = localStorage.getItem("iumioTaskBar");
+    if (pos === "1")
+    {
+        document.getElementsByClassName("iumioTaskBarVSmall")[0].style.display = "none";
+        document.getElementsByClassName("iumioTaskBar")[0].style.display = "block";
+        document.getElementById("iumioTaskBarBlank").style.display = "block";
+    }
+    else if (pos === "0")
+    {
+        document.getElementsByClassName("iumioTaskBar")[0].style.display = "none";
+        document.getElementById("iumioTaskBarBlank").style.display = "none";
+        document.getElementsByClassName("iumioTaskBarVSmall")[0].style.display = "block";
+    }
+}
+
+/**
  *  Interval for functions
  * @type {number}
  */
@@ -51,7 +71,6 @@ var refreshId2 = setInterval(function() {
 }, 2000);
 
 
-
 /**
  * Reduce taskbar
  */
@@ -59,6 +78,7 @@ document.getElementById("iumioTaskBarReduce").addEventListener("click", function
     document.getElementsByClassName("iumioTaskBar")[0].style.display = "none";
     document.getElementById("iumioTaskBarBlank").style.display = "none";
     document.getElementsByClassName("iumioTaskBarVSmall")[0].style.display = "block";
+    localStorage.setItem("iumioTaskBar", 0);
 });
 
 
@@ -70,6 +90,7 @@ document.getElementById("iumioTaskBarRestore").addEventListener("click", functio
     document.getElementsByClassName("iumioTaskBarVSmall")[0].style.display = "none";
     document.getElementsByClassName("iumioTaskBar")[0].style.display = "block";
     document.getElementById("iumioTaskBarBlank").style.display = "block";
+    localStorage.setItem("iumioTaskBar", 1);
 });
 
 /**

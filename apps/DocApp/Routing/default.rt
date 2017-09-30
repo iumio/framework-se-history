@@ -5,9 +5,9 @@ route:
 endroute
 
 route:
-  name : website_download
-  path : /download/{edition}
-  activity : Default%download
+  name : doc_install
+  path : /install/iumio-framework
+  activity : Default%install
 endroute
 
 route:
@@ -22,9 +22,4 @@ route:
   activity : Default%submitContactForm
 endroute
 
-route:
-  name : website_user_contributor
-  path : /iumio-contributor/{fullname}
-  activity : Default%contributor
-endroute
 

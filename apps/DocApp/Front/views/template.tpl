@@ -74,8 +74,8 @@
         <li><a href="{route name="website_index" }#fh5co-features" data-nav-section="design">Features</a></li>
         <li><a href="{route name="website_index" }#fh5co-products" data-nav-section="design">Team</a></li>
         <li><a href="{route name="website_index" }#fh5co-pricing" data-nav-section="design">Download</a></li>
-        <li class=""><a href="{route name="website_contact" }" data-nav-section="testimonies">Contact</a></li>
-        <li><a href="https://iumio.com/">iumio Components</a></li>
+        <li class=""><a href="#" data-nav-section="testimonies">Contact</a></li>
+        <li><a href="https://components.iumio.com/">iumio Components</a></li>
         <li><a href="https://orm.power8.iumio.com/">iumio Power8Orm</a></li>
     </ul>
     <h3 class="fh5co-lead">Connect with us</h3>
@@ -108,7 +108,7 @@
                 <div class="container">
                     <div class="row">
 
-                        <div class="col-md-6 fh5co-text">
+                        <div class="col-md-12 fh5co-text">
                             <h2 class="to-animate intro-animate-1">iumio Framework Documentation</h2>
                             <p class="to-animate intro-animate-2">The next generation of PHP Frameworks.</p>
                             <p class="to-animate intro-animate-2">Welcome on iumio Framework Documentation.</p>
@@ -131,10 +131,10 @@
                             <p class="fh5co-sub to-animate">With iumio framework, we give you the development tools to build the perfect web app.</p>
                         </div>
                         <div class="col-md-3 col-sm-6 col-xs-6 col-xxs-12">
-                            <a href="#" class="fh5co-feature to-animate block-feature">
-                                <span class="fh5co-feature-icon"><i class="icon-mustache"></i></span>
-                                <h3 class="fh5co-feature-lead">100% Open Source</h3>
-                                <p class="fh5co-feature-text">No money is needed to use it.<br>&nbsp;</p>
+                            <a href="{route name='doc_install'}" class="fh5co-feature to-animate block-feature">
+                                <span class="fh5co-feature-icon"><i class="icon-gears"></i></span>
+                                <h3 class="fh5co-feature-lead">Install iumio Framework</h3>
+                                <p class="fh5co-feature-text">How to install ?</p>
                             </a>
                         </div>
                         <div class="col-md-3 col-sm-6 col-xs-6 col-xxs-12">
@@ -192,414 +192,9 @@
 
                         <div class="clearfix visible-sm-block"></div>
 
-
-
-                    </div>
-                </div>
-
-
-            </div>
-
-
-
-            <!--<div id="fh5co-features-2" data-section="design">
-                <div class="fh5co-features-2-content">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-8 col-md-offset-2 fh5co-section-heading text-center">
-                                <h2 class="fh5co-lead to-animate">Better design</h2>
-                                <p class="fh5co-sub to-animate">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-                            </div>
-                            <div class="col-md-4 fh5co-text-wrap">
-                                <div class="row text-center">
-                                    <div class="col-md-12 col-sm-6 col-xs-6 col-xxs-12 fh5co-text animate-object features-2-animate-3">
-                                        <span class="fh5co-icon"><i class="icon-screen-desktop"></i></span>
-                                        <h4 class="fh5co-uppercase-sm">Cross platform support</h4>
-                                        <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                                    </div>
-                                    <div class="col-md-12 col-sm-6 col-xs-6 col-xxs-12 fh5co-text animate-object features-2-animate-4">
-                                        <span class="fh5co-icon"><i class="icon-anchor"></i></span>
-                                        <h4 class="fh5co-uppercase-sm">Prototyping tools</h4>
-                                        <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                                    </div>
-
-                                </div>
-                            </div>
-                            <div class="col-md-4 col-md-push-4 fh5co-text-wrap">
-                                <div class="row text-center">
-                                    <div class="col-md-12 col-sm-6 col-xs-6 col-xxs-12 fh5co-text animate-object features-2-animate-5">
-                                        <span class="fh5co-icon"><i class="icon-rocket"></i></span>
-                                        <h4 class="fh5co-uppercase-sm">Powerful design</h4>
-                                        <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                                    </div>
-                                    <div class="col-md-12 col-sm-6 col-xs-6 col-xxs-12 fh5co-text animate-object features-2-animate-6">
-                                        <span class="fh5co-icon"><i class="icon-people"></i></span>
-                                        <h4 class="fh5co-uppercase-sm">User Collaboration</h4>
-                                        <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                                    </div>
-
-                                </div>
-                            </div>
-                            <div class="col-md-4 col-md-pull-4 fh5co-image animate-object features-2-animate-2">
-                                <p class="text-center">
-                                    <img src="{webassets path='public/images/iphone_blank_2.png'}" class="" alt="Outline Free HTML5 Responsive Bootstrap Template">
-                                </p>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-
-            </div>-->
-
-
-            <!--<div id="fh5co-testimony" data-section="testimonies">
-                <div class="container">
-                    <div class="row animate-box">
-
-                        <div class="owl-carousel">
-
-                            <div class="item">
-                                <div class="col-md-3 col-sm-3 col-xs-4 col-xxs-12">
-                                    <figure class="fh5co-vcard"><img src="{webassets path='public/images/user.jpg'}" alt="Free HTML5 Template by FREEHTML5.co" class="img-responsive"></figure>
-                                </div>
-                                <div class="col-md-9 col-sm-9 col-xs-8 col-xxs-12">
-                                    <blockquote>
-                                        <p>&ldquo;Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.&rdquo;</p>
-                                    </blockquote>
-                                    <p class="fh5co-author fh5co-uppercase-sm"><span>Gustav Barrow</span>, XYZ Inc.</p>
-                                </div>
-                            </div>
-
-                            <div class="item">
-                                <div class="col-md-3 col-sm-3 col-xs-4 col-xxs-12">
-                                    <figure class="fh5co-vcard"><img src="{webassets path='public/images/user_2.jpg'}" alt="Free HTML5 Template by FREEHTML5.co" class="img-responsive"></figure>
-                                </div>
-                                <div class="col-md-9 col-sm-9 col-xs-8 col-xxs-12">
-                                    <blockquote>
-                                        <p>&ldquo;Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.&rdquo;</p>
-                                    </blockquote>
-                                    <p class="fh5co-author fh5co-uppercase-sm"><span>Gustav Barrow</span>, XYZ Inc.</p>
-                                </div>
-                            </div>
-
-                            <div class="item">
-                                <div class="col-md-3 col-sm-3 col-xs-4 col-xxs-12">
-                                    <figure class="fh5co-vcard"><img src="{webassets path='public/images/user_3.jpg'}" alt="Free HTML5 Template by FREEHTML5.co" class="img-responsive"></figure>
-                                </div>
-                                <div class="col-md-9 col-sm-9 col-xs-8 col-xxs-12">
-                                    <blockquote>
-                                        <p>&ldquo;Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.&rdquo;</p>
-                                    </blockquote>
-                                    <p class="fh5co-author fh5co-uppercase-sm"><span>Gustav Barrow</span>, XYZ Inc.</p>
-                                </div>
-                            </div>
-
-
-                        </div>
-
-                    </div>
-                </div>
-            </div>-->
-
-
-            <div id="fh5co-counter" class="fh5co-bg-section" style="background-image: url({ webassets path='public/images/bg_1.jpg'}); background-attachment: fixed;">
-                <div class="fh5co-overlay"></div>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="fh5co-hero-wrap">
-                                <div class="fh5co-hero-intro text-center to-animate counter-animate">
-                                    <div class="col-md-4 text-center">
-                                        <span class="fh5co-counter js-counter" data-from="0" data-to="11776" data-speed="5000" data-refresh-interval="50"></span>
-                                        <span class="fh5co-counter-label">PHP code line</span>
-
-                                    </div>
-                                    <div class="col-md-4 text-center">
-                                        <span class="fh5co-counter js-counter" data-from="0" data-to="4" data-speed="5000" data-refresh-interval="50"></span>
-                                        <span class="fh5co-counter-label">Contributors</span>
-                                    </div>
-                                    <div class="col-md-4 text-center">
-                                        <span class="fh5co-counter js-counter" data-from="0" data-to="4" data-speed="5000" data-refresh-interval="50"></span>
-                                        <span class="fh5co-counter-label">Editions</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
-
-
-            <div id="fh5co-products" data-section="products">
-
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-8 col-md-offset-2 fh5co-section-heading text-center">
-                            <h2 class="fh5co-lead animate-single product-animate-1">The iumio Team</h2>
-                            <p class="fh5co-sub animate-single product-animate-2">Who works on iumio Framework ? Who contributes ? Here is the iumio Team</p>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-md-offset-3 col-sm-offset-6 col-xs-offset-6 col-xxs-12">
-                            </div>
-                            <div class="col-md-3 col-sm-6 col-xs-6 col-xxs-12">
-                                <a href="{route name="website_user_contributor" params=["fullname" => "danyrafina"]}" class="fh5co-figure to-animate ">
-                                    <figure>
-                                        <img src="{webassets path='public/images/dany.jpg'}" alt="DANY RAFINA" class="img-responsive">
-                                    </figure>
-                                    <h3 class="fh5co-figure-lead">Dany RAFINA</h3>
-                                    <p class="fh5co-figure-text">iumio Architect <br> Founder of iumio Components &nbsp; &nbsp;</p>
-                                    <p class="fh5co-figure-text download" onclick="location.href='{route name="website_user_contributor" params=["fullname" => "danyrafina"]}'">Click on it for more details
-                                    </p>
-                                </a>
-                            </div>
-                            <div class="col-md-3 col-sm-6 col-xs-6 col-xxs-12 ">
-                                <a href="{route name="website_user_contributor" params=["fullname" => "kevinhuron"]}" class="fh5co-figure to-animate ">
-                                    <figure>
-                                        <img src="{webassets path='public/images/kevin.jpg'}" alt="KEVIN HURON" class="img-responsive text-center center-block">
-                                    </figure>
-                                    <h3 class="fh5co-figure-lead">Kevin Huron</h3>
-                                    <p class="fh5co-figure-text">iumio Co-Architect <br> Co-Founder of iumio Components
-                                    </p>
-                                    <p class="fh5co-figure-text download" onclick="location.href='{route name="website_user_contributor" params=["fullname" => "kevinhuron"]}'">Click on it for more details
-                                    </p>
-
-                                </a>
-                            </div>
-                            <div class="col-md-3 col-sm-6 col-xs-6 col-xxs-12 ">
-                                <a href="#" class="fh5co-figure to-animate ">
-                                    <figure>
-                                        <img src="{webassets path='public/images/user.jpg'}" alt="MAYBE YOU ?" class="img-responsive text-center center-block">
-                                    </figure>
-                                    <h3 class="fh5co-figure-lead">Maybe you ?</h3>
-                                    <p class="fh5co-figure-text">What you can do ? <br> &nbsp; <br> &nbsp;</p>
-                                    <p class="fh5co-figure-text download" onclick="location.href='#'">Click on it for more details
-                                    </p>
-
-                                </a>
-                            </div>
-                            <div class="col-md-3 col-sm-6 col-xs-6 col-xxs-12 ">
-                                <a href="#" class="fh5co-figure to-animate ">
-                                    <figure>
-                                        <img src="{webassets path='public/images/user_2.jpg'}" alt="MAYBE YOU" class="img-responsive text-center center-block">
-                                    </figure>
-                                    <h3 class="fh5co-figure-lead">Maybe you ?</h3>
-                                    <p class="fh5co-figure-text">What you can do ? <br> &nbsp; <br> &nbsp;</p>
-                                    <p class="fh5co-figure-text download" onclick="location.href='#'">Click on it for more details
-                                    </p>
-
-                                </a>
-                            </div>
-                            <div class="col-md-offset-3 col-sm-offset-6 col-xs-offset-6 col-xxs-12">
-                            </div>
-                        </div>
-
-
-
-                        <div class="clearfix visible-sm-block"></div>
-
-                        <div class="fh5co-spacer fh5co-spacer-sm"></div>
-
-                    </div>
-                </div>
-
-            </div>
-
-            <!--<div id="fh5co-features-3" data-section="benefits">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-8 col-md-offset-2 fh5co-section-heading text-center">
-                            <h2 class="fh5co-lead animate-single features3-animate-1">Benefits of this App</h2>
-                            <p class="fh5co-sub animate-single features3-animate-2">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                        </div>
-
-                        <div class="col-md-4 col-sm-6 text-center fh5co-text-wrap">
-                            <div class="fh5co-text to-animate">
-                                <span class="fh5co-icon"><i class="icon-screen-desktop"></i></span>
-                                <h4 class="fh5co-uppercase-sm">Cross platform support</h4>
-                                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                            </div>
-                        </div>
-                        <div class="col-md-4 col-sm-6 text-center fh5co-text-wrap">
-                            <div class="fh5co-text to-animate">
-                                <span class="fh5co-icon"><i class="icon-graph"></i></span>
-                                <h4 class="fh5co-uppercase-sm">Cross platform support</h4>
-                                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                            </div>
-                        </div>
-
-                        <div class="clearfix visible-sm-block"></div>
-
-                        <div class="col-md-4 col-sm-6 text-center fh5co-text-wrap">
-                            <div class="fh5co-text to-animate">
-                                <span class="fh5co-icon"><i class="icon-anchor"></i></span>
-                                <h4 class="fh5co-uppercase-sm">Cross platform support</h4>
-                                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                            </div>
-                        </div>
-
-                        <div class="col-md-4 col-sm-6 text-center fh5co-text-wrap">
-                            <div class="fh5co-text to-animate">
-                                <span class="fh5co-icon"><i class="icon-camera"></i></span>
-                                <h4 class="fh5co-uppercase-sm">Cross platform support</h4>
-                                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                            </div>
-                        </div>
-
-                        <div class="clearfix visible-sm-block"></div>
-
-                        <div class="col-md-4 col-sm-6 text-center fh5co-text-wrap">
-                            <div class="fh5co-text to-animate">
-                                <span class="fh5co-icon"><i class="icon-present"></i></span>
-                                <h4 class="fh5co-uppercase-sm">Cross platform support</h4>
-                                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                            </div>
-                        </div>
-                        <div class="col-md-4 col-sm-6 text-center fh5co-text-wrap">
-                            <div class="fh5co-text to-animate">
-                                <span class="fh5co-icon"><i class="icon-energy"></i></span>
-                                <h4 class="fh5co-uppercase-sm">Cross platform support</h4>
-                                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                            </div>
-                        </div>
-
-
-
-                    </div>
-                </div>
-            </div>-->
-
-            <div id="fh5co-pricing" data-section="pricing">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-8 col-md-offset-2 fh5co-section-heading text-center">
-                            <h2 class="fh5co-lead animate-single pricing-animate-1">Download iumio Framework</h2>
-                            <p class="fh5co-sub animate-single pricing-animate-2">You can choose as you want and as you need</p>
-                        </div>
-
-                        <div class="col-md-3 to-animate">
-                            <a href="{route name="website_download" params=["edition" => "SE"] }" class="fh5co-figure active pricing-feature">
-                                <span class="fh5co-price"><span><strong>SE</strong></span></span>
-                                <h3 class="fh5co-figure-lead">Standard Edition</h3>
-                                <p class="fh5co-figure-text">The complete edition for your web app</p>
-                                <p class="fh5co-figure-text download">Download it</p>
-                            </a>
-                        </div>
-                        <div class="col-md-3 to-animate">
-                            <a href="{route name="website_download" params=["edition" => "PE"] }" class="fh5co-figure">
-                                <span class="fh5co-price"><span><strong>PE</strong></span></span>
-                                <h3 class="fh5co-figure-lead">Performance Edition</h3>
-                                <p class="fh5co-figure-text">The fastest edition of iumio Framework</p>
-                                <p class="fh5co-figure-text download">Development start later</p>
-                            </a>
-                        </div>
-                        <div class="col-md-3 to-animate">
-                            <a href="{route name="website_download" params=["edition" => "SU"] }" class="fh5co-figure">
-                                <span class="fh5co-price"><span><strong>SU</strong></span></span>
-                                <h3 class="fh5co-figure-lead">Secutity Edition</h3>
-                                <p class="fh5co-figure-text">The security is a priority for this edition</p>
-                                <p class="fh5co-figure-text download">Development start later</p>
-                            </a>
-                        </div>
-                        <div class="col-md-3 to-animate">
-                            <a href="{route name="website_download" params=["edition" => "API"] }" class="fh5co-figure">
-                                <span class="fh5co-price"><span><strong>API</strong></span></span>
-                                <h3 class="fh5co-figure-lead">API Edition</h3>
-                                <p class="fh5co-figure-text">Create your universal API <br>&nbsp;</p>
-                                <p class="fh5co-figure-text download">Development start later</p>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div id="fh5co-faqs"  data-section="faqs">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-8 col-md-offset-2 fh5co-section-heading text-center">
-                            <h2 class="fh5co-lead animate-single faqs-animate-1">Frequently Ask Questions</h2>
-                            <p class="fh5co-sub animate-single faqs-animate-2">Before to search on the Internet, look here :)</p>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="container">
-                    <div class="faq-accordion active to-animate">
-                        <span class="faq-accordion-icon-toggle active"><i class="icon-arrow-down"></i></span>
-                        <h3>What is iumio Framework ?</h3>
-                        <div class="faq-body" style="display: block;">
-                            <p>iumio Framework is a Framework written in PHP 7. This framework would be to offer a lot of components to create your web app faster and perfectly</p>
-                        </div>
-                    </div>
-                    <div class="faq-accordion to-animate">
-                        <span class="faq-accordion-icon-toggle"><i class="icon-arrow-down"></i></span>
-                        <h3>Is iumio Framework Free?</h3>
-                        <div class="faq-body">
-                            <p>iumio Framework is an open source project with MIT Licence. Free for all editions. Refer to MIT Licence to have more details</p>
-                        </div>
-                    </div>
-                    <div class="faq-accordion to-animate">
-                        <span class="faq-accordion-icon-toggle"><i class="icon-arrow-down"></i></span>
-                        <h3>What architecture iumio Framework uses ?</h3>
-                        <div class="faq-body">
-                            <p>iumio Framework is based on MVC architecture (Model View Controller). The most of project uses this architecture.</p>
-                        </div>
-                    </div>
-                    <div class="faq-accordion to-animate">
-                        <span class="faq-accordion-icon-toggle"><i class="icon-arrow-down"></i></span>
-                        <h3>What is iumio Components ?</h3>
-                        <div class="faq-body">
-                            <p>iumio Components is a set of Component written in PHP7 (Maybe others laguages after).  The goal is to create a multiple components to improve the developer's life.</p>
-                        </div>
-                    </div>
-                    <!--<div class="faq-accordion to-animate">
-                        <span class="faq-accordion-icon-toggle"><i class="icon-arrow-down"></i></span>
-                        <h3>What languages are available?</h3>
-                        <div class="faq-body">
-                            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth. Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.</p>
-                        </div>
-                    </div>
-                    <div class="faq-accordion to-animate">
-                        <span class="faq-accordion-icon-toggle"><i class="icon-arrow-down"></i></span>
-                        <h3>I have technical problem, who do I email?</h3>
-                        <div class="faq-body">
-                            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth. Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.</p>
-                        </div>
-                    </div>-->
-                </div>
-            </div>
-
-            <!--<div id="fh5co-subscribe">
-                <div class="container">
-                    <div class="row animate-box">
-                        <form action="#" method="post">
-                            <div class="col-md-3 col-sm-3">
-                                <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="First Name">
-                                </div>
-                            </div>
-                            <div class="col-md-3 col-sm-3">
-                                <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Last Name">
-                                </div>
-                            </div>
-                            <div class="col-md-3 col-sm-3">
-                                <div class="form-group">
-                                    <input type="email" class="form-control" placeholder="Email">
-                                </div>
-                            </div>
-                            <div class="col-md-3 col-sm-3">
-                                <div class="form-group">
-                                    <input type="submit" class="btn btn-primary" value="Subscribe">
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>-->
-
         </div>
         {/block}
     </div>
@@ -614,7 +209,7 @@
                         <ul>
                             <li><a href="{route name="website_index" }#fh5co-faqs">FAQ</a></li>
                             <li><a href="{route name="website_index" }#fh5co-features">Features</a></li>
-                            <li><a href="https://iumio.com">iumio Components</a></li>
+                            <li><a href="https://components.iumio.com">iumio Components</a></li>
                             <li><a href="{route name="website_contact" }">Contact</a></li>
                         </ul>
                     </div>
@@ -635,7 +230,7 @@
 
                     <div class="col-md-3 col-sm-12 col-md-pull-9">
                         <div class="fh5co-footer-logo"><img src="{webassets path='public/images/iumio.logo.black.png'}" class="img-responsive" width="150"></div>
-                        <p class="fh5co-copyright"><small>© 2017. All Rights Reserved. <br>	<a href="https://iumio.com/" target="_blank">iumio Components Website</a><br> Theme created by <a href="http://freehtml5.co/" target="_blank">FREEHTML5.co</a> Images: <a href="http://pexels.com/" target="_blank">Pexels</a></small> <br> <small>Powered by iumio Framework SE</small> </p>
+                        <p class="fh5co-copyright"><small>© 2017. All Rights Reserved. <br>	<a href="https://components.iumio.com/" target="_blank">iumio Components Website</a><br> Theme created by <a href="http://freehtml5.co/" target="_blank">FREEHTML5.co</a> Images: <a href="http://pexels.com/" target="_blank">Pexels</a></small> <br> <small>Powered by iumio Framework SE</small> </p>
                         <p class="fh5co-social-icons">
                             <!--<a href="#"><i class="icon-twitter"></i></a>-->
                             <a href="https://www.facebook.com/iumio.team"><i class="icon-facebook"></i></a>
