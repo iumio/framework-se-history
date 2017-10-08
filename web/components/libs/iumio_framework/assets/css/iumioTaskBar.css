@@ -124,6 +124,10 @@
     color: white!important;
 }
 
+#iumioTaskBarRequests
+{
+    border-right: 1px solid white;
+}
 
 .iumioTaskBarGetOneLog
 {
@@ -332,24 +336,76 @@
 
 }
 
-@media (max-width: 829px) {
-    #iumioTaskBarBlank
+.icon-iumio-task
+{
+    font-weight: 900!important;
+    position: relative;
+    top: 2px;
+    font-size: 14px;
+}
+
+@media (max-width: 1034px)
+{
+    .iumioTaskBar  li a{
+        font-size: 12px!important;
+        /* padding: 20px 20px 10px 10px; */
+    }
+
+}
+
+@media (max-width: 989px)
+{
+    .iumioTaskBar li:nth-child(3)
     {
-        height: 110px;
+        display: none;
     }
 }
 
-@media (max-width: 448px) {
-    #iumioTaskBarBlank
+@media (max-width: 874px)
+{
+    .iumioTaskBar li:nth-child(5),  .iumioTaskBar li:nth-child(6),  .iumioTaskBar li:nth-child(8)
     {
-        height: 170px;
+        display: none;
+    }
+
+    .iumioTaskBar li:nth-child(4) a
+    {
+        position: relative;
+        top : -4px
+    }
+
+}
+
+@media (max-width: 514px)
+{
+    .iumioTaskBar  li a{
+        font-size: 10px!important;
     }
 }
 
-@media (max-width: 337px) {
-    #iumioTaskBarBlank
+@media (max-width: 474px)
+{
+    .iumioTaskBar  li:nth-child(2)
     {
-        height: 200px;
+        display: none;
     }
 }
+
+@media (max-width: 430px)
+{
+
+    #iumioTaskBarRequests
+    {
+        border: none!important;
+    }
+    .iumioTaskBar li:nth-child(9)
+    {
+        display: none!important;
+    }
+
+
+}
+
+
+
 /*****/

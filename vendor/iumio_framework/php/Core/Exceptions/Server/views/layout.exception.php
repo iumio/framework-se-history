@@ -1,13 +1,14 @@
-<?php error_reporting(E_ALL);?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
     <meta charset="utf-8" />
-    <link rel="apple-touch-icon" sizes="180x180" href="<?= WEB_FRAMEWORK ?>assets/images/favicon.ico/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="<?= WEB_FRAMEWORK ?>assets/images/favicon.ico/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="<?= WEB_FRAMEWORK ?>assets/images/favicon.ico/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180"
+          href="<?= WEB_FRAMEWORK ?>assets/images/favicon.ico/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32"
+          href="<?= WEB_FRAMEWORK ?>assets/images/favicon.ico/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16"
+          href="<?= WEB_FRAMEWORK ?>assets/images/favicon.ico/favicon-16x16.png">
     <link rel="manifest" href="<?= WEB_FRAMEWORK ?>assets/images/favicon.ico/manifest.json">
     <link rel="mask-icon" href="<?= WEB_FRAMEWORK ?>assets/images/favicon.ico/safari-pinned-tab.svg" color="#5bbad5">
     <meta name="theme-color" content="#ffffff">
@@ -65,7 +66,13 @@
                     </a>
                 </li>
                 <li>
-                    <a href="<?= (new \iumioFramework\Masters\MasterCore())->generateRoute("iumio_manager_index", null, "ManagerApp", true) ?>">
+                    <a href="<?=
+                    (new \iumioFramework\Masters\MasterCore())->generateRoute(
+                        "iumio_manager_index",
+                        null,
+                        "ManagerApp",
+                        true
+                    ) ?>">
                         <i class="pe-7s-edit"></i>
                         <p>Manager</p>
                     </a>
@@ -83,7 +90,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="https://docs.framework.iumio.com/">
+                    <a href="https://framework.iumio.com/doc">
                         <i class="pe-7s-news-paper"></i>
                         <p>Documentation</p>
                     </a>
@@ -97,19 +104,17 @@
         <nav class="navbar navbar-default navbar-fixed <?= $this->color_class_checked ?>">
             <div class="container-fluid">
                 <div class="navbar-header w100">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-example-2">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
+                    <a class="navbar-brand text-center center-block w100 fw900" href="#">
+                        <?= $this->code.' '.$this->codeTitle ?></a>
+                    <button type="button" class="navbar-toggle btn-exception-iumio-menu"
+                            data-toggle="collapse" data-target="#navigation-example-2">
+                        Menu
                     </button>
-                    <a class="navbar-brand text-center center-block w100 fw900" href="#"><?= $this->code.' '.$this->codeTitle ?> - <?= ucfirst(strtolower($this->env)) ?> - URL : <?= $_SERVER['REQUEST_URI'] ?>
-
-                    </a>
                 </div>
                 <div class="collapse navbar-collapse text-center ">
                     <ul class="nav navbar-nav center-block text-center w100">
-                        <li class="text-center w100">  <h5>Generated : <?php echo $this->time->format("l, F d ").' at '.$this->time->format("H:i:s") ?></h5></li>
+                        <li class="text-center w100">  <h5>Generated : <?php echo $this->time->format("l, F d ").' at '.
+                                    $this->time->format("H:i:s") ?></h5></li>
                     </ul>
 
                 </div>
@@ -127,17 +132,22 @@
                                 <h4 class="title">An Error was generated</h4>
                                 <p class="category fs16">UIDIE : <strong><?= $this->uidie ?></strong></p>
                                 <p class="category fs16">Code : <?= $this->code ?> | Type : <?= $this->codeTitle ?></p>
-                                <p class="category fs16">Generated : <?php echo $this->time->format("l, F d ").' at '.$this->time->format("H:i:s") ?></p>
+                                <p class="category fs16">Generated : <?php echo $this->time->format("l, F d ").
+                                        ' at '.$this->time->format("H:i:s") ?></p>
                                 <p class="category fs16">Method : <?php echo  $_SERVER['REQUEST_METHOD'] ?></p>
+                                <p class="category fs16">Environment : <?= ucfirst(strtolower($this->env)) ?></p>
+                                <p class="category fs16">Path : <?= $_SERVER['REQUEST_URI'] ?></p>
                                 <p class="category fs16">Referer IP : [ <?php echo  $this->client_ip ?>]</p>
                             </div>
                             <div class="content text-center">
                                 <div class="typo-line">
-                                    <h5 class="break-word"><p class="category fs20 fw900">Explain</p><?= $this->explain ?></h5>
+                                    <h5 class="break-word"><p class="category fs20 fw900">Explain</p>
+                                        <?= $this->explain ?></h5>
                                 </div>
 
                                 <div class="typo-line">
-                                    <h5 class="break-word"><p class="category fs20 fw900">Solution</p><?= $this->solution ?></h5>
+                                    <h5 class="break-word"><p class="category fs20 fw900">Solution</p>
+                                        <?= $this->solution ?></h5>
                                 </div>
                             </div>
                         </div>
@@ -154,11 +164,15 @@
                                     <div class="content text-center card-content-new">
                                         <?php if (isset($one['file'])) { ?>
                                         <div class="typo-line">
-                                            <span class="break-word"><p class="category">File</p><?= ((isset($one['file']))? $one['file'] : "*") ?></span>
+                                            <span class="break-word"><p class="category">File</p>
+                                                <?= ((isset($one['file']))? $one['file'] : "*") ?></span>
                                         </div>
                                         <?php } ?>
                                         <div class="typo-line">
-                                            <span class="break-word"><p class="category">Function <?= (isset($one['line']))? "& Line" : "" ?></p><?= $one['class'].$one['type']. $one['function'] ?> <?= (isset($one['line']))? "on line ".$one['line'] : "" ?></span>
+                                            <span class="break-word"><p class="category">Function
+                                                    <?= (isset($one['line']))? "& Line" : "" ?></p><?= $one['class'].
+                                                    $one['type']. $one['function'] ?> <?= (isset($one['line']))?
+                                                    "on line ". $one['line'] : "" ?></span>
                                         </div>
                                     </div>
                                     <hr>
@@ -175,7 +189,13 @@
                                 <p class="category">Last logs error</p>
                             </div>
                             <div class="content">
-                                <ul class="errorlastlog" attr-href="<?php $master = new \iumioFramework\Masters\MasterCore(); echo $master->generateRoute("iumio_manager_logs_get", null, "ManagerApp") ?>">
+                                <ul class="errorlastlog" attr-href="<?php $master =
+                                    new \iumioFramework\Masters\MasterCore();
+                                echo $master->generateRoute(
+                                    "iumio_manager_logs_get",
+                                    null,
+                                    "ManagerApp"
+                                ) ?>">
 
                                 </ul>
 
@@ -190,11 +210,13 @@
         <footer class="footer">
             <div class="container-fluid">
                 <p class="copyright pull-right">
-                    &copy; <?= date('Y') ?> <a href="https://framework.iumio.com">iumio Framework</a>, an <a href="https://components.iumio.com/">iumio Component</a>
+                    &copy; <?= date('Y') ?> <a href="https://framework.iumio.com">
+                        iumio Framework</a>, an <a href="https://components.iumio.com/">iumio Component</a>
                 </p>
             </div>
         </footer>
-        <?= (\iumioFramework\Core\Additionnal\TaskBar\TaskBar::getTaskBar() != "#none")? \iumioFramework\Core\Additionnal\TaskBar\TaskBar::getTaskBar() : "" ?>
+        <?= (\iumioFramework\Core\Additionnal\TaskBar\TaskBar::getTaskBar() != "#none")?
+            \iumioFramework\Core\Additionnal\TaskBar\TaskBar::getTaskBar() : "" ?>
     </div>
 </div>
 

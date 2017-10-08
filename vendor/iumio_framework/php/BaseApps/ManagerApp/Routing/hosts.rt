@@ -1,0 +1,24 @@
+route:
+  name : iumio_manager_hosts_manager
+  path :  /_manager/hosts
+  activity : Hosts%hosts
+endroute
+
+route:
+  name : iumio_manager_hosts_manager_get_all
+  path :  /_manager/hosts/get/all
+  activity : Hosts%getAllHostsPerConfig
+  m_allow : {POST, GET}
+endroute
+
+route:
+  name : iumio_manager_hosts_manager_edit
+  path :  /_manager/hosts/edit/{env}
+  activity : Hosts%getOneConfig
+endroute
+
+route:
+  name : iumio_manager_hosts_manager_edit_save
+  path :  /_manager/hosts/edit_save/{env}
+  activity : Hosts%update
+endroute

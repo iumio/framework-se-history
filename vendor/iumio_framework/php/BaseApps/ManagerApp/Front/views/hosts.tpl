@@ -7,7 +7,7 @@
                 <div class="container-fluid">
                     <div class="navbar-header">
                         {include file='partials/toogle.tpl'}
-                        <a class="navbar-brand" href="#">Smarty Manager</a>
+                        <a class="navbar-brand" href="#">Hosts Manager</a>
                     </div>
                     <div class="collapse navbar-collapse">
                         <ul class="nav navbar-nav navbar-left">
@@ -22,21 +22,20 @@
                         <div class="col-md-12">
                             <div class="card">
                                 <div class="header">
-                                    <h4 class="title">List of smarty configurations</h4>
-                                    <p class="category">Referer to smarty.json</p>
+                                    <h4 class="title">List of your hosts declarations</h4>
+                                    <p class="category">Referer to hosts.dev.json or hosts.prod.json</p>
                                 </div>
                                 <div class="content table-responsive table-full-width">
                                     <table class="table table-hover table-striped">
-                                        <thead>
-                                        <th>Config name</th>
-                                        <th>Debug</th>
-                                        <th>Cache</th>
-                                        <th>Console</th>
-                                        <th>Edit</th>
-                                        </thead>
-                                        <tbody class="smartyconfigs" attr-href="{route name='iumio_manager_smarty_manager_get_all'}">
+                                    <thead>
+                                    <th>Environment</th>
+                                    <th>Allowed hosts</th>
+                                    <th>Denied hosts</th>
+                                    <th>Edit</th>
+                                    </thead>
+                                    <tbody class="hostslist" attr-href="{route name='iumio_manager_hosts_manager_get_all'}">
 
-                                        </tbody>
+                                    </tbody>
                                     </table>
 
                                 </div>
@@ -51,3 +50,7 @@
         </div>
     </div>
 {/block}
+
+
+
+

@@ -20,6 +20,8 @@ Description
 ✔ Pluggable  
 ✔ [Composer](https://getcomposer.org)  
 ✔ PHP7  
+✔ PSR2 
+✔ PSR4 
 ✔ MVC  
 
 Installation

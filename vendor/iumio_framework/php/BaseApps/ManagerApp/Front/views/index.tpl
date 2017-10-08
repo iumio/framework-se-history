@@ -7,12 +7,7 @@
             <nav class="navbar navbar-default navbar-fixed">
                 <div class="container-fluid">
                     <div class="navbar-header">
-                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-example-2">
-                            <span class="sr-only">Toggle navigation</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
+                        {include file='partials/toogle.tpl'}
                         <a class="navbar-brand" href="#">Dashboard</a>
                     </div>
                     <div class="collapse navbar-collapse">
@@ -65,7 +60,6 @@
                                         <li>Server : {system_info name='SERVER_SOFTWARE' }</li>
                                         <li>PHP version : {system_info name='PHP_VERSION' }</li>
                                         <li>Domain : {system_info name='SERVER_NAME'}</li>
-                                        <li>User Agent : {system_info name='HTTP_USER_AGENT'}</li>
                                         <li>Protocol : {system_info name='SERVER_PROTOCOL'}</li>
                                         <li>Port : {system_info name='SERVER_PORT'}</li>
                                         <li>Use SSL : {if $https} Yes {else} No {/if} </li>

@@ -8,13 +8,21 @@ iumio Framework
 
 ## [BETA RELEASE]
 
-## [0.4.9] - 2017-XX-XX
+## [0.5.0] - 2017-10-09
 ### Added
 - Store the iumio TaskBar position in localStorage(Open, Close)
 - Apply PSR2
+- Apply PSR4
+- Hosts configuration (allowed/denied) in iumio FGM
+- Add new icon for iumio FGM sidebar menu
+- Add icon for iumio Taskbar elements
 ### Fixed
 - Minor bugs
+- Responsive taskbar
+- Real time logs on taskbar
 ### Edited
+- Change iumio Classes or method name to apply PSR2
+- Editied iumio Exception views to remove element in navbar
 
 
 ## [0.4.9] - 2017-09-28

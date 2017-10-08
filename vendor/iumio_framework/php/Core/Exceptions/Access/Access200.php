@@ -51,7 +51,8 @@ class Access200 extends \Exception
         $debug['solution'] = "OK";
         $debug['method'] = $_SERVER['REQUEST_METHOD'];
         $debug['trace'] = $this->getTrace();
-        $debug['referer'] = $_SERVER['REQUEST_URI'];
+        $debug['uri'] = $_SERVER['REQUEST_URI'];
+        $debug['referer'] = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : null;
         $log = (array) JsonListener::open(ROOT_LOGS.strtolower(IUMIO_ENV).".log.json");
         $c = count($log);
         $log[$c] = $debug;

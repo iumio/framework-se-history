@@ -95,7 +95,7 @@ class TaskBar
                 \iumioFramework\Core\Requirement\FrameworkCore::getInfo('VERSION')." ".
                 \iumioFramework\Core\Requirement\FrameworkCore::getInfo('VERSION_EDITION_SHORT').
                 ' - '. IUMIO_ENV.'</strong></a></li>
-                <li><a href="#" class="active" style="border-right: 1px solid white;"><strong>'.
+                <li><a href="#" class="active" ><strong>'.
                 ((!defined('APP_CALL'))? "NO APP CALLED" : APP_CALL) .'</strong></a></li>
                 <li> <a href="#" id="iumioTaskBarRequests" attr-href="'.
                 $um->generateRoute(
@@ -103,8 +103,10 @@ class TaskBar
                     null,
                     "ManagerApp",
                     true
-                ).'">No request</a></li>
-                <li id="iumioTaskBarAssets" class="iumioTaskBarDropdown"><a href="#">Assets</a>
+                ).'"><i class="pe-7s-refresh icon-iumio-task"></i> 
+                <span class="iumio-taskbar-text">No request</span></a></li>
+                <li id="iumioTaskBarAssets" class="iumioTaskBarDropdown"><a href="#">
+                <i class="pe-7s-file icon-iumio-task"></i>  <span class="iumio-taskbar-text">Assets</span></a>
                     <ul class="iumioTaskBarDropdownContent">
                         <li class="iumioTaskBarAssetsPublishAll" attr-href="'.
                 $um->generateRoute(
@@ -152,14 +154,17 @@ class TaskBar
                     null,
                     "ManagerApp",
                     true
-                ).'">Change status</a></li>
+                ).'">
+                <i class="pe-7s-switch icon-iumio-task"></i> <span class="iumio-taskbar-text">Change status</span>
+                </a></li>
                 <li><a href="'. $um->generateRoute(
                 "iumio_manager_index",
                 null,
                 "ManagerApp",
                 true
             ) .'">Go to manager</a></li>
-                <li id="iumioTaskBarCacheClear" class="iumioTaskBarDropdown"><a href="#" >Clear cache</a>
+                <li id="iumioTaskBarCacheClear" class="iumioTaskBarDropdown"><a href="#" >
+                <i class="pe-7s-back icon-iumio-task"></i> <span class="iumio-taskbar-text">Clear cache</span></a>
                 <ul class="iumioTaskBarDropdownContent">
                 <li class="iumioTaskBarCacheClearAll" attr-href="'.
                 $um->generateRoute(

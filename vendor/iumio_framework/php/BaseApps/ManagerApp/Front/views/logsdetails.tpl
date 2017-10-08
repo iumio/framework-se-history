@@ -6,13 +6,10 @@
         <nav class="navbar navbar-default navbar-fixed {if $details->code == 500}navbar-ct-red{elseif $details->code == 200}navbar-ct-green{else}navbar-ct-orange{/if}">
             <div class="container-fluid">
                 <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-example-2">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
                     <a class="navbar-brand" href="#">Logs Manager  - UIDIE : {$details->uidie} - {$details->code} {$details->code_title}</a>
+                    <button type="button" class="navbar-toggle toggle-iumio-manager" data-toggle="collapse" data-target="#navigation-example-2" style="margin-top: 30px!important;margin-right: 20px!important;">
+                        Menu
+                    </button>
                 </div>
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-left">
@@ -34,8 +31,9 @@
                                 <p class="category fs16">Code : {$details->code} | Type : {$details->code_title}</p>
                                 <p class="category fs16">Generated : {$details->time->date|date_format:"%A, %B %e, %Y at %r"}</p>
                                 <p class="category fs16">Method : {$details->method}</p>
-                                <p class="category fs16 ">Referer IP : [ {$details->client_ip}]</p>
-                                <p class="category fs16 break-word">Referer URI :  {$details->referer}</p>
+                                <p class="category fs16 ">Host IP : [ {$details->client_ip}]</p>
+                                <p class="category fs16 break-word">Host URI : {$details->uri}</p>
+                                <p class="category fs16 break-word">Referer : {$details->referer}</p>
                             </div>
                             {if $details->code != 200}
                             <div class="content text-center">

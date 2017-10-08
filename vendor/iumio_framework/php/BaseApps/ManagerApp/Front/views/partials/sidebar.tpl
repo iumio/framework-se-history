@@ -16,19 +16,19 @@
         </li>
         <li class="{if $selected == "appmanager"}active{/if}">
             <a href="{route name='iumio_manager_app_manager' component='yes'}">
-                <i class="pe-7s-user"></i>
+                <i class="pe-7s-config"></i>
                 <p>Apps</p>
             </a>
         </li>
         <li class="{if $selected == "cachemanager"}active{/if}">
             <a href="{route name='iumio_manager_cache_manager' component='yes'}">
-                <i class="pe-7s-light"></i>
+                <i class="pe-7s-back-2"></i>
                 <p>Cache</p>
             </a>
         </li>
         <li class="{if $selected == "compilemanager"}active{/if}">
             <a href="{route name='iumio_manager_compile_manager' component='yes'}">
-                <i class="pe-7s-comment"></i>
+                <i class="pe-7s-angle-right"></i>
                 <p>Compiled</p>
             </a>
         </li>
@@ -46,7 +46,7 @@
         </li>
         <li class="{if $selected == "routingmanager"}active{/if}">
             <a href="{route name='iumio_manager_routing_manager' component='yes'}">
-                <i class="pe-7s-diamond"></i>
+                <i class="pe-7s-link"></i>
                 <p>Routing</p>
             </a>
         </li>
@@ -66,6 +66,12 @@
             <a href="{route name='iumio_manager_autoloader_manager' component='yes'}">
                 <i class="pe-7s-magic-wand"></i>
                 <p>Engine Autoloader</p>
+            </a>
+        </li>
+        <li class="{if $selected == "hostsmanager"}active{/if}">
+            <a href="{route name='iumio_manager_hosts_manager' component='yes'}">
+                <i class="pe-7s-target"></i>
+                <p>Hosts</p>
             </a>
         </li>
     </ul>

@@ -504,7 +504,7 @@ class AppManager implements ModuleManager
         if (empty($f)) {
             $std = new \stdClass();
             $std->installation = new \DateTime();
-            $std->version = "0.4.9";
+            $std->version = "0.5.0";
             $std->user = get_current_user();
             $std->location = realpath(ROOT_PROJECT);
             $std->os = PHP_OS;

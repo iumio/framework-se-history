@@ -6,15 +6,8 @@
             <nav class="navbar navbar-default navbar-fixed">
                 <div class="container-fluid">
                     <div class="navbar-header">
-                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-example-2">
-                            <span class="sr-only">Toggle navigation</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
+                        {include file='partials/toogle.tpl'}
                         <a class="navbar-brand" href="#">App Manager</a>
-                        <a class="btn-default btn createapp"  attr-href="{route name='iumio_manager_app_manager_create_app'}">Create a new app</a>
-                        <a class="btn-default btn importapp"  attr-href="{route name='iumio_manager_app_manager_import_app'}">Import an app</a>
                     </div>
                     <div class="collapse navbar-collapse">
                         <ul class="nav navbar-nav navbar-left">
@@ -45,6 +38,24 @@
                                         <li class="iumiohidden">Others Errors : <span class="dashb-erroth">0</span></li>
                                         <li class="iumiohidden">Databases connected : <span class="dashb-dbco">0</span></li>
                                     </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="card">
+                                <div class="header">
+                                    <h4 class="title">Options</h4>
+                                    <p class="category">Actions to create and import an app</p>
+                                </div>
+                                <div class="content">
+                                    <div class="row center-block text-center manager-options">
+                                        <div class="col-md-6">
+                                            <a class="btn-default btn createapp"  attr-href="{route name='iumio_manager_app_manager_create_app'}">Create a new app</a>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <a class="btn-default btn importapp"  attr-href="{route name='iumio_manager_app_manager_import_app'}">Import an app</a>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>

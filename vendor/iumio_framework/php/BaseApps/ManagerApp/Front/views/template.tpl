@@ -23,7 +23,6 @@
     <!--     Fonts and icons     -->
     {fawesome_css min='yes'}
     {css_manager name='light-bootstrap-dashboard'}
-    <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
     {css_manager name='pe-icon-7-stroke'}
 
 </head>

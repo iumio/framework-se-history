@@ -19,6 +19,13 @@
     overflow-y: auto!important;
 }
 
+.btn-exception-iumio-menu
+{
+    text-align: center!important;
+    margin: auto!important;
+    width: 100%!important;
+}
+
 .w100
 {
     width: 100%!important;
@@ -201,4 +208,42 @@
         width: 50px;
     }
 }
+
+@media (max-width: 991px)
+{
+    .navbar-header .navbar-toggle {
+        margin: 0 auto!important;
+        width: 120px!important;
+        margin-bottom: 23px!important;
+        color: white;
+        /* padding: 20px 20px 10px 10px; */
+    }
+
+    /*.iumioTaskBar li:nth-child(2)
+    {
+        display: none;
+    }*/
+    /*.iumioTaskBar li:nth-child(6)
+    {
+        display: none;
+    }*/
+}
+
+
+
+.navbar-default .navbar-toggle {
+    border: 1px solid white;
+    height: 47px!important;
+    padding: 0px;
+
+}
+
+.navbar-default.toggle-iumio-manager
+{
+margin-top: 5px!important;
+    margin-bottom: 0px!important;
+}
+
+
+
 /* end of custom code */

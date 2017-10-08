@@ -6,14 +6,8 @@
             <nav class="navbar navbar-default navbar-fixed">
                 <div class="container-fluid">
                     <div class="navbar-header">
-                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-example-2">
-                            <span class="sr-only">Toggle navigation</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
+                        {include file='partials/toogle.tpl'}
                         <a class="navbar-brand" href="#">Database Manager</a>
-                        <a class="btn-default btn createdatabaseconfig"  attr-href="{route name='iumio_manager_databases_manager_create'}">Add new database</a>
                     </div>
                     <div class="collapse navbar-collapse">
                         <ul class="nav navbar-nav navbar-left">
@@ -25,6 +19,22 @@
             <div class="content">
                 <div class="container-fluid">
                     <div class="row">
+                        <div class="col-md-12">
+                            <div class="card">
+                                <div class="header">
+                                    <h4 class="title">Options</h4>
+                                    <p class="category">Actions to manage routing files</p>
+                                </div>
+                                <div class="content">
+                                    <div class="row center-block text-center manager-options">
+                                        <div class="col-md-12">
+                                            <a class="btn-default btn createdatabaseconfig"  attr-href="{route name='iumio_manager_databases_manager_create'}">Add new database</a>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <div class="col-md-12">
                             <div class="card">
                                 <div class="header">

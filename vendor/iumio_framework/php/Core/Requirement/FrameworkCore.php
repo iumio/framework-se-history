@@ -43,11 +43,11 @@ abstract class FrameworkCore extends GlobalCoreService
     protected $environment;
     private static $runtime_parameters = null;
 
-    const VERSION = '0.4.9';
+    const VERSION = '0.5.0';
     const VERSION_EDITION = 'iumio Framework Standard Edition';
     const VERSION_EDITION_SHORT = 'SE';
     const VERSION_STAGE = 'BETA';
-    const VERSION_BUILD = 201749;
+    const VERSION_BUILD = 201750;
     const UIDIE = "NULL";
 
 

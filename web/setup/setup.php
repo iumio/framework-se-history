@@ -851,7 +851,7 @@ if (!empty(json_decode(file_get_contents(__DIR__."/../../elements/config_files/c
             <div class="content">
                 <div id="step0" class="content-middle"><img id="iumio-components" src="../components/libs/iumio_framework/img/logo_white.png"> <span class="components-word">Components</span></div>
                 <div id="step1" class="hidden-step">
-                    <h2 class="frame-1">iumio installer <strong class="red-color">BETA</strong> - Welcome</h2>
+                    <h2 class="frame-1">iumio installer - Welcome</h2>
                     <div class="step-content content-middle">
                         <h3 class="alterh2" id="textd" style="font-size: 40px;">Welcome on iumio Framework<br> <span style="font-size: 25px">A whole new world for you</span>
                             <br>
