@@ -16,12 +16,12 @@ Description
 ------------
 
 [iumio Framework][1] is a **PHP framework** for web applications.  
-✔ Namespaced  
-✔ Pluggable  
-✔ [Composer](https://getcomposer.org)  
-✔ PHP7  
-✔ PSR2 
-✔ PSR4 
+✔ Namespaced  \
+✔ Pluggable  \
+✔ [Composer](https://getcomposer.org)  \
+✔ PHP7  \
+✔ PSR2 \
+✔ PSR4 \
 ✔ MVC  
 
 Installation
