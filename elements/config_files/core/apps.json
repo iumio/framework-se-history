@@ -1,0 +1,18 @@
+{
+    "0": {
+        "name": "HelloApp",
+        "enabled": "yes",
+        "prefix": "",
+        "class": "\\HelloApp\\HelloApp",
+        "creation": {
+            "date": "2017-10-09 00:40:44.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "update": {
+            "date": "2017-10-09 00:40:44.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        }
+    }
+}

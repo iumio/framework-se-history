@@ -8,6 +8,15 @@ iumio Framework
 
 ## [BETA RELEASE]
 
+## [0.5.1] - 2017-WW-WW
+### Added
+
+### Fixed
+- Bug with no rewrite url
+### Edited
+
+
+
 ## [0.5.0] - 2017-10-09
 ### Added
 - Store the iumio TaskBar position in localStorage(Open, Close)

@@ -1,0 +1,11 @@
+route:
+  name : default_start
+  path : /
+  activity : Default%showIndex
+endroute
+
+route:
+  name : default_test_parameter
+  path : /index/{hi}
+  activity : Default%index
+endroute

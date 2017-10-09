@@ -171,6 +171,9 @@ class Routing extends RtListener
         }
 
 
+        if (trim($webRoute) === "") {
+            $webRoute = "/";
+        }
         if (($base.$appRoute == $webRoute) || $base.$appRoute."/" == $webRoute) {
             return (array("is" => "same", "similar" => 100));
         }
