@@ -45,15 +45,15 @@ class Installer
      */
     final public static function downloadComponents()
     {
-        file_put_contents("animate.css", fopen("https://libs.framework.iumio.com/
-        css/animate.css", 'r'));
+        file_put_contents("animate.css", fopen("https://libs.framework.iumio.com/".
+        "css/animate.css", 'r'));
         isM::create(self::$base_dir."web/components/libs/animate.css/", "directory");
-        file_put_contents("animate.min.css", fopen("https://libs.framework.iumio.com/
-        css/animate.min.css", 'r'));
-        iSM::move(self::$base_dir."animate.css", self::$base_dir."web/components/libs/animate.css/
-        animate.css");
-        iSM::move(self::$base_dir."animate.min.css", self::$base_dir."web/components/libs/
-        animate.css/animate.min.css");
+        file_put_contents("animate.min.css", fopen("https://libs.framework.iumio.com/".
+        "css/animate.min.css", 'r'));
+        iSM::move(self::$base_dir."animate.css", self::$base_dir."web/components/libs/animate.css/".
+        "animate.css");
+        iSM::move(self::$base_dir."animate.min.css", self::$base_dir."web/components/libs/".
+        "animate.css/animate.min.css");
 
         isM::create(self::$base_dir."web/components/libs/skel/", "directory");
         file_put_contents("skel.min.js", fopen(
@@ -63,12 +63,12 @@ class Installer
         iSM::move(self::$base_dir."skel.min.js", self::$base_dir."web/components/libs/skel/skel.min.js");
 
 
-        isM::create(self::$base_dir."vendor/iumio_framework/php/Core/Additional/Manager/Module/AppManager/
-        AppTemplate/template/{appname}/Front/Resources/public/js", "directory");
-        file_put_contents("main.js", fopen("https://libs.framework.iumio.com/js/apptemplate/
-        js/main.js", 'r'));
-        iSM::move(self::$base_dir."main.js", self::$base_dir."vendor/iumio_framework/php/Core/Additional/
-        Manager/Module/AppManager/AppTemplate/template/{appname}/Front/Resources/public/js/main.js");
+        isM::create(self::$base_dir."vendor/iumio_framework/php/Core/Additional/Manager/Module/AppManager/".
+        "AppTemplate/template/{appname}/Front/Resources/public/js", "directory");
+        file_put_contents("main.js", fopen("https://libs.framework.iumio.com/js/apptemplate/".
+        "js/main.js", 'r'));
+        iSM::move(self::$base_dir."main.js", self::$base_dir."vendor/iumio_framework/php/Core/Additional/".
+        "Manager/Module/AppManager/AppTemplate/template/{appname}/Front/Resources/public/js/main.js");
 
         isM::create(self::$base_dir."web/components/libs/dwr/", "directory");
         file_put_contents("util.js", fopen("https://libs.framework.iumio.com/js/util.js", 'r'));
@@ -80,15 +80,15 @@ class Installer
         ));
         iSM::move(self::$base_dir."demo.js", self::$base_dir."web/components/libs/iumio_manager/js/demo.js");
 
-        file_put_contents("light-bootstrap-dashboard.css", fopen("https://libs.framework.iumio.com/
-        css/light-bootstrap-dashboard.css", 'r'));
-        iSM::move(self::$base_dir."light-bootstrap-dashboard.css", self::$base_dir."web/components/libs/
-        iumio_manager/css/light-bootstrap-dashboard.css");
+        file_put_contents("light-bootstrap-dashboard.css", fopen("https://libs.framework.iumio.com/".
+            "css/light-bootstrap-dashboard.css", 'r'));
+        iSM::move(self::$base_dir."light-bootstrap-dashboard.css", self::$base_dir."web/components/libs/".
+        "iumio_manager/css/light-bootstrap-dashboard.css");
 
-        file_put_contents("pe-icon-7-stroke.css", fopen("https://libs.framework.iumio.com/css/
-        pe-icon-7-stroke.css", 'r'));
-        iSM::move(self::$base_dir."pe-icon-7-stroke.css", self::$base_dir."web/components/libs/iumio_manager/
-        css/pe-icon-7-stroke.css");
+        file_put_contents("pe-icon-7-stroke.css", fopen("https://libs.framework.iumio.com/css/".
+        "pe-icon-7-stroke.css", 'r'));
+        iSM::move(self::$base_dir."pe-icon-7-stroke.css", self::$base_dir."web/components/libs/iumio_manager".
+        "/css/pe-icon-7-stroke.css");
 
         file_put_contents(
             "bootstrap-checkbox-radio-switch.js",

@@ -37,8 +37,8 @@ class Uninstaller
 
         isM::delete(self::$base_dir."web/components/libs/skel/", "directory");
 
-        isM::delete(self::$base_dir."vendor/iumio_framework/php/Core/Additional/Manager/Module/
-        AppManager/AppTemplate/template/{appname}/Front/Resources/public/js", "directory");
+        isM::delete(self::$base_dir."vendor/iumio_framework/php/Core/Additional/Manager/Module/".
+        "AppManager/AppTemplate/template/{appname}/Front/Resources/public/js", "directory");
 
         isM::delete(self::$base_dir."web/components/libs/dwr/", "directory");
 
