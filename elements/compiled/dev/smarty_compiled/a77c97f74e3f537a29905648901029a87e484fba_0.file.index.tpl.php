@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.31, created on 2017-10-09 02:56:04
+/* Smarty version 3.1.31, created on 2017-10-17 16:57:35
   from "/Applications/MAMP/htdocs/iumio-framework/vendor/iumio_framework/php/BaseApps/ManagerApp/Front/views/index.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.31',
-  'unifunc' => 'content_59dac924058912_99262252',
+  'unifunc' => 'content_59e61a5fc26062_90370204',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'a77c97f74e3f537a29905648901029a87e484fba' => 
     array (
       0 => '/Applications/MAMP/htdocs/iumio-framework/vendor/iumio_framework/php/BaseApps/ManagerApp/Front/views/index.tpl',
-      1 => 1507506917,
+      1 => 1508252254,
       2 => 'file',
     ),
   ),
@@ -23,14 +23,14 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:partials/footer.tpl' => 1,
   ),
 ),false)) {
-function content_59dac924058912_99262252 (Smarty_Internal_Template $_smarty_tpl) {
+function content_59e61a5fc26062_90370204 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_38306317059dac9213695b1_59552339', "principal");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_56978584059e61a5e570193_03188358', "principal");
 ?>
 
 
@@ -39,12 +39,12 @@ $_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_38306317059dac9213
 <?php $_smarty_tpl->inheritance->endChild($_smarty_tpl, 'template.tpl');
 }
 /* {block "principal"} */
-class Block_38306317059dac9213695b1_59552339 extends Smarty_Internal_Block
+class Block_56978584059e61a5e570193_03188358 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'principal' => 
   array (
-    0 => 'Block_38306317059dac9213695b1_59552339',
+    0 => 'Block_56978584059e61a5e570193_03188358',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -76,18 +76,21 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-md-6">
-                            <div class="card h350">
+                            <div class="h350 card">
                                 <div class="header">
-                                    <h4 class="title">iumio Framework</h4>
-                                    <p class="category">Characteristics</p>
+                                    <h4 class="title">iumio Framework instance</h4>
+                                    <p class="category">Informations about iumio Framework instance</p>
                                 </div>
-                                <div class="content">
-                                    <ul class="break-word">
-                                        <li>Framework edition : <?php echo iumioFramework\Core\Additionnal\Template\ViewBasePlugin::finfo(array('name'=>'VERSION_EDITION'),$_smarty_tpl);?>
+                                <div class="content"  style="overflow: auto;padding-left: 40px;max-height: 220px;">
+                                    <ul class="break-word col-md-12">
+                                        <li><?php echo iumioFramework\Core\Additionnal\Template\ViewBasePlugin::finfo(array('name'=>'VERSION_EDITION'),$_smarty_tpl);?>
  </li>
 
-                                        <li>Actual version : <?php echo iumioFramework\Core\Additionnal\Template\ViewBasePlugin::finfo(array('name'=>'VERSION_STAGE'),$_smarty_tpl);?>
+                                        <li>Version : <?php echo iumioFramework\Core\Additionnal\Template\ViewBasePlugin::finfo(array('name'=>'VERSION_STAGE'),$_smarty_tpl);?>
  <?php echo iumioFramework\Core\Additionnal\Template\ViewBasePlugin::finfo(array('name'=>'VERSION'),$_smarty_tpl);?>
+ </li>
+
+                                        <li>Build number : <?php echo iumioFramework\Core\Additionnal\Template\ViewBasePlugin::finfo(array('name'=>'VERSION_ID'),$_smarty_tpl);?>
  </li>
 
                                         <li>Installation date : <?php echo $_smarty_tpl->tpl_vars['fi']->value->installation;?>
@@ -102,9 +105,6 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
                                         <li>Main OS installed : <?php echo $_smarty_tpl->tpl_vars['fi']->value->os;?>
 </li>
 
-                                        <li>Language installed : <?php echo $_smarty_tpl->tpl_vars['fi']->value->lang;?>
-</li>
-
                                     </ul>
 
                                 </div>
@@ -113,11 +113,11 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
                         <div class="col-md-6">
                             <div class="card h350">
                                 <div class="header">
-                                    <h4 class="title">Server</h4>
-                                    <p class="category">Informations</p>
+                                    <h4 class="title">Server Informations</h4>
+                                    <p class="category">Informations about server instance</p>
                                 </div>
-                                <div class="content">
-                                    <ul>
+                                <div class="content" style="overflow: auto;padding-left: 40px;max-height: 220px;">
+                                    <ul class="col-md-12">
                                         <li>Server : <?php echo iumioFramework\Core\Additionnal\Template\ViewBasePlugin::sinfo(array('name'=>'SERVER_SOFTWARE'),$_smarty_tpl);?>
 </li>
                                         <li>PHP version : <?php echo iumioFramework\Core\Additionnal\Template\ViewBasePlugin::sinfo(array('name'=>'PHP_VERSION'),$_smarty_tpl);?>
@@ -129,7 +129,7 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
                                         <li>Port : <?php echo iumioFramework\Core\Additionnal\Template\ViewBasePlugin::sinfo(array('name'=>'SERVER_PORT'),$_smarty_tpl);?>
 </li>
                                         <li>Use SSL : <?php if ($_smarty_tpl->tpl_vars['https']->value) {?> Yes <?php } else { ?> No <?php }?> </li>
-                                     </ul>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
@@ -140,7 +140,7 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
                                     <p class="category">Last logs errors for <?php echo $_smarty_tpl->tpl_vars['env']->value;?>
  (10)</p>
                                 </div>
-                                <div class="content" style="overflow: auto">
+                                <div class="content" style="overflow: auto;max-height: 220px">
                                     <ul class="lastlog elemcard" attr-href="<?php echo iumioFramework\Core\Additionnal\Template\ViewBasePlugin::route(array('name'=>'iumio_manager_logs_get'),$_smarty_tpl);?>
 ">
 
@@ -155,8 +155,8 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
                                     <h4 class="title">iumio Framework</h4>
                                     <p class="category">Statistics</p>
                                 </div>
-                                <div class="content dashboardStats elemcard" style="overflow: auto;padding-left: 40px" attr-href="<?php echo iumioFramework\Core\Additionnal\Template\ViewBasePlugin::route(array('name'=>'iumio_manager_dashboard_get_statistics'),$_smarty_tpl);?>
-">
+                                <div class="content dashboardStats elemcard"  attr-href="<?php echo iumioFramework\Core\Additionnal\Template\ViewBasePlugin::route(array('name'=>'iumio_manager_dashboard_get_statistics'),$_smarty_tpl);?>
+" style="overflow: auto;padding-left: 40px">
                                     <ul class="col-md-6">
                                         <li>Apps  : <span class="dashb-app">0</span> </li>
                                         <li>Apps enabled : <span class="dashb-appena">0</span></li>
@@ -189,7 +189,9 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 
 
                                     </ul>
+
                                 </div>
+
                             </div>
                         </div>
                     </div>

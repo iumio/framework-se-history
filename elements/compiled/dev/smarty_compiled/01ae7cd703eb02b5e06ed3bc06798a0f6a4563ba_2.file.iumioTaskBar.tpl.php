@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.31, created on 2017-10-09 02:40:50
+/* Smarty version 3.1.31, created on 2017-10-17 14:39:22
   from "/Applications/MAMP/htdocs/iumio-framework/vendor/iumio_framework/php/Core/Additional/TaskBar/views/iumioTaskBar.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.31',
-  'unifunc' => 'content_59dac592f309f5_08857665',
+  'unifunc' => 'content_59e5f9fa9bd2b4_01404836',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_59dac592f309f5_08857665 (Smarty_Internal_Template $_smarty_tpl) {
+function content_59e5f9fa9bd2b4_01404836 (Smarty_Internal_Template $_smarty_tpl) {
 if (!is_callable('smarty_modifier_debug_print_var')) require_once '/Applications/MAMP/htdocs/iumio-framework/vendor/libs/smarty/smarty/libs/plugins/modifier.debug_print_var.php';
 if (isset($_smarty_tpl->tpl_vars['iumiotaskbar']->value) && !empty($_smarty_tpl->tpl_vars['iumiotaskbar']->value)) {?>
     <!-- iumioTaskBar component -->

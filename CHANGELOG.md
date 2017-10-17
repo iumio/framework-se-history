@@ -8,12 +8,19 @@ iumio Framework
 
 ## [BETA RELEASE]
 
-## [0.5.1] - 2017-WW-WW
+## [0.6.0] - 2017-WW-WW
 ### Added
 
 ### Fixed
 - Bug with no rewrite url
+- Responsive sidebar
+
 ### Edited
+- Change iumio Manager permissions and publish status display
+
+### Removed
+- Language installation
+- iumio Framework Life
 
 
 

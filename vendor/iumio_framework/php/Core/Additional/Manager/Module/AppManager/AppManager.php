@@ -508,7 +508,6 @@ class AppManager implements ModuleManager
             $std->user = get_current_user();
             $std->location = realpath(ROOT_PROJECT);
             $std->os = PHP_OS;
-            $std->lang = 'en_US';
 
             $rs = json_encode($std, JSON_PRETTY_PRINT);
             file_put_contents(ROOT_PROJECT."/elements/config_files/core/initial.json", $rs);

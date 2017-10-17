@@ -1,17 +1,17 @@
 <?php
-/* Smarty version 3.1.31, created on 2017-10-09 02:57:10
-  from "/Applications/MAMP/htdocs/iumio-framework/vendor/iumio_framework/php/BaseApps/ManagerApp/Front/views/databases.tpl" */
+/* Smarty version 3.1.31, created on 2017-10-17 16:57:50
+  from "/Applications/MAMP/htdocs/iumio-framework/vendor/iumio_framework/php/BaseApps/ManagerApp/Front/views/cachemanager.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.31',
-  'unifunc' => 'content_59dac9666896c6_18832445',
+  'unifunc' => 'content_59e61a6e2981c8_94997996',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '95595edffde539a468b0f7746cf51c7cfc3661b7' => 
+    '275bb1fb1a20fa697a98a139f2ddf566b1fca8b9' => 
     array (
-      0 => '/Applications/MAMP/htdocs/iumio-framework/vendor/iumio_framework/php/BaseApps/ManagerApp/Front/views/databases.tpl',
+      0 => '/Applications/MAMP/htdocs/iumio-framework/vendor/iumio_framework/php/BaseApps/ManagerApp/Front/views/cachemanager.tpl',
       1 => 1507506917,
       2 => 'file',
     ),
@@ -23,28 +23,22 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:partials/footer.tpl' => 1,
   ),
 ),false)) {
-function content_59dac9666896c6_18832445 (Smarty_Internal_Template $_smarty_tpl) {
+function content_59e61a6e2981c8_94997996 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_90455242659dac965658788_83966685', "principal");
-?>
-
-
-
-
-
-<?php $_smarty_tpl->inheritance->endChild($_smarty_tpl, 'template.tpl');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_64131113659e61a6da4ff30_57102721', "principal");
+$_smarty_tpl->inheritance->endChild($_smarty_tpl, 'template.tpl');
 }
 /* {block "principal"} */
-class Block_90455242659dac965658788_83966685 extends Smarty_Internal_Block
+class Block_64131113659e61a6da4ff30_57102721 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'principal' => 
   array (
-    0 => 'Block_90455242659dac965658788_83966685',
+    0 => 'Block_64131113659e61a6da4ff30_57102721',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -61,13 +55,12 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
                         <?php $_smarty_tpl->_subTemplateRender('file:partials/toogle.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
-                        <a class="navbar-brand" href="#">Database Manager</a>
+                        <a class="navbar-brand" href="#">Cache Manager</a>
                     </div>
                     <div class="collapse navbar-collapse">
                         <ul class="nav navbar-nav navbar-left">
                         </ul>
                     </div>
-
                 </div>
             </nav>
             <div class="content">
@@ -77,13 +70,13 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
                             <div class="card">
                                 <div class="header">
                                     <h4 class="title">Options</h4>
-                                    <p class="category">Actions to manage routing files</p>
+                                    <p class="category">Actions to clear caches</p>
                                 </div>
                                 <div class="content">
                                     <div class="row center-block text-center manager-options">
                                         <div class="col-md-12">
-                                            <a class="btn-default btn createdatabaseconfig"  attr-href="<?php echo iumioFramework\Core\Additionnal\Template\ViewBasePlugin::route(array('name'=>'iumio_manager_databases_manager_create'),$_smarty_tpl);?>
-">Add new database</a>
+                                            <a class="btn-default btn clearcache"   attr-href="<?php echo iumioFramework\Core\Additionnal\Template\ViewBasePlugin::route(array('name'=>'iumio_manager_cache_manager_remove_all'),$_smarty_tpl);?>
+">Clear all cache</a>
                                         </div>
 
                                     </div>
@@ -93,32 +86,32 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
                         <div class="col-md-12">
                             <div class="card">
                                 <div class="header">
-                                    <h4 class="title">List of your databases declarations</h4>
-                                    <p class="category">Referer to databases.json</p>
+                                    <h4 class="title">Cache list</h4>
+                                    <p class="category">Referer to cache directory</p>
                                 </div>
                                 <div class="content table-responsive table-full-width">
                                     <table class="table table-hover table-striped">
-                                    <thead>
-                                    <th>Config name</th>
-                                    <th>Name</th>
-                                    <th>Host</th>
-                                    <th>Type</th>
-                                    <th>Edit</th>
-                                    <th>Delete</th>
-                                    </thead>
-                                    <tbody class="databaseslist" attr-href="<?php echo iumioFramework\Core\Additionnal\Template\ViewBasePlugin::route(array('name'=>'iumio_manager_databases_manager_get_all'),$_smarty_tpl);?>
+                                        <thead>
+                                        <th>Directory name</th>
+                                        <th>Path</th>
+                                        <th>Size</th>
+                                        <th>Permissions</th>
+                                        <th>Status</th>
+                                        <th>Clear</th>
+                                        </thead>
+                                        <tbody class="getAllEnvCache" attr-href="<?php echo iumioFramework\Core\Additionnal\Template\ViewBasePlugin::route(array('name'=>'iumio_manager_cache_manager_get_all'),$_smarty_tpl);?>
 ">
-
-                                    </tbody>
+                                        </tbody>
                                     </table>
 
                                 </div>
                             </div>
                         </div>
                     </div>
+
+
                 </div>
             </div>
-
             <?php $_smarty_tpl->_subTemplateRender('file:partials/footer.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 

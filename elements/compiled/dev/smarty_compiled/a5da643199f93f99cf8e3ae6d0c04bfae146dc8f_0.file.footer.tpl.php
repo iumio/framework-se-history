@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.31, created on 2017-10-09 02:56:12
+/* Smarty version 3.1.31, created on 2017-10-17 14:39:22
   from "/Applications/MAMP/htdocs/iumio-framework/vendor/iumio_framework/php/BaseApps/ManagerApp/Front/views/partials/footer.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.31',
-  'unifunc' => 'content_59dac92cc35018_08218818',
+  'unifunc' => 'content_59e5f9fa74e4c3_12799361',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_59dac92cc35018_08218818 (Smarty_Internal_Template $_smarty_tpl) {
+function content_59e5f9fa74e4c3_12799361 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <footer class="footer">
     <div class="container-fluid">

@@ -229,7 +229,21 @@
     }*/
 }
 
+.red-color
+{
+    color: red;
+}
 
+.green-color
+{
+    color: green;
+}
+
+.iumio-green-red-btn
+{
+    position: relative;
+    top: 1px;
+}
 
 .navbar-default .navbar-toggle {
     border: 1px solid white;
@@ -243,6 +257,32 @@
 margin-top: 5px!important;
     margin-bottom: 0px!important;
 }
+
+.border-top-routing-iumio
+{
+    border-top: 1px solid #e7e8e8;
+    padding-top: 10px;
+    margin-top: 10px;
+}
+
+.iumio-picto-routing
+{
+    position: relative;
+    top: 2px;
+}
+
+.iumio-routing-list-details span
+{
+    font-weight:bold;
+}
+
+
+.sidebar .sidebar-wrapper, body > .navbar-collapse .sidebar-wrapper {
+    min-height: 10px!important;
+}
+
+/**********/
+
 
 
 

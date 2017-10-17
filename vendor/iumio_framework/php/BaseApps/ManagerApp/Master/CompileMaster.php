@@ -96,7 +96,7 @@ class CompileMaster extends MasterCore
                     "size" => ($this->fileSizeConvert($this->folderSize($dir_info->getRealPath()))),
                     "nperms" => $octal_perms,
                     "perms" => $perms, "status" => (($this->checkFolderIsEmptyOrNot(ROOT_COMPILED.
-                            $dir_info->getFilename()) == true)? "Empty" : "Is not empty"),
+                            $dir_info->getFilename()) == true)? "Empty" : "Not empty"),
                     "env" => $dir_info->getFilename(),
                     "clear" => $this->generateRoute(
                         "iumio_manager_compile_manager_remove",
