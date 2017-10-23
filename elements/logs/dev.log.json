@@ -3290,5 +3290,545 @@
         ],
         "uri": "\/Dev.php\/index",
         "referer": "http:\/\/iumio.framework.in:8888\/setup\/setup2.php"
+    },
+    "48": {
+        "uidie": "B3h9wPDRQIr3",
+        "time": {
+            "date": "2017-10-23 12:14:48.255315",
+            "timezone_type": 3,
+            "timezone": "Europe\/Paris"
+        },
+        "client_ip": "::1",
+        "code": 200,
+        "code_title": "OK",
+        "explain": "OK",
+        "solution": "OK",
+        "method": "GET",
+        "trace": [
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/apps\/AppCore.php",
+                "line": 71,
+                "function": "dispatching",
+                "class": "iumioFramework\\Core\\Requirement\\FrameworkCore",
+                "type": "->",
+                "args": [
+                    {
+                        "attributes": {},
+                        "request": {},
+                        "query": {},
+                        "server": {},
+                        "cookies": {},
+                        "headers": {}
+                    }
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/web\/Dev.php",
+                "line": 54,
+                "function": "dispatch",
+                "class": "iumioFramework\\Apps\\AppCore",
+                "type": "->",
+                "args": [
+                    {
+                        "attributes": {},
+                        "request": {},
+                        "query": {},
+                        "server": {},
+                        "cookies": {},
+                        "headers": {}
+                    }
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/web\/Dev.php",
+                "line": 62,
+                "function": "start",
+                "class": "iumioFramework\\Core\\Base\\Dev",
+                "type": "::",
+                "args": []
+            }
+        ],
+        "uri": "\/Dev.php\/index",
+        "referer": "http:\/\/iumio.framework.in:8888\/setup\/setup2.php"
+    },
+    "49": {
+        "uidie": "8Rdyq3pmLcFl",
+        "time": {
+            "date": "2017-10-23 12:14:49.509048",
+            "timezone_type": 3,
+            "timezone": "Europe\/Paris"
+        },
+        "client_ip": "::1",
+        "code": 200,
+        "code_title": "OK",
+        "explain": "OK",
+        "solution": "OK",
+        "method": "GET",
+        "trace": [
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/apps\/AppCore.php",
+                "line": 71,
+                "function": "dispatching",
+                "class": "iumioFramework\\Core\\Requirement\\FrameworkCore",
+                "type": "->",
+                "args": [
+                    {
+                        "attributes": {},
+                        "request": {},
+                        "query": {},
+                        "server": {},
+                        "cookies": {},
+                        "headers": {}
+                    }
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/web\/Dev.php",
+                "line": 54,
+                "function": "dispatch",
+                "class": "iumioFramework\\Apps\\AppCore",
+                "type": "->",
+                "args": [
+                    {
+                        "attributes": {},
+                        "request": {},
+                        "query": {},
+                        "server": {},
+                        "cookies": {},
+                        "headers": {}
+                    }
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/web\/Dev.php",
+                "line": 62,
+                "function": "start",
+                "class": "iumioFramework\\Core\\Base\\Dev",
+                "type": "::",
+                "args": []
+            }
+        ],
+        "uri": "\/Dev.php\/index",
+        "referer": "http:\/\/iumio.framework.in:8888\/setup\/setup2.php"
+    },
+    "50": {
+        "uidie": "wPgscUOpneIK",
+        "time": {
+            "date": "2017-10-23 12:26:18.608980",
+            "timezone_type": 3,
+            "timezone": "Europe\/Paris"
+        },
+        "client_ip": "::1",
+        "code": 200,
+        "code_title": "OK",
+        "explain": "OK",
+        "solution": "OK",
+        "method": "GET",
+        "trace": [
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/apps\/AppCore.php",
+                "line": 71,
+                "function": "dispatching",
+                "class": "iumioFramework\\Core\\Requirement\\FrameworkCore",
+                "type": "->",
+                "args": [
+                    {
+                        "attributes": {},
+                        "request": {},
+                        "query": {},
+                        "server": {},
+                        "cookies": {},
+                        "headers": {}
+                    }
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/web\/Dev.php",
+                "line": 54,
+                "function": "dispatch",
+                "class": "iumioFramework\\Apps\\AppCore",
+                "type": "->",
+                "args": [
+                    {
+                        "attributes": {},
+                        "request": {},
+                        "query": {},
+                        "server": {},
+                        "cookies": {},
+                        "headers": {}
+                    }
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/web\/Dev.php",
+                "line": 62,
+                "function": "start",
+                "class": "iumioFramework\\Core\\Base\\Dev",
+                "type": "::",
+                "args": []
+            }
+        ],
+        "uri": "\/Dev.php\/index",
+        "referer": "http:\/\/iumio.framework.in:8888\/setup\/setup2.php"
+    },
+    "51": {
+        "uidie": "4yOwgXido9b0",
+        "time": {
+            "date": "2017-10-23 12:29:57.504984",
+            "timezone_type": 3,
+            "timezone": "Europe\/Paris"
+        },
+        "client_ip": "::1",
+        "code": 200,
+        "code_title": "OK",
+        "explain": "OK",
+        "solution": "OK",
+        "method": "GET",
+        "trace": [
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/apps\/AppCore.php",
+                "line": 71,
+                "function": "dispatching",
+                "class": "iumioFramework\\Core\\Requirement\\FrameworkCore",
+                "type": "->",
+                "args": [
+                    {
+                        "attributes": {},
+                        "request": {},
+                        "query": {},
+                        "server": {},
+                        "cookies": {},
+                        "headers": {}
+                    }
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/web\/Dev.php",
+                "line": 54,
+                "function": "dispatch",
+                "class": "iumioFramework\\Apps\\AppCore",
+                "type": "->",
+                "args": [
+                    {
+                        "attributes": {},
+                        "request": {},
+                        "query": {},
+                        "server": {},
+                        "cookies": {},
+                        "headers": {}
+                    }
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/web\/Dev.php",
+                "line": 62,
+                "function": "start",
+                "class": "iumioFramework\\Core\\Base\\Dev",
+                "type": "::",
+                "args": []
+            }
+        ],
+        "uri": "\/Dev.php\/index",
+        "referer": "http:\/\/iumio.framework.in:8888\/setup\/setup.php"
+    },
+    "52": {
+        "uidie": "S27mY53A5O9W",
+        "time": {
+            "date": "2017-10-23 12:29:58.584036",
+            "timezone_type": 3,
+            "timezone": "Europe\/Paris"
+        },
+        "client_ip": "::1",
+        "code": 200,
+        "code_title": "OK",
+        "explain": "OK",
+        "solution": "OK",
+        "method": "GET",
+        "trace": [
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/apps\/AppCore.php",
+                "line": 71,
+                "function": "dispatching",
+                "class": "iumioFramework\\Core\\Requirement\\FrameworkCore",
+                "type": "->",
+                "args": [
+                    {
+                        "attributes": {},
+                        "request": {},
+                        "query": {},
+                        "server": {},
+                        "cookies": {},
+                        "headers": {}
+                    }
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/web\/Dev.php",
+                "line": 54,
+                "function": "dispatch",
+                "class": "iumioFramework\\Apps\\AppCore",
+                "type": "->",
+                "args": [
+                    {
+                        "attributes": {},
+                        "request": {},
+                        "query": {},
+                        "server": {},
+                        "cookies": {},
+                        "headers": {}
+                    }
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/web\/Dev.php",
+                "line": 62,
+                "function": "start",
+                "class": "iumioFramework\\Core\\Base\\Dev",
+                "type": "::",
+                "args": []
+            }
+        ],
+        "uri": "\/Dev.php\/index",
+        "referer": "http:\/\/iumio.framework.in:8888\/setup\/setup.php"
+    },
+    "53": {
+        "uidie": "s118SnCxIXFS",
+        "time": {
+            "date": "2017-10-23 12:31:55.379861",
+            "timezone_type": 3,
+            "timezone": "Europe\/Paris"
+        },
+        "client_ip": "::1",
+        "code": 200,
+        "code_title": "OK",
+        "explain": "OK",
+        "solution": "OK",
+        "method": "GET",
+        "trace": [
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/apps\/AppCore.php",
+                "line": 71,
+                "function": "dispatching",
+                "class": "iumioFramework\\Core\\Requirement\\FrameworkCore",
+                "type": "->",
+                "args": [
+                    {
+                        "attributes": {},
+                        "request": {},
+                        "query": {},
+                        "server": {},
+                        "cookies": {},
+                        "headers": {}
+                    }
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/web\/Dev.php",
+                "line": 54,
+                "function": "dispatch",
+                "class": "iumioFramework\\Apps\\AppCore",
+                "type": "->",
+                "args": [
+                    {
+                        "attributes": {},
+                        "request": {},
+                        "query": {},
+                        "server": {},
+                        "cookies": {},
+                        "headers": {}
+                    }
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/web\/Dev.php",
+                "line": 62,
+                "function": "start",
+                "class": "iumioFramework\\Core\\Base\\Dev",
+                "type": "::",
+                "args": []
+            }
+        ],
+        "uri": "\/Dev.php\/index",
+        "referer": "http:\/\/iumio.framework.in:8888\/setup\/setup.php"
+    },
+    "54": {
+        "uidie": "Q1IU7TEcABui",
+        "time": {
+            "date": "2017-10-23 12:31:55.879334",
+            "timezone_type": 3,
+            "timezone": "Europe\/Paris"
+        },
+        "client_ip": "::1",
+        "code": 200,
+        "code_title": "OK",
+        "explain": "OK",
+        "solution": "OK",
+        "method": "GET",
+        "trace": [
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/apps\/AppCore.php",
+                "line": 71,
+                "function": "dispatching",
+                "class": "iumioFramework\\Core\\Requirement\\FrameworkCore",
+                "type": "->",
+                "args": [
+                    {
+                        "attributes": {},
+                        "request": {},
+                        "query": {},
+                        "server": {},
+                        "cookies": {},
+                        "headers": {}
+                    }
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/web\/Dev.php",
+                "line": 54,
+                "function": "dispatch",
+                "class": "iumioFramework\\Apps\\AppCore",
+                "type": "->",
+                "args": [
+                    {
+                        "attributes": {},
+                        "request": {},
+                        "query": {},
+                        "server": {},
+                        "cookies": {},
+                        "headers": {}
+                    }
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/web\/Dev.php",
+                "line": 62,
+                "function": "start",
+                "class": "iumioFramework\\Core\\Base\\Dev",
+                "type": "::",
+                "args": []
+            }
+        ],
+        "uri": "\/Dev.php\/index",
+        "referer": "http:\/\/iumio.framework.in:8888\/setup\/setup.php"
+    },
+    "55": {
+        "uidie": "rRSkqkzBd0Ik",
+        "time": {
+            "date": "2017-10-23 12:36:03.175383",
+            "timezone_type": 3,
+            "timezone": "Europe\/Paris"
+        },
+        "client_ip": "::1",
+        "code": 200,
+        "code_title": "OK",
+        "explain": "OK",
+        "solution": "OK",
+        "method": "GET",
+        "trace": [
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/apps\/AppCore.php",
+                "line": 71,
+                "function": "dispatching",
+                "class": "iumioFramework\\Core\\Requirement\\FrameworkCore",
+                "type": "->",
+                "args": [
+                    {
+                        "attributes": {},
+                        "request": {},
+                        "query": {},
+                        "server": {},
+                        "cookies": {},
+                        "headers": {}
+                    }
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/web\/Dev.php",
+                "line": 54,
+                "function": "dispatch",
+                "class": "iumioFramework\\Apps\\AppCore",
+                "type": "->",
+                "args": [
+                    {
+                        "attributes": {},
+                        "request": {},
+                        "query": {},
+                        "server": {},
+                        "cookies": {},
+                        "headers": {}
+                    }
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/web\/Dev.php",
+                "line": 62,
+                "function": "start",
+                "class": "iumioFramework\\Core\\Base\\Dev",
+                "type": "::",
+                "args": []
+            }
+        ],
+        "uri": "\/Dev.php\/index",
+        "referer": "http:\/\/iumio.framework.in:8888\/setup\/setup2.php"
+    },
+    "56": {
+        "uidie": "I29dyrBvhcCF",
+        "time": {
+            "date": "2017-10-23 12:36:04.381159",
+            "timezone_type": 3,
+            "timezone": "Europe\/Paris"
+        },
+        "client_ip": "::1",
+        "code": 200,
+        "code_title": "OK",
+        "explain": "OK",
+        "solution": "OK",
+        "method": "GET",
+        "trace": [
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/apps\/AppCore.php",
+                "line": 71,
+                "function": "dispatching",
+                "class": "iumioFramework\\Core\\Requirement\\FrameworkCore",
+                "type": "->",
+                "args": [
+                    {
+                        "attributes": {},
+                        "request": {},
+                        "query": {},
+                        "server": {},
+                        "cookies": {},
+                        "headers": {}
+                    }
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/web\/Dev.php",
+                "line": 54,
+                "function": "dispatch",
+                "class": "iumioFramework\\Apps\\AppCore",
+                "type": "->",
+                "args": [
+                    {
+                        "attributes": {},
+                        "request": {},
+                        "query": {},
+                        "server": {},
+                        "cookies": {},
+                        "headers": {}
+                    }
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/web\/Dev.php",
+                "line": 62,
+                "function": "start",
+                "class": "iumioFramework\\Core\\Base\\Dev",
+                "type": "::",
+                "args": []
+            }
+        ],
+        "uri": "\/Dev.php\/index",
+        "referer": "http:\/\/iumio.framework.in:8888\/setup\/setup2.php"
     }
 }

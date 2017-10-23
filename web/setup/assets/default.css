@@ -12,268 +12,88 @@
 
 
 
-.fountainG{
-    position:absolute;
-    top:0;
-    background-color:rgb(0,0,0);
-    width:28px;
-    height:28px;
-    animation-name:bounce_fountainG;
-    -o-animation-name:bounce_fountainG;
-    -ms-animation-name:bounce_fountainG;
-    -webkit-animation-name:bounce_fountainG;
-    -moz-animation-name:bounce_fountainG;
-    animation-duration:1.5s;
-    -o-animation-duration:1.5s;
-    -ms-animation-duration:1.5s;
-    -webkit-animation-duration:1.5s;
-    -moz-animation-duration:1.5s;
-    animation-iteration-count:infinite;
-    -o-animation-iteration-count:infinite;
-    -ms-animation-iteration-count:infinite;
-    -webkit-animation-iteration-count:infinite;
-    -moz-animation-iteration-count:infinite;
-    animation-direction:normal;
-    -o-animation-direction:normal;
-    -ms-animation-direction:normal;
-    -webkit-animation-direction:normal;
-    -moz-animation-direction:normal;
-    transform:scale(.3);
-    -o-transform:scale(.3);
-    -ms-transform:scale(.3);
-    -webkit-transform:scale(.3);
-    -moz-transform:scale(.3);
-    border-radius:19px;
-    -o-border-radius:19px;
-    -ms-border-radius:19px;
-    -webkit-border-radius:19px;
-    -moz-border-radius:19px;
+.body-mod {
+    margin: 0;
+    padding: 0;
+    perspective: 600px;
+    width: 100%;
+    font-family: 'Raleway', 'Helvetica Neue', ms-serif;
+    background: #24c6dc; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #24c6dc, #514a9d); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #24c6dc, #514a9d); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    margin-top: 50vh;
+    transform: translateY(-50%);
+
 }
 
-.step-title
+.requirements-list
 {
-    padding-bottom: 25px;
-}
-
-#fountainG_1{
-    left:0;
-    animation-delay:0.6s;
-    -o-animation-delay:0.6s;
-    -ms-animation-delay:0.6s;
-    -webkit-animation-delay:0.6s;
-    -moz-animation-delay:0.6s;
-}
-
-.page
-{
-    background: url('assets/iumio_img_theme.jpeg') no-repeat center;
-}
-
-sp-circle-link {
-    position: absolute;
-    left: 46%;
-    bottom: 400px;
-    margin-left: -50px;
-    text-align: center;
-    line-height: 100px;
-    width: 200px;
-    height: 100px;
-    background-color: rgba(93, 93, 93, 0.58);
-    font-size: 25px;
-    -webkit-border-radius: 50%;
-    -moz-border-radius: 50%;
-    border-radius: 0%;
-    color: white;
-    -webkit-animation: fadeInRotate 1s linear 2s backwards;
-    -moz-animation: fadeInRotate 1s linear 2s backwards;
-    -ms-animation: fadeInRotate 1s linear 2s backwards;
-    animation: fadeInRotate 1s linear 2s backwards;
-    -webkit-transform: scale(1) rotate(0deg);
-    -moz-transform: scale(1) rotate(0deg);
-    -o-transform: scale(1) rotate(0deg);
-    -ms-transform: scale(1) rotate(0deg);
-    transform: scale(1) rotate(0deg);
-
-    padding: 0px 30px;
-    border: none;
-    border-radius: 3px;
-    font-size: 17px;
-    font-weight: 400;
-    white-space: normal;
-    letter-spacing: 0;
-    text-transform: uppercase;
-    -webkit-transition: background-color 0.2s cubic-bezier(0.4,0,0.2,1),-webkit-box-shadow 0.2s cubic-bezier(0.4,0,1,1);
-    transition: box-shadow 0.2s cubic-bezier(0.4,0,1,1),background-color 0.2s cubic-bezier(0.4,0,0.2,1),-webkit-box-shadow 0.2s cubic-bezier(0.4,0,1,1);
-    will-change: box-shadow,transform;
-}
-
-.mbutton
-{
-    text-align: center;
-    /* line-height: 10px; */
-    padding: 20px 20px 20px 20px!important;
-    border: 1px solid white!important;
-    margin-top: 25px!important;
-    background-color: transparent;
-    text-decoration: none;
-    -webkit-animation: blurFadeIn 1s linear 1s backwards;
-    -moz-animation: blurFadeIn 1s linear 1s backwards;
-    -ms-animation: blurFadeIn 1s linear 1s backwards;
-    animation: blurFadeIn 1s linear 1s backwards;
-    -webkit-transform: scale(1) rotate(0deg);
-    -moz-transform: scale(1) rotate(0deg);
-    -o-transform: scale(1) rotate(0deg);
-    -ms-transform: scale(1) rotate(0deg);
-    transform: scale(1) rotate(0deg);
-    padding: 0px 30px;
-    border: none;
-    font-size: 17px;
-    color: white;
-    font-weight: 500;
-    white-space: normal;
-    letter-spacing: 0;
-    -webkit-transition: background-color 0.2s cubic-bezier(0.4,0,0.2,1),-webkit-box-shadow 0.2s cubic-bezier(0.4,0,1,1);
-    transition: box-shadow 0.2s cubic-bezier(0.4,0,1,1),background-color 0.2s cubic-bezier(0.4,0,0.2,1),-webkit-box-shadow 0.2s cubic-bezier(0.4,0,1,1);
-    will-change: box-shadow,transform;
-}
-
-.mbutton:hover
-{
-    color: #4b5764;
-    background-color: white;
-}
-
-#textd
-{
-    -webkit-animation: blurFadeIn 1s linear 1s backwards;
-    -moz-animation: blurFadeIn 1s linear 1s backwards;
-    -ms-animation: blurFadeIn 1s linear 1s backwards;
-    animation: blurFadeIn 1s linear 1s backwards;
-    -webkit-transform: scale(1) rotate(0deg);
-    -moz-transform: scale(1) rotate(0deg);
-    -o-transform: scale(1) rotate(0deg);
-    -ms-transform: scale(1) rotate(0deg);
-    transform: scale(1) rotate(0deg);
+    width: 100%;
 }
 
 .error
 {
-    color: rgba(216, 16, 16, 0.84);
-    padding-left: 20px;
+    padding: 10px 10px 10px 10px;
 }
 
-.mbutton:hover
+#iumio-components
 {
-    cursor: pointer;
+    width: 700px;
+     margin: 0 auto;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    -webkit-animation: blurFadeIn 1s linear 1s backwards;
+    -moz-animation: blurFadeIn 1s linear 1s backwards;
+    -ms-animation: blurFadeIn 1s linear 1s backwards;
+    animation: blurFadeIn 1s linear 1s backwards;
+    -webkit-transform: scale(1) rotate(0deg);
+    -moz-transform: scale(1) rotate(0deg);
+    -o-transform: scale(1) rotate(0deg);
+    -ms-transform: scale(1) rotate(0deg);
+    transform: scale(1) rotate(0deg);
+    -webkit-transition: background-color 0.2s cubic-bezier(0.4,0,0.2,1),-webkit-box-shadow 0.2s cubic-bezier(0.4,0,1,1);
+    transition: box-shadow 0.2s cubic-bezier(0.4,0,1,1),background-color 0.2s cubic-bezier(0.4,0,0.2,1),-webkit-box-shadow 0.2s cubic-bezier(0.4,0,1,1);
+    will-change: box-shadow,transform;
 }
 
-body {
-    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#b5bdc8+0,828c95+36,28343b+100;Grey+Black+3D */
-    background: rgb(181,189,200); /* Old browsers */
-    background: -moz-linear-gradient(top, rgba(181,189,200,1) 0%, rgba(130,140,149,1) 36%, rgba(40,52,59,1) 100%); /* FF3.6-15 */
-    background: -webkit-linear-gradient(top, rgba(181,189,200,1) 0%,rgba(130,140,149,1) 36%,rgba(40,52,59,1) 100%); /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(to bottom, rgba(181,189,200,1) 0%,rgba(130,140,149,1) 36%,rgba(40,52,59,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b5bdc8', endColorstr='#28343b',GradientType=0 ); /* IE6-9 */
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    text-align: center;
-    font-family: 'Open Sans', sans-serif;
-    color: #fff;
-    margin: 0px;
-}
-
-.page {
-    margin: 0px 0
-}
-
-.page:after {
-    content: "";
-    display: table;
-    clear: both;
-}
-
-.frame-1
-{
-    border-bottom: 2px solid rgba(140, 136, 136, 0.57);
-    padding-bottom: 14px;
-}
-
-.licence
-{
-    width: 90%;
-    margin: auto;
-    overflow: auto;
-    height: 400px;
-    overflow-y: visible;
-    border-bottom: 1px solid white;
-    padding-bottom: 10px;
-}
-
-.licence::-webkit-scrollbar {
-    -webkit-appearance: none;
-    width: 7px;
-}
-
-.step6 h3
-{
-    text-align: left;
-    padding-left: 20px;
-    padding-top: 25px;
-    font-size: 26px;
-}
-
-
-.licence::-webkit-scrollbar-thumb {
-    border-radius: 4px;
-    background-color: rgba(0, 0, 0, .5);
-    -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, .5);
-}
-.wrapper {
-    margin: 0 auto;
-    position: relative;
-    width: 100%;
-    min-height: 600px;
-}
-
-.content-wrapper {
-    float: right;
-    width: 100%;
-}
-
-.step-content
-{
-    /*height: 100vh;*/
-}
-
-.content-middle
-{
-    margin-top: 43vh;
-    transform: translateY(-43%);
-}
-
-
-
-.content {
-    margin-left: 320px;
-    clear: both;
-    overflow: auto;
-    background: rgba(0, 0, 0, 0.62);
-    min-height: 100vh;
-}
 
 .sidebar {
-    position: relative;
-    width: 320px;
-    margin-right: -321px;
-    float: right;
-    overflow: hidden;
-    background: #2c3e50;
-    background: rgba(0, 0, 0, 0.62);
-    color: #eee;
-    min-height: 100vh;
-    border-right: 1px solid rgba(140, 136, 136, 0.57);
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    padding: 0px;
+    padding-left: 0;
+    padding-right: 0;
+    z-index: 1000;
+    overflow-x: hidden;
+    overflow-y: auto;
+    border-right: 1px solid #eee;
+}
+
+
+.sidebar h1 {
+    color: #fff;
+    border: none;
+    font-size: 0.9rem;
+    padding: 0rem 1rem;
+    text-transform: uppercase;
+    letter-spacing: .2rem;
+}
+
+.img-logo-iumio-thumb
+{
+    background-color: transparent!important;
+    border: 0px !important;
+    border-radius: 0px!important;
+}
+
+.padd-bg
+{
+    padding-top: 14px;
+    padding-bottom: 1px;
 }
 
 .hidden-step
@@ -281,336 +101,110 @@ body {
     display: none;
 }
 
-a{
-    display: block;
-    text-align:center;
-    margin: 10px auto;
-    width: 100%;
-    color: #2c3e50;
-}
-
-.header
+.content-iumio-installer
 {
-    width: 100%;
+    margin-top: 7vh; /* poussé de la moitié de hauteur de viewport */
+    /*transform: translateY(-50%); /* tiré de la moitié de sa propre hauteur */
 }
 
-.iumiomg
+
+
+.progress-md
 {
-    width: 150px;
+    height: 8px;
+    border-radius: 0px;
 }
 
-.blkimgiumio
+* {
+    font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+}
+
+h1
 {
-    width:320px;
-    height: 50px;
-    padding-top: 5px;
-    padding-bottom: 7px;
-    border-bottom: 2px solid rgba(140, 136, 136, 0.57);
-    padding: 18px 0px 20px 0px!important;
+    font-size: 2.4rem;
+    font-weight: 600;
+
 }
 
-.frame-1
+.hidden
 {
-    padding: 20px 0px 20px 0px!important;
+    display: none!important;
 }
 
-
-.step-active:before
+.header-text-iumio
 {
-    content: '\2192   ';
+   padding:  0px 20px 10px 20px
 }
 
-.step-active:after
+.sidebar-nav .nav-item em
 {
-    content: ' \2190' ;
+    padding-right: 20px;
 }
 
-.step-valid:after
+.nav-link:hover
 {
-    content: ' \221A';
-}
-
-@media only screen and (max-width: 768px) {
-    .sidebar {
-        display: none;
-    }
-    .content {
-        margin-left: 0;
-    }
-}
-/**/
-@-webkit-keyframes blurFadeInOut{
-    0%{
-        opacity: 0;
-        text-shadow: 0px 0px 40px #fff;
-        -webkit-transform: scale(1.3);
-    }
-    20%,75%{
-        opacity: 1;
-        text-shadow: 0px 0px 1px #fff;
-        -webkit-transform: scale(1);
-    }
-    100%{
-        opacity: 0;
-        text-shadow: 0px 0px 50px #fff;
-        -webkit-transform: scale(0);
-    }
-}
-@-webkit-keyframes blurFadeIn{
-    0%{
-        opacity: 0;
-        text-shadow: 0px 0px 40px #fff;
-        -webkit-transform: scale(1.3);
-    }
-    50%{
-        opacity: 0.5;
-        text-shadow: 0px 0px 10px #fff;
-        -webkit-transform: scale(1.1);
-    }
-    100%{
-        opacity: 1;
-        text-shadow: 0px 0px 1px #fff;
-        -webkit-transform: scale(1);
-    }
-}
-@-webkit-keyframes fadeInBack{
-    0%{
-        opacity: 0;
-        -webkit-transform: scale(0);
-    }
-    50%{
-        opacity: 0.4;
-        -webkit-transform: scale(2);
-    }
-    100%{
-        opacity: 0.2;
-        -webkit-transform: scale(5);
-    }
-}
-@-webkit-keyframes fadeInRotate{
-    0%{
-        opacity: 0;
-        -webkit-transform: scale(0) rotate(360deg);
-    }
-    100%{
-        opacity: 1;
-        -webkit-transform: scale(1) rotate(0deg);
-    }
-}
-
-@-moz-keyframes blurFadeInOut{
-    0%{
-        opacity: 0;
-        text-shadow: 0px 0px 40px #fff;
-        -moz-transform: scale(1.3);
-    }
-    20%,75%{
-        opacity: 1;
-        text-shadow: 0px 0px 1px #fff;
-        -moz-transform: scale(1);
-    }
-    100%{
-        opacity: 0;
-        text-shadow: 0px 0px 50px #fff;
-        -moz-transform: scale(0);
-    }
-}
-@-moz-keyframes blurFadeIn{
-    0%{
-        opacity: 0;
-        text-shadow: 0px 0px 40px #fff;
-        -moz-transform: scale(1.3);
-    }
-    100%{
-        opacity: 1;
-        text-shadow: 0px 0px 1px #fff;
-        -moz-transform: scale(1);
-    }
-}
-@-moz-keyframes fadeInBack{
-    0%{
-        opacity: 0;
-        -moz-transform: scale(0);
-    }
-    50%{
-        opacity: 0.4;
-        -moz-transform: scale(2);
-    }
-    100%{
-        opacity: 0.2;
-        -moz-transform: scale(5);
-    }
-}
-@-moz-keyframes fadeInRotate{
-    0%{
-        opacity: 0;
-        -moz-transform: scale(0) rotate(360deg);
-    }
-    100%{
-        opacity: 1;
-        -moz-transform: scale(1) rotate(0deg);
-    }
-}
-
-@keyframes blurFadeInOut{
-    0%{
-        opacity: 0;
-        text-shadow: 0px 0px 40px #fff;
-        transform: scale(1.3);
-    }
-    20%,75%{
-        opacity: 1;
-        text-shadow: 0px 0px 1px #fff;
-        transform: scale(1);
-    }
-    100%{
-        opacity: 0;
-        text-shadow: 0px 0px 50px #fff;
-        transform: scale(0);
-    }
-}
-@keyframes blurFadeIn{
-    0%{
-        opacity: 0;
-        text-shadow: 0px 0px 40px #fff;
-        transform: scale(1.3);
-    }
-    50%{
-        opacity: 0.5;
-        text-shadow: 0px 0px 10px #fff;
-        transform: scale(1.1);
-    }
-    100%{
-        opacity: 1;
-        text-shadow: 0px 0px 1px #fff;
-        transform: scale(1);
-    }
-}
-@keyframes fadeInBack{
-    0%{
-        opacity: 0;
-        transform: scale(0);
-    }
-    50%{
-        opacity: 0.4;
-        transform: scale(2);
-    }
-    100%{
-        opacity: 0.2;
-        transform: scale(5);
-    }
-}
-@keyframes bounce_fountainG{
-    0%{
-        transform:scale(1);
-        background-color:rgb(0,0,0);
-    }
-
-    100%{
-        transform:scale(.3);
-        background-color:rgb(255,255,255);
-    }
-}
-
-@-o-keyframes bounce_fountainG{
-    0%{
-        -o-transform:scale(1);
-        background-color:rgb(0,0,0);
-    }
-
-    100%{
-        -o-transform:scale(.3);
-        background-color:rgb(255,255,255);
-    }
-}
-
-@-ms-keyframes bounce_fountainG{
-    0%{
-        -ms-transform:scale(1);
-        background-color:rgb(0,0,0);
-    }
-
-    100%{
-        -ms-transform:scale(.3);
-        background-color:rgb(255,255,255);
-    }
-}
-
-@-webkit-keyframes bounce_fountainG{
-    0%{
-        -webkit-transform:scale(1);
-        background-color:rgb(0,0,0);
-    }
-
-    100%{
-        -webkit-transform:scale(.3);
-        background-color:rgb(255,255,255);
-    }
-}
-
-@-moz-keyframes bounce_fountainG{
-    0%{
-        -moz-transform:scale(1);
-        background-color:rgb(0,0,0);
-    }
-
-    100%{
-        -moz-transform:scale(.3);
-        background-color:rgb(255,255,255);
-    }
-}
-
-
-button#accept, button#decline, button#retrys3, button#continues3, button#continues4, button#no5, button#yes5, button#cancelfinal, button#create, button#retryinstallation {
-    width: 220px;
     color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
+    background-color: rgba(42, 142, 228, 0.39);
 }
 
-button#retrys3, button#continues3 {
-    margin: auto;
-}
-
-button#accept, button#continues3, button#continues4, button#yes5, button#create {
-    background-color: #3ece3e;
-}
-
-button#decline, button#accept
+.nav-sidebar
 {
-    display: inline-block;
-    width: 220px;
-}
-button#decline, button#retrys3, button#no5, button#cancelfinal, button#retryinstallation {
-    background-color: #dc3a35;
+    background-color: rgba(48, 89, 162, 0.72);
+    height:100%;
 }
 
-input[type=submit]:hover {
-    background-color: #45a049;
+.img-logo-iumio
+{
+    position: relative;
+    top: 20px;
+    left: -9px;
+    width: 205px!important;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-input[type=text] {
-    width: 50%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    box-sizing: border-box;
+.nav-sidebar .nav-item:first-child
+{
+    margin-top: 50px;
 }
+.active
+{
+    background-color: white!important;
+    color:black!important;
+    border-radius: 0px!important;
+}
+
+.nav-link
+{
+    color: white;
+    font-size: 20px;
+    padding: 20px 0px 20px 20px;
+}
+.iumio-theme
+{
+
+    background-size: contain;
+    background-position: center center;
+    background: url('iumio_img_theme.jpeg') no-repeat center;
+
+}
+
 
 /* Custom Code Here */
 .check input {
     display: none;
 }
 
-.fa-check:before {
-    content: "\221A";
+.fa-check-md:before
+{
+    color:white!important;
 }
+
 .check input:checked + label .box {
     -webkit-animation: animOn 0.8s 1 forwards;
     animation: animOn 0.8s 1 forwards;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgb(65, 95, 155);
 }
 .check input:checked + label .box i {
     -webkit-transform: translate(-50%, -50%) scale(1);
@@ -623,13 +217,13 @@ input[type=text] {
 .sentence-accept-terms, .check-terms
 {
     display: inline-block;
-    padding-bottom: 40px;
+    /*padding-bottom: 40px;*/
 }
 
 .sentence-accept-terms
 {
     position: relative;
-    bottom: 20px;
+    top:17px;
 }
 
 .check label {
@@ -654,8 +248,8 @@ input[type=text] {
     background: rgba(0, 0, 0, 0.3);
     border-radius: 5px;
     position: relative;
-    width: 50px;
-    height: 50px;
+    width: 30px;
+    height: 30px;
     -webkit-transition: background 300ms ease;
     transition: background 300ms ease;
 }
@@ -678,10 +272,12 @@ input[type=text] {
     transform: translate(-50%, -50%) scale(6);
 }
 
-#s1, #s2, #s3, #s4, #s5, #s6, #s7, #s8
+
+.nav-link i
 {
-    font-size: 20px;
+    padding-left: 10px;
 }
+
 
 @-webkit-keyframes animOn {
     40% {
@@ -729,161 +325,81 @@ input[type=text] {
     }
 }
 
-.requirements-list
+
+
+
+
+@-webkit-keyframes blurFadeIn{
+    0%{
+        opacity: 0;
+        text-shadow: 0px 0px 40px #fff;
+        -webkit-transform: scale(1.3);
+    }
+    50%{
+        opacity: 0.5;
+        text-shadow: 0px 0px 10px #fff;
+        -webkit-transform: scale(1.1);
+    }
+    100%{
+        opacity: 1;
+        text-shadow: 0px 0px 1px #fff;
+        -webkit-transform: scale(1);
+    }
+}
+
+
+
+@-moz-keyframes blurFadeIn{
+    0%{
+        opacity: 0;
+        text-shadow: 0px 0px 40px #fff;
+        -moz-transform: scale(1.3);
+    }
+    100%{
+        opacity: 1;
+        text-shadow: 0px 0px 1px #fff;
+        -moz-transform: scale(1);
+    }
+}
+
+
+@keyframes blurFadeIn{
+    0%{
+        opacity: 0;
+        text-shadow: 0px 0px 40px #fff;
+        transform: scale(1.3);
+    }
+    50%{
+        opacity: 0.5;
+        text-shadow: 0px 0px 10px #fff;
+        transform: scale(1.1);
+    }
+    100%{
+        opacity: 1;
+        text-shadow: 0px 0px 1px #fff;
+        transform: scale(1);
+    }
+}
+
+
+
+
+@media (min-width: 992px)
 {
-    list-style: disc;
-    text-align: left;
+    .col-lg-iumio-installer {
+        -ms-flex: 0 0 11.333333%!important;
+        flex: 0 0 11.333333%!important;
+        max-width: 11.333333%!important;
+    }
 }
 
-.requirements-list li
+
+@media (min-width: 576px)
 {
-    font-size: 25px;
-}
 
-.red-color
-{
-    color: #dc3a35;
-}
-
-.yellow-color
-{
-    color: #fff80e
-}
-
-.link
-{
-    cursor: pointer;
-    display: inline;
-    padding-top: 10px;
-}
-
-#betastage
-{
-    display: none;
-    font-size: 18px;
-    font-weight: 800;
-}
-
-.infoF
-{
-    font-size: 17px!important;
-    font-weight: 700!important;
-}
-
-
-#fountainG{
-    position:relative;
-    width:234px;
-    height:28px;
-    margin:auto;
-}
-
-
-
-#fountainG_2{
-    left:29px;
-    animation-delay:0.75s;
-    -o-animation-delay:0.75s;
-    -ms-animation-delay:0.75s;
-    -webkit-animation-delay:0.75s;
-    -moz-animation-delay:0.75s;
-}
-
-#fountainG_3{
-    left:58px;
-    animation-delay:0.9s;
-    -o-animation-delay:0.9s;
-    -ms-animation-delay:0.9s;
-    -webkit-animation-delay:0.9s;
-    -moz-animation-delay:0.9s;
-}
-
-#fountainG_4{
-    left:88px;
-    animation-delay:1.05s;
-    -o-animation-delay:1.05s;
-    -ms-animation-delay:1.05s;
-    -webkit-animation-delay:1.05s;
-    -moz-animation-delay:1.05s;
-}
-
-.frame-1 span
-{
-    position: relative;
-    bottom: 9px;
-}
-
-#fountainG_5{
-    left:117px;
-    animation-delay:1.2s;
-    -o-animation-delay:1.2s;
-    -ms-animation-delay:1.2s;
-    -webkit-animation-delay:1.2s;
-    -moz-animation-delay:1.2s;
-}
-
-#fountainG_6{
-    left:146px;
-    animation-delay:1.35s;
-    -o-animation-delay:1.35s;
-    -ms-animation-delay:1.35s;
-    -webkit-animation-delay:1.35s;
-    -moz-animation-delay:1.35s;
-}
-
-#fountainG_7{
-    left:175px;
-    animation-delay:1.5s;
-    -o-animation-delay:1.5s;
-    -ms-animation-delay:1.5s;
-    -webkit-animation-delay:1.5s;
-    -moz-animation-delay:1.5s;
-}
-
-#fountainG_8{
-    left:205px;
-    animation-delay:1.64s;
-    -o-animation-delay:1.64s;
-    -ms-animation-delay:1.64s;
-    -webkit-animation-delay:1.64s;
-    -moz-animation-delay:1.64s;
-}
-
-.components-word
-{
-    font-weight: 900;
-    font-size: 30px;
-    margin-left: -110px;
-
-    -webkit-animation: blurFadeIn 1s linear 1s backwards;
-    -moz-animation: blurFadeIn 1s linear 1s backwards;
-    -ms-animation: blurFadeIn 1s linear 1s backwards;
-    animation: blurFadeIn 1s linear 1s backwards;
-    -webkit-transform: scale(1) rotate(0deg);
-    -moz-transform: scale(1) rotate(0deg);
-    -o-transform: scale(1) rotate(0deg);
-    -ms-transform: scale(1) rotate(0deg);
-    transform: scale(1) rotate(0deg);
-    -webkit-transition: background-color 0.2s cubic-bezier(0.4,0,0.2,1),-webkit-box-shadow 0.2s cubic-bezier(0.4,0,1,1);
-    transition: box-shadow 0.2s cubic-bezier(0.4,0,1,1),background-color 0.2s cubic-bezier(0.4,0,0.2,1),-webkit-box-shadow 0.2s cubic-bezier(0.4,0,1,1);
-    will-change: box-shadow,transform;
-}
-
-#iumio-components
-{
-    width: 50%;
-    display: inline;
-
-    -webkit-animation: blurFadeIn 1s linear 1s backwards;
-    -moz-animation: blurFadeIn 1s linear 1s backwards;
-    -ms-animation: blurFadeIn 1s linear 1s backwards;
-    animation: blurFadeIn 1s linear 1s backwards;
-    -webkit-transform: scale(1) rotate(0deg);
-    -moz-transform: scale(1) rotate(0deg);
-    -o-transform: scale(1) rotate(0deg);
-    -ms-transform: scale(1) rotate(0deg);
-    transform: scale(1) rotate(0deg);
-    -webkit-transition: background-color 0.2s cubic-bezier(0.4,0,0.2,1),-webkit-box-shadow 0.2s cubic-bezier(0.4,0,1,1);
-    transition: box-shadow 0.2s cubic-bezier(0.4,0,1,1),background-color 0.2s cubic-bezier(0.4,0,0.2,1),-webkit-box-shadow 0.2s cubic-bezier(0.4,0,1,1);
-    will-change: box-shadow,transform;
+    .col-sm-iumio-installer {
+        -ms-flex: 0 0 11.333333%!important;
+        flex: 0 0 11.333333%!important;
+        max-width: 11.333333%!important;
+    }
 }

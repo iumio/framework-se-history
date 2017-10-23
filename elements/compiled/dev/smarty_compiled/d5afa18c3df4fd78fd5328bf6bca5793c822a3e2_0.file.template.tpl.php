@@ -1,3 +1,29 @@
+<?php
+/* Smarty version 3.1.31, created on 2017-10-23 12:36:04
+  from "/Applications/MAMP/htdocs/iumio-framework/apps/TesterApp/Front/views/template.tpl" */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '3.1.31',
+  'unifunc' => 'content_59edc61447ce15_50560498',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    'd5afa18c3df4fd78fd5328bf6bca5793c822a3e2' => 
+    array (
+      0 => '/Applications/MAMP/htdocs/iumio-framework/apps/TesterApp/Front/views/template.tpl',
+      1 => 1508754954,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+  ),
+),false)) {
+function content_59edc61447ce15_50560498 (Smarty_Internal_Template $_smarty_tpl) {
+$_smarty_tpl->_loadInheritance();
+$_smarty_tpl->inheritance->init($_smarty_tpl, false);
+?>
 <!DOCTYPE HTML>
 <!--
 	iumio Starter by TEMPLATED
@@ -9,9 +35,11 @@
     <title>iumio Starter Theme</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    {*webassets*}
-    <link rel="stylesheet" href="{webassets path='public/css/index.css' }" />
-    {fawesome_css min="yes"}
+    
+    <link rel="stylesheet" href="<?php echo iumioFramework\Core\Additionnal\Template\ViewBasePlugin::webassets(array('path'=>'public/css/index.css'),$_smarty_tpl);?>
+" />
+    <?php echo iumioFramework\Core\Additionnal\Template\ViewBasePlugin::fontawesomecss(array('min'=>"yes"),$_smarty_tpl);?>
+
 </head>
 
 <body>
@@ -30,11 +58,13 @@
 </header>
 
 <!-- Banner -->
-<section id="banner" style="background-image: url('{webassets path='public/images/banner.jpg'}');">
+<section id="banner" style="background-image: url('<?php echo iumioFramework\Core\Additionnal\Template\ViewBasePlugin::webassets(array('path'=>'public/images/banner.jpg'),$_smarty_tpl);?>
+');">
     <h1>Welcome to iumio Starter </h1>
-    {block name="parameters"}
-        <p>Your parameter is {$sent} </p>
-    {/block}
+    <?php 
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_72862302959edc61219bcc0_58983171', "parameters");
+?>
+
 
 </section>
 
@@ -83,28 +113,32 @@
         <div class="flex flex-4">
             <div class="box person">
                 <div class="image round">
-                    <img src="{webassets path='public/images/pic03.jpg'}" alt="Person 1" />
+                    <img src="<?php echo iumioFramework\Core\Additionnal\Template\ViewBasePlugin::webassets(array('path'=>'public/images/pic03.jpg'),$_smarty_tpl);?>
+" alt="Person 1" />
                 </div>
                 <h3>Magna</h3>
                 <p>Cipdum dolor</p>
             </div>
             <div class="box person">
                 <div class="image round">
-                    <img src="{webassets path='public/images/pic04.jpg'}" alt="Person 2" />
+                    <img src="<?php echo iumioFramework\Core\Additionnal\Template\ViewBasePlugin::webassets(array('path'=>'public/images/pic04.jpg'),$_smarty_tpl);?>
+" alt="Person 2" />
                 </div>
                 <h3>Ipsum</h3>
                 <p>Vestibulum comm</p>
             </div>
             <div class="box person">
                 <div class="image round">
-                    <img src="{webassets path='public/images/pic05.jpg'}" alt="Person 3" />
+                    <img src="<?php echo iumioFramework\Core\Additionnal\Template\ViewBasePlugin::webassets(array('path'=>'public/images/pic05.jpg'),$_smarty_tpl);?>
+" alt="Person 3" />
                 </div>
                 <h3>Tempus</h3>
                 <p>Fusce pellentes</p>
             </div>
             <div class="box person">
                 <div class="image round">
-                    <img src="{webassets path='public/images/pic06.jpg'}" alt="Person 4" />
+                    <img src="<?php echo iumioFramework\Core\Additionnal\Template\ViewBasePlugin::webassets(array('path'=>'public/images/pic06.jpg'),$_smarty_tpl);?>
+" alt="Person 4" />
                 </div>
                 <h3>Dolore</h3>
                 <p>Praesent placer</p>
@@ -123,7 +157,8 @@
         <div class="flex flex-2">
             <article>
                 <div class="image fit">
-                    <img src="{webassets path='public/images/pic01.jpg'}" alt="Pic 01" />
+                    <img src="<?php echo iumioFramework\Core\Additionnal\Template\ViewBasePlugin::webassets(array('path'=>'public/images/pic01.jpg'),$_smarty_tpl);?>
+" alt="Pic 01" />
                 </div>
                 <header>
                     <h3>Praesent placerat magna</h3>
@@ -135,7 +170,8 @@
             </article>
             <article>
                 <div class="image fit">
-                    <img src="{webassets path='public/images/pic02.jpg'}" alt="Pic 02" />
+                    <img src="<?php echo iumioFramework\Core\Additionnal\Template\ViewBasePlugin::webassets(array('path'=>'public/images/pic02.jpg'),$_smarty_tpl);?>
+" alt="Pic 02" />
                 </div>
                 <header>
                     <h3>Fusce pellentesque tempus</h3>
@@ -168,12 +204,37 @@
 </footer>
 
 <!-- Scripts -->
-{jquery}
-{skel}
-{util}
-<script src="{webassets path='public/js/main.js'}"></script>
+<?php echo iumioFramework\Core\Additionnal\Template\ViewBasePlugin::jquery(array(),$_smarty_tpl);?>
+
+<?php echo iumioFramework\Core\Additionnal\Template\ViewBasePlugin::skel(array(),$_smarty_tpl);?>
+
+<?php echo iumioFramework\Core\Additionnal\Template\ViewBasePlugin::util(array(),$_smarty_tpl);?>
+
+<?php echo '<script'; ?>
+ src="<?php echo iumioFramework\Core\Additionnal\Template\ViewBasePlugin::webassets(array('path'=>'public/js/main.js'),$_smarty_tpl);?>
+"><?php echo '</script'; ?>
+>
 
 
 
 </body>
-</html>
+</html><?php }
+/* {block "parameters"} */
+class Block_72862302959edc61219bcc0_58983171 extends Smarty_Internal_Block
+{
+public $subBlocks = array (
+  'parameters' => 
+  array (
+    0 => 'Block_72862302959edc61219bcc0_58983171',
+  ),
+);
+public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
+?>
+
+        <p>Your parameter is <?php echo $_smarty_tpl->tpl_vars['sent']->value;?>
+ </p>
+    <?php
+}
+}
+/* {/block "parameters"} */
+}

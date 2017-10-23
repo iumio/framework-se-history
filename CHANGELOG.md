@@ -22,6 +22,7 @@ iumio Framework
 ### Removed
 - Language installation
 - iumio Framework Life
+- Remove ex-iumio Installer
 
 
 

@@ -1,18 +1,1 @@
-{
-    "0": {
-        "name": "TestApp",
-        "enabled": "yes",
-        "prefix": "",
-        "class": "\\TestApp\\TestApp",
-        "creation": {
-            "date": "2017-10-23 07:26:35.342306",
-            "timezone_type": 3,
-            "timezone": "UTC"
-        },
-        "update": {
-            "date": "2017-10-23 07:26:35.342306",
-            "timezone_type": 3,
-            "timezone": "UTC"
-        }
-    }
-}
+{}
