@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.31, created on 2017-10-17 14:39:22
+/* Smarty version 3.1.31, created on 2017-10-22 22:01:08
   from "/Applications/MAMP/htdocs/iumio-framework/vendor/iumio_framework/php/BaseApps/ManagerApp/Front/views/partials/sidebar.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.31',
-  'unifunc' => 'content_59e5f9fa581111_61702763',
+  'unifunc' => 'content_59ecf9049bc0b5_99857095',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '4272bd7fa29d23e51bc8a3ce682dda047a1aa35c' => 
     array (
       0 => '/Applications/MAMP/htdocs/iumio-framework/vendor/iumio_framework/php/BaseApps/ManagerApp/Front/views/partials/sidebar.tpl',
-      1 => 1507555696,
+      1 => 1508520329,
       2 => 'file',
     ),
   ),
@@ -20,14 +20,14 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_59e5f9fa581111_61702763 (Smarty_Internal_Template $_smarty_tpl) {
+function content_59ecf9049bc0b5_99857095 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <div class="sidebar" data-color="blue" data-image="<?php echo iumioFramework\Core\Additionnal\Template\ViewBasePlugin::imgiumio(array('name'=>'iumio_img_theme.jpeg'),$_smarty_tpl);?>
 ">
 <div class="sidebar-wrapper">
     <div class="logo">
         <a href="https://framework.iumio.com" class="simple-text">
-            <img class="img-responsive" src="<?php echo iumioFramework\Core\Additionnal\Template\ViewBasePlugin::imgiumio(array('name'=>'logo_white.png'),$_smarty_tpl);?>
+            <img class="img-responsive img-responsive-iumio-framework" src="<?php echo iumioFramework\Core\Additionnal\Template\ViewBasePlugin::imgiumio(array('name'=>'iumio.logo.white.framework.png'),$_smarty_tpl);?>
 " />
             <h6>Manager</h6>
         </a>

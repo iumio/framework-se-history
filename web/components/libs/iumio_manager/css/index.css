@@ -252,6 +252,8 @@
 
 }
 
+
+
 .navbar-default.toggle-iumio-manager
 {
 margin-top: 5px!important;
@@ -281,6 +283,9 @@ margin-top: 5px!important;
     min-height: 10px!important;
 }
 
+.img-responsive-iumio-framework{
+    max-width: 90%!important;
+}
 /**********/
 
 

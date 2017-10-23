@@ -10,6 +10,7 @@ iumio Framework
 
 ## [0.6.0] - 2017-WW-WW
 ### Added
+- New design for iumio Installer
 
 ### Fixed
 - Bug with no rewrite url

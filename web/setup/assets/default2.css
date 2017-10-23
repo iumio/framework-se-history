@@ -1,0 +1,405 @@
+/*
+ *
+ *  * This is an iumio Framework component
+ *  *
+ *  * (c) RAFINA DANY <danyrafina@gmail.com>
+ *  *
+ *  * iumio Framework - iumio Components
+ *  *
+ *  * To get more information about licence, please check the licence file
+ *
+ */
+
+
+
+.body-mod {
+    margin: 0;
+    padding: 0;
+    perspective: 600px;
+    width: 100%;
+    font-family: 'Raleway', 'Helvetica Neue', ms-serif;
+    background: #24c6dc; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #24c6dc, #514a9d); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #24c6dc, #514a9d); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    margin-top: 50vh;
+    transform: translateY(-50%);
+
+}
+
+.requirements-list
+{
+    width: 100%;
+}
+
+.error
+{
+    padding: 10px 10px 10px 10px;
+}
+
+#iumio-components
+{
+    width: 700px;
+     margin: 0 auto;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    -webkit-animation: blurFadeIn 1s linear 1s backwards;
+    -moz-animation: blurFadeIn 1s linear 1s backwards;
+    -ms-animation: blurFadeIn 1s linear 1s backwards;
+    animation: blurFadeIn 1s linear 1s backwards;
+    -webkit-transform: scale(1) rotate(0deg);
+    -moz-transform: scale(1) rotate(0deg);
+    -o-transform: scale(1) rotate(0deg);
+    -ms-transform: scale(1) rotate(0deg);
+    transform: scale(1) rotate(0deg);
+    -webkit-transition: background-color 0.2s cubic-bezier(0.4,0,0.2,1),-webkit-box-shadow 0.2s cubic-bezier(0.4,0,1,1);
+    transition: box-shadow 0.2s cubic-bezier(0.4,0,1,1),background-color 0.2s cubic-bezier(0.4,0,0.2,1),-webkit-box-shadow 0.2s cubic-bezier(0.4,0,1,1);
+    will-change: box-shadow,transform;
+}
+
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    padding: 0px;
+    padding-left: 0;
+    padding-right: 0;
+    z-index: 1000;
+    overflow-x: hidden;
+    overflow-y: auto;
+    border-right: 1px solid #eee;
+}
+
+
+.sidebar h1 {
+    color: #fff;
+    border: none;
+    font-size: 0.9rem;
+    padding: 0rem 1rem;
+    text-transform: uppercase;
+    letter-spacing: .2rem;
+}
+
+.img-logo-iumio-thumb
+{
+    background-color: transparent!important;
+    border: 0px !important;
+    border-radius: 0px!important;
+}
+
+.padd-bg
+{
+    padding-top: 14px;
+    padding-bottom: 1px;
+}
+
+.hidden-step
+{
+    display: none;
+}
+
+.content-iumio-installer
+{
+    margin-top: 7vh; /* poussé de la moitié de hauteur de viewport */
+    /*transform: translateY(-50%); /* tiré de la moitié de sa propre hauteur */
+}
+
+
+
+.progress-md
+{
+    height: 8px;
+    border-radius: 0px;
+}
+
+* {
+    font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+}
+
+h1
+{
+    font-size: 2.4rem;
+    font-weight: 600;
+
+}
+
+.hidden
+{
+    display: none!important;
+}
+
+.header-text-iumio
+{
+   padding:  0px 20px 10px 20px
+}
+
+.sidebar-nav .nav-item em
+{
+    padding-right: 20px;
+}
+
+.nav-link:hover
+{
+    color: white;
+    background-color: rgba(42, 142, 228, 0.39);
+}
+
+.nav-sidebar
+{
+    background-color: rgba(48, 89, 162, 0.72);
+    height:100%;
+}
+
+.img-logo-iumio
+{
+    position: relative;
+    top: 20px;
+    left: -9px;
+    width: 205px!important;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.nav-sidebar .nav-item:first-child
+{
+    margin-top: 50px;
+}
+.active
+{
+    background-color: white!important;
+    color:black!important;
+    border-radius: 0px!important;
+}
+
+.nav-link
+{
+    color: white;
+    font-size: 20px;
+    padding: 20px 0px 20px 20px;
+}
+.iumio-theme
+{
+
+    background-size: contain;
+    background-position: center center;
+    background: url('iumio_img_theme.jpeg') no-repeat center;
+
+}
+
+
+/* Custom Code Here */
+.check input {
+    display: none;
+}
+
+.fa-check-md:before
+{
+    color:white!important;
+}
+
+.check input:checked + label .box {
+    -webkit-animation: animOn 0.8s 1 forwards;
+    animation: animOn 0.8s 1 forwards;
+    background: rgb(65, 95, 155);
+}
+.check input:checked + label .box i {
+    -webkit-transform: translate(-50%, -50%) scale(1);
+    transform: translate(-50%, -50%) scale(1);
+    -webkit-transition-duration: 250ms;
+    transition-duration: 250ms;
+    opacity: 1;
+}
+
+.sentence-accept-terms, .check-terms
+{
+    display: inline-block;
+    /*padding-bottom: 40px;*/
+}
+
+.sentence-accept-terms
+{
+    position: relative;
+    top:17px;
+}
+
+.check label {
+    min-width: 100px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    min-height: 60px;
+    cursor: pointer;
+}
+.check label .box {
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+    position: relative;
+    width: 30px;
+    height: 30px;
+    -webkit-transition: background 300ms ease;
+    transition: background 300ms ease;
+}
+.check label .box:hover {
+    background: rgba(0, 0, 0, 0.5);
+}
+.check label .box i {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-size: 20px;
+    display: inline-block;
+    opacity: 0;
+    pointer-events: none;
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+    -webkit-transition-delay: 200ms;
+    transition-delay: 200ms;
+    -webkit-transform: translate(-50%, -50%) scale(6);
+    transform: translate(-50%, -50%) scale(6);
+}
+
+
+.nav-link i
+{
+    padding-left: 10px;
+}
+
+
+@-webkit-keyframes animOn {
+    40% {
+        height: 20px;
+        width: 100px;
+    }
+    50% {
+        height: 60px;
+        width: 30px;
+    }
+    60% {
+        height: 40px;
+        width: 70px;
+    }
+    70% {
+        height: 55px;
+        width: 45px;
+    }
+    100% {
+        height: 50px;
+        width: 50px;
+    }
+}
+
+@keyframes animOn {
+    40% {
+        height: 20px;
+        width: 100px;
+    }
+    50% {
+        height: 60px;
+        width: 30px;
+    }
+    60% {
+        height: 40px;
+        width: 70px;
+    }
+    70% {
+        height: 55px;
+        width: 45px;
+    }
+    100% {
+        height: 50px;
+        width: 50px;
+    }
+}
+
+
+
+
+
+@-webkit-keyframes blurFadeIn{
+    0%{
+        opacity: 0;
+        text-shadow: 0px 0px 40px #fff;
+        -webkit-transform: scale(1.3);
+    }
+    50%{
+        opacity: 0.5;
+        text-shadow: 0px 0px 10px #fff;
+        -webkit-transform: scale(1.1);
+    }
+    100%{
+        opacity: 1;
+        text-shadow: 0px 0px 1px #fff;
+        -webkit-transform: scale(1);
+    }
+}
+
+
+
+@-moz-keyframes blurFadeIn{
+    0%{
+        opacity: 0;
+        text-shadow: 0px 0px 40px #fff;
+        -moz-transform: scale(1.3);
+    }
+    100%{
+        opacity: 1;
+        text-shadow: 0px 0px 1px #fff;
+        -moz-transform: scale(1);
+    }
+}
+
+
+@keyframes blurFadeIn{
+    0%{
+        opacity: 0;
+        text-shadow: 0px 0px 40px #fff;
+        transform: scale(1.3);
+    }
+    50%{
+        opacity: 0.5;
+        text-shadow: 0px 0px 10px #fff;
+        transform: scale(1.1);
+    }
+    100%{
+        opacity: 1;
+        text-shadow: 0px 0px 1px #fff;
+        transform: scale(1);
+    }
+}
+
+
+
+
+@media (min-width: 992px)
+{
+    .col-lg-iumio-installer {
+        -ms-flex: 0 0 11.333333%!important;
+        flex: 0 0 11.333333%!important;
+        max-width: 11.333333%!important;
+    }
+}
+
+
+@media (min-width: 576px)
+{
+
+    .col-sm-iumio-installer {
+        -ms-flex: 0 0 11.333333%!important;
+        flex: 0 0 11.333333%!important;
+        max-width: 11.333333%!important;
+    }
+}

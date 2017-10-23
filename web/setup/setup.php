@@ -67,6 +67,11 @@ if (!empty(json_decode(file_get_contents(__DIR__."/../../elements/config_files/c
             -moz-border-radius:19px;
         }
 
+        .step-title
+        {
+            padding-bottom: 25px;
+        }
+
         #fountainG_1{
             left:0;
             animation-delay:0.6s;
@@ -74,6 +79,11 @@ if (!empty(json_decode(file_get_contents(__DIR__."/../../elements/config_files/c
             -ms-animation-delay:0.6s;
             -webkit-animation-delay:0.6s;
             -moz-animation-delay:0.6s;
+        }
+
+        .page
+        {
+            background: url('assets/iumio_img_theme.jpeg') no-repeat center;
         }
 
         sp-circle-link {
@@ -118,8 +128,11 @@ if (!empty(json_decode(file_get_contents(__DIR__."/../../elements/config_files/c
         {
             text-align: center;
             /* line-height: 10px; */
+            padding: 20px 20px 20px 20px!important;
+            border: 1px solid white!important;
+            margin-top: 25px!important;
             background-color: transparent;
-            text-decoration: underline;
+            text-decoration: none;
             -webkit-animation: blurFadeIn 1s linear 1s backwards;
             -moz-animation: blurFadeIn 1s linear 1s backwards;
             -ms-animation: blurFadeIn 1s linear 1s backwards;
@@ -139,6 +152,12 @@ if (!empty(json_decode(file_get_contents(__DIR__."/../../elements/config_files/c
             -webkit-transition: background-color 0.2s cubic-bezier(0.4,0,0.2,1),-webkit-box-shadow 0.2s cubic-bezier(0.4,0,1,1);
             transition: box-shadow 0.2s cubic-bezier(0.4,0,1,1),background-color 0.2s cubic-bezier(0.4,0,0.2,1),-webkit-box-shadow 0.2s cubic-bezier(0.4,0,1,1);
             will-change: box-shadow,transform;
+        }
+
+        .mbutton:hover
+        {
+            color: #4b5764;
+            background-color: white;
         }
 
         #textd
@@ -194,13 +213,13 @@ if (!empty(json_decode(file_get_contents(__DIR__."/../../elements/config_files/c
 
         .frame-1
         {
-            border-bottom: 1px solid white;
+            border-bottom: 2px solid rgba(140, 136, 136, 0.57);
             padding-bottom: 14px;
         }
 
         .licence
         {
-            width: 50%;
+            width: 90%;
             margin: auto;
             overflow: auto;
             height: 400px;
@@ -213,6 +232,16 @@ if (!empty(json_decode(file_get_contents(__DIR__."/../../elements/config_files/c
             -webkit-appearance: none;
             width: 7px;
         }
+
+        .step6 h3
+        {
+            text-align: left;
+            padding-left: 20px;
+            padding-top: 25px;
+            font-size: 26px;
+        }
+
+
         .licence::-webkit-scrollbar-thumb {
             border-radius: 4px;
             background-color: rgba(0, 0, 0, .5);
@@ -247,21 +276,21 @@ if (!empty(json_decode(file_get_contents(__DIR__."/../../elements/config_files/c
             margin-left: 320px;
             clear: both;
             overflow: auto;
-            background: #1abc9c;
-            background: rgba(26,188,156, 0.4);
+            background: rgba(0, 0, 0, 0.62);
             min-height: 100vh;
         }
 
         .sidebar {
             position: relative;
             width: 320px;
-            margin-right: -320px;
+            margin-right: -321px;
             float: right;
             overflow: hidden;
             background: #2c3e50;
-            background: rgba(44,62,80, 0.4);
+            background: rgba(0, 0, 0, 0.62);
             color: #eee;
             min-height: 100vh;
+            border-right: 1px solid rgba(140, 136, 136, 0.57);
         }
 
         .hidden-step
@@ -293,8 +322,15 @@ if (!empty(json_decode(file_get_contents(__DIR__."/../../elements/config_files/c
             height: 50px;
             padding-top: 5px;
             padding-bottom: 7px;
-            border-bottom: 1px solid white;
+            border-bottom: 2px solid rgba(140, 136, 136, 0.57);
+            padding: 18px 0px 20px 0px!important;
         }
+
+        .frame-1
+        {
+            padding: 20px 0px 20px 0px!important;
+        }
+
 
         .step-active:before
         {
@@ -543,7 +579,7 @@ if (!empty(json_decode(file_get_contents(__DIR__."/../../elements/config_files/c
 
 
         button#accept, button#decline, button#retrys3, button#continues3, button#continues4, button#no5, button#yes5, button#cancelfinal, button#create, button#retryinstallation {
-            width: 50%;
+            width: 220px;
             color: white;
             padding: 14px 20px;
             margin: 8px 0;
@@ -560,6 +596,11 @@ if (!empty(json_decode(file_get_contents(__DIR__."/../../elements/config_files/c
             background-color: #3ece3e;
         }
 
+        button#decline, button#accept
+        {
+            display: inline-block;
+            width: 220px;
+        }
         button#decline, button#retrys3, button#no5, button#cancelfinal, button#retryinstallation {
             background-color: #dc3a35;
         }
@@ -595,6 +636,19 @@ if (!empty(json_decode(file_get_contents(__DIR__."/../../elements/config_files/c
             transition-duration: 250ms;
             opacity: 1;
         }
+
+        .sentence-accept-terms, .check-terms
+        {
+            display: inline-block;
+            padding-bottom: 40px;
+        }
+
+        .sentence-accept-terms
+        {
+            position: relative;
+            bottom: 20px;
+        }
+
         .check label {
             min-width: 100px;
             display: -webkit-box;
@@ -639,6 +693,11 @@ if (!empty(json_decode(file_get_contents(__DIR__."/../../elements/config_files/c
             transition-delay: 200ms;
             -webkit-transform: translate(-50%, -50%) scale(6);
             transform: translate(-50%, -50%) scale(6);
+        }
+
+        #s1, #s2, #s3, #s4, #s5, #s6, #s7, #s8
+        {
+            font-size: 20px;
         }
 
         @-webkit-keyframes animOn {
@@ -695,7 +754,7 @@ if (!empty(json_decode(file_get_contents(__DIR__."/../../elements/config_files/c
 
         .requirements-list li
         {
-            font-size: 20px;
+            font-size: 25px;
         }
 
         .red-color
@@ -763,6 +822,12 @@ if (!empty(json_decode(file_get_contents(__DIR__."/../../elements/config_files/c
             -ms-animation-delay:1.05s;
             -webkit-animation-delay:1.05s;
             -moz-animation-delay:1.05s;
+        }
+
+        .frame-1 span
+        {
+            position: relative;
+            bottom: 9px;
         }
 
         #fountainG_5{
@@ -849,9 +914,9 @@ if (!empty(json_decode(file_get_contents(__DIR__."/../../elements/config_files/c
         <!--<div class="header"> <img id="iumiomg" src="../components/libs/iumio_framework/img/logo_white.png"></div>-->
         <div class="content-wrapper">
             <div class="content">
-                <div id="step0" class="content-middle"><img id="iumio-components" src="../components/libs/iumio_framework/img/logo_white.png"> <span class="components-word">Components</span></div>
+                <div id="step0" class="content-middle"><img id="iumio-components" src="assets/iumio.logo.white.framework.png"></div>
                 <div id="step1" class="hidden-step">
-                    <h2 class="frame-1">iumio installer - Welcome</h2>
+                    <h2 class="frame-1"><span>Installation - iumio Framework</span></h2>
                     <div class="step-content content-middle">
                         <h3 class="alterh2" id="textd" style="font-size: 40px;">Welcome on iumio Framework<br> <span style="font-size: 25px">A whole new world for you</span>
                             <br>
@@ -895,15 +960,14 @@ if (!empty(json_decode(file_get_contents(__DIR__."/../../elements/config_files/c
                         </div>
                         <br>
                         <br>
-                        <span>I agree and accept licence terms and conditions.</span>
-                        <br>
-                        <br>
-                        <div class="check">
+                        <div class="check check-terms">
                             <input id="check" type="checkbox" class="cterms"/>
                             <label for="check">
-                                <div class="box"><i class="fa fa-check"></i></div>
+                                <div class="box"><i class="fa fa-check fa-check-md"></i></div>
                             </label>
                         </div>
+                        <div class="sentence-accept-terms">I agree and accept licence terms and conditions.</div>
+
 
                         <br>
                         <div style="text-align: center"><button id="decline">Decline</button> <button id="accept">Accept</button></div>
@@ -914,19 +978,20 @@ if (!empty(json_decode(file_get_contents(__DIR__."/../../elements/config_files/c
                 <div id="step3" class="hidden-step">
                     <h2 class="frame-1">Requirements</h2>
 
-                    <h3>iumio installer check if your server and the framework are compatible</h3>
+                    <h3>Installer checks if your environment are compatible and download required libraries</h3>
                     <br>
                     <div class="step-content">
                         <ul class="requirements-list">
-                            <li class="phpversion">PHP Version : <span class="phpversionnum">...</span> <span class="isok"></span><div class="error hidden-step"></div> </li>
-                            <li class="fversion">Framework Version : <span class="fversionnum">...</span> <span class="isok"></span><div class="error hidden-step"></div></li>
-                            <li class="wr">Writable and readable directory : <span class="isok">...</span><div class="error hidden-step"></div></li>
-                            <li class="libsr">Required librairies : <span class="isok">...</span><div class="error hidden-step"></div></li>
+                            <li class="phpversion">PHP Version : <span class="phpversionnum">.....</span> <span class="isok"></span><div class="error hidden-step"></div> </li>
+                            <li class="fversion">Framework Version : <span class="fversionnum">.....</span> <span class="isok"></span><div class="error hidden-step"></div></li>
+                            <li class="wr">Writable and readable directories : <span class="isok">.....</span><div class="error hidden-step"></div></li>
+                            <li class="lr">Download Required libraries : <span class="isok">.....</span><div class="error hidden-step"></div></li>
+                            <li class="libsr">Required librairies : <span class="isok">.....</span><div class="error hidden-step"></div></li>
                         </ul>
 
                         <br>
                         <br>
-                        <div style="text-align: center"><button id="retrys3" class="hidden-step" onclick="step3()">Retry</button> <button id="continues3" class="hidden-step" >Continue</button></div>
+                        <div style="text-align: center"><button id="retrys3" class="hidden-step" onclick="step3()">Retry</button> <button id="continues3" class="hidden-step" >Next</button></div>
 
 
                     </div>
@@ -946,7 +1011,7 @@ if (!empty(json_decode(file_get_contents(__DIR__."/../../elements/config_files/c
                         </div>
                         <br>
                         <br>
-                        <div style="text-align: center"><button id="continues4">Continue</button></div>
+                        <div style="text-align: center"><button id="continues4">Next</button></div>
 
                     </div>
                 </div>
@@ -1048,7 +1113,7 @@ if (!empty(json_decode(file_get_contents(__DIR__."/../../elements/config_files/c
         </div>
         <div class="sidebar">
             <div class="blkimgiumio"><img  class="iumiomg" src="../components/libs/iumio_framework/img/logo_white.png"></div>
-            <h2>Stage</h2>
+            <h2 class="step-title">Steps</h2>
             <p id="s1" class="step-active">Welcome</p>
             <p id="s2">Licence</p>
             <p id="s3">Requirements</p>

@@ -2,7 +2,7 @@
 <div class="sidebar-wrapper">
     <div class="logo">
         <a href="https://framework.iumio.com" class="simple-text">
-            <img class="img-responsive" src="{img_iumio name='logo_white.png'}" />
+            <img class="img-responsive img-responsive-iumio-framework" src="{img_iumio name='iumio.logo.white.framework.png'}" />
             <h6>Manager</h6>
         </a>
     </div>

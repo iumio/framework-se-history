@@ -48,7 +48,7 @@
                 <div class="sidebar-wrapper">
                     <div class="logo">
                         <a href="https://framework.iumio.com" class="simple-text">
-                            <img class="img-responsive" src="<?= WEB_FRAMEWORK.'img/' ?>logo_white.png" />
+                            <img class="img-responsive img-responsive-iumio-framework" src="<?= WEB_FRAMEWORK.'img/' ?>iumio.logo.white.framework.png" />
                             <h6>Error <?= $this->code ?></h6>
                         </a>
                     </div>

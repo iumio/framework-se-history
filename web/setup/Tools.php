@@ -59,8 +59,8 @@ class Tools
             return (json_encode(array("code" => 200, "results" => "OK", "phpv" => $phpv)));
         } else {
             return (json_encode(array("code" => 500, "results" => "NOK", "phpv" => $phpv, "msg" =>
-                "The version of PHP is incompatible with iumio Framework. You must have the version min 7.0.0
-                 of PHP on the webserver.")));
+                "The version of PHP is incompatible with iumio Framework. You must have at least version 7.0.0
+                 of PHP on your web server.")));
         }
     }
 
@@ -111,10 +111,10 @@ class Tools
             return (json_encode(array("code" => 200, "results" => "OK", "fv" => trim($v), "edition" => $e,
                 'stage' => $st)));
         } else {
-            return (json_encode(array("code" => 500, "results" => "NOK", "fv" => self::$framework_version_accept,
+            return (json_encode(array("code" => 500, "results" => "NOK", "fv" => trim($v),
                 "msg" => "The version of iumio Framework is incompatible with iumio installer.
-                 You must have the version min " . self::$framework_version_accept .
-                    " of iumio Framework on the webserver.")));
+                 You must have at least version " . self::$framework_version_accept .
+                    " of iumio Framework on your web server.")));
         }
     }
 
@@ -151,7 +151,7 @@ class Tools
             !self::checkIsWritable($base."web/components/libs")) {
             return (json_encode(array("code" => 500, "results" => "NOK", "wr" => "web/components/libs/", "msg" =>
                 "Folder web/components/libs/ does not have correct permission. 
-                Must be read, write, executable permission")));
+                Must be read, write, executable permissions")));
         }
 
         return (json_encode(array("code" => 200, "results" => "OK")));

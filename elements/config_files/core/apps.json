@@ -1,16 +1,16 @@
 {
     "0": {
-        "name": "HelloApp",
+        "name": "TestApp",
         "enabled": "yes",
         "prefix": "",
-        "class": "\\HelloApp\\HelloApp",
+        "class": "\\TestApp\\TestApp",
         "creation": {
-            "date": "2017-10-09 00:40:44.000000",
+            "date": "2017-10-23 07:26:35.342306",
             "timezone_type": 3,
             "timezone": "UTC"
         },
         "update": {
-            "date": "2017-10-09 00:40:44.000000",
+            "date": "2017-10-23 07:26:35.342306",
             "timezone_type": 3,
             "timezone": "UTC"
         }
