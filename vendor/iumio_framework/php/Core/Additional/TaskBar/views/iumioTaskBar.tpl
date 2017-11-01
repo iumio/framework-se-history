@@ -4,7 +4,7 @@
     <link rel="stylesheet" href="{$iumiotaskbar['css_icon']}" />
     <div id="iumioTaskBarBlank"></div>
     <ul class="iumioTaskBar">
-        <li class="flogo"><img src="{$iumiotaskbar['logo']}"/> </li>
+        <li class="flogo iumioTaskBarPulse"><img src="{$iumiotaskbar['logo']}"/> </li>
         <li><a class="active" href="#"><strong>{$iumiotaskbar['ve']} - {$iumiotaskbar['env']}</strong></a></li>
         <li><a href="#" class="active"><strong>{$iumiotaskbar['call_app']}</strong></a></li>
         <li>
@@ -13,26 +13,67 @@
         </li>
         <li id="iumioTaskBarAssets" class="iumioTaskBarDropdown"><a href="#"><i class="pe-7s-file icon-iumio-task"></i>  <span class="iumio-taskbar-text">Assets</span></a>
             <ul class="iumioTaskBarDropdownContent">
-                <li class="iumioTaskBarAssetsClearAll"    attr-href="{$iumiotaskbar['publish_assets_all']}"  >Publish all</li>
-                <li class="iumioTaskBarAssetsClearDev"    attr-href="{$iumiotaskbar['publish_assets_dev']}"  >Publish dev</li>
-                <li class="iumioTaskBarAssetsClearProd"   attr-href="{$iumiotaskbar['publish_assets_prod']}" >Publish prod</li>
-                <li class="iumioTaskBarAssetsPublishAll"  attr-href="{$iumiotaskbar['clear_assets_all']}"    >Clear all</li>
-                <li class="iumioTaskBarAssetsPublishDev"  attr-href="{$iumiotaskbar['clear_assets_dev']}"    >Clear dev</li>
-                <li class="iumioTaskBarAssetsPublishProd" attr-href="{$iumiotaskbar['clear_assets_prod']}"   >Clear prod</li>
+                <li>
+                    <table class="iumioTaskbarTable">
+                        <thead>
+                        <tr>
+                            <th colspan="3">Assets Manager - Actions</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td class="iumioTaskBarAssetsPublishAll"    attr-href="{$iumiotaskbar['publish_assets_all']}"> <i class="pe-7s-angle-right icon-iumio-task"></i> &nbsp; Publish all environment</td>
+                        </tr>
+                        <tr>
+                            <td class="iumioTaskBarAssetsPublishDev"    attr-href="{$iumiotaskbar['publish_assets_dev']}"> <i class="pe-7s-angle-right icon-iumio-task"></i> &nbsp; Publish dev</td>
+                        </tr>
+                        <tr>
+                            <td class="iumioTaskBarAssetsPublishProd"   attr-href="{$iumiotaskbar['publish_assets_prod']}"> <i class="pe-7s-angle-right icon-iumio-task"></i> &nbsp; Publish prod</td>
+                        </tr>
+                        <tr>
+                            <td class="iumioTaskBarAssetsClearAll"  attr-href="{$iumiotaskbar['clear_assets_all']}"> <i class="pe-7s-angle-right icon-iumio-task"></i> &nbsp; Clear all environment</td>
+                        </tr>
+                        <tr>
+                            <td class="iumioTaskBarAssetsClearDev"  attr-href="{$iumiotaskbar['clear_assets_dev']}" > <i class="pe-7s-angle-right icon-iumio-task"></i> &nbsp; Clear dev</td>
+                        </tr>
+                        <tr>
+                            <td class="iumioTaskBarAssetsClearProd" attr-href="{$iumiotaskbar['clear_assets_prod']}" > <i class="pe-7s-angle-right icon-iumio-task"></i> &nbsp; Clear prod</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </li>
             </ul>
         </li>
         <li><a href="#" id="iumioTaskBarEnaDisApp" attr-href="{$iumiotaskbar['all_simple_apps']}"><i class="pe-7s-switch icon-iumio-task"></i> <span class="iumio-taskbar-text">Change status</span></a></li>
         <li><a href="{$iumiotaskbar['manager']}">Go to manager</a></li>
-        <li id="iumioTaskBarCacheClear" class="iumioTaskBarDropdown"><a href="#" ><i class="pe-7s-back icon-iumio-task"></i> <span class="iumio-taskbar-text">Clear cache</span></a>
+        <li id="iumioTaskBarCacheClear" class="iumioTaskBarDropdown"><a href="#" ><i class="pe-7s-back icon-iumio-task"></i> <span class="iumio-taskbar-text">Cache</span></a>
             <ul class="iumioTaskBarDropdownContent">
-                <li class="iumioTaskBarCacheClearAll" attr-href="{$iumiotaskbar['cache_clear_all']}">Clear all</li>
-                <li class="iumioTaskBarCacheClearDev" attr-href="{$iumiotaskbar['cache_clear_dev']}">Clear dev</li>
-                <li class="iumioTaskBarCacheClearProd" attr-href="{$iumiotaskbar['cache_clear_prod']}">Clear prod</li>
-            </ul></li>
+                <li>
+                    <table class="iumioTaskbarTable">
+                        <thead>
+                        <tr>
+                            <th colspan="3">Cache Manager - Actions</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td class="iumioTaskBarCacheClearAll" attr-href="{$iumiotaskbar['cache_clear_all']}"> <i class="pe-7s-angle-right icon-iumio-task"></i> &nbsp; Clear all environment</td>
+                        </tr>
+                        <tr>
+                            <td class="iumioTaskBarCacheClearDev" attr-href="{$iumiotaskbar['cache_clear_dev']}"> <i class="pe-7s-angle-right icon-iumio-task"></i> &nbsp; Clear dev</td>
+                        </tr>
+                        <tr>
+                            <td class="iumioTaskBarCacheClearProd" attr-href="{$iumiotaskbar['cache_clear_prod']}"> <i class="pe-7s-angle-right icon-iumio-task"></i> &nbsp; Clear prod</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </li>
+            </ul>
+        </li>
         <li style="float: right; list-style: none" class="active" id="iumioTaskBarReduce"><a class="pe-7s-left-arrow" style="font-size: 16px"></a></li>
     </ul>
     <ul class="iumioTaskBar iumioTaskBarVSmall" style="display: none; width: 114px; padding: 0px 0px 0 0;">
-        <li class="flogo"><img src="{$iumiotaskbar['logo']}"/> </li>
+        <li class="flogo iumioTaskBarPulse"><img src="{$iumiotaskbar['logo']}"/> </li>
         <li id="iumioTaskBarRestore" style="color: black;list-style: none; "><a class="pe-7s-right-arrow" style="font-size: 16px"></a></li>
     </ul>
     <script type='text/javascript' src="{$iumiotaskbar['js']}"></script>

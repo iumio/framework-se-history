@@ -1,1 +1,66 @@
-{}
+{
+    "0": {
+        "name": "HelloApp",
+        "enabled": "yes",
+        "prefix": "",
+        "class": "\\HelloApp\\HelloApp",
+        "creation": {
+            "date": "2017-10-24 18:21:26.908890",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "update": {
+            "date": "2017-10-31 19:02:00.000000",
+            "timezone_type": 3,
+            "timezone": "Europe\/Paris"
+        }
+    },
+    "1": {
+        "name": "DocApp",
+        "enabled": "yes",
+        "prefix": "doc",
+        "class": "\\DocApp\\DocApp",
+        "creation": {
+            "date": "2017-10-24 18:25:13.408431",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "update": {
+            "date": "2017-10-31 19:02:48.000000",
+            "timezone_type": 3,
+            "timezone": "Europe\/Paris"
+        }
+    },
+    "2": {
+        "name": "WhdeerzfrzzApp",
+        "enabled": "yes",
+        "prefix": "dd",
+        "class": "\\WhdeerzfrzzApp\\WhdeerzfrzzApp",
+        "creation": {
+            "date": "2017-10-30 20:03:34.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "update": {
+            "date": "2017-10-30 20:03:34.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        }
+    },
+    "3": {
+        "name": "demkdlmezfjelzfelkfnelkzjfkljeljkfApp",
+        "enabled": "yes",
+        "prefix": "ddadaz",
+        "class": "\\demkdlmezfjelzfelkfnelkzjfkljeljkfApp\\demkdlmezfjelzfelkfnelkzjfkljeljkfApp",
+        "creation": {
+            "date": "2017-10-31 10:50:04.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "update": {
+            "date": "2017-10-31 15:57:17.000000",
+            "timezone_type": 3,
+            "timezone": "Europe\/Paris"
+        }
+    }
+}

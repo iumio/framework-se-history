@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.31, created on 2017-10-17 14:39:22
+/* Smarty version 3.1.31, created on 2017-11-01 16:14:04
   from "/Applications/MAMP/htdocs/iumio-framework/vendor/iumio_framework/php/Core/Additional/TaskBar/views/iumioTaskBar.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.31',
-  'unifunc' => 'content_59e5f9fa9bd2b4_01404836',
+  'unifunc' => 'content_59f9e4bc5206e8_07324376',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '01ae7cd703eb02b5e06ed3bc06798a0f6a4563ba' => 
     array (
       0 => '/Applications/MAMP/htdocs/iumio-framework/vendor/iumio_framework/php/Core/Additional/TaskBar/views/iumioTaskBar.tpl',
-      1 => 1507506917,
+      1 => 1509469697,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_59e5f9fa9bd2b4_01404836 (Smarty_Internal_Template $_smarty_tpl) {
+function content_59f9e4bc5206e8_07324376 (Smarty_Internal_Template $_smarty_tpl) {
 if (!is_callable('smarty_modifier_debug_print_var')) require_once '/Applications/MAMP/htdocs/iumio-framework/vendor/libs/smarty/smarty/libs/plugins/modifier.debug_print_var.php';
 if (isset($_smarty_tpl->tpl_vars['iumiotaskbar']->value) && !empty($_smarty_tpl->tpl_vars['iumiotaskbar']->value)) {?>
     <!-- iumioTaskBar component -->
@@ -30,7 +30,7 @@ if (isset($_smarty_tpl->tpl_vars['iumiotaskbar']->value) && !empty($_smarty_tpl-
 " />
     <div id="iumioTaskBarBlank"></div>
     <ul class="iumioTaskBar">
-        <li class="flogo"><img src="<?php echo htmlspecialchars($_smarty_tpl->tpl_vars['iumiotaskbar']->value['logo'], ENT_QUOTES, 'UTF-8');?>
+        <li class="flogo iumioTaskBarPulse"><img src="<?php echo htmlspecialchars($_smarty_tpl->tpl_vars['iumiotaskbar']->value['logo'], ENT_QUOTES, 'UTF-8');?>
 "/> </li>
         <li><a class="active" href="#"><strong><?php echo htmlspecialchars($_smarty_tpl->tpl_vars['iumiotaskbar']->value['ve'], ENT_QUOTES, 'UTF-8');?>
  - <?php echo htmlspecialchars($_smarty_tpl->tpl_vars['iumiotaskbar']->value['env'], ENT_QUOTES, 'UTF-8');?>
@@ -44,37 +44,78 @@ if (isset($_smarty_tpl->tpl_vars['iumiotaskbar']->value) && !empty($_smarty_tpl-
         </li>
         <li id="iumioTaskBarAssets" class="iumioTaskBarDropdown"><a href="#"><i class="pe-7s-file icon-iumio-task"></i>  <span class="iumio-taskbar-text">Assets</span></a>
             <ul class="iumioTaskBarDropdownContent">
-                <li class="iumioTaskBarAssetsClearAll"    attr-href="<?php echo htmlspecialchars($_smarty_tpl->tpl_vars['iumiotaskbar']->value['publish_assets_all'], ENT_QUOTES, 'UTF-8');?>
-"  >Publish all</li>
-                <li class="iumioTaskBarAssetsClearDev"    attr-href="<?php echo htmlspecialchars($_smarty_tpl->tpl_vars['iumiotaskbar']->value['publish_assets_dev'], ENT_QUOTES, 'UTF-8');?>
-"  >Publish dev</li>
-                <li class="iumioTaskBarAssetsClearProd"   attr-href="<?php echo htmlspecialchars($_smarty_tpl->tpl_vars['iumiotaskbar']->value['publish_assets_prod'], ENT_QUOTES, 'UTF-8');?>
-" >Publish prod</li>
-                <li class="iumioTaskBarAssetsPublishAll"  attr-href="<?php echo htmlspecialchars($_smarty_tpl->tpl_vars['iumiotaskbar']->value['clear_assets_all'], ENT_QUOTES, 'UTF-8');?>
-"    >Clear all</li>
-                <li class="iumioTaskBarAssetsPublishDev"  attr-href="<?php echo htmlspecialchars($_smarty_tpl->tpl_vars['iumiotaskbar']->value['clear_assets_dev'], ENT_QUOTES, 'UTF-8');?>
-"    >Clear dev</li>
-                <li class="iumioTaskBarAssetsPublishProd" attr-href="<?php echo htmlspecialchars($_smarty_tpl->tpl_vars['iumiotaskbar']->value['clear_assets_prod'], ENT_QUOTES, 'UTF-8');?>
-"   >Clear prod</li>
+                <li>
+                    <table class="iumioTaskbarTable">
+                        <thead>
+                        <tr>
+                            <th colspan="3">Assets Manager - Actions</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td class="iumioTaskBarAssetsPublishAll"    attr-href="<?php echo htmlspecialchars($_smarty_tpl->tpl_vars['iumiotaskbar']->value['publish_assets_all'], ENT_QUOTES, 'UTF-8');?>
+"> <i class="pe-7s-angle-right icon-iumio-task"></i> &nbsp; Publish all environment</td>
+                        </tr>
+                        <tr>
+                            <td class="iumioTaskBarAssetsPublishDev"    attr-href="<?php echo htmlspecialchars($_smarty_tpl->tpl_vars['iumiotaskbar']->value['publish_assets_dev'], ENT_QUOTES, 'UTF-8');?>
+"> <i class="pe-7s-angle-right icon-iumio-task"></i> &nbsp; Publish dev</td>
+                        </tr>
+                        <tr>
+                            <td class="iumioTaskBarAssetsPublishProd"   attr-href="<?php echo htmlspecialchars($_smarty_tpl->tpl_vars['iumiotaskbar']->value['publish_assets_prod'], ENT_QUOTES, 'UTF-8');?>
+"> <i class="pe-7s-angle-right icon-iumio-task"></i> &nbsp; Publish prod</td>
+                        </tr>
+                        <tr>
+                            <td class="iumioTaskBarAssetsClearAll"  attr-href="<?php echo htmlspecialchars($_smarty_tpl->tpl_vars['iumiotaskbar']->value['clear_assets_all'], ENT_QUOTES, 'UTF-8');?>
+"> <i class="pe-7s-angle-right icon-iumio-task"></i> &nbsp; Clear all environment</td>
+                        </tr>
+                        <tr>
+                            <td class="iumioTaskBarAssetsClearDev"  attr-href="<?php echo htmlspecialchars($_smarty_tpl->tpl_vars['iumiotaskbar']->value['clear_assets_dev'], ENT_QUOTES, 'UTF-8');?>
+" > <i class="pe-7s-angle-right icon-iumio-task"></i> &nbsp; Clear dev</td>
+                        </tr>
+                        <tr>
+                            <td class="iumioTaskBarAssetsClearProd" attr-href="<?php echo htmlspecialchars($_smarty_tpl->tpl_vars['iumiotaskbar']->value['clear_assets_prod'], ENT_QUOTES, 'UTF-8');?>
+" > <i class="pe-7s-angle-right icon-iumio-task"></i> &nbsp; Clear prod</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </li>
             </ul>
         </li>
         <li><a href="#" id="iumioTaskBarEnaDisApp" attr-href="<?php echo htmlspecialchars($_smarty_tpl->tpl_vars['iumiotaskbar']->value['all_simple_apps'], ENT_QUOTES, 'UTF-8');?>
 "><i class="pe-7s-switch icon-iumio-task"></i> <span class="iumio-taskbar-text">Change status</span></a></li>
         <li><a href="<?php echo htmlspecialchars($_smarty_tpl->tpl_vars['iumiotaskbar']->value['manager'], ENT_QUOTES, 'UTF-8');?>
 ">Go to manager</a></li>
-        <li id="iumioTaskBarCacheClear" class="iumioTaskBarDropdown"><a href="#" ><i class="pe-7s-back icon-iumio-task"></i> <span class="iumio-taskbar-text">Clear cache</span></a>
+        <li id="iumioTaskBarCacheClear" class="iumioTaskBarDropdown"><a href="#" ><i class="pe-7s-back icon-iumio-task"></i> <span class="iumio-taskbar-text">Cache</span></a>
             <ul class="iumioTaskBarDropdownContent">
-                <li class="iumioTaskBarCacheClearAll" attr-href="<?php echo htmlspecialchars($_smarty_tpl->tpl_vars['iumiotaskbar']->value['cache_clear_all'], ENT_QUOTES, 'UTF-8');?>
-">Clear all</li>
-                <li class="iumioTaskBarCacheClearDev" attr-href="<?php echo htmlspecialchars($_smarty_tpl->tpl_vars['iumiotaskbar']->value['cache_clear_dev'], ENT_QUOTES, 'UTF-8');?>
-">Clear dev</li>
-                <li class="iumioTaskBarCacheClearProd" attr-href="<?php echo htmlspecialchars($_smarty_tpl->tpl_vars['iumiotaskbar']->value['cache_clear_prod'], ENT_QUOTES, 'UTF-8');?>
-">Clear prod</li>
-            </ul></li>
+                <li>
+                    <table class="iumioTaskbarTable">
+                        <thead>
+                        <tr>
+                            <th colspan="3">Cache Manager - Actions</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td class="iumioTaskBarCacheClearAll" attr-href="<?php echo htmlspecialchars($_smarty_tpl->tpl_vars['iumiotaskbar']->value['cache_clear_all'], ENT_QUOTES, 'UTF-8');?>
+"> <i class="pe-7s-angle-right icon-iumio-task"></i> &nbsp; Clear all environment</td>
+                        </tr>
+                        <tr>
+                            <td class="iumioTaskBarCacheClearDev" attr-href="<?php echo htmlspecialchars($_smarty_tpl->tpl_vars['iumiotaskbar']->value['cache_clear_dev'], ENT_QUOTES, 'UTF-8');?>
+"> <i class="pe-7s-angle-right icon-iumio-task"></i> &nbsp; Clear dev</td>
+                        </tr>
+                        <tr>
+                            <td class="iumioTaskBarCacheClearProd" attr-href="<?php echo htmlspecialchars($_smarty_tpl->tpl_vars['iumiotaskbar']->value['cache_clear_prod'], ENT_QUOTES, 'UTF-8');?>
+"> <i class="pe-7s-angle-right icon-iumio-task"></i> &nbsp; Clear prod</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </li>
+            </ul>
+        </li>
         <li style="float: right; list-style: none" class="active" id="iumioTaskBarReduce"><a class="pe-7s-left-arrow" style="font-size: 16px"></a></li>
     </ul>
     <ul class="iumioTaskBar iumioTaskBarVSmall" style="display: none; width: 114px; padding: 0px 0px 0 0;">
-        <li class="flogo"><img src="<?php echo htmlspecialchars($_smarty_tpl->tpl_vars['iumiotaskbar']->value['logo'], ENT_QUOTES, 'UTF-8');?>
+        <li class="flogo iumioTaskBarPulse"><img src="<?php echo htmlspecialchars($_smarty_tpl->tpl_vars['iumiotaskbar']->value['logo'], ENT_QUOTES, 'UTF-8');?>
 "/> </li>
         <li id="iumioTaskBarRestore" style="color: black;list-style: none; "><a class="pe-7s-right-arrow" style="font-size: 16px"></a></li>
     </ul>
@@ -235,7 +276,7 @@ $_smarty_tpl->tpl_vars['vars']->iteration = 0;
 if ($_from !== null) {
 foreach ($_from as $_smarty_tpl->tpl_vars['vars']->key => $_smarty_tpl->tpl_vars['vars']->value) {
 $_smarty_tpl->tpl_vars['vars']->iteration++;
-$__foreach_vars_1_saved = $_smarty_tpl->tpl_vars['vars'];
+$__foreach_vars_2_saved = $_smarty_tpl->tpl_vars['vars'];
 ?>
         <tr class="<?php if ($_smarty_tpl->tpl_vars['vars']->iteration%2 == 0) {?>odd<?php } else { ?>even<?php }?>">
             <td><h3><font color=blue>$<?php echo htmlspecialchars($_smarty_tpl->tpl_vars['vars']->key, ENT_QUOTES, 'UTF-8');?>
@@ -249,7 +290,7 @@ $__foreach_vars_1_saved = $_smarty_tpl->tpl_vars['vars'];
             <td><?php if (isset($_smarty_tpl->tpl_vars['vars']->value['attributes'])) {?><h3>Attributes</h3><?php echo smarty_modifier_debug_print_var($_smarty_tpl->tpl_vars['vars']->value['attributes']);?>
  <?php }?></td>
             <?php
-$_smarty_tpl->tpl_vars['vars'] = $__foreach_vars_1_saved;
+$_smarty_tpl->tpl_vars['vars'] = $__foreach_vars_2_saved;
 }
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);
@@ -266,7 +307,7 @@ $_smarty_tpl->tpl_vars['vars']->iteration = 0;
 if ($_from !== null) {
 foreach ($_from as $_smarty_tpl->tpl_vars['vars']->key => $_smarty_tpl->tpl_vars['vars']->value) {
 $_smarty_tpl->tpl_vars['vars']->iteration++;
-$__foreach_vars_2_saved = $_smarty_tpl->tpl_vars['vars'];
+$__foreach_vars_3_saved = $_smarty_tpl->tpl_vars['vars'];
 ?>
             <tr class="<?php if ($_smarty_tpl->tpl_vars['vars']->iteration%2 == 0) {?>odd<?php } else { ?>even<?php }?>">
                 <td><h3><font color=blue>#<?php echo htmlspecialchars($_smarty_tpl->tpl_vars['vars']->key, ENT_QUOTES, 'UTF-8');?>
@@ -278,7 +319,7 @@ $__foreach_vars_2_saved = $_smarty_tpl->tpl_vars['vars'];
 </td>
             </tr>
         <?php
-$_smarty_tpl->tpl_vars['vars'] = $__foreach_vars_2_saved;
+$_smarty_tpl->tpl_vars['vars'] = $__foreach_vars_3_saved;
 }
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);

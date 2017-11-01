@@ -144,6 +144,12 @@
                                     <h5 class="break-word"><p class="category fs20 fw900">Explain</p>
                                         <?= $this->explain ?></h5>
                                 </div>
+                                <?php if ($this->type_error != null) { ?>
+                                <div class="typo-line">
+                                    <h5 class="break-word"><p class="category fs20 fw900">Type</p>
+                                        <strong><?= $this->type_error ?></strong></h5>
+                                </div>
+                                <?php } ?>
 
                                 <div class="typo-line">
                                     <h5 class="break-word"><p class="category fs20 fw900">Solution</p>
@@ -170,8 +176,8 @@
                                         <?php } ?>
                                         <div class="typo-line">
                                             <span class="break-word"><p class="category">Function
-                                                    <?= (isset($one['line']))? "& Line" : "" ?></p><?= $one['class'].
-                                                    $one['type']. $one['function'] ?> <?= (isset($one['line']))?
+                                                    <?= (isset($one['line']))? "& Line" : "" ?></p><?= (($one['class'] ?? '')).
+                                                ($one['type'] ?? ''). $one['function'] ?> <?= (isset($one['line']))?
                                                     "on line ". $one['line'] : "" ?></span>
                                         </div>
                                     </div>

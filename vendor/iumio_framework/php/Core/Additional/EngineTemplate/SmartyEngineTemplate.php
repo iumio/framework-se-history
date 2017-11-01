@@ -15,6 +15,7 @@ namespace iumioFramework\Core\Additionnal\Template;
 
 use iumioFramework\Core\Additionnal\Server\ServerManager;
 use iumioFramework\Core\Additionnal\Template\SmartyEngineConfiguration as SmartyConfig;
+use iumioFramework\Core\Base\Json\JsonListener;
 use iumioFramework\Exception\Server\Server500;
 
 try {
@@ -69,7 +70,8 @@ final class SmartyEngineTemplate
 
             if (self::$appCall != "iumio") {
                 self::$instance->setTemplateDir($dirapp.self::$appCall.'/Front/views');
-            } else {
+            }
+            else {
                 self::$instance->setTemplateDir(OVERRIDES.'/Exceptions/views');
             }
             self::$instance->setCompileDir($compiled.$sconfig->getCompiledDirectory());
@@ -84,6 +86,7 @@ final class SmartyEngineTemplate
             self::$instance->caching = $sconfig->getCache();
 
             $this->registerBasePlugins();
+            $this->registerExtendedPlugin();
         } catch (\Exception $exception) {
             self::$appCall = null;
             self::$instance = null;
@@ -261,6 +264,48 @@ final class SmartyEngineTemplate
         return (1);
     }
 
+    /**
+     * Register an new plugin for smarty template
+     */
+    final private function registerExtendedPlugin()
+    {
+        if (self::$appCall != null) {
+            if (ServerManager::exist(ROOT_APPS.APP_CALL."/Extra/".
+                strtolower(APP_CALL).".view.plugin.json")) {
+                $file = JsonListener::open(ROOT_APPS.APP_CALL."/Extra/".
+                    strtolower(APP_CALL).".view.plugin.json");
+                foreach ($file as $one => $value) {
+                    if ($one == null || $one == "") {
+                        throw new Server500(new \ArrayObject(array("explain" =>
+                            "Parse error on " . strtolower(APP_CALL) . ".view.plugin.json file",
+                            "solution" => "Please check the file syntax")));
+                    }
+
+                    if (!isset($value->namespace) || ($value->namespace) == "" || ($value->namespace) == null) {
+                        throw new Server500(new \ArrayObject(array("explain" =>
+                            "Parse error on " . strtolower(APP_CALL) .
+                            ".view.plugin.json file => Cannot determine the plugin namespace",
+                            "solution" => "Please add the correct plugin namespace")));
+                    }
+
+                    if (!isset($value->function) || ($value->function) == "" || ($value->function) == null) {
+                        throw new Server500(new \ArrayObject(array("explain" =>
+                            "Parse error on " . strtolower(APP_CALL) .
+                            ".view.plugin.json file => Cannot determine the plugin function",
+                            "solution" => "Please add the correct plugin function")));
+                    }
+                    self::$instance->registerPlugin(
+                        \Smarty::PLUGIN_FUNCTION,
+                        $one,
+                        array($value->namespace, $value->function)
+                    );
+                }
+            }
+
+        }
+
+    }
+
     /** Return an instance of SmartyEngineTemplate
      * @param string $appFullName
      * @return \Smarty Instance of Smarty
@@ -269,10 +314,11 @@ final class SmartyEngineTemplate
     {
         if (self::$instance == null) {
             if (self::$appCall != $appFullName) {
-                self::$appCall = $appFullName;
+                self::$appCall = $appFullName;;
                 new SmartyEngineTemplate();
             }
         }
         return (self::$instance);
     }
+
 }

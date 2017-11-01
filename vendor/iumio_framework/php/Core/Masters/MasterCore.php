@@ -12,6 +12,7 @@
 
 namespace iumioFramework\Masters;
 
+use iumioFramework\Core\Additionnal\Template\SmartyEngineConfiguration;
 use iumioFramework\HttpRoutes\Routing;
 use iumioFramework\Core\Base\Http\ParameterRequest;
 use iumioFramework\Core\Additionnal\Template\SmartyEngineTemplate;
@@ -75,13 +76,29 @@ class MasterCore extends GlobalCoreService
     /** Show a view
      * @param string $view View name
      * @param array $options options to view
+     * @param bool $iscached By default to true, this option allows you to disable
+     * or enable the cache for a page (Useful for dynamic content of a page)
      */
-    final protected function render(string $view, array $options = array())
+    final protected function render(string $view, array $options = array(), bool $iscached = true)
     {
         $this->appMastering = APP_CALL;
         $si = SmartyEngineTemplate::getSmartyInstance($this->appMastering);
-        $si->assign($options);
-        $si->display($view . SmartyEngineTemplate::$viewExtention);
+
+        $smartyConfig = new SmartyEngineConfiguration(IUMIO_ENV);
+
+        $id_compile = $id_cache = trim($view.strtolower(IUMIO_ENV.APP_CALL));
+
+        if ($smartyConfig->getCache() == 1 && !$si->isCached($view . SmartyEngineTemplate::$viewExtention)) {
+            $si->assign($options);
+        }
+
+        if ($smartyConfig->getCache() == 1 && $iscached == true) {
+            return ($si->display($view . SmartyEngineTemplate::$viewExtention, $id_cache, $id_compile));
+        }
+        elseif ($smartyConfig->getCache() == 1 && $iscached == false) {
+            $si->clearCache($view . SmartyEngineTemplate::$viewExtention, $id_cache);
+        }
+        return ($si->display($view . SmartyEngineTemplate::$viewExtention, null, $id_compile));
     }
 
 
@@ -204,8 +221,8 @@ class MasterCore extends GlobalCoreService
             }
         }
 
-        throw new Server404(new \ArrayObject(array("solution" => "Please check all RT file",
-            "explain" => "No route for $routename")));
+        throw new Server500(new \ArrayObject(array("solution" => "Please check all RT file",
+            "explain" => "Unable to generate URL for route : $routename")));
     }
 
     /** Analyse path to change dynamic parameters with specific parameters array

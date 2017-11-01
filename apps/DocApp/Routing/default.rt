@@ -1,0 +1,24 @@
+route:
+  name : website_index
+  path : /
+  activity : Default%index
+endroute
+
+route:
+  name : website_download
+  path : /download/{edition}
+  activity : Default%download
+endroute
+
+route:
+  name : doc_install
+  path : /install
+  activity : Default%install
+endroute
+
+route:
+  name : website_submit_contact
+  path : /submit-contact/
+  activity : Default%submitContactForm
+endroute
+

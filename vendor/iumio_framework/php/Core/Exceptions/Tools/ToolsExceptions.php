@@ -12,6 +12,7 @@
 namespace iumioFramework\Exception\Tools;
 
 use iumioFramework\Core\Base\Json\JsonListener;
+use iumioFramework\Exception\Server\AbstractServer;
 use iumioFramework\Exception\Server\Server500;
 
 /**
@@ -31,6 +32,8 @@ class ToolsExceptions
      */
     final public static function checkUidieExist(string $uidie):bool
     {
+        AbstractServer::checkFileLogExist(ROOT_LOGS."dev.log.json");
+        AbstractServer::checkFileLogExist(ROOT_LOGS."prod.log.json");
         $logs_dev = (array) JsonListener::open(ROOT_LOGS."dev.log.json");
         $logs_prod = (array) JsonListener::open(ROOT_LOGS."prod.log.json");
 
@@ -112,6 +115,53 @@ class ToolsExceptions
      */
     final public static function errorHandler(string $err_no, string $err_msg)
     {
-        throw new Server500(new \ArrayObject(array("explain" => $err_msg, "solution" => "Error level : $err_no")));
+        //throw new Server500(new \ArrayObject(array("explain" => $err_msg, "solution" => "Error level : $err_no")));
+    }
+
+    /** Get the error name according to error level
+     * @param string $errorlevel The error level
+     * @return string the error name
+     */
+    final public static function errorMap(string $errorlevel):string
+    {
+        switch ($errorlevel)
+        {
+            case 1:
+                return ("Fatal error");
+                break;
+            case 2:
+                return ("Warning");
+                break;
+            case 4:
+                return ("Syntax error");
+                break;
+            case 8192:
+                return ("Suggestion");
+                break;
+            default:
+                return ("Unknown error");
+                break;
+        }
+    }
+
+    /** Set shutdown handler
+     * @throws Server500 The reporting error
+     */
+    final public static function shutdownFunctionHandler()
+    {
+        $lasterror = error_get_last();
+        if ($lasterror['type'] === E_ERROR) {
+            $mess = explode("Stack trace", $lasterror['message']);
+            throw new Server500(new \ArrayObject(array("explain" => $mess[0],
+                "type_error" => self::errorMap($lasterror['type']))));
+        }
+        elseif ($lasterror['type'] === E_PARSE) {
+            $mess = explode("Stack trace", $lasterror['message']);
+            throw new Server500(new \ArrayObject(array("explain" => $mess[0],
+                "type_error" => self::errorMap($lasterror['type']))));
+        }
+        else {
+            trigger_error($lasterror['message'], $lasterror['type']);
+        }
     }
 }

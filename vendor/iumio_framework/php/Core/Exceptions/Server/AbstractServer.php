@@ -13,6 +13,7 @@
 namespace iumioFramework\Exception\Server;
 
 use ArrayObject;
+use iumioFramework\Core\Additionnal\Server\ServerManager;
 use iumioFramework\Core\Additionnal\Template\SmartyEngineTemplate;
 use iumioFramework\Core\Base\Http\HttpResponse;
 use iumioFramework\Core\Base\Json\JsonListener as JL;
@@ -41,6 +42,7 @@ abstract class AbstractServer extends \Exception implements ServerInterface
     protected $uidie = null;
     protected $client_ip = null;
     protected $inlog = true;
+    protected $type_error = null;
 
 
 
@@ -72,12 +74,14 @@ abstract class AbstractServer extends \Exception implements ServerInterface
             } elseif ($it->key() == "external") {
                 $this->external = ($value == "yes")? $value : "no";
             }
+            elseif ($it->key() == "type_error") {
+                $this->type_error = $value;
+            }
             if ($this->solution == null) {
                 $this->solution = "Please check your app configuration";
             }
         }
 
-        //parent::__construct(HttpResponse::getPhrase($this->code), $this->code);
         if ($this->inlog) {
             $this->writeJsonError();
         }
@@ -93,8 +97,9 @@ abstract class AbstractServer extends \Exception implements ServerInterface
      */
     public function display(string $code, string $message)
     {
+
         if (ob_get_contents()) {
-            ob_end_clean();
+          ob_end_clean();
         }
 
         @header($_SERVER['SERVER_PROTOCOL'] .' '.
@@ -106,7 +111,7 @@ abstract class AbstractServer extends \Exception implements ServerInterface
         } else {
             include_once  SERVER_VIEWS.'layout.exception.php';
         }
-        //return (false);
+
         exit();
     }
 
@@ -138,17 +143,21 @@ abstract class AbstractServer extends \Exception implements ServerInterface
             $debug['explain'] = $this->explain;
             $debug['solution'] = $this->solution;
             $debug['method'] = $_SERVER['REQUEST_METHOD'];
-            $debug['trace'] = $this->getTrace();
+            $debug['trace'] = array_slice($this->getTrace(), 0, 50);
             $debug['uri'] = $_SERVER['REQUEST_URI'];
-        ;
+
             $debug['referer'] = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : null;
             $log = (array) JL::open(ROOT_LOGS.strtolower(IUMIO_ENV).".log.json");
             $c = count($log);
             $log[$c] = $debug;
             $log = (object) $log;
+            if ($this->checkFileLogExist(ROOT_LOGS.strtolower(IUMIO_ENV).".log.json") == false){
+                throw new \Exception("Cannot get log file ".strtolower(IUMIO_ENV).".log.json",
+                    500);
+            }
             JL::put(
                 ROOT_LOGS.strtolower(IUMIO_ENV).".log.json",
-                json_encode($log, JSON_PRETTY_PRINT)
+                json_encode($log)
             );
             return (1);
     }
@@ -159,6 +168,26 @@ abstract class AbstractServer extends \Exception implements ServerInterface
     final public function setCode(int $code)
     {
         $this->code = $code;
+    }
+
+    /** Check if file log exist
+     * @param string $path Path to file log
+     * @return bool If exist or not
+     */
+    final public static function checkFileLogExist(string $path):bool
+    {
+        if (!file_exists($path)){
+          return ((file_put_contents($path, "") != false)? true : false);
+        }
+
+        if (!is_readable($path)){
+            return (false);
+        }
+
+        if (!is_writable($path)){
+            return (false);
+        }
+        return (true);
     }
 
     /**

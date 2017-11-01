@@ -80,10 +80,12 @@ class AssetsMaster extends MasterCore
                         Server::copy(ROOT . "/apps/" . $dir . "/Front/Resources/", ROOT .
                             "/web/components/apps/prod/" . strtolower($dir), 'directory', false);
                     } else {
-                        Server::copy(ROOT . "/apps/" . $dir . "/Front/Resources/", ROOT .
-                            "/web/components/apps/dev/" . strtolower($dir), 'directory', true);
-                        Server::copy(ROOT . "/apps/" . $dir . "/Front/Resources/", ROOT .
-                            "/web/components/apps/prod/" . strtolower($dir), 'directory', false);
+                        if (Server::exist(ROOT . "/apps/" . $dir . "/Front/Resources/")) {
+                            Server::copy(ROOT . "/apps/" . $dir . "/Front/Resources/", ROOT .
+                                "/web/components/apps/dev/" . strtolower($dir), 'directory', true);
+                            Server::copy(ROOT . "/apps/" . $dir . "/Front/Resources/", ROOT .
+                                "/web/components/apps/prod/" . strtolower($dir), 'directory', false);
+                        }
                     }
                 }
             }

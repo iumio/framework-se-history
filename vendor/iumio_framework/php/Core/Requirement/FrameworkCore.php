@@ -11,7 +11,6 @@
  */
 
 namespace iumioFramework\Core\Requirement;
-
 use iumioFramework\Core\Additionnal\Server\ServerManager;
 use iumioFramework\Core\Base\Http\HttpListener;
 use iumioFramework\Exception\Access\Access200;
@@ -60,6 +59,7 @@ abstract class FrameworkCore extends GlobalCoreService
 
     public function __construct(string $environment, bool $debug)
     {
+        ini_set('display_errors', 0);
         $this->environment = $environment;
         $this->debug = (bool) $debug;
 
@@ -527,7 +527,8 @@ abstract class FrameworkCore extends GlobalCoreService
     {
         set_error_handler(
             'iumioFramework\Exception\Tools\ToolsExceptions::errorHandler',
-            E_ERROR
+            E_ALL
         );
+        register_shutdown_function('iumioFramework\Exception\Tools\ToolsExceptions::shutdownFunctionHandler');
     }
 }

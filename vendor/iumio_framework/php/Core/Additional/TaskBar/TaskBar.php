@@ -90,13 +90,13 @@ class TaskBar
             $str =  self::getCssTaskBar().'<!-- TaskBar component -->
                 <div id="iumioTaskBarBlank"></div>
                 <ul class="iumioTaskBar">
-                <li class="flogo"><img src="'. WEB_FRAMEWORK.'/img/logo_white_small.png"/> </li>
+                <li class="flogo iumioTaskBarPulse"><img src="'. WEB_FRAMEWORK.'/img/logo_white_small.png"/> </li>
                 <li><a class="active" href="#"><strong>'.
                 \iumioFramework\Core\Requirement\FrameworkCore::getInfo('VERSION')." ".
                 \iumioFramework\Core\Requirement\FrameworkCore::getInfo('VERSION_EDITION_SHORT').
                 ' - '. IUMIO_ENV.'</strong></a></li>
                 <li><a href="#" class="active" ><strong>'.
-                ((!defined('APP_CALL'))? "NO APP CALLED" : APP_CALL) .'</strong></a></li>
+                ((!defined('APP_CALL'))? "No apps called" : APP_CALL) .'</strong></a></li>
                 <li> <a href="#" id="iumioTaskBarRequests" attr-href="'.
                 $um->generateRoute(
                     "iumio_manager_logs_get",
@@ -108,45 +108,84 @@ class TaskBar
                 <li id="iumioTaskBarAssets" class="iumioTaskBarDropdown"><a href="#">
                 <i class="pe-7s-file icon-iumio-task"></i>  <span class="iumio-taskbar-text">Assets</span></a>
                     <ul class="iumioTaskBarDropdownContent">
-                        <li class="iumioTaskBarAssetsPublishAll" attr-href="'.
-                $um->generateRoute(
-                    "iumio_manager_assets_manager_publish",
-                    array("env" => "all", "appname" => "_all"),
-                    "ManagerApp",
-                    true
-                ).
-                '">Clear all</li>
-                        <li class="iumioTaskBarAssetsClearDev" attr-href="'.
-                $um->generateRoute(
-                    "iumio_manager_assets_manager_publish",
-                    array("env" => "dev", "appname" => "_all"),
-                    "ManagerApp",
-                    true
-                ).
-                '">Publish dev</li>      
-                        <li class="iumioTaskBarAssetsPublishProd" attr-href="'.
-                $um->generateRoute(
-                    "iumio_manager_assets_manager_publish",
-                    array("env" => "prod", "appname" => "_all"),
-                    "ManagerApp",
-                    true
-                ).
-                '">Clear prod</li>
-                        <li class="iumioTaskBarAssetsClearAll" attr-href="'.
-                $um->generateRoute(
-                    "iumio_manager_assets_manager_clear",
-                    array("env" => "all", "appname" => "_all"),
-                    "ManagerApp",
-                    true
-                ).
-                '">Publish all</li>
-                        <li class="iumioTaskBarAssetsPublishDev" attr-href="'.
-                $um->generateRoute("iumio_manager_assets_manager_clear", array("env" =>
-                    "dev", "appname" => "_all"), "ManagerApp", true).'">Clear dev</li>
-                        <li class="iumioTaskBarAssetsClearProd" attr-href="'.
-                $um->generateRoute("iumio_manager_assets_manager_clear", array("env" =>
-                    "prod", "appname" => "_all"), "ManagerApp", true).'">Publish prod</li>
-                    </ul>
+                     <li>
+                    <table class="iumioTaskbarTable">
+                        <thead>
+                        <tr>
+                            <th colspan="3">Assets Manager - Actions</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td class="iumioTaskBarAssetsPublishAll" attr-href="'.
+                            $um->generateRoute(
+                                "iumio_manager_assets_manager_publish",
+                                array("env" => "all", "appname" => "_all"),
+                                "ManagerApp",
+                                true
+                            ).
+                            '"> 
+                            <i class="pe-7s-angle-right icon-iumio-task"></i> &nbsp; Publish all environment</td>
+                        </tr>
+                        <tr>
+                            <td class="iumioTaskBarAssetsPublishDev" attr-href="'.
+                            $um->generateRoute(
+                                "iumio_manager_assets_manager_publish",
+                                array("env" => "dev", "appname" => "_all"),
+                                "ManagerApp",
+                                true
+                            ).
+                            '"> 
+                            <i class="pe-7s-angle-right icon-iumio-task"></i> &nbsp; Publish dev</td>
+                        </tr>
+                        <tr>
+                            <td class="iumioTaskBarAssetsPublishProd" attr-href="'.
+                            $um->generateRoute(
+                                "iumio_manager_assets_manager_publish",
+                                array("env" => "prod", "appname" => "_all"),
+                                "ManagerApp",
+                                true
+                            ).
+                            '"> 
+                            <i class="pe-7s-angle-right icon-iumio-task"></i> &nbsp; Publish prod</td>
+                        </tr>
+                        <tr>
+                            <td class="iumioTaskBarAssetsClearAll" attr-href="'.
+                            $um->generateRoute(
+                                "iumio_manager_assets_manager_clear",
+                                array("env" => "all", "appname" => "_all"),
+                                "ManagerApp",
+                                true
+                            ).
+                            '"> 
+                            <i class="pe-7s-angle-right icon-iumio-task"></i> &nbsp; Clear all environment</td>
+                        </tr>
+                        <tr>
+                            <td class="iumioTaskBarAssetsClearDev" attr-href="'.
+                            $um->generateRoute(
+                                "iumio_manager_assets_manager_clear",
+                                array("env" => "dev", "appname" => "_all"),
+                                "ManagerApp",
+                                true
+                            ).
+                            '" >
+                             <i class="pe-7s-angle-right icon-iumio-task"></i> &nbsp; Clear dev</td>
+                        </tr>
+                        <tr>
+                            <td class="iumioTaskBarAssetsClearProd" attr-href="'.
+                            $um->generateRoute(
+                                "iumio_manager_assets_manager_clear",
+                                array("env" => "prod", "appname" => "_all"),
+                                "ManagerApp",
+                                true
+                            ).
+                            '" > 
+                            <i class="pe-7s-angle-right icon-iumio-task"></i> &nbsp; Clear prod</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </li>
+                  </ul>
                 </li>
                 <li><a href="#" id="iumioTaskBarEnaDisApp" attr-href="'.
                 $um->generateRoute(
@@ -166,33 +205,53 @@ class TaskBar
                 <li id="iumioTaskBarCacheClear" class="iumioTaskBarDropdown"><a href="#" >
                 <i class="pe-7s-back icon-iumio-task"></i> <span class="iumio-taskbar-text">Clear cache</span></a>
                 <ul class="iumioTaskBarDropdownContent">
-                <li class="iumioTaskBarCacheClearAll" attr-href="'.
-                $um->generateRoute(
-                    "iumio_manager_cache_manager_remove_all",
-                    null,
-                    "ManagerApp",
-                    true
-                ).'">Clear all</li>
-                <li class="iumioTaskBarCacheClearDev" attr-href="'.
-                $um->generateRoute(
-                    "iumio_manager_cache_manager_remove",
-                    array("env" => "dev"),
-                    "ManagerApp",
-                    true
-                ).'">Clear dev</li>
-               <li class="iumioTaskBarCacheClearProd" attr-href="'.
-                $um->generateRoute(
-                    "iumio_manager_cache_manager_remove",
-                    array("env" => "prod"),
-                    "ManagerApp",
-                    true
-                ).'">Clear prod</li>
+                <li>
+                <table class="iumioTaskbarTable">
+                        <thead>
+                        <tr>
+                            <th colspan="3">Cache Manager - Actions</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td class="iumioTaskBarCacheClearAll" attr-href="'.
+                            $um->generateRoute(
+                                "iumio_manager_cache_manager_remove_all",
+                                null,
+                                "ManagerApp",
+                                true
+                            ).'"> 
+                            <i class="pe-7s-angle-right icon-iumio-task"></i> &nbsp; Clear all environment</td>
+                        </tr>
+                        <tr>
+                            <td class="iumioTaskBarCacheClearDev" attr-href="'.
+                            $um->generateRoute(
+                                "iumio_manager_cache_manager_remove",
+                                array("env" => "dev"),
+                                "ManagerApp",
+                                true
+                            ).'"> 
+                            <i class="pe-7s-angle-right icon-iumio-task"></i> &nbsp; Clear dev</td>
+                        </tr>
+                        <tr>
+                            <td class="iumioTaskBarCacheClearProd" attr-href="'.
+                            $um->generateRoute(
+                                "iumio_manager_cache_manager_remove",
+                                array("env" => "prod"),
+                                "ManagerApp",
+                                true
+                            ).'"> 
+                            <i class="pe-7s-angle-right icon-iumio-task"></i> &nbsp; Clear prod</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </li>
                 </ul></li>
                 <li style="float: right; list-style: none" class="" id="iumioTaskBarReduce">
                 <a class="pe-7s-left-arrow" style="font-size: 16px"></a></li>
                 </ul>
                 <ul class="iumioTaskBar iumioTaskBarVSmall" style="display: none; width: 114px; padding: 0px 0px 0 0;">
-                <li class="flogo"><img src="'. WEB_FRAMEWORK.'/img/logo_white_small.png"/>  </li>
+                <li class="flogo iumioTaskBarPulse"><img src="'. WEB_FRAMEWORK.'/img/logo_white_small.png"/>  </li>
                 <li id="iumioTaskBarRestore" style="color: black;list-style: none; ">
                 <a class="pe-7s-right-arrow" style="font-size: 16px"></a></li>
                 </ul>'.self::getJsTaskBar();
@@ -219,7 +278,7 @@ class TaskBar
                 getInfo('VERSION')." ".\iumioFramework\Core\Requirement\FrameworkCore::
                 getInfo('VERSION_EDITION_SHORT');
             $options['env']                 =  IUMIO_ENV;
-            $options['call_app']            =  ((!defined('APP_CALL'))? "NO APP CALLED" : APP_CALL);
+            $options['call_app']            =  ((!defined('APP_CALL'))? "No apps called" : APP_CALL);
             $options['manager']             =  $um->generateRoute(
                 "iumio_manager_index",
                 null,

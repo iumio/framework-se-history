@@ -12,6 +12,9 @@
 
 namespace iumioFramework\Core\Base\Json;
 
+use iumioFramework\Core\Additionnal\Server\ServerManager;
+use iumioFramework\Exception\Server\Server500;
+
 /**
  * Class iumioDatabaseAccess
  * @package iumioFramework\Core\Base\Json
@@ -29,13 +32,26 @@ class JsonListener implements JsonInterface
     /** Open file configuration
      * @param $filepath string Filepath
      * @return \stdClass File content
+     * @throws 5Server500 If file does not exist or not readable
      */
     public static function open(string $filepath):\stdClass
     {
         if ($filepath == self::$filepath && self::$file != null) {
             return (self::$file);
         }
+
+        if (!file_exists($filepath)) {
+            throw new Server500(new \ArrayObject(array("explain" => "Cannot open file $filepath : File does not exit",
+                "solution" => "Please set the correct filepath")));
+        }
+
+        if (!is_readable($filepath)) {
+            throw new Server500(new \ArrayObject(array("explain" => "Cannot open file $filepath : File not readable",
+                "solution" => "Please set the correct permission")));
+        }
+
         $a = json_decode(file_get_contents($filepath));
+
         self::$file = ($a == null ? new \stdClass() : $a);
         return ($a == null ? new \stdClass() : $a);
     }
@@ -47,6 +63,9 @@ class JsonListener implements JsonInterface
      */
     public static function put(string $filepath, string $content):int
     {
+        if (!file_exists($filepath)) {
+            ServerManager::create($filepath, "file");
+        }
         file_put_contents($filepath, $content);
         self::open($filepath);
         return (1);

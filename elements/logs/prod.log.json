@@ -9358,5 +9358,785 @@
         ],
         "uri": "\/robots.txt",
         "referer": null
+    },
+    "156": {
+        "uidie": "bbFwTf3IvDxi",
+        "time": {
+            "date": "2017-10-24 20:21:33.005768",
+            "timezone_type": 3,
+            "timezone": "Europe\/Paris"
+        },
+        "client_ip": "::1",
+        "code": "404",
+        "code_title": "NOT FOUND",
+        "explain": "The resource you try to access is not found.",
+        "solution": "Please check your URI",
+        "method": "GET",
+        "trace": [
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/apps\/AppCore.php",
+                "line": 71,
+                "function": "dispatching",
+                "class": "iumioFramework\\Core\\Requirement\\FrameworkCore",
+                "type": "->",
+                "args": [
+                    {
+                        "attributes": {},
+                        "request": {},
+                        "query": {},
+                        "server": {},
+                        "cookies": {},
+                        "headers": {}
+                    }
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/web\/Prod.php",
+                "line": 48,
+                "function": "dispatch",
+                "class": "iumioFramework\\Apps\\AppCore",
+                "type": "->",
+                "args": [
+                    {
+                        "attributes": {},
+                        "request": {},
+                        "query": {},
+                        "server": {},
+                        "cookies": {},
+                        "headers": {}
+                    }
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/web\/Prod.php",
+                "line": 55,
+                "function": "start",
+                "class": "iumioFramework\\Core\\Base\\Prod",
+                "type": "::",
+                "args": []
+            }
+        ],
+        "uri": "\/favicon.ico",
+        "referer": "http:\/\/iumio.framework.in:8888\/Dev.php\/index"
+    },
+    "157": {
+        "uidie": "z4mC0zk6iRvM",
+        "time": {
+            "date": "2017-10-24 20:39:06.472266",
+            "timezone_type": 3,
+            "timezone": "Europe\/Paris"
+        },
+        "client_ip": "::1",
+        "code": "404",
+        "code_title": "NOT FOUND",
+        "explain": "The resource you try to access is not found.",
+        "solution": "Please check your URI",
+        "method": "GET",
+        "trace": [
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/apps\/AppCore.php",
+                "line": 71,
+                "function": "dispatching",
+                "class": "iumioFramework\\Core\\Requirement\\FrameworkCore",
+                "type": "->",
+                "args": [
+                    {
+                        "attributes": {},
+                        "request": {},
+                        "query": {},
+                        "server": {},
+                        "cookies": {},
+                        "headers": {}
+                    }
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/web\/Prod.php",
+                "line": 48,
+                "function": "dispatch",
+                "class": "iumioFramework\\Apps\\AppCore",
+                "type": "->",
+                "args": [
+                    {
+                        "attributes": {},
+                        "request": {},
+                        "query": {},
+                        "server": {},
+                        "cookies": {},
+                        "headers": {}
+                    }
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/web\/Prod.php",
+                "line": 55,
+                "function": "start",
+                "class": "iumioFramework\\Core\\Base\\Prod",
+                "type": "::",
+                "args": []
+            }
+        ],
+        "uri": "\/robots.txt",
+        "referer": null
+    },
+    "158": {
+        "uidie": "x4BuEeEO1Ega",
+        "time": {
+            "date": "2017-10-24 20:39:06.572189",
+            "timezone_type": 3,
+            "timezone": "Europe\/Paris"
+        },
+        "client_ip": "::1",
+        "code": "404",
+        "code_title": "NOT FOUND",
+        "explain": "The resource you try to access is not found.",
+        "solution": "Please check your URI",
+        "method": "GET",
+        "trace": [
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/apps\/AppCore.php",
+                "line": 71,
+                "function": "dispatching",
+                "class": "iumioFramework\\Core\\Requirement\\FrameworkCore",
+                "type": "->",
+                "args": [
+                    {
+                        "attributes": {},
+                        "request": {},
+                        "query": {},
+                        "server": {},
+                        "cookies": {},
+                        "headers": {}
+                    }
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/web\/Prod.php",
+                "line": 48,
+                "function": "dispatch",
+                "class": "iumioFramework\\Apps\\AppCore",
+                "type": "->",
+                "args": [
+                    {
+                        "attributes": {},
+                        "request": {},
+                        "query": {},
+                        "server": {},
+                        "cookies": {},
+                        "headers": {}
+                    }
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/web\/Prod.php",
+                "line": 55,
+                "function": "start",
+                "class": "iumioFramework\\Core\\Base\\Prod",
+                "type": "::",
+                "args": []
+            }
+        ],
+        "uri": "\/robots.txt",
+        "referer": null
+    },
+    "159": {
+        "uidie": "ak0XfN1zNNhz",
+        "time": {
+            "date": "2017-10-24 20:39:07.414460",
+            "timezone_type": 3,
+            "timezone": "Europe\/Paris"
+        },
+        "client_ip": "::1",
+        "code": "404",
+        "code_title": "NOT FOUND",
+        "explain": "The resource you try to access is not found.",
+        "solution": "Please check your URI",
+        "method": "GET",
+        "trace": [
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/apps\/AppCore.php",
+                "line": 71,
+                "function": "dispatching",
+                "class": "iumioFramework\\Core\\Requirement\\FrameworkCore",
+                "type": "->",
+                "args": [
+                    {
+                        "attributes": {},
+                        "request": {},
+                        "query": {},
+                        "server": {},
+                        "cookies": {},
+                        "headers": {}
+                    }
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/web\/Prod.php",
+                "line": 48,
+                "function": "dispatch",
+                "class": "iumioFramework\\Apps\\AppCore",
+                "type": "->",
+                "args": [
+                    {
+                        "attributes": {},
+                        "request": {},
+                        "query": {},
+                        "server": {},
+                        "cookies": {},
+                        "headers": {}
+                    }
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/web\/Prod.php",
+                "line": 55,
+                "function": "start",
+                "class": "iumioFramework\\Core\\Base\\Prod",
+                "type": "::",
+                "args": []
+            }
+        ],
+        "uri": "\/robots.txt",
+        "referer": null
+    },
+    "160": {
+        "uidie": "EMCSlXaAldad",
+        "time": {
+            "date": "2017-10-24 20:39:07.490561",
+            "timezone_type": 3,
+            "timezone": "Europe\/Paris"
+        },
+        "client_ip": "::1",
+        "code": "404",
+        "code_title": "NOT FOUND",
+        "explain": "The resource you try to access is not found.",
+        "solution": "Please check your URI",
+        "method": "GET",
+        "trace": [
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/apps\/AppCore.php",
+                "line": 71,
+                "function": "dispatching",
+                "class": "iumioFramework\\Core\\Requirement\\FrameworkCore",
+                "type": "->",
+                "args": [
+                    {
+                        "attributes": {},
+                        "request": {},
+                        "query": {},
+                        "server": {},
+                        "cookies": {},
+                        "headers": {}
+                    }
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/web\/Prod.php",
+                "line": 48,
+                "function": "dispatch",
+                "class": "iumioFramework\\Apps\\AppCore",
+                "type": "->",
+                "args": [
+                    {
+                        "attributes": {},
+                        "request": {},
+                        "query": {},
+                        "server": {},
+                        "cookies": {},
+                        "headers": {}
+                    }
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/web\/Prod.php",
+                "line": 55,
+                "function": "start",
+                "class": "iumioFramework\\Core\\Base\\Prod",
+                "type": "::",
+                "args": []
+            }
+        ],
+        "uri": "\/robots.txt",
+        "referer": null
+    },
+    "161": {
+        "uidie": "LI0hgNx5ZDXd",
+        "time": {
+            "date": "2017-10-24 20:39:07.560675",
+            "timezone_type": 3,
+            "timezone": "Europe\/Paris"
+        },
+        "client_ip": "::1",
+        "code": "404",
+        "code_title": "NOT FOUND",
+        "explain": "The resource you try to access is not found.",
+        "solution": "Please check your URI",
+        "method": "GET",
+        "trace": [
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/apps\/AppCore.php",
+                "line": 71,
+                "function": "dispatching",
+                "class": "iumioFramework\\Core\\Requirement\\FrameworkCore",
+                "type": "->",
+                "args": [
+                    {
+                        "attributes": {},
+                        "request": {},
+                        "query": {},
+                        "server": {},
+                        "cookies": {},
+                        "headers": {}
+                    }
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/web\/Prod.php",
+                "line": 48,
+                "function": "dispatch",
+                "class": "iumioFramework\\Apps\\AppCore",
+                "type": "->",
+                "args": [
+                    {
+                        "attributes": {},
+                        "request": {},
+                        "query": {},
+                        "server": {},
+                        "cookies": {},
+                        "headers": {}
+                    }
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/web\/Prod.php",
+                "line": 55,
+                "function": "start",
+                "class": "iumioFramework\\Core\\Base\\Prod",
+                "type": "::",
+                "args": []
+            }
+        ],
+        "uri": "\/robots.txt",
+        "referer": null
+    },
+    "162": {
+        "uidie": "KpN6lVGPBLB2",
+        "time": {
+            "date": "2017-10-24 20:39:07.631308",
+            "timezone_type": 3,
+            "timezone": "Europe\/Paris"
+        },
+        "client_ip": "::1",
+        "code": "404",
+        "code_title": "NOT FOUND",
+        "explain": "The resource you try to access is not found.",
+        "solution": "Please check your URI",
+        "method": "GET",
+        "trace": [
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/apps\/AppCore.php",
+                "line": 71,
+                "function": "dispatching",
+                "class": "iumioFramework\\Core\\Requirement\\FrameworkCore",
+                "type": "->",
+                "args": [
+                    {
+                        "attributes": {},
+                        "request": {},
+                        "query": {},
+                        "server": {},
+                        "cookies": {},
+                        "headers": {}
+                    }
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/web\/Prod.php",
+                "line": 48,
+                "function": "dispatch",
+                "class": "iumioFramework\\Apps\\AppCore",
+                "type": "->",
+                "args": [
+                    {
+                        "attributes": {},
+                        "request": {},
+                        "query": {},
+                        "server": {},
+                        "cookies": {},
+                        "headers": {}
+                    }
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/web\/Prod.php",
+                "line": 55,
+                "function": "start",
+                "class": "iumioFramework\\Core\\Base\\Prod",
+                "type": "::",
+                "args": []
+            }
+        ],
+        "uri": "\/robots.txt",
+        "referer": null
+    },
+    "163": {
+        "uidie": "yDcc2lMG3a1Z",
+        "time": {
+            "date": "2017-10-24 20:39:07.702003",
+            "timezone_type": 3,
+            "timezone": "Europe\/Paris"
+        },
+        "client_ip": "::1",
+        "code": "404",
+        "code_title": "NOT FOUND",
+        "explain": "The resource you try to access is not found.",
+        "solution": "Please check your URI",
+        "method": "GET",
+        "trace": [
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/apps\/AppCore.php",
+                "line": 71,
+                "function": "dispatching",
+                "class": "iumioFramework\\Core\\Requirement\\FrameworkCore",
+                "type": "->",
+                "args": [
+                    {
+                        "attributes": {},
+                        "request": {},
+                        "query": {},
+                        "server": {},
+                        "cookies": {},
+                        "headers": {}
+                    }
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/web\/Prod.php",
+                "line": 48,
+                "function": "dispatch",
+                "class": "iumioFramework\\Apps\\AppCore",
+                "type": "->",
+                "args": [
+                    {
+                        "attributes": {},
+                        "request": {},
+                        "query": {},
+                        "server": {},
+                        "cookies": {},
+                        "headers": {}
+                    }
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/web\/Prod.php",
+                "line": 55,
+                "function": "start",
+                "class": "iumioFramework\\Core\\Base\\Prod",
+                "type": "::",
+                "args": []
+            }
+        ],
+        "uri": "\/robots.txt",
+        "referer": null
+    },
+    "164": {
+        "uidie": "HjwCzsdd2zNe",
+        "time": {
+            "date": "2017-10-24 20:39:07.768385",
+            "timezone_type": 3,
+            "timezone": "Europe\/Paris"
+        },
+        "client_ip": "::1",
+        "code": "404",
+        "code_title": "NOT FOUND",
+        "explain": "The resource you try to access is not found.",
+        "solution": "Please check your URI",
+        "method": "GET",
+        "trace": [
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/apps\/AppCore.php",
+                "line": 71,
+                "function": "dispatching",
+                "class": "iumioFramework\\Core\\Requirement\\FrameworkCore",
+                "type": "->",
+                "args": [
+                    {
+                        "attributes": {},
+                        "request": {},
+                        "query": {},
+                        "server": {},
+                        "cookies": {},
+                        "headers": {}
+                    }
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/web\/Prod.php",
+                "line": 48,
+                "function": "dispatch",
+                "class": "iumioFramework\\Apps\\AppCore",
+                "type": "->",
+                "args": [
+                    {
+                        "attributes": {},
+                        "request": {},
+                        "query": {},
+                        "server": {},
+                        "cookies": {},
+                        "headers": {}
+                    }
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/web\/Prod.php",
+                "line": 55,
+                "function": "start",
+                "class": "iumioFramework\\Core\\Base\\Prod",
+                "type": "::",
+                "args": []
+            }
+        ],
+        "uri": "\/robots.txt",
+        "referer": null
+    },
+    "165": {
+        "uidie": "IBkX98t3S7fp",
+        "time": {
+            "date": "2017-10-24 20:39:07.837452",
+            "timezone_type": 3,
+            "timezone": "Europe\/Paris"
+        },
+        "client_ip": "::1",
+        "code": "404",
+        "code_title": "NOT FOUND",
+        "explain": "The resource you try to access is not found.",
+        "solution": "Please check your URI",
+        "method": "GET",
+        "trace": [
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/apps\/AppCore.php",
+                "line": 71,
+                "function": "dispatching",
+                "class": "iumioFramework\\Core\\Requirement\\FrameworkCore",
+                "type": "->",
+                "args": [
+                    {
+                        "attributes": {},
+                        "request": {},
+                        "query": {},
+                        "server": {},
+                        "cookies": {},
+                        "headers": {}
+                    }
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/web\/Prod.php",
+                "line": 48,
+                "function": "dispatch",
+                "class": "iumioFramework\\Apps\\AppCore",
+                "type": "->",
+                "args": [
+                    {
+                        "attributes": {},
+                        "request": {},
+                        "query": {},
+                        "server": {},
+                        "cookies": {},
+                        "headers": {}
+                    }
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/web\/Prod.php",
+                "line": 55,
+                "function": "start",
+                "class": "iumioFramework\\Core\\Base\\Prod",
+                "type": "::",
+                "args": []
+            }
+        ],
+        "uri": "\/robots.txt",
+        "referer": null
+    },
+    "166": {
+        "uidie": "U35vSJE3Injx",
+        "time": {
+            "date": "2017-10-24 20:39:07.905353",
+            "timezone_type": 3,
+            "timezone": "Europe\/Paris"
+        },
+        "client_ip": "::1",
+        "code": "404",
+        "code_title": "NOT FOUND",
+        "explain": "The resource you try to access is not found.",
+        "solution": "Please check your URI",
+        "method": "GET",
+        "trace": [
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/apps\/AppCore.php",
+                "line": 71,
+                "function": "dispatching",
+                "class": "iumioFramework\\Core\\Requirement\\FrameworkCore",
+                "type": "->",
+                "args": [
+                    {
+                        "attributes": {},
+                        "request": {},
+                        "query": {},
+                        "server": {},
+                        "cookies": {},
+                        "headers": {}
+                    }
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/web\/Prod.php",
+                "line": 48,
+                "function": "dispatch",
+                "class": "iumioFramework\\Apps\\AppCore",
+                "type": "->",
+                "args": [
+                    {
+                        "attributes": {},
+                        "request": {},
+                        "query": {},
+                        "server": {},
+                        "cookies": {},
+                        "headers": {}
+                    }
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/web\/Prod.php",
+                "line": 55,
+                "function": "start",
+                "class": "iumioFramework\\Core\\Base\\Prod",
+                "type": "::",
+                "args": []
+            }
+        ],
+        "uri": "\/robots.txt",
+        "referer": null
+    },
+    "167": {
+        "uidie": "F60jeS6KcU8q",
+        "time": {
+            "date": "2017-10-24 20:39:07.979980",
+            "timezone_type": 3,
+            "timezone": "Europe\/Paris"
+        },
+        "client_ip": "::1",
+        "code": "404",
+        "code_title": "NOT FOUND",
+        "explain": "The resource you try to access is not found.",
+        "solution": "Please check your URI",
+        "method": "GET",
+        "trace": [
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/apps\/AppCore.php",
+                "line": 71,
+                "function": "dispatching",
+                "class": "iumioFramework\\Core\\Requirement\\FrameworkCore",
+                "type": "->",
+                "args": [
+                    {
+                        "attributes": {},
+                        "request": {},
+                        "query": {},
+                        "server": {},
+                        "cookies": {},
+                        "headers": {}
+                    }
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/web\/Prod.php",
+                "line": 48,
+                "function": "dispatch",
+                "class": "iumioFramework\\Apps\\AppCore",
+                "type": "->",
+                "args": [
+                    {
+                        "attributes": {},
+                        "request": {},
+                        "query": {},
+                        "server": {},
+                        "cookies": {},
+                        "headers": {}
+                    }
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/web\/Prod.php",
+                "line": 55,
+                "function": "start",
+                "class": "iumioFramework\\Core\\Base\\Prod",
+                "type": "::",
+                "args": []
+            }
+        ],
+        "uri": "\/robots.txt",
+        "referer": null
+    },
+    "168": {
+        "uidie": "FbFABOGeLVrc",
+        "time": {
+            "date": "2017-10-24 20:39:08.065371",
+            "timezone_type": 3,
+            "timezone": "Europe\/Paris"
+        },
+        "client_ip": "::1",
+        "code": "404",
+        "code_title": "NOT FOUND",
+        "explain": "The resource you try to access is not found.",
+        "solution": "Please check your URI",
+        "method": "GET",
+        "trace": [
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/apps\/AppCore.php",
+                "line": 71,
+                "function": "dispatching",
+                "class": "iumioFramework\\Core\\Requirement\\FrameworkCore",
+                "type": "->",
+                "args": [
+                    {
+                        "attributes": {},
+                        "request": {},
+                        "query": {},
+                        "server": {},
+                        "cookies": {},
+                        "headers": {}
+                    }
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/web\/Prod.php",
+                "line": 48,
+                "function": "dispatch",
+                "class": "iumioFramework\\Apps\\AppCore",
+                "type": "->",
+                "args": [
+                    {
+                        "attributes": {},
+                        "request": {},
+                        "query": {},
+                        "server": {},
+                        "cookies": {},
+                        "headers": {}
+                    }
+                ]
+            },
+            {
+                "file": "\/Applications\/MAMP\/htdocs\/iumio-framework\/web\/Prod.php",
+                "line": 55,
+                "function": "start",
+                "class": "iumioFramework\\Core\\Base\\Prod",
+                "type": "::",
+                "args": []
+            }
+        ],
+        "uri": "\/robots.txt",
+        "referer": null
     }
 }

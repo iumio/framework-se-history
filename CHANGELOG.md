@@ -11,13 +11,20 @@ iumio Framework
 ## [0.6.0] - 2017-WW-WW
 ### Added
 - New design for iumio Installer
-
+- Exception in JSONListener Class
+- [SmartyEngineTemplate] Disable or enable cache for a specific render when the cache option is available (Dynamic content)
+- Add shutdown error handler for E_ERROR
+- Add error map : Get the error name according to error level
+- Parse error is managing by iumio 
+- Add new register smmarty plugin template with .json
 ### Fixed
 - Bug with no rewrite url
 - Responsive sidebar
 
 ### Edited
 - Change iumio Manager permissions and publish status display
+- Change iumioTaskBar cache, assets and status menu
+
 
 ### Removed
 - Language installation

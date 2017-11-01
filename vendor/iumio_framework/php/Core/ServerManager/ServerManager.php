@@ -100,6 +100,14 @@ class ServerManager
         return (1);
     }
 
+    /** Check if an element existed on the server
+     * @param string $path Element Path
+     * @return bool If element exist
+     */
+    public static function exist(string $path):bool
+    {
+        return (file_exists($path));
+    }
 
     /** Delete an element on the server
      * @param string $path Element Path

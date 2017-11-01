@@ -14,6 +14,8 @@ namespace iumioFramework\Core\Additionnal\Template;
 
 use iumioFramework\Core\Base\Debug\Debug;
 use iumioFramework\Core\Base\FrameworkEnvironment;
+use iumioFramework\Exception\Server\Server404;
+use iumioFramework\Exception\Server\Server500;
 use iumioFramework\HttpRoutes\Routing;
 
 /**
@@ -304,10 +306,34 @@ class ViewBasePlugin
      */
     final public static function route(array $params)
     {
+        error_log(json_encode($params)."kDF");
         $im = new \iumioFramework\Masters\MasterCore();
+
+
         $route = ($im->generateRoute(((isset($params['name']))? $params['name'] : ""), ((isset($params['params']) &&
             !empty($params['params']))? $params['params']  : null), null, ((isset($params['component']) &&
             $params['component'] == "yes")? true  : false)));
+        error_log($route."kDF");
+
+
+
+        if (empty($route) || $route == null){
+            error_log("SXQ");
+            ob_start();
+            ob_clean();
+            ob_end_clean();
+            throw new Server500(new \ArrayObject(array("explain" => "The parameter [name] is missing",
+                "solution" => "Please add the [name] parameter to generate a route")));
+        }
+       /* if ((!isset($params['name']))){
+        error_log("ELLES");
+        throw new Server500(new \ArrayObject(array("explain" => "The parameter [name] is missing", "solution" => "Please add the [name] parameter to generate a route")));
+        return (null);
+    }*/
+
+            error_log($params['name']."ELLES");
+            //throw new Server500(new \ArrayObject(array("explain" => "The parameter [name] is missing", "solution" => "Please add the [name] parameter to generate a route")));
+
         return ($route);
     }
 

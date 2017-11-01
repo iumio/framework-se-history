@@ -128,7 +128,8 @@ document.addEventListener('click',function(e){
             case 'iumioTaskBarAssetsClearProd':
                 assetsClear(document.querySelector(".iumioTaskBarAssetsClearProd"));
                 break;
-            case 'iumioTaskBarOneApp':
+            case 'red-color iumioTaskBarOneApp':
+            case 'green-color iumioTaskBarOneApp':
                 switchApp(e.target);
                 break;
         }
@@ -331,14 +332,30 @@ function getSimpleApps() {
             {
                 elem.parentNode.className = " iumioTaskBarDropdown";
                 var str = '';
-                var e = document.getElementsByClassName("iumioTaskBarAllAppRemove")[0];
-                if (typeof e !== "undefined")
-                    e.parentNode.removeChild(e);
+                var z = document.getElementsByClassName("iumioTaskBarAllAppRemove")[0];
+                if (typeof z !== "undefined")
+                {
+                    z.parentNode.removeChild(z);
+                }
+                str +=  "<table class='iumioTaskbarTable iumioTaskbarTableApps'>" +
+                    "<thead>" +
+                    "<tr>" +
+                    "<th>Name</th>" +
+                    "<th>Status</th>" +
+                    "<th>Action</th>" +
+                    "</tr></thead><tbody>" ;
+                var e = '';
                 for(var i = 0; i < ObjectLength(result); i++)
                 {
-                    var e =   '<li class="iumioTaskBarOneApp" '+((result[i]['enabled'] === "yes")? "  style='background-color:rgba(56, 171, 27, 0.85);' " : "   style='rgba(236, 40, 40, 0.45);' ")+'  attr-href="'+result[i]['link_auto_dis_ena']+'">'+result[i]['name'] +" "+((result[i]['enabled'] === "yes")? " - Enabled" : "- Disabled") +'</li>';
-                    str += e;
+                    e +=
+                        "<tr>" +
+                        " <td class='iumioTaskBBarAppname'> <i class=\"pe-7s-angle-right icon-iumio-task\"></i> &nbsp;"+result[i]['name']+"</td>" +
+                        " <td>"+((result[i]['enabled'] === "yes")? "<span class='green-color'>Enabled</span>" : "<span class='red-color'>Disabled</span>") +"</td>" +
+                        "<td>"+((result[i]['enabled'] === "no")? "<span class='green-color iumioTaskBarOneApp' attr-href='"+result[i]['link_auto_dis_ena']+"'>Enabled</span>" : "<span class='red-color iumioTaskBarOneApp' attr-href='"+result[i]['link_auto_dis_ena']+"'>Disabled</span>") +"</td>" +
+                        "</tr>";
                 }
+                str += e;
+                str += "</tbody></tbody></table>";
                 str += '';
                 var edd = document.createElement('ul');
                 edd.innerHTML = str;

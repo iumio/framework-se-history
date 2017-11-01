@@ -13,7 +13,7 @@
 # @author  Dany Rafina <danyrafina@gmail.com> #
 ###############################################
 
-DirectoryIndex Prod.php
+DirectoryIndex Dev.php
 
 <IfModule mod_negotiation.c>
     Options -MultiViews
@@ -35,11 +35,11 @@ DirectoryIndex Prod.php
     RewriteCond %{REQUEST_FILENAME} -f
     RewriteRule .? - [L]
 
-    RewriteRule .? %{ENV:BASE}/Prod.php [L]
+    RewriteRule .? %{ENV:BASE}/Dev.php [L]
 </IfModule>
 
 <IfModule !mod_rewrite.c>
     <IfModule mod_alias.c>
-        RedirectMatch 302 ^/$ /Prod.php/
+        RedirectMatch 302 ^/$ /Dev.php/
     </IfModule>
 </IfModule>

@@ -84,8 +84,8 @@
                         <div class="col-md-6">
                             <div class="card h350">
                                 <div class="header">
-                                    <h4 class="title">iumio Framework</h4>
-                                    <p class="category">Statistics</p>
+                                    <h4 class="title">iumio Framework Statistics</h4>
+                                    <p class="category">Statistics about iumio Framework instance</p>
                                 </div>
                                 <div class="content dashboardStats elemcard"  attr-href="{route name='iumio_manager_dashboard_get_statistics'}" style="overflow: auto;padding-left: 40px">
                                     <ul class="col-md-6">

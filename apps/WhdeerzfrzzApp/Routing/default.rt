@@ -1,0 +1,5 @@
+route:
+  name : default_index
+  path : /index
+  activity : Default%index
+endroute
