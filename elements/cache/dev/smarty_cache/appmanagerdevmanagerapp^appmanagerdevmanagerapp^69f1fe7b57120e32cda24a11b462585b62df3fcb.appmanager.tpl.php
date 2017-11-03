@@ -1,17 +1,17 @@
 <?php
-/* Smarty version 3.1.31, created on 2017-11-03 16:35:25
-  from "/Applications/MAMP/htdocs/iumio-framework/vendor/iumio_framework/php/BaseApps/ManagerApp/Front/views/autoloadermanager.tpl" */
+/* Smarty version 3.1.31, created on 2017-11-03 16:29:17
+  from "/Applications/MAMP/htdocs/iumio-framework/vendor/iumio_framework/php/BaseApps/ManagerApp/Front/views/appmanager.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.31',
-  'unifunc' => 'content_59fc8cbd411204_06896272',
+  'unifunc' => 'content_59fc8b4dbb5581_73636538',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    'bc60c56540555fe7f4861b3f9804ed572e67882d' => 
+    '16c321bd71390f44372955b27069d31a6d109829' => 
     array (
-      0 => '/Applications/MAMP/htdocs/iumio-framework/vendor/iumio_framework/php/BaseApps/ManagerApp/Front/views/autoloadermanager.tpl',
+      0 => '/Applications/MAMP/htdocs/iumio-framework/vendor/iumio_framework/php/BaseApps/ManagerApp/Front/views/appmanager.tpl',
       1 => 1507506917,
       2 => 'file',
     ),
@@ -48,7 +48,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   ),
   'cache_lifetime' => 3600,
 ),true)) {
-function content_59fc8cbd411204_06896272 (Smarty_Internal_Template $_smarty_tpl) {
+function content_59fc8b4dbb5581_73636538 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!doctype html>
 <html lang="en">
@@ -99,7 +99,7 @@ function content_59fc8cbd411204_06896272 (Smarty_Internal_Template $_smarty_tpl)
                 <p>Dashboard</p>
             </a>
         </li>
-        <li class="">
+        <li class="active">
             <a href="/_manager/apps">
                 <i class="pe-7s-config"></i>
                 <p>Apps</p>
@@ -147,7 +147,7 @@ function content_59fc8cbd411204_06896272 (Smarty_Internal_Template $_smarty_tpl)
                 <p>Databases</p>
             </a>
         </li>
-        <li class="active">
+        <li class="">
             <a href="/_manager/autoloader">
                 <i class="pe-7s-magic-wand"></i>
                 <p>Engine Autoloader</p>
@@ -163,74 +163,96 @@ function content_59fc8cbd411204_06896272 (Smarty_Internal_Template $_smarty_tpl)
 </div>
 </div>
 
-    <div class="main-panel">
-        <nav class="navbar navbar-default navbar-fixed">
-            <div class="container-fluid">
-                <div class="navbar-header">
+        <div class="main-panel">
+            <nav class="navbar navbar-default navbar-fixed">
+                <div class="container-fluid">
+                    <div class="navbar-header">
                         <button type="button" class="navbar-toggle toggle-iumio-manager" data-toggle="collapse" data-target="#navigation-example-2" style="padding-top: 17px;">
     <span class="sr-only">Toggle navigation</span>
     <span class="icon-bar"></span>
     <span class="icon-bar"></span>
     <span class="icon-bar"></span>
 </button>
-                    <a class="navbar-brand" href="#">Autoloader Manager</a>
+                        <a class="navbar-brand" href="#">App Manager</a>
+                    </div>
+                    <div class="collapse navbar-collapse">
+                        <ul class="nav navbar-nav navbar-left">
+                        </ul>
+                    </div>
                 </div>
-                <div class="collapse navbar-collapse">
-                    <ul class="nav navbar-nav navbar-left">
-                    </ul>
-                </div>
-
-            </div>
-        </nav>
-        <div class="content">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="card">
-                            <div class="header">
-                                <h4 class="title">Autoloader statistics</h4>
-                                <p class="category">Statistics</p>
-                            </div>
-                            <div class="content autoloaderStats" attr-href="/_manager/autoloader/get/statistics">
-                                <ul>
-                                    <li>Class for dev  : <span class="class-auto-dev">0</span> </li>
-                                    <li>Class for prod : <span class="class-auto-prod">0</span></li>
-                                    <li>Uniques Files  : <span class="uni-auto">0</span></li>
-                                    <li>Master classes : <span class="mast-auto">0</span></li>
-                                    <li>App classes    : <span class="app-auto">0</span></li>
-                                </ul>
+            </nav>
+            <div class="content">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card">
+                                <div class="header">
+                                    <h4 class="title">Apps statistics</h4>
+                                    <p class="category">Statistics</p>
+                                </div>
+                                <div class="content dashboardStats" attr-href="/_manager/get/framework/statistics">
+                                    <ul>
+                                        <li>Apps  : <span class="dashb-app">0</span> </li>
+                                        <li>Apps enabled : <span class="dashb-appena">0</span></li>
+                                        <li>App prefixed  : <span class="dashb-apppre">0</span></li>
+                                        <li class="iumiohidden">Routes  : <span class="dashb-route">0</span></li>
+                                        <li class="iumiohidden">Routes disabled : <span class="dashb-routedisa">0</span></li>
+                                        <li class="iumiohidden">Routes with public visibility : <span class="dashb-routevisi">0</span></li>
+                                        <li class="iumiohidden">Requests successful : <span class="dashb-reqsuc">0</span></li>
+                                        <li class="iumiohidden">Errors : <span class="dashb-err">0</span></li>
+                                        <li class="iumiohidden">Critical Errors (Error 500) : <span class="dashb-errcri">0</span></li>
+                                        <li class="iumiohidden">Others Errors : <span class="dashb-erroth">0</span></li>
+                                        <li class="iumiohidden">Databases connected : <span class="dashb-dbco">0</span></li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="card">
                                 <div class="header">
-                                    <h4 class="title">Actions</h4>
-                                    <p class="category">Manage autoloader ClassMap</p>
+                                    <h4 class="title">Options</h4>
+                                    <p class="category">Actions to create and import an app</p>
                                 </div>
                                 <div class="content">
                                     <div class="row center-block text-center manager-options">
-                                        <div class="col-md-3">
-                                            <a class="btn-default btn buildautoloaderdev"  attr-href="/_manager/autoloader/build/dev ">Rebuild dev</a>
+                                        <div class="col-md-6">
+                                            <a class="btn-default btn createapp"  attr-href="/_manager/apps/create">Create a new app</a>
                                         </div>
-                                        <div class="col-md-3">
-                                            <a class="btn-default btn buildautoloaderprod"  attr-href="/_manager/autoloader/build/prod">Build prod</a>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <a class="btn-default btn clearautoloaderprod"  attr-href="/_manager/autoloader/clear/prod">Clear prod</a>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <a class="btn-default btn buildautoloaderall"  attr-href="/_manager/autoloader/build/all">Build all</a>
+                                        <div class="col-md-6">
+                                            <a class="btn-default btn importapp"  attr-href="/_manager/apps/import">Import an app</a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        <div class="col-md-12">
+                            <div class="card">
+                                <div class="header">
+                                    <h4 class="title">List of your apps</h4>
+                                    <p class="category">Referer to apps.json</p>
+                                </div>
+                                <div class="content table-responsive table-full-width">
+                                    <table class="table table-hover table-striped">
+                                        <thead>
+                                        <th>ID</th>
+                                        <th>Name</th>
+                                        <th>Enabled</th>
+                                        <th>Prefix</th>
+                                        <th>Namespace</th>
+                                        <th>Edit</th>
+                                        <th>Delete</th>
+                                        <th>Export</th>
+                                        </thead>
+                                        <tbody class="applist" attr-href="/_manager/apps/simple_apps">
+                                        </tbody>
+                                    </table>
+
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-
-
             </div>
-        </div>
             <footer class="footer">
     <div class="container-fluid">
         <p class="copyright pull-right">

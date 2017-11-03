@@ -57,7 +57,8 @@ class Access200 extends \Exception
         $c = count($log);
         $log[$c] = $debug;
         $log = (object) $log;
-        JsonListener::put(ROOT_LOGS.strtolower(IUMIO_ENV).".log.json", json_encode($log, JSON_PRETTY_PRINT));
+        JsonListener::put(ROOT_LOGS.strtolower(IUMIO_ENV).".log.json",
+            json_encode($log, JSON_PRETTY_PRINT));
         return (1);
     }
 }

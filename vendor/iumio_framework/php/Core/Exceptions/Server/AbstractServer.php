@@ -43,11 +43,13 @@ abstract class AbstractServer extends \Exception implements ServerInterface
     protected $client_ip = null;
     protected $inlog = true;
     protected $type_error = null;
+    protected $file_error = null;
+    protected $line_error = null;
 
 
 
     /**
-     * Server000 constructor.
+     * AbstractServer constructor.
      * @param ArrayObject $component Error elements
      * @param string $header_message Header message
      */
@@ -73,10 +75,14 @@ abstract class AbstractServer extends \Exception implements ServerInterface
                 $this->inlog = $value;
             } elseif ($it->key() == "external") {
                 $this->external = ($value == "yes")? $value : "no";
-            }
-            elseif ($it->key() == "type_error") {
+            } elseif ($it->key() == "type_error") {
                 $this->type_error = $value;
+            } elseif ($it->key() == "file_error") {
+                $this->file_error = $value;
+            } elseif ($it->key() == "line_error") {
+                $this->line_error = $value;
             }
+
             if ($this->solution == null) {
                 $this->solution = "Please check your app configuration";
             }

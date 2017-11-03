@@ -1,17 +1,17 @@
 <?php
-/* Smarty version 3.1.31, created on 2017-11-03 16:35:25
-  from "/Applications/MAMP/htdocs/iumio-framework/vendor/iumio_framework/php/BaseApps/ManagerApp/Front/views/autoloadermanager.tpl" */
+/* Smarty version 3.1.31, created on 2017-11-02 11:45:07
+  from "/Applications/MAMP/htdocs/iumio-framework/vendor/iumio_framework/php/BaseApps/ManagerApp/Front/views/logsdetails.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.31',
-  'unifunc' => 'content_59fc8cbd411204_06896272',
+  'unifunc' => 'content_59faf733d9c0f4_31669468',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    'bc60c56540555fe7f4861b3f9804ed572e67882d' => 
+    'ada821d1d88d4f1a33da533c7ac3b7d4cbb6464f' => 
     array (
-      0 => '/Applications/MAMP/htdocs/iumio-framework/vendor/iumio_framework/php/BaseApps/ManagerApp/Front/views/autoloadermanager.tpl',
+      0 => '/Applications/MAMP/htdocs/iumio-framework/vendor/iumio_framework/php/BaseApps/ManagerApp/Front/views/logsdetails.tpl',
       1 => 1507506917,
       2 => 'file',
     ),
@@ -25,12 +25,6 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     array (
       0 => '/Applications/MAMP/htdocs/iumio-framework/vendor/iumio_framework/php/BaseApps/ManagerApp/Front/views/partials/sidebar.tpl',
       1 => 1508520329,
-      2 => 'file',
-    ),
-    '78362d8cd43c7d647ff958f8ace607fc042c7b9c' => 
-    array (
-      0 => '/Applications/MAMP/htdocs/iumio-framework/vendor/iumio_framework/php/BaseApps/ManagerApp/Front/views/partials/toogle.tpl',
-      1 => 1507506917,
       2 => 'file',
     ),
     'a5da643199f93f99cf8e3ae6d0c04bfae146dc8f' => 
@@ -48,7 +42,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   ),
   'cache_lifetime' => 3600,
 ),true)) {
-function content_59fc8cbd411204_06896272 (Smarty_Internal_Template $_smarty_tpl) {
+function content_59faf733d9c0f4_31669468 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!doctype html>
 <html lang="en">
@@ -135,7 +129,7 @@ function content_59fc8cbd411204_06896272 (Smarty_Internal_Template $_smarty_tpl)
                 <p>Routing</p>
             </a>
         </li>
-        <li class="">
+        <li class="active">
             <a href="/_manager/logs">
                 <i class="pe-7s-news-paper"></i>
                 <p>Logs</p>
@@ -147,7 +141,7 @@ function content_59fc8cbd411204_06896272 (Smarty_Internal_Template $_smarty_tpl)
                 <p>Databases</p>
             </a>
         </li>
-        <li class="active">
+        <li class="">
             <a href="/_manager/autoloader">
                 <i class="pe-7s-magic-wand"></i>
                 <p>Engine Autoloader</p>
@@ -164,16 +158,13 @@ function content_59fc8cbd411204_06896272 (Smarty_Internal_Template $_smarty_tpl)
 </div>
 
     <div class="main-panel">
-        <nav class="navbar navbar-default navbar-fixed">
+        <nav class="navbar navbar-default navbar-fixed navbar-ct-red">
             <div class="container-fluid">
                 <div class="navbar-header">
-                        <button type="button" class="navbar-toggle toggle-iumio-manager" data-toggle="collapse" data-target="#navigation-example-2" style="padding-top: 17px;">
-    <span class="sr-only">Toggle navigation</span>
-    <span class="icon-bar"></span>
-    <span class="icon-bar"></span>
-    <span class="icon-bar"></span>
-</button>
-                    <a class="navbar-brand" href="#">Autoloader Manager</a>
+                    <a class="navbar-brand" href="#">Logs Manager  - UIDIE : OaMmbHVEriRJ - 500 NOT FOUND</a>
+                    <button type="button" class="navbar-toggle toggle-iumio-manager" data-toggle="collapse" data-target="#navigation-example-2" style="margin-top: 30px!important;margin-right: 20px!important;">
+                        Menu
+                    </button>
                 </div>
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-left">
@@ -184,51 +175,73 @@ function content_59fc8cbd411204_06896272 (Smarty_Internal_Template $_smarty_tpl)
         </nav>
         <div class="content">
             <div class="container-fluid">
+
                 <div class="row">
                     <div class="col-md-12">
                         <div class="card">
                             <div class="header">
-                                <h4 class="title">Autoloader statistics</h4>
-                                <p class="category">Statistics</p>
+                                <h4 class="title">Error details</h4>
+                                <p class="category fs16">UIDIE : <strong>OaMmbHVEriRJ</p>
+                                <p class="category fs16">Environment : <strong>dev</p>
+                                <p class="category fs16">Code : 500 | Type : NOT FOUND</p>
+                                <p class="category fs16">Generated : Thursday, November  2, 2017 at 11:44:45 AM</p>
+                                <p class="category fs16">Method : GET</p>
+                                <p class="category fs16 ">Host IP : [ ::1]</p>
+                                <p class="category fs16 break-word">Host URI : /doc/favicon.ico</p>
+                                <p class="category fs16 break-word">Referer : http://iumio.framework.in:8888/doc/</p>
                             </div>
-                            <div class="content autoloaderStats" attr-href="/_manager/autoloader/get/statistics">
-                                <ul>
-                                    <li>Class for dev  : <span class="class-auto-dev">0</span> </li>
-                                    <li>Class for prod : <span class="class-auto-prod">0</span></li>
-                                    <li>Uniques Files  : <span class="uni-auto">0</span></li>
-                                    <li>Master classes : <span class="mast-auto">0</span></li>
-                                    <li>App classes    : <span class="app-auto">0</span></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-md-12">
-                            <div class="card">
-                                <div class="header">
-                                    <h4 class="title">Actions</h4>
-                                    <p class="category">Manage autoloader ClassMap</p>
+                                                        <div class="content text-center">
+                                <div class="typo-line">
+                                    <h5 class="break-word"><p class="category fs20 fw900">Explain</p>The resource you try to access is not found.</h5>
                                 </div>
-                                <div class="content">
-                                    <div class="row center-block text-center manager-options">
-                                        <div class="col-md-3">
-                                            <a class="btn-default btn buildautoloaderdev"  attr-href="/_manager/autoloader/build/dev ">Rebuild dev</a>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <a class="btn-default btn buildautoloaderprod"  attr-href="/_manager/autoloader/build/prod">Build prod</a>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <a class="btn-default btn clearautoloaderprod"  attr-href="/_manager/autoloader/clear/prod">Clear prod</a>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <a class="btn-default btn buildautoloaderall"  attr-href="/_manager/autoloader/build/all">Build all</a>
-                                        </div>
+
+                                <div class="typo-line">
+                                    <h5 class="break-word"><p class="category fs20 fw900">Solution</p>Please check your URI</h5>
+                                </div>
+                            </div>
+                                                    </div>
+                    </div>
+
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="header">
+                                <h4 class="title">Trace</h4>
+                                <p class="category">For Code : 500 | Type : NOT FOUND</p>
+                            </div>
+                            <div class="content text-center">
+                                                                <div class="content text-center card-content-new">
+                                                                       <div class="typo-line">
+                                        <span class="break-word"><p class="category">File</p>/Applications/MAMP/htdocs/iumio-framework/apps/AppCore.php</span>
+                                    </div>
+                                                                       <div class="typo-line">
+                                        <span class="break-word"><p class="category">Function  & Line</p>iumioFramework\Core\Requirement\FrameworkCore->dispatching  on line 71</span>
                                     </div>
                                 </div>
+                                <hr>
+                                                                <div class="content text-center card-content-new">
+                                                                       <div class="typo-line">
+                                        <span class="break-word"><p class="category">File</p>/Applications/MAMP/htdocs/iumio-framework/web/Dev.php</span>
+                                    </div>
+                                                                       <div class="typo-line">
+                                        <span class="break-word"><p class="category">Function  & Line</p>iumioFramework\Apps\AppCore->dispatch  on line 54</span>
+                                    </div>
+                                </div>
+                                <hr>
+                                                                <div class="content text-center card-content-new">
+                                                                       <div class="typo-line">
+                                        <span class="break-word"><p class="category">File</p>/Applications/MAMP/htdocs/iumio-framework/web/Dev.php</span>
+                                    </div>
+                                                                       <div class="typo-line">
+                                        <span class="break-word"><p class="category">Function  & Line</p>iumioFramework\Core\Base\Dev::start  on line 62</span>
+                                    </div>
+                                </div>
+                                <hr>
+                                
+
                             </div>
                         </div>
                     </div>
                 </div>
-
-
             </div>
         </div>
             <footer class="footer">

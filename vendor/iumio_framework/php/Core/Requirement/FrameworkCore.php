@@ -282,26 +282,22 @@ abstract class FrameworkCore extends GlobalCoreService
                     $controller = $callback['controller'];
                     $defname = $def['name'];
                     $master = "\\$defname\\Masters\\{$controller}Master";
-                    try {
-                        $call = new FrameworkReflexion();
-                        define("APP_CALL", $def['name']);
-                        define("IS_IUMIO_COMPONENT", false);
-                        if (isset($callback['pval'])) {
-                            if (count($callback['r_parameters']) > 0) {
-                                $callback['pval'] = $rt->checkParametersTypeURI(
-                                    $callback['pval'],
-                                    $callback['r_parameters']
-                                );
-                            }
-                            $call->__named($master, $method, $callback['pval']);
-                        } else {
-                            $call->__named($master, $method);
+                    $call = new FrameworkReflexion();
+                    define("APP_CALL", $def['name']);
+                    define("IS_IUMIO_COMPONENT", false);
+                    if (isset($callback['pval'])) {
+                        if (count($callback['r_parameters']) > 0) {
+                            $callback['pval'] = $rt->checkParametersTypeURI(
+                                $callback['pval'],
+                                $callback['r_parameters']
+                            );
                         }
-                        $great = true;
-                        new Access200();
-                    } catch (\Exception $exception) {
-                        throw new Server500(new \ArrayObject(array("explain" => $exception->getMessage())));
+                        $call->__named($master, $method, $callback['pval']);
+                    } else {
+                        $call->__named($master, $method);
                     }
+                    $great = true;
+                    new Access200();
                 }
             } else {
                 throw new Server500(new \ArrayObject(array("explain" => "Router register failed  ", "solution" =>
@@ -514,7 +510,7 @@ abstract class FrameworkCore extends GlobalCoreService
                 exit(1);
             } else {
                 throw new \RuntimeException("(Setup components does not exist in web directory => Please download".
-                 "the setup components on iumio Framework Website to fix this error and put him in web directory)");
+                    "the setup components on iumio Framework Website to fix this error and put him in web directory)");
             }
         }
         return (0);

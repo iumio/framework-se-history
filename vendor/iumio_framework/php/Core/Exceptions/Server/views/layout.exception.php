@@ -53,18 +53,6 @@
                         </a>
                     </div>
             <ul class="nav">
-                <li class="">
-                    <a href="<?= HOST_CURRENT ?>">
-                        <i class="pe-7s-link"></i>
-                        <p>Development</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="<?= HOST_CURRENT ?>/Prod.php">
-                        <i class="pe-7s-play"></i>
-                        <p>Production</p>
-                    </a>
-                </li>
                 <li>
                     <a href="<?=
                     (new \iumioFramework\Masters\MasterCore())->generateRoute(
@@ -78,9 +66,39 @@
                     </a>
                 </li>
                 <li>
-                    <a href="https://framework.iumio.com/contact">
-                        <i class="pe-7s-phone"></i>
-                        <p>Contact</p>
+                    <a href="<?=
+                    (new \iumioFramework\Masters\MasterCore())->generateRoute(
+                        "iumio_manager_app_manager",
+                        null,
+                        "ManagerApp",
+                        true
+                    ) ?>">
+                        <i class="pe-7s-config"></i>
+                        <p>Apps</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="<?=
+                    (new \iumioFramework\Masters\MasterCore())->generateRoute(
+                        "iumio_manager_app_manager",
+                        null,
+                        "ManagerApp",
+                        true
+                    ) ?>">
+                        <i class="pe-7s-link"></i>
+                        <p>Routing</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="<?=
+                    (new \iumioFramework\Masters\MasterCore())->generateRoute(
+                        "iumio_manager_app_manager",
+                        null,
+                        "ManagerApp",
+                        true
+                    ) ?>">
+                        <i class="pe-7s-news-paper"></i>
+                        <p>Logs</p>
                     </a>
                 </li>
                 <li>
@@ -112,11 +130,6 @@
                     </button>
                 </div>
                 <div class="collapse navbar-collapse text-center ">
-                    <ul class="nav navbar-nav center-block text-center w100">
-                        <li class="text-center w100">  <h5>Generated : <?php echo $this->time->format("l, F d ").' at '.
-                                    $this->time->format("H:i:s") ?></h5></li>
-                    </ul>
-
                 </div>
             </div>
         </nav>
@@ -126,35 +139,56 @@
             <div class="container-fluid">
 
                 <div class="row">
-                    <div class="col-md-12">
+                    <div class="col-md-4">
                         <div class="card">
                             <div class="header">
-                                <h4 class="title">An Error was generated</h4>
-                                <p class="category fs16">UIDIE : <strong><?= $this->uidie ?></strong></p>
-                                <p class="category fs16">Code : <?= $this->code ?> | Type : <?= $this->codeTitle ?></p>
-                                <p class="category fs16">Generated : <?php echo $this->time->format("l, F d ").
+                                <h4 class="title text-center">Characteristics</h4>
+                                <p></p>
+                                <hr>
+                                <p class="category fs16"><i class="pe-7s-config"></i> UIDIE : <strong><?= $this->uidie ?></strong></p>
+                                <hr>
+                                <p class="category fs16"><i class="pe-7s-target"></i> Error code : <?= $this->code ?> <?= $this->codeTitle ?></p>
+                                <hr>
+                                <p class="category fs16"><i class="pe-7s-clock"></i> Date : <?php echo $this->time->format("l, F d ").
                                         ' at '.$this->time->format("H:i:s") ?></p>
-                                <p class="category fs16">Method : <?php echo  $_SERVER['REQUEST_METHOD'] ?></p>
-                                <p class="category fs16">Environment : <?= ucfirst(strtolower($this->env)) ?></p>
-                                <p class="category fs16">Path : <?= $_SERVER['REQUEST_URI'] ?></p>
-                                <p class="category fs16">Referer IP : [ <?php echo  $this->client_ip ?>]</p>
+                                <hr>
+                                <p class="category fs16"><i class="pe-7s-magnet"></i> Method : <?php echo  $_SERVER['REQUEST_METHOD'] ?></p>
+                                <hr>
+                                <p class="category fs16"><i class="pe-7s-server"></i> Environment : <?= ucfirst(strtolower($this->env)) ?></p>
+                                <hr>
+                                <p class="category fs16"><i class="pe-7s-link"></i> Path : <?= $_SERVER['REQUEST_URI'] ?></p>
+                                <hr>
+                                <p class="category fs16"><i class="pe-7s-user"></i> Referer IP : { <?php echo  $this->client_ip ?>}</p>
+                                <hr>
+                                <?php if ($this->type_error != null) { ?><p class="category fs16"><i class="pe-7s-close-circle"></i> Type : <?= $this->type_error ?></p><hr/><?php } ?>
                             </div>
                             <div class="content text-center">
-                                <div class="typo-line">
-                                    <h5 class="break-word"><p class="category fs20 fw900">Explain</p>
-                                        <?= $this->explain ?></h5>
-                                </div>
-                                <?php if ($this->type_error != null) { ?>
-                                <div class="typo-line">
-                                    <h5 class="break-word"><p class="category fs20 fw900">Type</p>
-                                        <strong><?= $this->type_error ?></strong></h5>
-                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-8">
+                        <div class="card">
+                            <div class="header">
+                                <h4 class="title text-center">Error details</h4>
+                            </div>
+                            <div class="content" style="padding-top: 0px">
+                                <hr>
+                                <p class="category fs16"><i class="pe-7s-info"></i> Message :  <span class="fw900"><?= $this->explain ?></span></h5></p>
+                                <hr>
+                                <?php if ($this->file_error != null) { ?>
+                                    <p class="category fs16 "><i class="pe-7s-paperclip"></i> File :  <span class="fs16 filelink "><?= $this->file_error ?></span></p>
+
+                                    <hr>
                                 <?php } ?>
 
-                                <div class="typo-line">
-                                    <h5 class="break-word"><p class="category fs20 fw900">Solution</p>
-                                        <?= $this->solution ?></h5>
-                                </div>
+                                <?php if ($this->line_error != null) { ?>
+                                    <p class="category fs16 "><i class="pe-7s-target"></i> Line :  <span class="fw900"><?= $this->line_error ?></span></p>
+                                    <hr>
+                                <?php } ?>
+
+                                <p class="category fs16 "><i class="pe-7s-magic-wand"></i> Solution :  <span class=""><?= $this->solution ?></span></p>
+                                <hr>
                             </div>
                         </div>
                     </div>

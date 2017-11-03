@@ -1,17 +1,17 @@
 <?php
-/* Smarty version 3.1.31, created on 2017-11-03 16:35:25
-  from "/Applications/MAMP/htdocs/iumio-framework/vendor/iumio_framework/php/BaseApps/ManagerApp/Front/views/autoloadermanager.tpl" */
+/* Smarty version 3.1.31, created on 2017-11-03 16:35:21
+  from "/Applications/MAMP/htdocs/iumio-framework/vendor/iumio_framework/php/BaseApps/ManagerApp/Front/views/databases.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.31',
-  'unifunc' => 'content_59fc8cbd411204_06896272',
+  'unifunc' => 'content_59fc8cb95913e1_00303000',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    'bc60c56540555fe7f4861b3f9804ed572e67882d' => 
+    '95595edffde539a468b0f7746cf51c7cfc3661b7' => 
     array (
-      0 => '/Applications/MAMP/htdocs/iumio-framework/vendor/iumio_framework/php/BaseApps/ManagerApp/Front/views/autoloadermanager.tpl',
+      0 => '/Applications/MAMP/htdocs/iumio-framework/vendor/iumio_framework/php/BaseApps/ManagerApp/Front/views/databases.tpl',
       1 => 1507506917,
       2 => 'file',
     ),
@@ -48,7 +48,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   ),
   'cache_lifetime' => 3600,
 ),true)) {
-function content_59fc8cbd411204_06896272 (Smarty_Internal_Template $_smarty_tpl) {
+function content_59fc8cb95913e1_00303000 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!doctype html>
 <html lang="en">
@@ -141,13 +141,13 @@ function content_59fc8cbd411204_06896272 (Smarty_Internal_Template $_smarty_tpl)
                 <p>Logs</p>
             </a>
         </li>
-        <li class="">
+        <li class="active">
             <a href="/_manager/databases">
                 <i class="pe-7s-paperclip"></i>
                 <p>Databases</p>
             </a>
         </li>
-        <li class="active">
+        <li class="">
             <a href="/_manager/autoloader">
                 <i class="pe-7s-magic-wand"></i>
                 <p>Engine Autoloader</p>
@@ -163,74 +163,72 @@ function content_59fc8cbd411204_06896272 (Smarty_Internal_Template $_smarty_tpl)
 </div>
 </div>
 
-    <div class="main-panel">
-        <nav class="navbar navbar-default navbar-fixed">
-            <div class="container-fluid">
-                <div class="navbar-header">
+        <div class="main-panel">
+            <nav class="navbar navbar-default navbar-fixed">
+                <div class="container-fluid">
+                    <div class="navbar-header">
                         <button type="button" class="navbar-toggle toggle-iumio-manager" data-toggle="collapse" data-target="#navigation-example-2" style="padding-top: 17px;">
     <span class="sr-only">Toggle navigation</span>
     <span class="icon-bar"></span>
     <span class="icon-bar"></span>
     <span class="icon-bar"></span>
 </button>
-                    <a class="navbar-brand" href="#">Autoloader Manager</a>
-                </div>
-                <div class="collapse navbar-collapse">
-                    <ul class="nav navbar-nav navbar-left">
-                    </ul>
-                </div>
+                        <a class="navbar-brand" href="#">Database Manager</a>
+                    </div>
+                    <div class="collapse navbar-collapse">
+                        <ul class="nav navbar-nav navbar-left">
+                        </ul>
+                    </div>
 
-            </div>
-        </nav>
-        <div class="content">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="card">
-                            <div class="header">
-                                <h4 class="title">Autoloader statistics</h4>
-                                <p class="category">Statistics</p>
-                            </div>
-                            <div class="content autoloaderStats" attr-href="/_manager/autoloader/get/statistics">
-                                <ul>
-                                    <li>Class for dev  : <span class="class-auto-dev">0</span> </li>
-                                    <li>Class for prod : <span class="class-auto-prod">0</span></li>
-                                    <li>Uniques Files  : <span class="uni-auto">0</span></li>
-                                    <li>Master classes : <span class="mast-auto">0</span></li>
-                                    <li>App classes    : <span class="app-auto">0</span></li>
-                                </ul>
+                </div>
+            </nav>
+            <div class="content">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card">
+                                <div class="header">
+                                    <h4 class="title">Options</h4>
+                                    <p class="category">Actions to manage routing files</p>
+                                </div>
+                                <div class="content">
+                                    <div class="row center-block text-center manager-options">
+                                        <div class="col-md-12">
+                                            <a class="btn-default btn createdatabaseconfig"  attr-href="/_manager/databases/create">Add new database</a>
+                                        </div>
+
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="card">
                                 <div class="header">
-                                    <h4 class="title">Actions</h4>
-                                    <p class="category">Manage autoloader ClassMap</p>
+                                    <h4 class="title">List of your databases declarations</h4>
+                                    <p class="category">Referer to databases.json</p>
                                 </div>
-                                <div class="content">
-                                    <div class="row center-block text-center manager-options">
-                                        <div class="col-md-3">
-                                            <a class="btn-default btn buildautoloaderdev"  attr-href="/_manager/autoloader/build/dev ">Rebuild dev</a>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <a class="btn-default btn buildautoloaderprod"  attr-href="/_manager/autoloader/build/prod">Build prod</a>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <a class="btn-default btn clearautoloaderprod"  attr-href="/_manager/autoloader/clear/prod">Clear prod</a>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <a class="btn-default btn buildautoloaderall"  attr-href="/_manager/autoloader/build/all">Build all</a>
-                                        </div>
-                                    </div>
+                                <div class="content table-responsive table-full-width">
+                                    <table class="table table-hover table-striped">
+                                    <thead>
+                                    <th>Config name</th>
+                                    <th>Name</th>
+                                    <th>Host</th>
+                                    <th>Type</th>
+                                    <th>Edit</th>
+                                    <th>Delete</th>
+                                    </thead>
+                                    <tbody class="databaseslist" attr-href="/_manager/databases/get/all">
+
+                                    </tbody>
+                                    </table>
+
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-
-
             </div>
-        </div>
+
             <footer class="footer">
     <div class="container-fluid">
         <p class="copyright pull-right">

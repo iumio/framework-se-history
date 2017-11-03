@@ -115,6 +115,7 @@ class ToolsExceptions
      */
     final public static function errorHandler(string $err_no, string $err_msg)
     {
+        error_log($err_no);
         //throw new Server500(new \ArrayObject(array("explain" => $err_msg, "solution" => "Error level : $err_no")));
     }
 
@@ -149,19 +150,23 @@ class ToolsExceptions
      */
     final public static function shutdownFunctionHandler()
     {
+
         $lasterror = error_get_last();
-        if ($lasterror['type'] === E_ERROR) {
-            $mess = explode("Stack trace", $lasterror['message']);
-            throw new Server500(new \ArrayObject(array("explain" => $mess[0],
-                "type_error" => self::errorMap($lasterror['type']))));
-        }
-        elseif ($lasterror['type'] === E_PARSE) {
-            $mess = explode("Stack trace", $lasterror['message']);
-            throw new Server500(new \ArrayObject(array("explain" => $mess[0],
-                "type_error" => self::errorMap($lasterror['type']))));
-        }
-        else {
-            trigger_error($lasterror['message'], $lasterror['type']);
+        if (isset($lasterror['type']) == true) {
+            error_log("ISSET");
+            if ($lasterror['type'] === E_ERROR) {
+                $mess = explode("Stack trace", $lasterror['message']);
+                throw new Server500(new \ArrayObject(array("explain" => $mess[0],
+                    "type_error" => self::errorMap($lasterror['type']),
+                    "file_error" => $lasterror["file"], "line_error" => $lasterror["line"])));
+            } elseif ($lasterror['type'] === E_PARSE) {
+                $mess = explode("Stack trace", $lasterror['message']);
+                throw new Server500(new \ArrayObject(array("explain" => $mess[0],
+                    "type_error" => self::errorMap($lasterror['type']),
+                    "file_error" => $lasterror["file"], "line_error" => $lasterror["line"])));
+            } else {
+                trigger_error($lasterror['message'], $lasterror['type']);
+            }
         }
     }
 }
