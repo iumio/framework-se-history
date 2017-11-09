@@ -37,7 +37,7 @@ class EngineAutoloader
         self::buildClassMap(self::$env);
         $map = self::getMapClass();
         if (isset($map[$class])) {
-            if (!@include_once $map[$class]) {
+            if (!@include_once $map[$class][0]) {
                 // FIX FUNCTION SMARTY PLUGIN
                 if (strpos($class, "Smarty_Internal_Compile_") !== false) {
                     return (true);
@@ -47,7 +47,7 @@ class EngineAutoloader
                     throw new \iumioFramework\Exception\Server\Server500(new \ArrayObject(array("explain" =>
                         "EngineAutoloader : Undefined class ".$class,
                         "solution" => "Refer to your app configuration.", "inlog" => false)));
-                } catch (Exception $e) {
+                } catch (\Exception $e) {
                     die("EngineAutoloader : Undefined class ".$class);
                 }
             }
@@ -55,7 +55,7 @@ class EngineAutoloader
             self::buildClassMap(self::$env, true);
             $map = self::getMapClass();
             {
-            if (!@include_once $map[$class]) {
+            if (!@include_once $map[$class][0]) {
                 // FIX FUNCTION SMARTY PLUGIN
                 if (strpos($class, "Smarty_Internal_Compile_") !== false) {
                     return true;
@@ -98,14 +98,17 @@ class EngineAutoloader
             fwrite($myfile, "", strlen(""));
             fclose($myfile);
             $json = array();
+            $dt = new \DateTime();
+            $dt = $dt->format("Y-m-d H:i:s");
             foreach (new \RecursiveIteratorIterator(new \RecursiveDirectoryIterator($path)) as $filename) {
                 if (strpos($filename, '.php') !== false) {
                     $classname2 = self::classesInFile($filename->getPathname());
                     for ($u = 0; $u < count($classname2[0]); $u++) {
+
                         $json[((isset($classname2[0]['namespace']) && $classname2[0]['namespace']
                         != "" ?($classname2[0]['namespace'])."\\" : "")).
                         ((isset($classname2[0]['classes']))? $classname2[0]['classes'][0]['name']
-                            : $classname2[0][$u]['name'])] = $filename->getPathname();
+                            : $classname2[0][$u]['name'])] = array($filename->getPathname(), $dt);
                     }
                 }
             }

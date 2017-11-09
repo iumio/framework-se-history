@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.31, created on 2017-11-01 16:59:43
+/* Smarty version 3.1.31, created on 2017-11-09 18:00:15
   from "/Applications/MAMP/htdocs/iumio-framework/vendor/iumio_framework/php/BaseApps/ManagerApp/Front/views/autoloadermanager.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.31',
-  'unifunc' => 'content_59f9ef6fbdac01_37244304',
+  'unifunc' => 'content_5a04899fbbd171_64121618',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'bc60c56540555fe7f4861b3f9804ed572e67882d' => 
     array (
       0 => '/Applications/MAMP/htdocs/iumio-framework/vendor/iumio_framework/php/BaseApps/ManagerApp/Front/views/autoloadermanager.tpl',
-      1 => 1507506917,
+      1 => 1510243988,
       2 => 'file',
     ),
   ),
@@ -23,37 +23,36 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:partials/footer.tpl' => 1,
   ),
 ),false)) {
-function content_59f9ef6fbdac01_37244304 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5a04899fbbd171_64121618 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
-$_smarty_tpl->compiled->nocache_hash = '94741025659f9ef6f250e59_88654206';
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_35385103959f9ef6f2ca182_93650855', "principal");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_19775275605a04899f2a7a44_07537445', "principal");
 $_smarty_tpl->inheritance->endChild($_smarty_tpl, 'template.tpl');
 }
 /* {block "principal"} */
-class Block_35385103959f9ef6f2ca182_93650855 extends Smarty_Internal_Block
+class Block_19775275605a04899f2a7a44_07537445 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'principal' => 
   array (
-    0 => 'Block_35385103959f9ef6f2ca182_93650855',
+    0 => 'Block_19775275605a04899f2a7a44_07537445',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 ?>
 
     <div class="wrapper">
-        <?php $_smarty_tpl->_subTemplateRender('file:partials/sidebar.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 9999, $_smarty_tpl->cache_lifetime, array(), 0, false);
+        <?php $_smarty_tpl->_subTemplateRender('file:partials/sidebar.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
     <div class="main-panel">
         <nav class="navbar navbar-default navbar-fixed">
             <div class="container-fluid">
                 <div class="navbar-header">
-                        <?php $_smarty_tpl->_subTemplateRender('file:partials/toogle.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 9999, $_smarty_tpl->cache_lifetime, array(), 0, false);
+                        <?php $_smarty_tpl->_subTemplateRender('file:partials/toogle.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
                     <a class="navbar-brand" href="#">Autoloader Manager</a>
@@ -82,6 +81,8 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
                                     <li>Uniques Files  : <span class="uni-auto">0</span></li>
                                     <li>Master classes : <span class="mast-auto">0</span></li>
                                     <li>App classes    : <span class="app-auto">0</span></li>
+                                    <li>Last build for dev  : <span class="build-dev">0</span></li>
+                                    <li>Last build for prod : <span class="build-prod">0</span></li>
                                 </ul>
                             </div>
                         </div>
@@ -119,7 +120,7 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 
             </div>
         </div>
-            <?php $_smarty_tpl->_subTemplateRender('file:partials/footer.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 9999, $_smarty_tpl->cache_lifetime, array(), 0, false);
+            <?php $_smarty_tpl->_subTemplateRender('file:partials/footer.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
 

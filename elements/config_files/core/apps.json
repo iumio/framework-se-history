@@ -10,9 +10,9 @@
             "timezone": "UTC"
         },
         "update": {
-            "date": "2017-10-31 19:02:00.000000",
+            "date": "2017-11-09 16:55:11.876947",
             "timezone_type": 3,
-            "timezone": "Europe\/Paris"
+            "timezone": "UTC"
         }
     },
     "1": {
@@ -26,15 +26,15 @@
             "timezone": "UTC"
         },
         "update": {
-            "date": "2017-10-31 19:02:48.000000",
+            "date": "2017-11-09 16:55:22.176522",
             "timezone_type": 3,
-            "timezone": "Europe\/Paris"
+            "timezone": "UTC"
         }
     },
     "2": {
         "name": "WhdeerzfrzzApp",
         "enabled": "yes",
-        "prefix": "dd",
+        "prefix": "dda",
         "class": "\\WhdeerzfrzzApp\\WhdeerzfrzzApp",
         "creation": {
             "date": "2017-10-30 20:03:34.000000",
@@ -42,7 +42,7 @@
             "timezone": "UTC"
         },
         "update": {
-            "date": "2017-10-30 20:03:34.000000",
+            "date": "2017-11-09 16:55:28.049618",
             "timezone_type": 3,
             "timezone": "UTC"
         }

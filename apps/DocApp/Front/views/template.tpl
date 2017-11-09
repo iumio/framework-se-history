@@ -6,7 +6,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>iumio Framework {block name="subtitle"}{/block}</title>
+    <title>iumio Framework {block name="subtitlde"}{/block}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="A framework written in PHP 7" />
     <meta name="keywords" content="php, php7, framework, mvc, components, libraries, iumio, iumio-team" />
@@ -131,7 +131,7 @@
                             <p class="fh5co-sub to-animate">With iumio framework, we give you the development tools to build the perfect web app.</p>
                         </div>
                         <div class="col-md-3 col-sm-6 col-xs-6 col-xxs-12">
-                            <a href="{{route nane='doc_install'}}" class="fh5co-feature to-animate block-feature">
+                            <a href="{{route name='doc_install'}}" class="fh5co-feature to-animate block-feature">
                                 <span class="fh5co-feature-icon"><i class="icon-gear"></i></span>
                                 <h3 class="fh5co-feature-lead">Installation</h3>
                                 <p class="fh5co-feature-text">How to install iumio Framework<br>&nbsp;</p>

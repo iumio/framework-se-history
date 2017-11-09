@@ -4,10 +4,10 @@
         "compiled_directory": "smarty_compiled\/",
         "config_directory": "smarty_config\/",
         "debug": true,
-        "cache": 1,
+        "cache": 0,
         "compile_check": true,
         "force_compile": false,
-        "smarty_debug": true,
+        "smarty_debug": false,
         "console_debug": "off"
     },
     "prod": {

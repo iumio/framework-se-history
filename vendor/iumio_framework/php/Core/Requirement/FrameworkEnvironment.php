@@ -28,6 +28,16 @@ use iumioFramework\Exception\Server\Server500;
 class FrameworkEnvironment
 {
 
+    public static $consts =
+        ["IUMIO_ENV", "HOST", "HOST_CURRENT", "ROOT", "ELEMS", "BIN",
+            "CONFIG_DIR", "BASE_APPS", "ROOT_VENDOR", "ROOT_MANAGER",
+            "ADDITIONALS", "ROOT_HOST_FILES", "ROOT_VENDOR_LIBS",
+            "ROOT_CACHE", "ROOT_COMPILED", "ROOT_LOGS", "CACHE_DEV",
+            "CACHE_PROD", "COMPILED_DEV", "COMPILED_PROD", "SERVER_VIEWS",
+            "SERVER", "WEB_ASSETS", "ROOT_WEB_ASSETS",
+            "WEB_LIBS", "ROOT_WEB_LIBS", "ROOT_WEB_COMPONENTS",
+            "WEB_FRAMEWORK", "WEB_COMPONENTS", "ROOT_APPS", "OVERRIDES"];
+
     /** Define all environment constants
      * @param string $env Environmment
      * @return int Is a success
@@ -78,6 +88,15 @@ class FrameworkEnvironment
         return (1);
     }
 
+    public static function checkDefiner()
+    {
+        foreach (self::$consts as $const) {
+            if (!defined($const)) {
+                die("Framework environment error : Cannot create const $const - Please check framework configuration");
+            }
+        }
+    }
+
     /** Get environment file
      * @param string $env Environment name
      * @return string Environment file
@@ -90,7 +109,7 @@ class FrameworkEnvironment
         } elseif ($env == "PROD") {
             return ("Prod.php");
         } else {
-            throw new \Exception("iumio Environment Error : Environment $env doesn't exist");
+            throw new \Exception("Environment Error : Environment $env doesn't exist");
         }
     }
 
@@ -102,7 +121,6 @@ class FrameworkEnvironment
     public static function displayError(array $options)
     {
         throw new Server403(new ArrayObject($options));
-        exit();
     }
 
     /** Get protocol
@@ -137,12 +155,12 @@ class FrameworkEnvironment
                     $denied = (array) $hosts->denied;
 
                     if ((in_array("", array_map('trim', $allowed)) && in_array(
-                        "",
-                        array_map('trim', $denied)
-                    )) || (in_array(
-                        "",
-                        array_map('trim', $allowed)
-                    ) &&  in_array("*", $denied))) {
+                                "",
+                                array_map('trim', $denied)
+                            )) || (in_array(
+                                "",
+                                array_map('trim', $allowed)
+                            ) &&  in_array("*", $denied))) {
                         self::displayError((array("explain" => "You are not allowed to access this file.",
                             "solution" => 'Check '.basename(__FILE__).' for more information.',
                             "external" => "yes")));
@@ -151,9 +169,9 @@ class FrameworkEnvironment
                         self::displayError((array("explain" => "You are not allowed to access this file.", "solution" =>
                             'Check '.basename(__FILE__).' for more information.', "external" => "yes")));
                     } elseif ((!in_array(@$_SERVER['REMOTE_ADDR'], $allowed) && in_array(
-                        @$_SERVER['REMOTE_ADDR'],
-                        $denied
-                    )) || in_array(@$_SERVER['REMOTE_ADDR'], $allowed) &&
+                                @$_SERVER['REMOTE_ADDR'],
+                                $denied
+                            )) || in_array(@$_SERVER['REMOTE_ADDR'], $allowed) &&
                         in_array(@$_SERVER['REMOTE_ADDR'], $denied)) {
                         self::displayError((array("explain" => "You are not allowed to access this file.", "solution" =>
                             'Check '.basename(__FILE__).' for more information.', "external" => "yes")));

@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file.
 iumio Framework
 ================
 
-@ The next generation of PHP Frameworks
+@ Let's create more simply
 
 ## [BETA RELEASE]
 
@@ -16,7 +16,7 @@ iumio Framework
 - Add shutdown error handler for E_ERROR
 - Add error map : Get the error name according to error level
 - Parse error is managing by iumio 
-- Add new register smmarty plugin template with .json
+- Add new register smarty plugin template with .json
 ### Fixed
 - Bug with no rewrite url
 - Responsive sidebar
@@ -24,6 +24,7 @@ iumio Framework
 ### Edited
 - Change iumio Manager permissions and publish status display
 - Change iumioTaskBar cache, assets and status menu
+- Change design of iumio Exception
 
 
 ### Removed

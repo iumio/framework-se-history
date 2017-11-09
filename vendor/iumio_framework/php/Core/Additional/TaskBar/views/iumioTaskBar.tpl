@@ -84,7 +84,7 @@
     <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
     <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
     <head>
-        <title>iumio Smarty Debug Console</title>
+        <title>iumio Framework - Smarty Debug Console</title>
         <style type="text/css">
             {literal}
             body, h1, h2, h3, td, th, p {
@@ -95,23 +95,37 @@
                 padding: 0;
             }
 
+            h1 span
+            {
+                position: relative;
+                bottom: 7px;
+                padding-left: 12px;
+            }
+
             h1 {
                 margin: 0;
                 text-align: left;
                 padding: 2px;
-                background-color: #f0c040;
-                color: black;
+                background-color: #1F77D0;
+                color: white;
                 font-weight: bold;
                 font-size: 1.2em;
+                padding: 15px 15px;
+            }
+
+            h1 img
+            {
+                position: relative;
+                top:2px;
             }
 
             h2 {
-                background-color: #9B410E;
-                color: white;
-                text-align: left;
+                background-color: white;
+                color: black;
                 font-weight: bold;
                 padding: 2px;
-                border-top: 1px solid black;
+                border-bottom: 1px solid silver;
+                text-align: center;
             }
             h3 {
                 text-align: left;
@@ -122,11 +136,11 @@
             }
 
             body {
-                background: black;
+                width: 100%;
             }
 
             p, table, div {
-                background: #f0ead8;
+                background: white;
             }
 
             p {
@@ -143,6 +157,8 @@
                 font-family: monospace;
                 vertical-align: top;
                 text-align: left;
+                padding: 10px 10px 10px 10px;
+                font-size: 15px;
             }
 
             td {
@@ -182,28 +198,92 @@
                 color: maroon;
             }
 
+            div.template
+            {
+                border-bottom: 1px solid silver;
+                padding: 10px 10px 10px 10px;
+            }
+
+            .brand
+            {
+                font-weight: 400;
+                padding: 15px 15px;
+                font-size: 15px;
+                color: #777;
+            }
+
+            .nok
+            {
+                padding: 10px 10px 10px 10px;
+                text-align: center;
+            }
+
+            .tbl-template
+            {
+                border: 1px solid silver;
+            }
+
+            .tbl-template td,th
+            {
+                border: 1px solid silver;
+
+            }
+            .tbl-template tr td,th
+            {
+                text-align: center;
+            }
+
+            .template
+            {
+                word-break: break-all;
+            }
             {/literal}
         </style>
     </head>
     <body>
 
-    <h1>iumio Smarty {Smarty::SMARTY_VERSION} Debug Console
-        -  {if isset($template_name)}{$template_name|debug_print_var nofilter} {/if}{if !empty($template_data)}Total Time {$execution_time|string_format:"%.5f"}{/if}</h1>
-
+    <h1><img src="{$iumiotaskbar['logo']}" width="40"/> <span>iumio Framework - Smarty {Smarty::SMARTY_VERSION} Debug Console</span></h1>
+    {if isset($template_name)}
+        <h2 class="brand"><strong>Debug for : {$template_name|debug_print_var nofilter}</strong></h2>
+    {/if}
     {if !empty($template_data)}
-        <h2>included templates &amp; config files (load time in seconds)</h2>
+        <h2 class="brand"><strong>Total Time :  {$execution_time|string_format:"%.5f"} second(s)</strong></h2>
+    {/if}
+    {if !empty($template_data)}
+        <h2 class="brand">Included templates &amp; config files (load time in seconds)</h2>
         <div>
             {foreach $template_data as $template}
-                <font color=brown>{$template.name}</font>
-                <br>&nbsp;&nbsp;<span class="exectime">
-                (compile {$template['compile_time']|string_format:"%.5f"}) (render {$template['render_time']|string_format:"%.5f"}) (cache {$template['cache_time']|string_format:"%.5f"})
-                 </span>
-                <br>
+                <div class="template">
+                <span class="template">Template : {$template.name}</span>
+                <br>&nbsp;&nbsp;
+                        <table class="tbl-template">
+                            <thead>
+                            <tr>
+                                <th>
+Compile time (s)
+                                </th>
+                                 <th>
+Render time (s)
+                                </th>
+                                 <th>
+Cache time (s)
+                                </th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>{$template['compile_time']|string_format:"%.5f"} </td>
+                                 <td>{$template['render_time']|string_format:"%.5f"}</td>
+                                 <td>{$template['render_time']|string_format:"%.5f"}</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                </div>
             {/foreach}
         </div>
     {/if}
 
-    <h2>assigned template variables</h2>
+    <h2 class="brand">Assigned template variables</h2>
 
     <table id="table_assigned_vars">
         {foreach $assigned_vars as $vars}
@@ -217,7 +297,7 @@
             {/foreach}
     </table>
 
-    <h2>assigned config file variables</h2>
+    <h2 class="brand">Assigned config file variables</h2>
 
     <table id="table_config_vars">
         {foreach $config_vars as $vars}
@@ -227,7 +307,13 @@
                 </td>
                 <td>{$vars['value']|debug_print_var:10:80 nofilter}</td>
             </tr>
+
         {/foreach}
+        {if empty($config_vars)}
+            <tr>
+                <td colspan="2" class="nok">No configurations</td>
+            </tr>
+        {/if}
 
     </table>
     </body>

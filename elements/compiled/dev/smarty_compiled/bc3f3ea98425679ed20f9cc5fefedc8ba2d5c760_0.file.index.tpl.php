@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.31, created on 2017-11-01 16:18:02
+/* Smarty version 3.1.31, created on 2017-11-09 18:01:37
   from "/Applications/MAMP/htdocs/iumio-framework/apps/DocApp/Front/views/index.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.31',
-  'unifunc' => 'content_59f9e5aad10ae6_37230355',
+  'unifunc' => 'content_5a0489f17a8781_98818693',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,10 +20,9 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_59f9e5aad10ae6_37230355 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5a0489f17a8781_98818693 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
-$_smarty_tpl->compiled->nocache_hash = '213204343759f9e5aaca4150_42025842';
 $_smarty_tpl->inheritance->endChild($_smarty_tpl, 'template.tpl');
 }
 }

@@ -46,6 +46,7 @@ class Dev extends FrameworkEnvironment
     public static function start():int
     {
         parent::definer('DEV');
+        parent::checkDefiner();
         if (self::hostAllowed() == 1) {
             $core = new AppCore('DEV', true);
             Debug::enabled();

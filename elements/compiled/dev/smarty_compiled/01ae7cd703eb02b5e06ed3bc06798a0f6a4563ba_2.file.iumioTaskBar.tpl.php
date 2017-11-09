@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.31, created on 2017-11-01 16:14:04
+/* Smarty version 3.1.31, created on 2017-11-09 17:56:17
   from "/Applications/MAMP/htdocs/iumio-framework/vendor/iumio_framework/php/Core/Additional/TaskBar/views/iumioTaskBar.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.31',
-  'unifunc' => 'content_59f9e4bc5206e8_07324376',
+  'unifunc' => 'content_5a0488b1b5c0e2_46394423',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '01ae7cd703eb02b5e06ed3bc06798a0f6a4563ba' => 
     array (
       0 => '/Applications/MAMP/htdocs/iumio-framework/vendor/iumio_framework/php/Core/Additional/TaskBar/views/iumioTaskBar.tpl',
-      1 => 1509469697,
+      1 => 1509805068,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_59f9e4bc5206e8_07324376 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5a0488b1b5c0e2_46394423 (Smarty_Internal_Template $_smarty_tpl) {
 if (!is_callable('smarty_modifier_debug_print_var')) require_once '/Applications/MAMP/htdocs/iumio-framework/vendor/libs/smarty/smarty/libs/plugins/modifier.debug_print_var.php';
 if (isset($_smarty_tpl->tpl_vars['iumiotaskbar']->value) && !empty($_smarty_tpl->tpl_vars['iumiotaskbar']->value)) {?>
     <!-- iumioTaskBar component -->
@@ -130,7 +130,7 @@ $_smarty_tpl->smarty->ext->_capture->open($_smarty_tpl, '_smarty_debug', 'debug_
     <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
     <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
     <head>
-        <title>iumio Smarty Debug Console</title>
+        <title>iumio Framework - Smarty Debug Console</title>
         <style type="text/css">
             
             body, h1, h2, h3, td, th, p {
@@ -141,23 +141,37 @@ $_smarty_tpl->smarty->ext->_capture->open($_smarty_tpl, '_smarty_debug', 'debug_
                 padding: 0;
             }
 
+            h1 span
+            {
+                position: relative;
+                bottom: 7px;
+                padding-left: 12px;
+            }
+
             h1 {
                 margin: 0;
                 text-align: left;
                 padding: 2px;
-                background-color: #f0c040;
-                color: black;
+                background-color: #1F77D0;
+                color: white;
                 font-weight: bold;
                 font-size: 1.2em;
+                padding: 15px 15px;
+            }
+
+            h1 img
+            {
+                position: relative;
+                top:2px;
             }
 
             h2 {
-                background-color: #9B410E;
-                color: white;
-                text-align: left;
+                background-color: white;
+                color: black;
                 font-weight: bold;
                 padding: 2px;
-                border-top: 1px solid black;
+                border-bottom: 1px solid silver;
+                text-align: center;
             }
             h3 {
                 text-align: left;
@@ -168,11 +182,11 @@ $_smarty_tpl->smarty->ext->_capture->open($_smarty_tpl, '_smarty_debug', 'debug_
             }
 
             body {
-                background: black;
+                width: 100%;
             }
 
             p, table, div {
-                background: #f0ead8;
+                background: white;
             }
 
             p {
@@ -189,6 +203,8 @@ $_smarty_tpl->smarty->ext->_capture->open($_smarty_tpl, '_smarty_debug', 'debug_
                 font-family: monospace;
                 vertical-align: top;
                 text-align: left;
+                padding: 10px 10px 10px 10px;
+                font-size: 15px;
             }
 
             td {
@@ -228,36 +244,99 @@ $_smarty_tpl->smarty->ext->_capture->open($_smarty_tpl, '_smarty_debug', 'debug_
                 color: maroon;
             }
 
+            div.template
+            {
+                border-bottom: 1px solid silver;
+                padding: 10px 10px 10px 10px;
+            }
+
+            .brand
+            {
+                font-weight: 400;
+                padding: 15px 15px;
+                font-size: 15px;
+                color: #777;
+            }
+
+            .nok
+            {
+                padding: 10px 10px 10px 10px;
+                text-align: center;
+            }
+
+            .tbl-template
+            {
+                border: 1px solid silver;
+            }
+
+            .tbl-template td,th
+            {
+                border: 1px solid silver;
+
+            }
+            .tbl-template tr td,th
+            {
+                text-align: center;
+            }
+
+            .template
+            {
+                word-break: break-all;
+            }
             
         </style>
     </head>
     <body>
 
-    <h1>iumio Smarty <?php echo htmlspecialchars(Smarty::SMARTY_VERSION, ENT_QUOTES, 'UTF-8');?>
- Debug Console
-        -  <?php if (isset($_smarty_tpl->tpl_vars['template_name']->value)) {
-echo smarty_modifier_debug_print_var($_smarty_tpl->tpl_vars['template_name']->value);?>
- <?php }
-if (!empty($_smarty_tpl->tpl_vars['template_data']->value)) {?>Total Time <?php echo htmlspecialchars(sprintf("%.5f",$_smarty_tpl->tpl_vars['execution_time']->value), ENT_QUOTES, 'UTF-8');
-}?></h1>
-
+    <h1><img src="<?php echo htmlspecialchars($_smarty_tpl->tpl_vars['iumiotaskbar']->value['logo'], ENT_QUOTES, 'UTF-8');?>
+" width="40"/> <span>iumio Framework - Smarty <?php echo htmlspecialchars(Smarty::SMARTY_VERSION, ENT_QUOTES, 'UTF-8');?>
+ Debug Console</span></h1>
+    <?php if (isset($_smarty_tpl->tpl_vars['template_name']->value)) {?>
+        <h2 class="brand"><strong>Debug for : <?php echo smarty_modifier_debug_print_var($_smarty_tpl->tpl_vars['template_name']->value);?>
+</strong></h2>
+    <?php }?>
     <?php if (!empty($_smarty_tpl->tpl_vars['template_data']->value)) {?>
-        <h2>included templates &amp; config files (load time in seconds)</h2>
+        <h2 class="brand"><strong>Total Time :  <?php echo htmlspecialchars(sprintf("%.5f",$_smarty_tpl->tpl_vars['execution_time']->value), ENT_QUOTES, 'UTF-8');?>
+ second(s)</strong></h2>
+    <?php }?>
+    <?php if (!empty($_smarty_tpl->tpl_vars['template_data']->value)) {?>
+        <h2 class="brand">Included templates &amp; config files (load time in seconds)</h2>
         <div>
             <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['template_data']->value, 'template');
 if ($_from !== null) {
 foreach ($_from as $_smarty_tpl->tpl_vars['template']->value) {
 ?>
-                <font color=brown><?php echo htmlspecialchars($_smarty_tpl->tpl_vars['template']->value['name'], ENT_QUOTES, 'UTF-8');?>
-</font>
-                <br>&nbsp;&nbsp;<span class="exectime">
-                (compile <?php echo htmlspecialchars(sprintf("%.5f",$_smarty_tpl->tpl_vars['template']->value['compile_time']), ENT_QUOTES, 'UTF-8');?>
-) (render <?php echo htmlspecialchars(sprintf("%.5f",$_smarty_tpl->tpl_vars['template']->value['render_time']), ENT_QUOTES, 'UTF-8');?>
-) (cache <?php echo htmlspecialchars(sprintf("%.5f",$_smarty_tpl->tpl_vars['template']->value['cache_time']), ENT_QUOTES, 'UTF-8');?>
-)
-                 </span>
-                <br>
+                <div class="template">
+                <span class="template">Template : <?php echo htmlspecialchars($_smarty_tpl->tpl_vars['template']->value['name'], ENT_QUOTES, 'UTF-8');?>
+</span>
+                <br>&nbsp;&nbsp;
+                        <table class="tbl-template">
+                            <thead>
+                            <tr>
+                                <th>
+Compile time (s)
+                                </th>
+                                 <th>
+Render time (s)
+                                </th>
+                                 <th>
+Cache time (s)
+                                </th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td><?php echo htmlspecialchars(sprintf("%.5f",$_smarty_tpl->tpl_vars['template']->value['compile_time']), ENT_QUOTES, 'UTF-8');?>
+ </td>
+                                 <td><?php echo htmlspecialchars(sprintf("%.5f",$_smarty_tpl->tpl_vars['template']->value['render_time']), ENT_QUOTES, 'UTF-8');?>
+</td>
+                                 <td><?php echo htmlspecialchars(sprintf("%.5f",$_smarty_tpl->tpl_vars['template']->value['render_time']), ENT_QUOTES, 'UTF-8');?>
+</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                </div>
             <?php
 }
 }
@@ -267,7 +346,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);
         </div>
     <?php }?>
 
-    <h2>assigned template variables</h2>
+    <h2 class="brand">Assigned template variables</h2>
 
     <table id="table_assigned_vars">
         <?php
@@ -276,7 +355,7 @@ $_smarty_tpl->tpl_vars['vars']->iteration = 0;
 if ($_from !== null) {
 foreach ($_from as $_smarty_tpl->tpl_vars['vars']->key => $_smarty_tpl->tpl_vars['vars']->value) {
 $_smarty_tpl->tpl_vars['vars']->iteration++;
-$__foreach_vars_2_saved = $_smarty_tpl->tpl_vars['vars'];
+$__foreach_vars_1_saved = $_smarty_tpl->tpl_vars['vars'];
 ?>
         <tr class="<?php if ($_smarty_tpl->tpl_vars['vars']->iteration%2 == 0) {?>odd<?php } else { ?>even<?php }?>">
             <td><h3><font color=blue>$<?php echo htmlspecialchars($_smarty_tpl->tpl_vars['vars']->key, ENT_QUOTES, 'UTF-8');?>
@@ -290,7 +369,7 @@ $__foreach_vars_2_saved = $_smarty_tpl->tpl_vars['vars'];
             <td><?php if (isset($_smarty_tpl->tpl_vars['vars']->value['attributes'])) {?><h3>Attributes</h3><?php echo smarty_modifier_debug_print_var($_smarty_tpl->tpl_vars['vars']->value['attributes']);?>
  <?php }?></td>
             <?php
-$_smarty_tpl->tpl_vars['vars'] = $__foreach_vars_2_saved;
+$_smarty_tpl->tpl_vars['vars'] = $__foreach_vars_1_saved;
 }
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);
@@ -298,7 +377,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);
 
     </table>
 
-    <h2>assigned config file variables</h2>
+    <h2 class="brand">Assigned config file variables</h2>
 
     <table id="table_config_vars">
         <?php
@@ -307,7 +386,7 @@ $_smarty_tpl->tpl_vars['vars']->iteration = 0;
 if ($_from !== null) {
 foreach ($_from as $_smarty_tpl->tpl_vars['vars']->key => $_smarty_tpl->tpl_vars['vars']->value) {
 $_smarty_tpl->tpl_vars['vars']->iteration++;
-$__foreach_vars_3_saved = $_smarty_tpl->tpl_vars['vars'];
+$__foreach_vars_2_saved = $_smarty_tpl->tpl_vars['vars'];
 ?>
             <tr class="<?php if ($_smarty_tpl->tpl_vars['vars']->iteration%2 == 0) {?>odd<?php } else { ?>even<?php }?>">
                 <td><h3><font color=blue>#<?php echo htmlspecialchars($_smarty_tpl->tpl_vars['vars']->key, ENT_QUOTES, 'UTF-8');?>
@@ -318,13 +397,19 @@ $__foreach_vars_3_saved = $_smarty_tpl->tpl_vars['vars'];
                 <td><?php echo smarty_modifier_debug_print_var($_smarty_tpl->tpl_vars['vars']->value['value'],10,80);?>
 </td>
             </tr>
+
         <?php
-$_smarty_tpl->tpl_vars['vars'] = $__foreach_vars_3_saved;
+$_smarty_tpl->tpl_vars['vars'] = $__foreach_vars_2_saved;
 }
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);
 ?>
 
+        <?php if (empty($_smarty_tpl->tpl_vars['config_vars']->value)) {?>
+            <tr>
+                <td colspan="2" class="nok">No configurations</td>
+            </tr>
+        <?php }?>
 
     </table>
     </body>

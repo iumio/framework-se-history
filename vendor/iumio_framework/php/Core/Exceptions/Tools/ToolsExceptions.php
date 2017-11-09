@@ -11,6 +11,7 @@
 
 namespace iumioFramework\Exception\Tools;
 
+use iumioFramework\Core\Base\FrameworkEnvironment;
 use iumioFramework\Core\Base\Json\JsonListener;
 use iumioFramework\Exception\Server\AbstractServer;
 use iumioFramework\Exception\Server\Server500;
@@ -32,6 +33,7 @@ class ToolsExceptions
      */
     final public static function checkUidieExist(string $uidie):bool
     {
+        error_log("CHECK UIDIE");
         AbstractServer::checkFileLogExist(ROOT_LOGS."dev.log.json");
         AbstractServer::checkFileLogExist(ROOT_LOGS."prod.log.json");
         $logs_dev = (array) JsonListener::open(ROOT_LOGS."dev.log.json");
@@ -115,7 +117,6 @@ class ToolsExceptions
      */
     final public static function errorHandler(string $err_no, string $err_msg)
     {
-        error_log($err_no);
         //throw new Server500(new \ArrayObject(array("explain" => $err_msg, "solution" => "Error level : $err_no")));
     }
 
@@ -150,10 +151,14 @@ class ToolsExceptions
      */
     final public static function shutdownFunctionHandler()
     {
-
+        FrameworkEnvironment::checkDefiner();
         $lasterror = error_get_last();
+        if (defined('IUMIO_ENV') == false) {
+            echo $lasterror['message'];
+            exit(1);
+        }
+
         if (isset($lasterror['type']) == true) {
-            error_log("ISSET");
             if ($lasterror['type'] === E_ERROR) {
                 $mess = explode("Stack trace", $lasterror['message']);
                 throw new Server500(new \ArrayObject(array("explain" => $mess[0],
@@ -168,5 +173,28 @@ class ToolsExceptions
                 trigger_error($lasterror['message'], $lasterror['type']);
             }
         }
+    }
+    /** Set exception handler
+     * @throws Server500 The reporting error
+     */
+    final public static function exceptionHandler(\Throwable $exception)
+    {
+        FrameworkEnvironment::checkDefiner();
+        if (defined('IUMIO_ENV')) {
+            throw new Server500(new \ArrayObject(array("explain" => $exception->getMessage())));
+        }
+        else {
+            echo $exception->getMessage();
+            exit(1);
+        }
+    }
+
+    /**
+     * Restore previous handlers
+     */
+    final public static function restoreHandlers()
+    {
+        restore_exception_handler();
+        restore_error_handler();
     }
 }

@@ -128,8 +128,8 @@ document.addEventListener('click',function(e){
             case 'iumioTaskBarAssetsClearProd':
                 assetsClear(document.querySelector(".iumioTaskBarAssetsClearProd"));
                 break;
-            case 'red-color iumioTaskBarOneApp':
-            case 'green-color iumioTaskBarOneApp':
+            case 'iumio-red-color iumioTaskBarOneApp':
+            case 'iumio-green-color iumioTaskBarOneApp':
                 switchApp(e.target);
                 break;
         }
@@ -350,8 +350,8 @@ function getSimpleApps() {
                     e +=
                         "<tr>" +
                         " <td class='iumioTaskBBarAppname'> <i class=\"pe-7s-angle-right icon-iumio-task\"></i> &nbsp;"+result[i]['name']+"</td>" +
-                        " <td>"+((result[i]['enabled'] === "yes")? "<span class='green-color'>Enabled</span>" : "<span class='red-color'>Disabled</span>") +"</td>" +
-                        "<td>"+((result[i]['enabled'] === "no")? "<span class='green-color iumioTaskBarOneApp' attr-href='"+result[i]['link_auto_dis_ena']+"'>Enabled</span>" : "<span class='red-color iumioTaskBarOneApp' attr-href='"+result[i]['link_auto_dis_ena']+"'>Disabled</span>") +"</td>" +
+                        " <td>"+((result[i]['enabled'] === "yes")? "<span class='iumio-green-color'>Enabled</span>" : "<span class='iumio-red-color'>Disabled</span>") +"</td>" +
+                        "<td>"+((result[i]['enabled'] === "no")? "<span class='iumio-green-color iumioTaskBarOneApp' attr-href='"+result[i]['link_auto_dis_ena']+"'>Enabled</span>" : "<span class='iumio-red-color iumioTaskBarOneApp' attr-href='"+result[i]['link_auto_dis_ena']+"'>Disabled</span>") +"</td>" +
                         "</tr>";
                 }
                 str += e;

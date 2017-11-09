@@ -448,7 +448,7 @@ $(document).ready(function () {
                             "<td>"+value['name']+"</td>" +
                             "<td>"+value['path']+"</td>" +
                             "<td>"+value['size']+"</td>" +
-                            "<td class='"+((value['perms'] === true)? "green-color" : "red-color")+"'>"+value['nperms']+" "+((value['perms'] === true)? '<i class="pe-7s-angle-down-circle iumio-green-red-btn" style="color: green;"></i>' : '<i class="pe-7s-close-circle iumio-green-red-btn" style="color: red;"></i>')+"</td>" +
+                            "<td class='"+((value['perms'] === true)? "iumio-green-color" : "iumio-red-color")+"'>"+value['nperms']+" "+((value['perms'] === true)? '<i class="pe-7s-angle-down-circle iumio-green-red-btn" style="color: green;"></i>' : '<i class="pe-7s-close-circle iumio-green-red-btn" style="color: red;"></i>')+"</td>" +
                             "<td>"+value['status']+"</td>" +
                             "<td><button class='btn-info btn clearcachespec' attr-href='"+value['clear']+"' attr-env='"+value['env']+"'>CL</button></td>"+
                             "</tr>");
@@ -499,8 +499,8 @@ $(document).ready(function () {
                                 "<td>" + ((value['haveassets'] === 1) ? "Yes" : ((value['haveassets'] === 2) ? "Empty" : "No")) + "</td>" +
                                 "<td>" + value['dev_perms'] + "</td>" +
                                 "<td>" + value['prod_perms'] + "</td>" +
-                                "<td class='" + ((value['haveassets'] === 1) ? (((value['status_dev'] === 1) ? 'green-color' : 'red-color') + "'>" + ((value['status_dev'] === 1) ? 'Published <i class="pe-7s-angle-down-circle iumio-green-red-btn" style="color: green;"></i>' : 'Need to be published <i class="pe-7s-close-circle iumio-green-red-btn" style="color: red;"></i')) : "Unavailable") + "</td>" +
-                                "<td class='" + ((value['haveassets'] === 1) ? ((value['status_prod'] === 1) ? 'green-color' : 'red-color') + "'>" + ((value['status_prod'] === 1) ? 'Published <i class="pe-7s-angle-down-circle iumio-green-red-btn" style="color: green;"></i>' : 'Need to be published <i class="pe-7s-close-circle iumio-green-red-btn" style="color: red;"></i') : "") + "</td>" +
+                                "<td class='" + ((value['haveassets'] === 1) ? (((value['status_dev'] === 1) ? 'iumio-green-color' : 'iumio-red-color') + "'>" + ((value['status_dev'] === 1) ? 'Published <i class="pe-7s-angle-down-circle iumio-green-red-btn" style="color: green;"></i>' : 'Need to be published <i class="pe-7s-close-circle iumio-green-red-btn" style="color: red;"></i')) : "Unavailable") + "</td>" +
+                                "<td class='" + ((value['haveassets'] === 1) ? ((value['status_prod'] === 1) ? 'iumio-green-color' : 'iumio-red-color') + "'>" + ((value['status_prod'] === 1) ? 'Published <i class="pe-7s-angle-down-circle iumio-green-red-btn" style="color: green;"></i>' : 'Need to be published <i class="pe-7s-close-circle iumio-green-red-btn" style="color: red;"></i') : "") + "</td>" +
                                 ((value['haveassets'] === 1) ? "<td><button class='btn-info btn showoptionsassets' attr-href-clear-dev='" + value['clear']['dev'] + "' attr-href-clear-prod='" + value['clear']['prod'] + "' attr-href-publish-dev='" + value['publish']['dev'] + "'  attr-href-publish-prod='" + value['publish']['prod'] + "'  attr-href-clear-all='" + value['clear']['all'] + "' attr-href-publish-all='" + value['publish']['all'] + "' attr-appname='" + value['name'] + "' >AC</button></td>" : "<td>Unavailable</td>") +
                                 "</tr>");
                         }
@@ -540,7 +540,7 @@ $(document).ready(function () {
                             "<td>"+value['name']+"</td>" +
                             "<td>"+value['path']+"</td>" +
                             "<td>"+value['size']+"</td>" +
-                            "<td class='"+((value['perms'] === true)? "green-color" : "red-color")+"'>"+value['nperms']+" "+((value['perms'] === true)? '<i class="pe-7s-angle-down-circle iumio-green-red-btn" style="color: green;"></i>' : '<i class="pe-7s-close-circle iumio-green-red-btn" style="color: red;"></i>')+"</td>" +
+                            "<td class='"+((value['perms'] === true)? "iumio-green-color" : "iumio-red-color")+"'>"+value['nperms']+" "+((value['perms'] === true)? '<i class="pe-7s-angle-down-circle iumio-green-red-btn" style="color: green;"></i>' : '<i class="pe-7s-close-circle iumio-green-red-btn" style="color: red;"></i>')+"</td>" +
                             "<td>"+value['status']+"</td>" +
                             "<td><button class='btn-info btn clearcompilespec' attr-href='"+value['clear']+"' attr-env='"+value['env']+"'>CL</button></td>"+
                             "</tr>");
@@ -1038,6 +1038,8 @@ $(document).ready(function () {
                     $('.uni-auto').html(rs['ufile']);
                     $('.mast-auto').html(rs['appmaster']);
                     $('.app-auto').html(rs['appclass']);
+                    $('.build-dev').html(rs['lastbuilddev']);
+                    $('.build-prod').html(rs['lastbuildprod']);
                 }
             },
             error : function (data) {

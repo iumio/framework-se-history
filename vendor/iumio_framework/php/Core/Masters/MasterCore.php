@@ -84,21 +84,26 @@ class MasterCore extends GlobalCoreService
         $this->appMastering = APP_CALL;
         $si = SmartyEngineTemplate::getSmartyInstance($this->appMastering);
 
-        $smartyConfig = new SmartyEngineConfiguration(IUMIO_ENV);
+       /* $smartyConfig = new SmartyEngineConfiguration(IUMIO_ENV);
 
-        $id_compile = $id_cache = trim($view.strtolower(IUMIO_ENV.APP_CALL));
+        $id_compile = $id_cache = ($view.strtolower(IUMIO_ENV.APP_CALL));
 
-        if ($smartyConfig->getCache() == 1 && !$si->isCached($view . SmartyEngineTemplate::$viewExtention)) {
-            $si->assign($options);
-        }
+        $si->assign($options);
 
         if ($smartyConfig->getCache() == 1 && $iscached == true) {
+            error_log("cache2");
             return ($si->display($view . SmartyEngineTemplate::$viewExtention, $id_cache, $id_compile));
         }
         elseif ($smartyConfig->getCache() == 1 && $iscached == false) {
+            error_log("cache3");
             $si->clearCache($view . SmartyEngineTemplate::$viewExtention, $id_cache);
-        }
-        return ($si->display($view . SmartyEngineTemplate::$viewExtention, null, $id_compile));
+        }*/
+
+        error_log("display");
+        $si->assign($options);
+        $si->display($view . SmartyEngineTemplate::$viewExtention);
+        //$si->display($view . SmartyEngineTemplate::$viewExtention, null, $id_compile);
+        exit(1);
     }
 
 
@@ -180,13 +185,23 @@ class MasterCore extends GlobalCoreService
         if ($iscomponent == 'base') {
             $component = true;
         } elseif ($iscomponent == 'none') {
-            throw new Server500(new \ArrayObject(array("explain" => "Cannot determine app type of ".$app,
-                "solution" => "Please check if your app exist")));
+            if (defined("IUMIO_SMARTY_CALLED") && IUMIO_SMARTY_CALLED == 1) {
+                throw new \Exception("Cannot determine app type of ".$app);
+            }
+            else {
+                throw new Server500(new \ArrayObject(array("explain" => "Cannot determine app type of " . $app,
+                    "solution" => "Please check if your app exist")));
+            }
         }
         $rt = new Routing($app, $prefix, $component);
         if (!$rt->routingRegister()) {
-            throw new Server500(new \ArrayObject(array("solution" => "Please check all RT file",
-                "explain" => "Cannot open your RT file")));
+            if (defined("IUMIO_SMARTY_CALLED") && IUMIO_SMARTY_CALLED == 1) {
+                throw new \Exception("Cannot open your RT file");
+            }
+            else {
+                throw new Server500(new \ArrayObject(array("solution" => "Please check all RT file",
+                    "explain" => "Cannot open your RT file")));
+            }
         }
 
         foreach ($rt->routes() as $one) {
@@ -221,8 +236,13 @@ class MasterCore extends GlobalCoreService
             }
         }
 
-        throw new Server500(new \ArrayObject(array("solution" => "Please check all RT file",
-            "explain" => "Unable to generate URL for route : $routename")));
+        if (defined("IUMIO_SMARTY_CALLED") && IUMIO_SMARTY_CALLED == 1) {
+            throw new \Exception("Unable to generate URL for route : $routename");
+        }
+        else {
+            throw new Server500(new \ArrayObject(array("solution" => "Please check all RT file",
+                "explain" => "Unable to generate URL for route : $routename")));
+        }
     }
 
     /** Analyse path to change dynamic parameters with specific parameters array

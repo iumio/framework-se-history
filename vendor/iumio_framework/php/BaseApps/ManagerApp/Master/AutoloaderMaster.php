@@ -58,6 +58,13 @@ class AutoloaderMaster extends MasterCore
         $appsmaster = 0;
         $masterregex = '/\/apps\/\w*App\/Master\//';
 
+        $lastbuilddev = $lastbuildprod =  "N/A";
+
+        if (!empty($dev))
+            $lastbuilddev = $dev->{"iumioFramework\\Core\\Base\\Dev"}[1] ?? "N/A";
+        if (!empty($prod))
+            $lastbuildprod = $dev->{"iumioFramework\\Core\\Base\\Prod"}[1] ?? "N/A";
+
         foreach ($dev as $one => $value) {
             if (strpos($value, "/apps/") !== false) {
                 $appsclass++;
@@ -78,7 +85,8 @@ class AutoloaderMaster extends MasterCore
         $ufile = count($ndev);
 
         return (array("ccdev" => $ccdev, "ccprod" => $ccprod,
-            "ufile" => $ufile, "appmaster" => $appsmaster, "appclass" => $appsclass));
+            "ufile" => $ufile, "appmaster" => $appsmaster, "appclass" => $appsclass,
+            "lastbuilddev" => $lastbuilddev , "lastbuildprod" => $lastbuildprod));
     }
 
     /** Get the statistics for engine autoloader

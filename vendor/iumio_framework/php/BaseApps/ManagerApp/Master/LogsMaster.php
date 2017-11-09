@@ -72,6 +72,8 @@ class LogsMaster extends MasterCore
                 "solution" => "Check the UIDIE")));
         }
 
+        //print_r($onelogs);
+        //exit();
         return($this->render("logsdetails", array("details" => $onelogs, "selected" =>
             "logsmanager", "env" => strtolower($env))));
     }

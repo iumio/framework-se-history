@@ -32,6 +32,8 @@
                                     <li>Uniques Files  : <span class="uni-auto">0</span></li>
                                     <li>Master classes : <span class="mast-auto">0</span></li>
                                     <li>App classes    : <span class="app-auto">0</span></li>
+                                    <li>Last build for dev  : <span class="build-dev">0</span></li>
+                                    <li>Last build for prod : <span class="build-prod">0</span></li>
                                 </ul>
                             </div>
                         </div>

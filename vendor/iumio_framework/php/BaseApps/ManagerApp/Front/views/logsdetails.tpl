@@ -22,12 +22,10 @@
             <div class="container-fluid">
 
                 <div class="row">
-                    <div class="col-md-12">
+                    <!--<div class="col-md-12">
                         <div class="card">
                             <div class="header">
-                                <h4 class="title">{if $details->code == 200}Success details{else}Error details{/if}</h4>
-                                <p class="category fs16">UIDIE : <strong>{$details->uidie}</p>
-                                <p class="category fs16">Environment : <strong>{$env}</p>
+
                                 <p class="category fs16">Code : {$details->code} | Type : {$details->code_title}</p>
                                 <p class="category fs16">Generated : {$details->time->date|date_format:"%A, %B %e, %Y at %r"}</p>
                                 <p class="category fs16">Method : {$details->method}</p>
@@ -47,6 +45,67 @@
                             </div>
                             {else}
                                 <div class="content text-center">
+                                </div>
+                            {/if}
+                        </div>
+                    </div>-->
+
+                    <div class="col-md-4">
+                        <div class="card">
+                            <div class="header">
+                                <h4 class="title text-center">Characteristics</h4>
+                                <p></p>
+                                <hr>
+                                <p class="category fs16"><i class="pe-7s-config"></i> UIDIE : <strong>{$details->uidie}</strong></p>
+                                <hr>
+                                <p class="category fs16"><i class="pe-7s-target"></i> Error code : {$details->code} {$details->code_title}</p>
+                                <hr>
+                                <p class="category fs16"><i class="pe-7s-clock"></i> Date : {$details->time->date|date_format:"%A, %B %e, %Y at %r"}</p>
+                                <hr>
+                                <p class="category fs16"><i class="pe-7s-magnet"></i> Method : {$details->method}</p>
+                                <hr>
+                                <p class="category fs16"><i class="pe-7s-server"></i> Environment : {$env}</p>
+                                <hr>
+                                <p class="category fs16"><i class="pe-7s-link"></i> Path :  {$details->uri} </p>
+                                <hr>
+                                <p class="category fs16"><i class="pe-7s-user"></i> Referer IP : { {$details->client_ip} }</p>
+                                <hr>
+                                {if $details->type_error != null} { ?><p class="category fs16"><i class="pe-7s-close-circle"></i> Type : {$details->type_error}</p><hr/>{/if}
+                            </div>
+                            <div class="content text-center">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-8">
+                        <div class="card">
+                            <div class="header">
+                                <h4 class="title text-center">{if $details->code == 200}Success details{else}Error details{/if}</h4>
+                            </div>
+                            {if $details->code != 200}
+                            <div class="content" style="padding-top: 0px">
+                                <hr>
+                                <p class="category fs16"><i class="pe-7s-info"></i> Message :  <span class="fw900 break-word">{$details->explain}</span></h5></p>
+                                <hr>
+                                {if $details->file_error != null}
+                                <p class="category fs16 "><i class="pe-7s-paperclip"></i> File :  <span class="fs16 filelink ">{$details->file_error}</span></p>
+
+                                <hr>
+                                {/if}
+
+                                {if $details->line_error != null}
+                                <p class="category fs16 "><i class="pe-7s-target"></i> Line :  <span class="fw900">{$details->line_error}</span></p>
+                                <hr>
+                                {/if}
+
+                                <p class="category fs16 "><i class="pe-7s-magic-wand"></i> Solution :  <span class="">{$details->solution}</span></p>
+                                <hr>
+                            </div>
+                            {else}
+                                <div class="content" style="padding-top: 0px">
+                                    <hr>
+                                    <p class="category fs16"><i class="pe-7s-info"></i> Message :  The request for URL  <strong>{$details->uri}</strong> was a success</span></h5></p>
+                                    <hr>
                                 </div>
                             {/if}
                         </div>

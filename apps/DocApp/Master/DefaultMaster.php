@@ -45,7 +45,7 @@ class DefaultMaster extends MasterCore
             "edition_slogan" => Tools::getEditionSlogan($edition),
             "edition_features" => Tools::getEditionFeatures($edition),
             "edition_availability" => Tools::getEditionAvailability($edition),
-            "edition_url" => Tools::getLastVersionAvailable($edition))));
+            "edition_url" => Tools::getLastVersionAvailable($edition)), false));
     }
 
     /** show contact view

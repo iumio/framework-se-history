@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.31, created on 2017-11-01 16:14:04
+/* Smarty version 3.1.31, created on 2017-11-09 18:04:42
   from "/Applications/MAMP/htdocs/iumio-framework/apps/DocApp/Front/views/template.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.31',
-  'unifunc' => 'content_59f9e4bc3919f0_55722308',
+  'unifunc' => 'content_5a048aaa9788d6_71975908',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '33e6adc0e0d92ce64e4b89a3f61477c4ff992238' => 
     array (
       0 => '/Applications/MAMP/htdocs/iumio-framework/apps/DocApp/Front/views/template.tpl',
-      1 => 1509545204,
+      1 => 1510247077,
       2 => 'file',
     ),
   ),
@@ -20,10 +20,9 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_59f9e4bc3919f0_55722308 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5a048aaa9788d6_71975908 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, false);
-$_smarty_tpl->compiled->nocache_hash = '30704634059f9e4b9895981_73917810';
 ?>
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
@@ -34,7 +33,7 @@ $_smarty_tpl->compiled->nocache_hash = '30704634059f9e4b9895981_73917810';
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>iumio Framework <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_153664930559f9e4b98975a0_39303005', "subtitle");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_12211753345a048aa5914a57_46698066', "subtitlde");
 ?>
 </title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -147,7 +146,7 @@ $_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_153664930559f9e4b9
 <div id="fh5co-page">
     <div id="fh5co-wrap">
         <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_61375148859f9e4bb254274_90238832', "content");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_717960505a048aa8ab21d5_56579887', "content");
 ?>
 
     </div>
@@ -236,26 +235,26 @@ $_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_61375148859f9e4bb2
 </body>
 </html>
 <?php }
-/* {block "subtitle"} */
-class Block_153664930559f9e4b98975a0_39303005 extends Smarty_Internal_Block
+/* {block "subtitlde"} */
+class Block_12211753345a048aa5914a57_46698066 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
-  'subtitle' => 
+  'subtitlde' => 
   array (
-    0 => 'Block_153664930559f9e4b98975a0_39303005',
+    0 => 'Block_12211753345a048aa5914a57_46698066',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 }
 }
-/* {/block "subtitle"} */
+/* {/block "subtitlde"} */
 /* {block "content"} */
-class Block_61375148859f9e4bb254274_90238832 extends Smarty_Internal_Block
+class Block_717960505a048aa8ab21d5_56579887 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'content' => 
   array (
-    0 => 'Block_61375148859f9e4bb254274_90238832',
+    0 => 'Block_717960505a048aa8ab21d5_56579887',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -292,7 +291,7 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
                         </div>
                         <div class="col-md-3 col-sm-6 col-xs-6 col-xxs-12">
                             <a href="<?php ob_start();
-echo iumioFramework\Core\Additionnal\Template\ViewBasePlugin::route(array('nane'=>'doc_install'),$_smarty_tpl);
+echo iumioFramework\Core\Additionnal\Template\ViewBasePlugin::route(array('name'=>'doc_install'),$_smarty_tpl);
 $_prefixVariable1=ob_get_clean();
 echo $_prefixVariable1;?>
 " class="fh5co-feature to-animate block-feature">
@@ -498,7 +497,7 @@ echo $_prefixVariable1;?>
                             </a>
                         </div>
                         <div class="col-md-3 to-animate">
-                            <a href="<?php echo iumioFramework\Core\Additionnal\Template\ViewBasePlugin::route(array('name'=>"website_downloada",'params'=>array("edition"=>"SU")),$_smarty_tpl);?>
+                            <a href="<?php echo iumioFramework\Core\Additionnal\Template\ViewBasePlugin::route(array('name'=>"website_download",'params'=>array("edition"=>"SU")),$_smarty_tpl);?>
 " class="fh5co-figure">
                                 <span class="fh5co-price"><span><strong>SU</strong></span></span>
                                 <h3 class="fh5co-figure-lead">Secutity Edition</h3>

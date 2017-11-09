@@ -396,6 +396,22 @@
     animation: none;
 }
 
+.iumio-red-color
+{
+    color: red;
+}
+
+.iumio-green-color
+{
+    color: green;
+}
+
+.iumio-green-red-btn
+{
+    position: relative;
+    top: 1px;
+}
+
 @-webkit-keyframes iumioTaskBarPulse {
     0% {
         -webkit-box-shadow: 0 0 0 0 rgba(204,169,44, 0.4);

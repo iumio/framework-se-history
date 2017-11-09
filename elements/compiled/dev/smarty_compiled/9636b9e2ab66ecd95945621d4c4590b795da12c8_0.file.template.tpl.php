@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.31, created on 2017-11-03 16:35:20
+/* Smarty version 3.1.31, created on 2017-11-09 17:56:16
   from "/Applications/MAMP/htdocs/iumio-framework/vendor/iumio_framework/php/BaseApps/ManagerApp/Front/views/template.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.31',
-  'unifunc' => 'content_59fc8cb8353f83_01960393',
+  'unifunc' => 'content_5a0488b0793414_99943394',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -21,10 +21,9 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:partials/modal.tpl' => 1,
   ),
 ),false)) {
-function content_59fc8cb8353f83_01960393 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5a0488b0793414_99943394 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, false);
-$_smarty_tpl->compiled->nocache_hash = '161716087359fc8cb0b8fb52_04542791';
 ?>
 <!doctype html>
 <html lang="en">
@@ -71,11 +70,11 @@ $_smarty_tpl->compiled->nocache_hash = '161716087359fc8cb0b8fb52_04542791';
 <body>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_118766940859fc8cb54f2412_50582057', "principal");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_21214859305a0488adb138b8_78849327', "principal");
 ?>
 
 
-<?php $_smarty_tpl->_subTemplateRender('file:partials/modal.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 9999, $_smarty_tpl->cache_lifetime, array(), 0, false);
+<?php $_smarty_tpl->_subTemplateRender('file:partials/modal.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
 </div>
@@ -105,12 +104,12 @@ $_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_118766940859fc8cb5
 </body>
 </html><?php }
 /* {block "principal"} */
-class Block_118766940859fc8cb54f2412_50582057 extends Smarty_Internal_Block
+class Block_21214859305a0488adb138b8_78849327 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'principal' => 
   array (
-    0 => 'Block_118766940859fc8cb54f2412_50582057',
+    0 => 'Block_21214859305a0488adb138b8_78849327',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {

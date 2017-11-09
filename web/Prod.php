@@ -40,6 +40,7 @@ class Prod extends FrameworkEnvironment
     public static function start():int
     {
         parent::definer('PROD');
+        parent::checkDefiner();
         if (self::hostAllowed() == 1) {
             $core = new AppCore('PROD', true);
             Debug::enabled();

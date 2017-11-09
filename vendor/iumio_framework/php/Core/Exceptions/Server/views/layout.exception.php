@@ -174,7 +174,7 @@
                             </div>
                             <div class="content" style="padding-top: 0px">
                                 <hr>
-                                <p class="category fs16"><i class="pe-7s-info"></i> Message :  <span class="fw900"><?= $this->explain ?></span></h5></p>
+                                <p class="category fs16"><i class="pe-7s-info"></i> Message :  <span class="fw900 break-word"><?= $this->explain ?></span></h5></p>
                                 <hr>
                                 <?php if ($this->file_error != null) { ?>
                                     <p class="category fs16 "><i class="pe-7s-paperclip"></i> File :  <span class="fs16 filelink "><?= $this->file_error ?></span></p>

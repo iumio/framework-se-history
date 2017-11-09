@@ -1,12 +1,11 @@
-
 <p align="center"><a href="https://framework.iumio.com" target="_blank">
-    <img src="https://framework.iumio.com/iumio-black.png">
+    <img src="https://framework.iumio.com/components/apps/prod/websiteapp/public/images/iumio.logo.black.png">
 </a></p>
 
 iumio Framework Graphic Manager - FGM
 ================
 
-@ The next generation of PHP Frameworks
+@ Let's create more simply
 
 <p align="center"><a href="https://framework.iumio.com" target="_blank">
     <img src="https://travis-ci.org/iumio-team/iumio-framework.svg?branch=master">

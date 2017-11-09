@@ -139,7 +139,7 @@ class RtListener implements Listener
                 } catch (\ReflectionException $e) {
                     throw new  Server500(new \ArrayObject(array("explain" =>
                         "Cannot instanciate "."\\".$this->appName."\\Masters\\".$controller."Master => ".
-                        $e->getMessage(), "solution" => "Please check your master configuration : ")));
+                        $e->getMessage(), "solution" => "Please check your master configuration")));
                 }
 
                 if (!method_exists($reflect->newInstance(), $function."Activity") ||

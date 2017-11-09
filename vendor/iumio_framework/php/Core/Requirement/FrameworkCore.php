@@ -12,6 +12,7 @@
 
 namespace iumioFramework\Core\Requirement;
 use iumioFramework\Core\Additionnal\Server\ServerManager;
+use iumioFramework\Core\Base\FrameworkEnvironment;
 use iumioFramework\Core\Base\Http\HttpListener;
 use iumioFramework\Exception\Access\Access200;
 use iumioFramework\HttpRoutes\Routing;
@@ -521,10 +522,13 @@ abstract class FrameworkCore extends GlobalCoreService
      */
     final private function declareExceptionHandlers()
     {
+        FrameworkEnvironment::checkDefiner();
         set_error_handler(
             'iumioFramework\Exception\Tools\ToolsExceptions::errorHandler',
             E_ALL
         );
+
+        set_exception_handler('iumioFramework\Exception\Tools\ToolsExceptions::exceptionHandler');
         register_shutdown_function('iumioFramework\Exception\Tools\ToolsExceptions::shutdownFunctionHandler');
     }
 }
