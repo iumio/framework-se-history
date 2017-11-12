@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.31, created on 2017-11-09 17:57:18
+/* Smarty version 3.1.31, created on 2017-11-12 18:50:48
   from "/Applications/MAMP/htdocs/iumio-framework/vendor/iumio_framework/php/BaseApps/ManagerApp/Front/views/logsdetails.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.31',
-  'unifunc' => 'content_5a0488ee6ca438_59054429',
+  'unifunc' => 'content_5a0889f83d9405_91989807',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'ada821d1d88d4f1a33da533c7ac3b7d4cbb6464f' => 
     array (
       0 => '/Applications/MAMP/htdocs/iumio-framework/vendor/iumio_framework/php/BaseApps/ManagerApp/Front/views/logsdetails.tpl',
-      1 => 1510214675,
+      1 => 1510509047,
       2 => 'file',
     ),
   ),
@@ -22,23 +22,23 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:partials/footer.tpl' => 1,
   ),
 ),false)) {
-function content_5a0488ee6ca438_59054429 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5a0889f83d9405_91989807 (Smarty_Internal_Template $_smarty_tpl) {
 if (!is_callable('smarty_modifier_date_format')) require_once '/Applications/MAMP/htdocs/iumio-framework/vendor/libs/smarty/smarty/libs/plugins/modifier.date_format.php';
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_12817366225a0488ee5e76f6_32171676', "principal");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_13545829585a0889f831acd5_40665319', "principal");
 $_smarty_tpl->inheritance->endChild($_smarty_tpl, 'template.tpl');
 }
 /* {block "principal"} */
-class Block_12817366225a0488ee5e76f6_32171676 extends Smarty_Internal_Block
+class Block_13545829585a0889f831acd5_40665319 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'principal' => 
   array (
-    0 => 'Block_12817366225a0488ee5e76f6_32171676',
+    0 => 'Block_13545829585a0889f831acd5_40665319',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -52,9 +52,8 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
         <nav class="navbar navbar-default navbar-fixed <?php if ($_smarty_tpl->tpl_vars['details']->value->code == 500) {?>navbar-ct-red<?php } elseif ($_smarty_tpl->tpl_vars['details']->value->code == 200) {?>navbar-ct-green<?php } else { ?>navbar-ct-orange<?php }?>">
             <div class="container-fluid">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="#">Logs Manager  - UIDIE : <?php echo $_smarty_tpl->tpl_vars['details']->value->uidie;?>
- - <?php echo $_smarty_tpl->tpl_vars['details']->value->code;?>
- <?php echo $_smarty_tpl->tpl_vars['details']->value->code_title;?>
+                    <a class="navbar-brand" href="#">Event with uidie [<?php echo $_smarty_tpl->tpl_vars['details']->value->uidie;?>
+] generated <?php echo smarty_modifier_date_format($_smarty_tpl->tpl_vars['details']->value->time->date,"d/m/Y H:i:s");?>
 </a>
                     <button type="button" class="navbar-toggle toggle-iumio-manager" data-toggle="collapse" data-target="#navigation-example-2" style="margin-top: 30px!important;margin-right: 20px!important;">
                         Menu
@@ -111,13 +110,13 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
                     <div class="col-md-4">
                         <div class="card">
                             <div class="header">
-                                <h4 class="title text-center">Characteristics</h4>
+                                <h4 class="title text-center">Event characteristics</h4>
                                 <p></p>
                                 <hr>
                                 <p class="category fs16"><i class="pe-7s-config"></i> UIDIE : <strong><?php echo $_smarty_tpl->tpl_vars['details']->value->uidie;?>
 </strong></p>
                                 <hr>
-                                <p class="category fs16"><i class="pe-7s-target"></i> Error code : <?php echo $_smarty_tpl->tpl_vars['details']->value->code;?>
+                                <p class="category fs16"><i class="pe-7s-target"></i> Event code : <?php echo $_smarty_tpl->tpl_vars['details']->value->code;?>
  <?php echo $_smarty_tpl->tpl_vars['details']->value->code_title;?>
 </p>
                                 <hr>
@@ -147,7 +146,7 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
                     <div class="col-md-8">
                         <div class="card">
                             <div class="header">
-                                <h4 class="title text-center"><?php if ($_smarty_tpl->tpl_vars['details']->value->code == 200) {?>Success details<?php } else { ?>Error details<?php }?></h4>
+                                <h4 class="title text-center">Event details</h4>
                             </div>
                             <?php if ($_smarty_tpl->tpl_vars['details']->value->code != 200) {?>
                             <div class="content" style="padding-top: 0px">

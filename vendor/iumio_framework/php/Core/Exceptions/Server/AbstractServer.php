@@ -60,7 +60,6 @@ abstract class AbstractServer extends \Exception implements ServerInterface
         }
 
         $this->time = new \DateTime();
-        error_log("GEN UIDIE");
         $this->uidie = ToolsExceptions::generateUidie();
         $this->env = IUMIO_ENV;
         $this->client_ip = ToolsExceptions::getClientIp();

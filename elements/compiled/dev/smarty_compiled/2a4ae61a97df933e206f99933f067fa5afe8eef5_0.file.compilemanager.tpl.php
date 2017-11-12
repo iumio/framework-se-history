@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.31, created on 2017-11-09 17:56:22
+/* Smarty version 3.1.31, created on 2017-11-09 18:33:02
   from "/Applications/MAMP/htdocs/iumio-framework/vendor/iumio_framework/php/BaseApps/ManagerApp/Front/views/compilemanager.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.31',
-  'unifunc' => 'content_5a0488b69b0f56_47877127',
+  'unifunc' => 'content_5a04914e053132_92643476',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '2a4ae61a97df933e206f99933f067fa5afe8eef5' => 
     array (
       0 => '/Applications/MAMP/htdocs/iumio-framework/vendor/iumio_framework/php/BaseApps/ManagerApp/Front/views/compilemanager.tpl',
-      1 => 1507506917,
+      1 => 1510248535,
       2 => 'file',
     ),
   ),
@@ -23,22 +23,22 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:partials/footer.tpl' => 1,
   ),
 ),false)) {
-function content_5a0488b69b0f56_47877127 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5a04914e053132_92643476 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_10558347065a0488b5babe20_93982370', "principal");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_10250210945a04914d5f9751_21948707', "principal");
 $_smarty_tpl->inheritance->endChild($_smarty_tpl, 'template.tpl');
 }
 /* {block "principal"} */
-class Block_10558347065a0488b5babe20_93982370 extends Smarty_Internal_Block
+class Block_10250210945a04914d5f9751_21948707 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'principal' => 
   array (
-    0 => 'Block_10558347065a0488b5babe20_93982370',
+    0 => 'Block_10250210945a04914d5f9751_21948707',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -71,7 +71,6 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
                             <div class="card">
                                 <div class="header">
                                     <h4 class="title">Options</h4>
-                                    <p class="category">Actions to clear compiled files</p>
                                 </div>
                                 <div class="content">
                                     <div class="row center-block text-center manager-options">

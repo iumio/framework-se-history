@@ -8,7 +8,7 @@
         <li><a class="active" href="#"><strong>{$iumiotaskbar['ve']} - {$iumiotaskbar['env']}</strong></a></li>
         <li><a href="#" class="active"><strong>{$iumiotaskbar['call_app']}</strong></a></li>
         <li>
-            <a href="#" id="iumioTaskBarRequests" attr-href="{$iumiotaskbar['get_logs']}"><i class="pe-7s-refresh icon-iumio-task"></i> <span class="iumio-taskbar-text">No request</span></a>
+            <a href="#" id="iumioTaskBarRequests" attr-href="{$iumiotaskbar['get_logs']}"><i class="pe-7s-refresh icon-iumio-task"></i> <span class="iumio-taskbar-text">No requests</span></a>
 
         </li>
         <li id="iumioTaskBarAssets" class="iumioTaskBarDropdown"><a href="#"><i class="pe-7s-file icon-iumio-task"></i>  <span class="iumio-taskbar-text">Assets</span></a>

@@ -26,6 +26,7 @@ class DefaultMaster extends MasterCore
      */
     public function showIndexActivity()
     {
+        $this->get("service")->get("mailer");
         return ($this->render("index"));
     }
 }

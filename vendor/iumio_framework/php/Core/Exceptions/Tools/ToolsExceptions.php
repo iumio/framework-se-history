@@ -33,7 +33,6 @@ class ToolsExceptions
      */
     final public static function checkUidieExist(string $uidie):bool
     {
-        error_log("CHECK UIDIE");
         AbstractServer::checkFileLogExist(ROOT_LOGS."dev.log.json");
         AbstractServer::checkFileLogExist(ROOT_LOGS."prod.log.json");
         $logs_dev = (array) JsonListener::open(ROOT_LOGS."dev.log.json");

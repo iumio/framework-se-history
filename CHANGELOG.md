@@ -6,25 +6,35 @@ iumio Framework
 
 @ Let's create more simply
 
-## [BETA RELEASE]
+## [RELEASE CANDIDATURE]
 
-## [0.6.0] - 2017-WW-WW
+## [0.6.0] - RCO - 2017-WW-WW
 ### Added
 - New design for iumio Installer
 - Exception in JSONListener Class
 - [SmartyEngineTemplate] Disable or enable cache for a specific render when the cache option is available (Dynamic content)
 - Add shutdown error handler for E_ERROR
 - Add error map : Get the error name according to error level
-- Parse error is managing by iumio 
+- Parse error handler is managing by iumio 
 - Add new register smarty plugin template with .json
+- Added status for service
+- Add date for each Engine Autoloader ClassMap 
+- Add exception for invalid route parameters type (object and array is not allowed)
+- Animation on iumioTaskbar for first event
+- Add all pdo driver list to create and edit database
+- Add service manager (Graphic)
 ### Fixed
 - Bug with no rewrite url
 - Responsive sidebar
+- Bug #0000002
 
 ### Edited
 - Change iumio Manager permissions and publish status display
 - Change iumioTaskBar cache, assets and status menu
 - Change design of iumio Exception
+- Change service to component with different call
+- Exception will be event 
+- Set password field for user password database
 
 
 ### Removed
@@ -33,6 +43,8 @@ iumio Framework
 - Remove ex-iumio Installer
 
 
+
+## [BETA RELEASE]
 
 ## [0.5.0] - 2017-10-09
 ### Added

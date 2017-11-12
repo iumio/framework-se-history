@@ -23,7 +23,6 @@
                             <div class="card">
                                 <div class="header">
                                     <h4 class="title">Options</h4>
-                                    <p class="category">Actions to manage routing files</p>
                                 </div>
                                 <div class="content">
                                     <div class="row center-block text-center manager-options">

@@ -70,8 +70,8 @@
                         <div class="col-md-6">
                             <div class="card h350">
                                 <div class="header">
-                                    <h4 class="title">Logs</h4>
-                                    <p class="category">Last logs errors for {$env} (10)</p>
+                                    <h4 class="title">Logs events</h4>
+                                    <p class="category">Last events logs for <strong>{$env}</strong> (10)</p>
                                 </div>
                                 <div class="content" style="overflow: auto;max-height: 220px">
                                     <ul class="lastlog elemcard" attr-href="{route name='iumio_manager_logs_get'}">
@@ -91,7 +91,7 @@
                                     <ul class="col-md-6">
                                         <li>Apps  : <span class="dashb-app">0</span> </li>
                                         <li>Apps enabled : <span class="dashb-appena">0</span></li>
-                                        <li>App prefixed  : <span class="dashb-apppre">0</span></li>
+                                        <li>Apps prefixed  : <span class="dashb-apppre">0</span></li>
                                         <li>Routes  : <span class="dashb-route">0</span></li>
                                         <li>Routes disabled : <span class="dashb-routedisa">0</span></li>
                                         <li>Routes with public visibility : <span class="dashb-routevisi">0</span></li>
@@ -100,21 +100,21 @@
                                     </ul>
                                     <ul class="col-md-6">
                                         <li>
-                                            <strong>DEV</strong>
+                                            <strong>Dev</strong>
                                             <ul>
                                                 <li>Requests successful : <span class="dashb-reqsuc-dev">0</span></li>
-                                                <li>Errors : <span class="dashb-err-dev">0</span></li>
-                                                <li>Critical Errors (500) : <span class="dashb-errcri-dev">0</span></li>
-                                                <li>Others Errors : <span class="dashb-erroth-dev">0</span></li>
+                                                <li>Events : <span class="dashb-err-dev">0</span></li>
+                                                <li>Critical events (500) : <span class="dashb-errcri-dev">0</span></li>
+                                                <li>Others events : <span class="dashb-erroth-dev">0</span></li>
                                             </ul>
                                         </li>
                                         <li>
-                                            <strong>PROD</strong>
+                                            <strong>Prod</strong>
                                             <ul>
                                                 <li>Requests successful : <span class="dashb-reqsuc-prod">0</span></li>
-                                                <li>Errors : <span class="dashb-err-prod">0</span></li>
-                                                <li>Critical Errors (500) : <span class="dashb-errcri-prod">0</span></li>
-                                                <li>Others Errors : <span class="dashb-erroth-prod">0</span></li>
+                                                <li>Events : <span class="dashb-err-prod">0</span></li>
+                                                <li>Critical events (500) : <span class="dashb-errcri-prod">0</span></li>
+                                                <li>Others events : <span class="dashb-erroth-prod">0</span></li>
                                             </ul>
                                         </li>
 

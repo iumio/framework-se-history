@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.31, created on 2017-11-09 17:57:15
+/* Smarty version 3.1.31, created on 2017-11-12 19:03:02
   from "/Applications/MAMP/htdocs/iumio-framework/vendor/iumio_framework/php/BaseApps/ManagerApp/Front/views/logs.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.31',
-  'unifunc' => 'content_5a0488eb6e4dd6_27174446',
+  'unifunc' => 'content_5a088cd660fae2_07518433',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '55e7a157d0ff32db4d55c125883bef369e3bc589' => 
     array (
       0 => '/Applications/MAMP/htdocs/iumio-framework/vendor/iumio_framework/php/BaseApps/ManagerApp/Front/views/logs.tpl',
-      1 => 1507506917,
+      1 => 1510509780,
       2 => 'file',
     ),
   ),
@@ -23,22 +23,22 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:partials/footer.tpl' => 1,
   ),
 ),false)) {
-function content_5a0488eb6e4dd6_27174446 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5a088cd660fae2_07518433 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_12777857685a0488ea84dab4_34207385', "principal");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_15110518235a088cd57017e1_20475722', "principal");
 $_smarty_tpl->inheritance->endChild($_smarty_tpl, 'template.tpl');
 }
 /* {block "principal"} */
-class Block_12777857685a0488ea84dab4_34207385 extends Smarty_Internal_Block
+class Block_15110518235a088cd57017e1_20475722 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'principal' => 
   array (
-    0 => 'Block_12777857685a0488ea84dab4_34207385',
+    0 => 'Block_15110518235a088cd57017e1_20475722',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -70,7 +70,7 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
                     <div class="col-md-6">
                         <div class="card">
                             <div class="header">
-                                <h4 class="title">Logs statistics for Dev environment</h4>
+                                <h4 class="title">Logs events statistics for Dev environment</h4>
                                 <p class="category">Statistics</p>
                             </div>
                             <div class="content dashboardStats" attr-href="<?php echo iumioFramework\Core\Additionnal\Template\ViewBasePlugin::route(array('name'=>'iumio_manager_dashboard_get_statistics'),$_smarty_tpl);?>
@@ -78,14 +78,14 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
                                 <ul>
                                     <li class="iumiohidden">Apps  : <span class="dashb-app">0</span> </li>
                                     <li class="iumiohidden">Apps enabled : <span class="dashb-appena">0</span></li>
-                                    <li class="iumiohidden">App prefixed  : <span class="dashb-apppre">0</span></li>
+                                    <li class="iumiohidden">Apps prefixed  : <span class="dashb-apppre">0</span></li>
                                     <li class="iumiohidden">Routes  : <span class="dashb-route">0</span></li>
                                     <li class="iumiohidden">Routes disabled : <span class="dashb-routedisa">0</span></li>
                                     <li class="iumiohidden">Routes with public visibility : <span class="dashb-routevisi">0</span></li>
                                     <li>Requests successful : <span class="dashb-reqsuc-dev">0</span></li>
-                                    <li>Errors : <span class="dashb-err-dev">0</span></li>
-                                    <li>Critical Errors (500) : <span class="dashb-errcri-dev">0</span></li>
-                                    <li>Others Errors : <span class="dashb-erroth-dev">0</span></li>
+                                    <li>Events : <span class="dashb-err-dev">0</span></li>
+                                    <li>Critical events (500) : <span class="dashb-errcri-dev">0</span></li>
+                                    <li>Others events : <span class="dashb-erroth-dev">0</span></li>
                                     <li class="iumiohidden">Databases connected : <span class="dashb-dbco">0</span></li>
                                 </ul>
                             </div>
@@ -94,7 +94,7 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
                     <div class="col-md-6">
                         <div class="card">
                             <div class="header">
-                                <h4 class="title">Logs statistics for Prod environment</h4>
+                                <h4 class="title">Logs events statistics for Prod environment</h4>
                                 <p class="category">Statistics</p>
                             </div>
                             <div class="content dashboardStats2" attr-href="<?php echo iumioFramework\Core\Additionnal\Template\ViewBasePlugin::route(array('name'=>'iumio_manager_dashboard_get_statistics'),$_smarty_tpl);?>
@@ -102,14 +102,14 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
                                 <ul>
                                     <li class="iumiohidden">Apps  : <span class="dashb-app">0</span> </li>
                                     <li class="iumiohidden">Apps enabled : <span class="dashb-appena">0</span></li>
-                                    <li class="iumiohidden">App prefixed  : <span class="dashb-apppre">0</span></li>
+                                    <li class="iumiohidden">Apps prefixed  : <span class="dashb-apppre">0</span></li>
                                     <li class="iumiohidden">Routes  : <span class="dashb-route">0</span></li>
                                     <li class="iumiohidden">Routes disabled : <span class="dashb-routedisa">0</span></li>
                                     <li class="iumiohidden">Routes with public visibility : <span class="dashb-routevisi">0</span></li>
                                     <li>Requests successful : <span class="dashb-reqsuc-prod">0</span></li>
-                                    <li>Errors : <span class="dashb-err-prod">0</span></li>
-                                    <li>Critical Errors (500) : <span class="dashb-errcri-prod">0</span></li>
-                                    <li>Others Errors : <span class="dashb-erroth-prod">0</span></li>
+                                    <li>Events : <span class="dashb-err-prod">0</span></li>
+                                    <li>Critical events (500) : <span class="dashb-errcri-prod">0</span></li>
+                                    <li>Others events : <span class="dashb-erroth-prod">0</span></li>
                                     <li class="iumiohidden">Databases connected : <span class="dashb-dbco">0</span></li>
                                 </ul>
                             </div>
@@ -119,7 +119,6 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
                         <div class="card">
                             <div class="header">
                                 <h4 class="title">Options</h4>
-                                <p class="category">Actions to clear logs</p>
                             </div>
                             <div class="content">
                                 <div class="row center-block text-center manager-options">

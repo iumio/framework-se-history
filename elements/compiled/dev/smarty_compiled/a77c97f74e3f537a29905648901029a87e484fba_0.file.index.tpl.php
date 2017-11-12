@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.31, created on 2017-11-09 17:56:08
+/* Smarty version 3.1.31, created on 2017-11-12 19:00:18
   from "/Applications/MAMP/htdocs/iumio-framework/vendor/iumio_framework/php/BaseApps/ManagerApp/Front/views/index.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.31',
-  'unifunc' => 'content_5a0488a89d0f30_69990062',
+  'unifunc' => 'content_5a088c3249d7b7_38504730',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'a77c97f74e3f537a29905648901029a87e484fba' => 
     array (
       0 => '/Applications/MAMP/htdocs/iumio-framework/vendor/iumio_framework/php/BaseApps/ManagerApp/Front/views/index.tpl',
-      1 => 1509462106,
+      1 => 1510509614,
       2 => 'file',
     ),
   ),
@@ -23,14 +23,14 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:partials/footer.tpl' => 1,
   ),
 ),false)) {
-function content_5a0488a89d0f30_69990062 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5a088c3249d7b7_38504730 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_19953306925a0488a64cee28_67526655', "principal");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_6929586015a088c2e799448_93457570', "principal");
 ?>
 
 
@@ -39,12 +39,12 @@ $_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_19953306925a0488a6
 <?php $_smarty_tpl->inheritance->endChild($_smarty_tpl, 'template.tpl');
 }
 /* {block "principal"} */
-class Block_19953306925a0488a64cee28_67526655 extends Smarty_Internal_Block
+class Block_6929586015a088c2e799448_93457570 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'principal' => 
   array (
-    0 => 'Block_19953306925a0488a64cee28_67526655',
+    0 => 'Block_6929586015a088c2e799448_93457570',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -136,9 +136,9 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
                         <div class="col-md-6">
                             <div class="card h350">
                                 <div class="header">
-                                    <h4 class="title">Logs</h4>
-                                    <p class="category">Last logs errors for <?php echo $_smarty_tpl->tpl_vars['env']->value;?>
- (10)</p>
+                                    <h4 class="title">Logs events</h4>
+                                    <p class="category">Last events logs for <strong><?php echo $_smarty_tpl->tpl_vars['env']->value;?>
+</strong> (10)</p>
                                 </div>
                                 <div class="content" style="overflow: auto;max-height: 220px">
                                     <ul class="lastlog elemcard" attr-href="<?php echo iumioFramework\Core\Additionnal\Template\ViewBasePlugin::route(array('name'=>'iumio_manager_logs_get'),$_smarty_tpl);?>
@@ -160,7 +160,7 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
                                     <ul class="col-md-6">
                                         <li>Apps  : <span class="dashb-app">0</span> </li>
                                         <li>Apps enabled : <span class="dashb-appena">0</span></li>
-                                        <li>App prefixed  : <span class="dashb-apppre">0</span></li>
+                                        <li>Apps prefixed  : <span class="dashb-apppre">0</span></li>
                                         <li>Routes  : <span class="dashb-route">0</span></li>
                                         <li>Routes disabled : <span class="dashb-routedisa">0</span></li>
                                         <li>Routes with public visibility : <span class="dashb-routevisi">0</span></li>
@@ -169,21 +169,21 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
                                     </ul>
                                     <ul class="col-md-6">
                                         <li>
-                                            <strong>DEV</strong>
+                                            <strong>Dev</strong>
                                             <ul>
                                                 <li>Requests successful : <span class="dashb-reqsuc-dev">0</span></li>
-                                                <li>Errors : <span class="dashb-err-dev">0</span></li>
-                                                <li>Critical Errors (500) : <span class="dashb-errcri-dev">0</span></li>
-                                                <li>Others Errors : <span class="dashb-erroth-dev">0</span></li>
+                                                <li>Events : <span class="dashb-err-dev">0</span></li>
+                                                <li>Critical events (500) : <span class="dashb-errcri-dev">0</span></li>
+                                                <li>Others events : <span class="dashb-erroth-dev">0</span></li>
                                             </ul>
                                         </li>
                                         <li>
-                                            <strong>PROD</strong>
+                                            <strong>Prod</strong>
                                             <ul>
                                                 <li>Requests successful : <span class="dashb-reqsuc-prod">0</span></li>
-                                                <li>Errors : <span class="dashb-err-prod">0</span></li>
-                                                <li>Critical Errors (500) : <span class="dashb-errcri-prod">0</span></li>
-                                                <li>Others Errors : <span class="dashb-erroth-prod">0</span></li>
+                                                <li>Events : <span class="dashb-err-prod">0</span></li>
+                                                <li>Critical events (500) : <span class="dashb-errcri-prod">0</span></li>
+                                                <li>Others events : <span class="dashb-erroth-prod">0</span></li>
                                             </ul>
                                         </li>
 

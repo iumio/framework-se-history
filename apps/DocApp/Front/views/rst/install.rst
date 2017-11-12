@@ -1,10 +1,10 @@
 
-single: Installing and Setting up Symfony
 
-Installing & Setting up the Symfony Framework
+
+Installing & Setting up the iumio Framework
 =============================================
 
-This article explains how to install Symfony and solve the most common issues
+This article explains how to install iumio Framework and solve the most common issues
 that may appear during the installation process.
 
 
@@ -23,11 +23,13 @@ this command to create a new empty Symfony application based on its latest
 stable version:
 
 .. code-block:: terminal
-
-    $ composer create-project symfony/skeleton my-project
-
+    $ composer install
 
 
+
+
+    Before to run this command, check if you have the correct permissions in web directory
+    (Recommanded permissions : 775 or rwx - rwx - rw)
     If your Internet connection is slow, you may think that Composer is not
     doing anything. If that's your case, add the ``-vvv`` flag to the previous
     command to display a detailed output of everything that Composer is doing.
@@ -169,7 +171,7 @@ Run the following command to download and install the Symfony Demo application:
 
 .. code-block:: terminal
 
-    $ composer create-project symfony/symfony-demo my-project
+    $ composer install
 
 Now, enter the ``my-project/`` directory, run the internal web server and
 browse ``http://127.0.0.1:8000``:

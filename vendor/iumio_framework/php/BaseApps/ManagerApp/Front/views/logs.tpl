@@ -22,21 +22,21 @@
                     <div class="col-md-6">
                         <div class="card">
                             <div class="header">
-                                <h4 class="title">Logs statistics for Dev environment</h4>
+                                <h4 class="title">Logs events statistics for Dev environment</h4>
                                 <p class="category">Statistics</p>
                             </div>
                             <div class="content dashboardStats" attr-href="{route name='iumio_manager_dashboard_get_statistics'}">
                                 <ul>
                                     <li class="iumiohidden">Apps  : <span class="dashb-app">0</span> </li>
                                     <li class="iumiohidden">Apps enabled : <span class="dashb-appena">0</span></li>
-                                    <li class="iumiohidden">App prefixed  : <span class="dashb-apppre">0</span></li>
+                                    <li class="iumiohidden">Apps prefixed  : <span class="dashb-apppre">0</span></li>
                                     <li class="iumiohidden">Routes  : <span class="dashb-route">0</span></li>
                                     <li class="iumiohidden">Routes disabled : <span class="dashb-routedisa">0</span></li>
                                     <li class="iumiohidden">Routes with public visibility : <span class="dashb-routevisi">0</span></li>
                                     <li>Requests successful : <span class="dashb-reqsuc-dev">0</span></li>
-                                    <li>Errors : <span class="dashb-err-dev">0</span></li>
-                                    <li>Critical Errors (500) : <span class="dashb-errcri-dev">0</span></li>
-                                    <li>Others Errors : <span class="dashb-erroth-dev">0</span></li>
+                                    <li>Events : <span class="dashb-err-dev">0</span></li>
+                                    <li>Critical events (500) : <span class="dashb-errcri-dev">0</span></li>
+                                    <li>Others events : <span class="dashb-erroth-dev">0</span></li>
                                     <li class="iumiohidden">Databases connected : <span class="dashb-dbco">0</span></li>
                                 </ul>
                             </div>
@@ -45,21 +45,21 @@
                     <div class="col-md-6">
                         <div class="card">
                             <div class="header">
-                                <h4 class="title">Logs statistics for Prod environment</h4>
+                                <h4 class="title">Logs events statistics for Prod environment</h4>
                                 <p class="category">Statistics</p>
                             </div>
                             <div class="content dashboardStats2" attr-href="{route name='iumio_manager_dashboard_get_statistics'}">
                                 <ul>
                                     <li class="iumiohidden">Apps  : <span class="dashb-app">0</span> </li>
                                     <li class="iumiohidden">Apps enabled : <span class="dashb-appena">0</span></li>
-                                    <li class="iumiohidden">App prefixed  : <span class="dashb-apppre">0</span></li>
+                                    <li class="iumiohidden">Apps prefixed  : <span class="dashb-apppre">0</span></li>
                                     <li class="iumiohidden">Routes  : <span class="dashb-route">0</span></li>
                                     <li class="iumiohidden">Routes disabled : <span class="dashb-routedisa">0</span></li>
                                     <li class="iumiohidden">Routes with public visibility : <span class="dashb-routevisi">0</span></li>
                                     <li>Requests successful : <span class="dashb-reqsuc-prod">0</span></li>
-                                    <li>Errors : <span class="dashb-err-prod">0</span></li>
-                                    <li>Critical Errors (500) : <span class="dashb-errcri-prod">0</span></li>
-                                    <li>Others Errors : <span class="dashb-erroth-prod">0</span></li>
+                                    <li>Events : <span class="dashb-err-prod">0</span></li>
+                                    <li>Critical events (500) : <span class="dashb-errcri-prod">0</span></li>
+                                    <li>Others events : <span class="dashb-erroth-prod">0</span></li>
                                     <li class="iumiohidden">Databases connected : <span class="dashb-dbco">0</span></li>
                                 </ul>
                             </div>
@@ -69,7 +69,6 @@
                         <div class="card">
                             <div class="header">
                                 <h4 class="title">Options</h4>
-                                <p class="category">Actions to clear logs</p>
                             </div>
                             <div class="content">
                                 <div class="row center-block text-center manager-options">

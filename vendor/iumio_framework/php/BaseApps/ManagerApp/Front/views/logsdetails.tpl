@@ -6,7 +6,7 @@
         <nav class="navbar navbar-default navbar-fixed {if $details->code == 500}navbar-ct-red{elseif $details->code == 200}navbar-ct-green{else}navbar-ct-orange{/if}">
             <div class="container-fluid">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="#">Logs Manager  - UIDIE : {$details->uidie} - {$details->code} {$details->code_title}</a>
+                    <a class="navbar-brand" href="#">Event with uidie [{$details->uidie}] generated {$details->time->date|date_format:"d/m/Y H:i:s"}</a>
                     <button type="button" class="navbar-toggle toggle-iumio-manager" data-toggle="collapse" data-target="#navigation-example-2" style="margin-top: 30px!important;margin-right: 20px!important;">
                         Menu
                     </button>
@@ -53,12 +53,12 @@
                     <div class="col-md-4">
                         <div class="card">
                             <div class="header">
-                                <h4 class="title text-center">Characteristics</h4>
+                                <h4 class="title text-center">Event characteristics</h4>
                                 <p></p>
                                 <hr>
                                 <p class="category fs16"><i class="pe-7s-config"></i> UIDIE : <strong>{$details->uidie}</strong></p>
                                 <hr>
-                                <p class="category fs16"><i class="pe-7s-target"></i> Error code : {$details->code} {$details->code_title}</p>
+                                <p class="category fs16"><i class="pe-7s-target"></i> Event code : {$details->code} {$details->code_title}</p>
                                 <hr>
                                 <p class="category fs16"><i class="pe-7s-clock"></i> Date : {$details->time->date|date_format:"%A, %B %e, %Y at %r"}</p>
                                 <hr>
@@ -80,7 +80,7 @@
                     <div class="col-md-8">
                         <div class="card">
                             <div class="header">
-                                <h4 class="title text-center">{if $details->code == 200}Success details{else}Error details{/if}</h4>
+                                <h4 class="title text-center">Event details</h4>
                             </div>
                             {if $details->code != 200}
                             <div class="content" style="padding-top: 0px">

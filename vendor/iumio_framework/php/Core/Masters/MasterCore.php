@@ -50,13 +50,13 @@ class MasterCore extends GlobalCoreService
         self::setAppMaster($this);
     }
 
-    /** Get a service
-     * @param string $service
+    /** Get a component
+     * @param string $component
      * @return mixed
      */
-    protected function get(string $service)
+    protected function get(string $component)
     {
-        switch ($service) {
+        switch ($component) {
             case 'request':
                 return (FrameworkCore::getRuntimeParameters())->request;
                 break;
@@ -66,11 +66,17 @@ class MasterCore extends GlobalCoreService
             case 'session':
                 return (new HttpSession());
                 break;
+            case 'service':
+                return (Services::getInstance());
+                break;
             default:
-                $s = Services::getInstance();
-                return ($s->getService($service));
+               throw new Server500(new \ArrayObject(array("explain" =>
+                   "Cannot call component : Undefined component $component",
+                   "solution" => "Call availables components")));
                 break;
         }
+
+        //getService($service)
     }
 
     /** Show a view
@@ -91,15 +97,14 @@ class MasterCore extends GlobalCoreService
         $si->assign($options);
 
         if ($smartyConfig->getCache() == 1 && $iscached == true) {
-            error_log("cache2");
+
             return ($si->display($view . SmartyEngineTemplate::$viewExtention, $id_cache, $id_compile));
         }
         elseif ($smartyConfig->getCache() == 1 && $iscached == false) {
-            error_log("cache3");
+
             $si->clearCache($view . SmartyEngineTemplate::$viewExtention, $id_cache);
         }*/
 
-        error_log("display");
         $si->assign($options);
         $si->display($view . SmartyEngineTemplate::$viewExtention);
         //$si->display($view . SmartyEngineTemplate::$viewExtention, null, $id_compile);
@@ -273,15 +278,22 @@ class MasterCore extends GlobalCoreService
         }
 
 
+
         foreach ($arrayElem as $uno) {
             if (isset($parameters[$uno]) && $parameters[$uno] != "") {
+                if (gettype($parameters[$uno]) == "object" || gettype($parameters[$uno]) == "array") {
+                    throw new Server500(new \ArrayObject(array("explain" => "Cannot generate route [".
+                        $routename."] :  Invalid type [".gettype($parameters[$uno])."] for route parameters",
+                        "solution" => "Define a valid parameter type ([object] and [array] is not allowed)")));
+                }
+
                 $narray["{".$uno."}"] = $parameters[$uno];
                 $countchange++;
             }
         }
 
         if (count($parameters) != $countchange) {
-            throw new Server500(new \ArrayObject(array("explain" => "Parameter missing for $routename route",
+            throw new Server500(new \ArrayObject(array("explain" => "Parameter(s) missing for $routename route",
                 "solution" => "Please check your parameters declaration")));
         }
 

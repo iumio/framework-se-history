@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.31, created on 2017-11-09 17:56:24
+/* Smarty version 3.1.31, created on 2017-11-09 18:28:08
   from "/Applications/MAMP/htdocs/iumio-framework/vendor/iumio_framework/php/BaseApps/ManagerApp/Front/views/cachemanager.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.31',
-  'unifunc' => 'content_5a0488b831e168_95097904',
+  'unifunc' => 'content_5a0490289a0851_38258055',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '275bb1fb1a20fa697a98a139f2ddf566b1fca8b9' => 
     array (
       0 => '/Applications/MAMP/htdocs/iumio-framework/vendor/iumio_framework/php/BaseApps/ManagerApp/Front/views/cachemanager.tpl',
-      1 => 1507506917,
+      1 => 1510248484,
       2 => 'file',
     ),
   ),
@@ -23,22 +23,22 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:partials/footer.tpl' => 1,
   ),
 ),false)) {
-function content_5a0488b831e168_95097904 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5a0490289a0851_38258055 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_18506746385a0488b74fde28_29314314', "principal");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1251299505a0490280fd8c6_79916317', "principal");
 $_smarty_tpl->inheritance->endChild($_smarty_tpl, 'template.tpl');
 }
 /* {block "principal"} */
-class Block_18506746385a0488b74fde28_29314314 extends Smarty_Internal_Block
+class Block_1251299505a0490280fd8c6_79916317 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'principal' => 
   array (
-    0 => 'Block_18506746385a0488b74fde28_29314314',
+    0 => 'Block_1251299505a0490280fd8c6_79916317',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -70,7 +70,6 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
                             <div class="card">
                                 <div class="header">
                                     <h4 class="title">Options</h4>
-                                    <p class="category">Actions to clear caches</p>
                                 </div>
                                 <div class="content">
                                     <div class="row center-block text-center manager-options">

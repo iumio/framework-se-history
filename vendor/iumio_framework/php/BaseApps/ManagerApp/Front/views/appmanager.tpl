@@ -28,7 +28,7 @@
                                     <ul>
                                         <li>Apps  : <span class="dashb-app">0</span> </li>
                                         <li>Apps enabled : <span class="dashb-appena">0</span></li>
-                                        <li>App prefixed  : <span class="dashb-apppre">0</span></li>
+                                        <li>Apps prefixed  : <span class="dashb-apppre">0</span></li>
                                         <li class="iumiohidden">Routes  : <span class="dashb-route">0</span></li>
                                         <li class="iumiohidden">Routes disabled : <span class="dashb-routedisa">0</span></li>
                                         <li class="iumiohidden">Routes with public visibility : <span class="dashb-routevisi">0</span></li>
@@ -45,7 +45,7 @@
                             <div class="card">
                                 <div class="header">
                                     <h4 class="title">Options</h4>
-                                    <p class="category">Actions to create and import an app</p>
+                                    <p class="category">Create and import an app</p>
                                 </div>
                                 <div class="content">
                                     <div class="row center-block text-center manager-options">

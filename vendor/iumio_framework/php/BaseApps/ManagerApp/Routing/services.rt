@@ -1,0 +1,35 @@
+route:
+  name : iumio_manager_services_manager
+  path :  /_manager/services
+  activity : Services%services
+endroute
+
+route:
+  name: iumio_manager_services_manager_get_all
+  path :  /_manager/services/get/all
+  activity : Services%getAll
+endroute
+
+route:
+  name : iumio_manager_services_manager_remove_service
+  path :  /_manager/services/remove/{servicename}
+  activity : Services%remove
+endroute
+
+route:
+  name : iumio_manager_services_manager_create_service
+  path :  /_manager/services/create
+  activity : Services%create
+endroute
+
+route:
+  name : iumio_manager_services_manager_edit_save_service
+  path :  /_manager/services/editsave/{servicename}
+  activity : Services%edit
+endroute
+
+route:
+  name : iumio_manager_services_manager_edit
+  path :  /_manager/services/edit/{servicename}
+  activity : Services%getOne
+endroute

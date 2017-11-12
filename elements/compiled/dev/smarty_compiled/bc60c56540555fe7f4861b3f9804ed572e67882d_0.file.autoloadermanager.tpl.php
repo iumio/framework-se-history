@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.31, created on 2017-11-09 18:00:15
+/* Smarty version 3.1.31, created on 2017-11-10 07:11:37
   from "/Applications/MAMP/htdocs/iumio-framework/vendor/iumio_framework/php/BaseApps/ManagerApp/Front/views/autoloadermanager.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.31',
-  'unifunc' => 'content_5a04899fbbd171_64121618',
+  'unifunc' => 'content_5a054319150400_09224599',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'bc60c56540555fe7f4861b3f9804ed572e67882d' => 
     array (
       0 => '/Applications/MAMP/htdocs/iumio-framework/vendor/iumio_framework/php/BaseApps/ManagerApp/Front/views/autoloadermanager.tpl',
-      1 => 1510243988,
+      1 => 1510294293,
       2 => 'file',
     ),
   ),
@@ -23,22 +23,22 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:partials/footer.tpl' => 1,
   ),
 ),false)) {
-function content_5a04899fbbd171_64121618 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5a054319150400_09224599 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_19775275605a04899f2a7a44_07537445', "principal");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_5746944895a0543187edb62_99829333', "principal");
 $_smarty_tpl->inheritance->endChild($_smarty_tpl, 'template.tpl');
 }
 /* {block "principal"} */
-class Block_19775275605a04899f2a7a44_07537445 extends Smarty_Internal_Block
+class Block_5746944895a0543187edb62_99829333 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'principal' => 
   array (
-    0 => 'Block_19775275605a04899f2a7a44_07537445',
+    0 => 'Block_5746944895a0543187edb62_99829333',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -76,21 +76,22 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
                             <div class="content autoloaderStats" attr-href="<?php echo iumioFramework\Core\Additionnal\Template\ViewBasePlugin::route(array('name'=>'iumio_manager_autoloader_get_statistics'),$_smarty_tpl);?>
 ">
                                 <ul>
-                                    <li>Class for dev  : <span class="class-auto-dev">0</span> </li>
-                                    <li>Class for prod : <span class="class-auto-prod">0</span></li>
+                                    <li>Classes for dev  : <span class="class-auto-dev">0</span> </li>
+                                    <li>Classes for prod : <span class="class-auto-prod">0</span></li>
                                     <li>Uniques Files  : <span class="uni-auto">0</span></li>
                                     <li>Master classes : <span class="mast-auto">0</span></li>
-                                    <li>App classes    : <span class="app-auto">0</span></li>
+                                    <li>Apps classes    : <span class="app-auto">0</span></li>
                                     <li>Last build for dev  : <span class="build-dev">0</span></li>
                                     <li>Last build for prod : <span class="build-prod">0</span></li>
                                 </ul>
                             </div>
                         </div>
+                    </div>
                         <div class="col-md-12">
                             <div class="card">
                                 <div class="header">
-                                    <h4 class="title">Actions</h4>
-                                    <p class="category">Manage autoloader ClassMap</p>
+                                    <h4 class="title">Options</h4>
+                                    <p class="category">Manage autoloader ClassMap for dev and prod environment</p>
                                 </div>
                                 <div class="content">
                                     <div class="row center-block text-center manager-options">
@@ -114,6 +115,7 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
                                 </div>
                             </div>
                         </div>
+
                     </div>
                 </div>
 

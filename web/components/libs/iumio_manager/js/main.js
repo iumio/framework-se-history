@@ -147,6 +147,45 @@ $(document).ready(function () {
     };
 
     /**
+     * get services file list
+     */
+    var getServicesList = function () {
+        var selector = $('.serviceslist');
+        if (typeof selector.attr("attr-href") === "undefined")
+            return (1);
+
+        $.ajax({
+            url : selector.attr("attr-href"),
+            type : 'POST',
+            dataType : 'json',
+            success : function(data){
+                if (data['code'] === 200)
+                {
+                    var results = data['results'];
+                    selector.html("");
+                    selector.html("");
+                    if ($.isEmptyObject(results))
+                        return (selector.append("<tr><td colspan='6'>No services</td></tr>"));
+
+                    $.each(results, function (index, value) {
+                        selector.append("<tr>" +
+                            "<td>"+index+"</td>" +
+                            "<td>"+value['namespace']+"</td>" +
+                            "<td>"+value['status']+"</td>" +
+                            "<td><button class=' btn-info btn editservice' attr-href='"+value['edit']+"'  attr-href2='"+value['edit_save']+"'  attr-servicename='"+index+"' >ED</button></td>"+
+                            "<td><button class='btn-info btn deleteservice' attr-href='"+value['remove']+"' attr-servicename='"+index+"'>DE</button></td>"+
+                            "</tr>");
+                    });
+
+                }
+            },
+            error : function (data) {
+                operationError(data);
+            }
+        });
+    };
+
+    /**
      * Infinite scroll for logs for dev
      */
     $('.iumio-unlimited-log-display').bind('scroll', function(){
@@ -636,7 +675,7 @@ $(document).ready(function () {
         var name           = $("input[type=text][name=name]").val();
         var host           = $("input[type=text][name=host]").val();
         var user           = $("input[type=text][name=user]").val();
-        var password       = $("input[type=text][name=password]").val();
+        var password       = $("input[type=password][name=password]").val();
         var port           = $("input[type=number][name=port]").val();
         var driver         = $("input[type=text][name=driver]").val();
 
@@ -660,6 +699,53 @@ $(document).ready(function () {
                 if (data['code'] === 200)
                 {
                     getDatabasesList();
+                    if (data['code'] === 200)
+                        operationSuccess();
+                    else
+                        operationError();
+                }
+                else
+                    operationError();
+            },
+            error : function (data) {
+                operationError(data);
+            }
+        });
+    };
+
+    /**
+     * save service configuration
+     */
+
+    var saveServiceConfiguration = function (href) {
+        var namespace      = $("input[type=text][name=namespace]").val();
+        var status         = $("input[type=checkbox][name=status]:checked").val();
+
+        var selecttorModal = $("#modalManager");
+
+        if (namespace === ""  || status === "" )
+        {
+            selecttorModal.find(".onealert").html("Oups! An error was detected");
+            selecttorModal.find(".onealert").show();
+            return (false);
+        }
+
+        if (typeof status !== "undefined")
+            status = "enabled";
+        else
+            status = "disabled";
+
+        selecttorModal.find(".onealert").hide();
+
+        $.ajax({
+            url : href,
+            type : 'POST',
+            dataType : 'json',
+            data : {"namespace" : namespace, "status" : status},
+            success : function(data){
+                if (data['code'] === 200)
+                {
+                    getServicesList();
                     if (data['code'] === 200)
                         operationSuccess();
                     else
@@ -839,9 +925,10 @@ $(document).ready(function () {
         var name           = $("input[type=text][name=name]").val();
         var host           = $("input[type=text][name=host]").val();
         var user           = $("input[type=text][name=user]").val();
-        var password       = $("input[type=text][name=password]").val();
+        var password       = $("input[type=password][name=password]").val();
         var port           = $("input[type=number][name=port]").val();
-        var driver         = $("input[type=text][name=driver]").val();
+        var driver         = $("select[name=driver]").val();
+
 
         var selecttorModal = $("#modalManager");
 
@@ -863,6 +950,56 @@ $(document).ready(function () {
                 if (data['code'] === 200)
                 {
                     getDatabasesList();
+                    if (data['code'] === 200)
+                        operationSuccess();
+                    else
+                        operationError();
+                }
+                else
+                    operationError();
+            },
+            error : function (data) {
+                operationError(data);
+            }
+        });
+    };
+
+
+
+    /**
+     * create service configuration
+     */
+
+    var createserviceconfig = function (href) {
+        var name           = $("input[type=text][name=name]").val();
+        var namespace      = $("input[type=text][name=namespace]").val();
+        var status         = $("input[type=checkbox][name=status]:checked").val();
+
+        var selecttorModal = $("#modalManager");
+
+        if (name === "" || namespace === ""  || status === "" )
+        {
+            selecttorModal.find(".onealert").html("Oups! An error was detected");
+            selecttorModal.find(".onealert").show();
+            return (false);
+        }
+
+        if (typeof status !== "undefined")
+            status = "enabled";
+        else
+            status = "disabled";
+
+        selecttorModal.find(".onealert").hide();
+
+        $.ajax({
+            url : href,
+            type : 'POST',
+            dataType : 'json',
+            data : {'name' : name, "namespace" : namespace, "status" : status},
+            success : function(data){
+                if (data['code'] === 200)
+                {
+                    getServicesList();
                     if (data['code'] === 200)
                         operationSuccess();
                     else
@@ -1008,6 +1145,9 @@ $(document).ready(function () {
                     $('.dashb-err-prod').html(rs['logs']['prod']['errors']);
                     $('.dashb-errcri-prod').html(rs['logs']['prod']['critical']);
                     $('.dashb-erroth-prod').html(rs['logs']['prod']['others']);
+
+                    $('.dashb-services').html(rs['services']['number']);
+                    $('.dashb-services-ena').html(rs['services']['enabled']);
                 }
             },
             error : function (data) {
@@ -1325,6 +1465,29 @@ $(document).ready(function () {
     };
 
     /**
+     * remove service configuration
+     * @param url Url to remove service
+     */
+    var removeService = function (url) {
+
+        $.ajax({
+            url : url,
+            type : 'POST',
+            dataType : 'json',
+            success : function(data){
+                getServicesList();
+                if (data['code'] === 200)
+                    operationSuccess();
+                else
+                    operationError();
+            },
+            error : function (data) {
+                operationError(data);
+            }
+        })
+    };
+
+    /**
      * Publish assets
      * @param url Url to publish
      */
@@ -1469,7 +1632,7 @@ $(document).ready(function () {
 
         var selecttorModal = $("#modalManager");
         selecttorModal.find(".modal-header").html("<strong class='text-center'>Clear all assets - all environments</strong>");
-        selecttorModal.find(".modal-body").html("<h4 class='text-center'>Are you sure to Clear all assets for all environments ?</h4>");
+        selecttorModal.find(".modal-body").html("<h4 class='text-center'>Do you want to clear all assets for all environments ?</h4>");
         selecttorModal.find(".btn-close").html("No");
         selecttorModal.find(".btn-valid").html("Yes");
 
@@ -1490,7 +1653,7 @@ $(document).ready(function () {
 
         var selecttorModal = $("#modalManager");
         selecttorModal.find(".modal-header").html("<strong class='text-center'>Clear all assets - dev environment</strong>");
-        selecttorModal.find(".modal-body").html("<h4 class='text-center'>Are you sure to Clear all assets for dev environment ?</h4>");
+        selecttorModal.find(".modal-body").html("<h4 class='text-center'>Do you want to clear all assets for dev environment ?</h4>");
         selecttorModal.find(".btn-close").html("No");
         selecttorModal.find(".btn-valid").html("Yes");
 
@@ -1511,7 +1674,7 @@ $(document).ready(function () {
 
         var selecttorModal = $("#modalManager");
         selecttorModal.find(".modal-header").html("<strong class='text-center'>Clear all assets - prod environment</strong>");
-        selecttorModal.find(".modal-body").html("<h4 class='text-center'>Are you sure to Clear all assets for prod environment ?</h4>");
+        selecttorModal.find(".modal-body").html("<h4 class='text-center'>Do you want to clear all assets for prod environment ?</h4>");
         selecttorModal.find(".btn-close").html("No");
         selecttorModal.find(".btn-valid").html("Yes");
 
@@ -1533,7 +1696,7 @@ $(document).ready(function () {
 
         var selecttorModal = $("#modalManager");
         selecttorModal.find(".modal-header").html("<strong class='text-center'>Delete "+appname+"</strong>");
-        selecttorModal.find(".modal-body").html("<h4 class='text-center'>Are you sure to delete <strong>"+appname+"</strong> ?</h4>");
+        selecttorModal.find(".modal-body").html("<h4 class='text-center'>Do you want to delete <strong>"+appname+"</strong> ?</h4>");
         selecttorModal.find(".btn-close").html("No");
         selecttorModal.find(".btn-valid").html("Yes");
 
@@ -1556,12 +1719,34 @@ $(document).ready(function () {
 
         var selecttorModal = $("#modalManager");
         selecttorModal.find(".modal-header").html("<strong class='text-center'>Delete "+name+"</strong>");
-        selecttorModal.find(".modal-body").html("<h4 class='text-center'>Are you sure to delete <strong>"+name+"</strong> database configuration ?</h4>");
+        selecttorModal.find(".modal-body").html("<h4 class='text-center'>Do you want to delete <strong>"+name+"</strong> database configuration ?</h4>");
         selecttorModal.find(".btn-close").html("No");
         selecttorModal.find(".btn-valid").html("Yes");
 
         selecttorModal.find(".btn-valid").attr("attr-href", href);
         selecttorModal.find(".btn-valid").attr("attr-event", "removedb");
+        selecttorModal.find(".btn-close").show();
+        selecttorModal.find(".btn-valid").show();
+
+        modal("show");
+    });
+
+    /**
+     * Event to delete a service configuration
+     */
+    $(document).on('click', ".deleteservice", function () {
+        var selector = $(this);
+        var href = selector.attr("attr-href");
+        var name = selector.attr("attr-servicename");
+
+        var selecttorModal = $("#modalManager");
+        selecttorModal.find(".modal-header").html("<strong class='text-center'>Delete "+name+" service</strong>");
+        selecttorModal.find(".modal-body").html("<h4 class='text-center'>Do you want to delete <strong>"+name+"</strong> service configuration ?</h4>");
+        selecttorModal.find(".btn-close").html("No");
+        selecttorModal.find(".btn-valid").html("Yes");
+
+        selecttorModal.find(".btn-valid").attr("attr-href", href);
+        selecttorModal.find(".btn-valid").attr("attr-event", "removeservice");
         selecttorModal.find(".btn-close").show();
         selecttorModal.find(".btn-valid").show();
 
@@ -1577,7 +1762,7 @@ $(document).ready(function () {
 
         var selecttorModal = $("#modalManager");
         selecttorModal.find(".modal-header").html("<strong class='text-center'>Rebuild JS Routing</strong>");
-        selecttorModal.find(".modal-body").html("<h4 class='text-center'>Are you sure to rebuild the JS Routing configuration ?</h4>");
+        selecttorModal.find(".modal-body").html("<h4 class='text-center'>Do you want to rebuild the JS routing file ?</h4>");
         selecttorModal.find(".btn-close").html("No");
         selecttorModal.find(".btn-valid").html("Yes");
 
@@ -1616,8 +1801,17 @@ $(document).ready(function () {
             case "removedb":
                 removeDb(href);
                 break;
+            case "removeservice":
+                removeService(href);
+                break;
             case "editdatabasesave":
                 saveDatabaseConfiguration(href);
+                break;
+            case "createsaveservice":
+                createserviceconfig(href);
+                break;
+            case "editservicesave":
+                saveServiceConfiguration(href);
                 break;
             case "createsavedatabase":
                 createDatabaseConfiguration(href);
@@ -1751,11 +1945,25 @@ $(document).ready(function () {
                     selecttorModal.find(".modal-body").append("</div></div>");
                     selecttorModal.find(".modal-body").append("<div class='form-group text-center'><label>User name</label><input type='text' name='user' class='form-control text-center' value='"+result['db_user']+"'></div>");
                     selecttorModal.find(".modal-body").append("</div></div>");
-                    selecttorModal.find(".modal-body").append("<div class='form-group text-center'><label>User password</label><input type='text' name='password' class='form-control text-center' value='"+result['db_password']+"'></div>");
+                    selecttorModal.find(".modal-body").append("<div class='form-group text-center'><label>User password</label><input type='password' name='password' class='form-control text-center' value='"+result['db_password']+"'></div>");
                     selecttorModal.find(".modal-body").append("</div></div>");
                     selecttorModal.find(".modal-body").append("<div class='form-group text-center'><label>Port</label><input type='number' name='port' class='form-control text-center' value='"+result['db_port']+"'></div>");
                     selecttorModal.find(".modal-body").append("</div></div>");
-                    selecttorModal.find(".modal-body").append("<div class='form-group text-center'><label>Driver</label><input type='text' name='driver' class='form-control text-center' value='"+result['db_driver']+"'></div>");
+                    selecttorModal.find(".modal-body").append("<div class='form-group text-center'><label>Driver</label> <select name='driver' class='form-control'>"+
+                    "<option value='mysql' "+((result['db_driver'] == "mysql")? "selected" : "")+">MySQL</option> " +
+                    "<option value='pgsql' "+((result['db_driver'] == "pgsql")? "selected" : "")+">PostgreSQL</option> " +
+                    "<option value='sqlsrv' "+((result['db_driver'] == "sqlsrv")? "selected" : "")+">Microsoft SQL Server</option> " +
+                    "<option value='cubrid' "+((result['db_driver'] == "cubrid")? "selected" : "")+">CUBRID</option> " +
+                    "<option value='firebird' "+((result['db_driver'] == "firebird")? "selected" : "")+">Firebird</option> " +
+                    "<option value='ibm' "+((result['db_driver'] == "ibm")? "selected" : "")+">IBM</option> " +
+                    "<option value='informix' "+((result['db_driver'] == "informix")? "selected" : "")+">Informix</option> " +
+                    "<option value='sybase' "+((result['db_driver'] == "sybase")? "selected" : "")+">Sybase</option> " +
+                    "<option value='mssql' "+((result['db_driver'] == "mssql")? "selected" : "")+">FreeTDS</option> " +
+                    "<option value='dblib' "+((result['db_driver'] == "dblib")? "selected" : "")+">Microsoft SQL Server (dblib)</option> " +
+                    "<option value='oci' "+((result['db_driver'] == "oci")? "selected" : "")+">Oracle</option> " +
+                    "<option value='odbc' "+((result['db_driver'] == "odbc")? "selected" : "")+">IBM DB2 Call Level</option> " +
+                    "<option value='4D' "+((result['db_driver'] == "4D")? "selected" : "")+">4D</option> " +
+                    "</select></div>");
                     selecttorModal.find(".modal-body").append("</div></div>");
 
                     selecttorModal.find(".btn-close").html("Close");
@@ -1764,6 +1972,60 @@ $(document).ready(function () {
                     selecttorModal.find(".btn-valid").attr("attr-href", href2);
                     selecttorModal.find(".btn-valid").attr("attr-dbconfig", name);
                     selecttorModal.find(".btn-valid").attr("attr-event", "editdatabasesave");
+                    selecttorModal.find(".btn-close").show();
+                    selecttorModal.find(".btn-valid").show();
+
+                    modal("show");
+                }
+                else
+                {
+                    operationError();
+                    return (0);
+                }
+            }
+        });
+    });
+
+    /**
+     * Event to show edit service modal
+     */
+    $(document).on('click', ".editservice", function () {
+        var selector = $(this);
+        var href = selector.attr("attr-href");
+        var href2 = selector.attr("attr-href2");
+        var name = selector.attr("attr-servicename");
+        var result = null;
+
+        $.ajax({
+            url : href,
+            type : 'POST',
+            dataType : 'json',
+            success : function(data){
+                console.log(data);
+                if (data['code'] === 200)
+                {
+                    result = data['results'];
+                    var selecttorModal = $("#modalManager");
+
+                    selecttorModal.find(".modal-header").html("<strong class='text-center'>Edit "+name+" service configuration</strong>");
+                    selecttorModal.find(".modal-header").append("<p class='alert alert-danger onealert' style='display: none'></p>");
+                    selecttorModal.find(".modal-body").html("<h4 class='text-center'>Edit fields to update service configuration.</h4>");
+                    selecttorModal.find(".modal-body").append("<br>");
+                    selecttorModal.find(".modal-body").append("<div class='container'><div class='row'>");
+
+                    selecttorModal.find(".modal-body").append("<div class='form-group text-center'><label>Namespace</label><input type='text' name='namespace' class='form-control text-center' value='"+result['namespace']+"'></div>");
+                    selecttorModal.find(".modal-body").append("</div></div>");
+                    selecttorModal.find(".modal-body").append('<div class="container-new">' +
+                        '<div class="form-group text-center"> <label>Enabled</label> <div class="check"><input id="check" type="checkbox" name="status" '+((result['status'] === "enabled")? "checked='checked'" : "")+' style="display: none"/><label for="check"><div class="box"><i class="fa fa-check"></i></div> </label></div></div>' +
+                        '</div>');
+                    selecttorModal.find(".modal-body").append("</div></div>");
+
+                    selecttorModal.find(".btn-close").html("Close");
+                    selecttorModal.find(".btn-valid").html("Update");
+
+                    selecttorModal.find(".btn-valid").attr("attr-href", href2);
+                    selecttorModal.find(".btn-valid").attr("attr-servicename", name);
+                    selecttorModal.find(".btn-valid").attr("attr-event", "editservicesave");
                     selecttorModal.find(".btn-close").show();
                     selecttorModal.find(".btn-valid").show();
 
@@ -2086,15 +2348,31 @@ $(document).ready(function () {
         selecttorModal.find(".modal-body").append("</div></div>");
         selecttorModal.find(".modal-body").append("<div class='form-group text-center'><label>User name</label><input type='text' name='user' class='form-control text-center'></div>");
         selecttorModal.find(".modal-body").append("</div></div>");
-        selecttorModal.find(".modal-body").append("<div class='form-group text-center'><label>User password</label><input type='text' name='password' class='form-control text-center'></div>");
+        selecttorModal.find(".modal-body").append("<div class='form-group text-center'><label>User password</label><input type='password' name='password' class='form-control text-center'></div>");
         selecttorModal.find(".modal-body").append("</div></div>");
         selecttorModal.find(".modal-body").append("<div class='form-group text-center'><label>Port</label><input type='number' name='port' class='form-control text-center'></div>");
         selecttorModal.find(".modal-body").append("</div></div>");
-        selecttorModal.find(".modal-body").append("<div class='form-group text-center'><label>Driver</label><input type='text' name='driver' class='form-control text-center'></div>");
+        selecttorModal.find(".modal-body").append("<div class='form-group text-center'><label>Driver</label>" +
+            "<select name='driver' class='form-control'>" +
+            "<option value='mysql' selected>MySQL</option> " +
+            "<option value='pgsql'>PostgreSQL</option> " +
+            "<option value='sqlsrv'>Microsoft SQL Server</option> " +
+            "<option value='cubrid'>CUBRID</option> " +
+            "<option value='firebird'>Firebird</option> " +
+            "<option value='ibm'>IBM</option> " +
+            "<option value='informix'>Informix</option> " +
+            "<option value='sybase'>Sybase</option> " +
+            "<option value='mssql'>FreeTDS</option> " +
+            "<option value='dblib'>Microsoft SQL Server (dblib)</option> " +
+            "<option value='oci'>Oracle</option> " +
+            "<option value='odbc'>IBM DB2 Call Level</option> " +
+            "<option value='4D'>4D</option> " +
+            "</select>" +
+            "</div>");
         selecttorModal.find(".modal-body").append("</div></div>");
 
         selecttorModal.find(".btn-close").html("Close");
-        selecttorModal.find(".btn-valid").html("Update");
+        selecttorModal.find(".btn-valid").html("Create");
 
         selecttorModal.find(".btn-valid").attr("attr-href", href);
         selecttorModal.find(".btn-valid").attr("attr-event", "createsavedatabase");
@@ -2104,6 +2382,42 @@ $(document).ready(function () {
         modal("show");
     });
 
+
+
+    /**
+     * Event to show create service config modal
+     */
+    $(document).on('click', ".createservice", function () {
+        var selector = $(this);
+        var href = selector.attr("attr-href");
+
+        var selecttorModal = $("#modalManager");
+
+        selecttorModal.find(".modal-header").html("<strong class='text-center'>Create a new service configuration</strong>");
+        selecttorModal.find(".modal-header").append("<p class='alert alert-danger onealert' style='display: none'></p>");
+        selecttorModal.find(".modal-body").html("<h4 class='text-center'>Fill in the fields to create a service configuration.</h4>");
+        selecttorModal.find(".modal-body").append("<br>");
+        selecttorModal.find(".modal-body").append("<div class='container'><div class='row'>");
+
+        selecttorModal.find(".modal-body").append("<div class='form-group text-center'><label>name</label><input type='text' name='name' class='form-control text-center'></div>");
+        selecttorModal.find(".modal-body").append("</div></div>");
+        selecttorModal.find(".modal-body").append("<div class='form-group text-center'><label>Namespace</label><input type='text' name='namespace' class='form-control text-center'></div>");
+        selecttorModal.find(".modal-body").append("</div></div>");
+        selecttorModal.find(".modal-body").append('<div class="container-new">' +
+            '<div class="form-group text-center"> <label>Enabled</label> <div class="check"><input id="check" type="checkbox" name="status" style="display: none"/><label for="check"><div class="box"><i class="fa fa-check"></i></div> </label></div></div>' +
+            '</div>');
+        selecttorModal.find(".modal-body").append("</div></div>");
+
+        selecttorModal.find(".btn-close").html("Close");
+        selecttorModal.find(".btn-valid").html("Create");
+
+        selecttorModal.find(".btn-valid").attr("attr-href", href);
+        selecttorModal.find(".btn-valid").attr("attr-event", "createsaveservice");
+        selecttorModal.find(".btn-close").show();
+        selecttorModal.find(".btn-valid").show();
+
+        modal("show");
+    });
 
     /**
      * Event to show assets options modal
@@ -2327,8 +2641,8 @@ $(document).ready(function () {
         var href = selector.attr("attr-href");
 
         var selecttorModal = $("#modalManager");
-        selecttorModal.find(".modal-header").html("<strong class='text-center'>Clear ClassMapp - PROD</strong>");
-        selecttorModal.find(".modal-body").html("<h4 class='text-center'>Are you sure to clear the class map file for prod environment ?</h4>");
+        selecttorModal.find(".modal-header").html("<strong class='text-center'>Clear ClassMap - PROD</strong>");
+        selecttorModal.find(".modal-body").html("<h4 class='text-center'>Do you want to clear the class map file for prod environment ?</h4>");
         selecttorModal.find(".btn-close").html("No");
         selecttorModal.find(".btn-valid").html("Yes");
 
@@ -2349,8 +2663,8 @@ $(document).ready(function () {
         var href = selector.attr("attr-href");
 
         var selecttorModal = $("#modalManager");
-        selecttorModal.find(".modal-header").html("<strong class='text-center'>Build ClassMapp - PROD</strong>");
-        selecttorModal.find(".modal-body").html("<h4 class='text-center'>Are you sure to build the class map file for dev environment ?</h4>");
+        selecttorModal.find(".modal-header").html("<strong class='text-center'>Build ClassMap - PROD</strong>");
+        selecttorModal.find(".modal-body").html("<h4 class='text-center'>Do you want to build the class map file for dev environment ?</h4>");
         selecttorModal.find(".btn-close").html("No");
         selecttorModal.find(".btn-valid").html("Yes");
 
@@ -2370,8 +2684,8 @@ $(document).ready(function () {
         var href = selector.attr("attr-href");
 
         var selecttorModal = $("#modalManager");
-        selecttorModal.find(".modal-header").html("<strong class='text-center'>Build ClassMapp - PROD</strong>");
-        selecttorModal.find(".modal-body").html("<h4 class='text-center'>Are you sure to build the class map file for prod environment ?</h4>");
+        selecttorModal.find(".modal-header").html("<strong class='text-center'>Build ClassMap - PROD</strong>");
+        selecttorModal.find(".modal-body").html("<h4 class='text-center'>Do you want to build the class map file for prod environment ?</h4>");
         selecttorModal.find(".btn-close").html("No");
         selecttorModal.find(".btn-valid").html("Yes");
 
@@ -2392,8 +2706,8 @@ $(document).ready(function () {
         var href = selector.attr("attr-href");
 
         var selecttorModal = $("#modalManager");
-        selecttorModal.find(".modal-header").html("<strong class='text-center'>Build ClassMapp - All environements</strong>");
-        selecttorModal.find(".modal-body").html("<h4 class='text-center'>Are you sure to build the class map file for each environment ?</h4>");
+        selecttorModal.find(".modal-header").html("<strong class='text-center'>Build ClassMap - All environements</strong>");
+        selecttorModal.find(".modal-body").html("<h4 class='text-center'>Do you want to build the class map file for each environment ?</h4>");
         selecttorModal.find(".btn-close").html("No");
         selecttorModal.find(".btn-valid").html("Yes");
 
@@ -2442,6 +2756,7 @@ $(document).ready(function () {
     getAllSmartyConfigs();
     getAllAssets();
     getRoutingList();
+    getServicesList();
     dashboardStatistics();
     autoloaderStatistics();
 
@@ -2458,6 +2773,7 @@ $(document).ready(function () {
             getAllSmartyConfigs();
             getAllAssets();
             getRoutingList();
+            getServicesList();
             dashboardStatistics();
             autoloaderStatistics();
         }

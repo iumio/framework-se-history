@@ -142,12 +142,12 @@
                     <div class="col-md-4">
                         <div class="card">
                             <div class="header">
-                                <h4 class="title text-center">Characteristics</h4>
+                                <h4 class="title text-center">Event characteristics</h4>
                                 <p></p>
                                 <hr>
                                 <p class="category fs16"><i class="pe-7s-config"></i> UIDIE : <strong><?= $this->uidie ?></strong></p>
                                 <hr>
-                                <p class="category fs16"><i class="pe-7s-target"></i> Error code : <?= $this->code ?> <?= $this->codeTitle ?></p>
+                                <p class="category fs16"><i class="pe-7s-target"></i> Event code : <?= $this->code ?> <?= $this->codeTitle ?></p>
                                 <hr>
                                 <p class="category fs16"><i class="pe-7s-clock"></i> Date : <?php echo $this->time->format("l, F d ").
                                         ' at '.$this->time->format("H:i:s") ?></p>
@@ -170,7 +170,7 @@
                     <div class="col-md-8">
                         <div class="card">
                             <div class="header">
-                                <h4 class="title text-center">Error details</h4>
+                                <h4 class="title text-center">Event details</h4>
                             </div>
                             <div class="content" style="padding-top: 0px">
                                 <hr>
@@ -225,8 +225,8 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="header">
-                                <h4 class="title">Error Logs</h4>
-                                <p class="category">Last logs error</p>
+                                <h4 class="title">Event Logs</h4>
+                                <p class="category">Last events</p>
                             </div>
                             <div class="content">
                                 <ul class="errorlastlog" attr-href="<?php $master =

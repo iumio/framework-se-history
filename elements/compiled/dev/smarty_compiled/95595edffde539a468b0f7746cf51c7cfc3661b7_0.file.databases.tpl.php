@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.31, created on 2017-11-09 18:00:14
+/* Smarty version 3.1.31, created on 2017-11-09 18:45:07
   from "/Applications/MAMP/htdocs/iumio-framework/vendor/iumio_framework/php/BaseApps/ManagerApp/Front/views/databases.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.31',
-  'unifunc' => 'content_5a04899e788c68_40508571',
+  'unifunc' => 'content_5a0494234d9272_53642274',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '95595edffde539a468b0f7746cf51c7cfc3661b7' => 
     array (
       0 => '/Applications/MAMP/htdocs/iumio-framework/vendor/iumio_framework/php/BaseApps/ManagerApp/Front/views/databases.tpl',
-      1 => 1507506917,
+      1 => 1510249506,
       2 => 'file',
     ),
   ),
@@ -23,13 +23,13 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:partials/footer.tpl' => 1,
   ),
 ),false)) {
-function content_5a04899e788c68_40508571 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5a0494234d9272_53642274 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1069848745a04899dcea1e7_34186596', "principal");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_12269654955a049422b0d082_66318192', "principal");
 ?>
 
 
@@ -39,12 +39,12 @@ $_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1069848745a04899dc
 <?php $_smarty_tpl->inheritance->endChild($_smarty_tpl, 'template.tpl');
 }
 /* {block "principal"} */
-class Block_1069848745a04899dcea1e7_34186596 extends Smarty_Internal_Block
+class Block_12269654955a049422b0d082_66318192 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'principal' => 
   array (
-    0 => 'Block_1069848745a04899dcea1e7_34186596',
+    0 => 'Block_12269654955a049422b0d082_66318192',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -77,7 +77,6 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
                             <div class="card">
                                 <div class="header">
                                     <h4 class="title">Options</h4>
-                                    <p class="category">Actions to manage routing files</p>
                                 </div>
                                 <div class="content">
                                     <div class="row center-block text-center manager-options">

@@ -1,0 +1,18 @@
+{
+    "dez": {
+        "db_name": "dezd",
+        "db_host": "localhost",
+        "db_port": "4",
+        "db_user": "dez",
+        "db_password": "dezd",
+        "db_driver": "cubrid"
+    },
+    "hello": {
+        "db_name": "ad",
+        "db_host": "127.0.0.1",
+        "db_port": "2",
+        "db_user": "da",
+        "db_password": "dadzd",
+        "db_driver": "informix"
+    }
+}

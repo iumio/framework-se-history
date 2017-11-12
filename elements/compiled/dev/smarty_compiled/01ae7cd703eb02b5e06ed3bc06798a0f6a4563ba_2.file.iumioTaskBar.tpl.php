@@ -39,7 +39,7 @@ if (isset($_smarty_tpl->tpl_vars['iumiotaskbar']->value) && !empty($_smarty_tpl-
 </strong></a></li>
         <li>
             <a href="#" id="iumioTaskBarRequests" attr-href="<?php echo htmlspecialchars($_smarty_tpl->tpl_vars['iumiotaskbar']->value['get_logs'], ENT_QUOTES, 'UTF-8');?>
-"><i class="pe-7s-refresh icon-iumio-task"></i> <span class="iumio-taskbar-text">No request</span></a>
+"><i class="pe-7s-refresh icon-iumio-task"></i> <span class="iumio-taskbar-text">No requests</span></a>
 
         </li>
         <li id="iumioTaskBarAssets" class="iumioTaskBarDropdown"><a href="#"><i class="pe-7s-file icon-iumio-task"></i>  <span class="iumio-taskbar-text">Assets</span></a>

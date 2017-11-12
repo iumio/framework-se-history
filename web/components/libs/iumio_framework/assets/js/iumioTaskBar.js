@@ -252,6 +252,8 @@ function getTaskbarLogs() {
                         continue;
                     if (i === 0)
                     {
+                        document.getElementById("iumioTaskBarRequests").classList.remove("iumioTaskBarBounceIn");
+                        document.getElementById("iumioTaskBarRequests").classList.add("iumioTaskBarBounceIn");
                         document.getElementById("iumioTaskBarRequests").innerHTML = result[i]['method'] +' '+result[i]['code'];
                         document.getElementById("iumioTaskBarRequests").innerHTML = result[i]['method'] +' '+result[i]['code'];
 
@@ -271,7 +273,7 @@ function getTaskbarLogs() {
                         color = "   style='background-color:rgba(171, 27, 27, 0.85);' ";
                     if (start == 0)
                      var e =   '<li class="iumioTaskBarOneLog" > ' +
-                             '<table class="iumioTaskbarTable"><thead><tr><th>UIDIE</th> <th>Method</th> <th>Code</th> <th>URL</th> </tr></thead> <tbody> <tr> <td class="iumiouidieurl" onclick="location.href=\''+result[i]['log_url']+'\'">'+result[i]['uidie'] +'</td> <td>'+((result[i]['method'])) +'</td> <td>'+((result[i]['code'])) +'</td> <td>'+(result[i]['uri']).substr(0, 19) +' '+(((result[i]['referer']).length > 19)? '...' : '' )+'</td> </tr> </tbody> </table>'+
+                             '<table class="iumioTaskbarTable"><thead><tr><th colspan="4" class="iumioTaskBarLogsTitle">Last events logs for current session (10)</tr><tr><th>UIDIE</th> <th>Method</th> <th>Code</th> <th>URL</th> </tr></thead> <tbody> <tr> <td class="iumiouidieurl" onclick="location.href=\''+result[i]['log_url']+'\'">'+result[i]['uidie'] +'</td> <td>'+((result[i]['method'])) +'</td> <td>'+((result[i]['code'])) +'</td> <td>'+(result[i]['uri']).substr(0, 19) +' '+(((result[i]['referer']).length > 19)? '...' : '' )+'</td> </tr> </tbody> </table>'+
                          '</li>';
                     else
                         var e =   '<li class="iumioTaskBarOneLog" > ' +

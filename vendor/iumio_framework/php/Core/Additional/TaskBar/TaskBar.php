@@ -104,7 +104,7 @@ class TaskBar
                     "ManagerApp",
                     true
                 ).'"><i class="pe-7s-refresh icon-iumio-task"></i> 
-                <span class="iumio-taskbar-text">No request</span></a></li>
+                <span class="iumio-taskbar-text">No requests</span></a></li>
                 <li id="iumioTaskBarAssets" class="iumioTaskBarDropdown"><a href="#">
                 <i class="pe-7s-file icon-iumio-task"></i>  <span class="iumio-taskbar-text">Assets</span></a>
                     <ul class="iumioTaskBarDropdownContent">

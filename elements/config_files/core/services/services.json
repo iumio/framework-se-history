@@ -1,6 +1,6 @@
 {
-  "services":
-  {
-    "mailer" : "PHPMailer\\PHPMailer\\PHPMailer"
-  }
+    "mailer": {
+        "namespace": "PHPMailer\\PHPMailer\\PHPMailer",
+        "status": "enabled"
+    }
 }

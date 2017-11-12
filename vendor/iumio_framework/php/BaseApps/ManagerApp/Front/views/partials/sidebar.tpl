@@ -74,6 +74,12 @@
                 <p>Hosts</p>
             </a>
         </li>
+        <li class="{if $selected == "servicesmanager"}active{/if}">
+            <a href="{route name='iumio_manager_services_manager' component='yes'}">
+                <i class="pe-7s-settings"></i>
+                <p>Services</p>
+            </a>
+        </li>
     </ul>
 </div>
 </div>

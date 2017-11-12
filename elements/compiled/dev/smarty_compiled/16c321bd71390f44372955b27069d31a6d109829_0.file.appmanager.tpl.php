@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.31, created on 2017-11-09 17:56:20
+/* Smarty version 3.1.31, created on 2017-11-09 18:24:21
   from "/Applications/MAMP/htdocs/iumio-framework/vendor/iumio_framework/php/BaseApps/ManagerApp/Front/views/appmanager.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.31',
-  'unifunc' => 'content_5a0488b4281e27_18412318',
+  'unifunc' => 'content_5a048f4522b950_00214519',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '16c321bd71390f44372955b27069d31a6d109829' => 
     array (
       0 => '/Applications/MAMP/htdocs/iumio-framework/vendor/iumio_framework/php/BaseApps/ManagerApp/Front/views/appmanager.tpl',
-      1 => 1507506917,
+      1 => 1510248260,
       2 => 'file',
     ),
   ),
@@ -23,22 +23,22 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:partials/footer.tpl' => 1,
   ),
 ),false)) {
-function content_5a0488b4281e27_18412318 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5a048f4522b950_00214519 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_14931875485a0488b3454b54_93590510', "principal");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_8255543845a048f442c9995_00618786', "principal");
 $_smarty_tpl->inheritance->endChild($_smarty_tpl, 'template.tpl');
 }
 /* {block "principal"} */
-class Block_14931875485a0488b3454b54_93590510 extends Smarty_Internal_Block
+class Block_8255543845a048f442c9995_00618786 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'principal' => 
   array (
-    0 => 'Block_14931875485a0488b3454b54_93590510',
+    0 => 'Block_8255543845a048f442c9995_00618786',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -77,7 +77,7 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
                                     <ul>
                                         <li>Apps  : <span class="dashb-app">0</span> </li>
                                         <li>Apps enabled : <span class="dashb-appena">0</span></li>
-                                        <li>App prefixed  : <span class="dashb-apppre">0</span></li>
+                                        <li>Apps prefixed  : <span class="dashb-apppre">0</span></li>
                                         <li class="iumiohidden">Routes  : <span class="dashb-route">0</span></li>
                                         <li class="iumiohidden">Routes disabled : <span class="dashb-routedisa">0</span></li>
                                         <li class="iumiohidden">Routes with public visibility : <span class="dashb-routevisi">0</span></li>
@@ -94,7 +94,7 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
                             <div class="card">
                                 <div class="header">
                                     <h4 class="title">Options</h4>
-                                    <p class="category">Actions to create and import an app</p>
+                                    <p class="category">Create and import an app</p>
                                 </div>
                                 <div class="content">
                                     <div class="row center-block text-center manager-options">

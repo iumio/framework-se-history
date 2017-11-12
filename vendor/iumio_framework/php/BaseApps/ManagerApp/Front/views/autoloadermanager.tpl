@@ -27,21 +27,22 @@
                             </div>
                             <div class="content autoloaderStats" attr-href="{route name='iumio_manager_autoloader_get_statistics'}">
                                 <ul>
-                                    <li>Class for dev  : <span class="class-auto-dev">0</span> </li>
-                                    <li>Class for prod : <span class="class-auto-prod">0</span></li>
+                                    <li>Classes for dev  : <span class="class-auto-dev">0</span> </li>
+                                    <li>Classes for prod : <span class="class-auto-prod">0</span></li>
                                     <li>Uniques Files  : <span class="uni-auto">0</span></li>
                                     <li>Master classes : <span class="mast-auto">0</span></li>
-                                    <li>App classes    : <span class="app-auto">0</span></li>
+                                    <li>Apps classes    : <span class="app-auto">0</span></li>
                                     <li>Last build for dev  : <span class="build-dev">0</span></li>
                                     <li>Last build for prod : <span class="build-prod">0</span></li>
                                 </ul>
                             </div>
                         </div>
+                    </div>
                         <div class="col-md-12">
                             <div class="card">
                                 <div class="header">
-                                    <h4 class="title">Actions</h4>
-                                    <p class="category">Manage autoloader ClassMap</p>
+                                    <h4 class="title">Options</h4>
+                                    <p class="category">Manage autoloader ClassMap for dev and prod environment</p>
                                 </div>
                                 <div class="content">
                                     <div class="row center-block text-center manager-options">
@@ -61,6 +62,7 @@
                                 </div>
                             </div>
                         </div>
+
                     </div>
                 </div>
 

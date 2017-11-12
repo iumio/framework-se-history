@@ -100,7 +100,12 @@ class DashboardMaster extends MasterCore
         $logsmaster = $this->getMaster('Logs');
         $logsstats = $logsmaster->getStatisticsLogs();
 
+        $servicemaster = $this->getMaster('Services');
+        $servicestats = $servicemaster->getStatisticsServices();
+
+
+
         return ((new Response())->jsonRender(array("code" => 200, "results" => array("apps" => $appstats,
-            "routes" => $routingstats, "dbs" => $dbstats, "logs" => $logsstats))));
+            "routes" => $routingstats, "dbs" => $dbstats, "logs" => $logsstats, "services" => $servicestats))));
     }
 }
