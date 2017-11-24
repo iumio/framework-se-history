@@ -11,6 +11,7 @@
 
 namespace iumioFramework\Core\Console\Module\Help;
 
+use iumioFramework\Additional\Manager\Module\ToolsManager;
 use iumioFramework\Core\Console\CoreManager;
 use iumioFramework\Core\Console\Module\ModuleManager;
 use iumioFramework\Core\Console\Display\OutputManager as Output;
@@ -25,7 +26,7 @@ use iumioFramework\Core\Console\ComManager as File;
  * @author   RAFINA Dany <danyrafina@gmail.com>
  */
 
-class HelpManager implements ModuleManager
+class HelpManager extends ToolsManager implements ModuleManager
 {
     protected $options;
 
@@ -39,7 +40,7 @@ class HelpManager implements ModuleManager
         if (empty($this->options)) {
             $str = "Hey, this is available commands\n";
             foreach ($commands as $command => $val) {
-                $str = $str.$command . ": " . $val->desc."\n---------\n\n";
+                $str = "\n".$str.$command . ": " . $val->desc."\n---------\n\n";
             }
             Output::displayAsSuccess($str, "none");
         } else {

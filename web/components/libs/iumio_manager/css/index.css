@@ -24,6 +24,17 @@
     text-align: center!important;
     margin: auto!important;
     width: 100%!important;
+
+}
+
+.iumioDeployReload
+{
+    cursor: pointer;
+}
+
+.iumio-overflow-x
+{
+    overflow-x:auto;
 }
 
 .w100

@@ -80,6 +80,12 @@
                 <p>Services</p>
             </a>
         </li>
+        <li class="{if $selected == "deployermanager"}active{/if}">
+            <a href="{route name='iumio_manager_deployer_manager' component='yes'}">
+                <i class="pe-7s-check"></i>
+                <p>Deployer</p>
+            </a>
+        </li>
     </ul>
 </div>
 </div>

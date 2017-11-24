@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.31, created on 2017-11-09 17:56:17
+/* Smarty version 3.1.31, created on 2017-11-24 14:25:40
   from "/Applications/MAMP/htdocs/iumio-framework/vendor/iumio_framework/php/BaseApps/ManagerApp/Front/views/partials/toogle.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.31',
-  'unifunc' => 'content_5a0488b1870179_95826154',
+  'unifunc' => 'content_5a181dd47d63a8_84729591',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5a0488b1870179_95826154 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5a181dd47d63a8_84729591 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <button type="button" class="navbar-toggle toggle-iumio-manager" data-toggle="collapse" data-target="#navigation-example-2" style="padding-top: 17px;">
     <span class="sr-only">Toggle navigation</span>

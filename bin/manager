@@ -15,7 +15,7 @@ namespace iumioFramework\Bin;
 try {
     $loader = require_once __DIR__.'/../vendor/iumio_framework/php/Core/Requirement/EngineAutoloader.php';
 } catch (\Exception $e) {
-    throw new \Exception("Console Manager error : cannot get autoloader => ".$e->getMessage());
+    throw new \Exception("Framework Console Manager error : cannot get autoloader => ".$e->getMessage());
 }
 
 use iumioFramework\Core\Base\Debug\Debug;
@@ -39,6 +39,8 @@ class ConsoleManager
     public function main(int $argc, array $argv)
     {
         Debug::enabled();
+        restore_error_handler();
+        restore_exception_handler();
         $man = new CoreManager();
         $this->define();
         $man->run($argc, $argv);
@@ -52,6 +54,7 @@ class ConsoleManager
         \define('ROOT', __DIR__.'/..', true);
         \define('ROOT_PROJECT', __DIR__.'/..', true);
         \define('ROOT_CACHE', __DIR__.'/../elements/cache/', true);
+        \define('ROOT_COMPILED', __DIR__.'/../elements/compiled/', true);
         \define('ROOT_APPS', __DIR__.'/../apps/', true);
         \define('ELEMS', __DIR__ . '/../elements/', true);
         \define('ROOT_VENDOR_LIBS', __DIR__.'/../vendor/libs/', true);
@@ -61,6 +64,7 @@ class ConsoleManager
             true
         );
         \define('ROOT_WEB_COMPONENTS', __DIR__.'/../web/components/', true);
+        \define('ROOT_WEB', __DIR__.'/../web/', true);
         \define('CONFIG_DIR', __DIR__.'/../elements/config_files/', true);
         \define('BASE_APPS', __DIR__.'/../vendor/iumio_framework/php/BaseApps/', true);
     }

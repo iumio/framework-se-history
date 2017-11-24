@@ -12,6 +12,7 @@
 
 namespace iumioFramework\Core\Console\Module\Rt;
 
+use iumioFramework\Additional\Manager\Module\ToolsManager;
 use iumioFramework\Core\Console\CoreManager;
 use iumioFramework\Core\Console\Display\OutputManager as Output;
 use iumioFramework\Core\Console\Module\ModuleManager;
@@ -26,7 +27,7 @@ use iumioFramework\HttpRoutes\JsRouting;
  * @author   RAFINA Dany <danyrafina@gmail.com>
  */
 
-class RtManager implements ModuleManager
+class RtManager extends ToolsManager implements ModuleManager
 {
     protected $options;
 
@@ -39,7 +40,7 @@ class RtManager implements ModuleManager
         if ($opt == "build") {
             $opt = $this->options[3] ?? null;
             $opt4 = $this->options[4] ?? null;
-            if ($opt == "jsrouting" && $opt4 == null) {
+            if ($opt == "jsrouting" &&  $opt4 != "--baseapp") {
                 $this->buildJsRouting();
             } elseif ($opt == "jsrouting" && $opt4 == "--baseapp") {
                 $this->buildJsRouting(true);
@@ -60,7 +61,11 @@ class RtManager implements ModuleManager
         Output::displayAsSuccess("Hey, I will build the JS Routing file", "none");
         $rt = new JsRouting($isbaseapp);
         $rt->build();
-        Output::displayAsNormal("Build the JS Routing File is a success.");
+        if ($this->strlikeInArray("--noexit", $this->options) != null) {
+            Output::displayAsEndSuccess("Build the JS Routing File is a success.", "none");
+        } else {
+            Output::displayAsNormal("Build the JS Routing File is a success.");
+        }
     }
 
     public function __alter()

@@ -1,6 +1,6 @@
 {
-    "name": "iumioCommand",
-    "version": "0.0.5",
+    "name": "Framework Console Manager",
+    "version": "0.0.6",
     "commands": {
       "help": {
           "class" : "\\iumioFramework\\Core\\Console\\Module\\Help\\HelpManager",
@@ -25,6 +25,14 @@
       "autoloader": {
         "class" : "\\iumioFramework\\Core\\Console\\Module\\Autoloader\\AutoloaderManager",
         "desc"  : "Manage the class map for engine autoloader \n        --clear : Clear autoloader class map for a specific environment (Dev environment as default)  \n        --build : Build autoloader class map for a specific environment (Dev environment as default)  \n        --env: Environment name (DEV, PROD, ALL) (must used with --clear or --build)\n"
+      },
+      "deployer": {
+        "class" : "\\iumioFramework\\Core\\Console\\Module\\Deployer\\DeployerManager",
+        "desc"  : "Deploy or undeploy your(s) application(s) \n        process-deploy : Process the deployment to production environment  \n        process-undeploy : Undeploy your(s) application(s) (switch to dev)  \n"
+      },
+      "compiled": {
+        "class" : "\\iumioFramework\\Core\\Console\\Module\\Compiled\\CompiledManager",
+        "desc"  : "Manage iumio compilation directory  \n        --clear : Clear compiled environment (Dev environment as default)  \n        --env: Environment name (DEV, PROD, ALL) (must used with --clear)\n"
       }
     }
 }

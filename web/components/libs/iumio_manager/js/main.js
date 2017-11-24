@@ -59,6 +59,22 @@ $(document).ready(function () {
     };
 
     /**
+     * Modal operation is a success with reload page
+     */
+    var operationSuccessReload = function (time) {
+        var selecttorModal = $("#modalManager");
+        selecttorModal.data('bs.modal').options.keyboard = false;
+        selecttorModal.data('bs.modal').options.backdrop = 'static';
+        selecttorModal.find(".modal-body").html("<h4 class='text-center'>Operation is a success</h4>");
+        selecttorModal.find(".btn-close").hide();
+        selecttorModal.find(".btn-valid").hide();
+        setTimeout(function () {
+            location.reload();
+        }, time);
+
+    };
+
+    /**
      * Modal operation is an error
      */
     var operationError = function (data) {
@@ -1087,6 +1103,140 @@ $(document).ready(function () {
         })
     };
 
+
+    /**
+     * Get time elapsed time (minutes) for reload data deployment
+     * @param selector The selector to change value
+     */
+    var loadElapsedTimeDeployment = function (selector) {
+        var i =  parseInt(selector.html());
+        selector.html(i + 1);
+    };
+
+    var onCallDeploy = 0;
+    var last_update_requirements_deploy = 0;
+    /**
+     * Clear the requirements for deployment
+     */
+    var getRequirementsDeployment = function () {
+
+        if (onCallDeploy === 1)
+            return (false);
+        onCallDeploy = 1;
+        var selector = $(".requirements-deployment");
+        if (selector.attr("attr-current-default-env") === "prod")
+            return (false);
+        var url = selector.attr("attr-href");
+        var lock = 0;
+        selector.html("<tr><td><i class='fa fa-spinner fa-spin fa-2x'></i>  <span class='text-info text-lg-center' style='padding-left: 20px; font-size: 20px'>Loading...</span> </td></tr>")
+        $.ajax({
+            url : url,
+            type : 'POST',
+            dataType : 'json',
+            success : function(data){
+                if (data['code'] === 200)
+                {
+                    var rs = data['results'];
+
+                    selector.html("");
+                    //getRoutingList();
+                    $.each(rs, function (index, value) {
+                        selector.append("<tr>\n" +
+                            "    <td class='break-word'>\n" +
+                            "    <div class=\"checkbox break-word\">\n" +
+                            "        <input id=\"checkbox1\" type=\"checkbox\">\n" +
+                            "        <label for=\"checkbox1\"></label>\n" +
+                            "        </div>\n" +
+                            "        </td>\n" +
+                            "        <td class=\"text-left break-word'\">"+value['s']+"</td>\n" +
+                            "        <td class=\"td-actions text-right break-word'\">\n" +
+                            "        <i class=\"fa "+((value["status"] == false)? "fa-times text-danger" : "fa-check text-success")+"\"></i>\n" +
+                            "        </td>\n" +
+                            "        </tr>");
+                       if (value["status"] == false)
+                           lock++;
+                    });
+
+                    var sdep = $(".deployprod");
+                    var tdep = $(".text-deploy-iumio");
+                    if (lock > 0) {
+
+                        sdep.attr("disabled", "disabled");
+                        sdep.removeClass("btn-success");
+                        sdep.addClass("btn-danger");
+                        tdep.html("Your environment is not ready to be deployed");
+                        tdep.removeClass("text-success");
+                        tdep.addClass("text-danger");
+                    }
+                    else
+                    {
+                        sdep.removeAttr("disabled");
+                        sdep.removeClass("btn-danger");
+                        sdep.addClass("btn-success");
+                        tdep.html("Your environment is ready to be deployed");
+                        tdep.removeClass("text-danger");
+                        tdep.addClass("text-success");
+
+                    }
+
+                    $(".last_up_req_deploy").html(0);
+                    onCallDeploy = 0;
+
+                }
+            },
+            error : function (data) {
+                onCallDeploy = 0;
+                operationError(data);
+            }
+        })
+    };
+
+
+
+    /**
+     * Undeployed applications
+     * @param url Url to undeployed
+     */
+    var undeployed = function (url) {
+
+        $.ajax({
+            url : url,
+            type : 'POST',
+            dataType : 'json',
+            success : function(data){
+                if (data['code'] === 200)
+                {
+                    operationSuccessReload(3000);
+                }
+            },
+            error : function (data) {
+                operationError(data);
+            }
+        })
+    };
+
+    /**
+     * deployed applications
+     * @param url Url to deployed
+     */
+    var deployed = function (url) {
+
+        $.ajax({
+            url : url,
+            type : 'POST',
+            dataType : 'json',
+            success : function(data){
+                if (data['code'] === 200)
+                {
+                    operationSuccessReload(3000);
+                }
+            },
+            error : function (data) {
+                operationError(data);
+            }
+        })
+    };
+
     /**
      * remove a routing file
      * @param url Url to remove routing file
@@ -1558,6 +1708,28 @@ $(document).ready(function () {
         modal("show");
     });
 
+    /**
+     * Event to switch default app
+     */
+    $(document).on('click', ".switchdeploy", function () {
+        var selector = $(this);
+        var href = selector.attr("attr-href");
+
+        var selecttorModal = $("#modalManager");
+        selecttorModal.find(".modal-header").html("<strong class='text-center'>Switch to dev environment</strong>");
+        selecttorModal.find(".modal-body").html("<h4 class='text-center'>Are you sure to undeployed all applications ?</h4>");
+        selecttorModal.find(".btn-close").html("No");
+        selecttorModal.find(".btn-valid").html("Yes");
+
+        selecttorModal.find(".btn-valid").attr("attr-href", href);
+        selecttorModal.find(".btn-valid").attr("attr-event", "confirmundeployed");
+        selecttorModal.find(".btn-close").show();
+        selecttorModal.find(".btn-valid").show();
+
+        modal("show");
+    });
+
+    //
 
     /**
      * Event to publish all assets for all env
@@ -1680,6 +1852,30 @@ $(document).ready(function () {
 
         selecttorModal.find(".btn-valid").attr("attr-href", href);
         selecttorModal.find(".btn-valid").attr("attr-event", "callprodassets");
+        selecttorModal.find(".btn-close").show();
+        selecttorModal.find(".btn-valid").show();
+
+        modal("show");
+    });
+
+
+    /**
+     * Event to deploy to production
+     */
+    $(document).on('click', ".deployprod", function () {
+        var selector = $(this);
+        var href = selector.attr("attr-href");
+        if (selector.attr("disabled") == "disabled")
+            return (false);
+
+        var selecttorModal = $("#modalManager");
+        selecttorModal.find(".modal-header").html("<strong class='text-center'>Deploy to production</strong>");
+        selecttorModal.find(".modal-body").html("<h4 class='text-center'>Do you want to start the deployment to production environment ?</h4>");
+        selecttorModal.find(".btn-close").html("No");
+        selecttorModal.find(".btn-valid").html("Yes");
+
+        selecttorModal.find(".btn-valid").attr("attr-href", href);
+        selecttorModal.find(".btn-valid").attr("attr-event", "deployprodconfirm");
         selecttorModal.find(".btn-close").show();
         selecttorModal.find(".btn-valid").show();
 
@@ -1869,6 +2065,12 @@ $(document).ready(function () {
                 break;
             case "editsavehosts":
                 updateHosts(href);
+                break;
+            case "confirmundeployed":
+                undeployed(href);
+                break;
+            case "deployprodconfirm":
+                deployed(href);
                 break;
 
         }
@@ -2230,6 +2432,12 @@ $(document).ready(function () {
         });
     });
 
+    /**
+     * Reload data for deployment
+     */
+    $(document).on("click", ".iumioDeployReload", function () {
+        getRequirementsDeployment();
+    });
 
     /**
      * Event to show routing
@@ -2759,6 +2967,7 @@ $(document).ready(function () {
     getServicesList();
     dashboardStatistics();
     autoloaderStatistics();
+    getRequirementsDeployment();
 
 
     setInterval(function () {
@@ -2787,7 +2996,12 @@ $(document).ready(function () {
         }
     }, 10000);
 
+    setInterval(function () {
+        loadElapsedTimeDeployment($(".last_up_req_deploy"));
+    }, 60000);
+
 
 });
+
 
 

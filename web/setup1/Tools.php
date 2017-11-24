@@ -301,13 +301,13 @@ class Tools
     }
 
     /**
-     * Build initial.json
+     * Build framework.config.json
      * @param $version string Framework version
      */
     final protected static function initialJSON($version)
     {
         $base = __DIR__."/../../";
-        $f = json_decode(file_get_contents($base."/elements/config_files/core/initial.json"));
+        $f = json_decode(file_get_contents($base."/elements/config_files/core/framework.config.json"));
         if (empty($f)) {
             $std = new \stdClass();
             $std->installation = new \DateTime();
@@ -315,9 +315,10 @@ class Tools
             $std->user = get_current_user();
             $std->location = realpath($base);
             $std->os = PHP_OS;
+            $std->default_env = "dev";
 
             $rs = json_encode($std, JSON_PRETTY_PRINT);
-            file_put_contents($base."/elements/config_files/core/initial.json", $rs);
+            file_put_contents($base."/elements/config_files/core/framework.config.json", $rs);
         }
     }
 }

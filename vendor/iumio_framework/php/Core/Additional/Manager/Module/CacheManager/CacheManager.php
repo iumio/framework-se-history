@@ -12,6 +12,7 @@
 
 namespace iumioFramework\Core\Console\Module\Cache;
 
+use iumioFramework\Additional\Manager\Module\ToolsManager;
 use iumioFramework\Core\Additionnal\Server\ServerManager as Server;
 use iumioFramework\Core\Console\CoreManager;
 use iumioFramework\Core\Console\Display\OutputManager as Output;
@@ -26,7 +27,7 @@ use iumioFramework\Core\Console\Module\ModuleManager;
  * @author   RAFINA Dany <danyrafina@gmail.com>
  */
 
-class CacheManager implements ModuleManager
+class CacheManager extends ToolsManager implements ModuleManager
 {
     protected $options;
 
@@ -63,7 +64,11 @@ class CacheManager implements ModuleManager
     {
         Output::displayAsSuccess("Hey, I delete cache from $env environment ", "none");
         $this->callDelCreaServer($env);
-        Output::displayAsNormal("Cache delete for $env environment is successfull.");
+        if ($this->strlikeInArray("--noexit", $this->options) != null) {
+            Output::displayAsEndSuccess("Cache delete for $env environment is successfull.", "none");
+        } else {
+            Output::displayAsNormal("Cache delete for $env environment is successfull.");
+        }
     }
 
     /** Call Server delete and create function
@@ -84,8 +89,13 @@ class CacheManager implements ModuleManager
         for ($i = 0; $i < count($a); $i++) {
             $this->callDelCreaServer($a[$i]);
         }
-        Output::displayAsNormal("Cache was deleted for all environment.");
+        if ($this->strlikeInArray("--noexit", $this->options) != null) {
+            Output::displayAsEndSuccess("Cache was deleted for all environment.", "none");
+        } else {
+            Output::displayAsNormal("Cache was deleted for all environment.");
+        }
     }
+
 
     public function __alter()
     {

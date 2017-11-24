@@ -7,5 +7,6 @@
     "version": "0.5.0",
     "user": "danyrafina",
     "location": "\/Applications\/MAMP\/htdocs\/iumio-framework",
-    "os": "Darwin"
+    "os": "Darwin",
+    "default_env": "prod"
 }

@@ -16,6 +16,7 @@ use iumioFramework\Core\Additionnal\Server\ServerManager as Server;
 use iumioFramework\Core\Console\CoreManager;
 use iumioFramework\Core\Console\Module\ModuleManager;
 use iumioFramework\Core\Console\Display\OutputManager as Output;
+use iumioFramework\Additional\Manager\Module\ToolsManager;
 
 /**
  * Class AssetsManager
@@ -26,7 +27,7 @@ use iumioFramework\Core\Console\Display\OutputManager as Output;
  * @author   RAFINA Dany <danyrafina@gmail.com>
  */
 
-class AssetsManager implements ModuleManager
+class AssetsManager extends ToolsManager implements ModuleManager
 {
     protected $options;
 
@@ -41,7 +42,7 @@ class AssetsManager implements ModuleManager
             } elseif ($opt == "--copy") {
                 $this->copyAssets($this->options);
             } else {
-                Output::displayAsError("Assets Manager Error \n
+                Output::displayAsError("Assets Manager Error\n
                   This command doesn't exist. Referer to help command\n");
             }
         }
@@ -51,7 +52,7 @@ class AssetsManager implements ModuleManager
      * @param array $options Clear options
      * @return null
      */
-    private function clearAssets(array $options)
+    public function clearAssets(array $options)
     {
         $appname = null;
         if ($this->strlikeInArray("--appname", $options) != null) {
@@ -76,7 +77,7 @@ class AssetsManager implements ModuleManager
             $env = ($this->strlikeInArray("--env=", $options));
             if ($env != null) {
                 $nenv = explode("=", $env);
-                $env = $nenv[1];
+                $env = strtolower($nenv[1]);
                 if (!in_array($env, array("dev", "prod", "all"))) {
                     if (!in_array("--quiet", $options)) {
                         Output::displayAsError("Assets Manager Notice: The environment ".
@@ -100,7 +101,7 @@ class AssetsManager implements ModuleManager
         $env = ($this->strlikeInArray("--env=", $options));
         if ($env != null) {
             $nenv = explode("=", $env);
-            $env = $nenv[1];
+            $env = strtolower($nenv[1]);
             if (!in_array($env, array("dev", "prod", "all"))) {
                 if (!in_array("--quiet", $options)) {
                     Output::displayAsError("Assets Manager Notice: The environment ".strtoupper($env)."
@@ -124,28 +125,12 @@ class AssetsManager implements ModuleManager
         return (null);
     }
 
-    /**
-     * A version of in_array() that does a sub string match on $needle
-     *
-     * @param  mixed   $needle    The searched value
-     * @param  array   $haystack  The array to search in
-     * @return mixed
-     */
-    private function strlikeInArray($needle, array $haystack)
-    {
-        foreach ($haystack as $one => $value) {
-            if (strpos($value, $needle) !== false) {
-                return ($value);
-            }
-        }
-        return (null);
-    }
 
     /** Copy asset manager
      * @param array $options
      * @return null
      */
-    private function copyAssets(array $options)
+    public function copyAssets(array $options)
     {
 
         $appname = '#none';
@@ -170,7 +155,7 @@ class AssetsManager implements ModuleManager
         $env = ($this->strlikeInArray("--env=", $options));
         if ($env != null) {
             $nenv = explode("=", $env);
-            $env = $nenv[1];
+            $env = strtolower($nenv[1]);
             if (!in_array($env, array("dev", "prod", "all"))) {
                 if (!in_array("--quiet", $options)) {
                     Output::displayAsError("Assets Manager Notice: The environment ".
@@ -185,7 +170,7 @@ class AssetsManager implements ModuleManager
                 "all environments)")." in web folder".(($symlink == true)? ' with symlink option' : ''), "none");
         $this->callDelCreaServer($appname, $env);
         $this->copy($symlink, $appname, $env);
-        if (isset($options[5]) && $options[5] == "--noexit") {
+        if ($this->strlikeInArray("--noexit", $options) != null) {
             Output::displayAsNormal("The copy of the assets".(($appname == '#none')? '' :
                     ' for '.$appname)." has been done.", "none");
         } else {
@@ -243,7 +228,7 @@ class AssetsManager implements ModuleManager
      * @param string|NULL $appname App name
      * @param string|null $env Environment
      */
-    private function copy(bool $symlink, string $appname, string $env = null)
+    public function copy(bool $symlink, string $appname, string $env = null)
     {
         if ($appname == '#none' && $env == null) {
             $dirs = scandir(ROOT_PROJECT."/apps/");
@@ -258,18 +243,21 @@ class AssetsManager implements ModuleManager
                 if (!is_dir(ROOT_PROJECT."/apps/".$dir)) {
                     continue;
                 }
-                Server::copy(
-                    ROOT_PROJECT."/apps/".$dir."/Front/Resources/",
-                    ROOT_PROJECT."/web/components/apps/dev/".strtolower($dir),
-                    'directory',
-                    $symlink
-                );
-                Server::copy(
-                    ROOT_PROJECT."/apps/".$dir."/Front/Resources/",
-                    ROOT_PROJECT."/web/components/apps/prod/".strtolower($dir),
-                    'directory',
-                    $symlink
-                );
+                if (file_exists(ROOT_PROJECT."/apps/".$dir."/Front/Resources/")) {
+                    Server::copy(
+                        ROOT_PROJECT . "/apps/" . $dir . "/Front/Resources/",
+                        ROOT_PROJECT . "/web/components/apps/dev/" . strtolower($dir),
+                        'directory',
+                        $symlink
+                    );
+                    Server::copy(
+                        ROOT_PROJECT . "/apps/" . $dir . "/Front/Resources/",
+                        ROOT_PROJECT . "/web/components/apps/prod/" . strtolower($dir),
+                        'directory',
+                        $symlink
+                    );
+                }
+                
             }
         } elseif ($appname == '#none' && in_array($env, array("dev", "prod", "all"))) {
             if ($env == "all") {
@@ -285,18 +273,20 @@ class AssetsManager implements ModuleManager
                     if (!is_dir(ROOT_PROJECT."/apps/".$dir)) {
                         continue;
                     }
-                    Server::copy(
-                        ROOT_PROJECT."/apps/".$dir."/Front/Resources/",
-                        ROOT_PROJECT."/web/components/apps/dev/".strtolower($dir),
-                        'directory',
-                        $symlink
-                    );
-                    Server::copy(
-                        ROOT_PROJECT."/apps/".$dir."/Front/Resources/",
-                        ROOT_PROJECT."/web/components/apps/prod/".strtolower($dir),
-                        'directory',
-                        $symlink
-                    );
+                    if (file_exists(ROOT_PROJECT."/apps/".$dir."/Front/Resources/")) {
+                        Server::copy(
+                            ROOT_PROJECT . "/apps/" . $dir . "/Front/Resources/",
+                            ROOT_PROJECT . "/web/components/apps/dev/" . strtolower($dir),
+                            'directory',
+                            $symlink
+                        );
+                        Server::copy(
+                            ROOT_PROJECT . "/apps/" . $dir . "/Front/Resources/",
+                            ROOT_PROJECT . "/web/components/apps/prod/" . strtolower($dir),
+                            'directory',
+                            $symlink
+                        );
+                    }
                 }
             } else {
                 $dirs = scandir(ROOT_PROJECT."/apps/");
@@ -311,12 +301,14 @@ class AssetsManager implements ModuleManager
                     if (!is_dir(ROOT_PROJECT."/apps/".$dir)) {
                         continue;
                     }
-                    Server::copy(
-                        ROOT_PROJECT."/apps/".$dir."/Front/Resources/",
-                        ROOT_PROJECT."/web/components/apps/".strtolower($env)."/".strtolower($dir),
-                        'directory',
-                        $symlink
-                    );
+                    if (file_exists(ROOT_PROJECT."/apps/".$dir."/Front/Resources/")) {
+                        Server::copy(
+                            ROOT_PROJECT . "/apps/" . $dir . "/Front/Resources/",
+                            ROOT_PROJECT . "/web/components/apps/" . strtolower($env) . "/" . strtolower($dir),
+                            'directory',
+                            $symlink
+                        );
+                    }
                 }
             }
         } elseif ($appname !== '#none' && in_array($env, array("dev", "prod", "all"))) {
@@ -325,43 +317,49 @@ class AssetsManager implements ModuleManager
                     Output::displayAsError("Assets Manager Error: The resources folder for
                      $appname doesn't exist.");
                 }
-                Server::copy(
-                    ROOT_PROJECT."/apps/".$appname."/Front/Resources/",
-                    ROOT_PROJECT."/web/components/apps/dev/".strtolower($appname),
-                    'directory',
-                    $symlink
-                );
-                Server::copy(
-                    ROOT_PROJECT."/apps/".$appname."/Front/Resources/",
-                    ROOT_PROJECT."/web/components/apps/prod/".strtolower($appname),
-                    'directory',
-                    $symlink
-                );
+                if (file_exists(ROOT_PROJECT . "/apps/" . $appname . "/Front/Resources/")) {
+                    Server::copy(
+                        ROOT_PROJECT . "/apps/" . $appname . "/Front/Resources/",
+                        ROOT_PROJECT . "/web/components/apps/dev/" . strtolower($appname),
+                        'directory',
+                        $symlink
+                    );
+                    Server::copy(
+                        ROOT_PROJECT . "/apps/" . $appname . "/Front/Resources/",
+                        ROOT_PROJECT . "/web/components/apps/prod/" . strtolower($appname),
+                        'directory',
+                        $symlink
+                    );
+                }
             } else {
-                Server::copy(
-                    ROOT_PROJECT."/apps/".$appname."/Front/Resources/",
-                    ROOT_PROJECT."/web/components/apps/".strtolower($env)."/".strtolower($appname),
-                    'directory',
-                    $symlink
-                );
+                if (file_exists(ROOT_PROJECT . "/apps/" . $appname . "/Front/Resources/")) {
+                    Server::copy(
+                        ROOT_PROJECT . "/apps/" . $appname . "/Front/Resources/",
+                        ROOT_PROJECT . "/web/components/apps/" . strtolower($env) . "/" . strtolower($appname),
+                        'directory',
+                        $symlink
+                    );
+                }
             }
         } elseif ($appname !== '#none' && $env == null) {
             if (!is_dir(ROOT_PROJECT."/apps/".$appname."/Front/Resources/")) {
                 Output::displayAsError("Assets Manager Error: The resources folder
                  for $appname doesn't exist.");
             }
-            Server::copy(
-                ROOT_PROJECT."/apps/".$appname."/Front/Resources/",
-                ROOT_PROJECT."/web/components/apps/dev/".strtolower($appname),
-                'directory',
-                $symlink
-            );
-            Server::copy(
-                ROOT_PROJECT."/apps/".$appname."/Front/Resources/",
-                ROOT_PROJECT."/web/components/apps/prod/".strtolower($appname),
-                'directory',
-                $symlink
-            );
+            if (file_exists(ROOT_PROJECT . "/apps/" . $appname . "/Front/Resources/")) {
+                Server::copy(
+                    ROOT_PROJECT . "/apps/" . $appname . "/Front/Resources/",
+                    ROOT_PROJECT . "/web/components/apps/dev/" . strtolower($appname),
+                    'directory',
+                    $symlink
+                );
+                Server::copy(
+                    ROOT_PROJECT . "/apps/" . $appname . "/Front/Resources/",
+                    ROOT_PROJECT . "/web/components/apps/prod/" . strtolower($appname),
+                    'directory',
+                    $symlink
+                );
+            }
         } else {
             Output::displayAsError("Assets Manager Error \n  App name or
              env name does not exist. Referer to help command\n");
@@ -375,7 +373,7 @@ class AssetsManager implements ModuleManager
 
     public function __construct(array $options = array())
     {
-        CoreManager::setCurrentModule("App Manager");
+        CoreManager::setCurrentModule("Assets Manager");
         if (empty($options)) {
             $this->__render();
         } else {

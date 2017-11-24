@@ -103,7 +103,7 @@ class AutoloaderMaster extends MasterCore
      */
     public function clearActivity(string $env):int
     {
-        // DEV is not allowed for clearing the classmap beacause the GraphicManager will be broken
+        // DEV is not allowed for clearing the classmap beacause the Graphic Manager will be broken
         if (in_array($env, array("prod"))) {
             $this->clearClassMap($env);
         } else {
@@ -146,10 +146,10 @@ class AutoloaderMaster extends MasterCore
     public function buildActivity(string $env):int
     {
         if (in_array($env, array("dev", "prod"))) {
-            $this->buildClassMapp($env);
+            $this->buildClassMap($env);
         } elseif ($env == "all") {
-            $this->buildClassMapp("dev");
-            $this->buildClassMapp("prod");
+            $this->buildClassMap("dev");
+            $this->buildClassMap("prod");
         } else {
             throw new Server500(new \ArrayObject(array("explain" => "Undefined environement $env", "solution" =>
                 "Environement must be [dev] or [prod] and [all] for all enviroment")));
@@ -167,7 +167,7 @@ class AutoloaderMaster extends MasterCore
      * @return int If action is a success
      * @throws Server500 If environement name does not exist
      */
-    final public function buildClassMapp(string $env):int
+    final public function buildClassMap(string $env):int
     {
         if (in_array($env, array("dev", "prod"))) {
             EngineAutoloader::buildClassMap($env);

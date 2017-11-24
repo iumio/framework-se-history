@@ -69,39 +69,43 @@ class AssetsMaster extends MasterCore
                     continue;
                 }
                 if (in_array(strtolower($env), array("dev", "prod", "all"))) {
-                    if (strtolower($env) === "dev") {
-                        Server::copy(
-                            ROOT . "/apps/" . $dir . "/Front/Resources/",
-                            ROOT . "/web/components/apps/dev/" . strtolower($dir),
-                            'directory',
-                            true
-                        );
-                    } elseif (strtolower($env) == "prod") {
-                        Server::copy(ROOT . "/apps/" . $dir . "/Front/Resources/", ROOT .
-                            "/web/components/apps/prod/" . strtolower($dir), 'directory', false);
-                    } else {
-                        if (Server::exist(ROOT . "/apps/" . $dir . "/Front/Resources/")) {
-                            Server::copy(ROOT . "/apps/" . $dir . "/Front/Resources/", ROOT .
-                                "/web/components/apps/dev/" . strtolower($dir), 'directory', true);
+                    if (file_exists(ROOT . "/apps/" . $dir . "/Front/Resources/")) {
+                        if (strtolower($env) === "dev") {
+                            Server::copy(
+                                ROOT . "/apps/" . $dir . "/Front/Resources/",
+                                ROOT . "/web/components/apps/dev/" . strtolower($dir),
+                                'directory',
+                                true
+                            );
+                        } elseif (strtolower($env) == "prod") {
                             Server::copy(ROOT . "/apps/" . $dir . "/Front/Resources/", ROOT .
                                 "/web/components/apps/prod/" . strtolower($dir), 'directory', false);
+                        } else {
+                            if (Server::exist(ROOT . "/apps/" . $dir . "/Front/Resources/")) {
+                                Server::copy(ROOT . "/apps/" . $dir . "/Front/Resources/", ROOT .
+                                    "/web/components/apps/dev/" . strtolower($dir), 'directory', true);
+                                Server::copy(ROOT . "/apps/" . $dir . "/Front/Resources/", ROOT .
+                                    "/web/components/apps/prod/" . strtolower($dir), 'directory', false);
+                            }
                         }
                     }
                 }
             }
         } elseif ($appname !== "") {
             if (in_array(strtolower($env), array("dev", "prod", "all"))) {
-                if (strtolower($env) === "dev") {
-                    Server::copy(ROOT . "/apps/" . ($appname) . "/Front/Resources/", ROOT .
-                        "/web/components/apps/dev/" . strtolower($appname), 'directory', true);
-                } elseif (strtolower($env) == "prod") {
-                    Server::copy(ROOT . "/apps/" . ($appname) . "/Front/Resources/", ROOT .
-                        "/web/components/apps/prod/" . strtolower($appname), 'directory', false);
-                } else {
-                    Server::copy(ROOT . "/apps/" . ($appname) . "/Front/Resources/", ROOT .
-                        "/web/components/apps/dev/" . strtolower($appname), 'directory', true);
-                    Server::copy(ROOT . "/apps/" . ($appname) . "/Front/Resources/", ROOT .
-                        "/web/components/apps/prod/" . strtolower($appname), 'directory', false);
+                if (file_exists(ROOT . "/apps/" . ($appname) . "/Front/Resources/")) {
+                    if (strtolower($env) === "dev") {
+                        Server::copy(ROOT . "/apps/" . ($appname) . "/Front/Resources/", ROOT .
+                            "/web/components/apps/dev/" . strtolower($appname), 'directory', true);
+                    } elseif (strtolower($env) == "prod") {
+                        Server::copy(ROOT . "/apps/" . ($appname) . "/Front/Resources/", ROOT .
+                            "/web/components/apps/prod/" . strtolower($appname), 'directory', false);
+                    } else {
+                        Server::copy(ROOT . "/apps/" . ($appname) . "/Front/Resources/", ROOT .
+                            "/web/components/apps/dev/" . strtolower($appname), 'directory', true);
+                        Server::copy(ROOT . "/apps/" . ($appname) . "/Front/Resources/", ROOT .
+                            "/web/components/apps/prod/" . strtolower($appname), 'directory', false);
+                    }
                 }
             }
         }

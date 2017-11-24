@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.31, created on 2017-11-09 17:56:17
+/* Smarty version 3.1.31, created on 2017-11-24 14:25:40
   from "/Applications/MAMP/htdocs/iumio-framework/vendor/iumio_framework/php/Core/Additional/TaskBar/views/iumioTaskBar.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.31',
-  'unifunc' => 'content_5a0488b1b5c0e2_46394423',
+  'unifunc' => 'content_5a181dd49a9a30_27393899',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '01ae7cd703eb02b5e06ed3bc06798a0f6a4563ba' => 
     array (
       0 => '/Applications/MAMP/htdocs/iumio-framework/vendor/iumio_framework/php/Core/Additional/TaskBar/views/iumioTaskBar.tpl',
-      1 => 1509805068,
+      1 => 1510248064,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5a0488b1b5c0e2_46394423 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5a181dd49a9a30_27393899 (Smarty_Internal_Template $_smarty_tpl) {
 if (!is_callable('smarty_modifier_debug_print_var')) require_once '/Applications/MAMP/htdocs/iumio-framework/vendor/libs/smarty/smarty/libs/plugins/modifier.debug_print_var.php';
 if (isset($_smarty_tpl->tpl_vars['iumiotaskbar']->value) && !empty($_smarty_tpl->tpl_vars['iumiotaskbar']->value)) {?>
     <!-- iumioTaskBar component -->

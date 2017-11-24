@@ -34,7 +34,7 @@ class FrameworkEnvironment
             "ADDITIONALS", "ROOT_HOST_FILES", "ROOT_VENDOR_LIBS",
             "ROOT_CACHE", "ROOT_COMPILED", "ROOT_LOGS", "CACHE_DEV",
             "CACHE_PROD", "COMPILED_DEV", "COMPILED_PROD", "SERVER_VIEWS",
-            "SERVER", "WEB_ASSETS", "ROOT_WEB_ASSETS",
+            "SERVER", "WEB_ASSETS", "ROOT_WEB", "ROOT_WEB_ASSETS",
             "WEB_LIBS", "ROOT_WEB_LIBS", "ROOT_WEB_COMPONENTS",
             "WEB_FRAMEWORK", "WEB_COMPONENTS", "ROOT_APPS", "OVERRIDES"];
 
@@ -76,6 +76,7 @@ class FrameworkEnvironment
         define('SERVER_VIEWS', $base."vendor/iumio_framework/php/Core/Exceptions/Server/views/");
         define('SERVER', $base."vendor/iumio_framework/php/Core/Exceptions/Server/");
         define('WEB_ASSETS', $current."/components/apps/");
+        define('ROOT_WEB', $base."web/");
         define('ROOT_WEB_ASSETS', $base."web/components/apps/");
         define('WEB_LIBS', $current."/components/libs/");
         define('ROOT_WEB_LIBS', $base."web/components/libs/");

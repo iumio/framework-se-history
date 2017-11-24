@@ -59,7 +59,7 @@ class CacheMaster extends MasterCore
 
     /** Delete a cache for all environment
      */
-    private function deleteAllCache()
+    public function deleteAllCache()
     {
         $a = array("dev", "prod");
         for ($i = 0; $i < count($a); $i++) {

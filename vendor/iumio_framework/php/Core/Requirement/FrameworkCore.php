@@ -504,7 +504,7 @@ abstract class FrameworkCore extends GlobalCoreService
      */
     final private function detectFirstInstallation():int
     {
-        $file = JL::open(CONFIG_DIR.'core/initial.json');
+        $file = JL::open(CONFIG_DIR.'core/framework.config.json');
         if (empty((array) $file)) {
             if (file_exists(ROOT.'web/setup/setup.php')) {
                 header('Location: '.HOST_CURRENT.'/setup/setup.php');

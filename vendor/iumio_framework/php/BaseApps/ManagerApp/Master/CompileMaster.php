@@ -59,7 +59,7 @@ class CompileMaster extends MasterCore
 
     /** Delete a compile for all environment
      */
-    private function deleteAllCompile()
+    public function deleteAllCompile()
     {
         $a = array("dev", "prod");
         for ($i = 0; $i < count($a); $i++) {

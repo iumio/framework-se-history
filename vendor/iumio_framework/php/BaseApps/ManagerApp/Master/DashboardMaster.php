@@ -35,7 +35,7 @@ class DashboardMaster extends MasterCore
      */
     public function indexActivity()
     {
-        $file = JL::open(CONFIG_DIR.'core/initial.json');
+        $file = JL::open(CONFIG_DIR.'core/framework.config.json');
         $date =  new \DateTime($file->installation->date);
         $file->installation = $date->format('Y/m/d');
 

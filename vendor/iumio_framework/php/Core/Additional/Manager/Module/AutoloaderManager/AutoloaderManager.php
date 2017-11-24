@@ -12,6 +12,7 @@
 
 namespace iumioFramework\Core\Console\Module\Autoloader;
 
+use iumioFramework\Additional\Manager\Module\ToolsManager;
 use iumioFramework\Core\Additionnal\Server\ServerManager as Server;
 use iumioFramework\Core\Console\CoreManager;
 use iumioFramework\Core\Console\Display\OutputManager as Output;
@@ -27,7 +28,7 @@ use iumioFramework\Core\Requirement\EngineAutoloader;
  * @author   RAFINA Dany <danyrafina@gmail.com>
  */
 
-class AutoloaderManager implements ModuleManager
+class AutoloaderManager extends ToolsManager implements ModuleManager
 {
     protected $options;
 
@@ -71,7 +72,11 @@ class AutoloaderManager implements ModuleManager
         Output::displayAsSuccess("Hey, I delete the class map from production environment ", "none");
         Server::delete(CONFIG_DIR."engine_autoloader/map_class.json", 'file');
         @Server::create(CONFIG_DIR."engine_autoloader/map_class.json", 'file');
-        Output::displayAsNormal("Class map for production environment has been deleted.");
+        if ($this->strlikeInArray("--noexit", $this->options) != null) {
+            Output::displayAsEndSuccess("Class map for production environment has been deleted.", "none");
+        } else {
+            Output::displayAsNormal("Class map for production environment has been deleted.");
+        }
     }
 
 
@@ -83,8 +88,13 @@ class AutoloaderManager implements ModuleManager
         Output::displayAsSuccess("Hey, I will build the class map from $env environment ", "none");
         $env = strtolower($env);
         EngineAutoloader::buildClassMap($env);
-        Output::displayAsNormal("Class map for $env environment has been built.");
+        if ($this->strlikeInArray("--noexit", $this->options) != null) {
+            Output::displayAsEndSuccess("Class map for $env environment has been built.", "none");
+        } else {
+            Output::displayAsNormal("Class map for $env environment has been built.");
+        }
     }
+
 
 
     public function __alter()

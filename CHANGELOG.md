@@ -23,10 +23,13 @@ iumio Framework
 - Animation on iumioTaskbar for first event
 - Add all pdo driver list to create and edit database
 - Add service manager (Graphic)
+- Add Compilation Module for FCM
 ### Fixed
 - Bug with no rewrite url
 - Responsive sidebar
-- Bug #0000002
+- Bug #B-0000002
+- Bug #B-0000003
+
 
 ### Edited
 - Change iumio Manager permissions and publish status display
@@ -35,6 +38,7 @@ iumio Framework
 - Change service to component with different call
 - Exception will be event 
 - Set password field for user password database
+- Change initial.json to framework.config.jzson
 
 
 ### Removed

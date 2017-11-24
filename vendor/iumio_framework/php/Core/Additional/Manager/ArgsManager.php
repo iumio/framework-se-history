@@ -46,14 +46,14 @@ class ArgsManager
     public function getArgs(int $argc, array $argv)
     {
         if ($argc == 1) {
-            Output::displayAsNotice("Welcome to iumio Console Manager \n  
+            Output::displayAsNotice("Welcome to the Framework Console Manager \n  
             I noticed that you didn't enter any parameters. \n  
             For more information, you can use the help command to get a command list.");
         }
 
         $c = $this->searchCommand($argv[1]);
         if (empty($c)) {
-            Output::displayAsError("iumio Command Error : Command not found.\n
+            Output::displayAsError("Framework Console Manager Error : Command not found.\n
              For more information, you can use the help command to get a command list.");
         }
 
@@ -72,7 +72,7 @@ class ArgsManager
         $f = $this->fileCommand;
         $finalC = array();
         if ($f == null) {
-            throw new \Exception("iumio Args Error : Command File is empty ");
+            throw new \Exception("Framework Console Arguments Error : Command File is empty ");
         }
         $commands = $f->commands;
 

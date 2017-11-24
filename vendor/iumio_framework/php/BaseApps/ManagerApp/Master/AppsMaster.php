@@ -195,7 +195,7 @@ class AppsMaster extends MasterCore
         $assets = $this->getMaster("Assets");
         $assets->clear($appname, "all");
         if (strlen($file) < 3) {
-            JL::put(CONFIG_DIR."core/initial.json", "");
+            JL::put(CONFIG_DIR."core/framework.config.json", "");
             return ((new Response())->jsonRender(array("code" => 200, "msg" => "RELOAD")));
         }
         return ((new Response())->jsonRender(array("code" => 200, "msg" => "OK")));

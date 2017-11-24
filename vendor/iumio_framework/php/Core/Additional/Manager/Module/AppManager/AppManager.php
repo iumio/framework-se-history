@@ -12,6 +12,7 @@
 
 namespace iumioFramework\Core\Console\Module\App;
 
+use iumioFramework\Additional\Manager\Module\ToolsManager;
 use iumioFramework\Bin\ConsoleManager;
 use iumioFramework\Core\Additionnal\Server\ServerManager as Server;
 use iumioFramework\Core\Console\CoreManager;
@@ -29,7 +30,7 @@ use iumioFramework\Core\Console\Module\Assets\AssetsManager as AM;
  * @author   RAFINA Dany <danyrafina@gmail.com>
  */
 
-class AppManager implements ModuleManager
+class AppManager extends ToolsManager implements ModuleManager
 {
     protected $options;
     protected $stage = array(
@@ -486,7 +487,7 @@ class AppManager implements ModuleManager
         file_put_contents(ROOT_PROJECT."/elements/config_files/core/apps.json", $f);
         $this->initialJSON();
         if ($this->params['template'] == "yes") {
-            new AM(array("core/manager", "assets-manager", "--copy", "--appname=". $this->params['appname'],
+            new AM(array("core/manager", "assets", "--copy", "--appname=". $this->params['appname'],
                 "--symlink", "--noexit"));
         }
         Output::outputAsEndSuccess("Your app is ready to use. To test your app,
@@ -496,11 +497,11 @@ class AppManager implements ModuleManager
 
 
     /**
-     * Build initial.json
+     * Build framework.config.json
      */
     final protected function initialJSON()
     {
-        $f = json_decode(file_get_contents(ROOT_PROJECT."/elements/config_files/core/initial.json"));
+        $f = json_decode(file_get_contents(ROOT_PROJECT."/elements/config_files/core/framework.config.json"));
         if (empty($f)) {
             $std = new \stdClass();
             $std->installation = new \DateTime();
@@ -508,9 +509,10 @@ class AppManager implements ModuleManager
             $std->user = get_current_user();
             $std->location = realpath(ROOT_PROJECT);
             $std->os = PHP_OS;
+            $std->default_env =  "dev";
 
             $rs = json_encode($std, JSON_PRETTY_PRINT);
-            file_put_contents(ROOT_PROJECT."/elements/config_files/core/initial.json", $rs);
+            file_put_contents(ROOT_PROJECT."/elements/config_files/core/framework.config.json", $rs);
         }
     }
 
@@ -588,11 +590,11 @@ class AppManager implements ModuleManager
             }
         }
         Server::delete(ROOT_PROJECT."/apps/$appname", "directory");
-        new AM(array("core/manager", "assets-manager", "--clear", "--appname=". $this->params['appname'],
+        new AM(array("core/manager", "assets", "--clear", "--appname=". $this->params['appname'],
             "--noexit", "--quiet"));
 
         if (strlen($f) < 3) {
-            file_put_contents(ROOT_PROJECT."/elements/config_files/core/initial.json", "");
+            file_put_contents(ROOT_PROJECT."/elements/config_files/core/framework.config.json", "");
         }
 
         Output::outputAsNormal("The application has been deleted. To create a new application,

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.31, created on 2017-11-12 19:00:18
+/* Smarty version 3.1.31, created on 2017-11-24 14:28:14
   from "/Applications/MAMP/htdocs/iumio-framework/vendor/iumio_framework/php/BaseApps/ManagerApp/Front/views/index.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.31',
-  'unifunc' => 'content_5a088c3249d7b7_38504730',
+  'unifunc' => 'content_5a181e6e7bc101_15637885',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'a77c97f74e3f537a29905648901029a87e484fba' => 
     array (
       0 => '/Applications/MAMP/htdocs/iumio-framework/vendor/iumio_framework/php/BaseApps/ManagerApp/Front/views/index.tpl',
-      1 => 1510509614,
+      1 => 1510557924,
       2 => 'file',
     ),
   ),
@@ -23,14 +23,14 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:partials/footer.tpl' => 1,
   ),
 ),false)) {
-function content_5a088c3249d7b7_38504730 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5a181e6e7bc101_15637885 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_6929586015a088c2e799448_93457570', "principal");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_17789482345a181e6bb0f3a2_87691020', "principal");
 ?>
 
 
@@ -39,12 +39,12 @@ $_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_6929586015a088c2e7
 <?php $_smarty_tpl->inheritance->endChild($_smarty_tpl, 'template.tpl');
 }
 /* {block "principal"} */
-class Block_6929586015a088c2e799448_93457570 extends Smarty_Internal_Block
+class Block_17789482345a181e6bb0f3a2_87691020 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'principal' => 
   array (
-    0 => 'Block_6929586015a088c2e799448_93457570',
+    0 => 'Block_17789482345a181e6bb0f3a2_87691020',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -96,10 +96,16 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
                                         <li>Installation date : <?php echo $_smarty_tpl->tpl_vars['fi']->value->installation;?>
 </li>
 
+                                        <?php if (isset($_smarty_tpl->tpl_vars['fi']->value->deployment)) {?><li>Deployment date : <?php echo $_smarty_tpl->tpl_vars['fi']->value->deployment;?>
+</li><?php }?>
+
                                         <li>User installed : <?php echo $_smarty_tpl->tpl_vars['fi']->value->user;?>
 </li>
 
                                         <li>Main location installed : <?php echo $_smarty_tpl->tpl_vars['fi']->value->location;?>
+</li>
+
+                                        <li>Default environment : <?php echo $_smarty_tpl->tpl_vars['fi']->value->default_env;?>
 </li>
 
                                         <li>Main OS installed : <?php echo $_smarty_tpl->tpl_vars['fi']->value->os;?>
