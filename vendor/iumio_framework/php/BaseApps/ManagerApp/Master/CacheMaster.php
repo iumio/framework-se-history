@@ -14,7 +14,7 @@
 namespace ManagerApp\Masters;
 
 use iumioFramework\Masters\MasterCore;
-use iumioFramework\Core\Base\Http\Response\Response;
+use iumioFramework\Base\Renderer\Renderer;
 use iumioFramework\Core\Additionnal\Server\ServerManager as Server;
 use DirectoryIterator;
 
@@ -41,10 +41,10 @@ class CacheMaster extends MasterCore
      * @param string $env Environment name
      * @return int
      */
-    public function cacheClearActivity(string $env):int
+    public function cacheClearActivity(string $env):Renderer
     {
         $this->callDelCreaServer($env);
-        return ((new Response())->jsonRender(array("code" => 200, "msg" => "OK")));
+        return ((new Renderer())->jsonRenderer(array("code" => 200, "msg" => "OK")));
     }
 
 
@@ -73,7 +73,7 @@ class CacheMaster extends MasterCore
     public function cacheClearAllActivity()
     {
         $this->deleteAllCache();
-        return ((new Response())->jsonRender(array("code" => 200, "msg" => "OK")));
+        return ((new Renderer())->jsonRenderer(array("code" => 200, "msg" => "OK")));
     }
 
     /** Get all cache directory
@@ -107,7 +107,7 @@ class CacheMaster extends MasterCore
             }
         }
 
-        return ((new Response())->jsonRender(array("code" => 200, "results" => $directory)));
+        return ((new Renderer())->jsonRenderer(array("code" => 200, "results" => $directory)));
     }
 
 

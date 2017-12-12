@@ -14,7 +14,7 @@
 namespace ManagerApp\Masters;
 
 use iumioFramework\Masters\MasterCore;
-use iumioFramework\Core\Base\Http\Response\Response;
+use iumioFramework\Base\Renderer\Renderer;
 use iumioFramework\Core\Additionnal\Server\ServerManager as Server;
 use DirectoryIterator;
 
@@ -41,10 +41,10 @@ class CompileMaster extends MasterCore
      * @param string $env Environment name
      * @return int
      */
-    public function compileClearActivity(string $env):int
+    public function compileClearActivity(string $env):Renderer
     {
         $this->callDelCreaServer($env);
-        return ((new Response())->jsonRender(array("code" => 200, "msg" => "OK")));
+        return ((new Renderer())->jsonRenderer(array("code" => 200, "msg" => "OK")));
     }
 
 
@@ -73,7 +73,7 @@ class CompileMaster extends MasterCore
     public function compileClearAllActivity()
     {
         $this->deleteAllCompile();
-        return ((new Response())->jsonRender(array("code" => 200, "msg" => "OK")));
+        return ((new Renderer())->jsonRenderer(array("code" => 200, "msg" => "OK")));
     }
 
     /** Get all compile directory
@@ -107,7 +107,7 @@ class CompileMaster extends MasterCore
             }
         }
 
-        return ((new Response())->jsonRender(array("code" => 200, "results" => $directory)));
+        return ((new Renderer())->jsonRenderer(array("code" => 200, "results" => $directory)));
     }
 
 

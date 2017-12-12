@@ -13,6 +13,7 @@
 namespace iumioFramework\Core\Base\Http\Response;
 
 use iumioFramework\Core\Base\Http\HttpResponse;
+use iumioFramework\Exception\Server\Server500;
 
 /**
  * Class Response
@@ -29,13 +30,21 @@ final class Response implements ResponseInterface
     /** Render to JSON format
      * @param array $response
      * @return int
+     * @depr
      */
+
     public function jsonRender(array $response):int
     {
-        @header($_SERVER['SERVER_PROTOCOL'] .' '.(($response['code'] == 000)? 500 :
+        trigger_error("Deprecated function called. 
+        the Response::jsonRender is deprecated. Will removed in next major version", E_DEPRECATED);
+        throw new Server500(
+            new \ArrayObject(array("explain" =>
+                "Cannot called Response::jsonRender : is unusable", "solution" => "Call Renderer::jsonRenderer")));
+
+        /*@header($_SERVER['SERVER_PROTOCOL'] .' '.(($response['code'] == 000)? 500 :
                 $response['code']).' '.HttpResponse::getPhrase($response['code']), true, $response['code']);
         echo json_encode($response, JSON_PRETTY_PRINT);
-        return (1);
+        return (1);*/
     }
 
     /** Render to XML format
@@ -47,7 +56,9 @@ final class Response implements ResponseInterface
      */
     public function xmlRender(array $response, string $firstelem, string $name = null):int
     {
+
         if (!$this->isValidFormat($response, "array")) {
+
             throw new \Exception('Response Error: Your response base is not an array');
         }
 

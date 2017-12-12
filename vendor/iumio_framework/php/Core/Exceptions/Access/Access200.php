@@ -43,7 +43,7 @@ class Access200 extends \Exception
     {
         $debug = array();
         $debug["uidie"] = ToolsExceptions::generateUidie();
-        $debug['time'] = new \DateTime();
+        $debug['time'] = (new \DateTime())->format("Y-m-d H:m:s");
         $debug['client_ip'] = ToolsExceptions::getClientIp();
         $debug['code'] = 200;
         $debug['code_title'] = HttpResponse::getPhrase(200);
@@ -58,7 +58,7 @@ class Access200 extends \Exception
         $log[$c] = $debug;
         $log = (object) $log;
         JsonListener::put(ROOT_LOGS.strtolower(IUMIO_ENV).".log.json",
-            json_encode($log, JSON_PRETTY_PRINT));
+            json_encode($log));
         return (1);
     }
 }

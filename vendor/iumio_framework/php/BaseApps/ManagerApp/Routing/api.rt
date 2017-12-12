@@ -1,0 +1,25 @@
+route:
+  name : iumio_manager_api_manager
+  path :  /_manager/api
+  activity : Api%api
+endroute
+
+route:
+  name : iumio_manager_deployer_manager_switch_deploy
+  path :  /_manager/deployer/switch
+  activity : Deployer%switch
+endroute
+
+route:
+  name : iumio_manager_deployer_manager_requirements_deploy
+  path :  /_manager/deployer/requirements
+  activity : Deployer%getRequirements
+endroute
+
+
+route:
+  name : iumio_manager_deployer_manager_process_deploy
+  path :  /_manager/deployer/process
+  activity : Deployer%deploy
+endroute
+

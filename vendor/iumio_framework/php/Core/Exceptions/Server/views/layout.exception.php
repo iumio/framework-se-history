@@ -54,7 +54,7 @@
                     </div>
             <ul class="nav">
                 <li>
-                    <a href="<?=
+                    <a href="<?php
                     (new \iumioFramework\Masters\MasterCore())->generateRoute(
                         "iumio_manager_index",
                         null,
@@ -149,8 +149,8 @@
                                 <hr>
                                 <p class="category fs16"><i class="pe-7s-target"></i> Event code : <?= $this->code ?> <?= $this->codeTitle ?></p>
                                 <hr>
-                                <p class="category fs16"><i class="pe-7s-clock"></i> Date : <?php echo $this->time->format("l, F d ").
-                                        ' at '.$this->time->format("H:i:s") ?></p>
+                                <p class="category fs16"><i class="pe-7s-clock"></i> Date : <?php echo (new \DateTime($this->time))->format("l, F d ").
+                                        ' at '.(new \DateTime($this->time))->format("H:i:s") ?></p>
                                 <hr>
                                 <p class="category fs16"><i class="pe-7s-magnet"></i> Method : <?php echo  $_SERVER['REQUEST_METHOD'] ?></p>
                                 <hr>
@@ -264,23 +264,23 @@
 </body>
 
 <!--   Core JS Files   -->
-<script src="<?= WEB_LIBS.'/jquery/' ?>jquery.js" type="text/javascript"></script>
-<script src="<?= WEB_LIBS.'/bootstrap/' ?>js/bootstrap.min.js" type="text/javascript"></script>
+<script src="<?= WEB_LIBS.'jquery/' ?>jquery.js" type="text/javascript"></script>
+<script src="<?= WEB_LIBS.'bootstrap/' ?>js/bootstrap.min.js" type="text/javascript"></script>
 
 <!--  Checkbox, Radio & Switch Plugins -->
-<script src="<?= WEB_LIBS.'/iumio_manager/' ?>js/bootstrap-checkbox-radio-switch.js"></script>
+<script src="<?= WEB_LIBS.'iumio_manager/' ?>js/bootstrap-checkbox-radio-switch.js"></script>
 
 <!--  Notifications Plugin    -->
-<script src="<?= WEB_LIBS.'/iumio_manager/' ?>js/bootstrap-notify.js"></script>
+<script src="<?= WEB_LIBS.'iumio_manager/' ?>js/bootstrap-notify.js"></script>
 
 <!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->
-<script src="<?= WEB_LIBS.'/iumio_manager/' ?>js/light-bootstrap-dashboard.js"></script>
+<script src="<?= WEB_LIBS.'iumio_manager/' ?>js/light-bootstrap-dashboard.js"></script>
 
 <!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
-<script src="<?= WEB_LIBS.'/iumio_manager/' ?>js/demo.js"></script>
+<script src="<?= WEB_LIBS.'iumio_manager/' ?>js/demo.js"></script>
 
 <!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
-<script src="<?= WEB_LIBS.'/iumio_manager/' ?>js/main.js"></script>
+<script src="<?= WEB_LIBS.'iumio_manager/' ?>js/main.js"></script>
 
 <?php \iumioFramework\Core\Additionnal\TaskBar\TaskBar::getJsTaskBar() ?>
 

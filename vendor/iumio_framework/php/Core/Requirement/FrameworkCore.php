@@ -11,6 +11,7 @@
  */
 
 namespace iumioFramework\Core\Requirement;
+use iumioFramework\Base\Renderer\Renderer;
 use iumioFramework\Core\Additionnal\Server\ServerManager;
 use iumioFramework\Core\Base\FrameworkEnvironment;
 use iumioFramework\Core\Base\Http\HttpListener;
@@ -23,6 +24,7 @@ use iumioFramework\Exception\Server\Server500;
 use iumioFramework\Exception\Server\Server404;
 use iumioFramework\Exception\Server\Server000;
 use iumioFramework\Core\Base\Json\JsonListener as JL;
+use function PHPSTORM_META\type;
 
 /**
  * Class FrameworkCore
@@ -252,7 +254,7 @@ abstract class FrameworkCore extends GlobalCoreService
      * @param HttpListener $request parameters
      * @return int Return as success
      * @throws Server404 Url not found
-     * @throws Server500 Class or method does not exist or router failed
+     * @throws Server500|\Exception Class or method does not exist or router failed
      */
     public function dispatching(HttpListener $request):int
     {
@@ -293,12 +295,17 @@ abstract class FrameworkCore extends GlobalCoreService
                                 $callback['r_parameters']
                             );
                         }
-                        $call->__named($master, $method, $callback['pval']);
+                        $rscall = $call->__named($master, $method, $callback['pval']);
                     } else {
-                        $call->__named($master, $method);
+                        $rscall =  $call->__named($master, $method);
+                    }
+                    if (!($rscall instanceof Renderer)) {
+                        throw new Server500(new \ArrayObject(array("explain" => "The activity {".ACTIVITY_CALLED['method']."} result in object {".ACTIVITY_CALLED['class']."} must be a Renderer : ".ucfirst(gettype($rscall))." is given", "solution" =>
+                            "Return a Renderer instance in this activity")));
                     }
                     $great = true;
                     new Access200();
+                    $rscall->pushRender();
                 }
             } else {
                 throw new Server500(new \ArrayObject(array("explain" => "Router register failed  ", "solution" =>
@@ -349,10 +356,16 @@ abstract class FrameworkCore extends GlobalCoreService
                                             $callback['r_parameters']
                                         );
                                     }
-                                    $call->__named($master, $method, $callback['pval']);
+                                    $rscall = $call->__named($master, $method, $callback['pval']);
                                 } else {
-                                    $call->__named($master, $method);
+                                    $rscall = $call->__named($master, $method);
                                 }
+
+                                if (!($rscall instanceof Renderer)) {
+                                    throw new Server500(new \ArrayObject(array("explain" => "The activity {".ACTIVITY_CALLED['method']."} result in object {".ACTIVITY_CALLED['class']."} must be a Renderer : ".ucfirst(gettype($rscall))." is given", "solution" =>
+                                        "Return a Renderer instance in this activity")));
+                                }
+                                $rscall->pushRender();
                                 return (true);
                             } catch (\Exception $exception) {
                                 throw new Server500(new \ArrayObject(array("explain" => $exception->getMessage())));
@@ -530,5 +543,6 @@ abstract class FrameworkCore extends GlobalCoreService
 
         set_exception_handler('iumioFramework\Exception\Tools\ToolsExceptions::exceptionHandler');
         register_shutdown_function('iumioFramework\Exception\Tools\ToolsExceptions::shutdownFunctionHandler');
+        restore_error_handler();
     }
 }

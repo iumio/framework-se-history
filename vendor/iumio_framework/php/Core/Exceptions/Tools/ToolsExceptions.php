@@ -169,11 +169,12 @@ class ToolsExceptions
                     "type_error" => self::errorMap($lasterror['type']),
                     "file_error" => $lasterror["file"], "line_error" => $lasterror["line"])));
             } else {
-                trigger_error($lasterror['message'], $lasterror['type']);
+                trigger_error($lasterror['message'], E_USER_ERROR);
             }
         }
     }
     /** Set exception handler
+     * @param \Throwable $exception The exception object
      * @throws Server500 The reporting error
      */
     final public static function exceptionHandler(\Throwable $exception)

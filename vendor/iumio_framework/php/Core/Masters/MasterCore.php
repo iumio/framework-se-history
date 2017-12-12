@@ -12,7 +12,9 @@
 
 namespace iumioFramework\Masters;
 
+use iumioFramework\Base\Renderer\Renderer;
 use iumioFramework\Core\Additionnal\Template\SmartyEngineConfiguration;
+use iumioFramework\Core\Requirement\Patterns\ObjectCreator;
 use iumioFramework\HttpRoutes\Routing;
 use iumioFramework\Core\Base\Http\ParameterRequest;
 use iumioFramework\Core\Additionnal\Template\SmartyEngineTemplate;
@@ -85,7 +87,7 @@ class MasterCore extends GlobalCoreService
      * @param bool $iscached By default to true, this option allows you to disable
      * or enable the cache for a page (Useful for dynamic content of a page)
      */
-    final protected function render(string $view, array $options = array(), bool $iscached = true)
+    final protected function render_old(string $view, array $options = array(), bool $iscached = true)
     {
         $this->appMastering = APP_CALL;
         $si = SmartyEngineTemplate::getSmartyInstance($this->appMastering);
@@ -111,6 +113,19 @@ class MasterCore extends GlobalCoreService
         exit(1);
     }
 
+    /** Show a view
+     * @param string $view View name
+     * @param array $options options to view
+     * @param bool $iscached By default to true, this option allows you to disable
+     * or enable the cache for a page (Useful for dynamic content of a page)
+     * @throws \Exception if class does not exist
+     * @return Renderer
+     */
+    final protected function render(string $view, array $options = array(), bool $iscached = true):Renderer
+    {
+      return ((new Renderer())->graphicRenderer($view, $options, $iscached));
+        //$si->display($view . SmartyEngineTemplate::$viewExtention, null, $id_compile);
+    }
 
 
     /** Change views Render extension

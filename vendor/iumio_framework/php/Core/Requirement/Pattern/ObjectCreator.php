@@ -13,6 +13,7 @@
  */
 
 namespace iumioFramework\Core\Requirement\Patterns;
+use iumioFramework\Core\Requirement\Relexion\FrameworkReflexion;
 
 /**
  * Class ObjectCreator
@@ -28,11 +29,13 @@ class ObjectCreator
 
     /** Create an object with specific class name
      * @param string $classname Class name
-     * @param mixed $options If constructor have somes parameters
+     * @param array $options If constructor have somes parameters
      * @return mixed The class instance
+     * @throws \Exception if class does not exist
      */
-    final public static function create(string $classname, $options)
+    final public static function create(string $classname, array $options = array())
     {
-        return (new $classname($options));
+        $re =  new FrameworkReflexion();
+        return ($re->__simpleReturned($classname, $options));
     }
 }

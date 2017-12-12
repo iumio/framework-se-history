@@ -6,9 +6,10 @@ iumio Framework
 
 @ Let's create more simply
 
-## [RELEASE CANDIDATURE]
+## [BETA RELEASE]
 
-## [0.6.0] - RCO - 2017-WW-WW
+
+## [0.6.0] - 2017-WW-WW
 ### Added
 - New design for iumio Installer
 - Exception in JSONListener Class
@@ -24,11 +25,14 @@ iumio Framework
 - Add all pdo driver list to create and edit database
 - Add service manager (Graphic)
 - Add Compilation Module for FCM
+- Add new Renderer class
+- Test if return activity is instance of Renderer
 ### Fixed
 - Bug with no rewrite url
 - Responsive sidebar
 - Bug #B-0000002
 - Bug #B-0000003
+- Taskbar font-size reduce button
 
 
 ### Edited
@@ -46,9 +50,6 @@ iumio Framework
 - iumio Framework Life
 - Remove ex-iumio Installer
 
-
-
-## [BETA RELEASE]
 
 ## [0.5.0] - 2017-10-09
 ### Added

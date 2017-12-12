@@ -13,12 +13,12 @@
 
 namespace ManagerApp\Masters;
 
+use iumioFramework\Base\Renderer\Renderer;
 use iumioFramework\Core\Additionnal\Server\ServerManager;
 use iumioFramework\Core\Additionnal\Zip\ZipEngine;
 use iumioFramework\Exception\Server\Server500;
 use iumioFramework\Masters\MasterCore;
 use iumioFramework\Core\Base\Json\JsonListener as JL;
-use iumioFramework\Core\Base\Http\Response\Response;
 
 /**
  * Class AppsMaster
@@ -115,17 +115,18 @@ class AppsMaster extends MasterCore
     /**
      * Get all simple app
      */
-    public function getSimpleAppsActivity()
+    public function getSimpleAppsActivity():Renderer
     {
-        return ((new Response())->jsonRender(array("code" => 200, "msg" => "OK", "results" => $this->getAllApps())));
+        return ((new Renderer())->jsonRenderer(array("code" => 200, "msg" => "OK", "results" => $this->getAllApps())));
     }
 
 
     /** Switch app to default
      * @param string $appname App name
-     * @return int
+     * @return Renderer
+     * @throws Server500
      */
-    public function switchDefaultActivity(string $appname):int
+    public function switchDefaultActivity(string $appname):Renderer
     {
         $file = JL::open(CONFIG_DIR."core/apps.json");
         foreach ($file as $one => $val) {
@@ -141,14 +142,14 @@ class AppsMaster extends MasterCore
 
         $file = json_encode($file, JSON_PRETTY_PRINT);
         JL::put(CONFIG_DIR."core/apps.json", $file);
-        return ((new Response())->jsonRender(array("code" => 200, "msg" => "OK")));
+        return ((new Renderer())->jsonRenderer(array("code" => 200, "msg" => "OK")));
     }
 
     /** auto change enabled or disabled app
      * @param string $appname App name
      * @return int
      */
-    public function autoDisabledOrEnabledActivity(string $appname):int
+    public function autoDisabledOrEnabledActivity(string $appname):Renderer
     {
         $file = JL::open(CONFIG_DIR."core/apps.json");
         foreach ($file as $one => $val) {
@@ -164,14 +165,14 @@ class AppsMaster extends MasterCore
 
         $file = json_encode($file, JSON_PRETTY_PRINT);
         JL::put(CONFIG_DIR."core/apps.json", $file);
-        return ((new Response())->jsonRender(array("code" => 200, "msg" => "OK")));
+        return ((new Renderer())->jsonRenderer(array("code" => 200, "msg" => "OK")));
     }
 
     /** remove one app
      * @param string $appname App name
      * @return int
      */
-    public function removeActivity(string $appname):int
+    public function removeActivity(string $appname):Renderer
     {
         $removeapp = false;
         $file = JL::open(CONFIG_DIR."core/apps.json");
@@ -184,7 +185,7 @@ class AppsMaster extends MasterCore
         }
 
         if ($removeapp == false) {
-            return ((new Response())->jsonRender(array("code" => 500, "msg" => "App does not exist")));
+            return ((new Renderer())->jsonRenderer(array("code" => 500, "msg" => "App does not exist")));
         }
         $file = array_values((array)$file);
 
@@ -196,9 +197,9 @@ class AppsMaster extends MasterCore
         $assets->clear($appname, "all");
         if (strlen($file) < 3) {
             JL::put(CONFIG_DIR."core/framework.config.json", "");
-            return ((new Response())->jsonRender(array("code" => 200, "msg" => "RELOAD")));
+            return ((new Renderer())->jsonRenderer(array("code" => 200, "msg" => "RELOAD")));
         }
-        return ((new Response())->jsonRender(array("code" => 200, "msg" => "OK")));
+        return ((new Renderer())->jsonRenderer(array("code" => 200, "msg" => "OK")));
     }
 
 
@@ -208,7 +209,7 @@ class AppsMaster extends MasterCore
      * @return int
      * @throws Server500
      */
-    public function exportActivity(string $appname):int
+    public function exportActivity(string $appname):Renderer
     {
         $appconfig = null;
         $file = JL::open(CONFIG_DIR."core/apps.json");
@@ -245,13 +246,13 @@ class AppsMaster extends MasterCore
             $zip->recursiveCompress();
             if ($zip->close()) {
                 ServerManager::delete($dirappexp, 'directory');
-                return ((new Response())->jsonRender(array("code" => 200, "msg" => "OK")));
+                return ((new Renderer())->jsonRenderer(array("code" => 200, "msg" => "OK")));
             } else {
-                return ((new Response())->jsonRender(array("code" => 500,
+                return ((new Renderer())->jsonRenderer(array("code" => 500,
                     "msg" => "Error on archive creation process")));
             }
         } catch (\Exception $e) {
-            return ((new Response())->jsonRender(array("code" => 500,
+            return ((new Renderer())->jsonRenderer(array("code" => 500,
                 "msg" => "Error on archive creation process : ".$e->getMessage())));
         }
     }
@@ -262,7 +263,7 @@ class AppsMaster extends MasterCore
      * @return int
      * @throws Server500
      */
-    public function importActivity():int
+    public function importActivity():Renderer
     {
         $sourcePath = $_FILES['file']['tmp_name'];       // Storing source path of the file in a variable
         $date = new \DateTime();
@@ -277,7 +278,7 @@ class AppsMaster extends MasterCore
                 $zip->extractTo(BIN.'import/'.$datex);
                 $f =  JL::open(BIN.'import/'.$datex.'/config.json');
                 if (empty($f)) {
-                    return ((new Response())->jsonRender(array("code" => 500, "msg" => "Missing file config.json")));
+                    return ((new Renderer())->jsonRenderer(array("code" => 500, "msg" => "Missing file config.json")));
                 }
                 $appname = $f->name;
 
@@ -285,7 +286,7 @@ class AppsMaster extends MasterCore
                 $lastapp = 0;
                 foreach ($fa as $one => $val) {
                     if ($val->name == $appname) {
-                        return ((new Response())->jsonRender(array("code" => 500, "msg" => "App already exist")));
+                        return ((new Renderer())->jsonRenderer(array("code" => 500, "msg" => "App already exist")));
                     }
                     $lastapp++;
                 }
@@ -308,22 +309,22 @@ class AppsMaster extends MasterCore
                 $zip->close();
                 ServerManager::delete(BIN.'import/'.$datex.'.zip', 'file');
 
-                return ((new Response())->jsonRender(array("code" => 200, "msg" => "OK", "ext" =>
+                return ((new Renderer())->jsonRenderer(array("code" => 200, "msg" => "OK", "ext" =>
                     "The application ".$appname. " is installed.")));
             } catch (\Exception $e) {
-                return ((new Response())->jsonRender(array("code" => 500, "msg" =>
+                return ((new Renderer())->jsonRenderer(array("code" => 500, "msg" =>
                     "Your package is not a valid iumio app package")));
             }
         } else {
-            return ((new Response())->jsonRender(array("code" => 500, "msg" => "Your package must be a zip package")));
+            return ((new Renderer())->jsonRenderer(array("code" => 500, "msg" => "Your package must be a zip package")));
         }
-        return ((new Response())->jsonRender(array("code" => 200, "msg" => "OK")));
+        return ((new Renderer())->jsonRenderer(array("code" => 200, "msg" => "OK")));
     }
 
     /** Create one app
-     * @return int JSON render
+     * @return Renderer JSON render
      */
-    public function createActivity():int
+    public function createActivity():Renderer
     {
         $name = $this->get("request")->get("name");
         $enable = $this->get("request")->get("enabled");
@@ -331,21 +332,21 @@ class AppsMaster extends MasterCore
         $template = $this->get("request")->get("template");
 
         if ($prefix != "" && $this->checkPrefix($prefix) == -1) {
-            return ((new Response())->jsonRender(array("code" => 500, "msg" =>
+            return ((new Renderer())->jsonRenderer(array("code" => 500, "msg" =>
                 "Error on app prefix. (App prefix must be a string without special character exepted [ _ & numbers])"))
             );
         }
 
         if (!in_array($enable, array("yes", "no"))) {
-            return ((new Response())->jsonRender(array("code" => 500, "msg" => "App name already exist")));
+            return ((new Renderer())->jsonRenderer(array("code" => 500, "msg" => "App name already exist")));
         }
 
         if (trim($name) == "") {
-            return ((new Response())->jsonRender(array("code" => 500, "msg" => "Error on app parameters")));
+            return ((new Renderer())->jsonRenderer(array("code" => 500, "msg" => "Error on app parameters")));
         }
 
         if (file_exists(ROOT_APPS.$name)) {
-            return ((new Response())->jsonRender(array("code" => 500, "msg" => "App name already exist")));
+            return ((new Renderer())->jsonRenderer(array("code" => 500, "msg" => "App name already exist")));
         }
 
 
@@ -394,7 +395,7 @@ class AppsMaster extends MasterCore
             $assets->publish($name, "dev");
         }
 
-        return ((new Response())->jsonRender(array("code" => 200, "msg" => "OK")));
+        return ((new Renderer())->jsonRenderer(array("code" => 200, "msg" => "OK")));
     }
 
     /** Check prefix response
@@ -413,19 +414,19 @@ class AppsMaster extends MasterCore
      * @param string $appname App name
      * @return int JSON render
      */
-    public function editActivity(string $appname):int
+    public function editActivity(string $appname):Renderer
     {
         $prefix = $this->get("request")->get("prefix");
         $enable = $this->get("request")->get("enabled");
 
         if ($prefix != "" && $this->checkPrefix($prefix) == -1) {
-            return ((new Response())->jsonRender(array("code" => 500, "msg" =>
+            return ((new Renderer())->jsonRenderer(array("code" => 500, "msg" =>
                 "Error on app prefix. (App prefix must be a string without special character exepted [ _ & numbers])"))
             );
         }
 
         if (!in_array($enable, array("yes", "no"))) {
-            return ((new Response())->jsonRender(array("code" => 500, "msg" => "App name already exist")));
+            return ((new Renderer())->jsonRenderer(array("code" => 500, "msg" => "App name already exist")));
         }
 
         $f = json_decode(file_get_contents(ROOT."/elements/config_files/core/apps.json"));
@@ -441,6 +442,6 @@ class AppsMaster extends MasterCore
         $f = json_encode($f, JSON_PRETTY_PRINT);
         file_put_contents(ROOT."/elements/config_files/core/apps.json", $f);
 
-        return ((new Response())->jsonRender(array("code" => 200, "msg" => "OK")));
+        return ((new Renderer())->jsonRenderer(array("code" => 200, "msg" => "OK")));
     }
 }

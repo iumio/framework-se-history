@@ -14,7 +14,7 @@
 namespace FServiceApp\Masters;
 
 use iumioFramework\Masters\MasterCore;
-use iumioFramework\Core\Base\Http\Response\Response;
+use iumioFramework\Base\Renderer\Renderer;
 
 /**
  * Class ServiceMaster
@@ -32,6 +32,6 @@ class ServiceMaster extends MasterCore
      */
     public function getCAppActivity()
     {
-        return ((new Response())->jsonRender(array("code" => 200, "app" => APP_CALL)));
+        return ((new Renderer())->jsonRenderer(array("code" => 200, "app" => APP_CALL)));
     }
 }

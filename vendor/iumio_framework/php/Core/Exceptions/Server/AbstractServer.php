@@ -59,9 +59,8 @@ abstract class AbstractServer extends \Exception implements ServerInterface
             $this->color_class_checked = $this->color_class[$this->code];
         }
 
-        $this->time = new \DateTime();
+        $this->time = (new \DateTime())->format("Y-m-d H:m:s");
         $this->uidie = ToolsExceptions::generateUidie();
-        $this->env = IUMIO_ENV;
         $this->client_ip = ToolsExceptions::getClientIp();
         $it = $component->getIterator();
         foreach ($it as $one => $value) {
@@ -103,11 +102,9 @@ abstract class AbstractServer extends \Exception implements ServerInterface
      */
     public function display(string $code, string $message)
     {
-
         if (ob_get_contents()) {
           ob_end_clean();
         }
-
         @header($_SERVER['SERVER_PROTOCOL'] .' '.
             (($code == 000)? 500 : $code).' '.HttpResponse::getPhrase($code), true, $code);
         if ($this->checkExceptionOverride($code)) {
@@ -148,6 +145,7 @@ abstract class AbstractServer extends \Exception implements ServerInterface
             $debug['code_title'] = $this->codeTitle;
             $debug['explain'] = $this->explain;
             $debug['solution'] = $this->solution;
+            $debug['env'] = IUMIO_ENV;
             $debug['method'] = $_SERVER['REQUEST_METHOD'];
             $debug['trace'] = array_slice($this->getTrace(), 0, 50);
             $debug['uri'] = $_SERVER['REQUEST_URI'];
@@ -163,7 +161,7 @@ abstract class AbstractServer extends \Exception implements ServerInterface
             }
             JL::put(
                 ROOT_LOGS.strtolower(IUMIO_ENV).".log.json",
-                json_encode($log)
+                json_encode($log, JSON_BIGINT_AS_STRING)
             );
             return (1);
     }

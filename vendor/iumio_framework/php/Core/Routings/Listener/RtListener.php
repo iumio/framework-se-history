@@ -40,13 +40,27 @@ class RtListener implements Listener
         "PATH", "ALL", "OPTIONS", "TRACE", "HEAD", "CONNECT");
     /**
      * @var array $keywords Keywords allowed in RT
+     * name : route name
+     * path : route path
+     * activity : The method (Acrtivity) called by the route
+     * m_allow : The HTTP method(s) allowed
+     * route : The start keyword for a route
+     * endroute : The end keyword for a route
+     * visibility : The route visibility (private for PHP only, public for PHP and Javascript Routing (JSRouting) and
+     * disabled to disable a route)
+     *
+     * parameters : Adding routing parameters (for example parameters: {hi: string, men:int}
+     * api_auth: enable API authentification for only this route
+     * (required a api key then an Exception will be generated)
+     *
      */
-    private $keywords = array("name", "path", "activity", "m_allow", "route", "endroute", "visibility", "parameters");
+    private $keywords = array("name", "path", "activity", "m_allow", "route:", "endroute",
+        "visibility", "parameters", "api_auth");
 
     /**
      * @var array $scalar The scalar type for parameters
      */
-    protected $scalar = array("string", "bool", "int", "float");
+    protected $scalar = array("string", "bool", "int", "float", "object");
 
     /**
      * RtListener constructor.
@@ -166,6 +180,7 @@ class RtListener implements Listener
                     "Missing delimiter '%' to detect Activity' for  ".strtoupper($routingArray[$i]['name']).
                     " route : ".$this->appName, "solution" => "Please add the correct delimiter")));
             }
+
         }
 
         return (1);
@@ -547,6 +562,9 @@ class RtListener implements Listener
                 break;
             case "string":
                 return ((string)($value));
+                break;
+            case "object":
+                return ((object)($value));
                 break;
         }
         throw new Server500(new \ArrayObject(array("explain" =>

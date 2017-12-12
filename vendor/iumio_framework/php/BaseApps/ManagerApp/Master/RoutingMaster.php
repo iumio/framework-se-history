@@ -18,7 +18,7 @@ use iumioFramework\Exception\Server\Server500;
 use iumioFramework\HttpRoutes\JsRouting;
 use iumioFramework\Masters\MasterCore;
 use iumioFramework\Core\Base\Json\JsonListener as JL;
-use iumioFramework\Core\Base\Http\Response\Response;
+use iumioFramework\Base\Renderer\Renderer;
 
 /**
  * Class RoutingMaster
@@ -377,7 +377,7 @@ class RoutingMaster extends MasterCore
      */
     public function getallActivity()
     {
-        return ((new Response())->jsonRender(array("code" => 200, "msg" => "OK",
+        return ((new Renderer())->jsonRenderer(array("code" => 200, "msg" => "OK",
             "results" => $this->getallRouting())));
     }
 
@@ -389,7 +389,7 @@ class RoutingMaster extends MasterCore
     public function removeActivity(string $filename, string $appname)
     {
         ServerManager::delete(ROOT."/apps/$appname/Routing/$filename", "file");
-        return ((new Response())->jsonRender(array("code" => 200, "msg" => "OK")));
+        return ((new Renderer())->jsonRenderer(array("code" => 200, "msg" => "OK")));
     }
 
     /** Rebuild Js routing file
@@ -399,7 +399,7 @@ class RoutingMaster extends MasterCore
     {
         $rt = new JsRouting();
         $rt->build();
-        return ((new Response())->jsonRender(array("code" => 200, "msg" => "OK")));
+        return ((new Renderer())->jsonRenderer(array("code" => 200, "msg" => "OK")));
     }
 
     /** Get a routing file
@@ -409,7 +409,7 @@ class RoutingMaster extends MasterCore
      */
     public function getOneActivity(string $filename, string $appname)
     {
-        return ((new Response())->jsonRender(array("code" => 200, "msg" => "OK", "results" =>
+        return ((new Renderer())->jsonRenderer(array("code" => 200, "msg" => "OK", "results" =>
             $this->getRtContent($filename, $appname))));
     }
 

@@ -217,7 +217,7 @@ var Rt = function () {
           this.fullUrl = status;
         else
             throw {
-                name:        "iumio Rt Error",
+                name:        "Rt Error",
                 level:       "CRITICAL",
                 message:     "Error detected. Full Url parameters must be a boolean.",
                 htmlMessage: "Error detected. Full Url parameters must be a boolean.",

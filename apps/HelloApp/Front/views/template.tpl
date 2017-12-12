@@ -172,8 +172,5 @@
 {skel}
 {util}
 <script src="{webassets path='public/js/main.js'}"></script>
-
-
-
 </body>
 </html>

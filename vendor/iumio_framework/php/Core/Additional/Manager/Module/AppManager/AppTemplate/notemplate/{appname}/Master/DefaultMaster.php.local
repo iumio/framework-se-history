@@ -3,7 +3,7 @@
 namespace {appname}\Masters;
 
 use iumioFramework\Masters\MasterCore;
-use iumioFramework\Core\Base\Http\Response\Response;
+use iumioFramework\Base\Renderer\Renderer;
 
 /**
  * Class DefaultMaster
@@ -18,7 +18,7 @@ class DefaultMaster extends MasterCore
      */
     public function indexActivity()
     {
-        return ((new Response())->jsonRender(array("code" => 200, "name" => "First App")));
+        return ((new Renderer())->jsonRenderer(array("code" => 200, "name" => "First App")));
     }
 
 }

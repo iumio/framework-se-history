@@ -187,4 +187,22 @@ class FrameworkEnvironment
         }
         return (0);
     }
+
+    /** Generate a location path using constant
+     * @param string $global The constant name
+     * @param string $path The path imploded with constant name
+     * @return string The location string
+     * @throws Server500 If constant name does not exist
+     */
+    public static function generateLocation(string $global, string $path) {
+        $global = strtoupper($global);
+        if (defined($global)) {
+            return ($global.$path);
+        }
+        else {
+            throw new Server500(new ArrayObject(
+                array("explain" => "Undefined global ".$global.
+                    " for FrameworkEnvironment.", "solution" => "Please Check the global name")));
+        }
+    }
 }

@@ -54,6 +54,7 @@ class Routing extends RtListener
 
     /** Register a router
      * @return bool Is callable
+     * @throws Server500
      */
     public function routingRegister():bool
     {

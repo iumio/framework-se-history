@@ -8,5 +8,6 @@
     "user": "danyrafina",
     "location": "\/Applications\/MAMP\/htdocs\/iumio-framework",
     "os": "Darwin",
-    "default_env": "prod"
+    "default_env": "prod",
+    "api_auth_for": ["HelloApp",  "DocApp"]
 }

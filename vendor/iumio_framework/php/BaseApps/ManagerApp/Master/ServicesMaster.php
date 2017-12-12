@@ -19,7 +19,7 @@ use iumioFramework\Core\Additionnal\Zip\ZipEngine;
 use iumioFramework\Exception\Server\Server500;
 use iumioFramework\Masters\MasterCore;
 use iumioFramework\Core\Base\Json\JsonListener as JL;
-use iumioFramework\Core\Base\Http\Response\Response;
+use iumioFramework\Base\Renderer\Renderer;
 
 /**
  * Class ServicesMaster
@@ -79,7 +79,7 @@ class ServicesMaster extends MasterCore
      */
     public function getallActivity()
     {
-        return ((new Response())->jsonRender(array("code" => 200, "msg" => "OK",
+        return ((new Renderer())->jsonRenderer(array("code" => 200, "msg" => "OK",
             "results" => $this->getAllServices())));
     }
 
@@ -109,7 +109,7 @@ class ServicesMaster extends MasterCore
      * @param string $servicename Service name
      * @return int
      */
-    public function removeActivity(string $servicename):int
+    public function removeActivity(string $servicename):Renderer
     {
         $removeservice = false;
         $file = JL::open(CONFIG_DIR."core/services/services.json");
@@ -122,41 +122,41 @@ class ServicesMaster extends MasterCore
         }
 
         if ($removeservice == false) {
-            return ((new Response())->jsonRender(array("code" => 500, "msg" => "Service does not exist")));
+            return ((new Renderer())->jsonRenderer(array("code" => 500, "msg" => "Service does not exist")));
         }
 
         $f = json_encode($file, JSON_PRETTY_PRINT);
         file_put_contents(CONFIG_DIR."core/services/services.json", $f);
 
-        return ((new Response())->jsonRender(array("code" => 200, "msg" => "OK")));
+        return ((new Renderer())->jsonRenderer(array("code" => 200, "msg" => "OK")));
     }
 
     /** Create one service
-     * @return int JSON render
+     * @return Renderer JSON render
      */
-    public function createActivity():int
+    public function createActivity():Renderer
     {
         $name = $this->get("request")->get("name");
         $status = $this->get("request")->get("status");
         $namespace = $this->get("request")->get("namespace");
 
         if ($name == "") {
-            return ((new Response())->jsonRender(array("code" => 500, "msg" => "Service name is empty : $namespace")));
+            return ((new Renderer())->jsonRenderer(array("code" => 500, "msg" => "Service name is empty : $namespace")));
         }
 
         if ($status == "" || !in_array($status, array("enabled", "disabled"))) {
-            return ((new Response())->jsonRender(array("code" => 500, "msg" => "Undefined status : $status")));
+            return ((new Renderer())->jsonRenderer(array("code" => 500, "msg" => "Undefined status : $status")));
         }
 
         if ($namespace == "") {
-            return ((new Response())->jsonRender(array("code" => 500, "msg" => "Undefined namespace : $namespace")));
+            return ((new Renderer())->jsonRenderer(array("code" => 500, "msg" => "Undefined namespace : $namespace")));
         }
 
 
         $f = json_decode(file_get_contents(CONFIG_DIR."core/services/services.json"));
         foreach ($f as $one => $val) {
            if ($one == $name) {
-               return ((new Response())->jsonRender(array("code" => 500, "msg" => "Service already exist")));
+               return ((new Renderer())->jsonRenderer(array("code" => 500, "msg" => "Service already exist")));
            }
         }
 
@@ -166,26 +166,26 @@ class ServicesMaster extends MasterCore
         $f = json_encode($f, JSON_PRETTY_PRINT);
         file_put_contents(CONFIG_DIR."core/services/services.json", $f);
 
-        return ((new Response())->jsonRender(array("code" => 200, "msg" => "OK")));
+        return ((new Renderer())->jsonRenderer(array("code" => 200, "msg" => "OK")));
     }
 
 
 
     /** edit one service
      * @param string $servicename Service name
-     * @return int JSON render
+     * @return Renderer JSON render
      */
-    public function editActivity(string $servicename):int
+    public function editActivity(string $servicename):Renderer
     {
         $status = $this->get("request")->get("status");
         $namespace = $this->get("request")->get("namespace");
 
         if ($status == "" || !in_array($status, array("enabled", "disabled"))) {
-            return ((new Response())->jsonRender(array("code" => 500, "msg" => "Undefined status : $status")));
+            return ((new Renderer())->jsonRenderer(array("code" => 500, "msg" => "Undefined status : $status")));
         }
 
         if ($namespace == "") {
-            return ((new Response())->jsonRender(array("code" => 500, "msg" => "Undefined namespace : $namespace")));
+            return ((new Renderer())->jsonRenderer(array("code" => 500, "msg" => "Undefined namespace : $namespace")));
         }
 
 
@@ -201,7 +201,7 @@ class ServicesMaster extends MasterCore
         $f = json_encode($f, JSON_PRETTY_PRINT);
         file_put_contents(ROOT."/elements/config_files/core/services/services.json", $f);
 
-        return ((new Response())->jsonRender(array("code" => 200, "msg" => "OK")));
+        return ((new Renderer())->jsonRenderer(array("code" => 200, "msg" => "OK")));
     }
 
     /** Get a service
@@ -210,7 +210,7 @@ class ServicesMaster extends MasterCore
      */
     public function getOneActivity(string $servicename)
     {
-        return ((new Response())->jsonRender(array("code" => 200, "msg" => "OK", "results" =>
+        return ((new Renderer())->jsonRenderer(array("code" => 200, "msg" => "OK", "results" =>
             $this->getService($servicename))));
     }
 

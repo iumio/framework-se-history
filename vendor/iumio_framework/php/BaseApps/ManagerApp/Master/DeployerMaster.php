@@ -18,7 +18,7 @@ use iumioFramework\Core\Base\Json\JsonListener;
 use iumioFramework\Exception\Server\Server500;
 use iumioFramework\HttpRoutes\JsRouting;
 use iumioFramework\Masters\MasterCore;
-use iumioFramework\Core\Base\Http\Response\Response;
+use iumioFramework\Base\Renderer\Renderer;
 use iumioFramework\Core\Additionnal\Server\ServerManager as Server;
 use ManagerApp\Masters\Libs\Diff;
 
@@ -83,7 +83,7 @@ subdirectories file must have <strong>READ + WRITE + EXECUTION</strong> permissi
         $default = $configs->default_env;
         if ($default == "prod") {
             JsonListener::close(CONFIG_DIR."core/framework.config.json");
-            return ((new Response())->jsonRender(array("code" => 500,
+            return ((new Renderer())->jsonRenderer(array("code" => 500,
                 "results" => "Cannot get deployment requirements : Framework is already deployed")));
         }
 
@@ -161,7 +161,7 @@ subdirectories file must have <strong>READ + WRITE + EXECUTION</strong> permissi
             }
         }
 
-        return ((new Response())->jsonRender(array("code" => 200, "results" => $this->requirements)));
+        return ((new Renderer())->jsonRenderer(array("code" => 200, "results" => $this->requirements)));
     }
 
 
@@ -174,7 +174,7 @@ subdirectories file must have <strong>READ + WRITE + EXECUTION</strong> permissi
         $default = $configs->default_env;
         if ($default == "dev") {
             JsonListener::close(CONFIG_DIR."core/framework.config.json");
-            return ((new Response())->jsonRender(array("code" => 500,
+            return ((new Renderer())->jsonRenderer(array("code" => 500,
                 "results" => "Cannot switch environment : Able to switch only dev environment")));
         }
 
@@ -186,7 +186,7 @@ subdirectories file must have <strong>READ + WRITE + EXECUTION</strong> permissi
             json_encode($configs, JSON_PRETTY_PRINT));
         JsonListener::close(CONFIG_DIR."core/framework.config.json");
 
-        return ((new Response())->jsonRender(array("code" => 200, "msg" => "OK")));
+        return ((new Renderer())->jsonRenderer(array("code" => 200, "msg" => "OK")));
     }
 
 
@@ -199,7 +199,7 @@ subdirectories file must have <strong>READ + WRITE + EXECUTION</strong> permissi
         $default = $configs->default_env;
         if ($default == "prod") {
             JsonListener::close(CONFIG_DIR."core/framework.config.json");
-            return ((new Response())->jsonRender(array("code" => 500,
+            return ((new Renderer())->jsonRenderer(array("code" => 500,
                 "results" => "Cannot deployed to production environment : Your(s) app(s) are already deployed")));
         }
 
@@ -233,6 +233,6 @@ subdirectories file must have <strong>READ + WRITE + EXECUTION</strong> permissi
         $rt = new JsRouting();
         $rt->build();
 
-        return ((new Response())->jsonRender(array("code" => 200, "msg" => "OK")));
+        return ((new Renderer())->jsonRenderer(array("code" => 200, "msg" => "OK")));
     }
 }

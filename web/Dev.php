@@ -53,7 +53,7 @@ class Dev extends FrameworkEnvironment
             TB::switchStatus("on");
             $request = HttpListener::createFromGlobals();
             $core->dispatch($request);
-            return (1);
+            exit(1);
         }
         return (0);
     }

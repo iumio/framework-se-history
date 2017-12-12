@@ -15,7 +15,7 @@ namespace ManagerApp\Masters;
 
 use iumioFramework\Core\Additionnal\Server\ServerManager;
 use iumioFramework\Core\Base\Debug\Debug;
-use iumioFramework\Core\Base\Http\Response\Response;
+use iumioFramework\Base\Renderer\Renderer;
 use iumioFramework\Exception\Server\AbstractServer;
 use iumioFramework\Exception\Server\Server404;
 use iumioFramework\Exception\Server\Server500;
@@ -62,6 +62,7 @@ class LogsMaster extends MasterCore
         $logs = JL::open(ROOT_LOGS.strtolower($env).".log.json");
         foreach ($logs as $one) {
             if ($uidie == $one->uidie) {
+                $one->env = "DEV";
                 $onelogs = $one;
                 break;
             }
@@ -144,7 +145,7 @@ class LogsMaster extends MasterCore
      * @param $env string environment name
      * @return int JSON response log list
      */
-    public function getlogActivity(string $env):int
+    public function getlogActivity(string $env):Renderer
     {
         if (!in_array($env, array("dev", "prod"))) {
             throw new Server500(new \ArrayObject(array("explain" => "Bad environment name $env",
@@ -156,7 +157,7 @@ class LogsMaster extends MasterCore
         $loglastpos =  $request->get('pos');
         $orderby = 29;
         if ($loglastpos == null) {
-            return ((new Response())->jsonRender(array("code" => 500, "results" => "Cannot get the last position")));
+            return ((new Renderer())->jsonRenderer(array("code" => 500, "results" => "Cannot get the last position")));
         }
         $loglastpos = (int)$loglastpos;
         $max = $loglastpos + $orderby;
@@ -165,6 +166,7 @@ class LogsMaster extends MasterCore
                 continue;
             }
             $one = $last[$i];
+            $last["env"] = strtoupper($env);
             $last[$i]->time = strtotime($last[$i]->time->date);
             $last[$i]->log_url = $this->generateRoute(
                 "iumio_manager_logs_manager_get_one",
@@ -172,14 +174,14 @@ class LogsMaster extends MasterCore
             );
             array_push($lastn, $last[$i]);
         }
-        return ((new Response())->jsonRender(array("code" => 200, "results" => $lastn)));
+        return ((new Renderer())->jsonRenderer(array("code" => 200, "results" => $lastn)));
     }
 
     /** clear log of dev or prod environment
      * @param $env string Environment
      * @return int JSON response
      */
-    public function clearActivity(string $env):int
+    public function clearActivity(string $env):Renderer
     {
         if (!in_array($env, array("dev", "prod"))) {
             throw new Server500(new \ArrayObject(array("explain" => "Bad environment name $env",
@@ -188,6 +190,6 @@ class LogsMaster extends MasterCore
         ServerManager::delete(ROOT_LOGS.strtolower($env).".log.json", 'file');
         @ServerManager::create(ROOT_LOGS.strtolower($env).".log.json", 'file');
 
-        return ((new Response())->jsonRender(array("code" => 200, "msg" => "OK")));
+        return ((new Renderer())->jsonRenderer(array("code" => 200, "msg" => "OK")));
     }
 }

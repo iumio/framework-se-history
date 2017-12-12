@@ -14,7 +14,7 @@
 namespace ManagerApp\Masters;
 
 use iumioFramework\Masters\MasterCore;
-use iumioFramework\Core\Base\Http\Response\Response;
+use iumioFramework\Base\Renderer\Renderer;
 use iumioFramework\Core\Additionnal\Server\ServerManager as Server;
 use ManagerApp\Masters\Libs\Diff;
 
@@ -42,10 +42,10 @@ class AssetsMaster extends MasterCore
      * @param string $env Environment
      * @return int
      */
-    public function publishActivity(string $appname, string $env):int
+    public function publishActivity(string $appname, string $env):Renderer
     {
         $this->publish($appname, $env);
-        return ((new Response())->jsonRender(array("code" => 200, "msg" => "OK")));
+        return ((new Renderer())->jsonRenderer(array("code" => 200, "msg" => "OK")));
     }
 
 
@@ -116,10 +116,10 @@ class AssetsMaster extends MasterCore
      * @param string $env Environment
      * @return int JSON response
      */
-    public function clearActivity(string $appname, string $env):int
+    public function clearActivity(string $appname, string $env):Renderer
     {
         $this->clear($appname, $env);
-        return ((new Response())->jsonRender(array("code" => 200, "msg" => "OK")));
+        return ((new Renderer())->jsonRenderer(array("code" => 200, "msg" => "OK")));
     }
 
     /** clear assets of all or one app
@@ -158,7 +158,7 @@ class AssetsMaster extends MasterCore
     /** Get all info for each app assets
      * @return int
      */
-    public function assetsinfoAllActivity():int
+    public function assetsinfoAllActivity():Renderer
     {
         /**
          * 0 : AppName
@@ -351,7 +351,7 @@ class AssetsMaster extends MasterCore
             );
         }
 
-        return ((new Response())->jsonRender(array("code" => 200, "msg" => "OK", "results" => $assetsapp)));
+        return ((new Renderer())->jsonRenderer(array("code" => 200, "msg" => "OK", "results" => $assetsapp)));
     }
 
     /** Scan directory and subdirectory

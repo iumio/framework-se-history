@@ -70,11 +70,11 @@
                 </li>
             </ul>
         </li>
-        <li style="float: right; list-style: none" class="active" id="iumioTaskBarReduce"><a class="pe-7s-left-arrow" style="font-size: 16px"></a></li>
+        <li style="float: right; list-style: none" class="active" id="iumioTaskBarReduce"><a class="pe-7s-left-arrow" style="font-size: 15px"></a></li>
     </ul>
     <ul class="iumioTaskBar iumioTaskBarVSmall" style="display: none; width: 114px; padding: 0px 0px 0 0;">
         <li class="flogo iumioTaskBarPulse"><img src="{$iumiotaskbar['logo']}"/> </li>
-        <li id="iumioTaskBarRestore" style="color: black;list-style: none; "><a class="pe-7s-right-arrow" style="font-size: 16px"></a></li>
+        <li id="iumioTaskBarRestore" style="color: black;list-style: none; "><a class="pe-7s-right-arrow" style="font-size: 15px"></a></li>
     </ul>
     <script type='text/javascript' src="{$iumiotaskbar['js']}"></script>
     <!-- END iumioTaskBar component -->

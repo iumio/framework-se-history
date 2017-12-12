@@ -26,7 +26,7 @@
 namespace ManagerApp\Masters;
 
 use iumioFramework\Core\Base\Debug\Debug;
-use iumioFramework\Core\Base\Http\Response\Response;
+use iumioFramework\Base\Renderer\Renderer;
 use iumioFramework\Exception\Server\Server500;
 use iumioFramework\Masters\MasterCore;
 use iumioFramework\Core\Base\Json\JsonListener as JL;
@@ -53,7 +53,7 @@ class HostsMaster extends MasterCore
     /**
      * Get Hosts list
      */
-    public function getAllHostsPerConfigActivity():int
+    public function getAllHostsPerConfigActivity():Renderer
     {
         $file = (array) JL::open(CONFIG_DIR.'hosts/hosts.dev.json');
         if (!(isset($file['allowed'])) || !(isset($file['denied']))) {
@@ -121,7 +121,7 @@ class HostsMaster extends MasterCore
         );
 
 
-        return ((new Response())->jsonRender(array("code" => 200,
+        return ((new Renderer())->jsonRenderer(array("code" => 200,
             "results" => $rs)));
     }
 
@@ -131,7 +131,7 @@ class HostsMaster extends MasterCore
      * @param string $env Database environment name
      * @return int
      */
-    public function getoneConfigActivity(string $env):int
+    public function getoneConfigActivity(string $env):Renderer
     {
         if (!in_array($env, array("dev", "prod"))) {
             throw new Server500(new \ArrayObject(array("explain" => "Undefined environment $env", "solution" =>
@@ -148,7 +148,7 @@ class HostsMaster extends MasterCore
         $denied = ((array)$file['denied']);
 
 
-        return ((new Response())->jsonRender(array("code" => 200,
+        return ((new Renderer())->jsonRenderer(array("code" => 200,
             "results" => array("allowed" => implode(";", $allowed), "denied" => implode(";", $denied)))));
     }
 
@@ -158,7 +158,7 @@ class HostsMaster extends MasterCore
      * @param string $env Environment name
      * @return int
      */
-    public function updateActivity(string $env):int
+    public function updateActivity(string $env):Renderer
     {
         $allowed     = $this->get("request")->get("allowed");
         $denied     = $this->get("request")->get("denied");
@@ -169,7 +169,7 @@ class HostsMaster extends MasterCore
         }
 
         if (trim($allowed) == "" || trim($denied) == "") {
-            return ((new Response())->jsonRender(array("code" => 500, "msg" => "Error on hosts parameters")));
+            return ((new Renderer())->jsonRenderer(array("code" => 500, "msg" => "Error on hosts parameters")));
         }
 
 
@@ -182,7 +182,7 @@ class HostsMaster extends MasterCore
 
         JL::put(CONFIG_DIR.'hosts/hosts.'.$env.'.json', json_encode($a, JSON_PRETTY_PRINT));
 
-        return ((new Response())->jsonRender(array("code" => 200, "msg" => "OK")));
+        return ((new Renderer())->jsonRenderer(array("code" => 200, "msg" => "OK")));
     }
 
     /**
@@ -190,7 +190,7 @@ class HostsMaster extends MasterCore
 
      * @return int
      */
-    public function createActivity():int
+    public function createActivity():Renderer
     {
         $config   = $this->get("request")->get("config");
         $name     = $this->get("request")->get("name");
@@ -202,12 +202,12 @@ class HostsMaster extends MasterCore
 
         if (trim($config) == "" || trim($name) == "" || trim($config) == "" ||
             trim($host) == "" || trim($user) == "" || trim($driver) == "") {
-            return ((new Response())->jsonRender(array("code" => 500, "msg" => "Error on databases parameters")));
+            return ((new Renderer())->jsonRenderer(array("code" => 500, "msg" => "Error on databases parameters")));
         }
 
         $file = JL::open(CONFIG_DIR.'db/databases.json');
         if (isset($file->$config)) {
-            return ((new Response())->jsonRender(array("code" => 500, "msg" => "Error on databases parameters")));
+            return ((new Renderer())->jsonRenderer(array("code" => 500, "msg" => "Error on databases parameters")));
         }
 
         $file->$config = new \stdClass();
@@ -220,6 +220,6 @@ class HostsMaster extends MasterCore
 
         JL::put(CONFIG_DIR."db/databases.json", json_encode($file, JSON_PRETTY_PRINT));
 
-        return ((new Response())->jsonRender(array("code" => 200, "msg" => "OK")));
+        return ((new Renderer())->jsonRenderer(array("code" => 200, "msg" => "OK")));
     }
 }

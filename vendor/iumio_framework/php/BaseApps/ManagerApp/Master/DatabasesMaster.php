@@ -14,7 +14,7 @@
 namespace ManagerApp\Masters;
 
 use iumioFramework\Core\Base\Debug\Debug;
-use iumioFramework\Core\Base\Http\Response\Response;
+use iumioFramework\Base\Renderer\Renderer;
 use iumioFramework\Masters\MasterCore;
 use iumioFramework\Core\Base\Json\JsonListener as JL;
 
@@ -52,7 +52,7 @@ class DatabasesMaster extends MasterCore
     /**
      * Get Databases list
      */
-    public function getAllDatabasesActivity():int
+    public function getAllDatabasesActivity():Renderer
     {
         $file = (array) JL::open(CONFIG_DIR.'db/databases.json');
         foreach ($file as $one => $val) {
@@ -76,14 +76,14 @@ class DatabasesMaster extends MasterCore
             );
         }
 
-        return ((new Response())->jsonRender(array("code" => 200, "results" => $file)));
+        return ((new Renderer())->jsonRenderer(array("code" => 200, "results" => $file)));
     }
 
     /** remove one database
      * @param string $dbconfiguration Database configuration name
      * @return int
      */
-    public function removeActivity(string $dbconfiguration):int
+    public function removeActivity(string $dbconfiguration):Renderer
     {
         $remove = false;
         $file = JL::open(CONFIG_DIR."db/databases.json");
@@ -96,14 +96,14 @@ class DatabasesMaster extends MasterCore
         }
 
         if ($remove == false) {
-            return ((new Response())->jsonRender(array("code" => 500, "msg" =>
+            return ((new Renderer())->jsonRenderer(array("code" => 500, "msg" =>
                 "Database configuration does not exist")));
         }
         $file = json_encode((object) $file, JSON_PRETTY_PRINT);
         JL::put(CONFIG_DIR."db/databases.json", $file);
 
 
-        return ((new Response())->jsonRender(array("code" => 200, "msg" => "OK")));
+        return ((new Renderer())->jsonRenderer(array("code" => 200, "msg" => "OK")));
     }
 
 
@@ -112,16 +112,16 @@ class DatabasesMaster extends MasterCore
      * @param string $dbconfiguration Database configuration name
      * @return int
      */
-    public function getonedbActivity(string $dbconfiguration):int
+    public function getonedbActivity(string $dbconfiguration):Renderer
     {
         $file = (array) JL::open(CONFIG_DIR.'db/databases.json');
         foreach ($file as $one => $val) {
             if ($one == $dbconfiguration) {
-                return ((new Response())->jsonRender(array("code" => 200, "results" => $val)));
+                return ((new Renderer())->jsonRenderer(array("code" => 200, "results" => $val)));
             }
         }
 
-        return ((new Response())->jsonRender(array("code" => 200, "results" => array())));
+        return ((new Renderer())->jsonRenderer(array("code" => 200, "results" => array())));
     }
 
 
@@ -130,7 +130,7 @@ class DatabasesMaster extends MasterCore
      * @param string $dbconfiguration Database configuration name
      * @return int
      */
-    public function updateActivity(string $dbconfiguration):int
+    public function updateActivity(string $dbconfiguration):Renderer
     {
         $config   = $dbconfiguration;
         $name     = $this->get("request")->get("name");
@@ -141,12 +141,12 @@ class DatabasesMaster extends MasterCore
         $driver   = $this->get("request")->get("driver");
 
         if (trim($name) == "" || trim($config) == "" || trim($host) == "" || trim($user) == "" || trim($driver) == "") {
-            return ((new Response())->jsonRender(array("code" => 500, "msg" => "Error on databases parameters")));
+            return ((new Renderer())->jsonRenderer(array("code" => 500, "msg" => "Error on databases parameters")));
         }
 
         $file = JL::open(CONFIG_DIR.'db/databases.json');
         if (!isset($file->$config)) {
-            return ((new Response())->jsonRender(array("code" => 500, "msg" => "Error on databases parameters")));
+            return ((new Renderer())->jsonRenderer(array("code" => 500, "msg" => "Error on databases parameters")));
         }
 
         $file->$config = new \stdClass();
@@ -159,7 +159,7 @@ class DatabasesMaster extends MasterCore
 
         JL::put(CONFIG_DIR."db/databases.json", json_encode($file, JSON_PRETTY_PRINT));
 
-        return ((new Response())->jsonRender(array("code" => 200, "msg" => "OK")));
+        return ((new Renderer())->jsonRenderer(array("code" => 200, "msg" => "OK")));
     }
 
     /**
@@ -167,7 +167,7 @@ class DatabasesMaster extends MasterCore
 
      * @return int
      */
-    public function createActivity():int
+    public function createActivity():Renderer
     {
         $config   = $this->get("request")->get("config");
         $name     = $this->get("request")->get("name");
@@ -179,12 +179,12 @@ class DatabasesMaster extends MasterCore
 
         if (trim($config) == "" || trim($name) == "" || trim($config) == "" ||
             trim($host) == "" || trim($user) == "" || trim($driver) == "") {
-            return ((new Response())->jsonRender(array("code" => 500, "msg" => "Error on databases parameters")));
+            return ((new Renderer())->jsonRenderer(array("code" => 500, "msg" => "Error on databases parameters")));
         }
 
         $file = JL::open(CONFIG_DIR.'db/databases.json');
         if (isset($file->$config)) {
-            return ((new Response())->jsonRender(array("code" => 500, "msg" => "Error on databases parameters")));
+            return ((new Renderer())->jsonRenderer(array("code" => 500, "msg" => "Error on databases parameters")));
         }
 
         $file->$config = new \stdClass();
@@ -197,6 +197,6 @@ class DatabasesMaster extends MasterCore
 
         JL::put(CONFIG_DIR."db/databases.json", json_encode($file, JSON_PRETTY_PRINT));
 
-        return ((new Response())->jsonRender(array("code" => 200, "msg" => "OK")));
+        return ((new Renderer())->jsonRenderer(array("code" => 200, "msg" => "OK")));
     }
 }
