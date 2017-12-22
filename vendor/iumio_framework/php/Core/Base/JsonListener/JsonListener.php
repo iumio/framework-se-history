@@ -16,7 +16,7 @@ use iumioFramework\Core\Additionnal\Server\ServerManager;
 use iumioFramework\Exception\Server\Server500;
 
 /**
- * Class iumioDatabaseAccess
+ * Class JsonListener
  * @package iumioFramework\Core\Base\Json
  * @category Framework
  * @licence  MIT License

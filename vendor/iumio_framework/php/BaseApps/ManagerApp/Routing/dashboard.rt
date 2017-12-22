@@ -1,3 +1,4 @@
+
 route:
   name : iumio_manager_index
   path : /_manager/dashboard

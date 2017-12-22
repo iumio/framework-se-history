@@ -11,7 +11,8 @@
 
 namespace iumioFramework\Exception\Tools;
 
-use iumioFramework\Core\Base\FrameworkEnvironment;
+use iumioFramework\Core\Base\File\FileListener;
+use iumioFramework\Core\Requirement\Environment\FrameworkEnvironment;
 use iumioFramework\Core\Base\Json\JsonListener;
 use iumioFramework\Exception\Server\AbstractServer;
 use iumioFramework\Exception\Server\Server500;
@@ -106,6 +107,11 @@ class ToolsExceptions
         } else {
             $env = IUMIO_ENV;
         }
+        $f = new FileListener();
+        $rs = $f->open(ROOT_LOGS.strtolower($env).".log");
+        $a =  array();
+       // print_r($this)
+
         return ((array) JsonListener::open(ROOT_LOGS.strtolower($env).".log.json"));
     }
 

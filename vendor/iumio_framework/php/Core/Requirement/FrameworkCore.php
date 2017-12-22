@@ -13,7 +13,7 @@
 namespace iumioFramework\Core\Requirement;
 use iumioFramework\Base\Renderer\Renderer;
 use iumioFramework\Core\Additionnal\Server\ServerManager;
-use iumioFramework\Core\Base\FrameworkEnvironment;
+use iumioFramework\Core\Requirement\Environment\FrameworkEnvironment;
 use iumioFramework\Core\Base\Http\HttpListener;
 use iumioFramework\Exception\Access\Access200;
 use iumioFramework\HttpRoutes\Routing;
@@ -58,11 +58,12 @@ abstract class FrameworkCore extends GlobalCoreService
      *
      * @param string $environment The app environment
      * @param bool   $debug       Enable debug
+     * @throws Server500
      */
 
     public function __construct(string $environment, bool $debug)
     {
-        ini_set('display_errors', 0);
+        //ini_set('display_errors', 0);
         $this->environment = $environment;
         $this->debug = (bool) $debug;
 
@@ -118,7 +119,6 @@ abstract class FrameworkCore extends GlobalCoreService
             throw new Server500(new \ArrayObject(array("explain" =>
                 "Core Error : Folder /elements does not have correct permission",
                 "solution" => "Must be read, write, executable permission")));
-            return (0);
         }
 
         if (!ServerManager::checkIsExecutable(ROOT."apps/") ||
@@ -127,7 +127,6 @@ abstract class FrameworkCore extends GlobalCoreService
             throw new Server500(new \ArrayObject(array("explain" =>
                 "Core Error : Folder /apps does not have correct permission",
                 "solution" => "Must be read, write, executable permission")));
-            return (0);
         }
         return (1);
     }
@@ -267,7 +266,6 @@ abstract class FrameworkCore extends GlobalCoreService
             return (1);
         }
         $values = $this->getSimpleAppFormat($apps);
-
         foreach ($values as $one => $def) {
             if ($great) {
                 return (1);
@@ -300,7 +298,10 @@ abstract class FrameworkCore extends GlobalCoreService
                         $rscall =  $call->__named($master, $method);
                     }
                     if (!($rscall instanceof Renderer)) {
-                        throw new Server500(new \ArrayObject(array("explain" => "The activity {".ACTIVITY_CALLED['method']."} result in object {".ACTIVITY_CALLED['class']."} must be a Renderer : ".ucfirst(gettype($rscall))." is given", "solution" =>
+                        throw new Server500(new \ArrayObject(
+                            array("explain" => "The activity {".ACTIVITY_CALLED['method'].
+                                "} result in object {".ACTIVITY_CALLED['class'].
+                                "} must be a Renderer : ".ucfirst(gettype($rscall))." is given", "solution" =>
                             "Return a Renderer instance in this activity")));
                     }
                     $great = true;

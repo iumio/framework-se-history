@@ -1,16 +1,19 @@
 <?php
 
-/*
- * This is an iumio Framework component
+
+/**
  *
- * (c) RAFINA DANY <danyrafina@gmail.com>
+ *  * This is an iumio Framework component
+ *  *
+ *  * (c) RAFINA DANY <danyrafina@gmail.com>
+ *  *
+ *  * iumio Framework - iumio Components
+ *  *
+ *  * To get more information about licence, please check the licence file
  *
- * iumio Framework - iumio Components
- *
- * To get more information about licence, please check the licence file
  */
 
-namespace iumioFramework\Core\Base;
+namespace iumioFramework\Core\Requirement\Environment;
 
 use iumioFramework\Exception\Server\Server403;
 use ArrayObject;
@@ -18,7 +21,7 @@ use iumioFramework\Exception\Server\Server500;
 
 /**
  * Class FrameworkEnvironment
- * @package iumioFramework\Core\Base
+ * @package iumioFramework\Core\Requirement
  * @category Framework
  * @licence  MIT License
  * @link https://framework.iumio.com
@@ -44,7 +47,7 @@ class FrameworkEnvironment
      */
     public static function definer(string $env):int
     {
-        $base =  __DIR__."/../../../../../";
+        $base = __DIR__ . "/../../../../../../";
         define('IUMIO_ENV', $env);
         define('HOST', self::getProtocol()."://".$_SERVER['HTTP_HOST']);
         $current = self::getProtocol()."://".$_SERVER['HTTP_HOST'].dirname($_SERVER['PHP_SELF']);

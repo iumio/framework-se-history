@@ -13,7 +13,7 @@
 namespace iumioFramework\Core\Additionnal\Template;
 
 use iumioFramework\Core\Base\Debug\Debug;
-use iumioFramework\Core\Base\FrameworkEnvironment;
+use iumioFramework\Core\Requirement\Environment\FrameworkEnvironment;
 use iumioFramework\Exception\Server\Server404;
 use iumioFramework\Exception\Server\Server500;
 use iumioFramework\Exception\Server\Server600;
@@ -309,7 +309,9 @@ class ViewBasePlugin
      */
     final public static function route(array $params)
     {
-        define("IUMIO_SMARTY_CALLED", 1);
+        if (!defined(("IUMIO_SMARTY_CALLED"))){
+         define("IUMIO_SMARTY_CALLED", 1);
+        }
         $im = new \iumioFramework\Masters\MasterCore();
 
         if (!isset($params['name'])){

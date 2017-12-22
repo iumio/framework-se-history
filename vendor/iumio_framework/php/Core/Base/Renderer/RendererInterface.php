@@ -15,6 +15,7 @@
 
 namespace iumioFramework\Core\Base\Renderer;
 use iumioFramework\Base\Renderer\Renderer;
+use iumioFramework\Exception\Server\Server500;
 
 /**
  * Class RendererInterface
@@ -57,10 +58,20 @@ interface RendererInterface {
 
     /** Render to xml (2 modes, downloadable mode with name and display mode wihout name)
      * @param array $response Element to display in CSV
+     * @param bool $excel If csv is compatible with excel
      * @param string|null $name The csv name if is downloadable
+     * @param bool $keys If array keys displayed
      * @return Renderer The renderer object
      */
-    public function csvRenderer(array $response, string $name = null):Renderer;
+    public function csvRenderer(array $response, bool $excel, string $name = null, bool $keys):Renderer;
+
+    /** Register a custom renderer
+     * @param $callback mixed The callable function (the renderer type)
+     * @param array|null $args Arguments required for the callback
+     * @return Renderer A renderer object
+     * @throws Server500 If renderer is not callable
+     */
+    public function registerCustomRenderer($callback, array $args = null):Renderer;
 
     /** Display element in display_element array
      * @return mixed
@@ -68,3 +79,9 @@ interface RendererInterface {
     public function pushRender();
 
 }
+
+
+/**
+ *
+ *
+ */

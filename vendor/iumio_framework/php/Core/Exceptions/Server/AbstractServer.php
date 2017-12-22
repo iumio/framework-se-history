@@ -15,6 +15,7 @@ namespace iumioFramework\Exception\Server;
 use ArrayObject;
 use iumioFramework\Core\Additionnal\Server\ServerManager;
 use iumioFramework\Core\Additionnal\Template\SmartyEngineTemplate;
+use iumioFramework\Core\Base\File\FileListener;
 use iumioFramework\Core\Base\Http\HttpResponse;
 use iumioFramework\Core\Base\Json\JsonListener as JL;
 use iumioFramework\Exception\Tools\ToolsExceptions;
@@ -87,8 +88,11 @@ abstract class AbstractServer extends \Exception implements ServerInterface
             }
         }
 
+
+
         if ($this->inlog) {
-            $this->writeJsonError();
+            $this->writeFileError();
+            //$this->writeJsonError();
         }
         $this->display($this->code, $header_message);
     }
@@ -132,8 +136,10 @@ abstract class AbstractServer extends \Exception implements ServerInterface
     }
 
 
+
     /** Write exception in .json file
      * @return int Success
+     * @deprecated
      */
     final protected function writeJsonError():int
     {
@@ -151,6 +157,7 @@ abstract class AbstractServer extends \Exception implements ServerInterface
             $debug['uri'] = $_SERVER['REQUEST_URI'];
 
             $debug['referer'] = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : null;
+
             $log = (array) JL::open(ROOT_LOGS.strtolower(IUMIO_ENV).".log.json");
             $c = count($log);
             $log[$c] = $debug;
@@ -164,6 +171,39 @@ abstract class AbstractServer extends \Exception implements ServerInterface
                 json_encode($log, JSON_BIGINT_AS_STRING)
             );
             return (1);
+    }
+
+
+    /** Write exception in .log file
+     * @return int Success
+     * @throws \Exception
+     */
+    final protected function writeFileError():int
+    {
+        $d1 = "[";
+        $d2 = "]";
+        $debug = array();
+        $debug['time'] = $d1.$this->time.$d2;
+        $debug["uidie"] = $d1.$this->uidie.$d2;
+        $debug['client_ip'] = $d1.$this->client_ip.$d2;
+        $debug['code'] = $d1.$this->code.$d2;
+        $debug['code_title'] = $d1.$this->codeTitle.$d2;
+        $debug['explain'] = $d1.$this->explain.$d2;
+        $debug['solution'] = $d1.$this->solution.$d2;
+        $debug['env'] = $d1.IUMIO_ENV.$d2;
+        $debug['method'] = $d1.$_SERVER['REQUEST_METHOD'].$d2;
+        $debug['trace'] = $d1.json_encode($this->getTrace()).$d2;
+        $debug['uri'] = $d1.$_SERVER['REQUEST_URI'].$d2;
+
+        $debug['referer'] = $d1.(isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : null).$d2;
+
+        $strlog =  implode(" ", $debug);
+        $f = new \iumioFramework\Core\Base\File\FileListener();
+
+        $f->open(ROOT_LOGS.strtolower(IUMIO_ENV).".log", "a+", true);
+        $f->put($strlog);
+        $f->close();
+        return (1);
     }
 
     /**

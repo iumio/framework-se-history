@@ -62,5 +62,21 @@
             "timezone_type": 3,
             "timezone": "Europe\/Paris"
         }
+    },
+    "4": {
+        "name": "testApp",
+        "enabled": "yes",
+        "prefix": "test",
+        "class": "\\testApp\\testApp",
+        "creation": {
+            "date": "2017-12-19 17:57:15.196304",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "update": {
+            "date": "2017-12-19 17:57:15.196304",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        }
     }
 }

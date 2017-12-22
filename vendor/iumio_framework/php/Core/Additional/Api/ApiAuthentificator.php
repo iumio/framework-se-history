@@ -14,7 +14,7 @@
 
 
 namespace iumioFramework\Core\Additional\Api;
-use iumioFramework\Core\Base\FrameworkEnvironment;
+use iumioFramework\Core\Requirement\Environment\FrameworkEnvironment;
 use iumioFramework\Core\Base\Json\JsonListener as JL;
 
 /**

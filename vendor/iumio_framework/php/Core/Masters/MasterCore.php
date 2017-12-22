@@ -18,7 +18,7 @@ use iumioFramework\Core\Requirement\Patterns\ObjectCreator;
 use iumioFramework\HttpRoutes\Routing;
 use iumioFramework\Core\Base\Http\ParameterRequest;
 use iumioFramework\Core\Additionnal\Template\SmartyEngineTemplate;
-use iumioFramework\Core\Base\FrameworkEnvironment;
+use iumioFramework\Core\Requirement\Environment\FrameworkEnvironment;
 use iumioFramework\Core\Requirement\FrameworkServices\Services;
 use iumioFramework\Core\Requirement\FrameworkCore;
 use iumioFramework\Core\Requirement\FrameworkServices\GlobalCoreService;

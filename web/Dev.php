@@ -12,12 +12,12 @@
  *
  */
 
-namespace iumioFramework\Core\Base;
 
-$loader = include __DIR__.
-    '/../vendor/iumio_framework/php/Core/Requirement/EngineAutoloader.php';
+
+namespace iumioFramework\Core\Requirement\Environment;
+
+$loader = require __DIR__.'/../vendor/iumio_framework/php/Core/Requirement/EngineAutoloader.php';
 \iumioFramework\Core\Requirement\EngineAutoloader::$env = "DEV";
-
 
 use iumioFramework\Core\Base\Debug\Debug;
 use iumioFramework\Core\Base\Http\HttpListener;
@@ -42,6 +42,7 @@ class Dev extends FrameworkEnvironment
      * Start Application
      *
      * @return int Is Ready
+     * @throws \Exception
      */
     public static function start():int
     {

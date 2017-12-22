@@ -54,7 +54,7 @@
                     </div>
             <ul class="nav">
                 <li>
-                    <a href="<?php
+                    <a href="<?=
                     (new \iumioFramework\Masters\MasterCore())->generateRoute(
                         "iumio_manager_index",
                         null,

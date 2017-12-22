@@ -74,7 +74,10 @@ class Renderer implements RendererInterface
          }*/
 
         $si->assign($options);
-        $this->display_elements = array("graphic" => ($si->display($view . SmartyEngineTemplate::$viewExtention)));
+        echo "offf";
+        $this->display_elements = array("graphic" =>
+            ($si->display($view . SmartyEngineTemplate::$viewExtention)));
+
         return ($this);
     }
 
@@ -114,16 +117,40 @@ class Renderer implements RendererInterface
      */
     public function xmlRenderer(array $response, string $firstelem, string $name = null): Renderer
     {
-        $xmlElem = new \SimpleXMLElement("<?xml version=\"1.0\"?><$firstelem></$firstelem>");
-
+        $xmlElem = new \SimpleXMLElement("<?xml version=\"1.0\"  encoding=\"UTF-8\" ?><$firstelem></$firstelem>");
         $this->buildXml($response, $xmlElem);
+        libxml_use_internal_errors(true);
 
-        if ($name == null) {
-            $xml_file = $xmlElem->asXML();
+        $feed = new \DOMDocument();
+        $feed->preserveWhitespace = false;
+        $result = $feed->load($xmlElem);
+        if($result === TRUE) {
+            echo "Document is well formed\n";
         } else {
-            $xml_file = $xmlElem->asXML("$name.xml");
+            echo "Document is not well formed\n";
         }
-
+        if(@($feed->val())) {
+            echo "+ Document is valid!\n";
+        } else {
+            echo "! Document is not valid:\n";
+            // var_dump the error messages
+            $errors = libxml_get_errors();
+            foreach($errors as $error) {
+                echo "---\n";
+                printf("Error: %s \nfile: %s, line: %s, column: %s, level: %s, code: %s\n",
+                    $error->message,
+                    $error->file,
+                    $error->line,
+                    $error->column,
+                    $error->level,
+                    $error->code
+                );
+            }
+        }
+        exit("TEST");
+        $dom = dom_import_simplexml($xmlElem)->ownerDocument;
+        $dom->formatOutput = true;
+        $xml_file = $dom->saveXML();
         if ($xml_file) {
             $this->display_elements = array("xml" => $xml_file, "name" => $name);
         } else {
@@ -157,21 +184,85 @@ class Renderer implements RendererInterface
         return ($xmlElem);
     }
 
+    /** Register a custom renderer
+     * @param $callback mixed The callable function (the renderer type)
+     * @param array|null $args Arguments required for the callback
+     * @return Renderer A renderer object
+     * @throws Server500 If renderer is not callable
+     */
+    public function registerCustomRenderer($callback, array $args = null):Renderer {
+        if (is_callable($callback)) {
+            $end = substr($callback, (strlen($callback) - 8));
+            if ($end === "Renderer") {
+                $this->display_elements["custom"] = $callback;
+                $this->display_elements["args"] = $args;
+                return ($this);
+            }
+            else {
+                throw new Server500(new \ArrayObject(array("explain" =>
+                    "Renderer name must be contain [Renderer] keyword at the end to be valid : $callback",
+                    "solution" => "Please set a valid renderer name")));
+            }
+        }
+        else {
+            throw new Server500(new \ArrayObject(array("explain" =>
+                "Cannot register $callback custom renderer : Is not callable", "solution" =>
+                "Please set a callable renderer")));
+        }
+    }
+
 
     /** Render to xml (2 modes, downloadable mode with name and display mode wihout name)
      * @param array $response Element to display in CSV
+     * @param bool $excel If csv is compatible with excel
      * @param string|null $name The csv name if is downloadable
+     * @param bool $keys If array keys displayed
      * @return Renderer The renderer object
      */
-    public function csvRenderer(array $response, string $name = null): Renderer
+    public function csvRenderer(array $response, bool $excel = false, string $name = null, bool $keys = false): Renderer
     {
-        header('Content-Type: text/csv; charset=utf-8');
-        $output = fopen('php://output', 'w');
-        $k = array_keys($response);
-        fputcsv($output, $k);
-        fputcsv($output, array_values($response));
-        $this->display_elements = array("csv" => $output, "name" => $name);
+        $this->display_elements = array("csv" => $response, "excel" => $excel, "name" => $name, "keys_show" => $keys);
         return ($this);
+    }
+
+    /**
+     * Build a CSV
+     */
+    private function buildCsv()
+    {
+
+        if ($this->display_elements['excel'] === true) {
+            header('Content-Type: application/vnd.ms-excel');
+        }
+        else {
+            header('Content-Transfer-Encoding: binary');
+            header('Expires: 0');
+            header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+            header('Pragma: public');
+        }
+       if ($this->display_elements["name"] != NULL) {
+            header('Content-Disposition: attachment; filename='.$this->display_elements["name"].'.csv');
+            header('Content-Transfer-Encoding: binary');
+            header('Expires: 0');
+            header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+            header('Pragma: public');
+        }
+
+        $u = 0;
+        echo (chr(0xEF) . chr(0xBB) . chr(0xBF));
+        foreach ($this->display_elements['csv'] as $one)
+        {
+            if ($this->display_elements['keys_show'] && $u === 0) {
+                echo implode(";", (array_keys($one))) . "\n";
+            }
+            if (is_array($one)) {
+                echo (implode(";", $one)) . "\n";
+            }
+            else {
+                echo ($one)."\n";
+            }
+            $u++;
+        }
     }
 
     /** Display element in display_element array
@@ -180,7 +271,8 @@ class Renderer implements RendererInterface
      */
     public function pushRender()
     {
-        if (isset($this->display_elements["graphic"]) && $this->display_elements["graphic"] != "") {
+        var_dump($this->display_elements["graphic"]);
+        if (isset($this->display_elements["graphic"]) ) {
             echo $this->display_elements["graphic"];
         }
         elseif (isset($this->display_elements["json"]) && $this->display_elements["json"] != "") {
@@ -190,11 +282,18 @@ class Renderer implements RendererInterface
                         $this->display_elements["json"]['code']) . ' ' .
                     HttpResponse::getPhrase($this->display_elements["json"]['code']),
                     true, $this->display_elements["json"]['code']);
+                header('Expires: 0');
+                header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+                header('Pragma: public');
+
             }
             echo json_encode($this->display_elements["json"], JSON_PRETTY_PRINT);
         }
         elseif (isset($this->display_elements["xml"]) && $this->display_elements["xml"] != "") {
             header('Content-type: text/xml');
+           header('Expires: 0');
+            header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+            header('Pragma: public');
             if ($this->display_elements["name"] != null) {
               header('Content-Disposition: attachment; filename="'.$this->display_elements["name"].'.xml"');
             }
@@ -206,18 +305,26 @@ class Renderer implements RendererInterface
         }
         elseif (isset($this->display_elements["csv"]) && $this->display_elements["csv"] != "")
         {
-            if ($this->display_elements["name"] != null) {
-                header('Content-Disposition: attachment; filename='.$this->display_elements["name"].'csv');
-            }
-            fclose($this->display_elements["csv"]);
+            $this->buildCsv();
         }
+        elseif (isset($this->display_elements["custom"])) {
+            if ($this->display_elements["custom"] == null) {
+                $this->display_elements["custom"];
+            }
+            else {
+                $this->display_elements["custom"]($this->display_elements["args"]);
+            }
 
-        /*else {
+        }
+        else {
+            echo "OFF";
             throw new Server500(new \ArrayObject(array("explain" => "Renderer: This renderer is not valid.", "solution" =>
                 "Please use a valid renderer.")));
-        }*/
+        }
+        $this->display_elements = array();
         exit(1);
     }
 
-
 }
+
+
