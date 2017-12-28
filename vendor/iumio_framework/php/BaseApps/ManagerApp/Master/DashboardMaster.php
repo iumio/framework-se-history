@@ -42,7 +42,7 @@ class DashboardMaster extends MasterCore
         $date =  new \DateTime($file->installation->date);
         $file->installation = $date->format('Y/m/d');
 
-        return($this->render_old("index", array("env" => strtolower(IUMIO_ENV), "selected" => "dashboard",
+        return($this->render("index", array("env" => strtolower(IUMIO_ENV), "selected" => "dashboard",
             "fi" => $file, 'https' => isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on')));
     }
 

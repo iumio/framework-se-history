@@ -149,8 +149,6 @@ class ApiMaster extends MasterCore
         }
 
         $configs->default_env = "dev";
-        $configs->os = PHP_OS;
-        $configs->user = get_current_user();
         $configs->location = realpath(ROOT);
         JsonListener::put(CONFIG_DIR."core/framework.config.json",
             json_encode($configs, JSON_PRETTY_PRINT));
@@ -174,8 +172,6 @@ class ApiMaster extends MasterCore
         }
 
         $configs->default_env = "prod";
-        $configs->os = PHP_OS;
-        $configs->user = get_current_user();
         $configs->location = realpath(ROOT);
         JsonListener::put(CONFIG_DIR."core/framework.config.json",
             json_encode($configs, JSON_PRETTY_PRINT));

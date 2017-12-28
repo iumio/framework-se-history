@@ -22,6 +22,7 @@ namespace iumioFramework\Units;
 
 
 use iumioFramework\Core\Base\File\FileListener;
+use iumioFramework\Exception\Server\AbstractServer;
 
 class FileListenerUnits
 {
@@ -51,5 +52,10 @@ class FileListenerUnits
         echo "<br>-------------------------<br>";
         while (!$f->eachLine())
             print_r($f->readByLine());
+    }
+
+    public function getLogs()
+    {
+        print_r(AbstractServer::getLogs());
     }
 }

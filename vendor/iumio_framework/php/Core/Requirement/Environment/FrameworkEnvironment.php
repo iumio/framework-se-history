@@ -41,9 +41,11 @@ class FrameworkEnvironment
             "WEB_LIBS", "ROOT_WEB_LIBS", "ROOT_WEB_COMPONENTS",
             "WEB_FRAMEWORK", "WEB_COMPONENTS", "ROOT_APPS", "OVERRIDES"];
 
-    /** Define all environment constants
+    /**
+     * Define all environment constants
      * @param string $env Environmment
      * @return int Is a success
+     * @throws \Exception
      */
     public static function definer(string $env):int
     {
@@ -127,7 +129,8 @@ class FrameworkEnvironment
         throw new Server403(new ArrayObject($options));
     }
 
-    /** Get protocol
+    /**
+     * Get protocol
      * @return string Protocol value
      */
     private static function getProtocol()
@@ -135,6 +138,11 @@ class FrameworkEnvironment
         return ((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off')? "https" : "http");
     }
 
+    /** Check if host is allowed to access at this environment
+     * @return int Is allowed
+     * @throws Server403 If host not allowed
+     * @throws Server500 If Environment does not exist
+     */
     public static function hostAllowed():int
     {
         if (!in_array(IUMIO_ENV, array("DEV", "PROD"))) {
@@ -150,8 +158,7 @@ class FrameworkEnvironment
             $hosts = json_decode($hosts);
             if (isset($hosts->allowed) && isset($hosts->denied)) {
                 if (isset($_SERVER['HTTP_CLIENT_IP'])
-                    || isset($_SERVER['HTTP_X_FORWARDED_FOR'])
-                    || php_sapi_name() === 'cli-server') {
+                    || isset($_SERVER['HTTP_X_FORWARDED_FOR'])) {
                     self::displayError((array("explain" => "You are not allowed to access this file.", "solution" =>
                         'Check '.basename(__FILE__).' for more information.', "external" => "yes")));
                 } else {

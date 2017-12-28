@@ -10,3 +10,11 @@ route:
   activity : Default%index
   api_auth: true
 endroute
+
+
+route:
+  name : default_test_parameter
+  path : /waaou
+  activity : Default%indexNext
+  api_auth: true
+endroute

@@ -13,6 +13,7 @@
  */
 
 namespace iumioFramework\Additional\Manager\Module;
+use iumioFramework\Core\Base\Json\JsonListener;
 
 /**
  * Class ToolsManager
@@ -39,5 +40,15 @@ class ToolsManager
             }
         }
         return (null);
+    }
+
+    /** Get the default environment
+     * @return string The environment name [dev, prod]
+     * @throws \iumioFramework\Exception\Server\Server500
+     */
+    protected function getCurrentEnv():string {
+        $f = new JsonListener();
+        $result = $f->open(ELEMS."config_files/core/framework.config.json");
+        return ($result->default_env);
     }
 }

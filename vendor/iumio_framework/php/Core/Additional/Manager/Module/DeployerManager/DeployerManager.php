@@ -20,7 +20,7 @@ use iumioFramework\Core\Console\Module\ModuleManager;
 use iumioFramework\Core\Console\Module\Assets\AssetsManager as ASM;
 use iumioFramework\Core\Console\Module\Cache\CacheManager as CAM;
 use iumioFramework\Core\Console\Module\Compiled\CompiledManager as COM;
-use iumioFramework\Core\Console\Module\Rt\RtManager as RM;
+use iumioFramework\Core\Console\Module\Rt\ServerManager as RM;
 use iumioFramework\Core\Console\Module\Autoloader\AutoloaderManager as AUM;
 
 /**
@@ -190,8 +190,6 @@ subdirectories file must have <strong>READ + WRITE + EXECUTION</strong> permissi
         }
 
         $configs->default_env = "dev";
-        $configs->os = PHP_OS;
-        $configs->user = get_current_user();
         $configs->location = realpath(ROOT);
         JsonListener::put(CONFIG_DIR."core/framework.config.json",
             json_encode($configs, JSON_PRETTY_PRINT));
@@ -217,8 +215,6 @@ subdirectories file must have <strong>READ + WRITE + EXECUTION</strong> permissi
         $this->getRequirements();
 
         $configs->default_env = "prod";
-        $configs->os = PHP_OS;
-        $configs->user = get_current_user();
         $configs->location = realpath(ROOT);
         JsonListener::put(CONFIG_DIR."core/framework.config.json",
             json_encode($configs, JSON_PRETTY_PRINT));

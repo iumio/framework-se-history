@@ -200,7 +200,11 @@
                                 <p class="category">For Code : <?= $this->code ?> | Type : <?= $this->codeTitle ?></p>
                             </div>
                             <div class="content text-center">
-                                <?php foreach ($this->getTrace() as $one) { ?>
+                                <?php
+                                            $trace = null;
+                                            $trace = ($this->trace != null)? $this->trace : $this->getTrace();
+                                            foreach ($trace as $one) {
+                                        ?>
                                     <div class="content text-center card-content-new">
                                         <?php if (isset($one['file'])) { ?>
                                         <div class="typo-line">

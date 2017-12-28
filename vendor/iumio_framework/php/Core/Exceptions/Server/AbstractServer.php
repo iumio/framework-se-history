@@ -46,6 +46,7 @@ abstract class AbstractServer extends \Exception implements ServerInterface
     protected $type_error = null;
     protected $file_error = null;
     protected $line_error = null;
+    protected $trace = null;
 
 
 
@@ -81,6 +82,8 @@ abstract class AbstractServer extends \Exception implements ServerInterface
                 $this->file_error = $value;
             } elseif ($it->key() == "line_error") {
                 $this->line_error = $value;
+            } elseif ($it->key() == "trace") {
+                $this->trace = $value;
             }
 
             if ($this->solution == null) {
@@ -192,11 +195,21 @@ abstract class AbstractServer extends \Exception implements ServerInterface
         $debug['solution'] = $d1.$this->solution.$d2;
         $debug['env'] = $d1.IUMIO_ENV.$d2;
         $debug['method'] = $d1.$_SERVER['REQUEST_METHOD'].$d2;
-        $debug['trace'] = $d1.json_encode($this->getTrace()).$d2;
+        if ($this->trace != null) {
+            $debug['trace'] = $d1 . json_encode($this->trace) . $d2;
+        }
+        else {
+            $debug['trace'] = $d1 . json_encode($this->getTrace()) . $d2;
+        }
         $debug['uri'] = $d1.$_SERVER['REQUEST_URI'].$d2;
 
         $debug['referer'] = $d1.(isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : null).$d2;
 
+        if ($this->type_error != null) {
+            $debug['type_error'] = $d1 . $this->type_error . $d2;
+            $debug['file_error'] = $d1 . $this->file_error . $d2;
+            $debug['line_error'] = $d1 . $this->line_error . $d2;
+        }
         $strlog =  implode(" ", $debug);
         $f = new \iumioFramework\Core\Base\File\FileListener();
 
@@ -396,6 +409,8 @@ abstract class AbstractServer extends \Exception implements ServerInterface
     /** Get Logs list for specific environment
      * @param $env string environment name
      * @return array Logs list
+     * @throws Server500
+     * @throws \Exception
      */
     public static function getLogs($env = ""):array
     {

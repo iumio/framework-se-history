@@ -47,7 +47,7 @@ class Server401 extends AbstractServer
         $this->codeTitle = 'UNAUTHORIZED';
         $this->explain =  'An authentification is required to access this file.';
         $this->solution = null;
-        $this->env = null;
+        $this->env = IUMIO_ENV;
         parent::__construct($component, 'Unauthirized');
     }
 }

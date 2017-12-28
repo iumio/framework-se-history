@@ -40,13 +40,9 @@
 
                                         {if isset($fi->deployment) }<li>Deployment date : {$fi->deployment}</li>{/if}
 
-                                        <li>User installed : {$fi->user}</li>
-
                                         <li>Main location installed : {$fi->location}</li>
 
                                         <li>Default environment : {$fi->default_env}</li>
-
-                                        <li>Main OS installed : {$fi->os}</li>
 
                                     </ul>
 

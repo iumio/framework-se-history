@@ -221,7 +221,9 @@ abstract class FrameworkCore extends GlobalCoreService
      */
     final protected function assembly(array $keys, array $values)
     {
-        return (@array_combine($keys, $values));
+        if (count($keys) !== count($values))
+            return (false);
+        return (array_combine($keys, $values));
     }
 
 

@@ -312,9 +312,7 @@ class Tools
             $std = new \stdClass();
             $std->installation = new \DateTime();
             $std->version = $version;
-            $std->user = get_current_user();
             $std->location = realpath($base);
-            $std->os = PHP_OS;
             $std->default_env = "dev";
 
             $rs = json_encode($std, JSON_PRETTY_PRINT);

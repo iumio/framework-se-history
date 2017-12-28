@@ -35,7 +35,7 @@ class Server403 extends AbstractServer
         $this->codeTitle = 'FORBIDEEN';
         $this->explain =  'You are not allowed to access this file.';
         $this->solution = null;
-        $this->env = null;
+        $this->env = IUMIO_ENV;
         parent::__construct($component, 'Forbideen');
     }
 }

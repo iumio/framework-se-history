@@ -26,6 +26,9 @@ use iumioFramework\Core\Console\Display\Style\ColorManager as Color;
 class OutputManager
 {
 
+    /**
+     * @var null|string Color for manager
+     */
     static protected $managerColor = null;
 
     /** display Success Message

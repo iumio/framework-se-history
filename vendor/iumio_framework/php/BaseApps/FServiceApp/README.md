@@ -6,7 +6,7 @@
 iumio Framework Service Manager - FSM
 ================
 
-@ The next generation of PHP Frameworks
+@ Let's create more simply
 
 <p align="center"><a href="https://framework.iumio.com" target="_blank">
     <img src="https://travis-ci.org/iumio-team/iumio-framework.svg?branch=master">

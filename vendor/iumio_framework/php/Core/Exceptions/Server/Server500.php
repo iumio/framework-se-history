@@ -36,7 +36,7 @@ class Server500 extends AbstractServer
         $this->codeTitle = 'INTERNAL ERROR';
         $this->explain =  'An internal error was generated. Please referer to server log';
         $this->solution = null;
-        $this->env = null;
+        $this->env = IUMIO_ENV;
         parent::__construct($component, 'Internal Error');
     }
 }

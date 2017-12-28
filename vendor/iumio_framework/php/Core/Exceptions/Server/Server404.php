@@ -36,7 +36,7 @@ class Server404 extends AbstractServer
         $this->codeTitle = 'NOT FOUND';
         $this->explain =  'The resource you try to access is not found.';
         $this->solution = null;
-        $this->env = null;
+        $this->env = IUMIO_ENV;
         parent::__construct($component, 'Not found');
     }
 }

@@ -35,7 +35,7 @@ class Server000 extends AbstractServer
         $this->codeTitle = 'No app registered';
         $this->explain =  'No app was registered in apps.json';
         $this->solution = "Please create an app with app manager";
-        $this->env = null;
+        $this->env = IUMIO_ENV;
         parent::__construct($component, 'No app registered');
     }
 }

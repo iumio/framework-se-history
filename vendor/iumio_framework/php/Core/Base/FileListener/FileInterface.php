@@ -15,6 +15,8 @@
 
 namespace iumioFramework\Core\Base\File;
 
+use iumioFramework\Exception\Server\Server500;
+
 
 /**
  * Interface
@@ -66,4 +68,18 @@ interface FileInterface
      * @return null|string Return the file permission when is opened or null if no file was opened
      */
     public function getFilePerm();
+
+    /** Open file and returning an array of each line
+     * @param $filepath string Filepath
+     * @return array File array content
+     * @throws Server500|\Exception If file does not exist or not readable | If cannot create file
+     */
+    public function openFileAsArray(string $filepath):array;
+
+    /** Reverse a file array (only a file opened with FileListenner::openFileAsArray
+     * @param int $break Line number to catch (By default, the value 0 return all lines)
+     * @return array The file array
+     * @throws Server500 If file is not an array
+     */
+    public function reverse(int $break = 0):array;
 }

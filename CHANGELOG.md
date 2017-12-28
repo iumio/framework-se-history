@@ -27,12 +27,15 @@ iumio Framework
 - Add Compilation Module for FCM
 - Add new Renderer class
 - Test if return activity is instance of Renderer
+- dev.log and prod.log (each line correspond to an error)
+
 ### Fixed
 - Bug with no rewrite url
 - Responsive sidebar
 - Bug #B-0000002
 - Bug #B-0000003
 - Taskbar font-size reduce button
+- array_combine notice
 
 
 ### Edited
@@ -42,13 +45,17 @@ iumio Framework
 - Change service to component with different call
 - Exception will be event 
 - Set password field for user password database
-- Change initial.json to framework.config.jzson
+- Change initial.json to framework.config.json
+
 
 
 ### Removed
 - Language installation
 - iumio Framework Life
 - Remove ex-iumio Installer
+- dev.log.json and prod.log.json
+- Main OS intalled
+- Main user installed
 
 
 ## [0.5.0] - 2017-10-09

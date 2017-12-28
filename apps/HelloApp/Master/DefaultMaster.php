@@ -24,14 +24,23 @@ class DefaultMaster extends MasterCore
         return ($this->render("index2", array("sent" => $hi)));
     }
 
+
+
+    public function indexNextActivity():Renderer
+    {
+        return ($this->render("e"));
+    }
+
+
+
     /**
      * show hello
      */
     public function showIndexActivity():Renderer
     {
 
-        echo "dede";
-        restore_error_handler();
+       $f =  new FileListenerUnits();
+       $f->getLogs();
 
        /* $u = new FileListenerUnits();
         $u->readByLineAssert();*/

@@ -33,6 +33,6 @@ class SingletonPatternUnits extends SingletonPattern
 
     public function test()
     {
-        echo "TEST1";
+        //echo "TEST1";
     }
 }

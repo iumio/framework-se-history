@@ -123,7 +123,8 @@ class MasterCore extends GlobalCoreService
      */
     final protected function render(string $view, array $options = array(), bool $iscached = true):Renderer
     {
-      return ((new Renderer())->graphicRenderer($view, $options, $iscached));
+        $r = new Renderer();
+        return ($r->graphicRenderer($view, $options, $iscached));
         //$si->display($view . SmartyEngineTemplate::$viewExtention, null, $id_compile);
     }
 

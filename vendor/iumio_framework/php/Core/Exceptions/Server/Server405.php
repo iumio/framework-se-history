@@ -36,7 +36,7 @@ class Server405 extends AbstractServer
         $this->codeTitle = 'Method Not Allowed';
         $this->explain =  'The request method is not allowed.';
         $this->solution = null;
-        $this->env = null;
+        $this->env = IUMIO_ENV;
         parent::__construct($component, 'Method Not Allowed');
     }
 }

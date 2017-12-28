@@ -33,6 +33,10 @@
       "compiled": {
         "class" : "\\iumioFramework\\Core\\Console\\Module\\Compiled\\CompiledManager",
         "desc"  : "Manage iumio compilation directory  \n        --clear : Clear compiled environment (Dev environment as default)  \n        --env: Environment name (DEV, PROD, ALL) (must used with --clear)\n"
+      },
+      "server": {
+        "class" : "\\iumioFramework\\Core\\Console\\Module\\Server\\ServerManager",
+        "desc"  : "Run iumio Framework on internal web server (Only dev environment   \n        start : Start the server  \n "
       }
     }
 }

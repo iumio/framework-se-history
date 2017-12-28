@@ -94,10 +94,12 @@ class ToolsExceptions
 
     /** Get Logs list for specific environment
      * @param $env string Current Environement of iumio Framework
+     * @param $end int Break the loop with a limit
      * @return array Logs list
      * @throws Server500
+     * @throws \Exception
      */
-    public static function getLogs(string $env = ''):array
+    public static function getLogs(string $env = '', int $end = 0):array
     {
         if ($env != "") {
             if (!in_array(strtolower($env), array('dev', 'prod'))) {
@@ -108,11 +110,60 @@ class ToolsExceptions
             $env = IUMIO_ENV;
         }
         $f = new FileListener();
-        $rs = $f->open(ROOT_LOGS.strtolower($env).".log");
+        //print_r($f->openFileAsArray(ROOT_LOGS.strtolower($env).".log"));
+        $f->open(ROOT_LOGS.strtolower($env).".log");
+        $i = 0;
         $a =  array();
-       // print_r($this)
+        while (!$f->eachLine())
+        {
+            $line = trim($f->readByLine());
 
-        return ((array) JsonListener::open(ROOT_LOGS.strtolower($env).".log.json"));
+            if (isset($line[0]) && $line[0] == "[") {
+                $line = substr_replace($line, '', 0, 1);
+            }
+
+            if (isset($line[strlen($line) - 1]) && $line[strlen($line) - 1] == "]") {
+                $line = substr_replace($line, '', strlen($line) - 1, 1);
+            }
+            $na =  explode("] [", $line);
+            if (!isset($na[1])) {
+                continue;
+            }
+            if (isset($na[12])) {
+                array_push($a,
+                    array(
+                        "time" => $na[0], "uidie" => $na[1],
+                        "client_ip" => $na[2], "code" => $na[3],
+                        "code_title" => $na[4], "explain" => $na[5],
+                        "solution" => $na[6], "env" => $na[7],
+                        "method" => $na[8], "trace" => (array)$na[9],
+                        "uri" => $na[10], "referer" => $na[11],
+                        "type_error" => $na[12], "file_error" => $na[13],
+                        "line_error" => $na[14]
+                    )
+                );
+            }
+            else {
+                array_push($a,
+                    array(
+                        "time" => $na[0], "uidie" => $na[1],
+                        "client_ip" => $na[2], "code" => $na[3],
+                        "code_title" => $na[4], "explain" => $na[5],
+                        "solution" => $na[6], "env" => $na[7],
+                        "method" => $na[8], "trace" => (array)$na[9],
+                        "URI" => $na[10], "referer" => $na[11],
+                    )
+                );
+            }
+            if ($end != 0) {
+                if ($i == ($end - 1)) {
+                    break;
+                }
+                $i++;
+            }
+        }
+
+        return (array_reverse($a));
     }
 
     /**
@@ -146,7 +197,7 @@ class ToolsExceptions
                 return ("Suggestion");
                 break;
             default:
-                return ("Unknown error");
+                return ("Undefined error");
                 break;
         }
     }
@@ -178,6 +229,7 @@ class ToolsExceptions
                 trigger_error($lasterror['message'], E_USER_ERROR);
             }
         }
+        exit(1);
     }
     /** Set exception handler
      * @param \Throwable $exception The exception object
@@ -187,7 +239,9 @@ class ToolsExceptions
     {
         FrameworkEnvironment::checkDefiner();
         if (defined('IUMIO_ENV')) {
-            throw new Server500(new \ArrayObject(array("explain" => $exception->getMessage())));
+            throw new Server500(new \ArrayObject(array("explain" => $exception->getMessage(),
+                "trace" => $exception->getTrace(), "line_error" => $exception->getLine(),
+                "file_error" => $exception->getFile(), "type_error" => self::errorMap($exception->getCode()))));
         }
         else {
             echo $exception->getMessage();

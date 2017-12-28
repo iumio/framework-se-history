@@ -56,8 +56,7 @@ class FileListener implements FileInterface
      * @return \resource File content
      * @throws Server500|\Exception If file does not exist or not readable | If cannot create file
      */
-    public function open(string $filepath, string $perm = "r", bool $fcreate = false)
-    {
+    public function open(string $filepath, string $perm = "r", bool $fcreate = false) {
         if ($filepath == $this->filepath && $this->file != null) {
             return ($this->file);
         }
@@ -81,6 +80,55 @@ class FileListener implements FileInterface
         return ($this->file);
     }
 
+    /** Reverse a file array (only a file opened with FileListenner::openFileAsArray
+     * @param int $break Line number to catch (By default, the value 0 return all lines)
+     * @return array The file array
+     * @throws Server500 If file is not an array
+     */
+    public function reverse(int $break = 0):array {
+        if (!is_array($this->filepath)) {
+            throw new Server500(new \ArrayObject(array("explain" =>
+                "Cannot reverse file ".$this->filepath." : is not a resource.",
+                "solution" =>
+                    "Use your own method to reverse the resource")));
+        }
+       return ((($break == 0)? array_reverse($this->file) : array_reverse(array_slice($this->file, -$break))));
+    }
+
+    /** Open file and returning an array of each line
+     * @param $filepath string Filepath
+     * @return array File array content
+     * @throws Server500|\Exception If file does not exist or not readable | If cannot create file
+     */
+    public function openFileAsArray(string $filepath):array {
+        if ($filepath == $this->filepath && $this->file != null) {
+            return ($this->file);
+        }
+
+        if (!file_exists($filepath)) {
+            ServerManager::create($filepath, 'file');
+        }
+
+        if (!is_readable($filepath)) {
+            throw new Server500(new \ArrayObject(array("explain" =>
+                "Cannot open file $filepath : File not readable",
+                "solution" => "Please set the readable permission")));
+        }
+
+        $this->perm = null;
+        $this->filepath = $filepath;
+        $this->file = file($filepath);
+
+        if (!is_array($this->file)) {
+            throw new Server500(new \ArrayObject(array("explain" =>
+                "Invalid file array for $filepath",
+                "solution" =>
+                    "Use FileListener::open to open a file resource.")));
+        }
+
+        return ($this->file);
+    }
+
 
     /** Put content in configuration file
      * @param $contents string new file content
@@ -90,8 +138,7 @@ class FileListener implements FileInterface
      * @return int If the write task is succesfull
      * @throws \Exception If file cannot be created
      */
-    public function put(string $contents, int $length = null, bool $inline = false):int
-    {
+    public function put(string $contents, int $length = null, bool $inline = false):int {
         self::checkPermission($this->perm, $this->filepath);
         if ($length != null) {
             return (fwrite($this->file, $contents . ((!$inline) ? "\n" : ""), $length));
@@ -143,6 +190,7 @@ class FileListener implements FileInterface
     }
 
     /** Get file data for one line (line by line)
+     * Use FileListener::eachLine to read line by line with a loop condition
      * @param int|null $size The file size [optionnal]
      * @return bool|string File one line content | If an error was generated
      * @throws Server500
@@ -164,6 +212,30 @@ class FileListener implements FileInterface
 
     }
 
+
+    /** Get file data for one line (line by line) binary mode
+     * Use FileListener::eachLine to read line by line with a loop condition
+     * @param int|null $size The file size [optionnal]
+     * @return bool|string File one line content | If an error was generated
+     * @throws Server500
+     */
+    public function readBinaryByLine(int $size = null) {
+        if ($this->file == null) {
+            throw new Server500(new \ArrayObject(array("explain" =>
+                "Cannot read file for unopened file",
+                "solution" =>
+                    "Please open the file with [FileListener::open] before trying to get read it.")));
+        }
+
+        if ($size === null) {
+            return (fgetss((($this->tempFile === null)? ($this->file) : $this->tempFile), $this->size()));
+        }
+        else {
+            return (fgetss((($this->tempFile === null)? ($this->file) : $this->tempFile), $size));
+        }
+
+    }
+
     /**
      * @param bool $copy
      * @return true
@@ -172,7 +244,7 @@ class FileListener implements FileInterface
     {
         if ($copy) {
             if ($this->tempFile === null) {
-                $this->tempFile = clone $this->file;
+                $this->tempFile = $this->file;
             }
             return (feof($this->tempFile));
         }

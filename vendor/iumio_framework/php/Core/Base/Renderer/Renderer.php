@@ -74,11 +74,28 @@ class Renderer implements RendererInterface
          }*/
 
         $si->assign($options);
-        echo "offf";
+
+        $viewRs = $si->fetch($view . SmartyEngineTemplate::$viewExtention);
+
+
+        $pos = strpos($viewRs, "</body>");
+        $taskbar = \iumioFramework\Core\Additionnal\TaskBar\TaskBar::getTaskBar();
+
+        $viewRs = $this->strAdd($viewRs, $taskbar,   strlen($viewRs) + $pos);
+        //var_dump($pos);
+        //echo $pos;
+        //exit($pos);
         $this->display_elements = array("graphic" =>
-            ($si->display($view . SmartyEngineTemplate::$viewExtention)));
+            ($viewRs));
+        //var_dump($this->display_elements);
 
         return ($this);
+    }
+
+    private function strAdd($str,$insertstr,$pos):string
+    {
+        $str = substr($str, 0, $pos) . $insertstr . substr($str, $pos);
+        return $str;
     }
 
     /** Display text on screen
@@ -147,7 +164,7 @@ class Renderer implements RendererInterface
                 );
             }
         }
-        exit("TEST");
+
         $dom = dom_import_simplexml($xmlElem)->ownerDocument;
         $dom->formatOutput = true;
         $xml_file = $dom->saveXML();
@@ -271,7 +288,6 @@ class Renderer implements RendererInterface
      */
     public function pushRender()
     {
-        var_dump($this->display_elements["graphic"]);
         if (isset($this->display_elements["graphic"]) ) {
             echo $this->display_elements["graphic"];
         }
@@ -317,8 +333,8 @@ class Renderer implements RendererInterface
 
         }
         else {
-            echo "OFF";
-            throw new Server500(new \ArrayObject(array("explain" => "Renderer: This renderer is not valid.", "solution" =>
+            error_log("nrender");
+            throw new Server500(new \ArrayObject(array("explain" => "Renderer: This renderer is not valid. ".json_encode($this->display_elements), "solution" =>
                 "Please use a valid renderer.")));
         }
         $this->display_elements = array();

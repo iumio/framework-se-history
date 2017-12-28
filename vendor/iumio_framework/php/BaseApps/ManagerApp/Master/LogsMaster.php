@@ -16,11 +16,13 @@ namespace ManagerApp\Masters;
 use iumioFramework\Core\Additionnal\Server\ServerManager;
 use iumioFramework\Core\Base\Debug\Debug;
 use iumioFramework\Base\Renderer\Renderer;
+use iumioFramework\Core\Base\File\FileListener;
 use iumioFramework\Exception\Server\AbstractServer;
 use iumioFramework\Exception\Server\Server404;
 use iumioFramework\Exception\Server\Server500;
 use iumioFramework\Masters\MasterCore;
 use iumioFramework\Core\Base\Json\JsonListener as JL;
+use PHPMailer\PHPMailer\Exception;
 
 /**
  * Class LogsMaster
@@ -35,12 +37,16 @@ class LogsMaster extends MasterCore
 {
     /**
      * Start FGM dashboard
+     * @return Renderer
+     * @throws Server500
+     * @throws \Exception
      */
-    public function logsActivity()
+    public function logsActivity():Renderer
     {
         $file = JL::open(CONFIG_DIR.'core/framework.config.json');
         $date =  new \DateTime($file->installation->date);
         $file->installation = $date->format('Y/m/d');
+        AbstractServer::getLogs("dev");
 
         return($this->render("logs", array("selected" => "logsmanager", "env" => strtolower(IUMIO_ENV))));
     }
@@ -51,22 +57,26 @@ class LogsMaster extends MasterCore
      * @param string $env Environment name
      * @throws Server404 If uidie does not exist
      * @throws Server500 If environement does not exist
+     * @return Renderer
+     * @throws \Exception
      */
-    public function logsdetailsActivity(string $uidie, string $env)
+    public function logsdetailsActivity(string $uidie, string $env):Renderer
     {
         if (!in_array($env, array("dev", "prod"))) {
             throw new Server500(new \ArrayObject(array("explain" => "Bad environment name $env",
                 "solution" => "Environment must be 'dev' or 'prod' ")));
         }
-        $onelogs = null;
-        $logs = JL::open(ROOT_LOGS.strtolower($env).".log.json");
-        foreach ($logs as $one) {
+        //print_r(AbstractServer::getLogs($env));
+        $onelogs = AbstractServer::getLogs($env);
+        /*$f = new FileListener();
+        $logs = $f->open(ROOT_LOGS.strtolower($env).".json");*/
+        /*foreach ($logs as $one) {
             if ($uidie == $one->uidie) {
                 $one->env = "DEV";
                 $onelogs = $one;
                 break;
             }
-        }
+        }*/
 
         if ($onelogs == null) {
             throw new Server404(new \ArrayObject(array("explain" => "The error with uidie [".$uidie."] does not exist",
@@ -143,7 +153,9 @@ class LogsMaster extends MasterCore
 
     /** Get the last debug logs (unlimited) with min and max position
      * @param $env string environment name
-     * @return int JSON response log list
+     * @return Renderer JSON response log list
+     * @throws Server404
+     * @throws Server500
      */
     public function getlogActivity(string $env):Renderer
     {
@@ -179,7 +191,9 @@ class LogsMaster extends MasterCore
 
     /** clear log of dev or prod environment
      * @param $env string Environment
-     * @return int JSON response
+     * @return Renderer JSON response
+     * @throws Server500
+     * @throws \Exception
      */
     public function clearActivity(string $env):Renderer
     {
