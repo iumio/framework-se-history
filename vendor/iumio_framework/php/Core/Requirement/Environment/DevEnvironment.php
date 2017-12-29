@@ -39,6 +39,7 @@ class DevEnvironment extends FrameworkEnvironment
      * Start Application
      * @return int Is Ready
      * @throws Server500
+     * @throws \Exception
      */
     public static function start():int
     {

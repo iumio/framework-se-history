@@ -24,7 +24,7 @@
                                     <h4 class="title">Apps statistics</h4>
                                     <p class="category">Statistics</p>
                                 </div>
-                                <div class="content dashboardStats" attr-href="{route name='iumio_manager_dashboard_get_statistics'}">
+                                <div class="content dashboardStats" attr-href="{nocache}{route name='iumio_manager_dashboard_get_statistics'}{/nocache}">
                                     <ul>
                                         <li>Apps  : <span class="dashb-app">0</span> </li>
                                         <li>Apps enabled : <span class="dashb-appena">0</span></li>
@@ -50,10 +50,10 @@
                                 <div class="content">
                                     <div class="row center-block text-center manager-options">
                                         <div class="col-md-6">
-                                            <a class="btn-default btn createapp"  attr-href="{route name='iumio_manager_app_manager_create_app'}">Create a new app</a>
+                                            <a class="btn-default btn createapp"  attr-href="{nocache}{route name='iumio_manager_app_manager_create_app'}{/nocache}">Create a new app</a>
                                         </div>
                                         <div class="col-md-6">
-                                            <a class="btn-default btn importapp"  attr-href="{route name='iumio_manager_app_manager_import_app'}">Import an app</a>
+                                            <a class="btn-default btn importapp"  attr-href="{nocache}{route name='iumio_manager_app_manager_import_app'}{/nocache}">Import an app</a>
                                         </div>
                                     </div>
                                 </div>
@@ -77,7 +77,7 @@
                                         <th>Delete</th>
                                         <th>Export</th>
                                         </thead>
-                                        <tbody class="applist" attr-href="{route name='iumio_manager_app_manager_get_simple_apps'}">
+                                        <tbody class="applist" attr-href="{nocache}{route name='iumio_manager_app_manager_get_simple_apps'}{/nocache}">
                                         </tbody>
                                     </table>
 

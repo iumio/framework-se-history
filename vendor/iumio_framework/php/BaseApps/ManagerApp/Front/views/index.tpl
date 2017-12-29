@@ -28,6 +28,7 @@
                                     <h4 class="title">iumio Framework instance</h4>
                                     <p class="category">Informations about iumio Framework instance</p>
                                 </div>
+                                {nocache}
                                 <div class="content"  style="overflow: auto;padding-left: 40px;max-height: 220px;">
                                     <ul class="break-word col-md-12">
                                         <li>{framework_info name='VERSION_EDITION'} </li>
@@ -47,6 +48,7 @@
                                     </ul>
 
                                 </div>
+                                {/nocache}
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -56,6 +58,7 @@
                                     <p class="category">Informations about server instance</p>
                                 </div>
                                 <div class="content" style="overflow: auto;padding-left: 40px;max-height: 220px;">
+                                    {nocache}
                                     <ul class="col-md-12">
                                         <li>Server : {system_info name='SERVER_SOFTWARE' }</li>
                                         <li>PHP version : {system_info name='PHP_VERSION' }</li>
@@ -64,6 +67,7 @@
                                         <li>Port : {system_info name='SERVER_PORT'}</li>
                                         <li>Use SSL : {if $https} Yes {else} No {/if} </li>
                                     </ul>
+                                    {/nocache}
                                 </div>
                             </div>
                         </div>
@@ -71,10 +75,10 @@
                             <div class="card h350">
                                 <div class="header">
                                     <h4 class="title">Logs events</h4>
-                                    <p class="category">Last events logs for <strong>{$env}</strong> (10)</p>
+                                    <p class="category">Last events logs for <strong>{nocache}{$env}{/nocache}</strong> (10)</p>
                                 </div>
                                 <div class="content" style="overflow: auto;max-height: 220px">
-                                    <ul class="lastlog elemcard" attr-href="{route name='iumio_manager_logs_get'}">
+                                    <ul class="lastlog elemcard" attr-href="{nocache}{route name='iumio_manager_logs_get'}{/nocache}">
 
                                     </ul>
 
@@ -87,7 +91,7 @@
                                     <h4 class="title">iumio Framework Statistics</h4>
                                     <p class="category">Statistics about iumio Framework instance</p>
                                 </div>
-                                <div class="content dashboardStats elemcard"  attr-href="{route name='iumio_manager_dashboard_get_statistics'}" style="overflow: auto;padding-left: 40px">
+                                <div class="content dashboardStats elemcard"  attr-href="{nocache}{route name='iumio_manager_dashboard_get_statistics'}{/nocache}" style="overflow: auto;padding-left: 40px">
                                     <ul class="col-md-6">
                                         <li>Apps  : <span class="dashb-app">0</span> </li>
                                         <li>Apps enabled : <span class="dashb-appena">0</span></li>

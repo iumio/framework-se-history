@@ -1,0 +1,11 @@
+route:
+  name : default_start_dataApp
+  path : /index
+  activity : Default%showIndex
+endroute
+
+route:
+  name : default_test_parameter_dataApp
+  path : /index/{hi}
+  activity : Default%index
+endroute

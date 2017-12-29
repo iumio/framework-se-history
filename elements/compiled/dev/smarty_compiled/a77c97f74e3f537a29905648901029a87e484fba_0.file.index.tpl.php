@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.31, created on 2017-12-29 10:29:34
+/* Smarty version 3.1.31, created on 2017-12-29 21:47:27
   from "/Applications/MAMP/htdocs/iumio-framework/vendor/iumio_framework/php/BaseApps/ManagerApp/Front/views/index.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.31',
-  'unifunc' => 'content_5a460afeb341f4_15498091',
+  'unifunc' => 'content_5a46a9df4a72d8_31287207',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'a77c97f74e3f537a29905648901029a87e484fba' => 
     array (
       0 => '/Applications/MAMP/htdocs/iumio-framework/vendor/iumio_framework/php/BaseApps/ManagerApp/Front/views/index.tpl',
-      1 => 1514398539,
+      1 => 1514579732,
       2 => 'file',
     ),
   ),
@@ -23,14 +23,14 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:partials/footer.tpl' => 1,
   ),
 ),false)) {
-function content_5a460afeb341f4_15498091 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5a46a9df4a72d8_31287207 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_5730624315a460afbbbd446_54277250', "principal");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_12473498255a46a9dd335ca7_81789476', "principal");
 ?>
 
 
@@ -39,12 +39,12 @@ $_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_5730624315a460afbb
 <?php $_smarty_tpl->inheritance->endChild($_smarty_tpl, 'template.tpl');
 }
 /* {block "principal"} */
-class Block_5730624315a460afbbbd446_54277250 extends Smarty_Internal_Block
+class Block_12473498255a46a9dd335ca7_81789476 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'principal' => 
   array (
-    0 => 'Block_5730624315a460afbbbd446_54277250',
+    0 => 'Block_12473498255a46a9dd335ca7_81789476',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -81,6 +81,7 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
                                     <h4 class="title">iumio Framework instance</h4>
                                     <p class="category">Informations about iumio Framework instance</p>
                                 </div>
+                                
                                 <div class="content"  style="overflow: auto;padding-left: 40px;max-height: 220px;">
                                     <ul class="break-word col-md-12">
                                         <li><?php echo iumioFramework\Core\Additionnal\Template\ViewBasePlugin::finfo(array('name'=>'VERSION_EDITION'),$_smarty_tpl);?>
@@ -108,6 +109,7 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
                                     </ul>
 
                                 </div>
+                                
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -117,6 +119,7 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
                                     <p class="category">Informations about server instance</p>
                                 </div>
                                 <div class="content" style="overflow: auto;padding-left: 40px;max-height: 220px;">
+                                    
                                     <ul class="col-md-12">
                                         <li>Server : <?php echo iumioFramework\Core\Additionnal\Template\ViewBasePlugin::sinfo(array('name'=>'SERVER_SOFTWARE'),$_smarty_tpl);?>
 </li>
@@ -130,6 +133,7 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 </li>
                                         <li>Use SSL : <?php if ($_smarty_tpl->tpl_vars['https']->value) {?> Yes <?php } else { ?> No <?php }?> </li>
                                     </ul>
+                                    
                                 </div>
                             </div>
                         </div>

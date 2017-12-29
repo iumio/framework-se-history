@@ -28,6 +28,12 @@ iumio Framework
 - Add new Renderer class
 - Test if return activity is instance of Renderer
 - dev.log and prod.log (each line correspond to an error)
+- Add index.php instead of Dev.php and Prod.php with switch to each environment
+- DevEnvironment class for dev
+- ProdEnvironment class for prod
+- FrameworkDispatcher Class for dispatch to the default environment
+
+
 
 ### Fixed
 - Bug with no rewrite url
@@ -36,6 +42,11 @@ iumio Framework
 - Bug #B-0000003
 - Taskbar font-size reduce button
 - array_combine notice
+- Bug #B-0000006
+- Bug #B-0000009
+- Bug #B-0000008
+- Bug #B-0000005
+- Bug #B-0000010
 
 
 ### Edited
@@ -49,6 +60,7 @@ iumio Framework
 - Logo of iumio Framework
 - Change Routing extension from .rt to .irt
 - Route for generation app will be unique (appname)
+- Change the uidie generation method
 
 
 
@@ -60,7 +72,8 @@ iumio Framework
 - Main OS intalled
 - Main user installed
 - Smarty fix for iumio Taskbar
-
+- Dev.php
+- Prod.php
 
 ## [0.5.0] - 2017-10-09
 ### Added

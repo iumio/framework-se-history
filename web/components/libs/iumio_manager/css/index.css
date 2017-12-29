@@ -151,6 +151,12 @@
     }
 }
 
+.modal-body {
+    padding: 15px;
+    max-height: 700px;
+    overflow-x: auto;
+}
+
 .table, .table thead th
 {
     text-align: center;

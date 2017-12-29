@@ -25,7 +25,7 @@
                                 <h4 class="title">Autoloader statistics</h4>
                                 <p class="category">Statistics</p>
                             </div>
-                            <div class="content autoloaderStats" attr-href="{route name='iumio_manager_autoloader_get_statistics'}">
+                            <div class="content autoloaderStats" attr-href="{nocache}{route name='iumio_manager_autoloader_get_statistics'}{/nocache}">
                                 <ul>
                                     <li>Classes for dev  : <span class="class-auto-dev">0</span> </li>
                                     <li>Classes for prod : <span class="class-auto-prod">0</span></li>
@@ -47,16 +47,16 @@
                                 <div class="content">
                                     <div class="row center-block text-center manager-options">
                                         <div class="col-md-3">
-                                            <a class="btn-default btn buildautoloaderdev"  attr-href="{route name='iumio_manager_autoloader_manager_build' params=["env" => "dev"] } ">Rebuild dev</a>
+                                            <a class="btn-default btn buildautoloaderdev"  attr-href="{nocache}{route name='iumio_manager_autoloader_manager_build' params=["env" => "dev"] } {/nocache}">Rebuild dev</a>
                                         </div>
                                         <div class="col-md-3">
-                                            <a class="btn-default btn buildautoloaderprod"  attr-href="{route name='iumio_manager_autoloader_manager_build' params=["env" => "prod"] }">Build prod</a>
+                                            <a class="btn-default btn buildautoloaderprod"  attr-href="{nocache}{route name='iumio_manager_autoloader_manager_build' params=["env" => "prod"] }{/nocache}">Build prod</a>
                                         </div>
                                         <div class="col-md-3">
-                                            <a class="btn-default btn clearautoloaderprod"  attr-href="{route name='iumio_manager_autoloader_manager_clear' params=["env" => "prod"] }">Clear prod</a>
+                                            <a class="btn-default btn clearautoloaderprod"  attr-href="{nocache}{route name='iumio_manager_autoloader_manager_clear' params=["env" => "prod"] }{/nocache}">Clear prod</a>
                                         </div>
                                         <div class="col-md-3">
-                                            <a class="btn-default btn buildautoloaderall"  attr-href="{route name='iumio_manager_autoloader_manager_build' params=["env" => "all"] }">Build all</a>
+                                            <a class="btn-default btn buildautoloaderall"  attr-href="{nocache}{route name='iumio_manager_autoloader_manager_build' params=["env" => "all"] }{/nocache}">Build all</a>
                                         </div>
                                     </div>
                                 </div>

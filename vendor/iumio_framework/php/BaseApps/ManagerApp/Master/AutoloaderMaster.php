@@ -36,6 +36,7 @@ class AutoloaderMaster extends MasterCore
 {
     /**
      * Get autoloader manager page
+     * @throws \Exception
      */
     public function autoloaderActivity()
     {
@@ -45,6 +46,7 @@ class AutoloaderMaster extends MasterCore
 
     /** Get autoloader statistics
      * @return array Autoloader statistics
+     * @throws Server500
      */
     public function getStatisticsAutoloader():array
     {
@@ -61,25 +63,29 @@ class AutoloaderMaster extends MasterCore
         $lastbuilddev = $lastbuildprod =  "N/A";
 
         if (!empty($dev))
-            $lastbuilddev = $dev->{"iumioFramework\\Core\\Base\\Dev"}[1] ?? "N/A";
+            $lastbuilddev = $dev->{"iumioFramework\\Core\\Requirement\\Environment\\DevEnvironment"}[1] ?? "N/A";
         if (!empty($prod))
-            $lastbuildprod = $dev->{"iumioFramework\\Core\\Base\\Prod"}[1] ?? "N/A";
+            $lastbuildprod = $dev->{"iumioFramework\\Core\\Requirement\\Environment\\ProdEnvironment"}[1] ?? "N/A";
 
+        $devf = array();
+        $prodf = array();
         foreach ($dev as $one => $value) {
-            if (strpos($value, "/apps/") !== false) {
+            if (strpos($value[0], "/apps/") !== false) {
                 $appsclass++;
             }
-            preg_match($masterregex, $value, $matches);
+            preg_match($masterregex, $value[0], $matches);
             if (!empty($matches)) {
                 $appsmaster++;
             }
             $ccdev++;
+            array_push($devf, $value[0]);
         }
-        foreach ($prod as $one) {
+        foreach ($prod as $one => $value) {
             $ccprod++;
+            array_push($prodf, $value[0]);
         }
 
-        $ndev = (array)$dev;
+        $ndev = (array)$devf;
         $ndev = array_values($ndev);
         $ndev = array_unique($ndev);
         $ufile = count($ndev);
@@ -91,6 +97,7 @@ class AutoloaderMaster extends MasterCore
 
     /** Get the statistics for engine autoloader
      * @return int JSON response autoloader statistics
+     * @throws Server500
      */
     public function getStatisticsActivity():Renderer
     {
@@ -99,9 +106,11 @@ class AutoloaderMaster extends MasterCore
 
     /** clear autoloader classmap
      * @param $env string Environement name
-     * @return int JSON response
+     * @return Renderer JSON response
+     * @throws Server500
+     * @throws \Exception
      */
-    public function clearActivity(string $env):int
+    public function clearActivity(string $env):Renderer
     {
         // DEV is not allowed for clearing the classmap beacause the Graphic Manager will be broken
         if (in_array($env, array("prod"))) {
@@ -119,6 +128,7 @@ class AutoloaderMaster extends MasterCore
      * @param string $env Environement name
      * @return int If action is a success
      * @throws Server500 If environement name does not exist
+     * @throws \Exception
      */
     final public function clearClassMap(string $env):int
     {
@@ -141,7 +151,8 @@ class AutoloaderMaster extends MasterCore
 
     /** Build autoloader classmap to retrive the correct file class
      * @param $env string Environement name
-     * @return int JSON response
+     * @return Renderer JSON response
+     * @throws Server500
      */
     public function buildActivity(string $env):Renderer
     {

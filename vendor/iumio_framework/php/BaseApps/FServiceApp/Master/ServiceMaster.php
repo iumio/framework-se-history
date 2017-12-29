@@ -13,6 +13,7 @@
 
 namespace FServiceApp\Masters;
 
+use iumioFramework\Exception\Server\Server500;
 use iumioFramework\Masters\MasterCore;
 use iumioFramework\Base\Renderer\Renderer;
 
@@ -29,6 +30,7 @@ class ServiceMaster extends MasterCore
 {
     /**
      * Get current app
+     * @throws Server500
      */
     public function getCAppActivity()
     {

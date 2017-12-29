@@ -25,7 +25,7 @@
                                 <h4 class="title">Services statistics</h4>
                                 <p class="category">Statistics</p>
                             </div>
-                            <div class="content dashboardStats" attr-href="{route name='iumio_manager_dashboard_get_statistics'}">
+                            <div class="content dashboardStats" attr-href="{nocache}{route name='iumio_manager_dashboard_get_statistics'}{/nocache}">
                                 <ul>
                                     <li class="iumiohidden">Apps  : <span class="dashb-app">0</span> </li>
                                     <li class="iumiohidden">Apps enabled : <span class="dashb-appena">0</span></li>
@@ -53,7 +53,7 @@
                             <div class="content">
                                 <div class="row center-block text-center manager-options">
                                     <div class="col-md-12">
-                                        <a class="btn-default btn createservice"  attr-href="{route name='iumio_manager_services_manager_create_service'}">Create a service</a>
+                                        <a class="btn-default btn createservice"  attr-href="{nocache}{route name='iumio_manager_services_manager_create_service'}{/nocache}">Create a service</a>
                                     </div>
                                 </div>
                             </div>
@@ -74,7 +74,7 @@
                                     <th>Edit</th>
                                     <th>Delete</th>
                                     </thead>
-                                    <tbody class="serviceslist" attr-href="{route name='iumio_manager_services_manager_get_all'}">
+                                    <tbody class="serviceslist" attr-href="{nocache}{route name='iumio_manager_services_manager_get_all'}{/nocache}">
                                     <!--<tr>
                                         <td>0</td>
                                         <td>DakotaRice</td>

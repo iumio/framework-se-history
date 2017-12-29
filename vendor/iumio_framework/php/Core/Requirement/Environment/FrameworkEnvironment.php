@@ -41,6 +41,8 @@ class FrameworkEnvironment
             "WEB_LIBS", "ROOT_WEB_LIBS", "ROOT_WEB_COMPONENTS",
             "WEB_FRAMEWORK", "WEB_COMPONENTS", "ROOT_APPS", "OVERRIDES"];
 
+    public static $env_file = "index.php";
+
     /**
      * Define all environment constants
      * @param string $env Environmment
@@ -110,10 +112,9 @@ class FrameworkEnvironment
      */
     public static function getFileEnv(string $env):string
     {
-        if ($env == "DEV") {
-            return ("Dev.php");
-        } elseif ($env == "PROD") {
-            return ("Prod.php");
+        $env = strtolower($env);
+        if (in_array($env, array("dev", "prod"))) {
+            return (self::$env_file);
         } else {
             throw new \Exception("Environment Error : Environment $env doesn't exist");
         }

@@ -274,7 +274,10 @@ class FileListener implements FileInterface
     public function close():int
     {
         if ($this->file != null) {
-            $rs = fclose($this->file);
+            $rs = 1;
+            if (is_resource($this->file)) {
+                $rs = fclose($this->file);
+            }
             $this->perm = $this->filepath = $this->file = null;
             return ($rs);
         }

@@ -16,6 +16,12 @@
 $(document).ready(function () {
 
     /**
+     * Check a task is prior than all
+     * @type {number} Priority value (0 for none, 1 for high)
+     */
+    var priorTask = 0;
+
+    /**
      * Check if string does not contain any specials characters
      * @param str String to analyse
      * @returns {boolean} If string is valid
@@ -80,8 +86,8 @@ $(document).ready(function () {
     var operationError = function (data) {
         var selecttorModal = $("#modalManager");
         selecttorModal.find(".modal-body").html("<h4 class='text-center'>An error was detected</h4>");
-        if (typeof data["responseJSON"] !== "undefined" && typeof data["msg"] !== "undefined")
-            selecttorModal.find(".modal-body").append("<h5 class='text-center' style='color: red'><em>"+data["responseJSON"]["msg"]+"</em></h5>");
+        if (typeof data["responseJSON"] !== "undefined" || typeof data["msg"] !== "undefined")
+            selecttorModal.find(".modal-body").append("<h5 class='text-center' style='color: red'><em>"+ ((typeof data["msg"] !== "undefined")? data["msg"] : data["responseJSON"]["msg"])+"</em></h5>");
         selecttorModal.find(".btn-close").html("Close");
         selecttorModal.find(".btn-valid").hide();
     };
@@ -658,13 +664,14 @@ $(document).ready(function () {
             enabled = "no";
 
         selecttorModal.find(".onealert").hide();
-
+        priorTask = 1;
         $.ajax({
             url : href,
             type : 'POST',
             dataType : 'json',
             data : {"name" : name, "template" : template, "enabled" : enabled, "prefix" : prefix},
             success : function(data){
+                priorTask = 0;
                 if (data['code'] === 200)
                 {
                     getAppListSimple();
@@ -674,9 +681,10 @@ $(document).ready(function () {
                         operationError();
                 }
                 else
-                    operationError();
+                    operationError(data);
             },
             error : function (data) {
+                priorTask = 0;
                 operationError(data);
             }
         })
@@ -1454,6 +1462,7 @@ $(document).ready(function () {
      * @param url Url to remove app
      */
     var removeApp = function (url) {
+        priorTask = 1;
 
         $.ajax({
             url : url,
@@ -1461,6 +1470,7 @@ $(document).ready(function () {
             dataType : 'json',
             success : function(data){
                 var d = data;
+                priorTask = 0;
                 if (d['code'] === 200)
                 {
                     if (d['msg'] === "RELOAD")
@@ -1490,6 +1500,7 @@ $(document).ready(function () {
                     operationError();
             },
             error : function (data) {
+                priorTask = 0;
                 operationError(data);
             }
         })
@@ -2971,6 +2982,9 @@ $(document).ready(function () {
 
 
     setInterval(function () {
+        if (priorTask === 1) {
+            return (false);
+        }
         if (noapp === false)
         {
             getLogs();

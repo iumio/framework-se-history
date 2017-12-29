@@ -27,7 +27,7 @@
                                 <div class="content">
                                     <div class="row center-block text-center manager-options">
                                         <div class="col-md-12">
-                                            <a class="btn-default btn createdatabaseconfig"  attr-href="{route name='iumio_manager_databases_manager_create'}">Add new database</a>
+                                            <a class="btn-default btn createdatabaseconfig"  attr-href="{nocache}{route name='iumio_manager_databases_manager_create'}{/nocache}">Add new database</a>
                                         </div>
 
                                     </div>
@@ -50,7 +50,7 @@
                                     <th>Edit</th>
                                     <th>Delete</th>
                                     </thead>
-                                    <tbody class="databaseslist" attr-href="{route name='iumio_manager_databases_manager_get_all'}">
+                                    <tbody class="databaseslist" attr-href="{nocache}{route name='iumio_manager_databases_manager_get_all'}{/nocache}">
 
                                     </tbody>
                                     </table>

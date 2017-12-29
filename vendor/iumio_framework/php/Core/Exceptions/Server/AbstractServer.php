@@ -54,6 +54,7 @@ abstract class AbstractServer extends \Exception implements ServerInterface
      * AbstractServer constructor.
      * @param ArrayObject $component Error elements
      * @param string $header_message Header message
+     * @throws \Exception
      */
     public function __construct(ArrayObject $component, string $header_message)
     {
@@ -95,7 +96,6 @@ abstract class AbstractServer extends \Exception implements ServerInterface
 
         if ($this->inlog) {
             $this->writeFileError();
-            //$this->writeJsonError();
         }
         $this->display($this->code, $header_message);
     }

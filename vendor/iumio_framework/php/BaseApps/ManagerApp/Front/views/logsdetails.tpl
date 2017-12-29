@@ -2,6 +2,7 @@
 {block name="principal"}
     <div class="wrapper">
         {include file='partials/sidebar.tpl'}
+        {nocache}
     <div class="main-panel">
         <nav class="navbar navbar-default navbar-fixed {if $details['code'] == 500}navbar-ct-red{elseif $details['code'] == 200}navbar-ct-green{else}navbar-ct-orange{/if}">
             <div class="container-fluid">
@@ -113,5 +114,6 @@
             {include file='partials/footer.tpl'}
 
         </div>
+        {/nocache}
     </div>
 {/block}

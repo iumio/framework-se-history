@@ -16,6 +16,7 @@ namespace ManagerApp\Masters;
 use iumioFramework\Base\Renderer\Renderer;
 use iumioFramework\Core\Additionnal\Server\ServerManager;
 use iumioFramework\Core\Additionnal\Zip\ZipEngine;
+use iumioFramework\Core\Requirement\EngineAutoloader;
 use iumioFramework\Exception\Server\Server500;
 use iumioFramework\Masters\MasterCore;
 use iumioFramework\Core\Base\Json\JsonListener as JL;
@@ -170,7 +171,10 @@ class AppsMaster extends MasterCore
 
     /** remove one app
      * @param string $appname App name
-     * @return int
+     * @return Renderer Renderer value
+     * @throws Server500
+     * @throws \Exception
+     *
      */
     public function removeActivity(string $appname):Renderer
     {
@@ -195,6 +199,7 @@ class AppsMaster extends MasterCore
         ServerManager::delete(ROOT."/apps/$appname", "directory");
         $assets = $this->getMaster("Assets");
         $assets->clear($appname, "all");
+        EngineAutoloader::buildClassMap(strtolower(IUMIO_ENV));
         if (strlen($file) < 3) {
             JL::put(CONFIG_DIR."core/framework.config.json", "");
             return ((new Renderer())->jsonRenderer(array("code" => 200, "msg" => "RELOAD")));
@@ -260,13 +265,16 @@ class AppsMaster extends MasterCore
 
     /**
      * import one app
-     * @return int
+     * @return Renderer
      * @throws Server500
      * @throws \Exception
      */
     public function importActivity():Renderer
     {
-        $sourcePath = $_FILES['file']['tmp_name'];       // Storing source path of the file in a variable
+        $sourcePath = $_FILES['file']['tmp_name'];
+        if ("zip" != pathinfo($_FILES['file']['name'], PATHINFO_EXTENSION)) {
+            return ((new Renderer())->jsonRenderer(array("code" => 500, "msg" => "Your package must be a zip package")));
+        }
         $date = new \DateTime();
         $datex = $date->format('ymdhis').rand(0, 34);
         @ServerManager::create(BIN.'import/', 'directory');
@@ -292,6 +300,13 @@ class AppsMaster extends MasterCore
                     $lastapp++;
                 }
 
+
+                ServerManager::copy(BIN.'import/'.$datex, ROOT_APPS.$appname, 'directory');
+                ServerManager::delete(ROOT_APPS.$appname.'/config.json', 'file');
+                ServerManager::delete(BIN.'import/'.$datex, 'directory');
+                $zip->close();
+                ServerManager::delete(BIN.'import/'.$datex.'.zip', 'file');
+
                 $fa->$lastapp = new \stdClass();
                 $fa->$lastapp->name = $appname;
                 $fa->$lastapp->enabled = "no";
@@ -301,15 +316,11 @@ class AppsMaster extends MasterCore
                 $fa->$lastapp->creation = $ndate;
                 $fa->$lastapp->update = $ndate;
                 $fa = json_encode($fa, JSON_PRETTY_PRINT);
-                file_put_contents(ROOT."/elements/config_files/core/apps.json", $fa);
+                JL::put(ROOT."/elements/config_files/core/apps.json", $fa);
 
-                ServerManager::create(ROOT_APPS.$appname, 'directory');
-                ServerManager::copy(BIN.'import/'.$datex, ROOT_APPS.$appname, 'directory');
-                echo "OFF";
-                ServerManager::delete(ROOT_APPS.$appname.'/config.json', 'file');
-                ServerManager::delete(BIN.'import/'.$datex, 'directory');
-                $zip->close();
-                ServerManager::delete(BIN.'import/'.$datex.'.zip', 'file');
+                JL::close(ROOT."/elements/config_files/core/apps.json");
+
+                EngineAutoloader::buildClassMap(strtolower(IUMIO_ENV), true);
 
                 return ((new Renderer())->jsonRenderer(array("code" => 200, "msg" => "OK", "ext" =>
                     "The application ".$appname. " is installed.")));
@@ -325,6 +336,8 @@ class AppsMaster extends MasterCore
 
     /** Create one app
      * @return Renderer JSON render
+     * @throws Server500
+     * @throws \Exception
      */
     public function createActivity():Renderer
     {
@@ -376,7 +389,7 @@ class AppsMaster extends MasterCore
         rename($napp."/Master/DefaultMaster.php.local", $napp."/Master/DefaultMaster.php");
 
         // REGISTER TO APP CORE
-        $f = json_decode(file_get_contents(ROOT."/elements/config_files/core/apps.json"));
+        $f = (JL::open(ROOT."/elements/config_files/core/apps.json"));
         $lastapp = 0;
         foreach ($f as $one => $val) {
             $lastapp++;
@@ -391,7 +404,7 @@ class AppsMaster extends MasterCore
         $f->$lastapp->creation = $ndate;
         $f->$lastapp->update = $ndate;
         $f = json_encode($f, JSON_PRETTY_PRINT);
-        file_put_contents(ROOT."/elements/config_files/core/apps.json", $f);
+        JL::put(ROOT."/elements/config_files/core/apps.json", $f);
         if ($template == "yes") {
             $assets = $this->getMaster("Assets");
             $assets->publish($name, "dev");

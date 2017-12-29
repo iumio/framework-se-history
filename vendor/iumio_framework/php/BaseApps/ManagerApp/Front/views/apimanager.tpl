@@ -52,7 +52,7 @@
                             <div class="content">
                                 <div class="row center-block text-center manager-options">
                                     <div class="col-md-12">
-                                        <a class="btn-default btn rebuildjs" attr-href="{route name='iumio_manager_routing_manager_rebuild_js'}">Rebuild JS Routing</a>
+                                        <a class="btn-default btn rebuildjs" attr-href="{nocache}{route name='iumio_manager_routing_manager_rebuild_js'}{/nocache}">Rebuild JS Routing</a>
                                     </div>
 
                                 </div>
@@ -74,7 +74,7 @@
                                     <th>View</th>
                                     <th>Delete</th>
                                     </thead>
-                                    <tbody class="routinglist" attr-href="{route name='iumio_manager_routing_manager_get_all'}">
+                                    <tbody class="routinglist" attr-href="{nocache}{route name='iumio_manager_routing_manager_get_all'}{/nocache}">
                                     <!--<tr>
                                         <td>0</td>
                                         <td>DakotaRice</td>

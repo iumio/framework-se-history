@@ -25,7 +25,7 @@
                                 <h4 class="title">Logs events statistics for Dev environment</h4>
                                 <p class="category">Statistics</p>
                             </div>
-                            <div class="content dashboardStats" attr-href="{route name='iumio_manager_dashboard_get_statistics'}">
+                            <div class="content dashboardStats" attr-href="{nocache}{route name='iumio_manager_dashboard_get_statistics'}{/nocache}">
                                 <ul>
                                     <li class="iumiohidden">Apps  : <span class="dashb-app">0</span> </li>
                                     <li class="iumiohidden">Apps enabled : <span class="dashb-appena">0</span></li>
@@ -48,7 +48,7 @@
                                 <h4 class="title">Logs events statistics for Prod environment</h4>
                                 <p class="category">Statistics</p>
                             </div>
-                            <div class="content dashboardStats2" attr-href="{route name='iumio_manager_dashboard_get_statistics'}">
+                            <div class="content dashboardStats2" attr-href="{nocache}{route name='iumio_manager_dashboard_get_statistics'}{/nocache}">
                                 <ul>
                                     <li class="iumiohidden">Apps  : <span class="dashb-app">0</span> </li>
                                     <li class="iumiohidden">Apps enabled : <span class="dashb-appena">0</span></li>
@@ -73,10 +73,10 @@
                             <div class="content">
                                 <div class="row center-block text-center manager-options">
                                     <div class="col-md-6">
-                                        <a class="btn-default btn clearlogs"  attr-href="{route name='iumio_manager_logs_manager_clear' params=['env' => "dev"]}" attr-env="dev">Clear logs - dev</a>
+                                        <a class="btn-default btn clearlogs"  attr-href="{nocache}{route name='iumio_manager_logs_manager_clear' params=['env' => "dev"]}{/nocache}" attr-env="dev">Clear logs - dev</a>
                                     </div>
                                     <div class="col-md-6">
-                                        <a class="btn-default btn clearlogs"  attr-href="{route name='iumio_manager_logs_manager_clear' params=['env' => "prod"]}" attr-env="prod">Clear logs - prod</a>
+                                        <a class="btn-default btn clearlogs"  attr-href="{nocache}{route name='iumio_manager_logs_manager_clear' params=['env' => "prod"]}{/nocache}" attr-env="prod">Clear logs - prod</a>
                                     </div>
                                 </div>
                             </div>
@@ -97,7 +97,7 @@
                                     <th>IP</th>
                                     <th>Method</th>
                                     </thead>
-                                    <tbody class="logslist" attr-href="{route name='iumio_manager_logs_manager_get_all' params=['env' => "dev"]}">
+                                    <tbody class="logslist" attr-href="{nocache}{route name='iumio_manager_logs_manager_get_all' params=['env' => "dev"]}{/nocache}">
                                     <!--<tr>
                                         <td>0</td>
                                         <td>DakotaRice</td>
@@ -140,7 +140,7 @@
                                     <th>IP</th>
                                     <th>Method</th>
                                     </thead>
-                                    <tbody class="logslist2" attr-href="{route name='iumio_manager_logs_manager_get_all' params=['env' => "prod"]}">
+                                    <tbody class="logslist2" attr-href="{nocache}{route name='iumio_manager_logs_manager_get_all' params=['env' => "prod"]}{/nocache}">
                                     <!--<tr>
                                         <td>0</td>
                                         <td>DakotaRice</td>

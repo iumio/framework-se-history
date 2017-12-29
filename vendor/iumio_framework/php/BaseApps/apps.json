@@ -6,7 +6,7 @@
     "base_url":"_manager",
     "status":"on",
     "status_dev":"on",
-    "status_prod":"off"
+    "status_prod":"on"
   },
   "1":
   {

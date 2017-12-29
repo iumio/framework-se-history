@@ -29,22 +29,22 @@
                                 <div class="content">
                                     <div class="row center-block text-center manager-options">
                                         <div class="col-md-4">
-                                            <a class="btn-default btn publishallassets"  attr-href="{route name='iumio_manager_assets_manager_publish' params=["appname" => "_all", "env" => "all"] } ">Publish all</a>
+                                            <a class="btn-default btn publishallassets"  attr-href="{nocache}{route name='iumio_manager_assets_manager_publish' params=["appname" => "_all", "env" => "all"] } {/nocache}">Publish all</a>
                                         </div>
                                         <div class="col-md-4">
-                                            <a class="btn-default btn publishalldevassets"  attr-href="{route name='iumio_manager_assets_manager_publish' params=["appname" => "_all", "env" => "dev"] }">Publish all dev</a>
+                                            <a class="btn-default btn publishalldevassets"  attr-href="{nocache}{route name='iumio_manager_assets_manager_publish' params=["appname" => "_all", "env" => "dev"] }{/nocache}">Publish all dev</a>
                                         </div>
                                         <div class="col-md-4">
-                                            <a class="btn-default btn publishallprodassets"  attr-href="{route name='iumio_manager_assets_manager_publish' params=["appname" => "_all", "env" => "prod"] }">Publish all prod</a>
+                                            <a class="btn-default btn publishallprodassets"  attr-href="{nocache}{route name='iumio_manager_assets_manager_publish' params=["appname" => "_all", "env" => "prod"] }{/nocache}">Publish all prod</a>
                                         </div>
                                         <div class="col-md-4">
-                                            <a class="btn-default btn clearallassets"  attr-href="{route name='iumio_manager_assets_manager_clear' params=["appname" => "_all", "env" => "all"] }">Clear all</a>
+                                            <a class="btn-default btn clearallassets"  attr-href="{nocache}{route name='iumio_manager_assets_manager_clear' params=["appname" => "_all", "env" => "all"] }{/nocache}">Clear all</a>
                                         </div>
                                         <div class="col-md-4">
-                                            <a class="btn-default btn clearalldevassets"  attr-href="{route name='iumio_manager_assets_manager_clear' params=["appname" => "_all", "env" => "dev"] }">Clear all dev</a>
+                                            <a class="btn-default btn clearalldevassets"  attr-href="{nocache}{route name='iumio_manager_assets_manager_clear' params=["appname" => "_all", "env" => "dev"] }{/nocache}">Clear all dev</a>
                                         </div>
                                         <div class="col-md-4">
-                                            <a class="btn-default btn clearallprodassets"  attr-href="{route name='iumio_manager_assets_manager_clear' params=["appname" => "_all", "env" => "prod"] }">Clear all prod</a>
+                                            <a class="btn-default btn clearallprodassets"  attr-href="{nocache}{route name='iumio_manager_assets_manager_clear' params=["appname" => "_all", "env" => "prod"] }{/nocache}">Clear all prod</a>
                                         </div>
                                     </div>
                             </div>
@@ -68,7 +68,7 @@
                                         <th>Status Prod</th>
                                         <th>Actions</th>
                                         </thead>
-                                        <tbody class="getAllAssets" attr-href="{route name='iumio_manager_assets_manager_get_all'}">
+                                        <tbody class="getAllAssets" attr-href="{nocache}{route name='iumio_manager_assets_manager_get_all'}{/nocache}">
 
                                         </tbody>
                                     </table>

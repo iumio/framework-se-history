@@ -180,15 +180,13 @@ class MasterCore extends GlobalCoreService
      * @param string $app_called App name
      * @param bool $component Is a application component
      * @return string|NULL The generated route
-     * @throws Server404|Server500
+     * @throws Server500
+     * @throws \Exception
      */
 
-    final public function generateRoute(
-        string $routename,
-        array $parameters = null,
-        string $app_called = null,
-        bool $component = false
-    ):string {
+    final public function generateRoute(string $routename, array $parameters = null, string $app_called = null,
+        bool $component = false) :string {
+
         $app = (($app_called != null)? $app_called : APP_CALL);
 
         $file = JL::open(CONFIG_DIR."core/apps.json");

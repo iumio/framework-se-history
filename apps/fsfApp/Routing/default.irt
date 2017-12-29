@@ -1,0 +1,11 @@
+route:
+  name : default_start_fsfApp
+  path : /index
+  activity : Default%showIndex
+endroute
+
+route:
+  name : default_test_parameter_fsfApp
+  path : /index/{hi}
+  activity : Default%index
+endroute

@@ -1,0 +1,15 @@
+{
+    "name": "MAApp",
+    "prefix": "dc",
+    "class": "\\MAApp\\MAApp",
+    "creation": {
+        "date": "2017-12-29 09:46:04.597303",
+        "timezone_type": 3,
+        "timezone": "UTC"
+    },
+    "update": {
+        "date": "2017-12-29 09:46:04.597303",
+        "timezone_type": 3,
+        "timezone": "UTC"
+    }
+}

@@ -33,7 +33,7 @@
                                     <th>Denied hosts</th>
                                     <th>Edit</th>
                                     </thead>
-                                    <tbody class="hostslist" attr-href="{route name='iumio_manager_hosts_manager_get_all'}">
+                                    <tbody class="hostslist" attr-href="{nocache}{route name='iumio_manager_hosts_manager_get_all'}{/nocache}">
 
                                     </tbody>
                                     </table>

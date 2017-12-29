@@ -53,18 +53,16 @@ must have <strong>READ + WRITE</strong> permissions",
 subdirectories file must have <strong>READ + WRITE + EXECUTION</strong> permissions",
             "p" => "RWX", "path" => ELEMS."cache/"),
         array("s" =>
-            "File /web/Dev.php file must be <strong>EXECUTION</strong> permissions",
-            "p" => "X", "path" => ROOT_WEB."Dev.php"),
+            "File /web/index.php file must have <strong>EXECUTION</strong> permissions",
+            "p" => "R", "path" => ROOT_WEB."index.php"),
         array("s" =>
-            "File /web/Prod.php must have <strong>EXECUTION</strong> permissions",
-            "p" => "X", "path" => ROOT_WEB."Prod.php"),
-        array("s" =>
-            "Directory /web/setup must be <strong>removed</strong>",
+            "Directory /web/setup must have <strong>removed</strong>",
             "p" => "D", "path" => ROOT_WEB."setup/"),
     );
 
     /**
      * Going to deployer manager
+     * @throws \Exception
      */
     public function deployerActivity()
     {
@@ -76,6 +74,7 @@ subdirectories file must have <strong>READ + WRITE + EXECUTION</strong> permissi
 
     /**
      * Check if the requirements are correct
+     * @throws Server500
      */
     public function getRequirementsActivity()
     {
@@ -156,7 +155,8 @@ subdirectories file must have <strong>READ + WRITE + EXECUTION</strong> permissi
                     }
                     break;
                 default:
-                    throw new Server500(new \ArrayObject(array("explain" => "Undefined permissions ".$this->requirements[$i]["p"])));
+                    throw new Server500(new \ArrayObject(array("explain" => "Undefined permissions ".
+                        $this->requirements[$i]["p"])));
                     break;
             }
         }
@@ -167,6 +167,7 @@ subdirectories file must have <strong>READ + WRITE + EXECUTION</strong> permissi
 
     /**
      * Switch to dev environment
+     * @throws Server500
      */
     public function switchActivity()
     {
@@ -190,6 +191,7 @@ subdirectories file must have <strong>READ + WRITE + EXECUTION</strong> permissi
 
     /**
      * Deploy to prod environment
+     * @throws Server500
      */
     public function deployActivity()
     {

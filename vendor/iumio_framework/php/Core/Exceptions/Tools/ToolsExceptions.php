@@ -46,16 +46,19 @@ class ToolsExceptions
 
         foreach ($logs_dev as $one) {
             if ($one['uidie'] == $uidie) {
+                $fdev->close();
                 return (true);
             }
         }
 
         foreach ($logs_prod as $one) {
             if ($one['uidie'] == $uidie) {
+                $fprod->close();
                 return (true);
             }
         }
-
+        $fdev->close();
+        $fprod->close();
         return (false);
     }
 
@@ -134,6 +137,7 @@ class ToolsExceptions
                     continue;
                 }
                 else {
+                    $f->close();
                     if (isset($na[12])) {
                         return (
                             array(
@@ -162,7 +166,6 @@ class ToolsExceptions
                     }
                 }
             }
-
             if (isset($na[12])) {
                 array_push($a,
                     array(
@@ -192,7 +195,7 @@ class ToolsExceptions
 
 
         }
-
+        $f->close();
         return ($a);
     }
 

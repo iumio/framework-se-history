@@ -34,7 +34,7 @@
                                         <th>Console</th>
                                         <th>Edit</th>
                                         </thead>
-                                        <tbody class="smartyconfigs" attr-href="{route name='iumio_manager_smarty_manager_get_all'}">
+                                        <tbody class="smartyconfigs" attr-href="{nocache}{route name='iumio_manager_smarty_manager_get_all'}{/nocache}">
 
                                         </tbody>
                                     </table>

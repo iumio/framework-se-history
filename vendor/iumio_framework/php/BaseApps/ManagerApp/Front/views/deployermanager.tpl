@@ -29,7 +29,7 @@
                                     <div class="row center-block text-center manager-options">
                                         <div class="col-md-12">
                                             <p class="text-center text-deploy-iumio"></p>
-                                            <a class="btn-default btn deployprod btn-success" style="width: 170px!important;" attr-href="{route name='iumio_manager_deployer_manager_process_deploy'}">Deploy to production</a>
+                                            <a class="btn-default btn deployprod btn-success" style="width: 170px!important;" attr-href="{nocache}{route name='iumio_manager_deployer_manager_process_deploy'}{/nocache}">Deploy to production</a>
                                         </div>
 
                                     </div>
@@ -45,7 +45,7 @@
                                 <div class="content iumio-overflow-x">
                                     <div class="table-full-width">
                                         <table class="table">
-                                            <tbody class="requirements-deployment" attr-current-default-env="{$default_env}" attr-href="{route name='iumio_manager_deployer_manager_requirements_deploy'}">
+                                            <tbody class="requirements-deployment" attr-current-default-env="{nocache}{$default_env}{/nocache}" attr-href="{nocache}{route name='iumio_manager_deployer_manager_requirements_deploy'}{/nocache}">
                                             </tbody>
                                         </table>
                                     </div>
@@ -82,7 +82,7 @@
                                 <div class="content">
                                     <div class="row center-block text-center manager-options">
                                         <div class="col-md-12">
-                                            <a class="btn-default btn switchdeploy btn-success" attr-href="{route name='iumio_manager_deployer_manager_switch_deploy'}">Switch to dev</a>
+                                            <a class="btn-default btn switchdeploy btn-success" attr-href="{nocache}{route name='iumio_manager_deployer_manager_switch_deploy'}{/nocache}">Switch to dev</a>
                                         </div>
 
                                     </div>

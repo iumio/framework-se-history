@@ -80,17 +80,81 @@
         }
     },
     "5": {
-        "name": "MAApp",
+        "name": "fsfApp",
         "enabled": "no",
-        "prefix": "dc",
-        "class": "\\MAApp\\MAApp",
+        "prefix": "fezfz",
+        "class": "\\fsfApp\\fsfApp",
         "creation": {
-            "date": "2017-12-29 10:00:07.449646",
+            "date": "2017-12-29 17:47:38.372707",
             "timezone_type": 3,
             "timezone": "UTC"
         },
         "update": {
-            "date": "2017-12-29 10:00:07.449646",
+            "date": "2017-12-29 17:47:38.372707",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        }
+    },
+    "6": {
+        "name": "dezdApp",
+        "enabled": "no",
+        "prefix": "fezfz",
+        "class": "\\dezdApp\\dezdApp",
+        "creation": {
+            "date": "2017-12-29 17:47:47.695172",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "update": {
+            "date": "2017-12-29 17:47:47.695172",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        }
+    },
+    "7": {
+        "name": "xzaApp",
+        "enabled": "yes",
+        "prefix": "dadf",
+        "class": "\\xzaApp\\xzaApp",
+        "creation": {
+            "date": "2017-12-29 17:47:54.337808",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "update": {
+            "date": "2017-12-29 17:47:54.337808",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        }
+    },
+    "8": {
+        "name": "deadApp",
+        "enabled": "yes",
+        "prefix": "dezdz",
+        "class": "\\deadApp\\deadApp",
+        "creation": {
+            "date": "2017-12-29 17:48:03.676119",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "update": {
+            "date": "2017-12-29 17:48:03.676119",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        }
+    },
+    "9": {
+        "name": "dataApp",
+        "enabled": "yes",
+        "prefix": "data",
+        "class": "\\dataApp\\dataApp",
+        "creation": {
+            "date": "2017-12-29 17:51:28.500803",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "update": {
+            "date": "2017-12-29 17:51:28.500803",
             "timezone_type": 3,
             "timezone": "UTC"
         }

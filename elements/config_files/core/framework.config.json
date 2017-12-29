@@ -9,5 +9,8 @@
     "location": "\/Applications\/MAMP\/htdocs\/iumio-framework",
     "os": "Darwin",
     "default_env": "dev",
-    "api_auth_for": ["HelloApp",  "DocApp"]
+    "api_auth_for": [
+        "HelloApp",
+        "DocApp"
+    ]
 }

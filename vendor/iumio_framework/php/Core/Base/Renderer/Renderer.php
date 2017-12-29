@@ -77,17 +77,13 @@ class Renderer implements RendererInterface
 
         $viewRs = $si->fetch($view . SmartyEngineTemplate::$viewExtention);
 
-
-        $pos = strpos($viewRs, "</body>");
         $taskbar = \iumioFramework\Core\Additionnal\TaskBar\TaskBar::getTaskBar();
-
-        $viewRs = $this->strAdd($viewRs, $taskbar,   strlen($viewRs) + $pos);
-        //var_dump($pos);
-        //echo $pos;
-        //exit($pos);
+        if ($taskbar !== "#none") {
+            $pos = strpos($viewRs, "</body>");
+            $viewRs = $this->strAdd($viewRs, $taskbar, strlen($viewRs) + $pos);
+        }
         $this->display_elements = array("graphic" =>
             ($viewRs));
-        //var_dump($this->display_elements);
 
         return ($this);
     }

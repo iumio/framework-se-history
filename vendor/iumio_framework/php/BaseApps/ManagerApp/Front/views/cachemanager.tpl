@@ -26,7 +26,7 @@
                                 <div class="content">
                                     <div class="row center-block text-center manager-options">
                                         <div class="col-md-12">
-                                            <a class="btn-default btn clearcache"   attr-href="{route name='iumio_manager_cache_manager_remove_all'}">Clear all cache</a>
+                                            <a class="btn-default btn clearcache"   attr-href="{nocache}{route name='iumio_manager_cache_manager_remove_all'}{/nocache}">Clear all cache</a>
                                         </div>
 
                                     </div>
@@ -49,7 +49,7 @@
                                         <th>Status</th>
                                         <th>Clear</th>
                                         </thead>
-                                        <tbody class="getAllEnvCache" attr-href="{route name='iumio_manager_cache_manager_get_all'}">
+                                        <tbody class="getAllEnvCache" attr-href="{nocache}{route name='iumio_manager_cache_manager_get_all'}{/nocache}">
                                         </tbody>
                                     </table>
 

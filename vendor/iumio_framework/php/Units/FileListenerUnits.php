@@ -42,16 +42,6 @@ class FileListenerUnits
     }
 
     public function readByLineAssert() {
-        echo "dede";
-       //$f = new FileListener();
-        //$rs = $f->open(ROOT_LOGS.strtolower("dev").".log");
-        //$a =  array();
-        while (!$f->eachLine())
-            print_r($f->readByLine());
-
-        echo "<br>-------------------------<br>";
-        while (!$f->eachLine())
-            print_r($f->readByLine());
     }
 
     public function getLogs()

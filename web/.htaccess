@@ -13,7 +13,7 @@
 # @author  Dany Rafina <dany.rafina@iumio.com> #
 ###############################################
 
-DirectoryIndex Dev.php
+DirectoryIndex index.php
 
 <IfModule mod_negotiation.c>
     Options -MultiViews
@@ -30,16 +30,16 @@ DirectoryIndex Dev.php
     RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
 
     RewriteCond %{ENV:REDIRECT_STATUS} ^$
-    RewriteRule ^Prod\.php(/(.*)|$) %{ENV:BASE}/$2 [R=307,L]
+    RewriteRule ^index\.php(/(.*)|$) %{ENV:BASE}/$2 [R=307,L]
 
     RewriteCond %{REQUEST_FILENAME} -f
     RewriteRule .? - [L]
 
-    RewriteRule .? %{ENV:BASE}/Dev.php [L]
+    RewriteRule .? %{ENV:BASE}/index.php [L]
 </IfModule>
 
 <IfModule !mod_rewrite.c>
     <IfModule mod_alias.c>
-        RedirectMatch 302 ^/$ /Dev.php/
+        RedirectMatch 302 ^/$ /index.php/
     </IfModule>
 </IfModule>
