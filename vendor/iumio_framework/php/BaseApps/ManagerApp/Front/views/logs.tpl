@@ -86,7 +86,7 @@
                         <div class="card">
                             <div class="header">
                                 <h4 class="title">Logs list for Dev environment (<span class="iumiocountlog">0</span>)</h4>
-                                <p class="category">Referer to dev.log.json</p>
+                                <p class="category">Referer to dev.log</p>
                             </div>
                             <div class="content table-responsive table-full-width iumio-unlimited-log-display">
                                 <table class="table table-hover table-striped">
@@ -129,7 +129,7 @@
                         <div class="card">
                             <div class="header">
                                 <h4 class="title">Logs list for Prod environment (<span class="iumiocountlog2">0</span>)</h4>
-                                <p class="category">Referer to prod.log.json</p>
+                                <p class="category">Referer to prod.log</p>
                             </div>
                             <div class="content table-responsive table-full-width iumio-unlimited-log-display2">
                                 <table class="table table-hover table-striped">

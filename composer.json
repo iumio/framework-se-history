@@ -5,15 +5,15 @@
   "authors": [
     {
       "name": "Dany Rafina",
-      "email": "danyrafina@gmail.com",
+      "email": "dany.rafina@iumio.com",
       "homepage": "https://www.linkedin.com/in/dany-rafina/",
-      "role": "Founder"
+      "role": "iumio Framework Architect / iumio Components Founder "
     },
     {
       "name": "Kevin Huron",
-      "email": "khuron93@gmail.com",
+      "email": "kevin.huron@iumio.com",
       "homepage": "http://kevinhuron.fr",
-      "role": "Co-Founder"
+      "role": "iumio Framework Co-Architect / iumio Components Co-Founder"
     }
   ],
     "config" :
@@ -29,8 +29,8 @@
         "phpmailer/phpmailer": "~6.0"
     },
     "scripts": {
-        "post-install-cmd": "cp ./vendor/libs/fixes/smarty_internal_debug.php.iumio ./vendor/libs/fixes/smarty_internal_debug.php && mv ./vendor/libs/fixes/smarty_internal_debug.php ./vendor/libs/smarty/smarty/libs/sysplugins/ && mv ./vendor/libs/twbs/bootstrap/dist/ ./web/components/libs/bootstrap && mv ./vendor/libs/components/font-awesome/ ./web/components/libs/font-awesome/ &&  mv ./vendor/libs/components/jquery/ ./web/components/libs/jquery/ &&  php ./vendor/iumio_framework/php/Core/Additional/Composer/Installer.php",
-        "post-update-cmd":  "cp ./vendor/libs/fixes/smarty_internal_debug.php.iumio ./vendor/libs/fixes/smarty_internal_debug.php && mv ./vendor/libs/fixes/smarty_internal_debug.php ./vendor/libs/smarty/smarty/libs/sysplugins/ && mv ./vendor/libs/twbs/bootstrap/dist/ ./web/components/libs/bootstrap && mv ./vendor/libs/components/font-awesome/ ./web/components/libs/font-awesome/ &&  mv ./vendor/libs/components/jquery/ ./web/components/libs/jquery/ &&  php ./vendor/iumio_framework/php/Core/Additional/Composer/Installer.php"
+        "post-install-cmd": "mv ./vendor/libs/twbs/bootstrap/dist/ ./web/components/libs/bootstrap && mv ./vendor/libs/components/font-awesome/ ./web/components/libs/font-awesome/ &&  mv ./vendor/libs/components/jquery/ ./web/components/libs/jquery/ &&  php ./vendor/iumio_framework/php/Core/Additional/Composer/Installer.php",
+        "post-update-cmd":  "mv ./vendor/libs/twbs/bootstrap/dist/ ./web/components/libs/bootstrap && mv ./vendor/libs/components/font-awesome/ ./web/components/libs/font-awesome/ &&  mv ./vendor/libs/components/jquery/ ./web/components/libs/jquery/ &&  php ./vendor/iumio_framework/php/Core/Additional/Composer/Installer.php"
     }
 }
 

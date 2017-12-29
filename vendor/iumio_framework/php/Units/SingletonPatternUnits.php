@@ -4,7 +4,7 @@
  *
  *  * This is an iumio Framework component
  *  *
- *  * (c) RAFINA DANY <danyrafina@gmail.com>
+ *  * (c) RAFINA DANY <dany.rafina@iumio.com>
  *  *
  *  * iumio Framework - iumio Components
  *  *
@@ -22,7 +22,7 @@ use iumioFramework\Core\Requirement\Patterns\SingletonPattern;
  * @category Framework
  * @licence  MIT License
  * @link https://framework.iumio.com
- * @author   RAFINA Dany <danyrafina@gmail.com>
+ * @author   RAFINA Dany <dany.rafina@iumio.com>
  */
 class SingletonPatternUnits extends SingletonPattern
 {
@@ -33,6 +33,5 @@ class SingletonPatternUnits extends SingletonPattern
 
     public function test()
     {
-        //echo "TEST1";
     }
 }

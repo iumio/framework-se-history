@@ -3,7 +3,7 @@
 /*
  * This is an iumio Framework component
  *
- * (c) RAFINA DANY <danyrafina@gmail.com>
+ * (c) RAFINA DANY <dany.rafina@iumio.com>
  *
  * iumio Framework - iumio Components
  *
@@ -24,11 +24,11 @@ use PHPMailer\PHPMailer\Exception;
 /**
  * Class ViewBasePlugin
  * @package iumioFramework\Core\Additionnal\Template
- * @author RAFINA Dany <danyrafina@gmail.com>
+ * @author RAFINA Dany <dany.rafina@iumio.com>
  * @category Framework
  * @licence  MIT License
  * @link https://framework.iumio.com
- * @author   RAFINA Dany <danyrafina@gmail.com>
+ * @author   RAFINA Dany <dany.rafina@iumio.com>
  */
 
 class ViewBasePlugin
@@ -47,6 +47,7 @@ class ViewBasePlugin
     /** Get framework infos
      * @param array $params Contains name params
      * @return string Return info
+     * @throws Server500
      */
     public static function finfo(array $params):string
     {
@@ -56,6 +57,7 @@ class ViewBasePlugin
     /** Get system infos
      * @param array $params Contains name params
      * @return string Return info
+     * @throws Server500
      */
     final public static function sinfo(array $params):string
     {
@@ -172,6 +174,7 @@ class ViewBasePlugin
 
     /** Get js routing file
      * @return string return js routing file
+     * @throws \Exception
      */
     final public static function rtfile()
     {
@@ -206,7 +209,7 @@ class ViewBasePlugin
         }
 
         return ("<script type='text/javascript' src='".WEB_COMPONENTS."rt/config_files/".((IS_IUMIO_COMPONENT)?
-                "map.rt.babse.js" : "map.rt.js")."'></script>\n".
+                "map.irt.base.js" : "map.irt.js")."'></script>\n".
                 "<script type='text/javascript' src='".WEB_COMPONENTS."rt/libs/js/Rt.js' id='rt_app_referer' 
                 referer-app='".APP_CALL."' base-url='".$base.$url."'></script>");
     }
@@ -306,6 +309,7 @@ class ViewBasePlugin
      * @param array $params Contains name param
      * @return string return route url
      * @throws \iumioFramework\Exception\Server\Server404
+     * @throws \Exception
      */
     final public static function route(array $params)
     {

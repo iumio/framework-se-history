@@ -3,7 +3,7 @@
 /*
  * This is an iumio Framework component
  *
- * (c) RAFINA DANY <danyrafina@gmail.com>
+ * (c) RAFINA DANY <dany.rafina@iumio.com>
  *
  * iumio Framework - iumio Components
  *
@@ -26,7 +26,7 @@ use iumioFramework\Core\Base\Json\JsonListener as JL;
  * @category Framework
  * @licence  MIT License
  * @link https://framework.iumio.com
- * @author   RAFINA Dany <danyrafina@gmail.com>
+ * @author   RAFINA Dany <dany.rafina@iumio.com>
  */
 
 class AppsMaster extends MasterCore
@@ -235,7 +235,7 @@ class AppsMaster extends MasterCore
             ServerManager::create($dirbase, 'directory');
             ServerManager::create($dirapp, 'directory');
             ServerManager::create($dirappexp, 'directory');
-            JL::put($dirappexp."/config.json", json_encode(
+            JL::put($dirappexp."config.json", json_encode(
                 $appconfig,
                 JSON_PRETTY_PRINT
             ));
@@ -262,6 +262,7 @@ class AppsMaster extends MasterCore
      * import one app
      * @return int
      * @throws Server500
+     * @throws \Exception
      */
     public function importActivity():Renderer
     {
@@ -304,6 +305,7 @@ class AppsMaster extends MasterCore
 
                 ServerManager::create(ROOT_APPS.$appname, 'directory');
                 ServerManager::copy(BIN.'import/'.$datex, ROOT_APPS.$appname, 'directory');
+                echo "OFF";
                 ServerManager::delete(ROOT_APPS.$appname.'/config.json', 'file');
                 ServerManager::delete(BIN.'import/'.$datex, 'directory');
                 $zip->close();
@@ -363,9 +365,9 @@ class AppsMaster extends MasterCore
         rename($napp."/{appname}.php.local", $napp."/".$name.".php");
 
         // RT
-        $f = file_get_contents($napp."/Routing/default.rt");
+        $f = file_get_contents($napp."/Routing/default.irt");
         $str = str_replace("{appname}", $name, $f);
-        file_put_contents($napp."/Routing/default.rt", $str);
+        file_put_contents($napp."/Routing/default.irt", $str);
 
         // MASTER
         $f = file_get_contents($napp."/Master/DefaultMaster.php.local");

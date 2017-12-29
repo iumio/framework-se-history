@@ -3,7 +3,7 @@
 /*
  * This is an iumio Framework component
  *
- * (c) RAFINA DANY <danyrafina@gmail.com>
+ * (c) RAFINA DANY <dany.rafina@iumio.com>
  *
  * iumio Framework - iumio Components
  *
@@ -20,7 +20,7 @@ use ArrayObject;
  * @category Framework
  * @licence  MIT License
  * @link https://framework.iumio.com
- * @author   RAFINA Dany <danyrafina@gmail.com>
+ * @author   RAFINA Dany <dany.rafina@iumio.com>
  */
 
 class Server405 extends AbstractServer

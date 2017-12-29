@@ -3,7 +3,7 @@
 /*
  * This is an iumio Framework component
  *
- * (c) RAFINA DANY <danyrafina@gmail.com>
+ * (c) RAFINA DANY <dany.rafina@iumio.com>
  *
  * iumio Framework - iumio Components
  *
@@ -15,6 +15,7 @@ namespace iumioFramework\Core\Base\Debug;
 use DateTime;
 use iumioFramework\Core\Base\Debug\DebugInterface;
 use iumioFramework\Core\Base\Json\JsonListener as JL;
+use iumioFramework\Exception\Server\Server500;
 
 /**
  * Class Debug
@@ -22,7 +23,7 @@ use iumioFramework\Core\Base\Json\JsonListener as JL;
  * @category Framework
  * @licence  MIT License
  * @link https://framework.iumio.com
- * @author   RAFINA Dany <danyrafina@gmail.com>
+ * @author   RAFINA Dany <dany.rafina@iumio.com>
  */
 
 class Debug implements DebugInterface
@@ -34,6 +35,7 @@ class Debug implements DebugInterface
      * @param string $message String message
      * @param string $interface Manner to display message
      * @return bool Result
+     * @throws Server500
      */
     public static function output(string $message, string $interface = 'file'):bool
     {
@@ -96,6 +98,7 @@ class Debug implements DebugInterface
 
     /** Get debug Logs list for specific environment
      * @return array Logs list
+     * @throws Server500
      */
     public static function getLogs():array
     {

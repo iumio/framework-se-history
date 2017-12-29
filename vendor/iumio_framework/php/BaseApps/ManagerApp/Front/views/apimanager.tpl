@@ -63,7 +63,7 @@
                         <div class="card">
                             <div class="header">
                                 <h4 class="title">List of your routing files</h4>
-                                <p class="category">Referer to *.rt</p>
+                                <p class="category">Referer to *.irt</p>
                             </div>
                             <div class="content table-responsive table-full-width">
                                 <table class="table table-hover table-striped">

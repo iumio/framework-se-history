@@ -3,7 +3,7 @@
 /*
  * This is an iumio Framework component
  *
- * (c) RAFINA DANY <danyrafina@gmail.com>
+ * (c) RAFINA DANY <dany.rafina@iumio.com>
  *
  * iumio Framework - iumio Components
  *
@@ -17,6 +17,7 @@ use iumioFramework\Core\Additionnal\Server\ServerManager;
 use iumioFramework\Core\Additionnal\Template\SmartyEngineConfiguration as SmartyConfig;
 use iumioFramework\Core\Base\Json\JsonListener;
 use iumioFramework\Exception\Server\Server500;
+
 
 try {
     include_once ROOT_VENDOR_LIBS.'smarty/smarty/libs/Smarty.class.php';
@@ -32,7 +33,7 @@ try {
  * @category Framework
  * @licence  MIT License
  * @link https://framework.iumio.com
- * @author   RAFINA Dany <danyrafina@gmail.com>
+ * @author   RAFINA Dany <dany.rafina@iumio.com>
  */
 
 final class SmartyEngineTemplate
@@ -266,6 +267,7 @@ final class SmartyEngineTemplate
 
     /**
      * Register an new plugin for smarty template
+     * @throws Server500
      */
     final private function registerExtendedPlugin()
     {

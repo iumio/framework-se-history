@@ -12,11 +12,10 @@ use iumioFramework\Exception\Server\Server500;
  * Manage a session
  *
  * @author Fabien Potencier <fabien@symfony.com>
- * @author Dany Rafina <danyrafina@gmail.com>
+ * @author Dany Rafina <dany.rafina@iumio.com>
  * @category Framework
  * @licence  MIT License
  * @link https://framework.iumio.com
- * @author   RAFINA Dany <danyrafina@gmail.com>
  */
 class HttpSession implements SessionInterfaceRequest
 {

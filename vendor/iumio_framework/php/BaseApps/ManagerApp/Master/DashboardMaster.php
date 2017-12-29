@@ -3,7 +3,7 @@
 /*
  * This is an iumio Framework component
  *
- * (c) RAFINA DANY <danyrafina@gmail.com>
+ * (c) RAFINA DANY <dany.rafina@iumio.com>
  *
  * iumio Framework - iumio Components
  *
@@ -26,7 +26,7 @@ use iumioFramework\Core\Base\Json\JsonListener as JL;
  * @category Framework
  * @licence  MIT License
  * @link https://framework.iumio.com
- * @author   RAFINA Dany <danyrafina@gmail.com>
+ * @author   RAFINA Dany <dany.rafina@iumio.com>
  */
 
 class DashboardMaster extends MasterCore
@@ -49,20 +49,18 @@ class DashboardMaster extends MasterCore
     /** Get the last debug logs (limited by 10)
      * @return Renderer JSON response log list
      * @throws Server500
+     * @throws \Exception
      */
     public function getlastlogActivity():Renderer
     {
-        $last = array_values(array_reverse(AbstractServer::getLogs()));
+        $last = array_values((AbstractServer::getLogs("", 10)));
         $lastn = array();
         for ($i = 0; $i < count($last); $i++) {
-            if ($i == 10) {
-                break;
-            }
-            $last[$i]->log_url = $this->generateRoute(
+            $last[$i]['log_url'] = $this->generateRoute(
                 "iumio_manager_logs_manager_get_one",
-                array("uidie" => $last[$i]->uidie, "env" => strtolower(IUMIO_ENV))
+                array("uidie" => $last[$i]['uidie'], "env" => strtolower(IUMIO_ENV))
             );
-            $last[$i]->time =  strtotime($last[$i]->time);
+            $last[$i]['time'] =  strtotime($last[$i]['time']);
             array_push($lastn, $last[$i]);
         }
 

@@ -3,7 +3,7 @@
 /*
  * This is an iumio Framework component
  *
- * (c) RAFINA DANY <danyrafina@gmail.com>
+ * (c) RAFINA DANY <dany.rafina@iumio.com>
  *
  * iumio Framework - iumio Components
  *
@@ -15,7 +15,7 @@ namespace iumioFramework\Core\Requirement;
 /**
  * Abstract Class AppBaseModel
  * @package iumioFramework\Core\Requirement
- * @author RAFINA Dany <danyrafina@gmail.com>
+ * @author RAFINA Dany <dany.rafina@iumio.com>
  */
 
 abstract class AppBaseModel

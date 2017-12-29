@@ -3,7 +3,7 @@
 /*
  * This is an iumio Framework component
  *
- * (c) RAFINA DANY <danyrafina@gmail.com>
+ * (c) RAFINA DANY <dany.rafina@iumio.com>
  *
  * iumio Framework - iumio Components
  *
@@ -23,7 +23,7 @@ use iumioFramework\Exception\Tools\ToolsExceptions;
  * @category Framework
  * @licence  MIT License
  * @link https://framework.iumio.com
- * @author   RAFINA Dany <danyrafina@gmail.com>
+ * @author   RAFINA Dany <dany.rafina@iumio.com>
  */
 
 class Access200 extends \Exception
@@ -31,37 +31,11 @@ class Access200 extends \Exception
 
     /**
      * Access200 constructor.
+     * @throws \Exception
      */
     public function __construct()
     {
-        $this->writeJson();
-    }
-
-    /** Write exception in .json file
-     * @return int Success
-     * @deprecated
-     */
-    final private function writeJson():int
-    {
-        $debug = array();
-        $debug["uidie"] = ToolsExceptions::generateUidie();
-        $debug['time'] = (new \DateTime())->format("Y-m-d H:m:s");
-        $debug['client_ip'] = ToolsExceptions::getClientIp();
-        $debug['code'] = 200;
-        $debug['code_title'] = HttpResponse::getPhrase(200);
-        $debug['explain'] = "OK";
-        $debug['solution'] = "OK";
-        $debug['method'] = $_SERVER['REQUEST_METHOD'];
-        $debug['trace'] = $this->getTrace();
-        $debug['uri'] = $_SERVER['REQUEST_URI'];
-        $debug['referer'] = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : null;
-        $log = (array) JsonListener::open(ROOT_LOGS.strtolower(IUMIO_ENV).".log.json");
-        $c = count($log);
-        $log[$c] = $debug;
-        $log = (object) $log;
-        JsonListener::put(ROOT_LOGS.strtolower(IUMIO_ENV).".log.json",
-            json_encode($log));
-        return (1);
+        $this->writeFileError();
     }
 
     /** Write exception in .log file
@@ -70,7 +44,7 @@ class Access200 extends \Exception
      */
     final protected function writeFileError():int
     {
-        $h = (new \DateTime())->format("Y-m-d H:m:s");
+        $h = (new \DateTime())->format("Y-m-d H:i:s");
         $code = 200;
         $d1 = "[";
         $d2 = "]";

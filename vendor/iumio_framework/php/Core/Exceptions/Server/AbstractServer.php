@@ -3,7 +3,7 @@
 /*
  * This is an iumio Framework component
  *
- * (c) RAFINA DANY <danyrafina@gmail.com>
+ * (c) RAFINA DANY <dany.rafina@iumio.com>
  *
  * iumio Framework - iumio Components
  *
@@ -27,7 +27,7 @@ use iumioFramework\Masters\MasterCore;
  * @category Framework
  * @licence  MIT License
  * @link https://framework.iumio.com
- * @author   RAFINA Dany <danyrafina@gmail.com>
+ * @author   RAFINA Dany <dany.rafina@iumio.com>
  */
 abstract class AbstractServer extends \Exception implements ServerInterface
 {
@@ -61,7 +61,7 @@ abstract class AbstractServer extends \Exception implements ServerInterface
             $this->color_class_checked = $this->color_class[$this->code];
         }
 
-        $this->time = (new \DateTime())->format("Y-m-d H:m:s");
+        $this->time = (new \DateTime())->format("Y-m-d H:i:s");
         $this->uidie = ToolsExceptions::generateUidie();
         $this->client_ip = ToolsExceptions::getClientIp();
         $it = $component->getIterator();
@@ -136,44 +136,6 @@ abstract class AbstractServer extends \Exception implements ServerInterface
         $sm->assign(array("code" => $code, "message" => $message, "er_object" => $this));
 
         $sm->display($code.SmartyEngineTemplate::$viewExtention);
-    }
-
-
-
-    /** Write exception in .json file
-     * @return int Success
-     * @deprecated
-     */
-    final protected function writeJsonError():int
-    {
-            $debug = array();
-            $debug["uidie"] = $this->uidie;
-            $debug['time'] = $this->time;
-            $debug['client_ip'] = $this->client_ip;
-            $debug['code'] = $this->code;
-            $debug['code_title'] = $this->codeTitle;
-            $debug['explain'] = $this->explain;
-            $debug['solution'] = $this->solution;
-            $debug['env'] = IUMIO_ENV;
-            $debug['method'] = $_SERVER['REQUEST_METHOD'];
-            $debug['trace'] = array_slice($this->getTrace(), 0, 50);
-            $debug['uri'] = $_SERVER['REQUEST_URI'];
-
-            $debug['referer'] = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : null;
-
-            $log = (array) JL::open(ROOT_LOGS.strtolower(IUMIO_ENV).".log.json");
-            $c = count($log);
-            $log[$c] = $debug;
-            $log = (object) $log;
-            if ($this->checkFileLogExist(ROOT_LOGS.strtolower(IUMIO_ENV).".log.json") == false){
-                throw new \Exception("Cannot get log file ".strtolower(IUMIO_ENV).".log.json",
-                    500);
-            }
-            JL::put(
-                ROOT_LOGS.strtolower(IUMIO_ENV).".log.json",
-                json_encode($log, JSON_BIGINT_AS_STRING)
-            );
-            return (1);
     }
 
 
@@ -408,12 +370,14 @@ abstract class AbstractServer extends \Exception implements ServerInterface
 
     /** Get Logs list for specific environment
      * @param $env string environment name
+     * @param $end int Logs limit list
+     * @param $uidie string|null Unique Identifier of iumio Exception
      * @return array Logs list
      * @throws Server500
      * @throws \Exception
      */
-    public static function getLogs($env = ""):array
+    public static function getLogs($env = "", $end = 0, string $uidie = null):array
     {
-        return (ToolsExceptions::getLogs($env));
+        return (ToolsExceptions::getLogs($env, $end, $uidie));
     }
 }

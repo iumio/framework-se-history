@@ -4,7 +4,7 @@
  *
  *  * This is an iumio Framework component
  *  *
- *  * (c) RAFINA DANY <danyrafina@gmail.com>
+ *  * (c) RAFINA DANY <dany.rafina@iumio.com>
  *  *
  *  * iumio Framework - iumio Components
  *  *
@@ -23,7 +23,7 @@ use iumioFramework\Exception\Server\Server500;
  * @category Framework
  * @licence  MIT License
  * @link https://framework.iumio.com
- * @author   RAFINA Dany <danyrafina@gmail.com>
+ * @author   RAFINA Dany <dany.rafina@iumio.com>
  */
 
 class FileListener implements FileInterface
@@ -86,7 +86,7 @@ class FileListener implements FileInterface
      * @throws Server500 If file is not an array
      */
     public function reverse(int $break = 0):array {
-        if (!is_array($this->filepath)) {
+        if (!is_array($this->file)) {
             throw new Server500(new \ArrayObject(array("explain" =>
                 "Cannot reverse file ".$this->filepath." : is not a resource.",
                 "solution" =>

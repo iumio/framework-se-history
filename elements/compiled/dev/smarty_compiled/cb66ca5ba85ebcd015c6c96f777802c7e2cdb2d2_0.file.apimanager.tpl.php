@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.31, created on 2017-12-27 15:32:24
+/* Smarty version 3.1.31, created on 2017-12-29 10:37:38
   from "/Applications/MAMP/htdocs/iumio-framework/vendor/iumio_framework/php/BaseApps/ManagerApp/Front/views/apimanager.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.31',
-  'unifunc' => 'content_5a43aef8c117f3_19988020',
+  'unifunc' => 'content_5a460ce2ce2418_17512710',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'cb66ca5ba85ebcd015c6c96f777802c7e2cdb2d2' => 
     array (
       0 => '/Applications/MAMP/htdocs/iumio-framework/vendor/iumio_framework/php/BaseApps/ManagerApp/Front/views/apimanager.tpl',
-      1 => 1512372403,
+      1 => 1514488741,
       2 => 'file',
     ),
   ),
@@ -23,22 +23,22 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:partials/footer.tpl' => 1,
   ),
 ),false)) {
-function content_5a43aef8c117f3_19988020 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5a460ce2ce2418_17512710 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_21065381285a43aef7dffe12_54436105', "principal");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_15947256215a460ce205f163_83054144', "principal");
 $_smarty_tpl->inheritance->endChild($_smarty_tpl, 'template.tpl');
 }
 /* {block "principal"} */
-class Block_21065381285a43aef7dffe12_54436105 extends Smarty_Internal_Block
+class Block_15947256215a460ce205f163_83054144 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'principal' => 
   array (
-    0 => 'Block_21065381285a43aef7dffe12_54436105',
+    0 => 'Block_15947256215a460ce205f163_83054144',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -113,7 +113,7 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
                         <div class="card">
                             <div class="header">
                                 <h4 class="title">List of your routing files</h4>
-                                <p class="category">Referer to *.rt</p>
+                                <p class="category">Referer to *.irt</p>
                             </div>
                             <div class="content table-responsive table-full-width">
                                 <table class="table table-hover table-striped">

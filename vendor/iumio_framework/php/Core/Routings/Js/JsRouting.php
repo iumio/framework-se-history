@@ -3,7 +3,7 @@
 /*
  * This is an iumio Framework component
  *
- * (c) RAFINA DANY <danyrafina@gmail.com>
+ * (c) RAFINA DANY <dany.rafina@iumio.com>
  *
  * iumio Framework - iumio Components
  *
@@ -22,12 +22,12 @@ use iumioFramework\Exception\Server\Server500;
  * @category Framework
  * @licence  MIT License
  * @link https://framework.iumio.com
- * @author   RAFINA Dany <danyrafina@gmail.com>
+ * @author   RAFINA Dany <dany.rafina@iumio.com>
  */
 class JsRouting implements Listener
 {
-    protected $rt_path = ROOT_WEB_COMPONENTS."rt/config_files/map.rt.js";
-    protected $rt_path_base = ROOT_WEB_COMPONENTS."rt/config_files/map.rt.base.js";
+    protected $rt_path = ROOT_WEB_COMPONENTS."rt/config_files/map.irt.js";
+    protected $rt_path_base = ROOT_WEB_COMPONENTS."rt/config_files/map.irt.base.js";
     protected $apps_path = CONFIG_DIR."core/apps.json";
     protected $baseapps_path = BASE_APPS."apps.json";
     protected $is_base;
@@ -77,7 +77,7 @@ class JsRouting implements Listener
      */
     private function write(string $file_contains):int
     {
-         $header = "/*\n * This is an iumio Framework component\n *\n * (c) RAFINA DANY <danyrafina@gmail.com>";
+         $header = "/*\n * This is an iumio Framework component\n *\n * (c) RAFINA DANY <dany.rafina@iumio.com>";
          $headersub = "\n *\n * iumio Framework - iumio Components\n *\n";
          $headersub2 = " * To get more information about licence, please check the licence file\n */";
          $date = new \DateTime();

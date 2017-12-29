@@ -13,7 +13,7 @@ endroute
 
 
 route:
-  name : default_test_parameter
+  name : default_test_parameter_next
   path : /waaou
   activity : Default%indexNext
   api_auth: true

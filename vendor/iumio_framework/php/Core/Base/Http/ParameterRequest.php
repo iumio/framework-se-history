@@ -6,11 +6,10 @@ namespace iumioFramework\Core\Base\Http;
  * ParameterRequest is a container for key/value pairs.
  *
  * @author Fabien Potencier <fabien@symfony.com>
- * @author RAFINA Dany <danyrafina@gmail.com>
+ * @author RAFINA Dany <dany.rafina@iumio.com>
  * @category Framework
  * @licence  MIT License
  * @link https://framework.iumio.com
- * @author   RAFINA Dany <danyrafina@gmail.com>
  */
 class ParameterRequest implements \IteratorAggregate, \Countable
 {

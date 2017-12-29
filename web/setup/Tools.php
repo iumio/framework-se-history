@@ -3,7 +3,7 @@
 /*
  * This is an iumio Framework component
  *
- * (c) RAFINA DANY <danyrafina@gmail.com>
+ * (c) RAFINA DANY <dany.rafina@iumio.com>
  *
  * iumio Framework - iumio Components
  *
@@ -20,7 +20,7 @@ session_start();
  * @category Framework
  * @licence  MIT License
  * @link https://framework.iumio.com
- * @author   RAFINA Dany <danyrafina@gmail.com>
+ * @author   RAFINA Dany <dany.rafina@iumio.com>
  */
 class Tools
 {
@@ -232,6 +232,7 @@ class Tools
      * @param $temp string If template is required
      * @param $version string iumio Framework version
      * @return string App process is a successs
+     * @throws \Exception
      */
     final public static function createAppProcess($appname, $temp, $version)
     {
@@ -253,9 +254,9 @@ class Tools
         rename($napp."/{appname}.php.local", $napp."/$appname.php");
 
         // RT
-        $f = file_get_contents($napp."/Routing/default.rt");
+        $f = file_get_contents($napp."/Routing/default.irt");
         $str = str_replace("{appname}", $appname, $f);
-        file_put_contents($napp."/Routing/default.rt", $str);
+        file_put_contents($napp."/Routing/default.irt", $str);
 
         // MASTER
         $f = file_get_contents($napp."/Master/DefaultMaster.php.local");

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.31, created on 2017-12-27 15:32:16
+/* Smarty version 3.1.31, created on 2017-12-29 10:34:07
   from "/Applications/MAMP/htdocs/iumio-framework/vendor/iumio_framework/php/BaseApps/ManagerApp/Front/views/routingmanager.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.31',
-  'unifunc' => 'content_5a43aef0b0f0f5_38024536',
+  'unifunc' => 'content_5a460c0f952fb4_72235314',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '59fc936614163d61844e9d9b55e87ec0d0c9fc93' => 
     array (
       0 => '/Applications/MAMP/htdocs/iumio-framework/vendor/iumio_framework/php/BaseApps/ManagerApp/Front/views/routingmanager.tpl',
-      1 => 1510249127,
+      1 => 1514488741,
       2 => 'file',
     ),
   ),
@@ -23,22 +23,22 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:partials/footer.tpl' => 1,
   ),
 ),false)) {
-function content_5a43aef0b0f0f5_38024536 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5a460c0f952fb4_72235314 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_13994498555a43aeefbaf498_94621806', "principal");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_8228306745a460c0ec15f26_65645357', "principal");
 $_smarty_tpl->inheritance->endChild($_smarty_tpl, 'template.tpl');
 }
 /* {block "principal"} */
-class Block_13994498555a43aeefbaf498_94621806 extends Smarty_Internal_Block
+class Block_8228306745a460c0ec15f26_65645357 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'principal' => 
   array (
-    0 => 'Block_13994498555a43aeefbaf498_94621806',
+    0 => 'Block_8228306745a460c0ec15f26_65645357',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -112,7 +112,7 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
                         <div class="card">
                             <div class="header">
                                 <h4 class="title">List of your routing files</h4>
-                                <p class="category">Referer to *.rt</p>
+                                <p class="category">Referer to *.irt</p>
                             </div>
                             <div class="content table-responsive table-full-width">
                                 <table class="table table-hover table-striped">

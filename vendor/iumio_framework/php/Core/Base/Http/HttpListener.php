@@ -14,11 +14,10 @@ namespace iumioFramework\Core\Base\Http;
  *   * getUriForPath
  *
  * @author Fabien Potencier <fabien@symfony.com>
- * @author RAFINA Dany <danyrafina@gmail.com>
+ * @author RAFINA Dany <dany.rafina@iumio.com>
  * @category Framework
  * @licence  MIT License
  * @link https://framework.iumio.com
- * @author   RAFINA Dany <danyrafina@gmail.com>
  */
 class HttpListener
 {

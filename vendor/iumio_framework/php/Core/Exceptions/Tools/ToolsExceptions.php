@@ -2,7 +2,7 @@
 /*
  * This is an iumio Framework component
  *
- * (c) RAFINA DANY <danyrafina@gmail.com>
+ * (c) RAFINA DANY <dany.rafina@iumio.com>
  *
  * iumio Framework - iumio Components
  *
@@ -23,30 +23,35 @@ use iumioFramework\Exception\Server\Server500;
  * @category Framework
  * @licence  MIT License
  * @link https://framework.iumio.com
- * @author   RAFINA Dany <danyrafina@gmail.com>
+ * @author   RAFINA Dany <dany.rafina@iumio.com>
  */
 class ToolsExceptions
 {
 
+
     /** Check if UIDIE exist in logs files
      * @param string $uidie The unique identifier of iumio Exeception
      * @return bool If exists or not
+     * @throws Server500
+     * @throws \Exception
      */
     final public static function checkUidieExist(string $uidie):bool
     {
-        AbstractServer::checkFileLogExist(ROOT_LOGS."dev.log.json");
-        AbstractServer::checkFileLogExist(ROOT_LOGS."prod.log.json");
-        $logs_dev = (array) JsonListener::open(ROOT_LOGS."dev.log.json");
-        $logs_prod = (array) JsonListener::open(ROOT_LOGS."prod.log.json");
+        AbstractServer::checkFileLogExist(ROOT_LOGS."dev.log");
+        AbstractServer::checkFileLogExist(ROOT_LOGS."prod.log");
+        $fdev = new FileListener();
+        $fprod = new FileListener();
+        $logs_dev = $fdev->openFileAsArray(ROOT_LOGS."dev.log");
+        $logs_prod = $fprod->openFileAsArray(ROOT_LOGS."prod.log");
 
         foreach ($logs_dev as $one) {
-            if ($one->uidie == $uidie) {
+            if ($one['uidie'] == $uidie) {
                 return (true);
             }
         }
 
         foreach ($logs_prod as $one) {
-            if ($one->uidie == $uidie) {
+            if ($one['uidie'] == $uidie) {
                 return (true);
             }
         }
@@ -59,22 +64,17 @@ class ToolsExceptions
      */
     final public static function generateUidie():string
     {
-        $uidie_nok = true;
-        $length = 12;
-        $str = "";
+        // i for iumio
+        $str = "i";
+        // Create a string with Alphabetic letter
+        $str .= chr(rand( 65, 90 ));
+        // Insert the timestamp
+        $str .= time();
+        // Create an other unique identifier with lenght 5
+        $uniqid = substr(uniqid ("X"), 5);
+        // concat all
+        $str .= substr($uniqid, 5);
 
-        while ($uidie_nok == true) {
-            $characters = array_merge(range('A', 'Z'), range('a', 'z'), range(
-                '0',
-                '9'
-            ));
-            $max = count($characters) - 1;
-            for ($i = 0; $i < $length; $i++) {
-                $rand = mt_rand(0, $max);
-                $str .= $characters[$rand];
-            }
-            $uidie_nok = self::checkUidieExist($str);
-        }
         return ($str);
     }
 
@@ -94,12 +94,13 @@ class ToolsExceptions
 
     /** Get Logs list for specific environment
      * @param $env string Current Environement of iumio Framework
-     * @param $end int Break the loop with a limit
+     * @param $end int Break the loop with a limit for log list
+     * @param $uidie string|null Unique Identifier of iumio Exception
      * @return array Logs list
      * @throws Server500
      * @throws \Exception
      */
-    public static function getLogs(string $env = '', int $end = 0):array
+    public static function getLogs(string $env = '', int $end = 0, string $uidie = null):array
     {
         if ($env != "") {
             if (!in_array(strtolower($env), array('dev', 'prod'))) {
@@ -110,25 +111,58 @@ class ToolsExceptions
             $env = IUMIO_ENV;
         }
         $f = new FileListener();
-        //print_r($f->openFileAsArray(ROOT_LOGS.strtolower($env).".log"));
-        $f->open(ROOT_LOGS.strtolower($env).".log");
-        $i = 0;
+        $f->openFileAsArray(ROOT_LOGS.strtolower($env).".log");
         $a =  array();
-        while (!$f->eachLine())
-        {
-            $line = trim($f->readByLine());
 
+        $ar = $f->reverse($end);
+        foreach ($ar as $line)
+        {
+            $line = trim($line);
             if (isset($line[0]) && $line[0] == "[") {
                 $line = substr_replace($line, '', 0, 1);
             }
 
-            if (isset($line[strlen($line) - 1]) && $line[strlen($line) - 1] == "]") {
-                $line = substr_replace($line, '', strlen($line) - 1, 1);
+            if (isset($line[(strlen($line) - 1)]) && $line[(strlen($line) - 1)] == "]") {
+                $line = substr_replace($line, '', (strlen($line) - 1), 1);
             }
             $na =  explode("] [", $line);
             if (!isset($na[1])) {
                 continue;
             }
+            if ($uidie != null) {
+                if ($na[1] != $uidie) {
+                    continue;
+                }
+                else {
+                    if (isset($na[12])) {
+                        return (
+                            array(
+                                "time" => $na[0], "uidie" => $na[1],
+                                "client_ip" => $na[2], "code" => $na[3],
+                                "code_title" => $na[4], "explain" => $na[5],
+                                "solution" => $na[6], "env" => $na[7],
+                                "method" => $na[8], "trace" => json_decode($na[9]),
+                                "uri" => $na[10], "referer" => $na[11],
+                                "type_error" => $na[12], "file_error" => $na[13],
+                                "line_error" => $na[14]
+                            )
+                        );
+                    }
+                    else {
+                        return (
+                            array(
+                                "time" => $na[0], "uidie" => $na[1],
+                                "client_ip" => $na[2], "code" => $na[3],
+                                "code_title" => $na[4], "explain" => $na[5],
+                                "solution" => $na[6], "env" => $na[7],
+                                "method" => $na[8], "trace" => json_decode($na[9]),
+                                "uri" => $na[10], "referer" => $na[11],
+                            )
+                        );
+                    }
+                }
+            }
+
             if (isset($na[12])) {
                 array_push($a,
                     array(
@@ -136,7 +170,7 @@ class ToolsExceptions
                         "client_ip" => $na[2], "code" => $na[3],
                         "code_title" => $na[4], "explain" => $na[5],
                         "solution" => $na[6], "env" => $na[7],
-                        "method" => $na[8], "trace" => (array)$na[9],
+                        "method" => $na[8], "trace" => json_decode($na[9]),
                         "uri" => $na[10], "referer" => $na[11],
                         "type_error" => $na[12], "file_error" => $na[13],
                         "line_error" => $na[14]
@@ -150,20 +184,16 @@ class ToolsExceptions
                         "client_ip" => $na[2], "code" => $na[3],
                         "code_title" => $na[4], "explain" => $na[5],
                         "solution" => $na[6], "env" => $na[7],
-                        "method" => $na[8], "trace" => (array)$na[9],
+                        "method" => $na[8], "trace" => json_decode($na[9]),
                         "URI" => $na[10], "referer" => $na[11],
                     )
                 );
             }
-            if ($end != 0) {
-                if ($i == ($end - 1)) {
-                    break;
-                }
-                $i++;
-            }
+
+
         }
 
-        return (array_reverse($a));
+        return ($a);
     }
 
     /**

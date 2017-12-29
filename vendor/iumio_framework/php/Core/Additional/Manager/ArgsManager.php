@@ -3,7 +3,7 @@
 /*
  * This is an iumio Framework component
  *
- * (c) RAFINA DANY <danyrafina@gmail.com>
+ * (c) RAFINA DANY <dany.rafina@iumio.com>
  *
  * iumio Framework - iumio Components
  *
@@ -22,7 +22,7 @@ use iumioFramework\Core\Console\Display\OutputManager as Output;
  * @category Framework
  * @licence  MIT License
  * @link https://framework.iumio.com
- * @author   RAFINA Dany <danyrafina@gmail.com>
+ * @author   RAFINA Dany <dany.rafina@iumio.com>
  */
 
 class ArgsManager
@@ -42,6 +42,7 @@ class ArgsManager
     /** Get prompt arguments
      * @param int $argc Argument number
      * @param array $argv Arguments
+     * @throws \Exception
      */
     public function getArgs(int $argc, array $argv)
     {

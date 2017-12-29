@@ -3,7 +3,7 @@
 /*
  * This is an iumio Framework component
  *
- * (c) RAFINA DANY <danyrafina@gmail.com>
+ * (c) RAFINA DANY <dany.rafina@iumio.com>
  *
  * iumio Framework - iumio Components
  *
@@ -18,7 +18,7 @@ namespace iumioFramework\Core\Additionnal\Server;
  * @category Framework
  * @licence  MIT License
  * @link https://framework.iumio.com
- * @author   RAFINA Dany <danyrafina@gmail.com>
+ * @author   RAFINA Dany <dany.rafina@iumio.com>
  */
 class ServerManager
 {
@@ -38,7 +38,7 @@ class ServerManager
                     }
                     break;
                 case "file":
-                    if (!file($path)) {
+                    if (!is_file($path)) {
                         touch($path);
                     }
                     break;

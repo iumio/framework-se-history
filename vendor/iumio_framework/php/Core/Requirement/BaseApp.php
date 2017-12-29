@@ -3,7 +3,7 @@
 /*
  * This is an iumio Framework component
  *
- * (c) RAFINA DANY <danyrafina@gmail.com>
+ * (c) RAFINA DANY <dany.rafina@iumio.com>
  *
  * iumio Framework - iumio Components
  *
@@ -21,7 +21,7 @@ use iumioFramework\Core\Additionnal\Server\ServerManager as ServerManager;
  * @category Framework
  * @licence  MIT License
  * @link https://framework.iumio.com
- * @author   RAFINA Dany <danyrafina@gmail.com>
+ * @author   RAFINA Dany <dany.rafina@iumio.com>
  */
 
 class BaseApp extends App
@@ -44,9 +44,9 @@ class BaseApp extends App
         rename($napp."/{appname}.php.local", $napp."/$appname.php");
 
         // RT
-        $f = file_get_contents($napp."/Routing/default.rt");
+        $f = file_get_contents($napp."/Routing/default.irt");
         $str = str_replace("{appname}", $appname, $f);
-        file_put_contents($napp."/Routing/default.rt", $str);
+        file_put_contents($napp."/Routing/default.irt", $str);
 
         // MASTER
         $f = file_get_contents($napp."/Master/DefaultMaster.php.local");

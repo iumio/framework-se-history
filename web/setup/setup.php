@@ -11,7 +11,7 @@ if (!empty(json_decode(file_get_contents(__DIR__."/../../elements/config_files/c
     *
     * This is an iumio Framework component
     *
-    * (c) RAFINA DANY <danyrafina@gmail.com>
+    * (c) RAFINA DANY <dany.rafina@iumio.com>
     *
     * iumio Framework - iumio Components
     *

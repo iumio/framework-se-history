@@ -8,7 +8,7 @@ use PHPMailer;
 /**
  * Class Tools
  * @package WebsiteApp\Master\Utilities
- * @author RAFINA DANY <danyrafina@gmail.com>
+ * @author RAFINA DANY <dany.rafina@iumio.com>
  */
 class Tools
 {
@@ -141,7 +141,7 @@ class Tools
         $mail->Port = 587;
 
         $mail->setFrom($email, $name);
-        $mail->addAddress('danyrafina@gmail.com', 'iumio Administrator');
+        $mail->addAddress('dany.rafina@iumio.com', 'iumio Administrator');
 
         $mail->isHTML(true);
         $mail->Subject = $subject;

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.31, created on 2017-12-27 20:03:15
+/* Smarty version 3.1.31, created on 2017-12-29 11:26:39
   from "/Applications/MAMP/htdocs/iumio-framework/vendor/iumio_framework/php/BaseApps/ManagerApp/Front/views/logs.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.31',
-  'unifunc' => 'content_5a43ee730b93e9_60951069',
+  'unifunc' => 'content_5a46185fdc5de9_86785663',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '55e7a157d0ff32db4d55c125883bef369e3bc589' => 
     array (
       0 => '/Applications/MAMP/htdocs/iumio-framework/vendor/iumio_framework/php/BaseApps/ManagerApp/Front/views/logs.tpl',
-      1 => 1510509780,
+      1 => 1514543061,
       2 => 'file',
     ),
   ),
@@ -23,22 +23,22 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:partials/footer.tpl' => 1,
   ),
 ),false)) {
-function content_5a43ee730b93e9_60951069 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5a46185fdc5de9_86785663 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_12073694815a43ee723802a8_95827531', "principal");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1966054725a46185f41b1f3_32218900', "principal");
 $_smarty_tpl->inheritance->endChild($_smarty_tpl, 'template.tpl');
 }
 /* {block "principal"} */
-class Block_12073694815a43ee723802a8_95827531 extends Smarty_Internal_Block
+class Block_1966054725a46185f41b1f3_32218900 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'principal' => 
   array (
-    0 => 'Block_12073694815a43ee723802a8_95827531',
+    0 => 'Block_1966054725a46185f41b1f3_32218900',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -138,7 +138,7 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
                         <div class="card">
                             <div class="header">
                                 <h4 class="title">Logs list for Dev environment (<span class="iumiocountlog">0</span>)</h4>
-                                <p class="category">Referer to dev.log.json</p>
+                                <p class="category">Referer to dev.log</p>
                             </div>
                             <div class="content table-responsive table-full-width iumio-unlimited-log-display">
                                 <table class="table table-hover table-striped">
@@ -182,7 +182,7 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
                         <div class="card">
                             <div class="header">
                                 <h4 class="title">Logs list for Prod environment (<span class="iumiocountlog2">0</span>)</h4>
-                                <p class="category">Referer to prod.log.json</p>
+                                <p class="category">Referer to prod.log</p>
                             </div>
                             <div class="content table-responsive table-full-width iumio-unlimited-log-display2">
                                 <table class="table table-hover table-striped">

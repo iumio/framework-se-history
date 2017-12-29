@@ -46,6 +46,9 @@ iumio Framework
 - Exception will be event 
 - Set password field for user password database
 - Change initial.json to framework.config.json
+- Logo of iumio Framework
+- Change Routing extension from .rt to .irt
+- Route for generation app will be unique (appname)
 
 
 
@@ -56,6 +59,7 @@ iumio Framework
 - dev.log.json and prod.log.json
 - Main OS intalled
 - Main user installed
+- Smarty fix for iumio Taskbar
 
 
 ## [0.5.0] - 2017-10-09

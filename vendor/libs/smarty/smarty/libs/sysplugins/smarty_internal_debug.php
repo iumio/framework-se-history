@@ -7,7 +7,7 @@
  * @subpackage Debug
  * @author     Uwe Tews
  * @modified   2017/05/17
- * @modifiedBy RAFINA DANY <danyrafina@gmail.com>
+ * @modifiedBy RAFINA DANY <dany.rafina@iumio.com>
  */
 /**
  * Smarty Internal Plugin Debug Class

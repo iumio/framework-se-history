@@ -40,11 +40,11 @@ class DefaultMaster extends MasterCore
     {
 
        $f =  new FileListenerUnits();
-       $f->getLogs();
+       //$f->getLogs();
 
        /* $u = new FileListenerUnits();
         $u->readByLineAssert();*/
-        exit(1);
+        //exit(1);
         return (new Renderer())->textRenderer("dazd");
         //$this->get("service")->get("mailer");
         //$a = array ("hello" => array("world", "dezde", "dezde"), "val" =>  array("world", "dezde", "dezde"), "mak"  =>  array("world", "dezde", "dezde"), "test1" =>  array("world", "dezde", "dezde") , "TEST2" =>  array("world", "dezde", "dezde"));

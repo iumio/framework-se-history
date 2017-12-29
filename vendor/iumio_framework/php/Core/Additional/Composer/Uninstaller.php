@@ -3,7 +3,7 @@
 /*
  * This is an iumio Framework component
  *
- * (c) RAFINA DANY <danyrafina@gmail.com>
+ * (c) RAFINA DANY <dany.rafina@iumio.com>
  *
  * iumio Framework - iumio Components
  *
@@ -22,7 +22,7 @@ use iumioFramework\Core\Additionnal\Server\ServerManager as iSM;
  * @category Framework
  * @licence  MIT License
  * @link https://framework.iumio.com
- * @author   RAFINA Dany <danyrafina@gmail.com>
+ * @author   RAFINA Dany <dany.rafina@iumio.com>
  */
 class Uninstaller
 {
@@ -30,6 +30,7 @@ class Uninstaller
 
     /**
      * Remove required libs for iumio framework
+     * @throws \Exception
      */
     final public static function removeComponents()
     {
@@ -98,9 +99,9 @@ class Uninstaller
             self::$base_dir."web/components/rt/libs/js/Rt.js.iumio"
         );
 
-        @iSM::delete(self::$base_dir."web/components/rt/config_files/map.rt.js", "file");
+        @iSM::delete(self::$base_dir."web/components/rt/config_files/map.irt.js", "file");
 
-        @iSM::delete(self::$base_dir."web/components/rt/config_files/map.rt.base.js", "file");
+        @iSM::delete(self::$base_dir."web/components/rt/config_files/map.irt.base.js", "file");
     }
 }
 

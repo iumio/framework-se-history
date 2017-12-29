@@ -1,11 +1,11 @@
 route:
-  name : default_start
+  name : default_start_{appname}
   path : /index
   activity : Default%showIndex
 endroute
 
 route:
-  name : default_test_parameter
+  name : default_test_parameter_{appname}
   path : /index/{hi}
   activity : Default%index
 endroute

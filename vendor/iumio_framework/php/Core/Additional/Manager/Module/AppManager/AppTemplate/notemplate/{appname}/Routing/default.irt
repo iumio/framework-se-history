@@ -1,5 +1,5 @@
 route:
-  name : default_index
+  name : default_index_{appname}
   path : /index
   activity : Default%index
 endroute

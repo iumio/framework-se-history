@@ -1,7 +1,7 @@
 #
 # This is an iumio Framework component
 #
-# (c) RAFINA DANY <danyrafina@gmail.com>
+# (c) RAFINA DANY <dany.rafina@iumio.com>
 #
 # iumio Framework - iumio Components
 #
@@ -10,7 +10,7 @@
 
 ###############################################
 # iumio Framework .htaccess for web app       #
-# @author  Dany Rafina <danyrafina@gmail.com> #
+# @author  Dany Rafina <dany.rafina@iumio.com> #
 ###############################################
 
 DirectoryIndex Dev.php

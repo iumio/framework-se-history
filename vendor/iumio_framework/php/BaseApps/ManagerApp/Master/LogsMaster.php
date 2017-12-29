@@ -3,7 +3,7 @@
 /*
  * This is an iumio Framework component
  *
- * (c) RAFINA DANY <danyrafina@gmail.com>
+ * (c) RAFINA DANY <dany.rafina@iumio.com>
  *
  * iumio Framework - iumio Components
  *
@@ -30,7 +30,7 @@ use PHPMailer\PHPMailer\Exception;
  * @category Framework
  * @licence  MIT License
  * @link https://framework.iumio.com
- * @author   RAFINA Dany <danyrafina@gmail.com>
+ * @author   RAFINA Dany <dany.rafina@iumio.com>
  */
 
 class LogsMaster extends MasterCore
@@ -46,7 +46,6 @@ class LogsMaster extends MasterCore
         $file = JL::open(CONFIG_DIR.'core/framework.config.json');
         $date =  new \DateTime($file->installation->date);
         $file->installation = $date->format('Y/m/d');
-        AbstractServer::getLogs("dev");
 
         return($this->render("logs", array("selected" => "logsmanager", "env" => strtolower(IUMIO_ENV))));
     }
@@ -66,25 +65,12 @@ class LogsMaster extends MasterCore
             throw new Server500(new \ArrayObject(array("explain" => "Bad environment name $env",
                 "solution" => "Environment must be 'dev' or 'prod' ")));
         }
-        //print_r(AbstractServer::getLogs($env));
-        $onelogs = AbstractServer::getLogs($env);
-        /*$f = new FileListener();
-        $logs = $f->open(ROOT_LOGS.strtolower($env).".json");*/
-        /*foreach ($logs as $one) {
-            if ($uidie == $one->uidie) {
-                $one->env = "DEV";
-                $onelogs = $one;
-                break;
-            }
-        }*/
+        $onelogs = AbstractServer::getLogs($env, 0, $uidie);
 
-        if ($onelogs == null) {
+        if (empty($onelogs)) {
             throw new Server404(new \ArrayObject(array("explain" => "The error with uidie [".$uidie."] does not exist",
                 "solution" => "Check the UIDIE")));
         }
-
-        //print_r($onelogs);
-        //exit();
         return($this->render("logsdetails", array("details" => $onelogs, "selected" =>
             "logsmanager", "env" => strtolower($env))));
     }
@@ -99,21 +85,22 @@ class LogsMaster extends MasterCore
 
     /** Get logs statistics for dev
      * @return array Logs dev statistics
+     * @throws \Exception
      */
     public function getStatisticsLogsDev():array
     {
-        $last = array_values(array_reverse(AbstractServer::getLogs("dev")));
+        $last = array_values((AbstractServer::getLogs("dev")));
         $success = 0;
         $critical = 0;
         $others = 0;
         $errors = 0;
         for ($i = 0; $i < count($last); $i++) {
             $one = $last[$i];
-            if ($one->code == 200) {
+            if ($one['code'] == 200) {
                 $success++;
             } else {
                 $errors++;
-                if ($one->code == 500) {
+                if ($one['code'] == 500) {
                     $critical++;
                 } else {
                     $others++;
@@ -129,18 +116,18 @@ class LogsMaster extends MasterCore
      */
     public function getStatisticsLogsProd():array
     {
-        $last = array_values(array_reverse(AbstractServer::getLogs("prod")));
+        $last = array_values((AbstractServer::getLogs("prod")));
         $success = 0;
         $critical = 0;
         $others = 0;
         $errors = 0;
         for ($i = 0; $i < count($last); $i++) {
             $one = $last[$i];
-            if ($one->code == 200) {
+            if ($one['code'] == 200) {
                 $success++;
             } else {
                 $errors++;
-                if ($one->code == 500) {
+                if ($one['code'] == 500) {
                     $critical++;
                 } else {
                     $others++;
@@ -163,7 +150,7 @@ class LogsMaster extends MasterCore
             throw new Server500(new \ArrayObject(array("explain" => "Bad environment name $env",
                 "solution" => "Environment must be 'dev' or 'prod' ")));
         }
-        $last = array_values(array_reverse(AbstractServer::getLogs($env)));
+        $last = array_values((AbstractServer::getLogs($env)));
         $lastn = array();
         $request = $this->get('request');
         $loglastpos =  $request->get('pos');
@@ -179,10 +166,10 @@ class LogsMaster extends MasterCore
             }
             $one = $last[$i];
             $last["env"] = strtoupper($env);
-            $last[$i]->time = strtotime($last[$i]->time->date);
-            $last[$i]->log_url = $this->generateRoute(
+            $last[$i]['time'] = strtotime($last[$i]['time']);
+            $last[$i]['log_url'] = $this->generateRoute(
                 "iumio_manager_logs_manager_get_one",
-                array("uidie" => $one->uidie, "env" => $env)
+                array("uidie" => $one['uidie'], "env" => $env)
             );
             array_push($lastn, $last[$i]);
         }
@@ -201,8 +188,8 @@ class LogsMaster extends MasterCore
             throw new Server500(new \ArrayObject(array("explain" => "Bad environment name $env",
                 "solution" => "Environment must be 'dev' or 'prod' ")));
         }
-        ServerManager::delete(ROOT_LOGS.strtolower($env).".log.json", 'file');
-        @ServerManager::create(ROOT_LOGS.strtolower($env).".log.json", 'file');
+        ServerManager::delete(ROOT_LOGS.strtolower($env).".log", 'file');
+        @ServerManager::create(ROOT_LOGS.strtolower($env).".log", 'file');
 
         return ((new Renderer())->jsonRenderer(array("code" => 200, "msg" => "OK")));
     }
