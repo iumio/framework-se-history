@@ -2,8 +2,8 @@
     <img src="https://framework.iumio.com/iumio-black.png">
 </a></p>
 
-iumio Framework
-================
+iumio Framework Standard Edition
+==================================
 
 @ The next generation of PHP Frameworks
 
