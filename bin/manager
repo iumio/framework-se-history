@@ -1,28 +1,35 @@
 <?php
 
-/*
- * This is an iumio Framework component
+/**
  *
- * (c) RAFINA DANY <dany.rafina@iumio.com>
+ *  * This is an iumio Framework component
+ *  *
+ *  * (c) RAFINA DANY <danyrafina@gmail.com>
+ *  *
+ *  * iumio Framework - iumio Components
+ *  *
+ *  * To get more information about licence, please check the licence file
  *
- * iumio Framework - iumio Components
- *
- * To get more information about licence, please check the licence file
  */
 
 namespace iumioFramework\Bin;
 
+
 try {
-    $loader = require_once __DIR__.'/../vendor/iumio_framework/php/Core/Requirement/EngineAutoloader.php';
+    $loader = require_once __DIR__ . '/../vendor/iumio_framework/Core/Requirement/EngineAutoloader.php';
 } catch (\Exception $e) {
-    throw new \Exception("Framework Console Manager error : cannot get autoloader => ".$e->getMessage());
+    throw new \Exception("Framework Console Manager error  : Cannot get autoloader => ".$e->getMessage());
 }
 
 use iumioFramework\Core\Base\Debug\Debug;
 use iumioFramework\Core\Console\CoreManager;
+use iumioFramework\Core\Console\Exceptions\Exception500;
+use iumioFramework\Core\Console\FEnvFcm;
 
 /**
- * Class ConsoleManager
+ * Class FrameworkConsoleManager
+ * This is the framework console manager.
+ * Allow to manage the framework components such as cache, compiled file, etc.
  * @package iumioFramework\Bin
  * @category Framework
  * @licence  MIT License
@@ -30,45 +37,30 @@ use iumioFramework\Core\Console\CoreManager;
  * @author   RAFINA Dany <dany.rafina@iumio.com>
  */
 
-class ConsoleManager
+class FrameworkConsoleManager
 {
     /** Manager main function
      * @param int $argc
      * @param array $argv
+     * @throws
      */
     public function main(int $argc, array $argv)
     {
+        FEnvFcm::__initialize();
         Debug::enabled();
-        restore_error_handler();
-        restore_exception_handler();
+        $this->restore();
         $man = new CoreManager();
-        $this->define();
         $man->run($argc, $argv);
     }
 
     /**
-     * Define environment variable for all manager components
+     * Restore handler
      */
-    final private function define()
-    {
-        \define('ROOT', __DIR__.'/..', true);
-        \define('ROOT_PROJECT', __DIR__.'/..', true);
-        \define('ROOT_CACHE', __DIR__.'/../elements/cache/', true);
-        \define('ROOT_COMPILED', __DIR__.'/../elements/compiled/', true);
-        \define('ROOT_APPS', __DIR__.'/../apps/', true);
-        \define('ELEMS', __DIR__ . '/../elements/', true);
-        \define('ROOT_VENDOR_LIBS', __DIR__.'/../vendor/libs/', true);
-        \define(
-            'ROOT_VENDOR_CLI_MODULES',
-            __DIR__.'/../vendor/iumio_framework/php/Core/Additional/Manager/Module/',
-            true
-        );
-        \define('ROOT_WEB_COMPONENTS', __DIR__.'/../web/components/', true);
-        \define('ROOT_WEB', __DIR__.'/../web/', true);
-        \define('CONFIG_DIR', __DIR__.'/../elements/config_files/', true);
-        \define('BASE_APPS', __DIR__.'/../vendor/iumio_framework/php/BaseApps/', true);
+    private function restore() {
+        restore_error_handler();
+        restore_exception_handler();
     }
 }
 
-$e = new ConsoleManager();
+$e = new FrameworkConsoleManager();
 $e->main($argc, $argv);

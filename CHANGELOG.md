@@ -61,6 +61,7 @@ iumio Framework
 - Change Routing extension from .rt to .irt
 - Route for generation app will be unique (appname)
 - Change the uidie generation method
+- Change all constant to FEnv
 
 
 

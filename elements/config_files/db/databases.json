@@ -14,5 +14,13 @@
         "db_user": "da",
         "db_password": "dadzd",
         "db_driver": "informix"
+    },
+    "d": {
+        "db_name": "dezn fzefz",
+        "db_host": "dezdez",
+        "db_port": "22",
+        "db_user": "huron_k@etna-alternance.net",
+        "db_password": "azerty",
+        "db_driver": "pgsql"
     }
 }

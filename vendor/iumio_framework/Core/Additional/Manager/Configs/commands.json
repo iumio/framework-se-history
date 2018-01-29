@@ -1,0 +1,42 @@
+{
+    "name": "Framework Console Manager",
+    "version": "0.0.8",
+    "commands": {
+      "help": {
+          "class" : "\\iumioFramework\\Core\\Console\\Module\\Help\\HelpManager",
+          "desc"  : "Get informations about a command. You can enter app name after help command (php core/manager help app)\n"
+      },
+      "cache": {
+          "class" : "\\iumioFramework\\Core\\Console\\Module\\Cache\\CacheManager",
+          "desc"  : "Manage iumio cache  \n        --clear : Clear cache environment (Dev environment as default)  \n        --env: Environment name (DEV, PROD, ALL) (must used with --clear)\n"
+      },
+      "assets": {
+        "class" : "\\iumioFramework\\Core\\Console\\Module\\Assets\\AssetsManager",
+        "desc"  : "Manage project assets \n        --copy : Copy project assets to web directory  \n        --symlink (must with --copy option) Symbolic link will be created \n        --clear : clear all web assets \n        --appname : App name 'Example --appname=DefaultApp' (must be use with --copy or --clear option)       \n        --env: Environment name (DEV, PROD, ALL)\n"
+      },
+      "app": {
+        "class" : "\\iumioFramework\\Core\\Console\\Module\\App\\AppManager",
+        "desc"  : "Manage project \n        create : Create project  \n        enabled : Enabled an app \n         disabled : Disabled an app \n       remove : Remove a project \n"
+      },
+      "routing": {
+        "class" : "\\iumioFramework\\Core\\Console\\Module\\Rt\\RtManager",
+        "desc"  : "Manage Routing of all project \n        build jsrouting : Build the JS Routing file (Add option --baseapp to build Js Routing for base app)  \n"
+      },
+      "autoloader": {
+        "class" : "\\iumioFramework\\Core\\Console\\Module\\Autoloader\\AutoloaderManager",
+        "desc"  : "Manage the class map for engine autoloader \n        --clear : Clear autoloader class map for a specific environment (Dev environment as default)  \n        --build : Build autoloader class map for a specific environment (Dev environment as default)  \n        --env: Environment name (DEV, PROD, ALL) (must used with --clear or --build)\n"
+      },
+      "deployer": {
+        "class" : "\\iumioFramework\\Core\\Console\\Module\\Deployer\\DeployerManager",
+        "desc"  : "Deploy or undeploy your(s) application(s) \n        process-deploy : Process the deployment to production environment  \n        process-undeploy : Undeploy your(s) application(s) (switch to dev)  \n"
+      },
+      "compiled": {
+        "class" : "\\iumioFramework\\Core\\Console\\Module\\Compiled\\CompiledManager",
+        "desc"  : "Manage iumio compilation directory  \n        --clear : Clear compiled environment (Dev environment as default)  \n        --env: Environment name (DEV, PROD, ALL) (must used with --clear)\n"
+      },
+      "server": {
+        "class" : "\\iumioFramework\\Core\\Console\\Module\\Server\\ServerManager",
+        "desc"  : "Run iumio Framework on internal web server (Only dev environment   \n        start : Start the server  \n "
+      }
+    }
+}

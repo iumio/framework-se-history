@@ -17,7 +17,7 @@
     },
     "1": {
         "name": "DocApp",
-        "enabled": "yes",
+        "enabled": "no",
         "prefix": "doc",
         "class": "\\DocApp\\DocApp",
         "creation": {
@@ -26,7 +26,7 @@
             "timezone": "UTC"
         },
         "update": {
-            "date": "2017-11-09 16:55:22.176522",
+            "date": "2018-01-02 21:02:09.439905",
             "timezone_type": 3,
             "timezone": "UTC"
         }
@@ -66,7 +66,7 @@
     "4": {
         "name": "testApp",
         "enabled": "yes",
-        "prefix": "test",
+        "prefix": "testa",
         "class": "\\testApp\\testApp",
         "creation": {
             "date": "2017-12-19 17:57:15.196304",
@@ -74,7 +74,7 @@
             "timezone": "UTC"
         },
         "update": {
-            "date": "2017-12-19 17:57:15.196304",
+            "date": "2018-01-25 18:24:10.700487",
             "timezone_type": 3,
             "timezone": "UTC"
         }
@@ -155,6 +155,54 @@
         },
         "update": {
             "date": "2017-12-29 17:51:28.500803",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        }
+    },
+    "10": {
+        "name": "diApp",
+        "enabled": "yes",
+        "prefix": "hellod",
+        "class": "\\diApp\\diApp",
+        "creation": {
+            "date": "2018-01-02 21:04:44.721904",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "update": {
+            "date": "2018-01-02 21:04:44.721904",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        }
+    },
+    "11": {
+        "name": "dApp",
+        "enabled": "yes",
+        "prefix": "dezd",
+        "class": "\\dApp\\dApp",
+        "creation": {
+            "date": "2018-01-03 19:40:36.409170",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "update": {
+            "date": "2018-01-03 19:40:36.409170",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        }
+    },
+    "12": {
+        "name": "jApp",
+        "enabled": "yes",
+        "prefix": "ddez",
+        "class": "\\jApp\\jApp",
+        "creation": {
+            "date": "2018-01-03 20:26:34.734811",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "update": {
+            "date": "2018-01-03 20:26:34.734811",
             "timezone_type": 3,
             "timezone": "UTC"
         }

@@ -1,0 +1,373 @@
+.onecheckbox
+{
+    background-color: red!important;
+}
+
+.manager-options div
+{
+    padding-bottom: 20px!important;
+}
+
+.iumio-color
+{
+    color: #1DC7EA;
+}
+
+.iumio-unlimited-log-display, .iumio-unlimited-log-display2
+{
+    max-height: 500px;
+    overflow-y: auto!important;
+}
+
+.btn-exception-iumio-menu
+{
+    text-align: center!important;
+    margin: auto!important;
+    width: 100%!important;
+
+}
+
+.iumioDeployReload
+{
+    cursor: pointer;
+}
+
+.iumio-overflow-x
+{
+    overflow-x:auto;
+}
+
+.w100
+{
+    width: 100%!important;
+}
+
+.h350
+{
+    height: 350px!important;
+}
+
+.fw900
+{
+    font-weight: 900!important;
+}
+
+.fs20
+{
+    font-size: 20px!important;
+}
+
+.fs16
+{
+    font-size: 16px!important;
+
+}
+
+.se-pre-con, .iumio-loader-gen {
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    background: url('../img/preloader.gif') center no-repeat #fff;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+
+.error-loader-text {
+    display: block;
+    padding-bottom: 10px;
+    font-size: 25px;
+}
+
+.validform, .iumio-loader-gen h3
+{
+    text-align: center;
+    color: white;
+    font-weight: 900;
+    background-color: rgba(77, 117, 208, 0.8);
+    padding: 20px 20px 20px 20px;
+}
+
+
+.filelink
+{
+    width: 80%;
+    position: relative;
+    top:6px;
+    white-space: nowrap;
+    overflow: auto;
+    display: inline-block;
+    /* border: 1px solid #ddd; */
+    direction: rtl;
+    margin: 0;
+    text-align: left;
+}
+
+.fs16 i
+{
+    padding-right: 20px!important;
+}
+
+.sidebar-list li a p
+{
+    font-size: 11px!important;
+}
+
+.sidebar-list li a
+{
+    margin : 0px 15px!important;
+}
+
+#apppackage
+{
+    width: 220px;
+    margin: 0 auto;
+}
+
+.iumiohidden
+{
+    display: none!important;
+}
+
+.elemcard
+{
+    overflow: auto;
+    height: 230px;
+}
+
+.break-word
+{
+    word-wrap: break-word!important;
+}
+
+.errorlastlog li, .lastlog li, .lastlog
+{
+    word-wrap: break-word!important;
+}
+
+.manager-options div a
+{
+    width: 150px!important;
+}
+/* Custom Code Here */
+.container-new-new .check input {
+    display: none!important;
+    visibility: hidden;
+}
+.container-new .check input:checked + label .box {
+    -webkit-animation: animOn 0.6s 1 forwards;
+    animation: animOn 0.6s 1 forwards;
+    background: rgba(0, 0, 0, 0.5);
+}
+.container-new .check input:checked + label .box i {
+    -webkit-transform: translate(-50%, -50%) scale(1);
+    transform: translate(-50%, -50%) scale(1);
+    -webkit-transition-duration: 250ms;
+    transition-duration: 250ms;
+    opacity: 1;
+}
+
+.card-content-new
+{
+    padding: 5px 15px 0px 15px!important;
+}
+
+@media (min-width: 992px){
+    .typo-line {
+        margin-bottom: 10px!important;
+    }
+}
+
+.modal-body {
+    padding: 15px;
+    max-height: 700px;
+    overflow-x: auto;
+}
+
+.table, .table thead th
+{
+    text-align: center;
+}
+.container-new .check label {
+    min-width: 100px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    min-height: 60px;
+    cursor: pointer;
+}
+.container-new .check label .box {
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+    position: relative;
+    width: 50px;
+    height: 50px;
+    -webkit-transition: background 300ms ease;
+    transition: background 300ms ease;
+}
+.container-new .check label .box:hover {
+    background: rgba(0, 0, 0, 0.5);
+}
+.container-new .check label .box i {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-size: 20px;
+    display: inline-block;
+    opacity: 0;
+    pointer-events: none;
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+    -webkit-transition-delay: 200ms;
+    transition-delay: 200ms;
+    -webkit-transform: translate(-50%, -50%) scale(6);
+    transform: translate(-50%, -50%) scale(6);
+}
+
+@-webkit-keyframes animOn {
+    40% {
+        height: 20px;
+        width: 100px;
+    }
+    60% {
+        height: 60px;
+        width: 40px;
+    }
+    75% {
+        height: 35px;
+        width: 60px;
+    }
+    100% {
+        height: 50px;
+        width: 50px;
+    }
+}
+
+@keyframes animOn {
+    40% {
+        height: 20px;
+        width: 100px;
+    }
+    60% {
+        height: 60px;
+        width: 40px;
+    }
+    75% {
+        height: 35px;
+        width: 60px;
+    }
+    100% {
+        height: 50px;
+        width: 50px;
+    }
+}
+
+@media (max-width: 991px)
+{
+    .navbar-header .navbar-toggle {
+        margin: 0 auto!important;
+        width: 120px!important;
+        margin-bottom: 23px!important;
+        color: white;
+        /* padding: 20px 20px 10px 10px; */
+    }
+
+    /*.iumioTaskBar li:nth-child(2)
+    {
+        display: none;
+    }*/
+    /*.iumioTaskBar li:nth-child(6)
+    {
+        display: none;
+    }*/
+}
+
+.iumio-red-color
+ {
+     color: red;
+ }
+
+.iumio-green-color
+{
+    color: green;
+}
+
+.iumio-green-red-btn
+{
+    position: relative;
+    top: 1px;
+}
+
+.navbar-default .navbar-toggle {
+    border: 1px solid white;
+    height: 47px!important;
+    padding: 0px;
+
+}
+
+
+
+.navbar-default.toggle-iumio-manager
+{
+margin-top: 5px!important;
+    margin-bottom: 0px!important;
+}
+
+.border-top-routing-iumio
+{
+    border-top: 1px solid #e7e8e8;
+    padding-top: 10px;
+    margin-top: 10px;
+}
+
+.iumio-picto-routing
+{
+    position: relative;
+    top: 2px;
+}
+
+.iumio-routing-list-details span
+{
+    font-weight:bold;
+}
+
+
+.sidebar .sidebar-wrapper, body > .navbar-collapse .sidebar-wrapper {
+    min-height: 10px!important;
+}
+
+.img-responsive-iumio-framework{
+    max-width: 90%!important;
+}
+
+.applist
+{
+    word-break: break-all;
+}
+
+/**********/
+
+
+
+
+/* end of custom code */

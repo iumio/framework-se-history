@@ -1,7 +1,7 @@
 {
-    "name": "iumio/iumio-framework",
-    "license": "MIT",
-    "type": "project",
+  "name": "iumio/iumio-framework-se",
+  "license": "MIT",
+  "type": "project",
   "authors": [
     {
       "name": "Dany Rafina",
@@ -16,21 +16,24 @@
       "role": "iumio Framework Co-Architect / iumio Components Co-Founder"
     }
   ],
-    "config" :
-    {
-        "vendor-dir" : "./vendor/libs/"
-    },
-    "require": {
-        "php": ">=7.0.0",
-        "smarty/smarty": "~3.1",
-        "twbs/bootstrap": "3.3.7",
-        "components/font-awesome" : "~4.7.0",
-        "components/jquery" : "~3.2.1",
-        "phpmailer/phpmailer": "~6.0"
-    },
-    "scripts": {
-        "post-install-cmd": "mv ./vendor/libs/twbs/bootstrap/dist/ ./web/components/libs/bootstrap && mv ./vendor/libs/components/font-awesome/ ./web/components/libs/font-awesome/ &&  mv ./vendor/libs/components/jquery/ ./web/components/libs/jquery/ &&  php ./vendor/iumio_framework/php/Core/Additional/Composer/Installer.php",
-        "post-update-cmd":  "mv ./vendor/libs/twbs/bootstrap/dist/ ./web/components/libs/bootstrap && mv ./vendor/libs/components/font-awesome/ ./web/components/libs/font-awesome/ &&  mv ./vendor/libs/components/jquery/ ./web/components/libs/jquery/ &&  php ./vendor/iumio_framework/php/Core/Additional/Composer/Installer.php"
-    }
+  "config" :
+  {
+    "vendor-dir" : "./vendor/"
+  },
+  "require": {
+    "php": ">=7.0.0",
+    "iumio/iumio-framework": "0.1",
+    "smarty/smarty": "~3.1",
+    "twbs/bootstrap": "3.3.7",
+    "components/font-awesome" : "~4.7.0",
+    "components/jquery" : "~3.2.1",
+    "phpmailer/phpmailer": "~6.0"
+  },
+  "scripts": {
+    "post-install-cmd": "mv ./vendor/twbs/bootstrap/dist/ ./public/components/libs/bootstrap && mv ./vendor/components/font-awesome/ ./public/components/libs/font-awesome/ &&  mv ./vendor/components/jquery/ ./public/components/libs/jquery/ &&  php ./vendor/iumio_framework/Core/Additional/Composer/Installer.php",
+    "post-update-cmd":  "mv ./vendor/twbs/bootstrap/dist/ ./public/components/libs/bootstrap && mv ./vendor/components/font-awesome/ ./public/components/libs/font-awesome/ &&  mv ./vendor/components/jquery/ ./public/components/libs/jquery/ &&  php ./vendor/iumio_framework/Core/Additional/Composer/Installer.php"
+  },
+  "require-dev": {
+    "mpyw/php-hyper-builtin-server": "^2.0"
+  }
 }
-

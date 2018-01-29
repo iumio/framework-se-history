@@ -15,6 +15,6 @@ gen
 .DS_Store
 #apps/*
 #elements/*
-#web/components/apps/*
-#web/components/baseapps/*
+#public/components/apps/*
+#public/components/baseapps/*
 

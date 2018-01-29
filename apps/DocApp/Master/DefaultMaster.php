@@ -6,6 +6,7 @@ use DocApp\Master\Utilities\Tools;
 use iumioFramework\Core\Additionnal\Template\SmartyEngineTemplate;
 use iumioFramework\Core\Base\Json\JsonListener;
 use iumioFramework\Masters\MasterCore;
+use iumioFramework\Core\Requirement\Environment\FEnv;
 
 /**
  * Class DefaultMaster
@@ -26,7 +27,7 @@ class DefaultMaster extends MasterCore
      */
     public function installActivity()
     {
-        $s = file_get_contents(ROOT_APPS."DocApp/Front/views/rst/install.rst");
+        $s = file_get_contents(FEnv::get("framework.root")."DocApp/Front/views/rst/install.rst");
         $parser = new \Gregwar\RST\Parser();
         $document = $parser->parse($s);
         //echo $document;

@@ -3,7 +3,10 @@
 namespace HelloApp\Masters;
 
 use iumioFramework\Base\Renderer\Renderer;
+use iumioFramework\Core\Base\Http\Response\Response;
+use iumioFramework\Core\Requirement\Environment\FEnv;
 use iumioFramework\Masters\MasterCore;
+use iumioFramework\Units\DebugUnits;
 use iumioFramework\Units\FileListenerUnits;
 
 /**
@@ -39,19 +42,27 @@ class DefaultMaster extends MasterCore
     public function showIndexActivity():Renderer
     {
 
-       $f =  new FileListenerUnits();
+       $f =  new DebugUnits();
+       $f->execute();
+
+       new Response();
+
+       return ((new Renderer())->textRenderer("<strong>text</strong>"));
+          // exit();
        //$f->getLogs();
 
        /* $u = new FileListenerUnits();
         $u->readByLineAssert();*/
         //exit(1);
-        return (new Renderer())->textRenderer("dazd");
+        //echo FEnv::get("app.master");
+        //exit();
+        //return (new Renderer())->textRenderer("dazd");
         //$this->get("service")->get("mailer");
         //$a = array ("hello" => array("world", "dezde", "dezde"), "val" =>  array("world", "dezde", "dezde"), "mak"  =>  array("world", "dezde", "dezde"), "test1" =>  array("world", "dezde", "dezde") , "TEST2" =>  array("world", "dezde", "dezde"));
         $s = array (
             array("edde" => "dd", "deded"=> "dd", "aaaa"=> "dd"),
             array("feferf"=> "dd", "dzedzde"=> "dd", "zdezd"=> "dd"),
-            array("feref"=> "dd", "deefd"=> "dd", "AAA")
+            array("feref"=> "dd", "deefd"=> "dd", "yeah" => "AAA")
         );
         //$s = array ("hello", "world", "val" ,  "test", "mak"  , "dede", "test1" , "fdef" , "TEST2" , "dede");
         $a = array(
@@ -80,7 +91,7 @@ class DefaultMaster extends MasterCore
         //return ($a->registerCustomRenderer('\HelloApp\Masters\DefaultMaster::helloRenderer', $s));
         //return ($this->render("index"));
         //return ((new Renderer())->textRenderer("testt"));
-        return ((new Renderer())->xmlRenderer($s, "dazd"));
+        return ((new Renderer())->xmlRenderer($s, "lel"));
     }
 
     public function helloRenderer(array $args)

@@ -1,0 +1,36 @@
+{
+    "name": "mpyw/php-hyper-builtin-server",
+    "description": "Reverse proxy for PHP built-in server which supports multiprocessing and TLS/SSL encryption",
+    "type": "project",
+    "license": "MIT",
+    "keywords": [
+        "built-in",
+        "builtin",
+        "reverse",
+        "proxy",
+        "server",
+        "TLS",
+        "SSL",
+        "multiprocess",
+        "multiprocessing"
+    ],
+    "authors": [
+        {
+            "name": "mpyw",
+            "email": "ryosuke_i_628@yahoo.co.jp"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "mpyw\\HyperBuiltinServer\\": "src/",
+            "React\\Socket\\": "socket/src/"
+        }
+    },
+    "require": {
+        "php": ">=5.4.0",
+        "lib-openssl": "*",
+        "react/child-process": "^0.4.1",
+        "react/promise": "^2.4"
+    },
+    "bin": ["hyper-run"]
+}
