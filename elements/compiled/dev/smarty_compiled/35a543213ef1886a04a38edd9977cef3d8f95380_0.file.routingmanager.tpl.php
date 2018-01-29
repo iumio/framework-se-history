@@ -1,17 +1,17 @@
 <?php
-/* Smarty version 3.1.31, created on 2018-01-02 15:16:06
-  from "/Applications/MAMP/htdocs/iumio-framework/vendor/iumio_framework/php/BaseApps/ManagerApp/Front/views/servicesmanager.tpl" */
+/* Smarty version 3.1.31, created on 2018-01-29 15:47:04
+  from "/Applications/MAMP/htdocs/iumio-framework-se/vendor/iumio_framework/BaseApps/ManagerApp/Front/views/routingmanager.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.31',
-  'unifunc' => 'content_5a4b9426c15f34_61006476',
+  'unifunc' => 'content_5a6f33e8c13f78_53075451',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '147db9a3c0b2d85becd53adece2a6baff962b441' => 
+    '35a543213ef1886a04a38edd9977cef3d8f95380' => 
     array (
-      0 => '/Applications/MAMP/htdocs/iumio-framework/vendor/iumio_framework/php/BaseApps/ManagerApp/Front/views/servicesmanager.tpl',
+      0 => '/Applications/MAMP/htdocs/iumio-framework-se/vendor/iumio_framework/BaseApps/ManagerApp/Front/views/routingmanager.tpl',
       1 => 1514579824,
       2 => 'file',
     ),
@@ -23,22 +23,22 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:partials/footer.tpl' => 1,
   ),
 ),false)) {
-function content_5a4b9426c15f34_61006476 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5a6f33e8c13f78_53075451 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1497292145a4b9425480bb3_97759101', "principal");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_12781927425a6f33e7a84eb8_85648205', "principal");
 $_smarty_tpl->inheritance->endChild($_smarty_tpl, 'template.tpl');
 }
 /* {block "principal"} */
-class Block_1497292145a4b9425480bb3_97759101 extends Smarty_Internal_Block
+class Block_12781927425a6f33e7a84eb8_85648205 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'principal' => 
   array (
-    0 => 'Block_1497292145a4b9425480bb3_97759101',
+    0 => 'Block_12781927425a6f33e7a84eb8_85648205',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -55,7 +55,7 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
                     <?php $_smarty_tpl->_subTemplateRender('file:partials/toogle.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
-                    <a class="navbar-brand" href="#">Service Manager</a>
+                    <a class="navbar-brand" href="#">Routing Manager</a>
                 </div>
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-left">
@@ -70,7 +70,7 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
                     <div class="col-md-12">
                         <div class="card">
                             <div class="header">
-                                <h4 class="title">Services statistics</h4>
+                                <h4 class="title">Routing statistics</h4>
                                 <p class="category">Statistics</p>
                             </div>
                             <div class="content dashboardStats" attr-href="<?php echo iumioFramework\Core\Additionnal\Template\ViewBasePlugin::route(array('name'=>'iumio_manager_dashboard_get_statistics'),$_smarty_tpl);?>
@@ -79,12 +79,9 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
                                     <li class="iumiohidden">Apps  : <span class="dashb-app">0</span> </li>
                                     <li class="iumiohidden">Apps enabled : <span class="dashb-appena">0</span></li>
                                     <li class="iumiohidden">Apps prefixed  : <span class="dashb-apppre">0</span></li>
-                                    <li class="iumiohidden">Routes  : <span class="dashb-route">0</span></li>
-                                    <li class="iumiohidden">Routes disabled : <span class="dashb-routedisa">0</span></li>
-                                    <li class="iumiohidden">Routes with public visibility : <span class="dashb-routevisi">0</span></li>
-                                    <li>Services  : <span class="dashb-services">0</span></li>
-                                    <li>Services enabled : <span class="dashb-services-ena">0</span></li>
-                                    <li class="iumiohidden">Routes with public visibility : <span class="dashb-routevisi">0</span></li>
+                                    <li>Routes  : <span class="dashb-route">0</span></li>
+                                    <li>Routes disabled : <span class="dashb-routedisa">0</span></li>
+                                    <li>Routes with public visibility : <span class="dashb-routevisi">0</span></li>
                                     <li class="iumiohidden">Requests successful : <span class="dashb-reqsuc">0</span></li>
                                     <li class="iumiohidden">Errors : <span class="dashb-err">0</span></li>
                                     <li class="iumiohidden">Critical Errors (Error 500) : <span class="dashb-errcri">0</span></li>
@@ -98,13 +95,15 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
                         <div class="card">
                             <div class="header">
                                 <h4 class="title">Options</h4>
+                                <p class="category">Manage routing files</p>
                             </div>
                             <div class="content">
                                 <div class="row center-block text-center manager-options">
                                     <div class="col-md-12">
-                                        <a class="btn-default btn createservice"  attr-href="<?php echo iumioFramework\Core\Additionnal\Template\ViewBasePlugin::route(array('name'=>'iumio_manager_services_manager_create_service'),$_smarty_tpl);?>
-">Create a service</a>
+                                        <a class="btn-default btn rebuildjs" attr-href="<?php echo iumioFramework\Core\Additionnal\Template\ViewBasePlugin::route(array('name'=>'iumio_manager_routing_manager_rebuild_js'),$_smarty_tpl);?>
+">Rebuild JS Routing</a>
                                     </div>
+
                                 </div>
                             </div>
                         </div>
@@ -112,19 +111,19 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
                     <div class="col-md-12">
                         <div class="card">
                             <div class="header">
-                                <h4 class="title">List of your services</h4>
-                                <p class="category">Referer to services.json</p>
+                                <h4 class="title">List of your routing files</h4>
+                                <p class="category">Referer to *.irt</p>
                             </div>
                             <div class="content table-responsive table-full-width">
                                 <table class="table table-hover table-striped">
                                     <thead>
-                                    <th>Name</th>
-                                    <th>Namespace</th>
-                                    <th>Status</th>
-                                    <th>Edit</th>
+                                    <th>File</th>
+                                    <th>App</th>
+                                    <th>Routes</th>
+                                    <th>View</th>
                                     <th>Delete</th>
                                     </thead>
-                                    <tbody class="serviceslist" attr-href="<?php echo iumioFramework\Core\Additionnal\Template\ViewBasePlugin::route(array('name'=>'iumio_manager_services_manager_get_all'),$_smarty_tpl);?>
+                                    <tbody class="routinglist" attr-href="<?php echo iumioFramework\Core\Additionnal\Template\ViewBasePlugin::route(array('name'=>'iumio_manager_routing_manager_get_all'),$_smarty_tpl);?>
 ">
                                     <!--<tr>
                                         <td>0</td>

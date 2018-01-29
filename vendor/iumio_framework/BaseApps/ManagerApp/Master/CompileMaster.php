@@ -18,6 +18,7 @@ use iumioFramework\Masters\MasterCore;
 use iumioFramework\Base\Renderer\Renderer;
 use iumioFramework\Core\Additionnal\Server\ServerManager as Server;
 use DirectoryIterator;
+use iumioFramework\Core\Requirement\Environment\FEnv;
 
 /**
  * Class CompileMaster

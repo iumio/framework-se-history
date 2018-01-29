@@ -19,6 +19,7 @@ use iumioFramework\Base\Renderer\Renderer;
 use iumioFramework\Exception\Server\Server500;
 use iumioFramework\Masters\MasterCore;
 use iumioFramework\Core\Base\Json\JsonListener as JL;
+use iumioFramework\Core\Requirement\Environment\FEnv;
 
 /**
  * Class HostsMaster

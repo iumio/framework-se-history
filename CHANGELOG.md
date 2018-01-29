@@ -75,6 +75,7 @@ iumio Framework
 - Smarty fix for iumio Taskbar
 - Dev.php
 - Prod.php
+- Remove All constant to FEnv
 
 ## [0.5.0] - 2017-10-09
 ### Added

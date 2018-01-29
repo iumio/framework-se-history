@@ -196,8 +196,6 @@ class ViewBasePlugin
                 ((isset($params['min']) && $params['min'] == "yes")? "min"."." : "") : "")."css' rel='stylesheet' />");
     }
 
-    // HERE
-
     /** Get js routing file
      * @return string return js routing file
      * @throws \Exception

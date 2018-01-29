@@ -56,7 +56,6 @@ class FrameworkEnvironment
 
         define('IUMIO_ENV', $env);
 
-        define('HOST', self::getProtocol()."://".$_SERVER['HTTP_HOST']);
         $current = self::getProtocol()."://".$_SERVER['HTTP_HOST'].dirname($_SERVER['PHP_SELF']);
         $current_temp = substr($current, 0, strpos($current, self::getFileEnv($env)));
         if (strlen($current_temp) > 0) {
@@ -65,52 +64,6 @@ class FrameworkEnvironment
         if ($current[strlen($current) - 1] == "/") {
             $current = substr($current, 0, (strlen($current) - 1));
         }
-        define('HOST_CURRENT', $current);
-        define('ROOT', $base);
-        define('ELEMS', $base."elements/");
-        define('BIN', $base."bin/");
-        define('CONFIG_DIR', $base."elements/config_files/");
-        define('BASE_APPS', $base."vendor/iumio_framework/BaseApps/");
-        define('ROOT_VENDOR', $base."vendor/iumio_framework/");
-        define('ROOT_MANAGER', $base."vendor/iumio_framework/Core/Additional/Manager/");
-
-        define('ADDITIONALS', $base."vendor/iumio_framework/Core/Additional/");
-
-        define('ROOT_HOST_FILES', $base."elements/config_files/hosts/");
-
-        define('ROOT_VENDOR_LIBS', $base."vendor/libs/");
-
-        define('ROOT_CACHE', $base."elements/cache/");
-        define('ROOT_COMPILED', $base."elements/compiled/");
-
-        define('ROOT_LOGS', $base."elements/logs/");
-
-        define('CACHE_DEV', $base."elements/cache/dev/");
-        define('CACHE_PROD', $base."elements/cache/prod/");
-        define('COMPILED_DEV', $base."elements/compiled/dev/");
-        define('COMPILED_PROD', $base."elements/compiled/prod/");
-
-        define('SERVER_VIEWS', $base."vendor/iumio_framework/Core/Exceptions/Server/views/");
-
-        define('SERVER', $base."vendor/iumio_framework/Core/Exceptions/Server/");
-
-        define('WEB_ASSETS', $current."/components/apps/");
-        define('ROOT_WEB', $base."public/");
-
-        define('ROOT_WEB_ASSETS', $base."public/components/apps/");
-
-        define('WEB_LIBS', $current."/components/libs/");
-
-        define('ROOT_WEB_LIBS', $base."public/components/libs/");
-
-        define('ROOT_WEB_COMPONENTS', $base."public/components/");
-
-        define('WEB_FRAMEWORK', $current."/components/libs/iumio_framework/");
-
-        define('WEB_COMPONENTS', $current."/components/");
-
-        define('ROOT_APPS', $base."apps/");
-        define('OVERRIDES', ELEMS."overrides/");
 
         self::$framework_paths =
             [
@@ -132,8 +85,8 @@ class FrameworkEnvironment
                 "framework.config.core.config.file" =>  $base."elements/config_files/core/framework.config.json",
                 "framework.config.db.file" =>  $base."elements/config_files/db/databases.json",
                 "framework.config.autoloader" =>  $base."elements/config_files/engine_autoloader/",
-                "framework.config.autoloader.dev.file" =>  $base."elements/config_files/engine_autoloader/map_dev_class.json",
-                "framework.config.autoloader.prod.file" =>  $base."elements/config_files/engine_autoloader/map_class.json",
+                "framework.config.autoloader.dev.file" =>  $base."elements/config_files/engine_autoloader/map.class.dev.json",
+                "framework.config.autoloader.prod.file" =>  $base."elements/config_files/engine_autoloader/map.class.prod.json",
                 "framework.config.hosts.dev.file" =>  $base."elements/config_files/hosts/hosts.dev.json",
                 "framework.config.hosts.prod.file" =>  $base."elements/config_files/hosts/hosts.prod.json",
                 "framework.config.smarty.file" =>  $base."elements/config_files/smarty_config/smarty.json",
@@ -225,7 +178,9 @@ class FrameworkEnvironment
             throw new Server500(new ArrayObject(array("explain" => "An error was detected on environment declaration",
                 "solution" => "Please check the environement declaration.", "external" => "yes")));
         }
-        $hosts = file_get_contents(ROOT_HOST_FILES.'hosts.'.strtolower(IUMIO_ENV).'.json');
+        $host_env = FEnv::get((FEnv::get("framework.env"))?
+            "framework.config.hosts.dev.file" : "framework.config.hosts.prod.file");
+        $hosts = file_get_contents($host_env);
 
         if (empty(trim($hosts))) {
             self::displayError((array("explain" => "You are not allowed to access this file.", "solution" =>

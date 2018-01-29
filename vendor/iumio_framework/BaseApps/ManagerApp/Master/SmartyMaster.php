@@ -16,6 +16,7 @@ namespace ManagerApp\Masters;
 use iumioFramework\Masters\MasterCore;
 use iumioFramework\Core\Base\Json\JsonListener as JL;
 use iumioFramework\Base\Renderer\Renderer;
+use iumioFramework\Core\Requirement\Environment\FEnv;
 
 /**
  * Class SmartyMaster
