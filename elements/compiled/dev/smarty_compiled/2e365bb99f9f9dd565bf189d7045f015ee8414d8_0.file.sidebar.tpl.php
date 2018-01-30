@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.31, created on 2018-01-29 15:46:34
+/* Smarty version 3.1.31, created on 2018-01-30 08:24:16
   from "/Applications/MAMP/htdocs/iumio-framework-se/vendor/iumio_framework/BaseApps/ManagerApp/Front/views/partials/sidebar.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.31',
-  'unifunc' => 'content_5a6f33ca8424c6_24394832',
+  'unifunc' => 'content_5a701da0603296_49070700',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5a6f33ca8424c6_24394832 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5a701da0603296_49070700 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <div class="sidebar" data-color="blue">
 <div class="sidebar-wrapper">

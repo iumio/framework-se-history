@@ -48,14 +48,11 @@ abstract class FrameworkCore extends GlobalCoreService
     protected $environment;
     private static $runtime_parameters = null;
 
-    const VERSION = '0.5.0';
-    // TO EDIT
-    const VERSION_EDITION = 'iumio Framework Standard Edition';
-    const VERSION_EDITION_SHORT = 'SE';
-    const VERSION_STAGE = 'BETA';
-    const VERSION_BUILD = 201750;
-    const UIDIE = "NULL";
-
+    const CORE_VERSION = '0.5.0';
+    const CORE_NAME = 'APRICOTS';
+    const CORE_STAGE = 'BETA';
+    const CORE_BUILD = 201750;
+    protected static $edition = array();
 
     /**
      * Constructor.
@@ -472,24 +469,40 @@ abstract class FrameworkCore extends GlobalCoreService
     final public static function getInfo(string $infoname):string
     {
         $rs = 'none';
+        $edition = self::getEditionInfo();
         switch ($infoname) {
-            case 'VERSION':
-                $rs = self::VERSION;
+            case 'CORE_VERSION':
+                $rs = self::CORE_VERSION;
                 break;
-            case 'VERSION_EDITION':
-                $rs = self::VERSION_EDITION;
+            case 'CORE_BUILD':
+                $rs = self::CORE_BUILD;
                 break;
-            case 'VERSION_EDITION_SHORT':
-                $rs = self::VERSION_EDITION_SHORT;
+            case 'CORE_STAGE':
+                $rs = self::CORE_STAGE;
                 break;
-            case 'VERSION_ID':
-                $rs = self::VERSION_BUILD;
+            case 'CORE_NAME':
+                $rs = self::CORE_NAME;
                 break;
-            case 'VERSION_STAGE':
-                $rs = self::VERSION_STAGE;
+            case 'EDITION_BUILD':
+                $rs = $edition->edition_build;
                 break;
-            case 'PHP_VERSION':
-                $rs = phpversion();
+            case 'EDITION_VERSION':
+                $rs = $edition->edition_version;
+                break;
+            case 'EDITION_STAGE':
+                $rs = $edition->edition_stage;
+                break;
+            case 'EDITION_SHORTNAME':
+                $rs = $edition->edition_shortname;
+                break;
+            case 'EDITION_FULLNAME':
+                $rs = $edition->edition_fullname;
+                break;
+            case 'EDITION_U3I':
+                $rs = $edition->u3i;
+                break;
+            case 'LOCATION':
+                $rs =  realpath(__DIR__.DIRECTORY_SEPARATOR.'../../../../');
                 break;
         }
         return ($rs);
@@ -510,12 +523,6 @@ abstract class FrameworkCore extends GlobalCoreService
             case 'SERVER_NAME':
                 $rs = $_SERVER['SERVER_NAME'];
                 break;
-            case 'VERSION_ID':
-                $rs = self::VERSION_BUILD;
-                break;
-            case 'VERSION_STAGE':
-                $rs = self::VERSION_STAGE;
-                break;
             default:
                 try {
                     $rs = $_SERVER[$infoname];
@@ -530,6 +537,17 @@ abstract class FrameworkCore extends GlobalCoreService
     }
 
 
+    /** Get edition info linked with Framework Core
+     * @return \stdClass edition infos
+     * @throws Server500
+     */
+    final public static function getEditionInfo():\stdClass {
+        $file = JL::open(FEnv::get("framework.config.core.config.file"));
+        JL::close(FEnv::get("framework.config.core.config.file"));
+        self::$edition = $file;
+        return ($file);
+    }
+
     /** Detect if it is a first install
      * @return int The success or failure
      * @throws Server500 File installer.php not exists
@@ -537,7 +555,7 @@ abstract class FrameworkCore extends GlobalCoreService
     final private function detectFirstInstallation():int
     {
         $file = JL::open(FEnv::get("framework.config.core.config.file"));
-        if (empty((array) $file)) {
+        if (isset($file->installation) && ($file->installation == null)) {
             if (file_exists(FEnv::get("framework.root").'public/setup/setup.php')) {
                 header('Location: '.FEnv::get("host.current").'/setup/setup.php');
                 exit(1);

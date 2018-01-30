@@ -2982,6 +2982,8 @@ $(document).ready(function () {
 
     });
 
+    console.log("test")
+
     getLogs();
     getAppListSimple();
     getUnlimitedLogs();

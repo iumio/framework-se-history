@@ -2,12 +2,14 @@
 
 namespace HelloApp\Masters;
 
+use DI\ContainerBuilder;
 use iumioFramework\Base\Renderer\Renderer;
 use iumioFramework\Core\Base\Http\Response\Response;
 use iumioFramework\Core\Requirement\Environment\FEnv;
 use iumioFramework\Masters\MasterCore;
 use iumioFramework\Units\DebugUnits;
 use iumioFramework\Units\FileListenerUnits;
+use PHPMailer\PHPMailer\PHPMailer;
 
 /**
  * Class DefaultMaster
@@ -17,6 +19,9 @@ use iumioFramework\Units\FileListenerUnits;
 class DefaultMaster extends MasterCore
 {
 
+    public function __construct(PHPMailer $mailer)
+    {
+    }
 
     /**
      * Go to index page
@@ -29,7 +34,7 @@ class DefaultMaster extends MasterCore
 
 
 
-    public function indexNextActivity():Renderer
+    public function indexNextActivity(PHPMailer $mailer):Renderer
     {
         return ($this->render("e"));
     }
@@ -42,10 +47,16 @@ class DefaultMaster extends MasterCore
     public function showIndexActivity():Renderer
     {
 
+        $builder = new ContainerBuilder();
+       // $builder->...
+        $container = $builder->build();
+        $s = $container->get("DefaultMaster");
+exit(1);
+
        $f =  new DebugUnits();
        $f->execute();
 
-       new Response();
+       //new Response();
 
        return ((new Renderer())->textRenderer("<strong>text</strong>"));
           // exit();

@@ -31,20 +31,28 @@
                                 {nocache}
                                 <div class="content"  style="overflow: auto;padding-left: 40px;max-height: 220px;">
                                     <ul class="break-word col-md-12">
-                                        <li>{framework_info name='VERSION_EDITION'} </li>
+                                        <li>Edition name : iumio Framework {framework_info name='EDITION_FULLNAME'} </li>
 
-                                        <li>Version : {framework_info name='VERSION_STAGE'} {framework_info name='VERSION'} </li>
-
-                                        <li>Build number : {framework_info name='VERSION_ID'} </li>
+                                        <li>Edition version : {framework_info name='EDITION_STAGE'} {framework_info name='EDITION_VERSION'} ({framework_info name='EDITION_BUILD'}) </li>
 
                                         <li>Installation date : {$fi->installation}</li>
 
-                                        {if isset($fi->deployment) }<li>Deployment date : {$fi->deployment}</li>{/if}
+                                        {if isset($fi->deployment) and ($fi->deployment != null) }<li>Deployment date : {$fi->deployment}</li>{/if}
 
-                                        <li>Main location installed : {$fi->location}</li>
+                                        <li>Installation location : {framework_info name='LOCATION'}</li>
 
-                                        <li>Default environment : {$fi->default_env}</li>
+                                        <li>U3i : {framework_info name='EDITION_U3I'}</li>
 
+                                        <li>Current default environment : {$fi->default_env}</li>
+
+                                    </ul>
+
+                                    <p class="category">Core Informations</p>
+
+                                    <ul class="break-word col-md-12">
+                                        <li>Core name : {framework_info name='CORE_NAME'} </li>
+
+                                        <li>Core version : {framework_info name='CORE_STAGE'} {framework_info name='CORE_VERSION'} ({framework_info name='CORE_BUILD'}) </li>
                                     </ul>
 
                                 </div>

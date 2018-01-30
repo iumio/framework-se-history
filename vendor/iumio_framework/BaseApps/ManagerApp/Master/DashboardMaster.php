@@ -101,11 +101,13 @@ class DashboardMaster extends MasterCore
         $appmaster = $this->getMaster('Apps');
         $appstats = $appmaster->getStatisticsApp();
 
+        // ROUTING STATS IS TOO LONG - CHECK IT TO OPTIMIZE
         $routiningmaster = $this->getMaster('Routing');
         $routingstats = $routiningmaster->getStatisticsRouting();
-
+        
         $dbmaster = $this->getMaster('Databases');
         $dbstats = $dbmaster->getStatisticsDatabases();
+
 
         $logsmaster = $this->getMaster('Logs');
         $logsstats = $logsmaster->getStatisticsLogs();

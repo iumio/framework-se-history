@@ -46,7 +46,7 @@ class ProdEnvironment extends FrameworkEnvironment
             Debug::enabled();
             TB::switchStatus("off");
             $request = HttpListener::createFromGlobals();
-            $core->dispatch($request);
+            $core->dispatching($request);
             return (1);
         }
         return (0);

@@ -102,8 +102,8 @@ class TaskBar
   <li>
     <a class="active" href="#">
       <strong>'.
-                \iumioFramework\Core\Requirement\FrameworkCore::getInfo('VERSION')." ".
-                \iumioFramework\Core\Requirement\FrameworkCore::getInfo('VERSION_EDITION_SHORT').
+                \iumioFramework\Core\Requirement\FrameworkCore::getInfo('EDITION_VERSION')." ".
+                \iumioFramework\Core\Requirement\FrameworkCore::getInfo('EDITION_SHORTNAME').
                 ' - '. ucfirst(FEnv::get("framework.env")).'
       </strong>
     </a>
@@ -345,8 +345,8 @@ class TaskBar
             $options['js']                  =  FEnv::get("host.web.components.libs.framework")."assets/js/iumioTaskBar.js";
             $options['logo']                =  FEnv::get("host.web.components.libs.framework")."img/logo_white_small.png";
             $options['ve']                  =  \iumioFramework\Core\Requirement\FrameworkCore::
-                getInfo('VERSION')." ".\iumioFramework\Core\Requirement\FrameworkCore::
-                getInfo('VERSION_EDITION_SHORT');
+                getInfo('EDITION_VERSION')." ".\iumioFramework\Core\Requirement\FrameworkCore::
+                getInfo('EDITION_SHORTNAME');
             $options['env']                 =  FEnv::get("framework.env");
             $options['call_app']            =  ((!FEnv::isset("app.call"))? "No apps called" : FEnv::get("app.call"));
             $options['manager']             =  $um->generateRoute(

@@ -69,42 +69,17 @@ class Tools
      */
     final public static function checkFrameworkBuildVersion()
     {
-        $f = fopen('../../vendor/iumio_framework/Core/Requirement/FrameworkCore.php', 'r');
-        $v = 0;
-        $build = 0;
-        $e = 0;
-        $st = 0;
-        while ($line = fgets($f, 8192)) {
-            if ($v != 0 && $build != 0 && $e != 0 && $st != 0) {
-                break;
-            }
-            if (strpos($line, 'const VERSION =') !== false) {
-                $v = $line;
-            }
-            if (strpos($line, 'const VERSION_BUILD =') !== false) {
-                $build = $line;
-            }
-            if (strpos($line, 'const VERSION_EDITION =') !== false) {
-                $e = $line;
-            }
-            if (strpos($line, 'const VERSION_STAGE =') !== false) {
-                $st = $line;
-            }
+        $f = json_decode(file_get_contents(__DIR__."/../../elements/config_files/core/framework.config.json"));
+
+        if (!isset($f->installation) || $f->installation == null) {
+            return (json_encode(array("code" => 500, "results" => "NOK", "fv" => "Unknow",
+                "msg" => "Cannot use iumio installer because you have already one app installed.")));
         }
 
-        fclose($f);
-
-        $v = explode('=', $v);
-        $build = explode('=', $build);
-        $e = explode('=', $e);
-        $st = explode('=', $st);
-        $v = trim(str_replace(';', '', $v[count($v) - 1]));
-        $build = trim(str_replace(';', '', $build[count($build) - 1]));
-        $e = trim(str_replace(';', '', $e[count($e) - 1]));
-        $st = trim(str_replace(';', '', $st[count($st) - 1]));
-        $v = str_replace("'", '', $v);
-        $e = str_replace("'", '', $e);
-        $st = str_replace("'", '', $st);
+        $v = $f->edition_version;
+        $build = $f->edition_build;
+        $e = $f->edition_fullname;
+        $st = $f->edition_stage;
 
         if ($build >= self::$framework_build_accept) {
             $_SESSION['version'] = trim($v);
@@ -296,29 +271,23 @@ class Tools
             );
         }
 
-        self::initialJSON($version);
+        self::initialJSON();
         unset($_SESSION['version']);
         return ("OK");
     }
 
     /**
      * Build framework.config.json
-     * @param $version string Framework version
      */
-    final protected static function initialJSON($version)
+    final protected static function initialJSON()
     {
         $base = __DIR__."/../../";
         $f = json_decode(file_get_contents($base."/elements/config_files/core/framework.config.json"));
-        if (empty($f)) {
-            $std = new \stdClass();
-            $std->installation = new \DateTime();
-            $std->version = $version;
-            $std->location = realpath($base);
-            $std->default_env = "dev";
-
-            $rs = json_encode($std, JSON_PRETTY_PRINT);
-            file_put_contents($base."/elements/config_files/core/framework.config.json", $rs);
-        }
+        $f->installation = new \DateTime();
+        $f->location = realpath($base);
+        $f->default_env = "dev";
+        $rs = json_encode($f, JSON_PRETTY_PRINT);
+        file_put_contents($base."/elements/config_files/core/framework.config.json", $rs);
     }
 }
 

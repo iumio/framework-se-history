@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.31, created on 2018-01-29 15:47:34
+/* Smarty version 3.1.31, created on 2018-01-30 08:24:35
   from "/Applications/MAMP/htdocs/iumio-framework-se/vendor/iumio_framework/BaseApps/ManagerApp/Front/views/logsdetails.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.31',
-  'unifunc' => 'content_5a6f3406014de3_77664419',
+  'unifunc' => 'content_5a701db3e8cd38_67846758',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -22,23 +22,23 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:partials/footer.tpl' => 1,
   ),
 ),false)) {
-function content_5a6f3406014de3_77664419 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5a701db3e8cd38_67846758 (Smarty_Internal_Template $_smarty_tpl) {
 if (!is_callable('smarty_modifier_date_format')) require_once '/Applications/MAMP/htdocs/iumio-framework-se/vendor/smarty/smarty/libs/plugins/modifier.date_format.php';
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_6343051365a6f3405e349b1_49768396', "principal");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_8654259015a701db3dc1e06_81289317', "principal");
 $_smarty_tpl->inheritance->endChild($_smarty_tpl, 'template.tpl');
 }
 /* {block "principal"} */
-class Block_6343051365a6f3405e349b1_49768396 extends Smarty_Internal_Block
+class Block_8654259015a701db3dc1e06_81289317 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'principal' => 
   array (
-    0 => 'Block_6343051365a6f3405e349b1_49768396',
+    0 => 'Block_8654259015a701db3dc1e06_81289317',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {

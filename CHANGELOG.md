@@ -32,6 +32,8 @@ iumio Framework
 - DevEnvironment class for dev
 - ProdEnvironment class for prod
 - FrameworkDispatcher Class for dispatch to the default environment
+- Add Edition and Core informations in FGM
+
 
 
 
@@ -62,6 +64,8 @@ iumio Framework
 - Route for generation app will be unique (appname)
 - Change the uidie generation method
 - Change all constant to FEnv
+- Get information about edition in setup (framework.config.json) 
+- Split Framework Core with Framework Edition
 
 
 
@@ -76,6 +80,9 @@ iumio Framework
 - Dev.php
 - Prod.php
 - Remove All constant to FEnv
+- Remove dispatch function on AppCore Class
+- remove installation location on framework.config.json
+
 
 ## [0.5.0] - 2017-10-09
 ### Added

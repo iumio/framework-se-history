@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.31, created on 2018-01-29 15:51:31
+/* Smarty version 3.1.31, created on 2018-01-30 08:46:43
   from "/Applications/MAMP/htdocs/iumio-framework-se/vendor/iumio_framework/BaseApps/ManagerApp/Front/views/index.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.31',
-  'unifunc' => 'content_5a6f34f37f7348_20994342',
+  'unifunc' => 'content_5a7022e341d643_69995046',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '3b376eff23b9a7e6dd9afcdfcc3a1e454c3c4a68' => 
     array (
       0 => '/Applications/MAMP/htdocs/iumio-framework-se/vendor/iumio_framework/BaseApps/ManagerApp/Front/views/index.tpl',
-      1 => 1514579732,
+      1 => 1517298398,
       2 => 'file',
     ),
   ),
@@ -23,14 +23,14 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:partials/footer.tpl' => 1,
   ),
 ),false)) {
-function content_5a6f34f37f7348_20994342 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5a7022e341d643_69995046 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_21216910115a6f34ef9de832_14824524', "principal");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_7418203035a7022dede18d6_12019497', "principal");
 ?>
 
 
@@ -39,12 +39,12 @@ $_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_21216910115a6f34ef
 <?php $_smarty_tpl->inheritance->endChild($_smarty_tpl, 'template.tpl');
 }
 /* {block "principal"} */
-class Block_21216910115a6f34ef9de832_14824524 extends Smarty_Internal_Block
+class Block_7418203035a7022dede18d6_12019497 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'principal' => 
   array (
-    0 => 'Block_21216910115a6f34ef9de832_14824524',
+    0 => 'Block_7418203035a7022dede18d6_12019497',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -84,28 +84,41 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
                                 
                                 <div class="content"  style="overflow: auto;padding-left: 40px;max-height: 220px;">
                                     <ul class="break-word col-md-12">
-                                        <li><?php echo iumioFramework\Core\Additionnal\Template\ViewBasePlugin::finfo(array('name'=>'VERSION_EDITION'),$_smarty_tpl);?>
+                                        <li>Edition name : iumio Framework <?php echo iumioFramework\Core\Additionnal\Template\ViewBasePlugin::finfo(array('name'=>'EDITION_FULLNAME'),$_smarty_tpl);?>
  </li>
 
-                                        <li>Version : <?php echo iumioFramework\Core\Additionnal\Template\ViewBasePlugin::finfo(array('name'=>'VERSION_STAGE'),$_smarty_tpl);?>
- <?php echo iumioFramework\Core\Additionnal\Template\ViewBasePlugin::finfo(array('name'=>'VERSION'),$_smarty_tpl);?>
- </li>
-
-                                        <li>Build number : <?php echo iumioFramework\Core\Additionnal\Template\ViewBasePlugin::finfo(array('name'=>'VERSION_ID'),$_smarty_tpl);?>
- </li>
+                                        <li>Edition version : <?php echo iumioFramework\Core\Additionnal\Template\ViewBasePlugin::finfo(array('name'=>'EDITION_STAGE'),$_smarty_tpl);?>
+ <?php echo iumioFramework\Core\Additionnal\Template\ViewBasePlugin::finfo(array('name'=>'EDITION_VERSION'),$_smarty_tpl);?>
+ (<?php echo iumioFramework\Core\Additionnal\Template\ViewBasePlugin::finfo(array('name'=>'EDITION_BUILD'),$_smarty_tpl);?>
+) </li>
 
                                         <li>Installation date : <?php echo $_smarty_tpl->tpl_vars['fi']->value->installation;?>
 </li>
 
-                                        <?php if (isset($_smarty_tpl->tpl_vars['fi']->value->deployment)) {?><li>Deployment date : <?php echo $_smarty_tpl->tpl_vars['fi']->value->deployment;?>
+                                        <?php if (isset($_smarty_tpl->tpl_vars['fi']->value->deployment) && ($_smarty_tpl->tpl_vars['fi']->value->deployment != null)) {?><li>Deployment date : <?php echo $_smarty_tpl->tpl_vars['fi']->value->deployment;?>
 </li><?php }?>
 
-                                        <li>Main location installed : <?php echo $_smarty_tpl->tpl_vars['fi']->value->location;?>
+                                        <li>Installation location : <?php echo iumioFramework\Core\Additionnal\Template\ViewBasePlugin::finfo(array('name'=>'LOCATION'),$_smarty_tpl);?>
 </li>
 
-                                        <li>Default environment : <?php echo $_smarty_tpl->tpl_vars['fi']->value->default_env;?>
+                                        <li>U3i : <?php echo iumioFramework\Core\Additionnal\Template\ViewBasePlugin::finfo(array('name'=>'EDITION_U3I'),$_smarty_tpl);?>
 </li>
 
+                                        <li>Current default environment : <?php echo $_smarty_tpl->tpl_vars['fi']->value->default_env;?>
+</li>
+
+                                    </ul>
+
+                                    <p class="category">Core Informations</p>
+
+                                    <ul class="break-word col-md-12">
+                                        <li>Core name : <?php echo iumioFramework\Core\Additionnal\Template\ViewBasePlugin::finfo(array('name'=>'CORE_NAME'),$_smarty_tpl);?>
+ </li>
+
+                                        <li>Core version : <?php echo iumioFramework\Core\Additionnal\Template\ViewBasePlugin::finfo(array('name'=>'CORE_STAGE'),$_smarty_tpl);?>
+ <?php echo iumioFramework\Core\Additionnal\Template\ViewBasePlugin::finfo(array('name'=>'CORE_VERSION'),$_smarty_tpl);?>
+ (<?php echo iumioFramework\Core\Additionnal\Template\ViewBasePlugin::finfo(array('name'=>'CORE_BUILD'),$_smarty_tpl);?>
+) </li>
                                     </ul>
 
                                 </div>

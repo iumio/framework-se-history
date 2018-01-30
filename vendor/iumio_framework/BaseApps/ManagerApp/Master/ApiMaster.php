@@ -151,7 +151,6 @@ class ApiMaster extends MasterCore
         }
 
         $configs->default_env = "dev";
-        $configs->location = FEnv::get("framework.root");
         JsonListener::put(FEnv::get("framework.config.core.config.file"),
             json_encode($configs, JSON_PRETTY_PRINT));
         JsonListener::close(FEnv::get("framework.config.core.config.file"));
@@ -175,7 +174,6 @@ class ApiMaster extends MasterCore
         }
 
         $configs->default_env = "prod";
-        $configs->location = FEnv::get("framework.root");
         JsonListener::put(FEnv::get("framework.config.core.config.file"),
             json_encode($configs, JSON_PRETTY_PRINT));
         JsonListener::close(FEnv::get("framework.config.core.config.file"));

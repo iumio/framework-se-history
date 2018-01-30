@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.31, created on 2018-01-29 15:46:34
+/* Smarty version 3.1.31, created on 2018-01-30 08:24:16
   from "/Applications/MAMP/htdocs/iumio-framework-se/vendor/iumio_framework/BaseApps/ManagerApp/Front/views/partials/modal.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.31',
-  'unifunc' => 'content_5a6f33cab63086_44908184',
+  'unifunc' => 'content_5a701da09429b1_66549092',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5a6f33cab63086_44908184 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5a701da09429b1_66549092 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!-- Modal -->
 <div class="modal fade" id="modalManager" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">

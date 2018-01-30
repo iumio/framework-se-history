@@ -518,14 +518,10 @@ class AppManager extends ToolsManager implements ModuleManager
     final protected function initialJSON()
     {
         $f = json_decode(file_get_contents(FEnvFcm::get("framework.config.core.config.file")));
-        if (empty($f)) {
-            // TO EDIT
-            $std = new \stdClass();
-            $std->installation = new \DateTime();
-            $std->version = "0.5.0";
-            $std->location = realpath(FEnvFcm::get("framework.root"));
-            $std->default_env =  "dev";
-            $rs = json_encode($std, JSON_PRETTY_PRINT);
+        if (isset($f->installation) && $f->installation == null) {
+            $f->installation = new \DateTime();
+            $f->default_env =  "dev";
+            $rs = json_encode($f, JSON_PRETTY_PRINT);
             file_put_contents(FEnvFcm::get("framework.config.core.config.file"), $rs);
         }
     }
@@ -612,7 +608,10 @@ class AppManager extends ToolsManager implements ModuleManager
             "--noexit", "--quiet"));
 
         if (strlen($f) < 3) {
-            file_put_contents(FEnvFcm::get("framework.config.core.config.file"), "");
+            $e = json_decode(file_get_contents((FEnvFcm::get("framework.config.core.config.file"))));
+            $e->installation = null;
+            $e->deployment = null;
+            file_put_contents(FEnvFcm::get("framework.config.core.config.file"), json_encode($e));
         }
 
         Output::outputAsNormal("The application has been deleted. To create a new application,

@@ -1,16 +1,18 @@
 {
-    "installation": {
-        "date": "2017-10-24 20:21:26.910161",
-        "timezone_type": 3,
-        "timezone": "Europe\/Paris"
-    },
-    "version": "0.5.0",
-    "user": "danyrafina",
-    "location": "\/Applications\/MAMP\/htdocs\/iumio-framework",
-    "os": "Darwin",
-    "default_env": "dev",
-    "api_auth_for": [
-        "HelloApp",
-        "DocApp"
-    ]
+  "edition_fullname" : "Standard Edition",
+  "edition_shortname" : "SE",
+  "edition_stage" : "BETA",
+  "edition_version" : "0.5.0",
+  "edition_build" : "201750",
+  "u3i" : "createyoursecretu3i",
+  "installation": {
+    "date": "2017-10-24 20:21:26.910161",
+    "timezone_type": 3,
+    "timezone": "Europe\/Paris"
+  },
+  "default_env": "dev",
+  "api_auth_for": [
+    "HelloApp",
+    "DocApp"
+  ]
 }

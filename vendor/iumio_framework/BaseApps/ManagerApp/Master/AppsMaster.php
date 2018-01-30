@@ -205,6 +205,10 @@ class AppsMaster extends MasterCore
         EngineAutoloader::buildClassMap(strtolower(FEnv::get("framework.env")));
         if (strlen($file) < 3) {
             JL::put(FEnv::get("framework.config.core.config.file"), "");
+            $e = JL::open(FEnvFcm::get("framework.config.core.config.file"));
+            $e->installation = null;
+            $e->deployment = null;
+            JL::put(FEnv::get("framework.config.core.config.file"), $e);
             return ((new Renderer())->jsonRenderer(array("code" => 200, "msg" => "RELOAD")));
         }
         return ((new Renderer())->jsonRenderer(array("code" => 200, "msg" => "OK")));

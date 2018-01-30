@@ -175,7 +175,7 @@ class DeployerManager extends ToolsManager implements ModuleManager
         }
 
         $configs->default_env = "dev";
-        $configs->location = FEnvFcm::get("framework.root");
+        $configs->deployment = null;
         JsonListener::put(FEnvFcm::get("framework.config.core.config.file"),
             json_encode($configs, JSON_PRETTY_PRINT));
         JsonListener::close(FEnvFcm::get("framework.config.core.config.file"));
@@ -201,7 +201,7 @@ class DeployerManager extends ToolsManager implements ModuleManager
         $this->getRequirements();
 
         $configs->default_env = "prod";
-        $configs->location = FEnvFcm::get("framework.root");
+        $configs->deployment = new \DateTime();
         JsonListener::put(FEnvFcm::get("framework.config.core.config.file"),
             json_encode($configs, JSON_PRETTY_PRINT));
         JsonListener::close(FEnvFcm::get("framework.config.core.config.file"));

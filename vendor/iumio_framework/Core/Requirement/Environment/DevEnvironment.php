@@ -47,7 +47,7 @@ class DevEnvironment extends FrameworkEnvironment
             Debug::enabled();
             TB::switchStatus("on");
             $request = HttpListener::createFromGlobals();
-            $core->dispatch($request);
+            $core->dispatching($request);
             exit(1);
         }
         return (0);

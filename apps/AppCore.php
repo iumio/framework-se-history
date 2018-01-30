@@ -64,14 +64,4 @@ class AppCore extends FrameworkCore
         }
         return $apps;
     }
-
-    /**
-     * @param HttpListener $request
-     * @return int Dispatching result
-     * @throws \Exception
-     */
-    public function dispatch(HttpListener $request):int
-    {
-        return (parent::dispatching($request));
-    }
 }
