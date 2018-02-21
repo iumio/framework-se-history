@@ -1,5 +1,5 @@
 <p align="center"><a href="https://framework.iumio.com" target="_blank">
-    <img src="https://framework.iumio.com/components/apps/prod/websiteapp/public/images/iumio.logo.black.png">
+    <img src="https://framework.iumio.com/images/iumio.logo.black.framework.png">
 </a></p>
 
 iumio Framework
